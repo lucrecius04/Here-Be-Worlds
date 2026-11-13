@@ -1,0 +1,210 @@
+.chronicle-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 240px) minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
+  gap: 1.75rem;
+  align-items: stretch;
+  margin-top: 0;
+  min-height: 0;
+  height: 100%;
+  flex: 1;
+  overflow: hidden;
+}
+
+.chronicle-toc {
+  min-height: 0;
+  max-height: 100%;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 0.15rem 0.35rem 0.75rem 0;
+  background: transparent;
+  border: none;
+  font-size: 0.85rem;
+}
+
+.chronicle-toc__title {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-accent);
+  margin: 0 0 0.75rem;
+}
+
+.chronicle-toc ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.chronicle-toc__item {
+  margin: 0.55rem 0;
+}
+
+.chronicle-toc__item a {
+  display: flex;
+  flex-direction: column;
+  gap: 0.12rem;
+  color: var(--color-ink-muted);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  padding: 0.15rem 0.2rem;
+}
+
+.chronicle-toc__book {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: inherit;
+}
+
+.chronicle-toc__chapter {
+  font-size: 0.88rem;
+  line-height: 1.3;
+  color: inherit;
+}
+
+.chronicle-toc a:hover,
+.chronicle-toc__link--active {
+  color: var(--color-accent);
+}
+
+.chronicle-scroll {
+  overflow-y: auto;
+  min-height: 0;
+  max-height: 100%;
+  height: auto;
+  padding: 0 0.25rem 2rem 0;
+  overscroll-behavior: contain;
+}
+
+.chronicle-cover {
+  margin: 0 0 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.chronicle-cover__title {
+  font-size: 2rem;
+  margin: 0 0 0.25rem;
+}
+
+.chronicle-cover__tagline {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  margin: 0;
+  color: var(--color-ink);
+}
+
+.chronicle-cover__range {
+  font-style: italic;
+  color: var(--color-ink-muted);
+  margin: 0.35rem 0 0;
+}
+
+.chronicle-cover__spoiler {
+  margin: 0.85rem 0 0;
+  font-size: 0.88rem;
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.chronicle-book-label {
+  margin: 2rem 0 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.chronicle-layout--wide {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.chronicle-prose--body {
+  max-width: var(--read-max);
+}
+
+.chronicle-prose--wide {
+  max-width: none;
+}
+
+.chronicle-prose--body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.92rem;
+}
+
+.chronicle-prose--body th,
+.chronicle-prose--body td {
+  border: 1px solid var(--color-line);
+  padding: 0.5rem 0.65rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.chronicle-prose--body th {
+  background: var(--color-tile);
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.world-chronicle-section {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-line);
+}
+
+.world-chronicle-section--embedded {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+  min-height: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.chronicle-prose--body blockquote {
+  border-left: 3px solid var(--color-accent);
+  margin: 1.5rem 0;
+  padding: 0.5rem 0 0.5rem 1rem;
+  color: var(--color-ink-muted);
+  font-style: italic;
+}
+
+.chronicle-prose--body .chronicle-dropcap p:first-of-type::first-letter,
+.chronicle-prose--body > p:first-of-type::first-letter {
+  float: left;
+  font-family: var(--font-serif);
+  font-size: 3.4rem;
+  line-height: 0.85;
+  padding-right: 0.12em;
+  margin-top: 0.05em;
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .chronicle-layout {
+    grid-template-columns: 1fr;
+    height: auto;
+    overflow: auto;
+  }
+
+  .chronicle-toc {
+    height: auto;
+    max-height: none;
+    overflow: visible;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-line);
+  }
+
+  .chronicle-scroll {
+    overflow: visible;
+    height: auto;
+  }
+}

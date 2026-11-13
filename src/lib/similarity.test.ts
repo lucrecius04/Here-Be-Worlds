@@ -27,6 +27,7 @@ const minimal = (id: string, themes: string[], axis: number): World =>
     core: { en: 'x' },
     metadata: {
       genreProfile: { en: 'x' },
+      atmosphere: { en: 'x' },
       spatialScope: { en: 'x' },
       historicalDepth: { en: 'x' },
       societalOrder: { en: 'x' },

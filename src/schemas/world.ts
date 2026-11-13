@@ -5,9 +5,15 @@ export const localizedStringSchema = z.object({
   cs: z.string().optional(),
 });
 
+/** Short atlas label plus optional subcaption and editorial detail (expand via „i“). */
+export const metadataFieldSchema = localizedStringSchema.extend({
+  sub: localizedStringSchema.optional(),
+  detail: localizedStringSchema.optional(),
+});
+
 export const axisValueSchema = z.object({
   value: z.number().min(1).max(5),
-  comment: localizedStringSchema,
+  comment: localizedStringSchema.optional(),
 });
 
 export const worldSchema = z.object({
@@ -29,13 +35,14 @@ export const worldSchema = z.object({
   core: localizedStringSchema,
   signatureBullets: z.array(localizedStringSchema).optional(),
   metadata: z.object({
-    genreProfile: localizedStringSchema,
-    spatialScope: localizedStringSchema,
-    historicalDepth: localizedStringSchema,
-    societalOrder: localizedStringSchema,
-    sourceOfPower: localizedStringSchema,
-    protagonistPerspective: localizedStringSchema,
-    keyActors: localizedStringSchema,
+    genreProfile: metadataFieldSchema,
+    atmosphere: metadataFieldSchema,
+    spatialScope: metadataFieldSchema,
+    historicalDepth: metadataFieldSchema,
+    societalOrder: metadataFieldSchema,
+    sourceOfPower: metadataFieldSchema,
+    protagonistPerspective: metadataFieldSchema,
+    keyActors: metadataFieldSchema,
   }),
   themes: z.array(z.string()),
   axes: z.object({

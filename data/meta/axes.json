@@ -5,8 +5,8 @@
       "left": { "en": "Hope", "cs": "Naděje" },
       "right": { "en": "Despair", "cs": "Beznaděj" },
       "help": {
-        "en": "Can the world be renewed, or is decline inevitable?",
-        "cs": "Je možná obnova, nebo je úpadek nevyhnutelný?"
+        "en": "The world's basic outlook on existence. Can there be renewal, or is decline inevitable?",
+        "cs": "Základní pohled světa na existenci. Je možná obnova? Nebo je úpadek nevyhnutelný?"
       }
     },
     {
@@ -14,8 +14,8 @@
       "left": { "en": "Known", "cs": "Poznání" },
       "right": { "en": "Unknown", "cs": "Záhada" },
       "help": {
-        "en": "How much of the world's true nature can be uncovered?",
-        "cs": "Kolik podstaty světa lze odhalit?"
+        "en": "How much of the world's true nature can the player uncover?",
+        "cs": "Kolik ze skutečné podstaty světa může hráč odhalit."
       }
     },
     {
@@ -23,8 +23,8 @@
       "left": { "en": "Intimate", "cs": "Intimita" },
       "right": { "en": "Epic", "cs": "Epičnost" },
       "help": {
-        "en": "Individual fate or civilizations, planets, and ages?",
-        "cs": "Osud jednotlivce, nebo civilizací a věků?"
+        "en": "Is the story about one individual's fate, or civilizations, planets, and ages?",
+        "cs": "Hraje se o osud jednotlivce, nebo civilizací, planet a věků?"
       }
     },
     {
@@ -32,8 +32,8 @@
       "left": { "en": "Morally clear", "cs": "Morálně jednoznačné" },
       "right": { "en": "Morally ambiguous", "cs": "Morálně komplexní" },
       "help": {
-        "en": "Can you tell who stands on the right side?",
-        "cs": "Dá se poznat, kdo stojí na správné straně?"
+        "en": "Can you tell who is on the right side? Factions, key figures, and choices shape the world's moral profile.",
+        "cs": "Dá se ve světě poznat, kdo stojí na správné straně? Hodnotí se frakce, klíčové postavy a volby, a morální profil ve světě."
       }
     },
     {
@@ -41,8 +41,8 @@
       "left": { "en": "Realism", "cs": "Realismus" },
       "right": { "en": "Metaphysical", "cs": "Metafyzično" },
       "help": {
-        "en": "Physics and politics—or gods, souls, and supernatural law?",
-        "cs": "Fyzika a politika, nebo bohové, duše a nadpřirozené zákony?"
+        "en": "The nature of reality itself. Do physics, biology, economy, and politics rule—or gods, souls, dreams, and supernatural law?",
+        "cs": "Povaha samotné reality. Řídí svět fyzika, biologie, ekonomika a lidská politika či spíše bohové, duše, sny a nadpřirozené zákony?"
       }
     }
   ]

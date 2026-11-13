@@ -1,11 +1,22 @@
 .site-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
   border-bottom: 1px solid var(--color-line);
-  padding: 1rem 1.5rem;
+  padding: 0.65rem 1.5rem;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 0.75rem;
+  background: var(--color-paper);
+}
+
+html:has(.world-card--page),
+body:has(.world-card--page) {
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
 }
 
 .site-header__brand {
@@ -77,6 +88,34 @@
   padding: 2rem 1.5rem 4rem;
 }
 
+body:has(.world-card--page) {
+  display: flex;
+  flex-direction: column;
+}
+
+body:has(.world-card--page) .site-header {
+  position: relative;
+  top: auto;
+  flex: 0 0 auto;
+}
+
+body:has(.world-card--page) .site-main {
+  flex: 1 1 auto;
+  width: 100%;
+  max-width: var(--content-max);
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  padding-top: 0.55rem;
+  padding-bottom: 0.55rem;
+  display: flex;
+  flex-direction: column;
+}
+
+body:has(.world-card--page) .site-footer {
+  display: none;
+}
+
 .site-footer {
   border-top: 1px solid var(--color-line);
   padding: 1.5rem;
@@ -115,7 +154,7 @@
 
 .atlas-explorer__filters {
   position: sticky;
-  top: 1rem;
+  top: calc(var(--site-header-height) + 1rem);
   border: 1px solid var(--color-line);
   border-radius: var(--radius-md);
   padding: 1rem;

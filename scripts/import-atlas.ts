@@ -62,6 +62,7 @@ function stubWorld(partial: {
     signatureBullets: partial.bullets.map((b) => ({ en: b, cs: b })),
     metadata: {
       genreProfile: { en: 'TBD', cs: 'TBD' },
+      atmosphere: { en: 'TBD', cs: 'TBD' },
       spatialScope: { en: 'TBD', cs: 'TBD' },
       historicalDepth: { en: 'TBD', cs: 'TBD' },
       societalOrder: { en: 'TBD', cs: 'TBD' },

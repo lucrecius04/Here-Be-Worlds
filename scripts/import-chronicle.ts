@@ -5,15 +5,25 @@ import { postProcessChronicleMarkdown } from './lib/chronicle-md.js';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 
-const DEFAULT_CHRONICLES: { file: string; slug: string; title: string; worldId: string }[] = [
+const BROZURKY = String.raw`C:\Users\PC\Desktop\Herní brožurky\nove`;
+
+const DEFAULT_CHRONICLES: { paths: string[]; slug: string; title: string; worldId: string }[] = [
   {
-    file: String.raw`C:\Users\PC\Downloads\Kronika_Mecoveho_pobrezi_BaldursGate.docx`,
+    paths: [
+      path.join(ROOT, 'source', 'Kronika_Mecoveho_pobrezi_BaldursGate.docx'),
+      path.join(BROZURKY, 'Kronika_Mecoveho_pobrezi_BaldursGate.docx'),
+      String.raw`C:\Users\PC\Downloads\Kronika_Mecoveho_pobrezi_BaldursGate.docx`,
+    ],
     slug: 'baldurs-gate',
     title: 'Chronicle of the Sword Coast',
     worldId: 'baldurs-gate',
   },
   {
-    file: String.raw`C:\Users\PC\Downloads\Kronika_Svatyne_Diablo.docx`,
+    paths: [
+      path.join(ROOT, 'source', 'Kronika_Svatyne_Diablo.docx'),
+      path.join(BROZURKY, 'Kronika_Svatyne_Diablo.docx'),
+      String.raw`C:\Users\PC\Downloads\Kronika_Svatyne_Diablo.docx`,
+    ],
     slug: 'diablo',
     title: 'Chronicle of the Sanctuary',
     worldId: 'diablo',
@@ -32,7 +42,7 @@ async function firstExisting(paths: string[]): Promise<string | null> {
   return null;
 }
 
-async function importOne(entry: (typeof DEFAULT_CHRONICLES)[0]) {
+async function importOne(entry: { file: string; slug: string; title: string; worldId: string }) {
   let md: string;
   try {
     const result = await mammoth.convertToMarkdown({ path: entry.file });
@@ -78,7 +88,12 @@ async function main() {
   }
 
   for (const entry of DEFAULT_CHRONICLES) {
-    await importOne(entry);
+    const file = await firstExisting(entry.paths);
+    if (!file) {
+      console.warn(`[${entry.slug}] DOCX not found; keeping existing ${entry.slug}.md`);
+      continue;
+    }
+    await importOne({ file, slug: entry.slug, title: entry.title, worldId: entry.worldId });
   }
 }
 
