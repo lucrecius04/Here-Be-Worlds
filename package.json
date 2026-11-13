@@ -1,0 +1,36 @@
+{
+  "name": "here-be-worlds",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "import:chronicle": "tsx scripts/import-chronicle.ts",
+    "import:atlas": "tsx scripts/import-atlas.ts",
+    "import:all": "npm run import:chronicle && npm run import:atlas",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@astrojs/react": "^4.4.2",
+    "astro": "^7.4.12",
+    "fast-xml-parser": "^5.2.5",
+    "jszip": "^3.10.1",
+    "mammoth": "^1.11.0",
+    "minisearch": "^7.2.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "tsx": "^4.20.6",
+    "vitest": "^4.0.8"
+  }
+}

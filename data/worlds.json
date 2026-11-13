@@ -1,0 +1,382 @@
+{
+  "worlds": [
+    {
+      "id": "baldurs-gate",
+      "number": 1,
+      "chapterId": "fantasy",
+      "gameTitle": { "en": "Baldur's Gate", "cs": "Baldur's Gate" },
+      "chronicleTitle": {
+        "en": "Chronicle of the Sword Coast",
+        "cs": "Kronika Mečového pobřeží"
+      },
+      "subtitlePoetic": {
+        "en": "Chronicle of the Sword Coast",
+        "cs": "Kronika Mečového pobřeží"
+      },
+      "studios": ["BioWare", "Larian Studios"],
+      "yearRange": "1998–2023",
+      "canonScope": {
+        "en": "Baldur's Gate I–II with expansions and Baldur's Gate 3",
+        "cs": "Baldur's Gate I–II s rozšířeními a Baldur's Gate 3"
+      },
+      "header": { "relatedWorldSlugs": ["diablo", "dark-souls"] },
+      "core": {
+        "en": "A mythic Faerûn where mortals inherit divine blood and must decide whether to become monsters in order to unmake gods. Companions mirror the protagonist's curse; the founding legend of Baldur's Gate itself rots into cosmic horror.",
+        "cs": "Mýtické Faerûn, kde smrtelníci dědí božskou krev a musí se rozhodnout, zda se stanou monstry, aby mohli zrušit bohy. Společníci zrcadlí kletbu hrdiny; zakladatelská legenda Baldur's Gate shnívá v kosmickou hrůzu."
+      },
+      "signatureBullets": [
+        {
+          "en": "Gods from mortals—Bane, Bhaal, and Myrkul seized divine offices.",
+          "cs": "Bohové z lidí. Bane, Bhaal a Myrkul uchvátili božské úřady."
+        },
+        {
+          "en": "The blood of a murdered god—the hero is child of dead Bhaal.",
+          "cs": "Krev boha vraždy. Hrdina je dítětem mrtvého Bhaala."
+        },
+        {
+          "en": "The party as mirror—each companion wrestles with a toxic master.",
+          "cs": "Družina jako zrcadlo. Každý společník řeší vztah k toxickému pánovi."
+        },
+        {
+          "en": "The founder as monster—Balduran survives as the Emperor, a mind flayer.",
+          "cs": "Zakladatel jako netvor. Balduran přežívá jako mozkožrout, Císař."
+        }
+      ],
+      "metadata": {
+        "genreProfile": {
+          "en": "Epic D&D fantasy RPG with companion-driven moral theatre.",
+          "cs": "Epická D&D fantasy s morálním divadlem družiny."
+        },
+        "spatialScope": {
+          "en": "Regional—the Sword Coast and Netherese shadows.",
+          "cs": "Regionální – Mečové pobřeží a ozvěny Netherilu."
+        },
+        "historicalDepth": {
+          "en": "Civilizational—empires, godswar, and living myth.",
+          "cs": "Civilizační – říše, válka bohů, živý mýtus."
+        },
+        "societalOrder": {
+          "en": "Feudal city-states, churches, and cults under fragile divine law.",
+          "cs": "Městské státy, církve a kulty pod křehkým božským řádem."
+        },
+        "sourceOfPower": {
+          "en": "Divine murder, Weave magic, and psionic horrors from the Astral.",
+          "cs": "Božská vražda, magie Vlny a psionická hrůza z Astrálu."
+        },
+        "protagonistPerspective": {
+          "en": "Custom hero or Dark Urge—fate tied to the dead god Bhaal.",
+          "cs": "Vlastní hrdina – osud svázaný s Bhaalem."
+        },
+        "keyActors": {
+          "en": "The Dead Three, Elminster's tapestry of meddling, Absolute cult, Mind Flayer colonies, and companions who embody refusal or surrender to the blood.",
+          "cs": "Mrtvá trojice, kult Absolutna, kolonie mozkožroutů a společníci jako zrcadla kletby."
+        }
+      },
+      "themes": ["power-and-dominion", "free-will-and-fate", "identity-and-existence"],
+      "axes": {
+        "hopeDespair": {
+          "value": 3,
+          "comment": {
+            "en": "Redemption is possible, but every victory feeds divine corruption.",
+            "cs": "Vykoupení je možné, ale každé vítězství živí božskou kletbu."
+          }
+        },
+        "knownUnknown": {
+          "value": 3,
+          "comment": {
+            "en": "Lore is vast yet scholars, illithids, and gods hide the deepest truths.",
+            "cs": "Lore je bohaté, ale nejhlubší pravdy skrývají bohové a mozkožrouti."
+          }
+        },
+        "intimateEpic": {
+          "value": 4,
+          "comment": {
+            "en": "Personal curse scales to godswar and continental collapse.",
+            "cs": "Osobní kletba narůstá do války bohů."
+          }
+        },
+        "moralClarityAmbiguity": {
+          "value": 4,
+          "comment": {
+            "en": "Factions and companions rarely offer clean righteousness.",
+            "cs": "Frakce a společníci zřídka nabídnou čistou spravedlnost."
+          }
+        },
+        "realismMetaphysical": {
+          "value": 5,
+          "comment": {
+            "en": "Gods, the Weave, and the Astral plane define reality.",
+            "cs": "Bohové, Vlna a Astrální sféra určují realitu."
+          }
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "Mortals murder gods and inherit their thrones—and their appetites.",
+          "cs": "Smrtelníci vraždí bohy a dědí jejich úřady i choutky."
+        },
+        "centralDilemma": {
+          "en": "Can you resist the murder-god within without becoming what Bhaal made?",
+          "cs": "Lze odolat bohu vraždy v sobě, aniž se staneš jeho nástrojem?"
+        },
+        "ultimateMystery": {
+          "en": "What remains of Balduran—and who truly rules the founding myth of the city?",
+          "cs": "Co zbylo z Baldurana a kdo vládne mýtu města?"
+        }
+      },
+      "chronicleSlug": "baldurs-gate",
+      "chronicleTeaser": {
+        "en": "From Netheril's fall and the Mind Flayer revolt to Bhaal's blood and the fall of Elturel—a saga of divine theft and mortal appetite.",
+        "cs": "Od pádu Netherilu po krev Bhaala a pád Elturelu."
+      }
+    },
+    {
+      "id": "dark-souls",
+      "number": 2,
+      "chapterId": "fantasy",
+      "gameTitle": { "en": "Dark Souls", "cs": "Dark Souls" },
+      "chronicleTitle": { "en": "Chronicle of Ash", "cs": "Kronika popela" },
+      "subtitlePoetic": { "en": "Chronicle of Ash", "cs": "Kronika popela" },
+      "studios": ["FromSoftware"],
+      "yearRange": "2011–2017",
+      "canonScope": {
+        "en": "Dark Souls I–III and all expansions",
+        "cs": "Dark Souls I–III a všechna rozšíření"
+      },
+      "header": { "relatedWorldSlugs": ["baldurs-gate", "diablo"] },
+      "core": {
+        "en": "A dying cyclical cosmos where linking the First Flame prolongs a golden lie—and refusing it may only delay ash. History is archaeology; the player unearths a world that speaks in ruins.",
+        "cs": "Umírající koloběh, kde spojení Prvotního plamene prodlužuje zlatou lež a odmítnutí jen odkládá popel. Dějiny jsou archeologie — svět mluví ruinami, předměty a mlčením."
+      },
+      "signatureBullets": [
+        {
+          "en": "History as cycle—Age of Fire and Dark alternate; kingdoms vanish to ash.",
+          "cs": "Dějiny jako koloběh. Věk ohně a Věk tmy se střídají."
+        },
+        {
+          "en": "Prophecy as power—the Chosen Undead sustains Gwyn's order.",
+          "cs": "Proroctví jako nástroj moci. Poslání Vyvoleného drží Gwynův řád."
+        },
+        {
+          "en": "Undeath as curse—one fades when meaning is lost, not after body count.",
+          "cs": "Nesmrtelnost jako prokletí. Nemrtvý vyhasne bez smyslu."
+        },
+        {
+          "en": "Story must be excavated—ruins, items, and silence.",
+          "cs": "Příběh se musí vykopat. Svět vypráví ruinami a mlčením."
+        }
+      ],
+      "metadata": {
+        "genreProfile": {
+          "en": "Action RPG of decay—environmental myth and minimalist dialogue.",
+          "cs": "Akční RPG úpadku – mýtus prostředí a ticho postav."
+        },
+        "spatialScope": {
+          "en": "Regional kingdoms and parallel painted worlds.",
+          "cs": "Regionální království a malované světy."
+        },
+        "historicalDepth": {
+          "en": "Mythic—eras stack like geological strata.",
+          "cs": "Mytická – vrstvy věků jako geologické břity."
+        },
+        "societalOrder": {
+          "en": "Hollowed courts, broken covenants, and churches guarding false light.",
+          "cs": "Vyprázdněné dvory a církve střežící klamné světlo."
+        },
+        "sourceOfPower": {
+          "en": "First Flame, Lord Souls, and the Abyss.",
+          "cs": "Prvotní plamen, Pánství duší a Propast."
+        },
+        "protagonistPerspective": {
+          "en": "Custom undead—prophecy's pawn or its undoing.",
+          "cs": "Vlastní nemrtvý – figurka proroctví nebo jeho zrušení."
+        },
+        "keyActors": {
+          "en": "Gwyn's dynasty, Frampt and Kaathe, Lords of Cinder, the Abyss watchers, and the firekeepers who beg you to consider mercy.",
+          "cs": "Gwynův rod, páni popela, strážci Propasti a ohnivé strážkyně."
+        }
+      },
+      "themes": ["cyclical-history", "faith", "uncovering-the-past", "power-and-dominion"],
+      "axes": {
+        "hopeDespair": {
+          "value": 4,
+          "comment": {
+            "en": "Kindling delays ruin; it does not heal the world.",
+            "cs": "Zapálení plamene odkládá záhubu, ne uzdravuje svět."
+          }
+        },
+        "knownUnknown": {
+          "value": 5,
+          "comment": {
+            "en": "Canon truth exists—but most of it is buried.",
+            "cs": "Pravda existuje – většina je pohřbená."
+          }
+        },
+        "intimateEpic": {
+          "value": 4,
+          "comment": {
+            "en": "A single undead's choice touches the age.",
+            "cs": "Volba jednoho nemrtvého otřásá věkem."
+          }
+        },
+        "moralClarityAmbiguity": {
+          "value": 4,
+          "comment": {
+            "en": "Link the fire, let it fade, or usurp—each path accuses the others.",
+            "cs": "Spojit plamen, nechat vyhasnout, nebo ukrást – žádná cesta není čistá."
+          }
+        },
+        "realismMetaphysical": {
+          "value": 5,
+          "comment": {
+            "en": "Reality is souls, covenants, and cosmic entropy.",
+            "cs": "Realita jsou duše, úmluvy a kosmická entropie."
+          }
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "Gwyn linked the First Flame and bound humanity to a dying light.",
+          "cs": "Gwyn spojil Prvotní plamen a připoutal lidstvo k umírajícímu světlu."
+        },
+        "centralDilemma": {
+          "en": "Prolong the Age of Fire, usher Dark, or break the cycle—and at what cost to meaning?",
+          "cs": "Prodloužit Věk ohně, přivítat Tmu, nebo zlomit koloběh?"
+        },
+        "ultimateMystery": {
+          "en": "What is the Dark, and who truly benefits when the bell tolls?",
+          "cs": "Co je Tma a komu slouží, když zvoní zvony?"
+        }
+      },
+      "chronicleSlug": "dark-souls",
+      "chronicleTeaser": {
+        "en": "From Lord Souls and Gwyn's sacrifice to endless relinks—the ash remembers everything the flames forgot.",
+        "cs": "Od Pánství duší po nekonečné znovuzapálení – popel pamatuje."
+      }
+    },
+    {
+      "id": "diablo",
+      "number": 3,
+      "chapterId": "fantasy",
+      "gameTitle": { "en": "Diablo", "cs": "Diablo" },
+      "chronicleTitle": { "en": "Chronicle of the Sanctuary", "cs": "Kronika Svatyně" },
+      "subtitlePoetic": { "en": "Chronicle of the Sanctuary", "cs": "Kronika Svatyně" },
+      "studios": ["Blizzard Entertainment"],
+      "yearRange": "1996–2024",
+      "canonScope": {
+        "en": "Diablo I–IV with expansions",
+        "cs": "Diablo I–IV s rozšířeními"
+      },
+      "header": { "relatedWorldSlugs": ["baldurs-gate", "dark-souls"] },
+      "core": {
+        "en": "Sanctuary is a battlefield carved from angels and demons; humanity is Nephalem, coveted by both heavens and hell. Gothic decay frames an eternal war where victory never lasts.",
+        "cs": "Svatyně je bojiště vytesané z andělů a démonů; lidstvo je Nephalem, o nějž usilují nebesa i peklo. Gotický úpadek rámuje věčný konflikt, v němž vítězství nikdy netrvá."
+      },
+      "signatureBullets": [
+        {
+          "en": "Humanity as crossbreed—Nephalem born of angels and demons.",
+          "cs": "Lidé jako kříženci. Nephalem vznikli z andělů a démonů."
+        },
+        {
+          "en": "Good is not salvation—High Heavens are fanatical and aloof.",
+          "cs": "Dobro není spása. Nebesa jsou fanatická a lhostejná."
+        },
+        {
+          "en": "Evil returns—Prime Evils fall and rise in the Eternal Conflict.",
+          "cs": "Zlo se vrací. Prvotní zla padají a znovu povstávají."
+        },
+        {
+          "en": "Gothic decay—Tristram, cathedrals, crypts of poetic horror.",
+          "cs": "Gotika a úpadek. Tristram a krypty dávají světu poetiku hrůzy."
+        }
+      ],
+      "metadata": {
+        "genreProfile": {
+          "en": "Dark fantasy action RPG—loot, hellscapes, and cosmic religion.",
+          "cs": "Temná fantasy akční RPG – peklo a kosmické náboženství."
+        },
+        "spatialScope": {
+          "en": "World-scale—Sanctuary under cosmic siege.",
+          "cs": "Celosvětový – Svatyně pod kosmickým obléháním."
+        },
+        "historicalDepth": {
+          "en": "Mythic—creation, Sin War, endless cycles.",
+          "cs": "Mytická – stvoření, Válka hříchu, cykly."
+        },
+        "societalOrder": {
+          "en": "Fragile theocracies, mage clans, and ruin-strewn borderlands.",
+          "cs": "Křehké teokracie, klany mágů a pusté hranice."
+        },
+        "sourceOfPower": {
+          "en": "Worldstone, soulstones, and Nephalem blood.",
+          "cs": "Kámen světa, kameny duší a krev Nephalemů."
+        },
+        "protagonistPerspective": {
+          "en": "Custom hero—mortal champion or growing Nephalem power.",
+          "cs": "Vlastní hrdina – smrtelník nebo rostoucí Nephalem."
+        },
+        "keyActors": {
+          "en": "Angiris Council, Prime and Lesser Evils, Inarius and Lilith, Tristram's curse, and the Worldstone's last fractures.",
+          "cs": "Rada Angiris, Prvotní zla, Inarius a Lilith, kletba Tristramu."
+        }
+      },
+      "themes": ["war", "faith", "cyclical-history", "power-and-dominion"],
+      "axes": {
+        "hopeDespair": {
+          "value": 4,
+          "comment": {
+            "en": "Heroes banish evil for a season; the Conflict never ends.",
+            "cs": "Hrdinové na chvíli porazí zlo; Konflikt nikdy neskončí."
+          }
+        },
+        "knownUnknown": {
+          "value": 3,
+          "comment": {
+            "en": "Cosmology is documented; motives of Heaven remain cold and opaque.",
+            "cs": "Kosmologie je popsána; motivy Nebes zůstávají chladné."
+          }
+        },
+        "intimateEpic": {
+          "value": 4,
+          "comment": {
+            "en": "Champions matter, but the war spans creation.",
+            "cs": "Hrdinové rozhodují, ale válka trvá od stvoření."
+          }
+        },
+        "moralClarityAmbiguity": {
+          "value": 4,
+          "comment": {
+            "en": "Hell is obvious; Heaven is not righteous.",
+            "cs": "Peklo je zřejmé; Nebesa nejsou spravedlivá."
+          }
+        },
+        "realismMetaphysical": {
+          "value": 5,
+          "comment": {
+            "en": "Reality is shaped by the Worldstone and eternal war.",
+            "cs": "Realitu ohýbá Kámen světa a Věčný konflikt."
+          }
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "Inarius stole the Worldstone and bred Nephalem—angels and demons made children.",
+          "cs": "Inarius ukradl Kámen světa a stvořil Nephalemy."
+        },
+        "centralDilemma": {
+          "en": "Can humanity exist between Heaven and Hell without becoming a weapon?",
+          "cs": "Může lidstvo přežít mezi Nebesy a Peklem, aniž se stane zbraní?"
+        },
+        "ultimateMystery": {
+          "en": "What happens when the Worldstone—and the buffer between realms—is gone?",
+          "cs": "Co nastane, až zmizí Kámen světa a bariéra říší?"
+        }
+      },
+      "chronicleSlug": "diablo",
+      "chronicleTeaser": {
+        "en": "From Anu and Tathamet to Tristram's cathedral—an Eternal Conflict fought in human flesh.",
+        "cs": "Od Anua a Tathameta po katedrálu v Tristramu."
+      }
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import StubPage from '../../components/i18n/StubPage';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title="Mapa — Here Be Worlds">
+  <StubPage
+    client:load
+    titleKey="map.title"
+    bodyKey="map.body"
+    backKey="map.back"
+    base={base}
+  />
+</BaseLayout>

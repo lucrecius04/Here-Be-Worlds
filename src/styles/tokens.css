@@ -1,0 +1,28 @@
+:root {
+  --color-paper: #faf7f2;
+  --color-tile: #f3efea;
+  --color-ink: #1e1d1a;
+  --color-ink-muted: #5c584f;
+  --color-line: #d8d0c4;
+  --color-accent: #9a7b4f;
+  --color-accent-soft: #c4a574;
+
+  --font-serif: 'Cormorant Garamond', 'Newsreader', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', Inter, system-ui, sans-serif;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --shadow-card: 0 1px 0 rgba(30, 29, 26, 0.06), 0 8px 24px rgba(30, 29, 26, 0.05);
+  --content-max: 1120px;
+  --read-max: 42rem;
+}
+
+[data-theme='dark'] {
+  --color-paper: #1a1917;
+  --color-tile: #242220;
+  --color-ink: #f0ebe3;
+  --color-ink-muted: #a69f94;
+  --color-line: #3d3934;
+  --color-accent: #c4a574;
+  --color-accent-soft: #9a7b4f;
+}

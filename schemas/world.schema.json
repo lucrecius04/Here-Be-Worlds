@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "HereBeWorldsCatalog",
+  "type": "object",
+  "required": ["worlds"],
+  "properties": {
+    "worlds": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/world" }
+    }
+  },
+  "$defs": {
+    "localizedString": {
+      "type": "object",
+      "required": ["en"],
+      "properties": {
+        "en": { "type": "string" },
+        "cs": { "type": "string" }
+      }
+    },
+    "world": {
+      "type": "object",
+      "required": [
+        "id",
+        "number",
+        "chapterId",
+        "gameTitle",
+        "chronicleTitle",
+        "subtitlePoetic",
+        "studios",
+        "yearRange",
+        "canonScope",
+        "core",
+        "metadata",
+        "themes",
+        "axes",
+        "triad",
+        "chronicleSlug"
+      ]
+    }
+  }
+}

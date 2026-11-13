@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import StubPage from '../../components/i18n/StubPage';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title="Srovnání — Here Be Worlds">
+  <StubPage
+    client:load
+    titleKey="compare.title"
+    bodyKey="compare.body"
+    backKey="compare.back"
+    base={base}
+  />
+</BaseLayout>

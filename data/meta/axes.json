@@ -1,0 +1,49 @@
+{
+  "axes": [
+    {
+      "id": "hopeDespair",
+      "left": { "en": "Hope", "cs": "Naděje" },
+      "right": { "en": "Despair", "cs": "Beznaděj" },
+      "help": {
+        "en": "Can the world be renewed, or is decline inevitable?",
+        "cs": "Je možná obnova, nebo je úpadek nevyhnutelný?"
+      }
+    },
+    {
+      "id": "knownUnknown",
+      "left": { "en": "Known", "cs": "Poznání" },
+      "right": { "en": "Unknown", "cs": "Záhada" },
+      "help": {
+        "en": "How much of the world's true nature can be uncovered?",
+        "cs": "Kolik podstaty světa lze odhalit?"
+      }
+    },
+    {
+      "id": "intimateEpic",
+      "left": { "en": "Intimate", "cs": "Intimita" },
+      "right": { "en": "Epic", "cs": "Epičnost" },
+      "help": {
+        "en": "Individual fate or civilizations, planets, and ages?",
+        "cs": "Osud jednotlivce, nebo civilizací a věků?"
+      }
+    },
+    {
+      "id": "moralClarityAmbiguity",
+      "left": { "en": "Morally clear", "cs": "Morálně jednoznačné" },
+      "right": { "en": "Morally ambiguous", "cs": "Morálně komplexní" },
+      "help": {
+        "en": "Can you tell who stands on the right side?",
+        "cs": "Dá se poznat, kdo stojí na správné straně?"
+      }
+    },
+    {
+      "id": "realismMetaphysical",
+      "left": { "en": "Realism", "cs": "Realismus" },
+      "right": { "en": "Metaphysical", "cs": "Metafyzično" },
+      "help": {
+        "en": "Physics and politics—or gods, souls, and supernatural law?",
+        "cs": "Fyzika a politika, nebo bohové, duše a nadpřirozené zákony?"
+      }
+    }
+  ]
+}

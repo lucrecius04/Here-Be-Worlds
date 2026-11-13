@@ -1,0 +1,4932 @@
+{
+  "worlds": [
+    {
+      "id": "atlas",
+      "number": 1,
+      "chapterId": "fantasy",
+      "gameTitle": {
+        "en": "ATLAS",
+        "cs": "ATLAS"
+      },
+      "chronicleTitle": {
+        "en": "HERNÍCH SVĚTŮ",
+        "cs": "HERNÍCH SVĚTŮ"
+      },
+      "subtitlePoetic": {
+        "en": "HERNÍCH SVĚTŮ",
+        "cs": "HERNÍCH SVĚTŮ"
+      },
+      "studios": [],
+      "yearRange": "",
+      "canonScope": {
+        "en": "TBD",
+        "cs": "TBD"
+      },
+      "draft": true,
+      "core": {
+        "en": "Draft profile—complete metadata manually.",
+        "cs": "Koncept karty — doplnit metadata."
+      },
+      "signatureBullets": [],
+      "metadata": {
+        "genreProfile": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "spatialScope": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "historicalDepth": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "societalOrder": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "sourceOfPower": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "protagonistPerspective": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "keyActors": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "themes": [],
+      "axes": {
+        "hopeDespair": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "knownUnknown": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "intimateEpic": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "moralClarityAmbiguity": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "realismMetaphysical": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "centralDilemma": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "ultimateMystery": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "chronicleSlug": "atlas"
+    },
+    {
+      "id": "baldurs-gate",
+      "number": 2,
+      "chapterId": "fantasy",
+      "gameTitle": {
+        "en": "BALDUR'S GATE",
+        "cs": "BALDUR'S GATE"
+      },
+      "chronicleTitle": {
+        "en": "Kronika Mečového pobřeží[object Object]",
+        "cs": "Kronika Mečového pobřeží[object Object]"
+      },
+      "subtitlePoetic": {
+        "en": "Kronika Mečového pobřeží[object Object]",
+        "cs": "Kronika Mečového pobřeží[object Object]"
+      },
+      "studios": [],
+      "yearRange": "",
+      "canonScope": {
+        "en": "ROzsah kánonu[object Object]Baldur's Gate I–II s rozšířeními a Baldur's Gate 3",
+        "cs": "ROzsah kánonu[object Object]Baldur's Gate I–II s rozšířeními a Baldur's Gate 3"
+      },
+      "draft": true,
+      "core": {
+        "en": "Draft profile—complete metadata manually.",
+        "cs": "Koncept karty — doplnit metadata."
+      },
+      "signatureBullets": [],
+      "metadata": {
+        "genreProfile": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "spatialScope": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "historicalDepth": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "societalOrder": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "sourceOfPower": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "protagonistPerspective": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "keyActors": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "themes": [],
+      "axes": {
+        "hopeDespair": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "knownUnknown": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "intimateEpic": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "moralClarityAmbiguity": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "realismMetaphysical": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "centralDilemma": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "ultimateMystery": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "chronicleSlug": "baldurs-gate"
+    },
+    {
+      "id": "dark-souls",
+      "number": 3,
+      "chapterId": "fantasy",
+      "gameTitle": {
+        "en": "DARK SOULS",
+        "cs": "DARK SOULS"
+      },
+      "chronicleTitle": {
+        "en": "Kronika popela[object Object]",
+        "cs": "Kronika popela[object Object]"
+      },
+      "subtitlePoetic": {
+        "en": "Kronika popela[object Object]",
+        "cs": "Kronika popela[object Object]"
+      },
+      "studios": [],
+      "yearRange": "",
+      "canonScope": {
+        "en": "ROzsah kánonu[object Object]",
+        "cs": "ROzsah kánonu[object Object]"
+      },
+      "draft": true,
+      "core": {
+        "en": "Draft profile—complete metadata manually.",
+        "cs": "Koncept karty — doplnit metadata."
+      },
+      "signatureBullets": [],
+      "metadata": {
+        "genreProfile": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "spatialScope": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "historicalDepth": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "societalOrder": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "sourceOfPower": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "protagonistPerspective": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "keyActors": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "themes": [],
+      "axes": {
+        "hopeDespair": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "knownUnknown": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "intimateEpic": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "moralClarityAmbiguity": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "realismMetaphysical": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "centralDilemma": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "ultimateMystery": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "chronicleSlug": "dark-souls"
+    },
+    {
+      "id": "diablo",
+      "number": 4,
+      "chapterId": "fantasy",
+      "gameTitle": {
+        "en": "DIABLO",
+        "cs": "DIABLO"
+      },
+      "chronicleTitle": {
+        "en": "Kronika Svatyně[object Object]",
+        "cs": "Kronika Svatyně[object Object]"
+      },
+      "subtitlePoetic": {
+        "en": "Kronika Svatyně[object Object]",
+        "cs": "Kronika Svatyně[object Object]"
+      },
+      "studios": [],
+      "yearRange": "",
+      "canonScope": {
+        "en": "ROzsah kánonu[object Object]Diablo I–IV s rozšířeními",
+        "cs": "ROzsah kánonu[object Object]Diablo I–IV s rozšířeními"
+      },
+      "draft": true,
+      "core": {
+        "en": "Draft profile—complete metadata manually.",
+        "cs": "Koncept karty — doplnit metadata."
+      },
+      "signatureBullets": [],
+      "metadata": {
+        "genreProfile": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "spatialScope": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "historicalDepth": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "societalOrder": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "sourceOfPower": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "protagonistPerspective": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "keyActors": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "themes": [],
+      "axes": {
+        "hopeDespair": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "knownUnknown": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "intimateEpic": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "moralClarityAmbiguity": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "realismMetaphysical": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "centralDilemma": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "ultimateMystery": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "chronicleSlug": "diablo"
+    },
+    {
+      "id": "dragon-age",
+      "number": 5,
+      "chapterId": "fantasy",
+      "gameTitle": {
+        "en": "DRAGON AGE",
+        "cs": "DRAGON AGE"
+      },
+      "chronicleTitle": {
+        "en": "Kronika Thedasu[object Object]",
+        "cs": "Kronika Thedasu[object Object]"
+      },
+      "subtitlePoetic": {
+        "en": "Kronika Thedasu[object Object]",
+        "cs": "Kronika Thedasu[object Object]"
+      },
+      "studios": [],
+      "yearRange": "",
+      "canonScope": {
+        "en": "TBD",
+        "cs": "TBD"
+      },
+      "draft": true,
+      "core": {
+        "en": "Draft profile—complete metadata manually.",
+        "cs": "Koncept karty — doplnit metadata."
+      },
+      "signatureBullets": [],
+      "metadata": {
+        "genreProfile": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "spatialScope": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "historicalDepth": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "societalOrder": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "sourceOfPower": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "protagonistPerspective": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "keyActors": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "themes": [],
+      "axes": {
+        "hopeDespair": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "knownUnknown": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "intimateEpic": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "moralClarityAmbiguity": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "realismMetaphysical": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "centralDilemma": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "ultimateMystery": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "chronicleSlug": "dragon-age"
+    },
+    {
+      "id": "elden-ring",
+      "number": 6,
+      "chapterId": "fantasy",
+      "gameTitle": {
+        "en": "ELDEN RING",
+        "cs": "ELDEN RING"
+      },
+      "chronicleTitle": {
+        "en": "Kronika Mezizemí[object Object]",
+        "cs": "Kronika Mezizemí[object Object]"
+      },
+      "subtitlePoetic": {
+        "en": "Kronika Mezizemí[object Object]",
+        "cs": "Kronika Mezizemí[object Object]"
+      },
+      "studios": [],
+      "yearRange": "",
+      "canonScope": {
+        "en": "TBD",
+        "cs": "TBD"
+      },
+      "draft": true,
+      "core": {
+        "en": "Draft profile—complete metadata manually.",
+        "cs": "Koncept karty — doplnit metadata."
+      },
+      "signatureBullets": [],
+      "metadata": {
+        "genreProfile": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "spatialScope": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "historicalDepth": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "societalOrder": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "sourceOfPower": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "protagonistPerspective": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "keyActors": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "themes": [],
+      "axes": {
+        "hopeDespair": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "knownUnknown": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "intimateEpic": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "moralClarityAmbiguity": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "realismMetaphysical": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "centralDilemma": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "ultimateMystery": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "chronicleSlug": "elden-ring"
+    },
+    {
+      "id": "elder-scrolls",
+      "number": 7,
+      "chapterId": "fantasy",
+      "gameTitle": {
+        "en": "ELDER SCROLLS",
+        "cs": "ELDER SCROLLS"
+      },
+      "chronicleTitle": {
+        "en": "Kronika Tamrielu[object Object]",
+        "cs": "Kronika Tamrielu[object Object]"
+      },
+      "subtitlePoetic": {
+        "en": "Kronika Tamrielu[object Object]",
+        "cs": "Kronika Tamrielu[object Object]"
+      },
+      "studios": [],
+      "yearRange": "",
+      "canonScope": {
+        "en": "TBD",
+        "cs": "TBD"
+      },
+      "draft": true,
+      "core": {
+        "en": "Draft profile—complete metadata manually.",
+        "cs": "Koncept karty — doplnit metadata."
+      },
+      "signatureBullets": [],
+      "metadata": {
+        "genreProfile": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "spatialScope": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "historicalDepth": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "societalOrder": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "sourceOfPower": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "protagonistPerspective": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "keyActors": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "themes": [],
+      "axes": {
+        "hopeDespair": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "knownUnknown": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "intimateEpic": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "moralClarityAmbiguity": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "realismMetaphysical": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "centralDilemma": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "ultimateMystery": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "chronicleSlug": "elder-scrolls"
+    },
+    {
+      "id": "hades",
+      "number": 8,
+      "chapterId": "fantasy",
+      "gameTitle": {
+        "en": "HADES",
+        "cs": "HADES"
+      },
+      "chronicleTitle": {
+        "en": "Kronika Podsvětí[object Object]",
+        "cs": "Kronika Podsvětí[object Object]"
+      },
+      "subtitlePoetic": {
+        "en": "Kronika Podsvětí[object Object]",
+        "cs": "Kronika Podsvětí[object Object]"
+      },
+      "studios": [],
+      "yearRange": "",
+      "canonScope": {
+        "en": "TBD",
+        "cs": "TBD"
+      },
+      "draft": true,
+      "core": {
+        "en": "Draft profile—complete metadata manually.",
+        "cs": "Koncept karty — doplnit metadata."
+      },
+      "signatureBullets": [],
+      "metadata": {
+        "genreProfile": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "spatialScope": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "historicalDepth": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "societalOrder": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "sourceOfPower": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "protagonistPerspective": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "keyActors": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "themes": [],
+      "axes": {
+        "hopeDespair": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "knownUnknown": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "intimateEpic": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "moralClarityAmbiguity": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "realismMetaphysical": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "centralDilemma": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "ultimateMystery": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "chronicleSlug": "hades"
+    },
+    {
+      "id": "path-of-exile",
+      "number": 9,
+      "chapterId": "fantasy",
+      "gameTitle": {
+        "en": "PATH OF EXILE",
+        "cs": "PATH OF EXILE"
+      },
+      "chronicleTitle": {
+        "en": "Kronika Wraeclastu[object Object]",
+        "cs": "Kronika Wraeclastu[object Object]"
+      },
+      "subtitlePoetic": {
+        "en": "Kronika Wraeclastu[object Object]",
+        "cs": "Kronika Wraeclastu[object Object]"
+      },
+      "studios": [],
+      "yearRange": "",
+      "canonScope": {
+        "en": "TBD",
+        "cs": "TBD"
+      },
+      "draft": true,
+      "core": {
+        "en": "Draft profile—complete metadata manually.",
+        "cs": "Koncept karty — doplnit metadata."
+      },
+      "signatureBullets": [],
+      "metadata": {
+        "genreProfile": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "spatialScope": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "historicalDepth": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "societalOrder": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "sourceOfPower": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "protagonistPerspective": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "keyActors": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "themes": [],
+      "axes": {
+        "hopeDespair": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "knownUnknown": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "intimateEpic": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "moralClarityAmbiguity": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "realismMetaphysical": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "centralDilemma": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "ultimateMystery": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "chronicleSlug": "path-of-exile"
+    },
+    {
+      "id": "pathfinder",
+      "number": 10,
+      "chapterId": "fantasy",
+      "gameTitle": {
+        "en": "PATHFINDER",
+        "cs": "PATHFINDER"
+      },
+      "chronicleTitle": {
+        "en": "Kronika Golarionu[object Object]",
+        "cs": "Kronika Golarionu[object Object]"
+      },
+      "subtitlePoetic": {
+        "en": "Kronika Golarionu[object Object]",
+        "cs": "Kronika Golarionu[object Object]"
+      },
+      "studios": [],
+      "yearRange": "",
+      "canonScope": {
+        "en": "TBD",
+        "cs": "TBD"
+      },
+      "draft": true,
+      "core": {
+        "en": "Draft profile—complete metadata manually.",
+        "cs": "Koncept karty — doplnit metadata."
+      },
+      "signatureBullets": [],
+      "metadata": {
+        "genreProfile": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "spatialScope": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "historicalDepth": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "societalOrder": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "sourceOfPower": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "protagonistPerspective": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "keyActors": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "themes": [],
+      "axes": {
+        "hopeDespair": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "knownUnknown": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "intimateEpic": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "moralClarityAmbiguity": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "realismMetaphysical": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "centralDilemma": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "ultimateMystery": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "chronicleSlug": "pathfinder"
+    },
+    {
+      "id": "pillars-of-eternity",
+      "number": 11,
+      "chapterId": "fantasy",
+      "gameTitle": {
+        "en": "PILLARS OF ETERNITY",
+        "cs": "PILLARS OF ETERNITY"
+      },
+      "chronicleTitle": {
+        "en": "Kronika Eory[object Object]",
+        "cs": "Kronika Eory[object Object]"
+      },
+      "subtitlePoetic": {
+        "en": "Kronika Eory[object Object]",
+        "cs": "Kronika Eory[object Object]"
+      },
+      "studios": [],
+      "yearRange": "",
+      "canonScope": {
+        "en": "TBD",
+        "cs": "TBD"
+      },
+      "draft": true,
+      "core": {
+        "en": "Draft profile—complete metadata manually.",
+        "cs": "Koncept karty — doplnit metadata."
+      },
+      "signatureBullets": [],
+      "metadata": {
+        "genreProfile": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "spatialScope": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "historicalDepth": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "societalOrder": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "sourceOfPower": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "protagonistPerspective": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "keyActors": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "themes": [],
+      "axes": {
+        "hopeDespair": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "knownUnknown": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "intimateEpic": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "moralClarityAmbiguity": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "realismMetaphysical": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "centralDilemma": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "ultimateMystery": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "chronicleSlug": "pillars-of-eternity"
+    },
+    {
+      "id": "warcraft",
+      "number": 12,
+      "chapterId": "fantasy",
+      "gameTitle": {
+        "en": "WARCRAFT",
+        "cs": "WARCRAFT"
+      },
+      "chronicleTitle": {
+        "en": "Kronika Azerothu[object Object]",
+        "cs": "Kronika Azerothu[object Object]"
+      },
+      "subtitlePoetic": {
+        "en": "Kronika Azerothu[object Object]",
+        "cs": "Kronika Azerothu[object Object]"
+      },
+      "studios": [],
+      "yearRange": "",
+      "canonScope": {
+        "en": "TBD",
+        "cs": "TBD"
+      },
+      "draft": true,
+      "core": {
+        "en": "Draft profile—complete metadata manually.",
+        "cs": "Koncept karty — doplnit metadata."
+      },
+      "signatureBullets": [],
+      "metadata": {
+        "genreProfile": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "spatialScope": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "historicalDepth": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "societalOrder": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "sourceOfPower": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "protagonistPerspective": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "keyActors": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "themes": [],
+      "axes": {
+        "hopeDespair": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "knownUnknown": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "intimateEpic": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "moralClarityAmbiguity": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "realismMetaphysical": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "centralDilemma": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "ultimateMystery": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "chronicleSlug": "warcraft"
+    },
+    {
+      "id": "zakl-na",
+      "number": 13,
+      "chapterId": "fantasy",
+      "gameTitle": {
+        "en": "ZAKLÍNAČ",
+        "cs": "ZAKLÍNAČ"
+      },
+      "chronicleTitle": {
+        "en": "Kronika Kontinentu[object Object]",
+        "cs": "Kronika Kontinentu[object Object]"
+      },
+      "subtitlePoetic": {
+        "en": "Kronika Kontinentu[object Object]",
+        "cs": "Kronika Kontinentu[object Object]"
+      },
+      "studios": [],
+      "yearRange": "",
+      "canonScope": {
+        "en": "TBD",
+        "cs": "TBD"
+      },
+      "draft": true,
+      "core": {
+        "en": "Draft profile—complete metadata manually.",
+        "cs": "Koncept karty — doplnit metadata."
+      },
+      "signatureBullets": [],
+      "metadata": {
+        "genreProfile": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "spatialScope": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "historicalDepth": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "societalOrder": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "sourceOfPower": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "protagonistPerspective": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "keyActors": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "themes": [],
+      "axes": {
+        "hopeDespair": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "knownUnknown": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "intimateEpic": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "moralClarityAmbiguity": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "realismMetaphysical": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "centralDilemma": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "ultimateMystery": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "chronicleSlug": "zakl-na"
+    },
+    {
+      "id": "doom",
+      "number": 14,
+      "chapterId": "science-fiction",
+      "gameTitle": {
+        "en": "DOOM",
+        "cs": "DOOM"
+      },
+      "chronicleTitle": {
+        "en": "Kronika Pekla[object Object]",
+        "cs": "Kronika Pekla[object Object]"
+      },
+      "subtitlePoetic": {
+        "en": "Kronika Pekla[object Object]",
+        "cs": "Kronika Pekla[object Object]"
+      },
+      "studios": [],
+      "yearRange": "",
+      "canonScope": {
+        "en": "TBD",
+        "cs": "TBD"
+      },
+      "draft": true,
+      "core": {
+        "en": "Draft profile—complete metadata manually.",
+        "cs": "Koncept karty — doplnit metadata."
+      },
+      "signatureBullets": [],
+      "metadata": {
+        "genreProfile": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "spatialScope": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "historicalDepth": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "societalOrder": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "sourceOfPower": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "protagonistPerspective": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "keyActors": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "themes": [],
+      "axes": {
+        "hopeDespair": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "knownUnknown": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "intimateEpic": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "moralClarityAmbiguity": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "realismMetaphysical": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "centralDilemma": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "ultimateMystery": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "chronicleSlug": "doom"
+    },
+    {
+      "id": "halo",
+      "number": 15,
+      "chapterId": "science-fiction",
+      "gameTitle": {
+        "en": "HALO",
+        "cs": "HALO"
+      },
+      "chronicleTitle": {
+        "en": "Kronika prstenců[object Object]",
+        "cs": "Kronika prstenců[object Object]"
+      },
+      "subtitlePoetic": {
+        "en": "Kronika prstenců[object Object]",
+        "cs": "Kronika prstenců[object Object]"
+      },
+      "studios": [],
+      "yearRange": "",
+      "canonScope": {
+        "en": "TBD",
+        "cs": "TBD"
+      },
+      "draft": true,
+      "core": {
+        "en": "Draft profile—complete metadata manually.",
+        "cs": "Koncept karty — doplnit metadata."
+      },
+      "signatureBullets": [],
+      "metadata": {
+        "genreProfile": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "spatialScope": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "historicalDepth": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "societalOrder": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "sourceOfPower": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "protagonistPerspective": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "keyActors": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "themes": [],
+      "axes": {
+        "hopeDespair": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "knownUnknown": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "intimateEpic": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "moralClarityAmbiguity": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "realismMetaphysical": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "centralDilemma": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "ultimateMystery": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "chronicleSlug": "halo"
+    },
+    {
+      "id": "mass-effect",
+      "number": 16,
+      "chapterId": "science-fiction",
+      "gameTitle": {
+        "en": "MASS EFFECT",
+        "cs": "MASS EFFECT"
+      },
+      "chronicleTitle": {
+        "en": "Kronika galaxie[object Object]",
+        "cs": "Kronika galaxie[object Object]"
+      },
+      "subtitlePoetic": {
+        "en": "Kronika galaxie[object Object]",
+        "cs": "Kronika galaxie[object Object]"
+      },
+      "studios": [],
+      "yearRange": "",
+      "canonScope": {
+        "en": "TBD",
+        "cs": "TBD"
+      },
+      "draft": true,
+      "core": {
+        "en": "Draft profile—complete metadata manually.",
+        "cs": "Koncept karty — doplnit metadata."
+      },
+      "signatureBullets": [],
+      "metadata": {
+        "genreProfile": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "spatialScope": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "historicalDepth": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "societalOrder": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "sourceOfPower": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "protagonistPerspective": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "keyActors": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "themes": [],
+      "axes": {
+        "hopeDespair": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "knownUnknown": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "intimateEpic": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "moralClarityAmbiguity": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "realismMetaphysical": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "centralDilemma": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "ultimateMystery": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "chronicleSlug": "mass-effect"
+    },
+    {
+      "id": "starcraft",
+      "number": 17,
+      "chapterId": "science-fiction",
+      "gameTitle": {
+        "en": "STARCRAFT",
+        "cs": "STARCRAFT"
+      },
+      "chronicleTitle": {
+        "en": "Kronika Koprulu[object Object]",
+        "cs": "Kronika Koprulu[object Object]"
+      },
+      "subtitlePoetic": {
+        "en": "Kronika Koprulu[object Object]",
+        "cs": "Kronika Koprulu[object Object]"
+      },
+      "studios": [],
+      "yearRange": "",
+      "canonScope": {
+        "en": "TBD",
+        "cs": "TBD"
+      },
+      "draft": true,
+      "core": {
+        "en": "Draft profile—complete metadata manually.",
+        "cs": "Koncept karty — doplnit metadata."
+      },
+      "signatureBullets": [],
+      "metadata": {
+        "genreProfile": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "spatialScope": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "historicalDepth": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "societalOrder": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "sourceOfPower": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "protagonistPerspective": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "keyActors": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "themes": [],
+      "axes": {
+        "hopeDespair": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "knownUnknown": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "intimateEpic": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "moralClarityAmbiguity": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "realismMetaphysical": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "centralDilemma": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "ultimateMystery": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "chronicleSlug": "starcraft"
+    },
+    {
+      "id": "warhammer-40-000",
+      "number": 18,
+      "chapterId": "science-fiction",
+      "gameTitle": {
+        "en": "WARHAMMER 40 000",
+        "cs": "WARHAMMER 40 000"
+      },
+      "chronicleTitle": {
+        "en": "Kronika Impéria[object Object]",
+        "cs": "Kronika Impéria[object Object]"
+      },
+      "subtitlePoetic": {
+        "en": "Kronika Impéria[object Object]",
+        "cs": "Kronika Impéria[object Object]"
+      },
+      "studios": [],
+      "yearRange": "",
+      "canonScope": {
+        "en": "TBD",
+        "cs": "TBD"
+      },
+      "draft": true,
+      "core": {
+        "en": "Draft profile—complete metadata manually.",
+        "cs": "Koncept karty — doplnit metadata."
+      },
+      "signatureBullets": [],
+      "metadata": {
+        "genreProfile": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "spatialScope": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "historicalDepth": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "societalOrder": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "sourceOfPower": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "protagonistPerspective": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "keyActors": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "themes": [],
+      "axes": {
+        "hopeDespair": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "knownUnknown": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "intimateEpic": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "moralClarityAmbiguity": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "realismMetaphysical": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "centralDilemma": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "ultimateMystery": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "chronicleSlug": "warhammer-40-000"
+    },
+    {
+      "id": "xcom",
+      "number": 19,
+      "chapterId": "science-fiction",
+      "gameTitle": {
+        "en": "XCOM",
+        "cs": "XCOM"
+      },
+      "chronicleTitle": {
+        "en": "Kronika odboje[object Object]",
+        "cs": "Kronika odboje[object Object]"
+      },
+      "subtitlePoetic": {
+        "en": "Kronika odboje[object Object]",
+        "cs": "Kronika odboje[object Object]"
+      },
+      "studios": [],
+      "yearRange": "",
+      "canonScope": {
+        "en": "TBD",
+        "cs": "TBD"
+      },
+      "draft": true,
+      "core": {
+        "en": "Draft profile—complete metadata manually.",
+        "cs": "Koncept karty — doplnit metadata."
+      },
+      "signatureBullets": [],
+      "metadata": {
+        "genreProfile": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "spatialScope": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "historicalDepth": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "societalOrder": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "sourceOfPower": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "protagonistPerspective": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "keyActors": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "themes": [],
+      "axes": {
+        "hopeDespair": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "knownUnknown": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "intimateEpic": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "moralClarityAmbiguity": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "realismMetaphysical": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "centralDilemma": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "ultimateMystery": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "chronicleSlug": "xcom"
+    },
+    {
+      "id": "xenoblade",
+      "number": 20,
+      "chapterId": "science-fiction",
+      "gameTitle": {
+        "en": "XENOBLADE",
+        "cs": "XENOBLADE"
+      },
+      "chronicleTitle": {
+        "en": "Kronika Titánů[object Object]",
+        "cs": "Kronika Titánů[object Object]"
+      },
+      "subtitlePoetic": {
+        "en": "Kronika Titánů[object Object]",
+        "cs": "Kronika Titánů[object Object]"
+      },
+      "studios": [],
+      "yearRange": "",
+      "canonScope": {
+        "en": "TBD",
+        "cs": "TBD"
+      },
+      "draft": true,
+      "core": {
+        "en": "Draft profile—complete metadata manually.",
+        "cs": "Koncept karty — doplnit metadata."
+      },
+      "signatureBullets": [],
+      "metadata": {
+        "genreProfile": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "spatialScope": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "historicalDepth": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "societalOrder": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "sourceOfPower": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "protagonistPerspective": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "keyActors": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "themes": [],
+      "axes": {
+        "hopeDespair": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "knownUnknown": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "intimateEpic": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "moralClarityAmbiguity": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "realismMetaphysical": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "centralDilemma": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "ultimateMystery": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "chronicleSlug": "xenoblade"
+    },
+    {
+      "id": "death-stranding",
+      "number": 21,
+      "chapterId": "post-apocalypse",
+      "gameTitle": {
+        "en": "DEATH STRANDING",
+        "cs": "DEATH STRANDING"
+      },
+      "chronicleTitle": {
+        "en": "Kronika Pláže[object Object]",
+        "cs": "Kronika Pláže[object Object]"
+      },
+      "subtitlePoetic": {
+        "en": "Kronika Pláže[object Object]",
+        "cs": "Kronika Pláže[object Object]"
+      },
+      "studios": [],
+      "yearRange": "",
+      "canonScope": {
+        "en": "TBD",
+        "cs": "TBD"
+      },
+      "draft": true,
+      "core": {
+        "en": "Draft profile—complete metadata manually.",
+        "cs": "Koncept karty — doplnit metadata."
+      },
+      "signatureBullets": [],
+      "metadata": {
+        "genreProfile": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "spatialScope": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "historicalDepth": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "societalOrder": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "sourceOfPower": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "protagonistPerspective": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "keyActors": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "themes": [],
+      "axes": {
+        "hopeDespair": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "knownUnknown": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "intimateEpic": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "moralClarityAmbiguity": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "realismMetaphysical": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "centralDilemma": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "ultimateMystery": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "chronicleSlug": "death-stranding"
+    },
+    {
+      "id": "fallout",
+      "number": 22,
+      "chapterId": "post-apocalypse",
+      "gameTitle": {
+        "en": "FALLOUT",
+        "cs": "FALLOUT"
+      },
+      "chronicleTitle": {
+        "en": "Kronika pustiny[object Object]",
+        "cs": "Kronika pustiny[object Object]"
+      },
+      "subtitlePoetic": {
+        "en": "Kronika pustiny[object Object]",
+        "cs": "Kronika pustiny[object Object]"
+      },
+      "studios": [],
+      "yearRange": "",
+      "canonScope": {
+        "en": "TBD",
+        "cs": "TBD"
+      },
+      "draft": true,
+      "core": {
+        "en": "Draft profile—complete metadata manually.",
+        "cs": "Koncept karty — doplnit metadata."
+      },
+      "signatureBullets": [],
+      "metadata": {
+        "genreProfile": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "spatialScope": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "historicalDepth": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "societalOrder": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "sourceOfPower": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "protagonistPerspective": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "keyActors": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "themes": [],
+      "axes": {
+        "hopeDespair": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "knownUnknown": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "intimateEpic": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "moralClarityAmbiguity": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "realismMetaphysical": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "centralDilemma": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "ultimateMystery": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "chronicleSlug": "fallout"
+    },
+    {
+      "id": "horizon",
+      "number": 23,
+      "chapterId": "post-apocalypse",
+      "gameTitle": {
+        "en": "HORIZON",
+        "cs": "HORIZON"
+      },
+      "chronicleTitle": {
+        "en": "Kronika úsvitu[object Object]",
+        "cs": "Kronika úsvitu[object Object]"
+      },
+      "subtitlePoetic": {
+        "en": "Kronika úsvitu[object Object]",
+        "cs": "Kronika úsvitu[object Object]"
+      },
+      "studios": [],
+      "yearRange": "",
+      "canonScope": {
+        "en": "TBD",
+        "cs": "TBD"
+      },
+      "draft": true,
+      "core": {
+        "en": "Draft profile—complete metadata manually.",
+        "cs": "Koncept karty — doplnit metadata."
+      },
+      "signatureBullets": [],
+      "metadata": {
+        "genreProfile": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "spatialScope": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "historicalDepth": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "societalOrder": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "sourceOfPower": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "protagonistPerspective": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "keyActors": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "themes": [],
+      "axes": {
+        "hopeDespair": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "knownUnknown": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "intimateEpic": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "moralClarityAmbiguity": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "realismMetaphysical": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "centralDilemma": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "ultimateMystery": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "chronicleSlug": "horizon"
+    },
+    {
+      "id": "metro",
+      "number": 24,
+      "chapterId": "post-apocalypse",
+      "gameTitle": {
+        "en": "METRO",
+        "cs": "METRO"
+      },
+      "chronicleTitle": {
+        "en": "Kronika tunelů[object Object]",
+        "cs": "Kronika tunelů[object Object]"
+      },
+      "subtitlePoetic": {
+        "en": "Kronika tunelů[object Object]",
+        "cs": "Kronika tunelů[object Object]"
+      },
+      "studios": [],
+      "yearRange": "",
+      "canonScope": {
+        "en": "TBD",
+        "cs": "TBD"
+      },
+      "draft": true,
+      "core": {
+        "en": "Draft profile—complete metadata manually.",
+        "cs": "Koncept karty — doplnit metadata."
+      },
+      "signatureBullets": [],
+      "metadata": {
+        "genreProfile": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "spatialScope": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "historicalDepth": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "societalOrder": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "sourceOfPower": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "protagonistPerspective": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "keyActors": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "themes": [],
+      "axes": {
+        "hopeDespair": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "knownUnknown": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "intimateEpic": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "moralClarityAmbiguity": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "realismMetaphysical": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "centralDilemma": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "ultimateMystery": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "chronicleSlug": "metro"
+    },
+    {
+      "id": "nier-automata",
+      "number": 25,
+      "chapterId": "post-apocalypse",
+      "gameTitle": {
+        "en": "NIER: AUTOMATA",
+        "cs": "NIER: AUTOMATA"
+      },
+      "chronicleTitle": {
+        "en": "Kronika YoRHa[object Object]",
+        "cs": "Kronika YoRHa[object Object]"
+      },
+      "subtitlePoetic": {
+        "en": "Kronika YoRHa[object Object]",
+        "cs": "Kronika YoRHa[object Object]"
+      },
+      "studios": [],
+      "yearRange": "",
+      "canonScope": {
+        "en": "TBD",
+        "cs": "TBD"
+      },
+      "draft": true,
+      "core": {
+        "en": "Draft profile—complete metadata manually.",
+        "cs": "Koncept karty — doplnit metadata."
+      },
+      "signatureBullets": [],
+      "metadata": {
+        "genreProfile": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "spatialScope": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "historicalDepth": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "societalOrder": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "sourceOfPower": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "protagonistPerspective": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "keyActors": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "themes": [],
+      "axes": {
+        "hopeDespair": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "knownUnknown": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "intimateEpic": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "moralClarityAmbiguity": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "realismMetaphysical": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "centralDilemma": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "ultimateMystery": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "chronicleSlug": "nier-automata"
+    },
+    {
+      "id": "bloodborne",
+      "number": 26,
+      "chapterId": "horror",
+      "gameTitle": {
+        "en": "BLOODBORNE",
+        "cs": "BLOODBORNE"
+      },
+      "chronicleTitle": {
+        "en": "Kronika Honu[object Object]",
+        "cs": "Kronika Honu[object Object]"
+      },
+      "subtitlePoetic": {
+        "en": "Kronika Honu[object Object]",
+        "cs": "Kronika Honu[object Object]"
+      },
+      "studios": [],
+      "yearRange": "",
+      "canonScope": {
+        "en": "TBD",
+        "cs": "TBD"
+      },
+      "draft": true,
+      "core": {
+        "en": "Draft profile—complete metadata manually.",
+        "cs": "Koncept karty — doplnit metadata."
+      },
+      "signatureBullets": [],
+      "metadata": {
+        "genreProfile": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "spatialScope": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "historicalDepth": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "societalOrder": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "sourceOfPower": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "protagonistPerspective": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "keyActors": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "themes": [],
+      "axes": {
+        "hopeDespair": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "knownUnknown": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "intimateEpic": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "moralClarityAmbiguity": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "realismMetaphysical": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "centralDilemma": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "ultimateMystery": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "chronicleSlug": "bloodborne"
+    },
+    {
+      "id": "resident-evil",
+      "number": 27,
+      "chapterId": "horror",
+      "gameTitle": {
+        "en": "RESIDENT EVIL",
+        "cs": "RESIDENT EVIL"
+      },
+      "chronicleTitle": {
+        "en": "Kronika Umbrelly[object Object]",
+        "cs": "Kronika Umbrelly[object Object]"
+      },
+      "subtitlePoetic": {
+        "en": "Kronika Umbrelly[object Object]",
+        "cs": "Kronika Umbrelly[object Object]"
+      },
+      "studios": [],
+      "yearRange": "",
+      "canonScope": {
+        "en": "TBD",
+        "cs": "TBD"
+      },
+      "draft": true,
+      "core": {
+        "en": "Draft profile—complete metadata manually.",
+        "cs": "Koncept karty — doplnit metadata."
+      },
+      "signatureBullets": [],
+      "metadata": {
+        "genreProfile": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "spatialScope": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "historicalDepth": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "societalOrder": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "sourceOfPower": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "protagonistPerspective": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "keyActors": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "themes": [],
+      "axes": {
+        "hopeDespair": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "knownUnknown": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "intimateEpic": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "moralClarityAmbiguity": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "realismMetaphysical": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "centralDilemma": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "ultimateMystery": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "chronicleSlug": "resident-evil"
+    },
+    {
+      "id": "silent-hill",
+      "number": 28,
+      "chapterId": "horror",
+      "gameTitle": {
+        "en": "SILENT HILL",
+        "cs": "SILENT HILL"
+      },
+      "chronicleTitle": {
+        "en": "Kronika mlhy[object Object]",
+        "cs": "Kronika mlhy[object Object]"
+      },
+      "subtitlePoetic": {
+        "en": "Kronika mlhy[object Object]",
+        "cs": "Kronika mlhy[object Object]"
+      },
+      "studios": [],
+      "yearRange": "",
+      "canonScope": {
+        "en": "TBD",
+        "cs": "TBD"
+      },
+      "draft": true,
+      "core": {
+        "en": "Draft profile—complete metadata manually.",
+        "cs": "Koncept karty — doplnit metadata."
+      },
+      "signatureBullets": [],
+      "metadata": {
+        "genreProfile": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "spatialScope": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "historicalDepth": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "societalOrder": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "sourceOfPower": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "protagonistPerspective": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "keyActors": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "themes": [],
+      "axes": {
+        "hopeDespair": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "knownUnknown": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "intimateEpic": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "moralClarityAmbiguity": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "realismMetaphysical": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "centralDilemma": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "ultimateMystery": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "chronicleSlug": "silent-hill"
+    },
+    {
+      "id": "soma",
+      "number": 29,
+      "chapterId": "horror",
+      "gameTitle": {
+        "en": "SOMA",
+        "cs": "SOMA"
+      },
+      "chronicleTitle": {
+        "en": "Kronika hlubin[object Object]",
+        "cs": "Kronika hlubin[object Object]"
+      },
+      "subtitlePoetic": {
+        "en": "Kronika hlubin[object Object]",
+        "cs": "Kronika hlubin[object Object]"
+      },
+      "studios": [],
+      "yearRange": "",
+      "canonScope": {
+        "en": "TBD",
+        "cs": "TBD"
+      },
+      "draft": true,
+      "core": {
+        "en": "Draft profile—complete metadata manually.",
+        "cs": "Koncept karty — doplnit metadata."
+      },
+      "signatureBullets": [],
+      "metadata": {
+        "genreProfile": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "spatialScope": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "historicalDepth": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "societalOrder": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "sourceOfPower": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "protagonistPerspective": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "keyActors": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "themes": [],
+      "axes": {
+        "hopeDespair": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "knownUnknown": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "intimateEpic": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "moralClarityAmbiguity": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "realismMetaphysical": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "centralDilemma": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "ultimateMystery": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "chronicleSlug": "soma"
+    },
+    {
+      "id": "assassins-creed",
+      "number": 30,
+      "chapterId": "historical",
+      "gameTitle": {
+        "en": "ASSASSIN'S CREED",
+        "cs": "ASSASSIN'S CREED"
+      },
+      "chronicleTitle": {
+        "en": "Kronika Bratrstva[object Object]",
+        "cs": "Kronika Bratrstva[object Object]"
+      },
+      "subtitlePoetic": {
+        "en": "Kronika Bratrstva[object Object]",
+        "cs": "Kronika Bratrstva[object Object]"
+      },
+      "studios": [],
+      "yearRange": "",
+      "canonScope": {
+        "en": "TBD",
+        "cs": "TBD"
+      },
+      "draft": true,
+      "core": {
+        "en": "Draft profile—complete metadata manually.",
+        "cs": "Koncept karty — doplnit metadata."
+      },
+      "signatureBullets": [],
+      "metadata": {
+        "genreProfile": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "spatialScope": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "historicalDepth": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "societalOrder": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "sourceOfPower": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "protagonistPerspective": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "keyActors": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "themes": [],
+      "axes": {
+        "hopeDespair": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "knownUnknown": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "intimateEpic": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "moralClarityAmbiguity": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "realismMetaphysical": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "centralDilemma": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "ultimateMystery": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "chronicleSlug": "assassins-creed"
+    },
+    {
+      "id": "disco-elysium",
+      "number": 31,
+      "chapterId": "historical",
+      "gameTitle": {
+        "en": "DISCO ELYSIUM",
+        "cs": "DISCO ELYSIUM"
+      },
+      "chronicleTitle": {
+        "en": "Kronika Revacholu[object Object]",
+        "cs": "Kronika Revacholu[object Object]"
+      },
+      "subtitlePoetic": {
+        "en": "Kronika Revacholu[object Object]",
+        "cs": "Kronika Revacholu[object Object]"
+      },
+      "studios": [],
+      "yearRange": "",
+      "canonScope": {
+        "en": "TBD",
+        "cs": "TBD"
+      },
+      "draft": true,
+      "core": {
+        "en": "Draft profile—complete metadata manually.",
+        "cs": "Koncept karty — doplnit metadata."
+      },
+      "signatureBullets": [],
+      "metadata": {
+        "genreProfile": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "spatialScope": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "historicalDepth": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "societalOrder": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "sourceOfPower": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "protagonistPerspective": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "keyActors": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "themes": [],
+      "axes": {
+        "hopeDespair": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "knownUnknown": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "intimateEpic": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "moralClarityAmbiguity": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "realismMetaphysical": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "centralDilemma": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "ultimateMystery": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "chronicleSlug": "disco-elysium"
+    },
+    {
+      "id": "pentiment",
+      "number": 32,
+      "chapterId": "historical",
+      "gameTitle": {
+        "en": "PENTIMENT",
+        "cs": "PENTIMENT"
+      },
+      "chronicleTitle": {
+        "en": "Kronika Tassingu[object Object]",
+        "cs": "Kronika Tassingu[object Object]"
+      },
+      "subtitlePoetic": {
+        "en": "Kronika Tassingu[object Object]",
+        "cs": "Kronika Tassingu[object Object]"
+      },
+      "studios": [],
+      "yearRange": "",
+      "canonScope": {
+        "en": "TBD",
+        "cs": "TBD"
+      },
+      "draft": true,
+      "core": {
+        "en": "Draft profile—complete metadata manually.",
+        "cs": "Koncept karty — doplnit metadata."
+      },
+      "signatureBullets": [],
+      "metadata": {
+        "genreProfile": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "spatialScope": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "historicalDepth": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "societalOrder": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "sourceOfPower": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "protagonistPerspective": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "keyActors": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "themes": [],
+      "axes": {
+        "hopeDespair": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "knownUnknown": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "intimateEpic": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "moralClarityAmbiguity": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "realismMetaphysical": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "centralDilemma": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "ultimateMystery": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "chronicleSlug": "pentiment"
+    },
+    {
+      "id": "bioshock",
+      "number": 33,
+      "chapterId": "dystopia",
+      "gameTitle": {
+        "en": "BIOSHOCK",
+        "cs": "BIOSHOCK"
+      },
+      "chronicleTitle": {
+        "en": "Kronika majáků[object Object]",
+        "cs": "Kronika majáků[object Object]"
+      },
+      "subtitlePoetic": {
+        "en": "Kronika majáků[object Object]",
+        "cs": "Kronika majáků[object Object]"
+      },
+      "studios": [],
+      "yearRange": "",
+      "canonScope": {
+        "en": "TBD",
+        "cs": "TBD"
+      },
+      "draft": true,
+      "core": {
+        "en": "Draft profile—complete metadata manually.",
+        "cs": "Koncept karty — doplnit metadata."
+      },
+      "signatureBullets": [],
+      "metadata": {
+        "genreProfile": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "spatialScope": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "historicalDepth": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "societalOrder": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "sourceOfPower": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "protagonistPerspective": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "keyActors": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "themes": [],
+      "axes": {
+        "hopeDespair": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "knownUnknown": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "intimateEpic": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "moralClarityAmbiguity": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "realismMetaphysical": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "centralDilemma": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "ultimateMystery": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "chronicleSlug": "bioshock"
+    },
+    {
+      "id": "cyberpunk-2077",
+      "number": 34,
+      "chapterId": "dystopia",
+      "gameTitle": {
+        "en": "CYBERPUNK 2077",
+        "cs": "CYBERPUNK 2077"
+      },
+      "chronicleTitle": {
+        "en": "Kronika Night City[object Object]",
+        "cs": "Kronika Night City[object Object]"
+      },
+      "subtitlePoetic": {
+        "en": "Kronika Night City[object Object]",
+        "cs": "Kronika Night City[object Object]"
+      },
+      "studios": [],
+      "yearRange": "",
+      "canonScope": {
+        "en": "TBD",
+        "cs": "TBD"
+      },
+      "draft": true,
+      "core": {
+        "en": "Draft profile—complete metadata manually.",
+        "cs": "Koncept karty — doplnit metadata."
+      },
+      "signatureBullets": [],
+      "metadata": {
+        "genreProfile": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "spatialScope": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "historicalDepth": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "societalOrder": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "sourceOfPower": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "protagonistPerspective": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "keyActors": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "themes": [],
+      "axes": {
+        "hopeDespair": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "knownUnknown": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "intimateEpic": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "moralClarityAmbiguity": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "realismMetaphysical": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "centralDilemma": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "ultimateMystery": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "chronicleSlug": "cyberpunk-2077"
+    },
+    {
+      "id": "deus-ex",
+      "number": 35,
+      "chapterId": "dystopia",
+      "gameTitle": {
+        "en": "DEUS EX",
+        "cs": "DEUS EX"
+      },
+      "chronicleTitle": {
+        "en": "Kronika Iluminátů[object Object]",
+        "cs": "Kronika Iluminátů[object Object]"
+      },
+      "subtitlePoetic": {
+        "en": "Kronika Iluminátů[object Object]",
+        "cs": "Kronika Iluminátů[object Object]"
+      },
+      "studios": [],
+      "yearRange": "",
+      "canonScope": {
+        "en": "TBD",
+        "cs": "TBD"
+      },
+      "draft": true,
+      "core": {
+        "en": "Draft profile—complete metadata manually.",
+        "cs": "Koncept karty — doplnit metadata."
+      },
+      "signatureBullets": [],
+      "metadata": {
+        "genreProfile": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "spatialScope": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "historicalDepth": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "societalOrder": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "sourceOfPower": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "protagonistPerspective": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "keyActors": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "themes": [],
+      "axes": {
+        "hopeDespair": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "knownUnknown": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "intimateEpic": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "moralClarityAmbiguity": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "realismMetaphysical": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "centralDilemma": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "ultimateMystery": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "chronicleSlug": "deus-ex"
+    },
+    {
+      "id": "dishonored",
+      "number": 36,
+      "chapterId": "dystopia",
+      "gameTitle": {
+        "en": "DISHONORED",
+        "cs": "DISHONORED"
+      },
+      "chronicleTitle": {
+        "en": "Kronika Prázdnoty[object Object]",
+        "cs": "Kronika Prázdnoty[object Object]"
+      },
+      "subtitlePoetic": {
+        "en": "Kronika Prázdnoty[object Object]",
+        "cs": "Kronika Prázdnoty[object Object]"
+      },
+      "studios": [],
+      "yearRange": "",
+      "canonScope": {
+        "en": "TBD",
+        "cs": "TBD"
+      },
+      "draft": true,
+      "core": {
+        "en": "Draft profile—complete metadata manually.",
+        "cs": "Koncept karty — doplnit metadata."
+      },
+      "signatureBullets": [],
+      "metadata": {
+        "genreProfile": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "spatialScope": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "historicalDepth": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "societalOrder": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "sourceOfPower": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "protagonistPerspective": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "keyActors": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "themes": [],
+      "axes": {
+        "hopeDespair": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "knownUnknown": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "intimateEpic": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "moralClarityAmbiguity": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "realismMetaphysical": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "centralDilemma": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "ultimateMystery": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "chronicleSlug": "dishonored"
+    },
+    {
+      "id": "half-life",
+      "number": 37,
+      "chapterId": "dystopia",
+      "gameTitle": {
+        "en": "HALF-LIFE",
+        "cs": "HALF-LIFE"
+      },
+      "chronicleTitle": {
+        "en": "Kronika kaskády[object Object]",
+        "cs": "Kronika kaskády[object Object]"
+      },
+      "subtitlePoetic": {
+        "en": "Kronika kaskády[object Object]",
+        "cs": "Kronika kaskády[object Object]"
+      },
+      "studios": [],
+      "yearRange": "",
+      "canonScope": {
+        "en": "TBD",
+        "cs": "TBD"
+      },
+      "draft": true,
+      "core": {
+        "en": "Draft profile—complete metadata manually.",
+        "cs": "Koncept karty — doplnit metadata."
+      },
+      "signatureBullets": [],
+      "metadata": {
+        "genreProfile": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "spatialScope": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "historicalDepth": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "societalOrder": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "sourceOfPower": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "protagonistPerspective": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "keyActors": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "themes": [],
+      "axes": {
+        "hopeDespair": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "knownUnknown": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "intimateEpic": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "moralClarityAmbiguity": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "realismMetaphysical": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "centralDilemma": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "ultimateMystery": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "chronicleSlug": "half-life"
+    },
+    {
+      "id": "control",
+      "number": 38,
+      "chapterId": "metaphysical",
+      "gameTitle": {
+        "en": "CONTROL",
+        "cs": "CONTROL"
+      },
+      "chronicleTitle": {
+        "en": "Kronika Úřadu[object Object]",
+        "cs": "Kronika Úřadu[object Object]"
+      },
+      "subtitlePoetic": {
+        "en": "Kronika Úřadu[object Object]",
+        "cs": "Kronika Úřadu[object Object]"
+      },
+      "studios": [],
+      "yearRange": "",
+      "canonScope": {
+        "en": "TBD",
+        "cs": "TBD"
+      },
+      "draft": true,
+      "core": {
+        "en": "Draft profile—complete metadata manually.",
+        "cs": "Koncept karty — doplnit metadata."
+      },
+      "signatureBullets": [],
+      "metadata": {
+        "genreProfile": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "spatialScope": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "historicalDepth": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "societalOrder": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "sourceOfPower": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "protagonistPerspective": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "keyActors": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "themes": [],
+      "axes": {
+        "hopeDespair": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "knownUnknown": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "intimateEpic": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "moralClarityAmbiguity": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "realismMetaphysical": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "centralDilemma": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "ultimateMystery": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "chronicleSlug": "control"
+    },
+    {
+      "id": "inscryption",
+      "number": 39,
+      "chapterId": "metaphysical",
+      "gameTitle": {
+        "en": "INSCRYPTION",
+        "cs": "INSCRYPTION"
+      },
+      "chronicleTitle": {
+        "en": "Kronika Písařů[object Object]",
+        "cs": "Kronika Písařů[object Object]"
+      },
+      "subtitlePoetic": {
+        "en": "Kronika Písařů[object Object]",
+        "cs": "Kronika Písařů[object Object]"
+      },
+      "studios": [],
+      "yearRange": "",
+      "canonScope": {
+        "en": "TBD",
+        "cs": "TBD"
+      },
+      "draft": true,
+      "core": {
+        "en": "Draft profile—complete metadata manually.",
+        "cs": "Koncept karty — doplnit metadata."
+      },
+      "signatureBullets": [],
+      "metadata": {
+        "genreProfile": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "spatialScope": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "historicalDepth": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "societalOrder": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "sourceOfPower": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "protagonistPerspective": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "keyActors": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "themes": [],
+      "axes": {
+        "hopeDespair": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "knownUnknown": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "intimateEpic": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "moralClarityAmbiguity": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "realismMetaphysical": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "centralDilemma": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "ultimateMystery": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "chronicleSlug": "inscryption"
+    },
+    {
+      "id": "outer-wilds",
+      "number": 40,
+      "chapterId": "metaphysical",
+      "gameTitle": {
+        "en": "OUTER WILDS",
+        "cs": "OUTER WILDS"
+      },
+      "chronicleTitle": {
+        "en": "Kronika Táboráku[object Object]",
+        "cs": "Kronika Táboráku[object Object]"
+      },
+      "subtitlePoetic": {
+        "en": "Kronika Táboráku[object Object]",
+        "cs": "Kronika Táboráku[object Object]"
+      },
+      "studios": [],
+      "yearRange": "",
+      "canonScope": {
+        "en": "TBD",
+        "cs": "TBD"
+      },
+      "draft": true,
+      "core": {
+        "en": "Draft profile—complete metadata manually.",
+        "cs": "Koncept karty — doplnit metadata."
+      },
+      "signatureBullets": [],
+      "metadata": {
+        "genreProfile": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "spatialScope": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "historicalDepth": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "societalOrder": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "sourceOfPower": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "protagonistPerspective": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "keyActors": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "themes": [],
+      "axes": {
+        "hopeDespair": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "knownUnknown": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "intimateEpic": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "moralClarityAmbiguity": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "realismMetaphysical": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "centralDilemma": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "ultimateMystery": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "chronicleSlug": "outer-wilds"
+    },
+    {
+      "id": "pathologic",
+      "number": 41,
+      "chapterId": "metaphysical",
+      "gameTitle": {
+        "en": "PATHOLOGIC",
+        "cs": "PATHOLOGIC"
+      },
+      "chronicleTitle": {
+        "en": "Kronika stepi[object Object]",
+        "cs": "Kronika stepi[object Object]"
+      },
+      "subtitlePoetic": {
+        "en": "Kronika stepi[object Object]",
+        "cs": "Kronika stepi[object Object]"
+      },
+      "studios": [],
+      "yearRange": "",
+      "canonScope": {
+        "en": "TBD",
+        "cs": "TBD"
+      },
+      "draft": true,
+      "core": {
+        "en": "Draft profile—complete metadata manually.",
+        "cs": "Koncept karty — doplnit metadata."
+      },
+      "signatureBullets": [],
+      "metadata": {
+        "genreProfile": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "spatialScope": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "historicalDepth": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "societalOrder": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "sourceOfPower": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "protagonistPerspective": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "keyActors": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "themes": [],
+      "axes": {
+        "hopeDespair": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "knownUnknown": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "intimateEpic": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "moralClarityAmbiguity": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "realismMetaphysical": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "centralDilemma": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "ultimateMystery": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "chronicleSlug": "pathologic"
+    },
+    {
+      "id": "planescape-torment",
+      "number": 42,
+      "chapterId": "metaphysical",
+      "gameTitle": {
+        "en": "PLANESCAPE: TORMENT",
+        "cs": "PLANESCAPE: TORMENT"
+      },
+      "chronicleTitle": {
+        "en": "Kronika Bezejmenného[object Object]",
+        "cs": "Kronika Bezejmenného[object Object]"
+      },
+      "subtitlePoetic": {
+        "en": "Kronika Bezejmenného[object Object]",
+        "cs": "Kronika Bezejmenného[object Object]"
+      },
+      "studios": [],
+      "yearRange": "",
+      "canonScope": {
+        "en": "TBD",
+        "cs": "TBD"
+      },
+      "draft": true,
+      "core": {
+        "en": "Draft profile—complete metadata manually.",
+        "cs": "Koncept karty — doplnit metadata."
+      },
+      "signatureBullets": [],
+      "metadata": {
+        "genreProfile": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "spatialScope": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "historicalDepth": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "societalOrder": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "sourceOfPower": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "protagonistPerspective": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "keyActors": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "themes": [],
+      "axes": {
+        "hopeDespair": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "knownUnknown": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "intimateEpic": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "moralClarityAmbiguity": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "realismMetaphysical": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "centralDilemma": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "ultimateMystery": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "chronicleSlug": "planescape-torment"
+    },
+    {
+      "id": "tides-of-numenera",
+      "number": 43,
+      "chapterId": "metaphysical",
+      "gameTitle": {
+        "en": "TIDES OF NUMENERA",
+        "cs": "TIDES OF NUMENERA"
+      },
+      "chronicleTitle": {
+        "en": "Kronika Odvržených[object Object]",
+        "cs": "Kronika Odvržených[object Object]"
+      },
+      "subtitlePoetic": {
+        "en": "Kronika Odvržených[object Object]",
+        "cs": "Kronika Odvržených[object Object]"
+      },
+      "studios": [],
+      "yearRange": "",
+      "canonScope": {
+        "en": "TBD",
+        "cs": "TBD"
+      },
+      "draft": true,
+      "core": {
+        "en": "Draft profile—complete metadata manually.",
+        "cs": "Koncept karty — doplnit metadata."
+      },
+      "signatureBullets": [],
+      "metadata": {
+        "genreProfile": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "spatialScope": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "historicalDepth": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "societalOrder": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "sourceOfPower": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "protagonistPerspective": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "keyActors": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "themes": [],
+      "axes": {
+        "hopeDespair": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "knownUnknown": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "intimateEpic": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "moralClarityAmbiguity": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "realismMetaphysical": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "centralDilemma": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "ultimateMystery": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "chronicleSlug": "tides-of-numenera"
+    },
+    {
+      "id": "undertale",
+      "number": 44,
+      "chapterId": "metaphysical",
+      "gameTitle": {
+        "en": "UNDERTALE",
+        "cs": "UNDERTALE"
+      },
+      "chronicleTitle": {
+        "en": "Kronika Podzemí[object Object]",
+        "cs": "Kronika Podzemí[object Object]"
+      },
+      "subtitlePoetic": {
+        "en": "Kronika Podzemí[object Object]",
+        "cs": "Kronika Podzemí[object Object]"
+      },
+      "studios": [],
+      "yearRange": "",
+      "canonScope": {
+        "en": "TBD",
+        "cs": "TBD"
+      },
+      "draft": true,
+      "core": {
+        "en": "Draft profile—complete metadata manually.",
+        "cs": "Koncept karty — doplnit metadata."
+      },
+      "signatureBullets": [],
+      "metadata": {
+        "genreProfile": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "spatialScope": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "historicalDepth": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "societalOrder": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "sourceOfPower": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "protagonistPerspective": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "keyActors": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "themes": [],
+      "axes": {
+        "hopeDespair": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "knownUnknown": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "intimateEpic": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "moralClarityAmbiguity": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        },
+        "realismMetaphysical": {
+          "value": 3,
+          "comment": {
+            "en": "TBD",
+            "cs": "TBD"
+          }
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "centralDilemma": {
+          "en": "TBD",
+          "cs": "TBD"
+        },
+        "ultimateMystery": {
+          "en": "TBD",
+          "cs": "TBD"
+        }
+      },
+      "chronicleSlug": "undertale"
+    }
+  ]
+}

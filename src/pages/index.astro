@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import AtlasExplorer from '../components/discovery/AtlasExplorer';
+import HomeIntro from '../components/discovery/HomeIntro';
+import { worlds, chapters, themeTaxonomy } from '../lib/worlds';
+
+const base = import.meta.env.BASE_URL;
+const url = new URL(Astro.request.url);
+const initialTheme = url.searchParams.get('theme') ?? '';
+
+const chapterCards = chapters.map((c) => ({
+  id: c.id,
+  title: c.title,
+  thesis: c.thesis,
+  accent: c.accent,
+  count: worlds.filter((w) => w.chapterId === c.id).length,
+}));
+
+const themeLabels = Object.fromEntries(themeTaxonomy.map((t) => [t.slug, t.label]));
+---
+
+<BaseLayout title="Here Be Worlds — Atlas">
+  <HomeIntro client:load chapters={chapterCards} />
+  <AtlasExplorer
+    client:load
+    worlds={worlds}
+    chapters={chapterCards}
+    themeLabels={themeLabels}
+    baseUrl={base.replace(/\/$/, '')}
+    initialTheme={initialTheme}
+  />
+</BaseLayout>

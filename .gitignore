@@ -20,3 +20,10 @@ npm-debug.log*
 dist/
 build/
 .cache/
+.astro/
+
+# Leftover scaffold folder (optional local)
+receptive-remnant/
+
+# Source DOCX (local only)
+source/

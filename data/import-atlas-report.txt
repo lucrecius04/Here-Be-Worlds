@@ -1,0 +1,2 @@
+Parsed 44 world stubs from atlas.
+Draft fields marked TBD require editorial completion.

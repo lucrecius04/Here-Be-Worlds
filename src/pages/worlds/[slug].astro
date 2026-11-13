@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import WorldCard from '../../components/world/WorldCard';
+import SimilarWorlds from '../../components/world/SimilarWorlds';
+import WorldPageNav from '../../components/world/WorldPageNav';
+import ChronicleIntro from '../../components/world/ChronicleIntro';
+import {
+  worlds,
+  getWorldById,
+  getChapterById,
+  themeTaxonomy,
+} from '../../lib/worlds';
+import { similarWorlds } from '../../lib/similarity';
+import { getCollection, render } from 'astro:content';
+import { t } from '../../lib/i18n';
+
+export function getStaticPaths() {
+  return worlds.map((w) => ({ params: { slug: w.id } }));
+}
+
+const { slug } = Astro.params;
+const world = getWorldById(slug!);
+if (!world) throw new Error(`Unknown world: ${slug}`);
+
+const base = import.meta.env.BASE_URL;
+const chapter = getChapterById(world.chapterId);
+const themeLabels = Object.fromEntries(themeTaxonomy.map((th) => [th.slug, th.label]));
+const similar = similarWorlds(world, worlds, 3);
+
+const chronicles = await getCollection('chronicles');
+const entry = chronicles.find((c) => c.data.worldId === world.id);
+const chronicleRender = entry ? await render(entry) : null;
+const ChronicleContent = chronicleRender?.Content ?? null;
+const pageTitle = `${t(world.gameTitle, 'cs')} — Here Be Worlds`;
+---
+
+<BaseLayout title={pageTitle} description={t(world.core, 'cs')}>
+  <WorldPageNav client:load base={base} />
+
+  <WorldCard
+    client:visible
+    world={world}
+    chapterTitle={chapter?.title}
+    themeLabels={themeLabels}
+    baseUrl={base.replace(/\/$/, '')}
+  />
+
+  <section id="chronicle" style="margin-top: 3rem">
+    <ChronicleIntro client:load world={world} hasChronicle={!!ChronicleContent} />
+    {
+      ChronicleContent ? (
+        <article class="chronicle-prose">
+          <ChronicleContent />
+        </article>
+      ) : null
+    }
+  </section>
+
+  <SimilarWorlds client:visible worlds={similar} baseUrl={base.replace(/\/$/, '')} />
+</BaseLayout>

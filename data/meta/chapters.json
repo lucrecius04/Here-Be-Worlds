@@ -1,0 +1,74 @@
+{
+  "chapters": [
+    {
+      "id": "fantasy",
+      "order": 1,
+      "title": { "en": "Fantasy", "cs": "Fantasy" },
+      "accent": "#8B7355",
+      "thesis": {
+        "en": "Worlds of magic, gods, and myth—from exalted realms to ashen ruins.",
+        "cs": "Světy magie, bohů a mýtů – od vznešených říší po popelavé ruiny."
+      }
+    },
+    {
+      "id": "science-fiction",
+      "order": 2,
+      "title": { "en": "Science Fiction", "cs": "Science fiction" },
+      "accent": "#5C6B7A",
+      "thesis": {
+        "en": "Science and technology open paths to the stars—and to powers older than humanity.",
+        "cs": "Věda a technologie otevírají cestu ke hvězdám i k novým formám života."
+      }
+    },
+    {
+      "id": "post-apocalypse",
+      "order": 3,
+      "title": { "en": "Post-Apocalypse", "cs": "Postapokalypsa" },
+      "accent": "#7A6B5C",
+      "thesis": {
+        "en": "Civilization has fallen; life continues in the ruins, with the question of what to rebuild.",
+        "cs": "Civilizace padla, ale život pokračuje v troskách."
+      }
+    },
+    {
+      "id": "horror",
+      "order": 4,
+      "title": { "en": "Horror", "cs": "Horor" },
+      "accent": "#4A4540",
+      "thesis": {
+        "en": "Fear as a language—often grown from guilt, science, or unbearable truth.",
+        "cs": "Strach jako hlavní jazyk světa."
+      }
+    },
+    {
+      "id": "historical",
+      "order": 5,
+      "title": { "en": "Historical & Alternate", "cs": "Historické a alternativní světy" },
+      "accent": "#6B5C4A",
+      "thesis": {
+        "en": "Real history and its echoes—who writes the past, and who owns it.",
+        "cs": "Světy na skutečných dějinách nebo na jejich věrné ozvěně."
+      }
+    },
+    {
+      "id": "dystopia",
+      "order": 6,
+      "title": { "en": "Dystopia", "cs": "Dystopie" },
+      "accent": "#5A4F52",
+      "thesis": {
+        "en": "Promised order, progress, or paradise—built as a cage.",
+        "cs": "Společnosti, které slibovaly ráj, a postavily klec."
+      }
+    },
+    {
+      "id": "metaphysical",
+      "order": 7,
+      "title": { "en": "Metaphysical & Experimental", "cs": "Metafyzické a experimentální světy" },
+      "accent": "#524A6B",
+      "thesis": {
+        "en": "Reality bends; narrative, belief, and consciousness reshape the map.",
+        "cs": "Světy, v nichž se láme samotná struktura reality."
+      }
+    }
+  ]
+}
