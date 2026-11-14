@@ -1,7 +1,8 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState, type CSSProperties } from 'react';
 import type { LocalizedString, RelatedWorld, World } from '../../schemas/world';
 import { uiT } from '../../lib/i18n';
 import { useLocale } from '../../lib/locale-store';
+import type { ChapterAccent } from '../../lib/worlds';
 import { loadChronicleMarkdown, type ChronicleDoc } from '../../lib/chronicles';
 import {
   findAnalysisHeadingId,
@@ -20,6 +21,7 @@ type Props = {
   baseUrl: string;
   world: World;
   chapterTitle?: LocalizedString;
+  chapterAccent?: ChapterAccent;
   themeLabels: Record<string, LocalizedString>;
   related?: Array<RelatedWorld & { href?: string }>;
 };
@@ -29,6 +31,7 @@ export default function WorldPageShell({
   baseUrl,
   world,
   chapterTitle,
+  chapterAccent,
   themeLabels,
   related = [],
 }: Props) {
@@ -64,6 +67,13 @@ export default function WorldPageShell({
     [chronicle?.markdown],
   );
 
+  const chapterVars = chapterAccent
+    ? ({
+        '--chapter-hue-light': chapterAccent.light,
+        '--chapter-hue-dark': chapterAccent.dark,
+      } as CSSProperties)
+    : undefined;
+
   const tabs: { id: ViewMode; labelKey: string }[] = [
     { id: 'card', labelKey: 'world.viewCard' },
     { id: 'chronicle', labelKey: 'world.viewChronicle' },
@@ -78,7 +88,11 @@ export default function WorldPageShell({
   );
 
   return (
-    <article className="world-card world-card--page">
+    <article
+      className="world-card world-card--page"
+      data-chapter={world.chapterId}
+      style={chapterVars}
+    >
       <div className="world-page__masthead">
         <WorldPageMasthead base={base} world={world} chapterTitle={chapterTitle} />
         <div className="view-mode-tabs" role="tablist">

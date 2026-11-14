@@ -20,6 +20,11 @@ export const ui: Record<Locale, UiTree> = {
       compare: 'Srovnání',
       map: 'Mapa',
     },
+    theme: {
+      group: 'Vzhled',
+      light: 'Světlý režim',
+      dark: 'Tmavý režim',
+    },
     footer: {
       tagline: 'Atlas herních vesmírů',
       explore: 'Objevovat',
@@ -62,7 +67,7 @@ export const ui: Record<Locale, UiTree> = {
       theme: 'Téma',
       allChapters: 'Všechny archetypy',
       allThemes: 'Všechna témata',
-      allAtmospheres: 'Všechny atmosféry',
+      allAtmospheres: 'Všechny nálady',
       allHistoricalDepths: 'Všechny hloubky',
       allSpatialScopes: 'Všechny dosahy',
       allSocietalOrders: 'Všechny struktury',
@@ -95,7 +100,7 @@ export const ui: Record<Locale, UiTree> = {
       coreLabel: 'Jádro světa',
       metadataAria: 'Metadata světa',
       genreProfile: 'Profil archetypu',
-      atmosphere: 'Atmosféra',
+      atmosphere: 'Nálada a estetika',
       spatialScope: 'Prostorový dosah',
       historicalDepth: 'Historická hloubka',
       societalOrder: 'Struktura společnosti',
@@ -124,7 +129,9 @@ export const ui: Record<Locale, UiTree> = {
       back: 'Zpět na atlas',
     },
     chapterPage: {
-      back: '← Atlas',
+      back: 'Zpět',
+      kicker: 'Archetyp',
+      empty: 'V tomto archetypu zatím není žádný profil.',
     },
     stub: {
       coming: 'Připravujeme',
@@ -145,6 +152,11 @@ export const ui: Record<Locale, UiTree> = {
       atlas: 'Atlas',
       compare: 'Compare',
       map: 'Map',
+    },
+    theme: {
+      group: 'Appearance',
+      light: 'Light mode',
+      dark: 'Dark mode',
     },
     footer: {
       tagline: 'An atlas of game universes',
@@ -187,7 +199,7 @@ export const ui: Record<Locale, UiTree> = {
       theme: 'Theme',
       allChapters: 'All archetypes',
       allThemes: 'All themes',
-      allAtmospheres: 'All atmospheres',
+      allAtmospheres: 'All moods',
       allHistoricalDepths: 'All depths',
       allSpatialScopes: 'All scopes',
       allSocietalOrders: 'All orders',
@@ -219,7 +231,7 @@ export const ui: Record<Locale, UiTree> = {
       coreLabel: 'The core of the world',
       metadataAria: 'World metadata',
       genreProfile: 'Archetype profile',
-      atmosphere: 'Atmosphere',
+      atmosphere: 'Mood and aesthetics',
       spatialScope: 'Spatial scope',
       historicalDepth: 'Historical depth',
       societalOrder: 'Societal order',
@@ -248,7 +260,9 @@ export const ui: Record<Locale, UiTree> = {
       back: 'Return to the atlas',
     },
     chapterPage: {
-      back: '← Atlas',
+      back: 'Back',
+      kicker: 'Archetype',
+      empty: 'No profiles in this archetype yet.',
     },
     stub: {
       coming: 'Coming soon',

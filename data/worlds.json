@@ -4,40 +4,88 @@
       "id": "baldurs-gate",
       "number": 1,
       "chapterId": "fantasy",
-      "gameTitle": { "en": "Baldur's Gate", "cs": "Baldur's Gate" },
-      "chronicleTitle": { "en": "Chronicle of the Sword Coast", "cs": "Kronika Mečového pobřeží" },
-      "subtitlePoetic": { "en": "Chronicle of the Sword Coast", "cs": "Kronika Mečového pobřeží" },
-      "studios": ["BioWare", "Larian Studios"],
+      "gameTitle": {
+        "en": "Baldur's Gate",
+        "cs": "Baldur's Gate"
+      },
+      "chronicleTitle": {
+        "en": "Chronicle of the Sword Coast",
+        "cs": "Kronika Mečového pobřeží"
+      },
+      "subtitlePoetic": {
+        "en": "Chronicle of the Sword Coast",
+        "cs": "Kronika Mečového pobřeží"
+      },
+      "studios": [
+        "BioWare",
+        "Larian Studios"
+      ],
       "yearRange": "1998–2023",
       "canonScope": {
         "en": "Baldur's Gate I–II with expansions and Baldur's Gate 3",
         "cs": "Baldur's Gate I–II s rozšířeními a Baldur's Gate 3"
       },
       "universe": [
-        { "en": "Forgotten Realms", "cs": "Zapomenuté říše" }
+        {
+          "en": "Forgotten Realms",
+          "cs": "Zapomenuté říše"
+        }
       ],
-      "header": { "relatedWorldSlugs": ["pathfinder", "dragon-age", "planescape-torment"] },
+      "header": {
+        "relatedWorldSlugs": [
+          "pathfinder",
+          "dragon-age",
+          "planescape-torment"
+        ]
+      },
       "relatedWorlds": [
         {
           "id": "pathfinder",
-          "title": { "en": "Pathfinder", "cs": "Pathfinder" },
-          "genreProfile": { "en": "High fantasy", "cs": "Vysoká fantasy" },
+          "title": {
+            "en": "Pathfinder",
+            "cs": "Pathfinder"
+          },
+          "genreProfile": {
+            "en": "High fantasy",
+            "cs": "Vysoká fantasy"
+          },
           "yearRange": "2018–2021",
-          "note": { "en": "D&D heritage and divine politics", "cs": "dědictví D&D a božská politika" }
+          "note": {
+            "en": "D&D heritage and divine politics",
+            "cs": "dědictví D&D a božská politika"
+          }
         },
         {
           "id": "dragon-age",
-          "title": { "en": "Dragon Age", "cs": "Dragon Age" },
-          "genreProfile": { "en": "Dark fantasy", "cs": "Temná fantasy" },
+          "title": {
+            "en": "Dragon Age",
+            "cs": "Dragon Age"
+          },
+          "genreProfile": {
+            "en": "Dark fantasy",
+            "cs": "Temná fantasy"
+          },
           "yearRange": "2009–2024",
-          "note": { "en": "the party and institutional guilt", "cs": "družina a vina institucí" }
+          "note": {
+            "en": "the party and institutional guilt",
+            "cs": "družina a vina institucí"
+          }
         },
         {
           "id": "planescape-torment",
-          "title": { "en": "Planescape: Torment", "cs": "Planescape: Torment" },
-          "genreProfile": { "en": "Planar fantasy", "cs": "Planární fantasy" },
+          "title": {
+            "en": "Planescape: Torment",
+            "cs": "Planescape: Torment"
+          },
+          "genreProfile": {
+            "en": "Planar fantasy",
+            "cs": "Planární fantasy"
+          },
           "yearRange": "1999",
-          "note": { "en": "D&D and the question of identity", "cs": "D&D a otázka identity" }
+          "note": {
+            "en": "D&D and the question of identity",
+            "cs": "D&D a otázka identity"
+          }
         }
       ],
       "core": {
@@ -66,37 +114,58 @@
         "genreProfile": {
           "en": "High fantasy",
           "cs": "Vysoká fantasy",
-          "sub": { "en": "overlap: dark fantasy", "cs": "přesah: temná fantasy" }
+          "sub": {
+            "en": "overlap: dark fantasy",
+            "cs": "přesah: temná fantasy"
+          }
         },
         "atmosphere": {
           "en": "Fascination",
           "cs": "Fascinace",
-          "sub": { "en": "secondary: Tension", "cs": "vedlejší: Napětí" }
+          "sub": {
+            "en": "secondary: Tension",
+            "cs": "vedlejší: Napětí"
+          }
         },
         "spatialScope": {
           "en": "Region",
           "cs": "Region",
-          "sub": { "en": "Sword Coast", "cs": "Mečové pobřeží" }
+          "sub": {
+            "en": "Sword Coast",
+            "cs": "Mečové pobřeží"
+          }
         },
         "historicalDepth": {
           "en": "Mythic",
           "cs": "Mytická",
-          "sub": { "en": "from Toril's creation and Netheril's fall", "cs": "od stvoření Torilu a pádu Netherilu" }
+          "sub": {
+            "en": "from Toril's creation and Netheril's fall",
+            "cs": "od stvoření Torilu a pádu Netherilu"
+          }
         },
         "societalOrder": {
           "en": "Contending realms and nations",
           "cs": "Zápasící říše a národy",
-          "sub": { "en": "city-states, guilds, divine cults", "cs": "městské státy, cechy a božské kulty" }
+          "sub": {
+            "en": "city-states, guilds, divine cults",
+            "cs": "městské státy, cechy a božské kulty"
+          }
         },
         "sourceOfPower": {
           "en": "Magic and alchemy",
           "cs": "Magie a alchymie",
-          "sub": { "en": "the Weave and divine blood", "cs": "magické Předivo (Weave) a božská krev" }
+          "sub": {
+            "en": "the Weave and divine blood",
+            "cs": "magické Předivo (Weave) a božská krev"
+          }
         },
         "protagonistPerspective": {
           "en": "Chosen champion of fate",
           "cs": "Vyvolený a šampion osudu",
-          "sub": { "en": "Bhaalspawn; in BG3, parasite-bearer", "cs": "Bhaalův potomek, v BG3 nositel parazita" },
+          "sub": {
+            "en": "Bhaalspawn; in BG3, parasite-bearer",
+            "cs": "Bhaalův potomek, v BG3 nositel parazita"
+          },
           "detail": {
             "en": "A customizable heir of murder—Child of Bhaal or Dark Urge—whose every mercy or slaughter feeds the myth.",
             "cs": "Vlastní hrdina jako dědic vražedného boha: každé milosrdenství i zabíjení přepisuje, zda zůstane člověk, nebo nástrojem Bhaala."
@@ -111,13 +180,27 @@
           }
         }
       },
-      "themes": ["free-will-and-fate", "identity-and-existence", "power-and-dominion"],
+      "themes": [
+        "free-will-and-fate",
+        "identity-and-existence",
+        "power-and-dominion"
+      ],
       "axes": {
-        "hopeDespair": { "value": 2 },
-        "knownUnknown": { "value": 2 },
-        "intimateEpic": { "value": 4 },
-        "moralClarityAmbiguity": { "value": 3 },
-        "realismMetaphysical": { "value": 4 }
+        "hopeDespair": {
+          "value": 2
+        },
+        "knownUnknown": {
+          "value": 2
+        },
+        "intimateEpic": {
+          "value": 4
+        },
+        "moralClarityAmbiguity": {
+          "value": 3
+        },
+        "realismMetaphysical": {
+          "value": 4
+        }
       },
       "triad": {
         "originalSin": {
@@ -143,42 +226,95 @@
       "id": "dark-souls",
       "number": 2,
       "chapterId": "fantasy",
-      "gameTitle": { "en": "Dark Souls", "cs": "Dark Souls" },
-      "chronicleTitle": { "en": "Chronicle of Ash", "cs": "Kronika Popela" },
-      "subtitlePoetic": { "en": "Chronicle of Ash", "cs": "Kronika Popela" },
-      "studios": ["FromSoftware"],
+      "gameTitle": {
+        "en": "Dark Souls",
+        "cs": "Dark Souls"
+      },
+      "chronicleTitle": {
+        "en": "Chronicle of Ash",
+        "cs": "Kronika Popela"
+      },
+      "subtitlePoetic": {
+        "en": "Chronicle of Ash",
+        "cs": "Kronika Popela"
+      },
+      "studios": [
+        "FromSoftware"
+      ],
       "yearRange": "2011–2017",
       "canonScope": {
         "en": "Dark Souls I–III and all expansions",
         "cs": "Dark Souls I–III a všechna rozšíření"
       },
       "universe": [
-        { "en": "Lordran", "cs": "Lordran" },
-        { "en": "Drangleic", "cs": "Drangleic" },
-        { "en": "Lothric", "cs": "Lothric" }
+        {
+          "en": "Lordran",
+          "cs": "Lordran"
+        },
+        {
+          "en": "Drangleic",
+          "cs": "Drangleic"
+        },
+        {
+          "en": "Lothric",
+          "cs": "Lothric"
+        }
       ],
-      "header": { "relatedWorldSlugs": ["elden-ring", "bloodborne", "xenoblade"] },
+      "header": {
+        "relatedWorldSlugs": [
+          "elden-ring",
+          "bloodborne",
+          "xenoblade"
+        ]
+      },
       "relatedWorlds": [
         {
           "id": "elden-ring",
-          "title": { "en": "Elden Ring", "cs": "Elden Ring" },
-          "genreProfile": { "en": "Dark fantasy", "cs": "Temná fantasy" },
+          "title": {
+            "en": "Elden Ring",
+            "cs": "Elden Ring"
+          },
+          "genreProfile": {
+            "en": "Dark fantasy",
+            "cs": "Temná fantasy"
+          },
           "yearRange": "2022–2024",
-          "note": { "en": "mythic history, a broken order", "cs": "mytické dějiny, zlomený řád" }
+          "note": {
+            "en": "mythic history, a broken order",
+            "cs": "mytické dějiny, zlomený řád"
+          }
         },
         {
           "id": "bloodborne",
-          "title": { "en": "Bloodborne", "cs": "Bloodborne" },
-          "genreProfile": { "en": "Cosmic horror", "cs": "Kosmický horor" },
+          "title": {
+            "en": "Bloodborne",
+            "cs": "Bloodborne"
+          },
+          "genreProfile": {
+            "en": "Cosmic horror",
+            "cs": "Kosmický horor"
+          },
           "yearRange": "2015",
-          "note": { "en": "cosmic horror, hidden truth", "cs": "kosmický horor, skrytá pravda" }
+          "note": {
+            "en": "cosmic horror, hidden truth",
+            "cs": "kosmický horor, skrytá pravda"
+          }
         },
         {
           "id": "xenoblade",
-          "title": { "en": "Xenoblade", "cs": "Xenoblade" },
-          "genreProfile": { "en": "Science fantasy", "cs": "Science fantasy" },
+          "title": {
+            "en": "Xenoblade",
+            "cs": "Xenoblade"
+          },
+          "genreProfile": {
+            "en": "Science fantasy",
+            "cs": "Science fantasy"
+          },
           "yearRange": "2010–2023",
-          "note": { "en": "cycles and dying gods", "cs": "cykly a umírající bohové" }
+          "note": {
+            "en": "cycles and dying gods",
+            "cs": "cykly a umírající bohové"
+          }
         }
       ],
       "core": {
@@ -207,37 +343,58 @@
         "genreProfile": {
           "en": "Dark fantasy",
           "cs": "Temná fantasy",
-          "sub": { "en": "overlap: cosmic myth", "cs": "přesah: kosmický mýtus" }
+          "sub": {
+            "en": "overlap: cosmic myth",
+            "cs": "přesah: kosmický mýtus"
+          }
         },
         "atmosphere": {
           "en": "Melancholy",
           "cs": "Melancholie",
-          "sub": { "en": "secondary: Despair", "cs": "vedlejší: Zoufalství" }
+          "sub": {
+            "en": "secondary: Despair",
+            "cs": "vedlejší: Zoufalství"
+          }
         },
         "spatialScope": {
           "en": "Region",
           "cs": "Region",
-          "sub": { "en": "one kingdom in the cycle", "cs": "jedno království v cyklu" }
+          "sub": {
+            "en": "one kingdom in the cycle",
+            "cs": "jedno království v cyklu"
+          }
         },
         "historicalDepth": {
           "en": "Mythic",
           "cs": "Mytická",
-          "sub": { "en": "from the Age of the Ancients", "cs": "od Věku prastarých" }
+          "sub": {
+            "en": "from the Age of the Ancients",
+            "cs": "od Věku prastarých"
+          }
         },
         "societalOrder": {
           "en": "Dying world in ruins",
           "cs": "Umírající svět v troskách",
-          "sub": { "en": "faded realms, madmen, shadows of gods", "cs": "vyhaslé říše, šílenci a stíny bohů" }
+          "sub": {
+            "en": "faded realms, madmen, shadows of gods",
+            "cs": "vyhaslé říše, šílenci a stíny bohů"
+          }
         },
         "sourceOfPower": {
           "en": "Divine and cosmic essence",
           "cs": "Božská a kosmická esence",
-          "sub": { "en": "First Flame, Lord Souls, Dark Soul", "cs": "První plamen, Duše pánů a Temná duše" }
+          "sub": {
+            "en": "First Flame, Lord Souls, Dark Soul",
+            "cs": "První plamen, Duše pánů a Temná duše"
+          }
         },
         "protagonistPerspective": {
           "en": "Pilgrim and outcast on the margins",
           "cs": "Poutník a psanec na okraji",
-          "sub": { "en": "nameless undead, one of many", "cs": "bezejmenný nemrtvý, jeden z mnoha" },
+          "sub": {
+            "en": "nameless undead, one of many",
+            "cs": "bezejmenný nemrtvý, jeden z mnoha"
+          },
           "detail": {
             "en": "A hollow undead—Chosen or usurper—whose stamina of will matters more than heroism.",
             "cs": "Nemrtvý hrdina bez osudu: Vyvolený, zloděj plamene nebo pouhý vyhasínající – záleží na vůli, ne na cti."
@@ -252,13 +409,27 @@
           }
         }
       },
-      "themes": ["uncovering-the-past", "faith", "power-and-dominion"],
+      "themes": [
+        "uncovering-the-past",
+        "faith",
+        "power-and-dominion"
+      ],
       "axes": {
-        "hopeDespair": { "value": 4 },
-        "knownUnknown": { "value": 5 },
-        "intimateEpic": { "value": 4 },
-        "moralClarityAmbiguity": { "value": 4 },
-        "realismMetaphysical": { "value": 5 }
+        "hopeDespair": {
+          "value": 4
+        },
+        "knownUnknown": {
+          "value": 5
+        },
+        "intimateEpic": {
+          "value": 4
+        },
+        "moralClarityAmbiguity": {
+          "value": 4
+        },
+        "realismMetaphysical": {
+          "value": 5
+        }
       },
       "triad": {
         "originalSin": {
@@ -284,40 +455,87 @@
       "id": "diablo",
       "number": 3,
       "chapterId": "fantasy",
-      "gameTitle": { "en": "Diablo", "cs": "Diablo" },
-      "chronicleTitle": { "en": "Chronicle of the Sanctuary", "cs": "Kronika Svatyně" },
-      "subtitlePoetic": { "en": "Chronicle of the Sanctuary", "cs": "Kronika Svatyně" },
-      "studios": ["Blizzard Entertainment"],
+      "gameTitle": {
+        "en": "Diablo",
+        "cs": "Diablo"
+      },
+      "chronicleTitle": {
+        "en": "Chronicle of the Sanctuary",
+        "cs": "Kronika Svatyně"
+      },
+      "subtitlePoetic": {
+        "en": "Chronicle of the Sanctuary",
+        "cs": "Kronika Svatyně"
+      },
+      "studios": [
+        "Blizzard Entertainment"
+      ],
       "yearRange": "1996–2024",
       "canonScope": {
         "en": "Diablo I–IV with expansions",
         "cs": "Diablo I–IV s rozšířeními"
       },
       "universe": [
-        { "en": "Sanctuary", "cs": "Svatyně" }
+        {
+          "en": "Sanctuary",
+          "cs": "Svatyně"
+        }
       ],
-      "header": { "relatedWorldSlugs": ["path-of-exile", "warcraft", "dark-souls"] },
+      "header": {
+        "relatedWorldSlugs": [
+          "path-of-exile",
+          "warcraft",
+          "dark-souls"
+        ]
+      },
       "relatedWorlds": [
         {
           "id": "path-of-exile",
-          "title": { "en": "Path of Exile", "cs": "Path of Exile" },
-          "genreProfile": { "en": "Dark fantasy", "cs": "Temná fantasy" },
+          "title": {
+            "en": "Path of Exile",
+            "cs": "Path of Exile"
+          },
+          "genreProfile": {
+            "en": "Dark fantasy",
+            "cs": "Temná fantasy"
+          },
           "yearRange": "2013–2024",
-          "note": { "en": "a dark quest for power", "cs": "temná výprava za mocí" }
+          "note": {
+            "en": "a dark quest for power",
+            "cs": "temná výprava za mocí"
+          }
         },
         {
           "id": "warcraft",
-          "title": { "en": "Warcraft", "cs": "Warcraft" },
-          "genreProfile": { "en": "High fantasy", "cs": "Vysoká fantasy" },
+          "title": {
+            "en": "Warcraft",
+            "cs": "Warcraft"
+          },
+          "genreProfile": {
+            "en": "High fantasy",
+            "cs": "Vysoká fantasy"
+          },
           "yearRange": "1994–2024",
-          "note": { "en": "demons and cosmic war", "cs": "démoni a kosmická válka" }
+          "note": {
+            "en": "demons and cosmic war",
+            "cs": "démoni a kosmická válka"
+          }
         },
         {
           "id": "dark-souls",
-          "title": { "en": "Dark Souls", "cs": "Dark Souls" },
-          "genreProfile": { "en": "Dark fantasy", "cs": "Temná fantasy" },
+          "title": {
+            "en": "Dark Souls",
+            "cs": "Dark Souls"
+          },
+          "genreProfile": {
+            "en": "Dark fantasy",
+            "cs": "Temná fantasy"
+          },
           "yearRange": "2011–2017",
-          "note": { "en": "gothic decay", "cs": "gotický úpadek" }
+          "note": {
+            "en": "gothic decay",
+            "cs": "gotický úpadek"
+          }
         }
       ],
       "core": {
@@ -346,37 +564,58 @@
         "genreProfile": {
           "en": "Dark fantasy",
           "cs": "Temná fantasy",
-          "sub": { "en": "overlap: gothic horror", "cs": "přesah: gotický horor" }
+          "sub": {
+            "en": "overlap: gothic horror",
+            "cs": "přesah: gotický horor"
+          }
         },
         "atmosphere": {
           "en": "Oppression",
           "cs": "Tísnivost",
-          "sub": { "en": "secondary: Despair", "cs": "vedlejší: Zoufalství" }
+          "sub": {
+            "en": "secondary: Despair",
+            "cs": "vedlejší: Zoufalství"
+          }
         },
         "spatialScope": {
           "en": "World",
           "cs": "Svět",
-          "sub": { "en": "Sanctuary, Heaven, and Hell", "cs": "Svatyně, Nebesa a Peklo" }
+          "sub": {
+            "en": "Sanctuary, Heaven, and Hell",
+            "cs": "Svatyně, Nebesa a Peklo"
+          }
         },
         "historicalDepth": {
           "en": "Mythic",
           "cs": "Mytická",
-          "sub": { "en": "from Anu and dragon Tathamet", "cs": "od Anua a draka Tathameta" }
+          "sub": {
+            "en": "from Anu and dragon Tathamet",
+            "cs": "od Anua a draka Tathameta"
+          }
         },
         "societalOrder": {
           "en": "Fragmented enclaves after collapse",
           "cs": "Roztříštěné enklávy po kolapsu",
-          "sub": { "en": "decimated kingdoms between heaven and hell", "cs": "zdecimovaná království mezi nebem a peklem" }
+          "sub": {
+            "en": "decimated kingdoms between heaven and hell",
+            "cs": "zdecimovaná království mezi nebem a peklem"
+          }
         },
         "sourceOfPower": {
           "en": "Divine and cosmic essence",
           "cs": "Božská a kosmická esence",
-          "sub": { "en": "Nephalem blood, Worldstone, demonic pacts", "cs": "krev Nephalem, Kámen světa a démonické pakty" }
+          "sub": {
+            "en": "Nephalem blood, Worldstone, demonic pacts",
+            "cs": "krev Nephalem, Kámen světa a démonické pakty"
+          }
         },
         "protagonistPerspective": {
           "en": "Pilgrim and outcast on the margins",
           "cs": "Poutník a psanec na okraji",
-          "sub": { "en": "Nephalem classes facing the Prime Evils' return", "cs": "nephalem zvolené třídy čelící návratu Prvotních zel" },
+          "sub": {
+            "en": "Nephalem classes facing the Prime Evils' return",
+            "cs": "nephalem zvolené třídy čelící návratu Prvotních zel"
+          },
           "detail": {
             "en": "A mortal champion growing into Nephalem—savior, mercenary, or pawn of angels and demons.",
             "cs": "Smrtelník stoupající k moci Nephalema — spasitel, žoldnéř nebo figurka nebes a pekel."
@@ -391,13 +630,27 @@
           }
         }
       },
-      "themes": ["war", "free-will-and-fate", "faith"],
+      "themes": [
+        "war",
+        "free-will-and-fate",
+        "faith"
+      ],
       "axes": {
-        "hopeDespair": { "value": 4 },
-        "knownUnknown": { "value": 2 },
-        "intimateEpic": { "value": 5 },
-        "moralClarityAmbiguity": { "value": 3 },
-        "realismMetaphysical": { "value": 5 }
+        "hopeDespair": {
+          "value": 4
+        },
+        "knownUnknown": {
+          "value": 2
+        },
+        "intimateEpic": {
+          "value": 5
+        },
+        "moralClarityAmbiguity": {
+          "value": 3
+        },
+        "realismMetaphysical": {
+          "value": 5
+        }
       },
       "triad": {
         "originalSin": {
@@ -418,6 +671,1175 @@
         "en": "From Anu and Tathamet to Tristram's cathedral—an Eternal Conflict fought in human flesh.",
         "cs": "Od Anua a Tathameta po katedrálu v Tristramu."
       }
+    },
+    {
+      "id": "vzorek-fantasy",
+      "number": 90,
+      "chapterId": "fantasy",
+      "gameTitle": {
+        "en": "Sample · Fantasy",
+        "cs": "Vzorek · Fantasy"
+      },
+      "chronicleTitle": {
+        "en": "Chronicle of the Sword Coast",
+        "cs": "Kronika Mečového pobřeží"
+      },
+      "subtitlePoetic": {
+        "en": "Chronicle of the Sword Coast",
+        "cs": "Kronika Mečového pobřeží"
+      },
+      "studios": [
+        "BioWare",
+        "Larian Studios"
+      ],
+      "yearRange": "1998–2023",
+      "canonScope": {
+        "en": "Baldur's Gate I–II with expansions and Baldur's Gate 3",
+        "cs": "Baldur's Gate I–II s rozšířeními a Baldur's Gate 3"
+      },
+      "universe": [
+        {
+          "en": "Forgotten Realms",
+          "cs": "Zapomenuté říše"
+        }
+      ],
+      "relatedWorlds": [],
+      "core": {
+        "en": "A world where people become gods—and must learn not to be their property.",
+        "cs": "Svět, v němž se z lidí stávají bohové – a lidé se pak musí naučit nebýt jejich majetkem."
+      },
+      "signatureBullets": [
+        {
+          "en": "Gods from mortals. Bane, Bhaal, and Myrkul were mortals who seized divine offices.",
+          "cs": "Bohové z lidí. Bane, Bhaal a Myrkul byli smrtelníci, kteří uchvátili božské úřady."
+        },
+        {
+          "en": "Murder-god's blood. The hero is a child of dead Bhaal and carries a murderous urge.",
+          "cs": "Krev boha vraždy. Hrdina je dítětem mrtvého Bhaala a vražedný pud nosí v sobě."
+        },
+        {
+          "en": "The party as mirror. Each companion confronts a toxic lord of their own.",
+          "cs": "Družina jako zrcadlo. Každý společník řeší vztah k vlastnímu toxickému pánovi."
+        },
+        {
+          "en": "The founder as monster. Legendary Balduran survives as mind flayer, the Emperor.",
+          "cs": "Zakladatel jako netvor. Bájný Balduran přežívá jako mozkožrout, Císař."
+        }
+      ],
+      "metadata": {
+        "genreProfile": {
+          "en": "High fantasy",
+          "cs": "Vysoká fantasy",
+          "sub": {
+            "en": "overlap: dark fantasy",
+            "cs": "přesah: temná fantasy"
+          }
+        },
+        "atmosphere": {
+          "en": "Fascination",
+          "cs": "Fascinace",
+          "sub": {
+            "en": "secondary: Tension",
+            "cs": "vedlejší: Napětí"
+          }
+        },
+        "spatialScope": {
+          "en": "Region",
+          "cs": "Region",
+          "sub": {
+            "en": "Sword Coast",
+            "cs": "Mečové pobřeží"
+          }
+        },
+        "historicalDepth": {
+          "en": "Mythic",
+          "cs": "Mytická",
+          "sub": {
+            "en": "from Toril's creation and Netheril's fall",
+            "cs": "od stvoření Torilu a pádu Netherilu"
+          }
+        },
+        "societalOrder": {
+          "en": "Contending realms and nations",
+          "cs": "Zápasící říše a národy",
+          "sub": {
+            "en": "city-states, guilds, divine cults",
+            "cs": "městské státy, cechy a božské kulty"
+          }
+        },
+        "sourceOfPower": {
+          "en": "Magic and alchemy",
+          "cs": "Magie a alchymie",
+          "sub": {
+            "en": "the Weave and divine blood",
+            "cs": "magické Předivo (Weave) a božská krev"
+          }
+        },
+        "protagonistPerspective": {
+          "en": "Chosen champion of fate",
+          "cs": "Vyvolený a šampion osudu",
+          "sub": {
+            "en": "Bhaalspawn; in BG3, parasite-bearer",
+            "cs": "Bhaalův potomek, v BG3 nositel parazita"
+          },
+          "detail": {
+            "en": "A customizable heir of murder—Child of Bhaal or Dark Urge—whose every mercy or slaughter feeds the myth.",
+            "cs": "Vlastní hrdina jako dědic vražedného boha: každé milosrdenství i zabíjení přepisuje, zda zůstane člověk, nebo nástrojem Bhaala."
+          }
+        },
+        "keyActors": {
+          "en": "Dead Three · Bhaalspawn · illithids and the Absolute · Harpers and Jaheira · Emperor (Balduran)",
+          "cs": "Mrtvá trojice (Bane, Bhaal a Myrkul) · Bhaalovi potomci · illithidé a Absolutno · Harfeníci a Jaheira · Císař (Balduran)",
+          "detail": {
+            "en": "The Dead Three usurped divine offices. The cult of the Absolute hunts Chosen blood through mind flayers. Balduran, founder turned elder brain, guards the city's myth. Each companion mirrors toxic power.",
+            "cs": "Mrtvá trojice — Bane, Bhaal a Myrkul, smrtelníci, kteří si přivlastnili božské úřady. Kult Absolutna — mozkožrouti tahající za nitky skrze „boží“ hlas v hlavě. Císař (Balduran) — zakladatel města, dnes mozkožrout; strážce i vězeň mýtu o Baldur's Gate. Společníci — každý nese vlastní vztah k moci a toxickému pánovi; družina jako skupinová zkouška charakteru."
+          }
+        }
+      },
+      "themes": [
+        "free-will-and-fate",
+        "identity-and-existence",
+        "power-and-dominion"
+      ],
+      "axes": {
+        "hopeDespair": {
+          "value": 2
+        },
+        "knownUnknown": {
+          "value": 2
+        },
+        "intimateEpic": {
+          "value": 4
+        },
+        "moralClarityAmbiguity": {
+          "value": 3
+        },
+        "realismMetaphysical": {
+          "value": 4
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "Mortals Bane, Bhaal, and Myrkul seized the gods' offices—and treat people as tools ever since.",
+          "cs": "Smrtelníci Bane, Bhaal a Myrkul uchvátili úřady bohů – a s lidmi od té doby zacházejí jako s nástroji."
+        },
+        "centralDilemma": {
+          "en": "Are mortals only vessels of their makers' will, or can they fight for their own identity?",
+          "cs": "Jsou smrtelníci jen nádobami vůle svých stvořitelů, nebo si mohou vybojovat vlastní identitu?"
+        },
+        "ultimateMystery": {
+          "en": "Who is Withers? The game never says aloud, but nearly everything points to Jergal, the ancient god of death.",
+          "cs": "Kdo je Withers? Hra to nikdy neřekne nahlas, ale téměř vše ukazuje na Jergala, prastarého boha smrti."
+        }
+      },
+      "chronicleSlug": "baldurs-gate",
+      "chronicleTeaser": {
+        "en": "From Netheril's fall and the Mind Flayer revolt to Bhaal's blood and the fall of Elturel—a saga of divine theft and mortal appetite.",
+        "cs": "Od pádu Netherilu po krev Bhaala a pád Elturelu."
+      },
+      "draft": true
+    },
+    {
+      "id": "vzorek-science-fiction",
+      "number": 91,
+      "chapterId": "science-fiction",
+      "gameTitle": {
+        "en": "Sample · Science Fiction",
+        "cs": "Vzorek · Science fiction"
+      },
+      "chronicleTitle": {
+        "en": "Chronicle of the Sword Coast",
+        "cs": "Kronika Mečového pobřeží"
+      },
+      "subtitlePoetic": {
+        "en": "Chronicle of the Sword Coast",
+        "cs": "Kronika Mečového pobřeží"
+      },
+      "studios": [
+        "BioWare",
+        "Larian Studios"
+      ],
+      "yearRange": "1998–2023",
+      "canonScope": {
+        "en": "Baldur's Gate I–II with expansions and Baldur's Gate 3",
+        "cs": "Baldur's Gate I–II s rozšířeními a Baldur's Gate 3"
+      },
+      "universe": [
+        {
+          "en": "Forgotten Realms",
+          "cs": "Zapomenuté říše"
+        }
+      ],
+      "relatedWorlds": [],
+      "core": {
+        "en": "A world where people become gods—and must learn not to be their property.",
+        "cs": "Svět, v němž se z lidí stávají bohové – a lidé se pak musí naučit nebýt jejich majetkem."
+      },
+      "signatureBullets": [
+        {
+          "en": "Gods from mortals. Bane, Bhaal, and Myrkul were mortals who seized divine offices.",
+          "cs": "Bohové z lidí. Bane, Bhaal a Myrkul byli smrtelníci, kteří uchvátili božské úřady."
+        },
+        {
+          "en": "Murder-god's blood. The hero is a child of dead Bhaal and carries a murderous urge.",
+          "cs": "Krev boha vraždy. Hrdina je dítětem mrtvého Bhaala a vražedný pud nosí v sobě."
+        },
+        {
+          "en": "The party as mirror. Each companion confronts a toxic lord of their own.",
+          "cs": "Družina jako zrcadlo. Každý společník řeší vztah k vlastnímu toxickému pánovi."
+        },
+        {
+          "en": "The founder as monster. Legendary Balduran survives as mind flayer, the Emperor.",
+          "cs": "Zakladatel jako netvor. Bájný Balduran přežívá jako mozkožrout, Císař."
+        }
+      ],
+      "metadata": {
+        "genreProfile": {
+          "en": "High fantasy",
+          "cs": "Vysoká fantasy",
+          "sub": {
+            "en": "overlap: dark fantasy",
+            "cs": "přesah: temná fantasy"
+          }
+        },
+        "atmosphere": {
+          "en": "Fascination",
+          "cs": "Fascinace",
+          "sub": {
+            "en": "secondary: Tension",
+            "cs": "vedlejší: Napětí"
+          }
+        },
+        "spatialScope": {
+          "en": "Region",
+          "cs": "Region",
+          "sub": {
+            "en": "Sword Coast",
+            "cs": "Mečové pobřeží"
+          }
+        },
+        "historicalDepth": {
+          "en": "Mythic",
+          "cs": "Mytická",
+          "sub": {
+            "en": "from Toril's creation and Netheril's fall",
+            "cs": "od stvoření Torilu a pádu Netherilu"
+          }
+        },
+        "societalOrder": {
+          "en": "Contending realms and nations",
+          "cs": "Zápasící říše a národy",
+          "sub": {
+            "en": "city-states, guilds, divine cults",
+            "cs": "městské státy, cechy a božské kulty"
+          }
+        },
+        "sourceOfPower": {
+          "en": "Magic and alchemy",
+          "cs": "Magie a alchymie",
+          "sub": {
+            "en": "the Weave and divine blood",
+            "cs": "magické Předivo (Weave) a božská krev"
+          }
+        },
+        "protagonistPerspective": {
+          "en": "Chosen champion of fate",
+          "cs": "Vyvolený a šampion osudu",
+          "sub": {
+            "en": "Bhaalspawn; in BG3, parasite-bearer",
+            "cs": "Bhaalův potomek, v BG3 nositel parazita"
+          },
+          "detail": {
+            "en": "A customizable heir of murder—Child of Bhaal or Dark Urge—whose every mercy or slaughter feeds the myth.",
+            "cs": "Vlastní hrdina jako dědic vražedného boha: každé milosrdenství i zabíjení přepisuje, zda zůstane člověk, nebo nástrojem Bhaala."
+          }
+        },
+        "keyActors": {
+          "en": "Dead Three · Bhaalspawn · illithids and the Absolute · Harpers and Jaheira · Emperor (Balduran)",
+          "cs": "Mrtvá trojice (Bane, Bhaal a Myrkul) · Bhaalovi potomci · illithidé a Absolutno · Harfeníci a Jaheira · Císař (Balduran)",
+          "detail": {
+            "en": "The Dead Three usurped divine offices. The cult of the Absolute hunts Chosen blood through mind flayers. Balduran, founder turned elder brain, guards the city's myth. Each companion mirrors toxic power.",
+            "cs": "Mrtvá trojice — Bane, Bhaal a Myrkul, smrtelníci, kteří si přivlastnili božské úřady. Kult Absolutna — mozkožrouti tahající za nitky skrze „boží“ hlas v hlavě. Císař (Balduran) — zakladatel města, dnes mozkožrout; strážce i vězeň mýtu o Baldur's Gate. Společníci — každý nese vlastní vztah k moci a toxickému pánovi; družina jako skupinová zkouška charakteru."
+          }
+        }
+      },
+      "themes": [
+        "free-will-and-fate",
+        "identity-and-existence",
+        "power-and-dominion"
+      ],
+      "axes": {
+        "hopeDespair": {
+          "value": 2
+        },
+        "knownUnknown": {
+          "value": 2
+        },
+        "intimateEpic": {
+          "value": 4
+        },
+        "moralClarityAmbiguity": {
+          "value": 3
+        },
+        "realismMetaphysical": {
+          "value": 4
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "Mortals Bane, Bhaal, and Myrkul seized the gods' offices—and treat people as tools ever since.",
+          "cs": "Smrtelníci Bane, Bhaal a Myrkul uchvátili úřady bohů – a s lidmi od té doby zacházejí jako s nástroji."
+        },
+        "centralDilemma": {
+          "en": "Are mortals only vessels of their makers' will, or can they fight for their own identity?",
+          "cs": "Jsou smrtelníci jen nádobami vůle svých stvořitelů, nebo si mohou vybojovat vlastní identitu?"
+        },
+        "ultimateMystery": {
+          "en": "Who is Withers? The game never says aloud, but nearly everything points to Jergal, the ancient god of death.",
+          "cs": "Kdo je Withers? Hra to nikdy neřekne nahlas, ale téměř vše ukazuje na Jergala, prastarého boha smrti."
+        }
+      },
+      "chronicleSlug": "baldurs-gate",
+      "chronicleTeaser": {
+        "en": "From Netheril's fall and the Mind Flayer revolt to Bhaal's blood and the fall of Elturel—a saga of divine theft and mortal appetite.",
+        "cs": "Od pádu Netherilu po krev Bhaala a pád Elturelu."
+      },
+      "draft": true
+    },
+    {
+      "id": "vzorek-post-apocalypse",
+      "number": 92,
+      "chapterId": "post-apocalypse",
+      "gameTitle": {
+        "en": "Sample · Post-Apocalypse",
+        "cs": "Vzorek · Postapokalypsa"
+      },
+      "chronicleTitle": {
+        "en": "Chronicle of the Sword Coast",
+        "cs": "Kronika Mečového pobřeží"
+      },
+      "subtitlePoetic": {
+        "en": "Chronicle of the Sword Coast",
+        "cs": "Kronika Mečového pobřeží"
+      },
+      "studios": [
+        "BioWare",
+        "Larian Studios"
+      ],
+      "yearRange": "1998–2023",
+      "canonScope": {
+        "en": "Baldur's Gate I–II with expansions and Baldur's Gate 3",
+        "cs": "Baldur's Gate I–II s rozšířeními a Baldur's Gate 3"
+      },
+      "universe": [
+        {
+          "en": "Forgotten Realms",
+          "cs": "Zapomenuté říše"
+        }
+      ],
+      "relatedWorlds": [],
+      "core": {
+        "en": "A world where people become gods—and must learn not to be their property.",
+        "cs": "Svět, v němž se z lidí stávají bohové – a lidé se pak musí naučit nebýt jejich majetkem."
+      },
+      "signatureBullets": [
+        {
+          "en": "Gods from mortals. Bane, Bhaal, and Myrkul were mortals who seized divine offices.",
+          "cs": "Bohové z lidí. Bane, Bhaal a Myrkul byli smrtelníci, kteří uchvátili božské úřady."
+        },
+        {
+          "en": "Murder-god's blood. The hero is a child of dead Bhaal and carries a murderous urge.",
+          "cs": "Krev boha vraždy. Hrdina je dítětem mrtvého Bhaala a vražedný pud nosí v sobě."
+        },
+        {
+          "en": "The party as mirror. Each companion confronts a toxic lord of their own.",
+          "cs": "Družina jako zrcadlo. Každý společník řeší vztah k vlastnímu toxickému pánovi."
+        },
+        {
+          "en": "The founder as monster. Legendary Balduran survives as mind flayer, the Emperor.",
+          "cs": "Zakladatel jako netvor. Bájný Balduran přežívá jako mozkožrout, Císař."
+        }
+      ],
+      "metadata": {
+        "genreProfile": {
+          "en": "High fantasy",
+          "cs": "Vysoká fantasy",
+          "sub": {
+            "en": "overlap: dark fantasy",
+            "cs": "přesah: temná fantasy"
+          }
+        },
+        "atmosphere": {
+          "en": "Fascination",
+          "cs": "Fascinace",
+          "sub": {
+            "en": "secondary: Tension",
+            "cs": "vedlejší: Napětí"
+          }
+        },
+        "spatialScope": {
+          "en": "Region",
+          "cs": "Region",
+          "sub": {
+            "en": "Sword Coast",
+            "cs": "Mečové pobřeží"
+          }
+        },
+        "historicalDepth": {
+          "en": "Mythic",
+          "cs": "Mytická",
+          "sub": {
+            "en": "from Toril's creation and Netheril's fall",
+            "cs": "od stvoření Torilu a pádu Netherilu"
+          }
+        },
+        "societalOrder": {
+          "en": "Contending realms and nations",
+          "cs": "Zápasící říše a národy",
+          "sub": {
+            "en": "city-states, guilds, divine cults",
+            "cs": "městské státy, cechy a božské kulty"
+          }
+        },
+        "sourceOfPower": {
+          "en": "Magic and alchemy",
+          "cs": "Magie a alchymie",
+          "sub": {
+            "en": "the Weave and divine blood",
+            "cs": "magické Předivo (Weave) a božská krev"
+          }
+        },
+        "protagonistPerspective": {
+          "en": "Chosen champion of fate",
+          "cs": "Vyvolený a šampion osudu",
+          "sub": {
+            "en": "Bhaalspawn; in BG3, parasite-bearer",
+            "cs": "Bhaalův potomek, v BG3 nositel parazita"
+          },
+          "detail": {
+            "en": "A customizable heir of murder—Child of Bhaal or Dark Urge—whose every mercy or slaughter feeds the myth.",
+            "cs": "Vlastní hrdina jako dědic vražedného boha: každé milosrdenství i zabíjení přepisuje, zda zůstane člověk, nebo nástrojem Bhaala."
+          }
+        },
+        "keyActors": {
+          "en": "Dead Three · Bhaalspawn · illithids and the Absolute · Harpers and Jaheira · Emperor (Balduran)",
+          "cs": "Mrtvá trojice (Bane, Bhaal a Myrkul) · Bhaalovi potomci · illithidé a Absolutno · Harfeníci a Jaheira · Císař (Balduran)",
+          "detail": {
+            "en": "The Dead Three usurped divine offices. The cult of the Absolute hunts Chosen blood through mind flayers. Balduran, founder turned elder brain, guards the city's myth. Each companion mirrors toxic power.",
+            "cs": "Mrtvá trojice — Bane, Bhaal a Myrkul, smrtelníci, kteří si přivlastnili božské úřady. Kult Absolutna — mozkožrouti tahající za nitky skrze „boží“ hlas v hlavě. Císař (Balduran) — zakladatel města, dnes mozkožrout; strážce i vězeň mýtu o Baldur's Gate. Společníci — každý nese vlastní vztah k moci a toxickému pánovi; družina jako skupinová zkouška charakteru."
+          }
+        }
+      },
+      "themes": [
+        "free-will-and-fate",
+        "identity-and-existence",
+        "power-and-dominion"
+      ],
+      "axes": {
+        "hopeDespair": {
+          "value": 2
+        },
+        "knownUnknown": {
+          "value": 2
+        },
+        "intimateEpic": {
+          "value": 4
+        },
+        "moralClarityAmbiguity": {
+          "value": 3
+        },
+        "realismMetaphysical": {
+          "value": 4
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "Mortals Bane, Bhaal, and Myrkul seized the gods' offices—and treat people as tools ever since.",
+          "cs": "Smrtelníci Bane, Bhaal a Myrkul uchvátili úřady bohů – a s lidmi od té doby zacházejí jako s nástroji."
+        },
+        "centralDilemma": {
+          "en": "Are mortals only vessels of their makers' will, or can they fight for their own identity?",
+          "cs": "Jsou smrtelníci jen nádobami vůle svých stvořitelů, nebo si mohou vybojovat vlastní identitu?"
+        },
+        "ultimateMystery": {
+          "en": "Who is Withers? The game never says aloud, but nearly everything points to Jergal, the ancient god of death.",
+          "cs": "Kdo je Withers? Hra to nikdy neřekne nahlas, ale téměř vše ukazuje na Jergala, prastarého boha smrti."
+        }
+      },
+      "chronicleSlug": "baldurs-gate",
+      "chronicleTeaser": {
+        "en": "From Netheril's fall and the Mind Flayer revolt to Bhaal's blood and the fall of Elturel—a saga of divine theft and mortal appetite.",
+        "cs": "Od pádu Netherilu po krev Bhaala a pád Elturelu."
+      },
+      "draft": true
+    },
+    {
+      "id": "vzorek-horror",
+      "number": 93,
+      "chapterId": "horror",
+      "gameTitle": {
+        "en": "Sample · Horror",
+        "cs": "Vzorek · Horor"
+      },
+      "chronicleTitle": {
+        "en": "Chronicle of the Sword Coast",
+        "cs": "Kronika Mečového pobřeží"
+      },
+      "subtitlePoetic": {
+        "en": "Chronicle of the Sword Coast",
+        "cs": "Kronika Mečového pobřeží"
+      },
+      "studios": [
+        "BioWare",
+        "Larian Studios"
+      ],
+      "yearRange": "1998–2023",
+      "canonScope": {
+        "en": "Baldur's Gate I–II with expansions and Baldur's Gate 3",
+        "cs": "Baldur's Gate I–II s rozšířeními a Baldur's Gate 3"
+      },
+      "universe": [
+        {
+          "en": "Forgotten Realms",
+          "cs": "Zapomenuté říše"
+        }
+      ],
+      "relatedWorlds": [],
+      "core": {
+        "en": "A world where people become gods—and must learn not to be their property.",
+        "cs": "Svět, v němž se z lidí stávají bohové – a lidé se pak musí naučit nebýt jejich majetkem."
+      },
+      "signatureBullets": [
+        {
+          "en": "Gods from mortals. Bane, Bhaal, and Myrkul were mortals who seized divine offices.",
+          "cs": "Bohové z lidí. Bane, Bhaal a Myrkul byli smrtelníci, kteří uchvátili božské úřady."
+        },
+        {
+          "en": "Murder-god's blood. The hero is a child of dead Bhaal and carries a murderous urge.",
+          "cs": "Krev boha vraždy. Hrdina je dítětem mrtvého Bhaala a vražedný pud nosí v sobě."
+        },
+        {
+          "en": "The party as mirror. Each companion confronts a toxic lord of their own.",
+          "cs": "Družina jako zrcadlo. Každý společník řeší vztah k vlastnímu toxickému pánovi."
+        },
+        {
+          "en": "The founder as monster. Legendary Balduran survives as mind flayer, the Emperor.",
+          "cs": "Zakladatel jako netvor. Bájný Balduran přežívá jako mozkožrout, Císař."
+        }
+      ],
+      "metadata": {
+        "genreProfile": {
+          "en": "High fantasy",
+          "cs": "Vysoká fantasy",
+          "sub": {
+            "en": "overlap: dark fantasy",
+            "cs": "přesah: temná fantasy"
+          }
+        },
+        "atmosphere": {
+          "en": "Fascination",
+          "cs": "Fascinace",
+          "sub": {
+            "en": "secondary: Tension",
+            "cs": "vedlejší: Napětí"
+          }
+        },
+        "spatialScope": {
+          "en": "Region",
+          "cs": "Region",
+          "sub": {
+            "en": "Sword Coast",
+            "cs": "Mečové pobřeží"
+          }
+        },
+        "historicalDepth": {
+          "en": "Mythic",
+          "cs": "Mytická",
+          "sub": {
+            "en": "from Toril's creation and Netheril's fall",
+            "cs": "od stvoření Torilu a pádu Netherilu"
+          }
+        },
+        "societalOrder": {
+          "en": "Contending realms and nations",
+          "cs": "Zápasící říše a národy",
+          "sub": {
+            "en": "city-states, guilds, divine cults",
+            "cs": "městské státy, cechy a božské kulty"
+          }
+        },
+        "sourceOfPower": {
+          "en": "Magic and alchemy",
+          "cs": "Magie a alchymie",
+          "sub": {
+            "en": "the Weave and divine blood",
+            "cs": "magické Předivo (Weave) a božská krev"
+          }
+        },
+        "protagonistPerspective": {
+          "en": "Chosen champion of fate",
+          "cs": "Vyvolený a šampion osudu",
+          "sub": {
+            "en": "Bhaalspawn; in BG3, parasite-bearer",
+            "cs": "Bhaalův potomek, v BG3 nositel parazita"
+          },
+          "detail": {
+            "en": "A customizable heir of murder—Child of Bhaal or Dark Urge—whose every mercy or slaughter feeds the myth.",
+            "cs": "Vlastní hrdina jako dědic vražedného boha: každé milosrdenství i zabíjení přepisuje, zda zůstane člověk, nebo nástrojem Bhaala."
+          }
+        },
+        "keyActors": {
+          "en": "Dead Three · Bhaalspawn · illithids and the Absolute · Harpers and Jaheira · Emperor (Balduran)",
+          "cs": "Mrtvá trojice (Bane, Bhaal a Myrkul) · Bhaalovi potomci · illithidé a Absolutno · Harfeníci a Jaheira · Císař (Balduran)",
+          "detail": {
+            "en": "The Dead Three usurped divine offices. The cult of the Absolute hunts Chosen blood through mind flayers. Balduran, founder turned elder brain, guards the city's myth. Each companion mirrors toxic power.",
+            "cs": "Mrtvá trojice — Bane, Bhaal a Myrkul, smrtelníci, kteří si přivlastnili božské úřady. Kult Absolutna — mozkožrouti tahající za nitky skrze „boží“ hlas v hlavě. Císař (Balduran) — zakladatel města, dnes mozkožrout; strážce i vězeň mýtu o Baldur's Gate. Společníci — každý nese vlastní vztah k moci a toxickému pánovi; družina jako skupinová zkouška charakteru."
+          }
+        }
+      },
+      "themes": [
+        "free-will-and-fate",
+        "identity-and-existence",
+        "power-and-dominion"
+      ],
+      "axes": {
+        "hopeDespair": {
+          "value": 2
+        },
+        "knownUnknown": {
+          "value": 2
+        },
+        "intimateEpic": {
+          "value": 4
+        },
+        "moralClarityAmbiguity": {
+          "value": 3
+        },
+        "realismMetaphysical": {
+          "value": 4
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "Mortals Bane, Bhaal, and Myrkul seized the gods' offices—and treat people as tools ever since.",
+          "cs": "Smrtelníci Bane, Bhaal a Myrkul uchvátili úřady bohů – a s lidmi od té doby zacházejí jako s nástroji."
+        },
+        "centralDilemma": {
+          "en": "Are mortals only vessels of their makers' will, or can they fight for their own identity?",
+          "cs": "Jsou smrtelníci jen nádobami vůle svých stvořitelů, nebo si mohou vybojovat vlastní identitu?"
+        },
+        "ultimateMystery": {
+          "en": "Who is Withers? The game never says aloud, but nearly everything points to Jergal, the ancient god of death.",
+          "cs": "Kdo je Withers? Hra to nikdy neřekne nahlas, ale téměř vše ukazuje na Jergala, prastarého boha smrti."
+        }
+      },
+      "chronicleSlug": "baldurs-gate",
+      "chronicleTeaser": {
+        "en": "From Netheril's fall and the Mind Flayer revolt to Bhaal's blood and the fall of Elturel—a saga of divine theft and mortal appetite.",
+        "cs": "Od pádu Netherilu po krev Bhaala a pád Elturelu."
+      },
+      "draft": true
+    },
+    {
+      "id": "vzorek-historical",
+      "number": 94,
+      "chapterId": "historical",
+      "gameTitle": {
+        "en": "Sample · Historical",
+        "cs": "Vzorek · Historie"
+      },
+      "chronicleTitle": {
+        "en": "Chronicle of the Sword Coast",
+        "cs": "Kronika Mečového pobřeží"
+      },
+      "subtitlePoetic": {
+        "en": "Chronicle of the Sword Coast",
+        "cs": "Kronika Mečového pobřeží"
+      },
+      "studios": [
+        "BioWare",
+        "Larian Studios"
+      ],
+      "yearRange": "1998–2023",
+      "canonScope": {
+        "en": "Baldur's Gate I–II with expansions and Baldur's Gate 3",
+        "cs": "Baldur's Gate I–II s rozšířeními a Baldur's Gate 3"
+      },
+      "universe": [
+        {
+          "en": "Forgotten Realms",
+          "cs": "Zapomenuté říše"
+        }
+      ],
+      "relatedWorlds": [],
+      "core": {
+        "en": "A world where people become gods—and must learn not to be their property.",
+        "cs": "Svět, v němž se z lidí stávají bohové – a lidé se pak musí naučit nebýt jejich majetkem."
+      },
+      "signatureBullets": [
+        {
+          "en": "Gods from mortals. Bane, Bhaal, and Myrkul were mortals who seized divine offices.",
+          "cs": "Bohové z lidí. Bane, Bhaal a Myrkul byli smrtelníci, kteří uchvátili božské úřady."
+        },
+        {
+          "en": "Murder-god's blood. The hero is a child of dead Bhaal and carries a murderous urge.",
+          "cs": "Krev boha vraždy. Hrdina je dítětem mrtvého Bhaala a vražedný pud nosí v sobě."
+        },
+        {
+          "en": "The party as mirror. Each companion confronts a toxic lord of their own.",
+          "cs": "Družina jako zrcadlo. Každý společník řeší vztah k vlastnímu toxickému pánovi."
+        },
+        {
+          "en": "The founder as monster. Legendary Balduran survives as mind flayer, the Emperor.",
+          "cs": "Zakladatel jako netvor. Bájný Balduran přežívá jako mozkožrout, Císař."
+        }
+      ],
+      "metadata": {
+        "genreProfile": {
+          "en": "High fantasy",
+          "cs": "Vysoká fantasy",
+          "sub": {
+            "en": "overlap: dark fantasy",
+            "cs": "přesah: temná fantasy"
+          }
+        },
+        "atmosphere": {
+          "en": "Fascination",
+          "cs": "Fascinace",
+          "sub": {
+            "en": "secondary: Tension",
+            "cs": "vedlejší: Napětí"
+          }
+        },
+        "spatialScope": {
+          "en": "Region",
+          "cs": "Region",
+          "sub": {
+            "en": "Sword Coast",
+            "cs": "Mečové pobřeží"
+          }
+        },
+        "historicalDepth": {
+          "en": "Mythic",
+          "cs": "Mytická",
+          "sub": {
+            "en": "from Toril's creation and Netheril's fall",
+            "cs": "od stvoření Torilu a pádu Netherilu"
+          }
+        },
+        "societalOrder": {
+          "en": "Contending realms and nations",
+          "cs": "Zápasící říše a národy",
+          "sub": {
+            "en": "city-states, guilds, divine cults",
+            "cs": "městské státy, cechy a božské kulty"
+          }
+        },
+        "sourceOfPower": {
+          "en": "Magic and alchemy",
+          "cs": "Magie a alchymie",
+          "sub": {
+            "en": "the Weave and divine blood",
+            "cs": "magické Předivo (Weave) a božská krev"
+          }
+        },
+        "protagonistPerspective": {
+          "en": "Chosen champion of fate",
+          "cs": "Vyvolený a šampion osudu",
+          "sub": {
+            "en": "Bhaalspawn; in BG3, parasite-bearer",
+            "cs": "Bhaalův potomek, v BG3 nositel parazita"
+          },
+          "detail": {
+            "en": "A customizable heir of murder—Child of Bhaal or Dark Urge—whose every mercy or slaughter feeds the myth.",
+            "cs": "Vlastní hrdina jako dědic vražedného boha: každé milosrdenství i zabíjení přepisuje, zda zůstane člověk, nebo nástrojem Bhaala."
+          }
+        },
+        "keyActors": {
+          "en": "Dead Three · Bhaalspawn · illithids and the Absolute · Harpers and Jaheira · Emperor (Balduran)",
+          "cs": "Mrtvá trojice (Bane, Bhaal a Myrkul) · Bhaalovi potomci · illithidé a Absolutno · Harfeníci a Jaheira · Císař (Balduran)",
+          "detail": {
+            "en": "The Dead Three usurped divine offices. The cult of the Absolute hunts Chosen blood through mind flayers. Balduran, founder turned elder brain, guards the city's myth. Each companion mirrors toxic power.",
+            "cs": "Mrtvá trojice — Bane, Bhaal a Myrkul, smrtelníci, kteří si přivlastnili božské úřady. Kult Absolutna — mozkožrouti tahající za nitky skrze „boží“ hlas v hlavě. Císař (Balduran) — zakladatel města, dnes mozkožrout; strážce i vězeň mýtu o Baldur's Gate. Společníci — každý nese vlastní vztah k moci a toxickému pánovi; družina jako skupinová zkouška charakteru."
+          }
+        }
+      },
+      "themes": [
+        "free-will-and-fate",
+        "identity-and-existence",
+        "power-and-dominion"
+      ],
+      "axes": {
+        "hopeDespair": {
+          "value": 2
+        },
+        "knownUnknown": {
+          "value": 2
+        },
+        "intimateEpic": {
+          "value": 4
+        },
+        "moralClarityAmbiguity": {
+          "value": 3
+        },
+        "realismMetaphysical": {
+          "value": 4
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "Mortals Bane, Bhaal, and Myrkul seized the gods' offices—and treat people as tools ever since.",
+          "cs": "Smrtelníci Bane, Bhaal a Myrkul uchvátili úřady bohů – a s lidmi od té doby zacházejí jako s nástroji."
+        },
+        "centralDilemma": {
+          "en": "Are mortals only vessels of their makers' will, or can they fight for their own identity?",
+          "cs": "Jsou smrtelníci jen nádobami vůle svých stvořitelů, nebo si mohou vybojovat vlastní identitu?"
+        },
+        "ultimateMystery": {
+          "en": "Who is Withers? The game never says aloud, but nearly everything points to Jergal, the ancient god of death.",
+          "cs": "Kdo je Withers? Hra to nikdy neřekne nahlas, ale téměř vše ukazuje na Jergala, prastarého boha smrti."
+        }
+      },
+      "chronicleSlug": "baldurs-gate",
+      "chronicleTeaser": {
+        "en": "From Netheril's fall and the Mind Flayer revolt to Bhaal's blood and the fall of Elturel—a saga of divine theft and mortal appetite.",
+        "cs": "Od pádu Netherilu po krev Bhaala a pád Elturelu."
+      },
+      "draft": true
+    },
+    {
+      "id": "vzorek-dystopia",
+      "number": 95,
+      "chapterId": "dystopia",
+      "gameTitle": {
+        "en": "Sample · Dystopia",
+        "cs": "Vzorek · Dystopie"
+      },
+      "chronicleTitle": {
+        "en": "Chronicle of the Sword Coast",
+        "cs": "Kronika Mečového pobřeží"
+      },
+      "subtitlePoetic": {
+        "en": "Chronicle of the Sword Coast",
+        "cs": "Kronika Mečového pobřeží"
+      },
+      "studios": [
+        "BioWare",
+        "Larian Studios"
+      ],
+      "yearRange": "1998–2023",
+      "canonScope": {
+        "en": "Baldur's Gate I–II with expansions and Baldur's Gate 3",
+        "cs": "Baldur's Gate I–II s rozšířeními a Baldur's Gate 3"
+      },
+      "universe": [
+        {
+          "en": "Forgotten Realms",
+          "cs": "Zapomenuté říše"
+        }
+      ],
+      "relatedWorlds": [],
+      "core": {
+        "en": "A world where people become gods—and must learn not to be their property.",
+        "cs": "Svět, v němž se z lidí stávají bohové – a lidé se pak musí naučit nebýt jejich majetkem."
+      },
+      "signatureBullets": [
+        {
+          "en": "Gods from mortals. Bane, Bhaal, and Myrkul were mortals who seized divine offices.",
+          "cs": "Bohové z lidí. Bane, Bhaal a Myrkul byli smrtelníci, kteří uchvátili božské úřady."
+        },
+        {
+          "en": "Murder-god's blood. The hero is a child of dead Bhaal and carries a murderous urge.",
+          "cs": "Krev boha vraždy. Hrdina je dítětem mrtvého Bhaala a vražedný pud nosí v sobě."
+        },
+        {
+          "en": "The party as mirror. Each companion confronts a toxic lord of their own.",
+          "cs": "Družina jako zrcadlo. Každý společník řeší vztah k vlastnímu toxickému pánovi."
+        },
+        {
+          "en": "The founder as monster. Legendary Balduran survives as mind flayer, the Emperor.",
+          "cs": "Zakladatel jako netvor. Bájný Balduran přežívá jako mozkožrout, Císař."
+        }
+      ],
+      "metadata": {
+        "genreProfile": {
+          "en": "High fantasy",
+          "cs": "Vysoká fantasy",
+          "sub": {
+            "en": "overlap: dark fantasy",
+            "cs": "přesah: temná fantasy"
+          }
+        },
+        "atmosphere": {
+          "en": "Fascination",
+          "cs": "Fascinace",
+          "sub": {
+            "en": "secondary: Tension",
+            "cs": "vedlejší: Napětí"
+          }
+        },
+        "spatialScope": {
+          "en": "Region",
+          "cs": "Region",
+          "sub": {
+            "en": "Sword Coast",
+            "cs": "Mečové pobřeží"
+          }
+        },
+        "historicalDepth": {
+          "en": "Mythic",
+          "cs": "Mytická",
+          "sub": {
+            "en": "from Toril's creation and Netheril's fall",
+            "cs": "od stvoření Torilu a pádu Netherilu"
+          }
+        },
+        "societalOrder": {
+          "en": "Contending realms and nations",
+          "cs": "Zápasící říše a národy",
+          "sub": {
+            "en": "city-states, guilds, divine cults",
+            "cs": "městské státy, cechy a božské kulty"
+          }
+        },
+        "sourceOfPower": {
+          "en": "Magic and alchemy",
+          "cs": "Magie a alchymie",
+          "sub": {
+            "en": "the Weave and divine blood",
+            "cs": "magické Předivo (Weave) a božská krev"
+          }
+        },
+        "protagonistPerspective": {
+          "en": "Chosen champion of fate",
+          "cs": "Vyvolený a šampion osudu",
+          "sub": {
+            "en": "Bhaalspawn; in BG3, parasite-bearer",
+            "cs": "Bhaalův potomek, v BG3 nositel parazita"
+          },
+          "detail": {
+            "en": "A customizable heir of murder—Child of Bhaal or Dark Urge—whose every mercy or slaughter feeds the myth.",
+            "cs": "Vlastní hrdina jako dědic vražedného boha: každé milosrdenství i zabíjení přepisuje, zda zůstane člověk, nebo nástrojem Bhaala."
+          }
+        },
+        "keyActors": {
+          "en": "Dead Three · Bhaalspawn · illithids and the Absolute · Harpers and Jaheira · Emperor (Balduran)",
+          "cs": "Mrtvá trojice (Bane, Bhaal a Myrkul) · Bhaalovi potomci · illithidé a Absolutno · Harfeníci a Jaheira · Císař (Balduran)",
+          "detail": {
+            "en": "The Dead Three usurped divine offices. The cult of the Absolute hunts Chosen blood through mind flayers. Balduran, founder turned elder brain, guards the city's myth. Each companion mirrors toxic power.",
+            "cs": "Mrtvá trojice — Bane, Bhaal a Myrkul, smrtelníci, kteří si přivlastnili božské úřady. Kult Absolutna — mozkožrouti tahající za nitky skrze „boží“ hlas v hlavě. Císař (Balduran) — zakladatel města, dnes mozkožrout; strážce i vězeň mýtu o Baldur's Gate. Společníci — každý nese vlastní vztah k moci a toxickému pánovi; družina jako skupinová zkouška charakteru."
+          }
+        }
+      },
+      "themes": [
+        "free-will-and-fate",
+        "identity-and-existence",
+        "power-and-dominion"
+      ],
+      "axes": {
+        "hopeDespair": {
+          "value": 2
+        },
+        "knownUnknown": {
+          "value": 2
+        },
+        "intimateEpic": {
+          "value": 4
+        },
+        "moralClarityAmbiguity": {
+          "value": 3
+        },
+        "realismMetaphysical": {
+          "value": 4
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "Mortals Bane, Bhaal, and Myrkul seized the gods' offices—and treat people as tools ever since.",
+          "cs": "Smrtelníci Bane, Bhaal a Myrkul uchvátili úřady bohů – a s lidmi od té doby zacházejí jako s nástroji."
+        },
+        "centralDilemma": {
+          "en": "Are mortals only vessels of their makers' will, or can they fight for their own identity?",
+          "cs": "Jsou smrtelníci jen nádobami vůle svých stvořitelů, nebo si mohou vybojovat vlastní identitu?"
+        },
+        "ultimateMystery": {
+          "en": "Who is Withers? The game never says aloud, but nearly everything points to Jergal, the ancient god of death.",
+          "cs": "Kdo je Withers? Hra to nikdy neřekne nahlas, ale téměř vše ukazuje na Jergala, prastarého boha smrti."
+        }
+      },
+      "chronicleSlug": "baldurs-gate",
+      "chronicleTeaser": {
+        "en": "From Netheril's fall and the Mind Flayer revolt to Bhaal's blood and the fall of Elturel—a saga of divine theft and mortal appetite.",
+        "cs": "Od pádu Netherilu po krev Bhaala a pád Elturelu."
+      },
+      "draft": true
+    },
+    {
+      "id": "vzorek-metaphysical",
+      "number": 96,
+      "chapterId": "metaphysical",
+      "gameTitle": {
+        "en": "Sample · Metaphysical",
+        "cs": "Vzorek · Metafyzika"
+      },
+      "chronicleTitle": {
+        "en": "Chronicle of the Sword Coast",
+        "cs": "Kronika Mečového pobřeží"
+      },
+      "subtitlePoetic": {
+        "en": "Chronicle of the Sword Coast",
+        "cs": "Kronika Mečového pobřeží"
+      },
+      "studios": [
+        "BioWare",
+        "Larian Studios"
+      ],
+      "yearRange": "1998–2023",
+      "canonScope": {
+        "en": "Baldur's Gate I–II with expansions and Baldur's Gate 3",
+        "cs": "Baldur's Gate I–II s rozšířeními a Baldur's Gate 3"
+      },
+      "universe": [
+        {
+          "en": "Forgotten Realms",
+          "cs": "Zapomenuté říše"
+        }
+      ],
+      "relatedWorlds": [],
+      "core": {
+        "en": "A world where people become gods—and must learn not to be their property.",
+        "cs": "Svět, v němž se z lidí stávají bohové – a lidé se pak musí naučit nebýt jejich majetkem."
+      },
+      "signatureBullets": [
+        {
+          "en": "Gods from mortals. Bane, Bhaal, and Myrkul were mortals who seized divine offices.",
+          "cs": "Bohové z lidí. Bane, Bhaal a Myrkul byli smrtelníci, kteří uchvátili božské úřady."
+        },
+        {
+          "en": "Murder-god's blood. The hero is a child of dead Bhaal and carries a murderous urge.",
+          "cs": "Krev boha vraždy. Hrdina je dítětem mrtvého Bhaala a vražedný pud nosí v sobě."
+        },
+        {
+          "en": "The party as mirror. Each companion confronts a toxic lord of their own.",
+          "cs": "Družina jako zrcadlo. Každý společník řeší vztah k vlastnímu toxickému pánovi."
+        },
+        {
+          "en": "The founder as monster. Legendary Balduran survives as mind flayer, the Emperor.",
+          "cs": "Zakladatel jako netvor. Bájný Balduran přežívá jako mozkožrout, Císař."
+        }
+      ],
+      "metadata": {
+        "genreProfile": {
+          "en": "High fantasy",
+          "cs": "Vysoká fantasy",
+          "sub": {
+            "en": "overlap: dark fantasy",
+            "cs": "přesah: temná fantasy"
+          }
+        },
+        "atmosphere": {
+          "en": "Fascination",
+          "cs": "Fascinace",
+          "sub": {
+            "en": "secondary: Tension",
+            "cs": "vedlejší: Napětí"
+          }
+        },
+        "spatialScope": {
+          "en": "Region",
+          "cs": "Region",
+          "sub": {
+            "en": "Sword Coast",
+            "cs": "Mečové pobřeží"
+          }
+        },
+        "historicalDepth": {
+          "en": "Mythic",
+          "cs": "Mytická",
+          "sub": {
+            "en": "from Toril's creation and Netheril's fall",
+            "cs": "od stvoření Torilu a pádu Netherilu"
+          }
+        },
+        "societalOrder": {
+          "en": "Contending realms and nations",
+          "cs": "Zápasící říše a národy",
+          "sub": {
+            "en": "city-states, guilds, divine cults",
+            "cs": "městské státy, cechy a božské kulty"
+          }
+        },
+        "sourceOfPower": {
+          "en": "Magic and alchemy",
+          "cs": "Magie a alchymie",
+          "sub": {
+            "en": "the Weave and divine blood",
+            "cs": "magické Předivo (Weave) a božská krev"
+          }
+        },
+        "protagonistPerspective": {
+          "en": "Chosen champion of fate",
+          "cs": "Vyvolený a šampion osudu",
+          "sub": {
+            "en": "Bhaalspawn; in BG3, parasite-bearer",
+            "cs": "Bhaalův potomek, v BG3 nositel parazita"
+          },
+          "detail": {
+            "en": "A customizable heir of murder—Child of Bhaal or Dark Urge—whose every mercy or slaughter feeds the myth.",
+            "cs": "Vlastní hrdina jako dědic vražedného boha: každé milosrdenství i zabíjení přepisuje, zda zůstane člověk, nebo nástrojem Bhaala."
+          }
+        },
+        "keyActors": {
+          "en": "Dead Three · Bhaalspawn · illithids and the Absolute · Harpers and Jaheira · Emperor (Balduran)",
+          "cs": "Mrtvá trojice (Bane, Bhaal a Myrkul) · Bhaalovi potomci · illithidé a Absolutno · Harfeníci a Jaheira · Císař (Balduran)",
+          "detail": {
+            "en": "The Dead Three usurped divine offices. The cult of the Absolute hunts Chosen blood through mind flayers. Balduran, founder turned elder brain, guards the city's myth. Each companion mirrors toxic power.",
+            "cs": "Mrtvá trojice — Bane, Bhaal a Myrkul, smrtelníci, kteří si přivlastnili božské úřady. Kult Absolutna — mozkožrouti tahající za nitky skrze „boží“ hlas v hlavě. Císař (Balduran) — zakladatel města, dnes mozkožrout; strážce i vězeň mýtu o Baldur's Gate. Společníci — každý nese vlastní vztah k moci a toxickému pánovi; družina jako skupinová zkouška charakteru."
+          }
+        }
+      },
+      "themes": [
+        "free-will-and-fate",
+        "identity-and-existence",
+        "power-and-dominion"
+      ],
+      "axes": {
+        "hopeDespair": {
+          "value": 2
+        },
+        "knownUnknown": {
+          "value": 2
+        },
+        "intimateEpic": {
+          "value": 4
+        },
+        "moralClarityAmbiguity": {
+          "value": 3
+        },
+        "realismMetaphysical": {
+          "value": 4
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "Mortals Bane, Bhaal, and Myrkul seized the gods' offices—and treat people as tools ever since.",
+          "cs": "Smrtelníci Bane, Bhaal a Myrkul uchvátili úřady bohů – a s lidmi od té doby zacházejí jako s nástroji."
+        },
+        "centralDilemma": {
+          "en": "Are mortals only vessels of their makers' will, or can they fight for their own identity?",
+          "cs": "Jsou smrtelníci jen nádobami vůle svých stvořitelů, nebo si mohou vybojovat vlastní identitu?"
+        },
+        "ultimateMystery": {
+          "en": "Who is Withers? The game never says aloud, but nearly everything points to Jergal, the ancient god of death.",
+          "cs": "Kdo je Withers? Hra to nikdy neřekne nahlas, ale téměř vše ukazuje na Jergala, prastarého boha smrti."
+        }
+      },
+      "chronicleSlug": "baldurs-gate",
+      "chronicleTeaser": {
+        "en": "From Netheril's fall and the Mind Flayer revolt to Bhaal's blood and the fall of Elturel—a saga of divine theft and mortal appetite.",
+        "cs": "Od pádu Netherilu po krev Bhaala a pád Elturelu."
+      },
+      "draft": true
     }
   ]
 }

@@ -2,6 +2,7 @@ import { useLocale } from '../../lib/locale-store';
 import { uiT } from '../../lib/i18n';
 import { withBase } from '../../lib/base-url';
 import LanguageSwitcher from './LanguageSwitcher';
+import ThemeSwitcher from './ThemeSwitcher';
 
 type Props = { base: string };
 
@@ -20,6 +21,7 @@ export default function SiteHeader({ base }: Props) {
           <a href={withBase(base, '/map/')}>{uiT('nav.map', locale)}</a>
         </nav>
         <LanguageSwitcher />
+        <ThemeSwitcher />
       </div>
     </header>
   );

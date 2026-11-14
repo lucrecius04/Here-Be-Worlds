@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react';
 import { useLocale } from '../../lib/locale-store';
 import { profileCountLabel, t, uiT, type Locale } from '../../lib/i18n';
 import { withBase } from '../../lib/base-url';
@@ -7,7 +8,7 @@ export type ChapterCardData = {
   id: string;
   title: LocalizedString;
   thesis: LocalizedString;
-  accent: string;
+  accent: { light: string; dark: string };
   count: number;
 };
 
@@ -33,31 +34,24 @@ export default function HomeIntro({ chapters, base }: Props) {
         <p className="home-cover__lead">{uiT('home.slogan', locale)}</p>
         <p className="home-cover__method">
           <a className="home-cover__method-link" href={withBase(base, '/notes/')}>
-            {locale === 'en' ? 'How to read this atlas →' : 'Jak číst tento atlas →'}
+            {uiT('home.readAtlas', locale)}
           </a>
         </p>
       </header>
 
       <nav className="home-realms" aria-label={uiT('home.chaptersAria', locale)}>
         <h2 className="home-section-title home-realms__title">{uiT('home.realms', locale)}</h2>
-        <div className="home-realms__cols">
-          <div className="home-realms__col">
-            {chapters.slice(0, 4).map((chapter) => (
-              <ChapterLink key={chapter.id} chapter={chapter} base={base} locale={locale} />
-            ))}
-          </div>
-          <div className="home-realms__col">
-            {chapters.slice(4).map((chapter) => (
-              <ChapterLink key={chapter.id} chapter={chapter} base={base} locale={locale} />
-            ))}
-          </div>
+        <div className="home-realms__grid">
+          {chapters.map((chapter) => (
+            <ChapterTile key={chapter.id} chapter={chapter} base={base} locale={locale} />
+          ))}
         </div>
       </nav>
     </>
   );
 }
 
-function ChapterLink({
+function ChapterTile({
   chapter,
   base,
   locale,
@@ -66,16 +60,27 @@ function ChapterLink({
   base: string;
   locale: Locale;
 }) {
+  const hueVars = {
+    '--chapter-hue-light': chapter.accent.light,
+    '--chapter-hue-dark': chapter.accent.dark,
+  } as CSSProperties;
+
   return (
     <a
       className={`home-realm${chapter.count === 0 ? ' home-realm--empty' : ''}`}
       href={withBase(base, `/chapters/${chapter.id}/`)}
+      style={hueVars}
+      data-chapter={chapter.id}
     >
-      <span className="home-realm__name">{t(chapter.title, locale)}</span>
-      <span className="home-realm__count">
-        {chapter.count === 0
-          ? uiT('home.chapterSoon', locale)
-          : profileCountLabel(chapter.count, locale)}
+      <span className="home-realm__art" aria-hidden="true" />
+      <span className="home-realm__body">
+        <span className="home-realm__name">{t(chapter.title, locale)}</span>
+        <span className="home-realm__thesis">{t(chapter.thesis, locale)}</span>
+        <span className="home-realm__count">
+          {chapter.count === 0
+            ? uiT('home.chapterSoon', locale)
+            : profileCountLabel(chapter.count, locale)}
+        </span>
       </span>
     </a>
   );

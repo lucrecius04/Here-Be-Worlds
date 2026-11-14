@@ -6,6 +6,9 @@
   --color-line: #d8d0c4;
   --color-accent: #9a7b4f;
   --color-accent-soft: #c4a574;
+  --color-desk: #e7e0d4;
+  --masthead-wash: 8%;
+  color-scheme: light;
 
   --font-serif: 'Cormorant Garamond', 'Newsreader', Georgia, serif;
   --font-sans: 'Plus Jakarta Sans', Inter, system-ui, sans-serif;
@@ -26,4 +29,7 @@
   --color-line: #3d3934;
   --color-accent: #c4a574;
   --color-accent-soft: #9a7b4f;
+  --color-desk: #100f0e;
+  --masthead-wash: 10%;
+  color-scheme: dark;
 }

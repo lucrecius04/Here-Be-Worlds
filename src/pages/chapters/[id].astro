@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import ChapterPageHeader from '../../components/i18n/ChapterPageTitle';
-import ChapterWorldList from '../../components/i18n/ChapterWorldList';
+import ChapterPage from '../../components/discovery/ChapterPage';
 import { chapters, worlds } from '../../lib/worlds';
 
 export function getStaticPaths() {
@@ -16,6 +15,13 @@ const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout title={`${chapter.title.cs ?? chapter.title.en} — Here Be Worlds`}>
-  <ChapterPageHeader client:load base={base} title={chapter.title} thesis={chapter.thesis} />
-  <ChapterWorldList client:load worlds={list} base={base} />
+  <ChapterPage
+    client:load
+    id={chapter.id}
+    title={chapter.title}
+    thesis={chapter.thesis}
+    accent={chapter.accent}
+    worlds={list}
+    base={base.replace(/\/$/, '')}
+  />
 </BaseLayout>

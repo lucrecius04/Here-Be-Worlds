@@ -5,18 +5,23 @@ import '../styles/layout.css';
 import '../styles/world-card.css';
 import '../styles/chronicle.css';
 import '../styles/home.css';
+import '../styles/chapter.css';
 import SiteHeader from '../components/i18n/SiteHeader';
 import SiteFooter from '../components/i18n/SiteFooter';
 import LocaleBridge from '../components/i18n/LocaleBridge';
 
-const { title = 'Here Be Worlds', description = 'Atlas herních vesmírů' } = Astro.props;
+const {
+  title = 'Here Be Worlds',
+  description = 'Atlas herních vesmírů',
+  homePalette,
+} = Astro.props;
 import { withBase } from '../lib/base-url';
 
 const base = import.meta.env.BASE_URL;
 ---
 
 <!doctype html>
-<html lang="cs">
+<html lang="cs" data-home={homePalette}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -29,10 +34,20 @@ const base = import.meta.env.BASE_URL;
       rel="stylesheet"
     />
     <title>{title}</title>
-    <script is:inline>
+    <script is:inline define:vars={{ isHome: Boolean(homePalette) }}>
       (function () {
         var l = localStorage.getItem('hbw_lang');
         document.documentElement.lang = l === 'en' || l === 'cs' ? l : 'cs';
+        if (localStorage.getItem('hbw_theme') !== 'light') {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+        if (isHome) {
+          var p = new URLSearchParams(location.search).get('home');
+          document.documentElement.setAttribute(
+            'data-home',
+            p === 'chart' || p === 'constellation' ? p : 'cabinet',
+          );
+        }
       })();
     </script>
   </head>

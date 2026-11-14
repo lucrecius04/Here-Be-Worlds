@@ -33,7 +33,7 @@ export default function SiteFooter({ base }: Props) {
             {uiT('siteName', locale)}
           </a>
           <p className="site-footer__tagline">{uiT('footer.tagline', locale)}</p>
-          <p className="site-footer__meta">{uiT('home.tagline', locale)}</p>
+          <p className="site-footer__meta">{uiT('home.kicker', locale)}</p>
         </div>
         <nav className="site-footer__col" aria-label={uiT('footer.explore', locale)}>
           <h2 className="site-footer__heading">{uiT('footer.explore', locale)}</h2>

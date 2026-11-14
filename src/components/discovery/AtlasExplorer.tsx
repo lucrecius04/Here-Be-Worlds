@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useState, type CSSProperties } from 'react';
 import type { World } from '../../schemas/world';
 import type { LocalizedString } from '../../schemas/world';
 import { createWorldIndex } from '../../lib/search';
@@ -14,12 +14,13 @@ import {
   spatialScopeOptions,
   type FieldOption,
 } from '../../../data/meta/field-options';
+import WorldTeaser from './WorldTeaser';
 
 export type ChapterInfo = {
   id: string;
   title: LocalizedString;
   thesis: LocalizedString;
-  accent: string;
+  accent: { light: string; dark: string };
   count: number;
 };
 
@@ -211,7 +212,16 @@ export default function AtlasExplorer({
         <p className="catalog-empty">{uiT('home.noResults', locale)}</p>
       ) : (
         grouped.map((group) => (
-          <section className="catalog-group" key={group.chapter.id}>
+          <section
+            className="catalog-group"
+            key={group.chapter.id}
+            style={
+              {
+                '--chapter-hue-light': group.chapter.accent.light,
+                '--chapter-hue-dark': group.chapter.accent.dark,
+              } as CSSProperties
+            }
+          >
             <h3 className="home-section-title catalog-group__title">
               {t(group.chapter.title, locale)}
               <span className="catalog-group__count">
@@ -219,26 +229,14 @@ export default function AtlasExplorer({
               </span>
             </h3>
             <div className="world-grid">
-              {group.worlds.map((world) => {
-                const genre = t(world.metadata.genreProfile, locale);
-                const mood = t(world.metadata.atmosphere, locale);
-                return (
-                  <a
-                    key={world.id}
-                    href={`${baseUrl}/worlds/${world.id}/`}
-                    className="world-teaser"
-                  >
-                    <h3 className="world-teaser__title">
-                      {t(world.gameTitle, locale)}
-                      {genre ? <span className="world-teaser__genre"> ({genre})</span> : null}
-                    </h3>
-                    <p className="world-teaser__meta">
-                      {[world.yearRange, mood].filter(Boolean).join(' · ')}
-                    </p>
-                    <p className="world-teaser__core">{t(world.core, locale)}</p>
-                  </a>
-                );
-              })}
+              {group.worlds.map((world) => (
+                <WorldTeaser
+                  key={world.id}
+                  world={world}
+                  href={`${baseUrl}/worlds/${world.id}/`}
+                  locale={locale}
+                />
+              ))}
             </div>
           </section>
         ))

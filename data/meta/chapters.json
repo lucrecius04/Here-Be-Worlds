@@ -4,7 +4,7 @@
       "id": "fantasy",
       "order": 1,
       "title": { "en": "Fantasy", "cs": "Fantasy" },
-      "accent": "#8B7355",
+      "accent": { "light": "#7A4E1F", "dark": "#E0B36A" },
       "thesis": {
         "en": "Worlds of magic, gods, and myth—from exalted realms to ashen ruins.",
         "cs": "Světy magie, bohů a mýtů – od vznešených říší po popelavé ruiny."
@@ -14,7 +14,7 @@
       "id": "science-fiction",
       "order": 2,
       "title": { "en": "Science Fiction", "cs": "Science fiction" },
-      "accent": "#5C6B7A",
+      "accent": { "light": "#1F5A7A", "dark": "#7EC0E0" },
       "thesis": {
         "en": "Science and technology open paths to the stars—and to powers older than humanity.",
         "cs": "Věda a technologie otevírají cestu ke hvězdám i k novým formám života."
@@ -24,7 +24,7 @@
       "id": "post-apocalypse",
       "order": 3,
       "title": { "en": "Post-Apocalypse", "cs": "Postapokalypsa" },
-      "accent": "#7A6B5C",
+      "accent": { "light": "#6B3D32", "dark": "#D4A090" },
       "thesis": {
         "en": "Civilization has fallen; life continues in the ruins, with the question of what to rebuild.",
         "cs": "Civilizace padla, ale život pokračuje v troskách."
@@ -34,7 +34,7 @@
       "id": "horror",
       "order": 4,
       "title": { "en": "Horror", "cs": "Horor" },
-      "accent": "#4A4540",
+      "accent": { "light": "#4A2458", "dark": "#C49BC8" },
       "thesis": {
         "en": "Fear as a language—often grown from guilt, science, or unbearable truth.",
         "cs": "Strach jako hlavní jazyk světa."
@@ -44,7 +44,7 @@
       "id": "historical",
       "order": 5,
       "title": { "en": "Historical & Alternate", "cs": "Historické a alternativní světy" },
-      "accent": "#6B5C4A",
+      "accent": { "light": "#7A242C", "dark": "#D4848C" },
       "thesis": {
         "en": "Real history and its echoes—who writes the past, and who owns it.",
         "cs": "Světy na skutečných dějinách nebo na jejich věrné ozvěně."
@@ -54,7 +54,7 @@
       "id": "dystopia",
       "order": 6,
       "title": { "en": "Dystopia", "cs": "Dystopie" },
-      "accent": "#5A4F52",
+      "accent": { "light": "#1E5A42", "dark": "#6EC4A0" },
       "thesis": {
         "en": "Promised order, progress, or paradise—built as a cage.",
         "cs": "Společnosti, které slibovaly ráj, a postavily klec."
@@ -64,7 +64,7 @@
       "id": "metaphysical",
       "order": 7,
       "title": { "en": "Metaphysical & Experimental", "cs": "Metafyzické a experimentální světy" },
-      "accent": "#524A6B",
+      "accent": { "light": "#3E2A8A", "dark": "#C4B0F0" },
       "thesis": {
         "en": "Reality bends; narrative, belief, and consciousness reshape the map.",
         "cs": "Světy, v nichž se láme samotná struktura reality."

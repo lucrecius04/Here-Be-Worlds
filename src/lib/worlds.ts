@@ -7,6 +7,8 @@ import { similarWorlds } from './similarity';
 
 const parsed = worldsFileSchema.parse(worldsData);
 
+export type ChapterAccent = { light: string; dark: string };
+
 export const worlds: World[] = parsed.worlds;
 export const chapters = chaptersData.chapters;
 export const axesMeta = axesData.axes;
@@ -56,7 +58,8 @@ export function resolveRelatedWorlds(
     });
   }
 
-  return similarWorlds(world, catalog, 3).map((other) => ({
+  const published = catalog.filter((item) => !item.draft);
+  return similarWorlds(world, published, 3).map((other) => ({
     id: other.id,
     title: other.gameTitle,
     note: {

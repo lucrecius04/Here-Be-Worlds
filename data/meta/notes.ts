@@ -19,10 +19,10 @@ export const noteFields: NoteField[] = [
     },
   },
   {
-    term: { cs: 'Atmosféra', en: 'Atmosphere' },
+    term: { cs: 'Nálada a estetika', en: 'Mood and aesthetics' },
     help: {
-      cs: 'Převažující nálada a emoční naladění světa. Dominantní a nejvýš dvě vedlejší.',
-      en: 'The prevailing mood and emotional tone of the world. One dominant and at most two secondary.',
+      cs: 'Základní převažující esence a naladění světa. Dominantní a nejvýš dvě vedlejší.',
+      en: 'The basic prevailing essence and tone of the world. One dominant and at most two secondary.',
     },
     values: {
       cs: 'Absurdita · Cynismus · Dekadence · Fascinace · Grotesknost · Humor · Ironie · Melancholie · Naděje · Napětí · Nostalgie · Odcizení · Sentimentálnost · Snovost · Strach · Tísnivost · Úžas · Vřelost · Vzdor · Vznešenost · Zoufalství',

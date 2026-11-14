@@ -25,12 +25,10 @@ export default function WorldCard({
   onOpenAnalysis,
 }: Props) {
   const locale = useLocale();
-  const showBullets = Boolean(world.signatureBullets?.length);
 
   const body = (
     <>
       <div className="world-card__core-wrap">
-        <span className="world-card__core-label">{uiT('card.coreLabel', locale)}</span>
         <section className="world-card__core">{t(world.core, locale)}</section>
       </div>
 
@@ -71,18 +69,18 @@ export default function WorldCard({
 
       <FiveAxes world={world} notesHref={baseUrl ? `${baseUrl}/notes/` : undefined} />
 
-      {showBullets && (
+      {world.signatureBullets?.length ? (
         <section className="world-card__signature" aria-label={uiT('card.signatureAria', locale)}>
           <h3 className="world-card__signature-title">{uiT('card.signatureHeading', locale)}</h3>
           <ul className="world-card__bullets">
-            {world.signatureBullets!.map((b) => (
+            {world.signatureBullets.map((b) => (
               <li key={b.en ?? b.cs}>
                 <SignatureLead text={t(b, locale)} />
               </li>
             ))}
           </ul>
         </section>
-      )}
+      ) : null}
 
       <section className="triad-grid" aria-label={uiT('card.triadAria', locale)}>
         <MetaTile
