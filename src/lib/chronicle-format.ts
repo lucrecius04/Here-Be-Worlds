@@ -1,6 +1,6 @@
 import { parseBookLabel } from './chronicle-toc';
 
-export type ChronicleHeadingKind = 'book' | 'interpret' | 'numbered' | 'part' | 'chapter';
+export type ChronicleHeadingKind = 'book' | 'interpret' | 'numbered' | 'part' | 'chapter' | 'sources';
 
 const HEADER_SETS: string[][] = [
   ['Rok (DR)', 'Událost', 'Dopad na historii světa'],
@@ -16,12 +16,21 @@ const HEADER_SETS: string[][] = [
   ['Období', 'Událost'],
 ].sort((a, b) => b.length - a.length);
 
-const PART_HEADING = /^(úvodem|epilog|přílohy|rozbor vyprávění)(?:\s|$)/i;
+const PART_HEADING =
+  /^(úvodem|epilog|přílohy|faktografie|rozbor vyprávění|anatomie vyprávění)(?:\s|$)/i;
+
+export function renamedPartHeading(text: string): 'appendices' | 'analysis' | null {
+  const bare = text.replace(/^__+|__+$/g, '').replace(/\*\*/g, '').trim();
+  if (/^(přílohy|faktografie)(?:\s|$)/i.test(bare)) return 'appendices';
+  if (/^(rozbor vyprávění|anatomie vyprávění)(?:\s|$)/i.test(bare)) return 'analysis';
+  return null;
+}
 
 export function classifyChronicleHeading(text: string): ChronicleHeadingKind {
   const bare = cleanHeading(text);
   if (parseBookLabel(bare) || parseBookLabel(text)) return 'book';
   if (/^jak se to vykládá$/i.test(bare)) return 'interpret';
+  if (/^zdroje a literatura$/i.test(bare)) return 'sources';
   if (PART_HEADING.test(bare)) return 'part';
   if (/^\d+\.\s/.test(bare)) return 'numbered';
   return 'chapter';

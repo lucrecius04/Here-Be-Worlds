@@ -87,7 +87,10 @@ function promoteBoldHeadings(md: string): string {
 function normalizeHeadings(md: string): string {
   let out = md;
   out = out.replace(/^KNIHA (PRVNÍ|DRUHÁ|TŘETÍ|ČTVRTÁ|PÁTÁ|ŠESTÁ|SEDMÁ|OSMÁ)\b/gim, (_, n: string) => `## Kniha ${n.toLowerCase()}`);
-  out = out.replace(/^Část (první|druhá|třetí|čtvrtá)\s*·\s*Kapitola\s+(první|druhá|třetí|čtvrtá|pátá|šestá|sedmá|osmá)/gim, (m) => `## ${m}`);
+  out = out.replace(
+    /^Část (první|druhá|třetí|čtvrtá)\s*·\s*Kapitola\s+(první|druhá|třetí|čtvrtá|pátá|šestá|sedmá|osmá)/gim,
+    (_m, _cast: string, kap: string) => `## KNIHA ${kap.toUpperCase()}`,
+  );
   out = out.replace(/^\*{0,2}Úvodem\*{0,2}\s*$/gim, '## Úvodem');
   out = out.replace(/^Epilog\b/gim, '## Epilog');
   out = out.replace(/^Rozbor vyprávění\b/gim, '## Rozbor vyprávění');

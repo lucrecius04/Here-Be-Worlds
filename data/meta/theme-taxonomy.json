@@ -1,12 +1,23 @@
 {
   "themes": [
-    { "slug": "faith", "label": { "en": "Faith", "cs": "Víra" } },
-    { "slug": "power-and-dominion", "label": { "en": "Power & dominion", "cs": "Moc a nadvláda" } },
-    { "slug": "identity-and-existence", "label": { "en": "Identity & existence", "cs": "Identita a existence" } },
+    { "slug": "gods", "label": { "en": "Gods", "cs": "Bohové" } },
     { "slug": "cyclical-history", "label": { "en": "Cyclical history", "cs": "Cyklické dějiny" } },
+    { "slug": "humor-irony-exaggeration", "label": { "en": "Humor, irony, exaggeration", "cs": "Humor, ironie, nadsázka" } },
+    { "slug": "identity-and-existence", "label": { "en": "Identity and existence", "cs": "Identita a existence" } },
+    { "slug": "civilizational-collapse", "label": { "en": "Civilizational collapse", "cs": "Kolaps civilizace" } },
+    { "slug": "conspiracy", "label": { "en": "Conspiracy", "cs": "Konspirace" } },
+    { "slug": "love-and-relationships", "label": { "en": "Love and relationships", "cs": "Láska a vztahy" } },
+    { "slug": "power-and-dominion", "label": { "en": "Power and dominion", "cs": "Moc a nadvláda" } },
+    { "slug": "discovery", "label": { "en": "Discovery", "cs": "Objevování" } },
     { "slug": "uncovering-the-past", "label": { "en": "Uncovering the past", "cs": "Odhalování minulosti" } },
-    { "slug": "free-will-and-fate", "label": { "en": "Free will & fate", "cs": "Svobodná vůle a osud" } },
+    { "slug": "progress-and-its-costs", "label": { "en": "Progress and its costs", "cs": "Pokrok a jeho důsledky" } },
+    { "slug": "politics-and-intrigue", "label": { "en": "Politics and intrigue", "cs": "Politika a intriky" } },
+    { "slug": "revenge", "label": { "en": "Revenge", "cs": "Pomsta" } },
+    { "slug": "friendship-and-fellowship", "label": { "en": "Friendship and fellowship", "cs": "Přátelství a společenství" } },
+    { "slug": "survival", "label": { "en": "Survival", "cs": "Přežití" } },
+    { "slug": "free-will-and-fate", "label": { "en": "Free will and fate", "cs": "Svobodná vůle a osud" } },
     { "slug": "war", "label": { "en": "War", "cs": "Válka" } },
-    { "slug": "guilt-and-redemption", "label": { "en": "Guilt & redemption", "cs": "Vina a vykoupení" } }
+    { "slug": "guilt-and-redemption", "label": { "en": "Guilt and redemption", "cs": "Vina a vykoupení" } },
+    { "slug": "faith", "label": { "en": "Faith", "cs": "Víra" } }
   ]
 }

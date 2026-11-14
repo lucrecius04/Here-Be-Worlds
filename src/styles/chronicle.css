@@ -159,6 +159,13 @@
   margin: 0.9rem 0 2.15rem;
 }
 
+.chronicle-book-label,
+.chronicle-chapter,
+.chronicle-subhead,
+.chronicle-part {
+  scroll-margin-top: 0.65rem;
+}
+
 .chronicle-book-label {
   margin: 0.35rem 0 0.35rem;
   font-family: var(--font-sans);
@@ -190,7 +197,7 @@
 }
 
 .chronicle-prose--narrative {
-  max-width: 38.5rem;
+  max-width: 46rem;
   margin: 0 auto;
 }
 
@@ -460,6 +467,24 @@
 
 .chronicle-prose--analysis .chronicle-part {
   margin-top: 0.4rem;
+}
+
+.chronicle-sources-title {
+  text-align: left;
+  font-size: 1.38rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.3;
+  margin: 2.35rem 0 0.85rem;
+  text-wrap: balance;
+}
+
+.chronicle-prose--analysis .chronicle-sources-title ~ p {
+  text-align: left;
+  text-indent: 0;
+  text-justify: auto;
+  hyphens: none;
+  margin: 0 0 0.7rem;
 }
 
 .chronicle-prose--appendices .chronicle-part {

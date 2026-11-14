@@ -32,7 +32,9 @@ export default function HomeIntro({ chapters, base }: Props) {
         </div>
         <p className="home-cover__lead">{uiT('home.slogan', locale)}</p>
         <p className="home-cover__method">
-          <a href={withBase(base, '/notes/')}>{uiT('home.readAtlas', locale)}</a>
+          <a className="home-cover__method-link" href={withBase(base, '/notes/')}>
+            {locale === 'en' ? 'How to read this atlas →' : 'Jak číst tento atlas →'}
+          </a>
         </p>
       </header>
 

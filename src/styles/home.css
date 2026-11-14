@@ -143,9 +143,13 @@
 
 .catalog-toolbar {
   display: grid;
-  grid-template-columns: minmax(12rem, 1.5fr) minmax(10rem, 0.85fr) minmax(10rem, 0.85fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.7rem 0.85rem;
   margin: 0 0 1.65rem;
+}
+
+.catalog-toolbar > :first-child {
+  grid-column: 1 / -1;
 }
 
 .catalog-toolbar .field-label {

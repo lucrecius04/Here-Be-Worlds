@@ -2,7 +2,7 @@
 title: Chronicle of Ash
 worldId: dark-souls
 language: cs
-coverTitle: Kronika popela
+coverTitle: Kronika Popela
 coverTagline: Příběh světa Dark Souls
 coverRange: "svět, který se bál tmy"
 ---
@@ -20,7 +20,7 @@ Tak začíná trilogie Dark Souls (2011–2016) od japonského studia FromSoftwa
 
 Následující kronika propojuje celou trilogii od zrození Prvního plamene v Lordranu přes zapomenuté království Drangleic až po závěrečné splynutí světů v Lothricu. Upozorňujeme čtenáře, že text slouží jako kompletní průvodce mytologií světa a bez obalu vyzrazuje veškerá dějová tajemství, osudy bohů i konečná rozuzlení všech tří her.
 
-## ČÁST PRVNÍ · KAPITOLA PRVNÍ
+## KNIHA PRVNÍ
 
 ## Věk prastarých a První plamen
 *Zrození dvojnosti*
@@ -40,7 +40,7 @@ V plamenech však tehdy našla svůj úlomek ještě čtvrtá, nenápadná bytos
 
 *Schéma 1: Od Věku prastarých k nekonečnému cyklu propojování ohně.*
 
-## ČÁST PRVNÍ · KAPITOLA DRUHÁ
+## KNIHA DRUHÁ
 
 ## První hřích a Kletba
 *Strach ze tmy*
@@ -58,7 +58,7 @@ Ani tato daň však nestačila. Když se Čarodějnice z Izalithu pokusila vytvo
 ## JAK SE TO VYKLÁDÁ
 *Nejhlubším paradoxem mytologie Dark Souls je skutečnost, že celá legenda o „Vyvoleném nemrtvém“, který má zachránit svět zapálením ohně, je pečlivě vykonstruovanou politickou lží. Bohové v čele s Gwynovým synem Gwyndolinem a prastarým hadem Framptem vytvořili toto falešné proroctví, aby přilákali nejsilnější lidské válečníky do Lordranu. Smyslem poutě není spása lidstva, ale přesvědčit člověka, aby zabil staré bohy, nasbíral jejich duše a v posledním kroku se dobrovolně upálil v peci, čímž oddálí příchod Věku člověka a udrží při životě systém, který lidstvo zotročuje.*
 
-## ČÁST DRUHÁ · KAPITOLA TŘETÍ
+## KNIHA TŘETÍ
 
 ## Pouť v Lordranu
 *Iluzorní slunce a Propast*
@@ -78,7 +78,7 @@ Na konci své pouti odemkne Vyvolený nemrtvý bránu do Hučící pece a v tich
 
 *Schéma 2: Volba na konci každé hry. Propojit oheň, nebo ho nechat vyhasnout.*
 
-## ČÁST TŘETÍ · KAPITOLA ČTVRTÁ
+## KNIHA ČTVRTÁ
 
 ## Drangleic a Koruny
 *Jak žít s prokletím*
@@ -95,7 +95,7 @@ Když v Drangleicu znovu propuklo prokletí nemrtvých, Vendrick spolu se svým 
 
 Do tohoto rozpadajícího se království přichází Nositel prokletí (Bearer of the Curse), který nehledá slávu ani spásu světa, ale pouhý lék na vlastní ztrátu paměti. Za pomoci Vendrickova bratra Aldii – učence, který se ve snaze vymanit z cyklu pokusil splynout s ohněm a proměnil se v hořící přízrak z kořenů – posbírá hrdina koruny dávno padlých králů. Spojením těchto korun získá moc odolávat samotnému prázdnu, porazí Nashandru a na popud Aldii získá možnost učinit to, co před ním nedokázal nikdo: nepřijmout ani světlo, ani tmu, opustit trůn a vykročit mimo samotný cyklus hledat třetí cestu.
 
-## ČÁST ČTVRTÁ · KAPITOLA PÁTÁ
+## KNIHA PÁTÁ
 
 ## Lothric a Konec světa
 *Unavený plamen*

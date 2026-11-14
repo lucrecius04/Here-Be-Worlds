@@ -73,6 +73,7 @@ export function buildSearchText(world: World): string {
     world.gameTitle.en,
     world.gameTitle.cs,
     world.chronicleTitle.en,
+    ...(world.universe ?? []).flatMap((name) => [name.en, name.cs]),
     world.core.en,
     world.core.cs,
     ...world.themes,

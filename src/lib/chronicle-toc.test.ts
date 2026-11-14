@@ -1,5 +1,9 @@
 import { describe, expect, it } from 'vitest';
-import { extractChronicleToc, splitChronicleMarkdown } from './chronicle-toc';
+import {
+  extractChronicleToc,
+  findAnalysisHeadingId,
+  splitChronicleMarkdown,
+} from './chronicle-toc';
 
 describe('extractChronicleToc', () => {
   it('keeps books with titles, then epilog, appendices and analysis', () => {
@@ -17,28 +21,30 @@ KNIHA DRUHÁ
 ## Rozbor vyprávění
 ## __1. Ústřední otázka světa__
 `;
-    expect(extractChronicleToc(md).map((e) => [e.label, e.title ?? ''])).toEqual([
+    const toc = extractChronicleToc(md);
+    expect(toc.map((e) => [e.label, e.title ?? ''])).toEqual([
       ['Úvodem', ''],
       ['Kniha první', 'Tři prastaré hříchy'],
       ['Kniha druhá', 'Čas nesnází'],
       ['Epilog', ''],
     ]);
+    expect(toc.map((e) => e.id)).toEqual(['uvodem', 'kniha-prvni', 'kniha-druha', 'epilog']);
   });
 
-  it('uses Dark Souls part/chapter labels with their titles', () => {
+  it('uses Dark Souls book labels without Část', () => {
     const md = `
-## ČÁST PRVNÍ · KAPITOLA PRVNÍ
+## KNIHA PRVNÍ
 ## Věk prastarých a První plamen
 ## JAK SE TO VYKLÁDÁ
-## ČÁST PRVNÍ · KAPITOLA DRUHÁ
+## KNIHA DRUHÁ
 ## První hřích a Kletba
 ## Epilog
 ## Přílohy
 ## Rozbor vyprávění
 `;
     expect(extractChronicleToc(md).map((e) => `${e.label} · ${e.title ?? ''}`)).toEqual([
-      'Část první · Kapitola první · Věk prastarých a První plamen',
-      'Část první · Kapitola druhá · První hřích a Kletba',
+      'Kniha první · Věk prastarých a První plamen',
+      'Kniha druhá · První hřích a Kletba',
       'Epilog · ',
     ]);
   });
@@ -56,5 +62,25 @@ otázka
     expect(parts.narrative).not.toContain('Přílohy');
     expect(parts.appendices.startsWith('## Přílohy')).toBe(true);
     expect(parts.analysis.startsWith('## Rozbor vyprávění')).toBe(true);
+  });
+});
+
+describe('findAnalysisHeadingId', () => {
+  it('maps the triad tiles to analysis headings', () => {
+    const md = `## Rozbor vyprávění
+## __1. Ústřední otázka světa__
+text
+## __2. Prvotní hřích, z něhož svět vychází__
+text
+## __4. Nosná mezera (co zůstává otevřené a výklady)__
+text
+`;
+    expect(findAnalysisHeadingId(md, 'centralDilemma')).toBe('1-ustredni-otazka-sveta');
+    expect(findAnalysisHeadingId(md, 'originalSin')).toBe(
+      '2-prvotni-hrich-z-nehoz-svet-vychazi',
+    );
+    expect(findAnalysisHeadingId(md, 'ultimateMystery')).toBe(
+      '4-nosna-mezera-co-zustava-otevrene-a-vyklady',
+    );
   });
 });

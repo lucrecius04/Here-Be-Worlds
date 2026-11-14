@@ -12,6 +12,7 @@ import {
 import {
   classifyChronicleHeading,
   formatChronicleMarkdown,
+  renamedPartHeading,
   splitCoverTitle,
 } from '../../lib/chronicle-format';
 
@@ -34,7 +35,14 @@ type Props = {
   showToc?: boolean;
   showCover?: boolean;
   variant?: Variant;
+  scrollToId?: string | null;
 };
+
+function scrollHeadingIntoView(root: HTMLElement | null, id: string) {
+  if (!root || !id) return;
+  const el = root.querySelector(`#${CSS.escape(id)}`);
+  el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
 
 function nodesToText(children: ReactNode): string {
   if (children == null || typeof children === 'boolean') return '';
@@ -71,6 +79,7 @@ export default function ChronicleReader({
   showToc = true,
   showCover = true,
   variant = 'narrative',
+  scrollToId = null,
 }: Props) {
   const locale = useLocale();
   const [active, setActive] = useState('');
@@ -102,6 +111,15 @@ export default function ChronicleReader({
     return () => observe.disconnect();
   }, [toc, formatted]);
 
+  useEffect(() => {
+    if (!scrollToId) return;
+    const root = scrollRef.current;
+    let frame = requestAnimationFrame(() => {
+      frame = requestAnimationFrame(() => scrollHeadingIntoView(root, scrollToId));
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [scrollToId, formatted]);
+
   const headingEl = (tag: 'h2' | 'h3', children: ReactNode) => {
     const text = nodesToText(children);
     const book = parseBookLabel(text);
@@ -121,10 +139,19 @@ export default function ChronicleReader({
           ? 'chronicle-subhead'
           : kind === 'part'
             ? 'chronicle-part'
-            : 'chronicle-chapter';
+            : kind === 'sources'
+              ? 'chronicle-sources-title'
+              : 'chronicle-chapter';
+    const renamed = renamedPartHeading(text);
+    const label =
+      renamed === 'appendices'
+        ? uiT('world.viewAppendices', locale)
+        : renamed === 'analysis'
+          ? uiT('world.viewAnalysis', locale)
+          : children;
     return (
       <Tag id={slugifyChronicleHeading(text)} className={className}>
-        {children}
+        {label}
       </Tag>
     );
   };
@@ -144,7 +171,8 @@ export default function ChronicleReader({
                     className={active === h.id ? 'chronicle-toc__link--active' : undefined}
                     onClick={(e) => {
                       e.preventDefault();
-                      document.getElementById(h.id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                      setActive(h.id);
+                      scrollHeadingIntoView(scrollRef.current, h.id);
                     }}
                   >
                     <span className="chronicle-toc__book">{h.label}</span>

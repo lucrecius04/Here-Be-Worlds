@@ -34,6 +34,7 @@ export const worldSchema = z.object({
   studios: z.array(z.string()),
   yearRange: z.string(),
   canonScope: localizedStringSchema,
+  universe: z.array(localizedStringSchema).optional(),
   draft: z.boolean().optional(),
   header: z
     .object({

@@ -1,6 +1,7 @@
 import type { LocalizedString, World } from '../../schemas/world';
 
 import { t, uiT } from '../../lib/i18n';
+import type { TriadAnchor } from '../../lib/chronicle-toc';
 import { useLocale } from '../../lib/locale-store';
 import FiveAxes from './FiveAxes';
 import '../../styles/world-card.css';
@@ -13,6 +14,7 @@ type Props = {
   themeLabels?: Record<string, LocalizedString>;
   baseUrl?: string;
   hideHeader?: boolean;
+  onOpenAnalysis?: (anchor: TriadAnchor) => void;
 };
 
 export default function WorldCard({
@@ -20,6 +22,7 @@ export default function WorldCard({
   themeLabels = {},
   baseUrl = '',
   hideHeader = false,
+  onOpenAnalysis,
 }: Props) {
   const locale = useLocale();
   const showBullets = Boolean(world.signatureBullets?.length);
@@ -82,9 +85,21 @@ export default function WorldCard({
       )}
 
       <section className="triad-grid" aria-label={uiT('card.triadAria', locale)}>
-        <MetaTile label={uiT('card.originalSin', locale)} body={t(world.triad.originalSin, locale)} />
-        <MetaTile label={uiT('card.centralDilemma', locale)} body={t(world.triad.centralDilemma, locale)} />
-        <MetaTile label={uiT('card.ultimateMystery', locale)} body={t(world.triad.ultimateMystery, locale)} />
+        <MetaTile
+          label={uiT('card.originalSin', locale)}
+          body={t(world.triad.originalSin, locale)}
+          onActivate={onOpenAnalysis ? () => onOpenAnalysis('originalSin') : undefined}
+        />
+        <MetaTile
+          label={uiT('card.centralDilemma', locale)}
+          body={t(world.triad.centralDilemma, locale)}
+          onActivate={onOpenAnalysis ? () => onOpenAnalysis('centralDilemma') : undefined}
+        />
+        <MetaTile
+          label={uiT('card.ultimateMystery', locale)}
+          body={t(world.triad.ultimateMystery, locale)}
+          onActivate={onOpenAnalysis ? () => onOpenAnalysis('ultimateMystery') : undefined}
+        />
       </section>
     </>
   );
@@ -117,21 +132,33 @@ function MetaTile({
   field,
   body,
   actors,
+  onActivate,
 }: {
   label: string;
   field?: MetadataField;
   body?: string;
   actors?: boolean;
+  onActivate?: () => void;
 }) {
   const locale = useLocale();
   const main = field ? t(field, locale) : (body ?? '');
   const sub = field?.sub ? t(field.sub, locale) : null;
-
-  return (
-    <div className={`meta-tile${actors ? ' meta-tile--actors' : ''}`}>
+  const className = `meta-tile${actors ? ' meta-tile--actors' : ''}${onActivate ? ' meta-tile--jump' : ''}`;
+  const inner = (
+    <>
       <div className="meta-tile__label">{label}</div>
       <div className={`meta-tile__body${field && !actors ? ' meta-tile__body--value' : ''}`}>{main}</div>
       {sub ? <p className="meta-tile__sub">{sub}</p> : null}
-    </div>
+    </>
   );
+
+  if (onActivate) {
+    return (
+      <button type="button" className={className} onClick={onActivate}>
+        {inner}
+      </button>
+    );
+  }
+
+  return <div className={className}>{inner}</div>;
 }

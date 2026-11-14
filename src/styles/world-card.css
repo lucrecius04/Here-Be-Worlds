@@ -24,8 +24,8 @@
 }
 
 .world-page__masthead .world-card__title-row {
-  margin: 0.35rem 0 0.1rem;
-  padding: 0.4rem 0 0.08rem;
+  margin: 0;
+  padding: 0.42rem 8.5rem 0 0;
 }
 
 .world-page__masthead .world-card__title {
@@ -34,9 +34,30 @@
   margin: 0;
 }
 
-.world-page__masthead .world-card__canon {
-  margin-top: 0.08rem;
-  margin-bottom: 0.95rem;
+.world-page__masthead .world-card__facts {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.15rem 0;
+  margin: 0.18rem 0 0.45rem;
+}
+
+.world-card__fact-wrap {
+  display: inline-flex;
+  align-items: baseline;
+}
+
+.world-card__fact {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.35rem 0.5rem;
+}
+
+.world-card__fact-dot {
+  margin: 0 0.55rem;
+  color: var(--color-ink-muted);
+  font-size: 0.95rem;
+  line-height: 1;
 }
 
 .world-card__byline {
@@ -155,12 +176,33 @@
   overflow: visible;
 }
 
+.meta-tile--jump {
+  display: block;
+  width: 100%;
+  margin: 0;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.meta-tile--jump:hover,
+.meta-tile--jump:focus-visible {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 1px var(--color-accent);
+  outline: none;
+}
+
 .world-card__kicker {
+  position: absolute;
+  top: 0.52rem;
+  right: 0.7rem;
   display: flex;
   align-items: baseline;
-  justify-content: space-between;
-  gap: 1rem;
-  margin: 0 0 0.25rem;
+  justify-content: flex-end;
+  margin: 0;
+  z-index: 1;
 }
 
 .world-card__genre {
@@ -297,7 +339,7 @@
   flex: 0 0 auto;
   z-index: 30;
   margin: 0;
-  padding: 0.1rem 0.7rem 0.45rem 0;
+  padding: 0 0.7rem 0.75rem 0;
   background: var(--color-paper);
   border-bottom: 1px solid var(--color-line);
   scrollbar-gutter: stable;
@@ -325,6 +367,10 @@
 .world-page__masthead .view-mode-tabs {
   margin-top: 0.15rem;
   margin-bottom: 0;
+}
+
+.world-card--page .world-card__core-wrap {
+  margin-top: 0.55rem;
 }
 
 .world-card__themes {

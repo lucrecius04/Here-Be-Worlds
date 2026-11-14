@@ -25,8 +25,8 @@ export const noteFields: NoteField[] = [
       en: 'The prevailing mood and emotional tone of the world. One dominant and at most two secondary.',
     },
     values: {
-      cs: 'Úžas · Melancholie · Tísnivost · Strach · Fascinace · Nostalgie · Naděje · Beznaděj · Napětí · Cynismus · Grotesknost · Snovost · Vzdor · Absurdita · Sentimentálnost · Dekadence · Vznešenost · Vřelost · Ironie · Odcizení · Humor',
-      en: 'Wonder · Melancholy · Oppression · Fear · Fascination · Nostalgia · Hope · Despair · Tension · Cynicism · Grotesque · Dreamlike · Defiance · Absurdity · Sentiment · Decadence · Sublimity · Warmth · Irony · Alienation · Humor',
+      cs: 'Absurdita · Cynismus · Dekadence · Fascinace · Grotesknost · Humor · Ironie · Melancholie · Naděje · Napětí · Nostalgie · Odcizení · Sentimentálnost · Snovost · Strach · Tísnivost · Úžas · Vřelost · Vzdor · Vznešenost · Zoufalství',
+      en: 'Absurdity · Alienation · Cynicism · Decadence · Defiance · Despair · Dreamlike · Fascination · Fear · Grotesque · Hope · Humor · Irony · Melancholy · Nostalgia · Oppression · Sentiment · Sublimity · Tension · Warmth · Wonder',
     },
   },
   {
@@ -98,8 +98,8 @@ export const noteFields: NoteField[] = [
       en: 'Significant themes and conflicts present in the game world. At most six themes per world.',
     },
     values: {
-      cs: 'Politika a intriky · Válka · Víra · Přežití · Odhalování minulosti · Konspirace · Moc a nadvláda · Pomsta · Objevování · Kolaps civilizace · Pokrok a jeho důsledky · Identita a existence · Vina a vykoupení · Svobodná vůle a osud · Láska a vztahy · Přátelství a společenství · Cyklické dějiny · Humor, ironie, nadsázka · Bohové',
-      en: 'Politics and intrigue · War · Faith · Survival · Uncovering the past · Conspiracy · Power and dominion · Revenge · Discovery · Civilizational collapse · Progress and its costs · Identity and existence · Guilt and redemption · Free will and fate · Love and relationships · Friendship and fellowship · Cyclical history · Humor, irony, exaggeration · Gods',
+      cs: 'Bohové · Cyklické dějiny · Humor, ironie, nadsázka · Identita a existence · Kolaps civilizace · Konspirace · Láska a vztahy · Moc a nadvláda · Objevování · Odhalování minulosti · Pokrok a jeho důsledky · Politika a intriky · Pomsta · Přátelství a společenství · Přežití · Svobodná vůle a osud · Válka · Vina a vykoupení · Víra',
+      en: 'Civilizational collapse · Conspiracy · Cyclical history · Discovery · Faith · Free will and fate · Friendship and fellowship · Gods · Guilt and redemption · Humor, irony, exaggeration · Identity and existence · Love and relationships · Politics and intrigue · Power and dominion · Progress and its costs · Revenge · Survival · Uncovering the past · War',
     },
   },
 ];

@@ -3,7 +3,11 @@ import type { LocalizedString, RelatedWorld, World } from '../../schemas/world';
 import { uiT } from '../../lib/i18n';
 import { useLocale } from '../../lib/locale-store';
 import { loadChronicleMarkdown, type ChronicleDoc } from '../../lib/chronicles';
-import { splitChronicleMarkdown } from '../../lib/chronicle-toc';
+import {
+  findAnalysisHeadingId,
+  splitChronicleMarkdown,
+  type TriadAnchor,
+} from '../../lib/chronicle-toc';
 import WorldPageMasthead from './WorldPageMasthead';
 import WorldCard from './WorldCard';
 import SimilarWorlds from './SimilarWorlds';
@@ -32,6 +36,7 @@ export default function WorldPageShell({
   const [mode, setMode] = useState<ViewMode>('card');
   const [chronicle, setChronicle] = useState<ChronicleDoc | null>(null);
   const [chronicleLoading, setChronicleLoading] = useState(false);
+  const [analysisAnchor, setAnalysisAnchor] = useState<TriadAnchor | null>(null);
 
   const needsChronicle = mode !== 'card';
 
@@ -85,6 +90,7 @@ export default function WorldPageShell({
               aria-selected={mode === tab.id}
               className={`view-tab${mode === tab.id ? ' view-tab--active' : ''}`}
               onClick={() => {
+                setAnalysisAnchor(null);
                 if (tab.id !== 'card' && chronicle === null) setChronicleLoading(true);
                 setMode(tab.id);
               }}
@@ -98,7 +104,17 @@ export default function WorldPageShell({
       <div className="world-page__pane">
         {mode === 'card' ? (
           <div className="world-page__pane-scroll">
-            <WorldCard hideHeader world={world} themeLabels={themeLabels} baseUrl={baseUrl} />
+            <WorldCard
+              hideHeader
+              world={world}
+              themeLabels={themeLabels}
+              baseUrl={baseUrl}
+              onOpenAnalysis={(anchor) => {
+                if (chronicle === null) setChronicleLoading(true);
+                setAnalysisAnchor(anchor);
+                setMode('analysis');
+              }}
+            />
             <SimilarWorlds items={related} />
           </div>
         ) : chronicleLoading ? (
@@ -130,6 +146,9 @@ export default function WorldPageShell({
             variant="analysis"
             showToc={false}
             showCover={false}
+            scrollToId={
+              analysisAnchor ? findAnalysisHeadingId(parts.analysis, analysisAnchor) : null
+            }
           />
         ) : (
           missing

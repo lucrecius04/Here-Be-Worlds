@@ -34,12 +34,15 @@ export function parseBookLabel(line: string): string | null {
   const knihaCs = new RegExp(`^Kniha\\s+(${ORD})(?:\\s|$)`, 'i').exec(t);
   if (knihaCs) return `Kniha ${knihaCs[1].toLowerCase()}`;
   const cast = new RegExp(
-    `^ČÁST\\s+(${ORD_U})\\s*·\\s*KAPITOLA\\s+(${ORD_U})`,
+    `^(?:ČÁST\\s+(${ORD_U})\\s*·\\s*)?KAPITOLA\\s+(${ORD_U})`,
     'i',
   ).exec(t);
-  if (cast) return `Část ${cast[1].toLowerCase()} · Kapitola ${cast[2].toLowerCase()}`;
-  const castCs = new RegExp(`^Část\\s+(${ORD})\\s*·\\s*Kapitola\\s+(${ORD})`, 'i').exec(t);
-  if (castCs) return `Část ${castCs[1].toLowerCase()} · Kapitola ${castCs[2].toLowerCase()}`;
+  if (cast) return `Kniha ${cast[2].toLowerCase()}`;
+  const castCs = new RegExp(
+    `^(?:Část\\s+(${ORD})\\s*·\\s*)?Kapitola\\s+(${ORD})`,
+    'i',
+  ).exec(t);
+  if (castCs) return `Kniha ${castCs[2].toLowerCase()}`;
   return null;
 }
 
@@ -91,7 +94,7 @@ export function extractChronicleToc(markdown: string): ChronicleTocEntry[] {
 
     if (pendingBook && isChapterTitle(heading)) {
       entries.push({
-        id: slugifyChronicleHeading(heading),
+        id: slugifyChronicleHeading(pendingBook),
         label: pendingBook,
         title: heading,
         kind: 'book',
@@ -145,4 +148,22 @@ export function splitChronicleMarkdown(markdown: string): {
     appendices: '',
     analysis: analysisAt >= 0 ? lines.slice(analysisAt).join('\n').trim() : '',
   };
+}
+
+export type TriadAnchor = 'originalSin' | 'centralDilemma' | 'ultimateMystery';
+
+const TRIAD_HEADING: Record<TriadAnchor, RegExp> = {
+  originalSin: /prvotní\s+hřích/i,
+  centralDilemma: /ústřední\s+(otázka|dilema)/i,
+  ultimateMystery: /nosná\s+mezera|hlavní\s+tajemství/i,
+};
+
+export function findAnalysisHeadingId(markdown: string, key: TriadAnchor): string | null {
+  const match = TRIAD_HEADING[key];
+  for (const raw of markdown.split('\n')) {
+    const heading = headingText(raw);
+    if (!heading || !match.test(heading)) continue;
+    return slugifyChronicleHeading(heading);
+  }
+  return null;
 }
