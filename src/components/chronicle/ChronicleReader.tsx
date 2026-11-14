@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import '../../styles/chronicle.css';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -9,6 +9,22 @@ import {
   parseBookLabel,
   slugifyChronicleHeading,
 } from '../../lib/chronicle-toc';
+import {
+  classifyChronicleHeading,
+  formatChronicleMarkdown,
+  splitCoverTitle,
+} from '../../lib/chronicle-format';
+
+function rangeFromCover(title?: string, range?: string) {
+  if (range) return range;
+  if (!title) return '';
+  if (/Mečového|Sword Coast/i.test(title)) return 'od pádu Netherilu po Starší mozek';
+  if (/popela|Ash/i.test(title)) return 'svět, který se bál tmy';
+  if (/Svatyně|Sanctuary/i.test(title)) return 'od stvoření vesmíru po konec věku nenávisti';
+  return '';
+}
+
+type Variant = 'narrative' | 'appendices' | 'analysis';
 
 type Props = {
   markdown: string;
@@ -17,8 +33,35 @@ type Props = {
   coverRange?: string;
   showToc?: boolean;
   showCover?: boolean;
-  sidebarTitle?: string;
+  variant?: Variant;
 };
+
+function nodesToText(children: ReactNode): string {
+  if (children == null || typeof children === 'boolean') return '';
+  if (typeof children === 'string' || typeof children === 'number') return String(children);
+  if (Array.isArray(children)) return children.map(nodesToText).join('');
+  if (typeof children === 'object' && 'props' in children) {
+    return nodesToText((children as { props: { children?: ReactNode } }).props.children);
+  }
+  return '';
+}
+
+function isOnlyEmphasis(node: { children?: { tagName?: string; type?: string }[] } | undefined) {
+  const kids = node?.children ?? [];
+  if (kids.length !== 1) return false;
+  const tag = kids[0]?.tagName ?? kids[0]?.type;
+  return tag === 'em' || tag === 'emphasis';
+}
+
+function Ornament() {
+  return (
+    <div className="chronicle-ornament" aria-hidden="true">
+      <span>✦</span>
+      <span>✦</span>
+      <span>✦</span>
+    </div>
+  );
+}
 
 export default function ChronicleReader({
   markdown,
@@ -27,13 +70,19 @@ export default function ChronicleReader({
   coverRange,
   showToc = true,
   showCover = true,
-  sidebarTitle,
+  variant = 'narrative',
 }: Props) {
   const locale = useLocale();
   const [active, setActive] = useState('');
   const scrollRef = useRef<HTMLDivElement>(null);
-
-  const toc = useMemo(() => (showToc ? extractChronicleToc(markdown) : []), [markdown, showToc]);
+  const formatted = useMemo(() => formatChronicleMarkdown(markdown), [markdown]);
+  const cover = coverTitle ? splitCoverTitle(coverTitle) : null;
+  const range = rangeFromCover(coverTitle, coverRange);
+  const tocSource = variant === 'narrative' ? markdown : formatted;
+  const toc = useMemo(
+    () => (showToc ? extractChronicleToc(tocSource) : []),
+    [tocSource, showToc],
+  );
 
   useEffect(() => {
     const root = scrollRef.current;
@@ -51,15 +100,41 @@ export default function ChronicleReader({
       if (el) observe.observe(el);
     });
     return () => observe.disconnect();
-  }, [toc, markdown]);
+  }, [toc, formatted]);
+
+  const headingEl = (tag: 'h2' | 'h3', children: ReactNode) => {
+    const text = nodesToText(children);
+    const book = parseBookLabel(text);
+    if (book) {
+      return (
+        <p id={slugifyChronicleHeading(book)} className="chronicle-book-label">
+          {book}
+        </p>
+      );
+    }
+    const kind = classifyChronicleHeading(text);
+    const Tag = tag;
+    const className =
+      kind === 'interpret'
+        ? 'chronicle-interpret'
+        : kind === 'numbered'
+          ? 'chronicle-subhead'
+          : kind === 'part'
+            ? 'chronicle-part'
+            : 'chronicle-chapter';
+    return (
+      <Tag id={slugifyChronicleHeading(text)} className={className}>
+        {children}
+      </Tag>
+    );
+  };
 
   return (
-    <div className={`chronicle-layout${showToc ? '' : ' chronicle-layout--wide'}`}>
+    <div
+      className={`chronicle-layout chronicle-layout--${variant}${showToc ? '' : ' chronicle-layout--wide'}`}
+    >
       {showToc ? (
         <nav className="chronicle-toc" aria-label={locale === 'cs' ? 'Obsah kroniky' : 'Chronicle contents'}>
-          <p className="chronicle-toc__title">
-            {sidebarTitle ?? uiT('world.fullChronicle', locale)}
-          </p>
           {toc.length > 0 ? (
             <ul>
               {toc.map((h) => (
@@ -83,11 +158,13 @@ export default function ChronicleReader({
       ) : null}
       <div className="chronicle-scroll" ref={scrollRef}>
         {showCover ? (
-          coverTitle || coverTagline ? (
+          cover || coverTagline ? (
             <header className="chronicle-cover">
-              {coverTitle ? <h2 className="chronicle-cover__title display">{coverTitle}</h2> : null}
+              {cover?.kicker ? <p className="chronicle-cover__kicker">{cover.kicker}</p> : null}
+              {cover?.name ? <h2 className="chronicle-cover__title display">{cover.name}</h2> : null}
+              <Ornament />
               {coverTagline ? <p className="chronicle-cover__tagline">{coverTagline}</p> : null}
-              {coverRange ? <p className="chronicle-cover__range">{coverRange}</p> : null}
+              {range ? <p className="chronicle-cover__range">{range}</p> : null}
               <p className="chronicle-cover__spoiler">{uiT('world.spoilerNotice', locale)}</p>
             </header>
           ) : (
@@ -95,13 +172,14 @@ export default function ChronicleReader({
           )
         ) : null}
         <article
-          className={`chronicle-prose chronicle-prose--body${showToc ? '' : ' chronicle-prose--wide'}`}
+          lang={locale}
+          className={`chronicle-prose chronicle-prose--body chronicle-prose--${variant}${showToc ? '' : ' chronicle-prose--wide'}`}
         >
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
             components={{
-              p: ({ children }) => {
-                const text = String(children);
+              p: ({ children, node }) => {
+                const text = nodesToText(children).trim();
                 const book = parseBookLabel(text);
                 if (book) {
                   return (
@@ -110,21 +188,21 @@ export default function ChronicleReader({
                     </p>
                   );
                 }
+                if (isOnlyEmphasis(node)) {
+                  const quoted = /[„“”"]/.test(text);
+                  return (
+                    <p className={quoted ? 'chronicle-epigraph' : 'chronicle-italic'}>{children}</p>
+                  );
+                }
                 return <p>{children}</p>;
               },
-              h2: ({ children }) => {
-                const text = String(children);
-                const id = slugifyChronicleHeading(text);
-                return <h2 id={id}>{children}</h2>;
-              },
-              h3: ({ children }) => {
-                const text = String(children);
-                const id = slugifyChronicleHeading(text);
-                return <h3 id={id}>{children}</h3>;
-              },
+              h2: ({ children }) => headingEl('h2', children),
+              h3: ({ children }) => headingEl('h3', children),
+              hr: () => <Ornament />,
+              strong: ({ children }) => <strong>{children}</strong>,
             }}
           >
-            {markdown}
+            {formatted}
           </ReactMarkdown>
         </article>
       </div>

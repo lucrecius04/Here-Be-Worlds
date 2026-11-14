@@ -4,6 +4,7 @@ import '../styles/typography.css';
 import '../styles/layout.css';
 import '../styles/world-card.css';
 import '../styles/chronicle.css';
+import '../styles/home.css';
 import SiteHeader from '../components/i18n/SiteHeader';
 import SiteFooter from '../components/i18n/SiteFooter';
 import LocaleBridge from '../components/i18n/LocaleBridge';
@@ -24,7 +25,7 @@ const base = import.meta.env.BASE_URL;
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
     <title>{title}</title>
@@ -41,6 +42,6 @@ const base = import.meta.env.BASE_URL;
     <main class="site-main">
       <slot />
     </main>
-    <SiteFooter client:load />
+    <SiteFooter client:load base={base} />
   </body>
 </html>

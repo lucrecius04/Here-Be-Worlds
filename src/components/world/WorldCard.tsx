@@ -66,14 +66,16 @@ export default function WorldCard({
         </div>
       </section>
 
-      <FiveAxes world={world} />
+      <FiveAxes world={world} notesHref={baseUrl ? `${baseUrl}/notes/` : undefined} />
 
       {showBullets && (
         <section className="world-card__signature" aria-label={uiT('card.signatureAria', locale)}>
           <h3 className="world-card__signature-title">{uiT('card.signatureHeading', locale)}</h3>
           <ul className="world-card__bullets">
             {world.signatureBullets!.map((b) => (
-              <li key={b.en ?? b.cs}>{t(b, locale)}</li>
+              <li key={b.en ?? b.cs}>
+                <SignatureLead text={t(b, locale)} />
+              </li>
             ))}
           </ul>
         </section>
@@ -98,6 +100,18 @@ export default function WorldCard({
   );
 }
 
+function SignatureLead({ text }: { text: string }) {
+  const match = text.match(/^(.+?\.)(\s+)(.*)$/s);
+  if (!match || !match[3]) return <>{text}</>;
+  return (
+    <>
+      <strong>{match[1]}</strong>
+      {match[2]}
+      {match[3]}
+    </>
+  );
+}
+
 function MetaTile({
   label,
   field,
@@ -116,7 +130,7 @@ function MetaTile({
   return (
     <div className={`meta-tile${actors ? ' meta-tile--actors' : ''}`}>
       <div className="meta-tile__label">{label}</div>
-      <div className="meta-tile__body">{main}</div>
+      <div className={`meta-tile__body${field && !actors ? ' meta-tile__body--value' : ''}`}>{main}</div>
       {sub ? <p className="meta-tile__sub">{sub}</p> : null}
     </div>
   );

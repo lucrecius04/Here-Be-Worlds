@@ -11,6 +11,14 @@ export const metadataFieldSchema = localizedStringSchema.extend({
   detail: localizedStringSchema.optional(),
 });
 
+export const relatedWorldSchema = z.object({
+  id: z.string().optional(),
+  title: localizedStringSchema,
+  note: localizedStringSchema,
+  genreProfile: localizedStringSchema.optional(),
+  yearRange: z.string().optional(),
+});
+
 export const axisValueSchema = z.object({
   value: z.number().min(1).max(5),
   comment: localizedStringSchema.optional(),
@@ -32,6 +40,7 @@ export const worldSchema = z.object({
       relatedWorldSlugs: z.array(z.string()).optional(),
     })
     .optional(),
+  relatedWorlds: z.array(relatedWorldSchema).optional(),
   core: localizedStringSchema,
   signatureBullets: z.array(localizedStringSchema).optional(),
   metadata: z.object({
@@ -68,4 +77,5 @@ export const worldsFileSchema = z.object({
 
 export type LocalizedString = z.infer<typeof localizedStringSchema>;
 export type AxisValue = z.infer<typeof axisValueSchema>;
+export type RelatedWorld = z.infer<typeof relatedWorldSchema>;
 export type World = z.infer<typeof worldSchema>;

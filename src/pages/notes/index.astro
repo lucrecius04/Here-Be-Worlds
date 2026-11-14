@@ -1,0 +1,10 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import NotesPage from '../../components/notes/NotesPage';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title="Vysvětlivky — Here Be Worlds">
+  <NotesPage client:load base={base} />
+</BaseLayout>

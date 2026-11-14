@@ -4,7 +4,7 @@ worldId: dark-souls
 language: cs
 coverTitle: Kronika popela
 coverTagline: Příběh světa Dark Souls
-coverRange: svět, který se bál tmy
+coverRange: "svět, který se bál tmy"
 ---
 
 ## Úvodem

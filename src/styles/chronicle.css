@@ -1,8 +1,8 @@
 .chronicle-layout {
   display: grid;
-  grid-template-columns: minmax(0, 240px) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 220px) minmax(0, 1fr);
   grid-template-rows: minmax(0, 1fr);
-  gap: 1.75rem;
+  gap: 0;
   align-items: stretch;
   margin-top: 0;
   min-height: 0;
@@ -16,18 +16,12 @@
   max-height: 100%;
   overflow-y: auto;
   overscroll-behavior: contain;
-  padding: 0.15rem 0.35rem 0.75rem 0;
+  padding: 0.85rem 1.15rem 1.5rem 0;
+  margin-right: 1.35rem;
   background: transparent;
   border: none;
+  border-right: 1px solid var(--color-line);
   font-size: 0.85rem;
-}
-
-.chronicle-toc__title {
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--color-accent);
-  margin: 0 0 0.75rem;
 }
 
 .chronicle-toc ul {
@@ -37,29 +31,32 @@
 }
 
 .chronicle-toc__item {
-  margin: 0.55rem 0;
+  margin: 0 0 0.85rem;
 }
 
 .chronicle-toc__item a {
   display: flex;
   flex-direction: column;
-  gap: 0.12rem;
+  gap: 0.15rem;
   color: var(--color-ink-muted);
   text-decoration: none;
   border-radius: var(--radius-sm);
-  padding: 0.15rem 0.2rem;
+  padding: 0.1rem 0.15rem 0.1rem 0.55rem;
+  border-left: 2px solid transparent;
 }
 
 .chronicle-toc__book {
-  font-size: 0.68rem;
+  font-family: var(--font-sans);
+  font-size: 0.64rem;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   color: inherit;
 }
 
 .chronicle-toc__chapter {
-  font-size: 0.88rem;
-  line-height: 1.3;
+  font-family: var(--font-serif);
+  font-size: 0.98rem;
+  line-height: 1.28;
   color: inherit;
 }
 
@@ -68,53 +65,116 @@
   color: var(--color-accent);
 }
 
+.chronicle-toc__link--active {
+  border-left-color: var(--color-accent);
+}
+
 .chronicle-scroll {
   overflow-y: auto;
+  overflow-x: hidden;
   min-height: 0;
   max-height: 100%;
   height: auto;
-  padding: 0 0.25rem 2rem 0;
+  padding: 0.35rem 0.85rem 2.75rem 0.4rem;
   overscroll-behavior: contain;
+  scrollbar-gutter: stable;
 }
 
 .chronicle-cover {
-  margin: 0 0 1.5rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid var(--color-line);
+  text-align: center;
+  margin: 2.85rem auto 0.4rem;
+  max-width: 38rem;
+  padding: 0.2rem 0 0.15rem;
+  border-bottom: none;
+}
+
+.chronicle-cover__kicker {
+  font-family: var(--font-serif);
+  font-size: 1.38rem;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+  margin: 0 0 0.1rem;
 }
 
 .chronicle-cover__title {
-  font-size: 2rem;
-  margin: 0 0 0.25rem;
+  font-size: 3.15rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.08;
+  margin: 0;
 }
 
 .chronicle-cover__tagline {
   font-family: var(--font-serif);
-  font-size: 1.15rem;
+  font-size: 1.28rem;
+  font-style: italic;
+  font-weight: 500;
   margin: 0;
   color: var(--color-ink);
 }
 
 .chronicle-cover__range {
+  font-family: var(--font-serif);
   font-style: italic;
   color: var(--color-ink-muted);
-  margin: 0.35rem 0 0;
+  margin: 0.35rem auto 0;
+  font-size: 1.05rem;
+  text-align: center;
 }
 
 .chronicle-cover__spoiler {
-  margin: 0.85rem 0 0;
-  font-size: 0.88rem;
+  display: none;
+}
+
+.chronicle-ornament {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.85rem;
+  margin: 0.7rem 0 0.9rem;
   color: var(--color-accent);
-  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: 0.12em;
+  line-height: 1;
+}
+
+.chronicle-ornament span {
+  width: auto;
+  height: auto;
+  background: none;
+  opacity: 0.9;
+}
+
+.chronicle-cover > .chronicle-ornament {
+  margin: 0.95rem 0 0.95rem;
+}
+
+.chronicle-prose--narrative .chronicle-italic + .chronicle-ornament,
+.chronicle-prose--narrative .chronicle-chapter + .chronicle-ornament,
+.chronicle-prose--narrative .chronicle-part + .chronicle-ornament,
+.chronicle-prose--analysis .chronicle-italic + .chronicle-ornament,
+.chronicle-prose--analysis .chronicle-part + .chronicle-ornament {
+  margin: 0.9rem 0 2.15rem;
 }
 
 .chronicle-book-label {
-  margin: 2rem 0 0.35rem;
-  font-size: 0.72rem;
+  margin: 0.35rem 0 0.35rem;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  font-style: normal;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--color-accent);
+  text-align: center;
+}
+
+.chronicle-prose--narrative > p:not(.chronicle-book-label):not(.chronicle-italic):not(.chronicle-epigraph) + .chronicle-book-label {
+  margin-top: 2.6rem;
+  padding-top: 1.85rem;
+  border-top: 1px solid var(--color-line);
 }
 
 .chronicle-layout--wide {
@@ -129,17 +189,36 @@
   max-width: none;
 }
 
+.chronicle-prose--narrative {
+  max-width: 38.5rem;
+  margin: 0 auto;
+}
+
+.chronicle-prose--analysis {
+  max-width: 46rem;
+  margin: 0 auto;
+}
+
+.chronicle-prose--appendices {
+  max-width: none;
+  margin: 0 auto;
+  font-size: 1.05rem;
+  line-height: 1.55;
+}
+
 .chronicle-prose--body table {
   width: 100%;
   border-collapse: collapse;
-  margin: 1.5rem 0;
-  font-size: 0.92rem;
+  margin: 1.15rem 0 2rem;
+  font-family: var(--font-sans);
+  font-size: 0.86rem;
+  line-height: 1.45;
 }
 
 .chronicle-prose--body th,
 .chronicle-prose--body td {
   border: 1px solid var(--color-line);
-  padding: 0.5rem 0.65rem;
+  padding: 0.55rem 0.7rem;
   text-align: left;
   vertical-align: top;
 }
@@ -147,9 +226,20 @@
 .chronicle-prose--body th {
   background: var(--color-tile);
   font-weight: 600;
-  font-size: 0.8rem;
+  font-size: 0.72rem;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
+  color: var(--color-accent);
+}
+
+.chronicle-prose--body tbody tr:nth-child(even) td {
+  background: color-mix(in srgb, var(--color-tile) 55%, var(--color-paper));
+}
+
+.chronicle-prose--body td:first-child {
+  font-weight: 600;
+  color: var(--color-ink);
+  width: 22%;
 }
 
 .world-chronicle-section {
@@ -169,23 +259,229 @@
 }
 
 .chronicle-prose--body blockquote {
-  border-left: 3px solid var(--color-accent);
-  margin: 1.5rem 0;
-  padding: 0.5rem 0 0.5rem 1rem;
+  border: none;
+  margin: 1.4rem auto;
+  padding: 0;
+  max-width: 32rem;
   color: var(--color-ink-muted);
   font-style: italic;
+  text-align: center;
+  text-indent: 0;
 }
 
-.chronicle-prose--body .chronicle-dropcap p:first-of-type::first-letter,
-.chronicle-prose--body > p:first-of-type::first-letter {
+.chronicle-part {
+  text-align: center;
+  font-size: 2.35rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.15;
+  margin: 2.75rem 0 0.35rem;
+  text-wrap: balance;
+}
+
+.chronicle-prose--narrative > .chronicle-part:first-child,
+.chronicle-prose--analysis > .chronicle-part:first-child,
+.chronicle-prose--appendices > .chronicle-part:first-child {
+  margin-top: 2.85rem;
+}
+
+.chronicle-chapter {
+  text-align: center;
+  font-size: 2.05rem;
+  font-weight: 600;
+  letter-spacing: 0.015em;
+  line-height: 1.18;
+  margin: 2.6rem 0 0.2rem;
+  text-wrap: balance;
+}
+
+.chronicle-book-label + .chronicle-chapter,
+.chronicle-part + .chronicle-chapter {
+  margin-top: 0.15rem;
+}
+
+.chronicle-subhead {
+  text-align: left;
+  font-size: 1.38rem;
+  font-weight: 600;
+  line-height: 1.3;
+  margin: 2.1rem 0 0.7rem;
+}
+
+.chronicle-prose--analysis .chronicle-subhead {
+  text-align: center;
+  font-size: 1.5rem;
+  margin: 2.35rem 0 0.75rem;
+  text-wrap: balance;
+}
+
+.chronicle-subhead strong {
+  font-weight: 600;
+}
+
+.chronicle-interpret {
+  margin: 1.6rem 0 0.45rem;
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  text-align: left;
+}
+
+.chronicle-italic {
+  text-align: center;
+  font-style: italic;
+  font-size: 1.18em;
+  color: var(--color-ink-muted);
+  text-indent: 0;
+  margin: 0.15rem 0 0.2rem;
+  max-width: none;
+  text-wrap: balance;
+}
+
+.chronicle-chapter + .chronicle-italic,
+.chronicle-part + .chronicle-italic {
+  font-size: 1.22rem;
+  margin: 0.15rem 0 0.2rem;
+}
+
+.chronicle-epigraph {
+  text-align: center;
+  font-style: italic;
+  font-size: 1.12rem;
+  line-height: 1.55;
+  max-width: none;
+  margin: 0.35rem 0 1.25rem;
+  color: var(--color-ink);
+  text-indent: 0;
+  text-wrap: balance;
+}
+
+.chronicle-caption {
+  text-align: center;
+  font-style: italic;
+  font-size: 0.92rem;
+  color: var(--color-ink-muted);
+  margin: 1.5rem auto 2rem;
+  text-indent: 0;
+}
+
+.chronicle-rule {
+  display: none;
+}
+
+.chronicle-prose--narrative p,
+.chronicle-prose--analysis p {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  hyphenate-limit-chars: 8 3 3;
+  margin: 0 0 0.28rem;
+  text-indent: 1.35em;
+}
+
+.chronicle-prose p.chronicle-italic,
+.chronicle-prose p.chronicle-epigraph,
+.chronicle-prose p.chronicle-book-label,
+.chronicle-prose p.chronicle-caption,
+.chronicle-prose--analysis p.chronicle-italic,
+.chronicle-prose--narrative p.chronicle-italic,
+.chronicle-prose--analysis p.chronicle-epigraph,
+.chronicle-prose--narrative p.chronicle-epigraph,
+.chronicle-prose--analysis p.chronicle-book-label,
+.chronicle-prose--narrative p.chronicle-book-label {
+  text-align: center;
+  text-indent: 0;
+  text-justify: auto;
+  hyphens: none;
+}
+
+.chronicle-prose--narrative .chronicle-part + p,
+.chronicle-prose--narrative .chronicle-chapter + p,
+.chronicle-prose--narrative .chronicle-subhead + p,
+.chronicle-prose--narrative .chronicle-italic + p,
+.chronicle-prose--narrative .chronicle-epigraph + p,
+.chronicle-prose--narrative .chronicle-ornament + p,
+.chronicle-prose--narrative .chronicle-book-label + p,
+.chronicle-prose--analysis .chronicle-part + p,
+.chronicle-prose--analysis .chronicle-chapter + p,
+.chronicle-prose--analysis .chronicle-subhead + p,
+.chronicle-prose--analysis .chronicle-italic + p,
+.chronicle-prose--analysis .chronicle-interpret + p,
+.chronicle-prose--analysis .chronicle-ornament + p {
+  text-indent: 0;
+}
+
+.chronicle-italic,
+.chronicle-epigraph,
+.chronicle-caption,
+.chronicle-book-label,
+.chronicle-cover__spoiler {
+  text-indent: 0;
+}
+
+.chronicle-prose--narrative .chronicle-ornament + p:not(.chronicle-italic):not(.chronicle-epigraph)::first-letter,
+.chronicle-prose--narrative .chronicle-ornament + .chronicle-italic + p::first-letter,
+.chronicle-prose--narrative .chronicle-ornament + .chronicle-epigraph + p::first-letter {
   float: left;
   font-family: var(--font-serif);
-  font-size: 3.4rem;
-  line-height: 0.85;
-  padding-right: 0.12em;
-  margin-top: 0.05em;
+  font-size: 3.55rem;
+  line-height: 0.78;
+  padding-right: 0.06em;
+  margin: 0.08em 0.04em 0 0;
   color: var(--color-accent);
   font-weight: 600;
+  font-style: normal;
+}
+
+.chronicle-interpret + p {
+  text-align: left;
+  text-indent: 0;
+  background: var(--color-tile);
+  border-left: 3px solid var(--color-accent);
+  padding: 0.95rem 1.15rem;
+  margin: 0 0 1.1rem;
+  hyphens: auto;
+}
+
+.chronicle-prose--analysis p > strong:first-child,
+.chronicle-interpret + p > strong:first-child {
+  font-style: normal;
+  font-weight: 700;
+}
+
+.chronicle-interpret + p > strong:first-child {
+  display: block;
+  margin-bottom: 0.45rem;
+  font-size: 1.05em;
+}
+
+.chronicle-prose--analysis .chronicle-part {
+  margin-top: 0.4rem;
+}
+
+.chronicle-prose--appendices .chronicle-part {
+  margin-top: 0.25rem;
+}
+
+.chronicle-prose--appendices .chronicle-chapter {
+  font-size: 1.7rem;
+  margin: 2.1rem 0 0.85rem;
+}
+
+.chronicle-prose--appendices p {
+  text-indent: 0;
+  margin: 0.35rem 0 0.85rem;
+}
+
+.chronicle-prose--appendices .chronicle-italic {
+  margin-bottom: 0.2rem;
+}
+
+.chronicle-prose--body li {
+  text-indent: 0;
 }
 
 @media (max-width: 900px) {
@@ -199,12 +495,33 @@
     height: auto;
     max-height: none;
     overflow: visible;
-    padding-bottom: 0.5rem;
+    padding: 0.15rem 0 0.85rem;
+    margin-right: 0;
+    border-right: none;
     border-bottom: 1px solid var(--color-line);
+    display: flex;
+    gap: 0.75rem;
+    overflow-x: auto;
+  }
+
+  .chronicle-toc ul {
+    display: flex;
+    gap: 0.75rem;
+  }
+
+  .chronicle-toc__item {
+    margin: 0;
+    min-width: 9rem;
   }
 
   .chronicle-scroll {
     overflow: visible;
     height: auto;
+  }
+
+  .chronicle-chapter,
+  .chronicle-part,
+  .chronicle-cover__title {
+    font-size: 1.8rem;
   }
 }

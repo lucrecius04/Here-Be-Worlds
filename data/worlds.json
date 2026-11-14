@@ -13,7 +13,30 @@
         "en": "Baldur's Gate I–II with expansions and Baldur's Gate 3",
         "cs": "Baldur's Gate I–II s rozšířeními a Baldur's Gate 3"
       },
-      "header": { "relatedWorldSlugs": ["diablo", "dark-souls"] },
+      "header": { "relatedWorldSlugs": ["pathfinder", "dragon-age", "planescape-torment"] },
+      "relatedWorlds": [
+        {
+          "id": "pathfinder",
+          "title": { "en": "Pathfinder", "cs": "Pathfinder" },
+          "genreProfile": { "en": "High fantasy", "cs": "Vysoká fantasy" },
+          "yearRange": "2018–2021",
+          "note": { "en": "D&D heritage and divine politics", "cs": "dědictví D&D a božská politika" }
+        },
+        {
+          "id": "dragon-age",
+          "title": { "en": "Dragon Age", "cs": "Dragon Age" },
+          "genreProfile": { "en": "Dark fantasy", "cs": "Temná fantasy" },
+          "yearRange": "2009–2024",
+          "note": { "en": "the party and institutional guilt", "cs": "družina a vina institucí" }
+        },
+        {
+          "id": "planescape-torment",
+          "title": { "en": "Planescape: Torment", "cs": "Planescape: Torment" },
+          "genreProfile": { "en": "Planar fantasy", "cs": "Planární fantasy" },
+          "yearRange": "1999",
+          "note": { "en": "D&D and the question of identity", "cs": "D&D a otázka identity" }
+        }
+      ],
       "core": {
         "en": "A world where people become gods—and must learn not to be their property.",
         "cs": "Svět, v němž se z lidí stávají bohové – a lidé se pak musí naučit nebýt jejich majetkem."
@@ -126,7 +149,30 @@
         "en": "Dark Souls I–III and all expansions",
         "cs": "Dark Souls I–III a všechna rozšíření"
       },
-      "header": { "relatedWorldSlugs": ["baldurs-gate", "diablo"] },
+      "header": { "relatedWorldSlugs": ["elden-ring", "bloodborne", "xenoblade"] },
+      "relatedWorlds": [
+        {
+          "id": "elden-ring",
+          "title": { "en": "Elden Ring", "cs": "Elden Ring" },
+          "genreProfile": { "en": "Dark fantasy", "cs": "Temná fantasy" },
+          "yearRange": "2022–2024",
+          "note": { "en": "mythic history, a broken order", "cs": "mytické dějiny, zlomený řád" }
+        },
+        {
+          "id": "bloodborne",
+          "title": { "en": "Bloodborne", "cs": "Bloodborne" },
+          "genreProfile": { "en": "Cosmic horror", "cs": "Kosmický horor" },
+          "yearRange": "2015",
+          "note": { "en": "cosmic horror, hidden truth", "cs": "kosmický horor, skrytá pravda" }
+        },
+        {
+          "id": "xenoblade",
+          "title": { "en": "Xenoblade", "cs": "Xenoblade" },
+          "genreProfile": { "en": "Science fantasy", "cs": "Science fantasy" },
+          "yearRange": "2010–2023",
+          "note": { "en": "cycles and dying gods", "cs": "cykly a umírající bohové" }
+        }
+      ],
       "core": {
         "en": "A world where even fire grows old—and every heroism only prolongs the dying.",
         "cs": "Svět, v němž stárne i oheň – a každé hrdinství jen prodlužuje umírání."
@@ -239,7 +285,30 @@
         "en": "Diablo I–IV with expansions",
         "cs": "Diablo I–IV s rozšířeními"
       },
-      "header": { "relatedWorldSlugs": ["baldurs-gate", "dark-souls"] },
+      "header": { "relatedWorldSlugs": ["path-of-exile", "warcraft", "dark-souls"] },
+      "relatedWorlds": [
+        {
+          "id": "path-of-exile",
+          "title": { "en": "Path of Exile", "cs": "Path of Exile" },
+          "genreProfile": { "en": "Dark fantasy", "cs": "Temná fantasy" },
+          "yearRange": "2013–2024",
+          "note": { "en": "a dark quest for power", "cs": "temná výprava za mocí" }
+        },
+        {
+          "id": "warcraft",
+          "title": { "en": "Warcraft", "cs": "Warcraft" },
+          "genreProfile": { "en": "High fantasy", "cs": "Vysoká fantasy" },
+          "yearRange": "1994–2024",
+          "note": { "en": "demons and cosmic war", "cs": "démoni a kosmická válka" }
+        },
+        {
+          "id": "dark-souls",
+          "title": { "en": "Dark Souls", "cs": "Dark Souls" },
+          "genreProfile": { "en": "Dark fantasy", "cs": "Temná fantasy" },
+          "yearRange": "2011–2017",
+          "note": { "en": "gothic decay", "cs": "gotický úpadek" }
+        }
+      ],
       "core": {
         "en": "Humanity is the unwanted child of angels and demons—and both sides want to save or enslave it.",
         "cs": "Lidstvo je nechtěné dítě andělů a démonů – a obě strany ho chtějí buď spasit, nebo zotročit."

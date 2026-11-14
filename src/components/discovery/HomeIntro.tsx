@@ -1,5 +1,6 @@
 import { useLocale } from '../../lib/locale-store';
-import { profileCountLabel, t, uiT } from '../../lib/i18n';
+import { profileCountLabel, t, uiT, type Locale } from '../../lib/i18n';
+import { withBase } from '../../lib/base-url';
 import type { LocalizedString } from '../../schemas/world';
 
 export type ChapterCardData = {
@@ -10,36 +11,70 @@ export type ChapterCardData = {
   count: number;
 };
 
-export default function HomeIntro({ chapters }: { chapters: ChapterCardData[] }) {
+type Props = {
+  chapters: ChapterCardData[];
+  base: string;
+};
+
+export default function HomeIntro({ chapters, base }: Props) {
   const locale = useLocale();
 
   return (
     <>
-      <header style={{ maxWidth: '40rem' }}>
-        <p className="meta-tile__label">{uiT('home.tagline', locale)}</p>
-        <h1 className="display" style={{ fontSize: '2.75rem', margin: '0.25rem 0 0.75rem' }}>
-          {uiT('home.title', locale)}
-        </h1>
-        <p style={{ color: 'var(--color-ink-muted)', fontSize: '1.05rem' }}>{uiT('home.lead', locale)}</p>
+      <header className="home-cover">
+        <p className="home-cover__kicker">{uiT('home.kicker', locale)}</p>
+        <p className="home-cover__brand">{uiT('siteName', locale)}</p>
+        <h1 className="home-cover__title display">{uiT('home.title', locale)}</h1>
+        <div className="home-cover__ornament" aria-hidden="true">
+          <span>✦</span>
+          <span>✦</span>
+          <span>✦</span>
+        </div>
+        <p className="home-cover__lead">{uiT('home.slogan', locale)}</p>
+        <p className="home-cover__method">
+          <a href={withBase(base, '/notes/')}>{uiT('home.readAtlas', locale)}</a>
+        </p>
       </header>
 
-      <section className="chapter-strip" aria-label={uiT('home.chaptersAria', locale)}>
-        {chapters.map((c) => (
-          <article key={c.id} className="chapter-card" style={{ ['--chapter-accent' as string]: c.accent }}>
-            <h2 className="display" style={{ fontSize: '1.2rem', margin: 0 }}>
-              {t(c.title, locale)}
-            </h2>
-            <p style={{ fontSize: '0.85rem', color: 'var(--color-ink-muted)', margin: '0.5rem 0' }}>
-              {profileCountLabel(c.count, locale)}
-            </p>
-            <p style={{ fontSize: '0.9rem', margin: 0 }}>{t(c.thesis, locale)}</p>
-          </article>
-        ))}
-      </section>
-
-      <h2 className="display" style={{ fontSize: '1.75rem', marginTop: '2.5rem' }}>
-        {uiT('home.exploreIndex', locale)}
-      </h2>
+      <nav className="home-realms" aria-label={uiT('home.chaptersAria', locale)}>
+        <h2 className="home-section-title home-realms__title">{uiT('home.realms', locale)}</h2>
+        <div className="home-realms__cols">
+          <div className="home-realms__col">
+            {chapters.slice(0, 4).map((chapter) => (
+              <ChapterLink key={chapter.id} chapter={chapter} base={base} locale={locale} />
+            ))}
+          </div>
+          <div className="home-realms__col">
+            {chapters.slice(4).map((chapter) => (
+              <ChapterLink key={chapter.id} chapter={chapter} base={base} locale={locale} />
+            ))}
+          </div>
+        </div>
+      </nav>
     </>
+  );
+}
+
+function ChapterLink({
+  chapter,
+  base,
+  locale,
+}: {
+  chapter: ChapterCardData;
+  base: string;
+  locale: Locale;
+}) {
+  return (
+    <a
+      className={`home-realm${chapter.count === 0 ? ' home-realm--empty' : ''}`}
+      href={withBase(base, `/chapters/${chapter.id}/`)}
+    >
+      <span className="home-realm__name">{t(chapter.title, locale)}</span>
+      <span className="home-realm__count">
+        {chapter.count === 0
+          ? uiT('home.chapterSoon', locale)
+          : profileCountLabel(chapter.count, locale)}
+      </span>
+    </a>
   );
 }

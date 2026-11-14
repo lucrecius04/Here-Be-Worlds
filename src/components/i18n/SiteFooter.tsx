@@ -1,7 +1,92 @@
+import { t, uiT } from '../../lib/i18n';
 import { useLocale } from '../../lib/locale-store';
-import { uiT } from '../../lib/i18n';
+import { withBase } from '../../lib/base-url';
+import { chapters } from '../../lib/worlds';
 
-export default function SiteFooter() {
+type Props = { base: string };
+
+const FOOTER_CHAPTER_COLUMNS = [
+  ['fantasy', 'science-fiction', 'post-apocalypse', 'horror'],
+  ['historical', 'dystopia', 'metaphysical'],
+] as const;
+
+function Placeholder({ children }: { children: string }) {
+  return (
+    <a
+      href="#footer"
+      className="site-footer__link site-footer__link--soon"
+      onClick={(e) => e.preventDefault()}
+    >
+      {children}
+    </a>
+  );
+}
+
+export default function SiteFooter({ base }: Props) {
   const locale = useLocale();
-  return <footer className="site-footer">{uiT('footer.disclaimer', locale)}</footer>;
+
+  return (
+    <footer className="site-footer" id="footer">
+      <div className="site-footer__inner">
+        <div className="site-footer__brand">
+          <a href={withBase(base, '/')} className="site-footer__name">
+            {uiT('siteName', locale)}
+          </a>
+          <p className="site-footer__tagline">{uiT('footer.tagline', locale)}</p>
+          <p className="site-footer__meta">{uiT('home.tagline', locale)}</p>
+        </div>
+        <nav className="site-footer__col" aria-label={uiT('footer.explore', locale)}>
+          <h2 className="site-footer__heading">{uiT('footer.explore', locale)}</h2>
+          <a className="site-footer__link" href={withBase(base, '/')}>
+            {uiT('nav.atlas', locale)}
+          </a>
+          <a className="site-footer__link" href={withBase(base, '/compare/')}>
+            {uiT('nav.compare', locale)}
+          </a>
+          <a className="site-footer__link" href={withBase(base, '/map/')}>
+            {uiT('nav.map', locale)}
+          </a>
+        </nav>
+        <nav className="site-footer__col site-footer__col--chapters" aria-label={uiT('footer.chapters', locale)}>
+          <h2 className="site-footer__heading">{uiT('footer.chapters', locale)}</h2>
+          {FOOTER_CHAPTER_COLUMNS.map((ids) => (
+            <div className="site-footer__chapter-col" key={ids.join('-')}>
+              {ids.map((id) => {
+                const chapter = chapters.find((item) => item.id === id);
+                if (!chapter) return null;
+                return (
+                  <a
+                    key={chapter.id}
+                    className="site-footer__link"
+                    href={withBase(base, `/chapters/${chapter.id}/`)}
+                  >
+                    {t(chapter.title, locale)}
+                  </a>
+                );
+              })}
+            </div>
+          ))}
+        </nav>
+        <nav className="site-footer__col" aria-label={uiT('footer.about', locale)}>
+          <h2 className="site-footer__heading">{uiT('footer.about', locale)}</h2>
+          <Placeholder>{uiT('footer.aboutProject', locale)}</Placeholder>
+          <a className="site-footer__link" href={withBase(base, '/notes/')}>
+            {uiT('footer.method', locale)}
+          </a>
+          <Placeholder>{uiT('footer.sources', locale)}</Placeholder>
+          <Placeholder>{uiT('footer.contact', locale)}</Placeholder>
+        </nav>
+      </div>
+      <div className="site-footer__bottom">
+        <p className="site-footer__copy">
+          {uiT('footer.copyright', locale)}
+          <span className="site-footer__dot" aria-hidden="true">
+            ·
+          </span>
+          {uiT('footer.unofficial', locale)}
+        </p>
+        <p className="site-footer__disclaimer">{uiT('footer.disclaimer', locale)}</p>
+      </div>
+    </footer>
+  );
 }

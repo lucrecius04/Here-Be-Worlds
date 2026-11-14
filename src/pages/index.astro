@@ -20,7 +20,7 @@ const themeLabels = Object.fromEntries(themeTaxonomy.map((t) => [t.slug, t.label
 ---
 
 <BaseLayout title="Here Be Worlds — Atlas">
-  <HomeIntro client:load chapters={chapterCards} />
+  <HomeIntro client:load chapters={chapterCards} base={base.replace(/\/$/, '')} />
   <AtlasExplorer
     client:load
     worlds={worlds}

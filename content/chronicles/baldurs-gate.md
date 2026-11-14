@@ -4,7 +4,7 @@ worldId: baldurs-gate
 language: cs
 coverTitle: Kronika Mečového pobřeží
 coverTagline: Příběh světa Baldur's Gate
-coverRange: od pádu Netherilu po Starší mozek
+coverRange: "od pádu Netherilu po Starší mozek"
 ---
 
 ## Úvodem

@@ -33,7 +33,8 @@ export default function WorldPageMasthead({ base, world, chapterTitle }: Props) 
         </p>
       </div>
       <p className="world-card__canon">
-        <strong>{uiT('world.canonScope', locale)}:</strong> {t(world.canonScope, locale)}
+        <span className="world-card__canon-label">{uiT('world.canonScope', locale)}</span>
+        <span className="world-card__canon-value">{t(world.canonScope, locale)}</span>
       </p>
     </header>
   );

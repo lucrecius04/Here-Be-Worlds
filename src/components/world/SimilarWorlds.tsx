@@ -1,50 +1,41 @@
-import type { World } from '../../schemas/world';
+import type { RelatedWorld } from '../../schemas/world';
 import { t, uiT } from '../../lib/i18n';
 import { useLocale } from '../../lib/locale-store';
 
 type Props = {
-  worlds: World[];
-  baseUrl?: string;
+  items: Array<RelatedWorld & { href?: string }>;
 };
 
-export default function SimilarWorlds({ worlds, baseUrl = '' }: Props) {
+export default function SimilarWorlds({ items }: Props) {
   const locale = useLocale();
-  if (worlds.length === 0) return null;
+  if (items.length === 0) return null;
   return (
-    <section style={{ marginTop: '2.5rem' }}>
-      <h2 className="display" style={{ fontSize: '1.5rem' }}>
-        {uiT('world.similarWorlds', locale)}
-      </h2>
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-          gap: '1rem',
-          marginTop: '1rem',
-        }}
-      >
-        {worlds.map((w) => (
-          <a
-            key={w.id}
-            href={`${baseUrl}/worlds/${w.id}/`}
-            style={{
-              border: '1px solid var(--color-line)',
-              borderRadius: 'var(--radius-md)',
-              padding: '1rem',
-              textDecoration: 'none',
-              color: 'inherit',
-              background: 'var(--color-tile)',
-            }}
-          >
-            <div className="meta-tile__label">#{w.number}</div>
-            <div style={{ fontFamily: 'var(--font-serif)', fontSize: '1.2rem' }}>
-              {t(w.gameTitle, locale)}
+    <section className="related-worlds" aria-label={uiT('world.similarWorlds', locale)}>
+      <h2 className="related-worlds__title">{uiT('world.similarWorlds', locale)}</h2>
+      <div className="related-worlds__grid">
+        {items.map((item) => {
+          const title = t(item.title, locale);
+          const note = t(item.note, locale);
+          const genre = item.genreProfile ? t(item.genreProfile, locale) : null;
+          const inner = (
+            <>
+              <div className="related-worlds__name">
+                {title}
+                {genre ? <span className="related-worlds__genre"> ({genre})</span> : null}
+              </div>
+              {note ? <p className="related-worlds__note">{note}</p> : null}
+            </>
+          );
+          return item.href ? (
+            <a key={item.id ?? title} className="related-worlds__card" href={item.href}>
+              {inner}
+            </a>
+          ) : (
+            <div key={item.id ?? title} className="related-worlds__card related-worlds__card--static">
+              {inner}
             </div>
-            <div style={{ fontSize: '0.8rem', color: 'var(--color-ink-muted)', marginTop: '0.5rem' }}>
-              {w.themes.slice(0, 2).join(' · ')}
-            </div>
-          </a>
-        ))}
+          );
+        })}
       </div>
     </section>
   );

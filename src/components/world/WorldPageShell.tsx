@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import type { World } from '../../schemas/world';
-import type { LocalizedString } from '../../schemas/world';
+import type { LocalizedString, RelatedWorld, World } from '../../schemas/world';
 import { uiT } from '../../lib/i18n';
 import { useLocale } from '../../lib/locale-store';
 import { loadChronicleMarkdown, type ChronicleDoc } from '../../lib/chronicles';
@@ -18,7 +17,7 @@ type Props = {
   world: World;
   chapterTitle?: LocalizedString;
   themeLabels: Record<string, LocalizedString>;
-  similar: World[];
+  related?: Array<RelatedWorld & { href?: string }>;
 };
 
 export default function WorldPageShell({
@@ -27,7 +26,7 @@ export default function WorldPageShell({
   world,
   chapterTitle,
   themeLabels,
-  similar,
+  related = [],
 }: Props) {
   const locale = useLocale();
   const [mode, setMode] = useState<ViewMode>('card');
@@ -100,7 +99,7 @@ export default function WorldPageShell({
         {mode === 'card' ? (
           <div className="world-page__pane-scroll">
             <WorldCard hideHeader world={world} themeLabels={themeLabels} baseUrl={baseUrl} />
-            <SimilarWorlds worlds={similar} baseUrl={baseUrl} />
+            <SimilarWorlds items={related} />
           </div>
         ) : chronicleLoading ? (
           <p className="world-chronicle-loading">{uiT('world.chronicleLoading', locale)}</p>
@@ -109,18 +108,29 @@ export default function WorldPageShell({
         ) : mode === 'chronicle' ? (
           <ChronicleReader
             markdown={parts.narrative}
+            variant="narrative"
             coverTitle={chronicle.coverTitle}
             coverTagline={chronicle.coverTagline}
             coverRange={chronicle.coverRange}
           />
         ) : mode === 'appendices' ? (
           parts.appendices ? (
-            <ChronicleReader markdown={parts.appendices} showToc={false} showCover={false} />
+            <ChronicleReader
+              markdown={parts.appendices}
+              variant="appendices"
+              showToc={false}
+              showCover={false}
+            />
           ) : (
             missing
           )
         ) : parts.analysis ? (
-          <ChronicleReader markdown={parts.analysis} showToc={false} showCover={false} />
+          <ChronicleReader
+            markdown={parts.analysis}
+            variant="analysis"
+            showToc={false}
+            showCover={false}
+          />
         ) : (
           missing
         )}

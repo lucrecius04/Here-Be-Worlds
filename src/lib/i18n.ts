@@ -21,15 +21,32 @@ export const ui: Record<Locale, UiTree> = {
       map: 'Mapa',
     },
     footer: {
+      tagline: 'Atlas herních vesmírů',
+      explore: 'Objevovat',
+      chapters: 'Archetypy',
+      about: 'O atlasu',
+      aboutProject: 'O projektu',
+      method: 'Vysvětlivky',
+      contact: 'Kontakt',
+      sources: 'Zdroje a kánon',
+      copyright: '© 2026 Here Be Worlds',
+      unofficial: 'Neoficiální fanouškovský projekt',
       disclaimer:
-        'Neoficiální fanouškovský atlas. Názvy her a ochranné známky patří jejich vlastníkům.',
+        'Názvy her a ochranné známky patří jejich vlastníkům.',
     },
     home: {
-      tagline: '43 světů · 7 kapitol · komparativní lore',
+      tagline: '43 světů · 5 os · srovnání',
+      kicker: '43 kosmologií · příběhové kroniky · anatomie a mýty',
       title: 'Atlas herních vesmírů',
-      lead: 'Kurátorská kartografická skříň pro vnitřní anatomii fiktivních herních světů — ne mechaniky, ale historie, metafyzika a kroniky.',
+      slogan: 'Každý svět má příběh. Žádný nestojí sám.',
+      lead: 'Kartografická skříň vnitřní anatomie herních světů — ne mechaniky, ale historie, metafyzika a kroniky.',
       exploreIndex: 'Prozkoumat katalog',
-      chaptersAria: 'Kapitoly atlasu',
+      catalog: 'Katalog',
+      realms: 'Archetypy světů',
+      chaptersAria: 'Archetypy světů',
+      readAtlas: 'Jak číst tento atlas →',
+      chapterSoon: 'připravujeme',
+      noResults: 'Tomuto výběru neodpovídá žádný svět.',
     },
     profiles: {
       one: 'profil',
@@ -41,14 +58,15 @@ export const ui: Record<Locale, UiTree> = {
       placeholder: 'Hledat světy…',
     },
     filter: {
-      chapter: 'Kapitola',
+      chapter: 'Archetypy světů',
       theme: 'Téma',
-      allChapters: 'Všechny kapitoly',
+      allChapters: 'Všechny archetypy',
       allThemes: 'Všechna témata',
       axisMin: 'Minimum osy (1–5)',
     },
     results: {
       countOne: 'svět',
+      countFew: 'světy',
       countMany: 'světů',
     },
     world: {
@@ -57,18 +75,19 @@ export const ui: Record<Locale, UiTree> = {
       fullChronicle: 'Plná kronika',
       chronicleMissing: 'Kronika pro tento svět zatím chybí. Spusťte',
       chronicleLoading: 'Načítám kroniku…',
-      spoilerNotice: 'Text vyzrazuje děj. Obsahuje spoilery.',
-      similarWorlds: 'Podobné světy',
+      spoilerNotice: 'Upozornění: Text vyzrazuje dějiny světa, obsahuje spoilery.',
+      similarWorlds: 'Tematicky příbuzné světy',
       viewCard: 'Analytická karta',
       viewChronicle: 'Kronika světa',
       viewAppendices: 'Přílohy',
       viewAnalysis: 'Rozbor vyprávění',
-      genreLine: 'Žánr',
+      genreLine: 'Archetyp',
+      howJudged: 'Jak se posuzuje?',
     },
     card: {
       coreLabel: 'Jádro světa',
       metadataAria: 'Metadata světa',
-      genreProfile: 'Žánrový profil',
+      genreProfile: 'Profil archetypu',
       atmosphere: 'Atmosféra',
       spatialScope: 'Prostorový dosah',
       historicalDepth: 'Historická hloubka',
@@ -103,6 +122,15 @@ export const ui: Record<Locale, UiTree> = {
     stub: {
       coming: 'Připravujeme',
     },
+    notes: {
+      title: 'Vysvětlivky',
+      back: 'Zpět na atlas',
+      fieldsTitle: 'Pole karty',
+      profileTitle: 'Profil světa na stupnicích',
+      profileLead: 'Relativní redakční zařazení povahy světa.',
+      scaleTitle: 'Stupnice',
+      canonTitle: 'Kánon a výklad',
+    },
   },
   en: {
     siteName: 'Here Be Worlds',
@@ -112,15 +140,31 @@ export const ui: Record<Locale, UiTree> = {
       map: 'Map',
     },
     footer: {
-      disclaimer:
-        'Unofficial fan atlas. Game names and marks belong to their respective owners.',
+      tagline: 'An atlas of game universes',
+      explore: 'Explore',
+      chapters: 'Archetypes',
+      about: 'About',
+      aboutProject: 'The project',
+      method: 'Notes on method',
+      contact: 'Contact',
+      sources: 'Sources and canon',
+      copyright: '© 2026 Here Be Worlds',
+      unofficial: 'An unofficial fan project',
+      disclaimer: 'Game names and marks belong to their respective owners.',
     },
     home: {
-      tagline: '43 worlds · 7 chapters · comparative lore',
+      tagline: '43 worlds · 5 axes · comparison',
+      kicker: '43 cosmologies · narrative chronicles · anatomy and myth',
       title: 'An Atlas of Game Universes',
-      lead: 'A curated cartographic cabinet for the inner anatomy of fictional game worlds—not mechanics, but history, metaphysics, and chronicle.',
+      slogan: 'Every world has a story. None stands alone.',
+      lead: 'A cartographic cabinet of the inner anatomy of game worlds—not mechanics, but history, metaphysics, and chronicle.',
       exploreIndex: 'Explore the index',
-      chaptersAria: 'Atlas chapters',
+      catalog: 'Catalogue',
+      realms: 'World archetypes',
+      chaptersAria: 'World archetypes',
+      readAtlas: 'How to read this atlas →',
+      chapterSoon: 'coming soon',
+      noResults: 'No world matches this selection.',
     },
     profiles: {
       one: 'profile',
@@ -132,9 +176,9 @@ export const ui: Record<Locale, UiTree> = {
       placeholder: 'Search worlds…',
     },
     filter: {
-      chapter: 'Chapter',
+      chapter: 'World archetypes',
       theme: 'Theme',
-      allChapters: 'All chapters',
+      allChapters: 'All archetypes',
       allThemes: 'All themes',
       axisMin: 'Axis minimum (1–5)',
     },
@@ -148,18 +192,19 @@ export const ui: Record<Locale, UiTree> = {
       fullChronicle: 'Full chronicle',
       chronicleMissing: 'Chronicle not found. Run',
       chronicleLoading: 'Loading chronicle…',
-      spoilerNotice: 'This text reveals the plot. It contains spoilers.',
-      similarWorlds: 'Similar worlds',
+      spoilerNotice: 'Note: This text reveals the history of the world and contains spoilers.',
+      similarWorlds: 'Thematically related worlds',
       viewCard: 'Analytical card',
       viewChronicle: 'World chronicle',
       viewAppendices: 'Appendices',
       viewAnalysis: 'Narrative analysis',
-      genreLine: 'Genre',
+      genreLine: 'Archetype',
+      howJudged: 'How is this judged?',
     },
     card: {
       coreLabel: 'The core of the world',
       metadataAria: 'World metadata',
-      genreProfile: 'Genre profile',
+      genreProfile: 'Archetype profile',
       atmosphere: 'Atmosphere',
       spatialScope: 'Spatial scope',
       historicalDepth: 'Historical depth',
@@ -194,6 +239,15 @@ export const ui: Record<Locale, UiTree> = {
     stub: {
       coming: 'Coming soon',
     },
+    notes: {
+      title: 'Notes',
+      back: 'Back to the atlas',
+      fieldsTitle: 'Card fields',
+      profileTitle: 'World profile on the scales',
+      profileLead: 'A relative editorial placement of the world’s character.',
+      scaleTitle: 'Scale',
+      canonTitle: 'Canon and interpretation',
+    },
   },
 };
 
@@ -223,7 +277,9 @@ export function worldCountLabel(count: number, locale: Locale): string {
   if (locale === 'en') {
     return `${count} ${count === 1 ? ui.en.results.countOne : ui.en.results.countMany}`;
   }
-  return `${count} ${count === 1 ? ui.cs.results.countOne : ui.cs.results.countMany}`;
+  if (count === 1) return `1 ${ui.cs.results.countOne}`;
+  if (count >= 2 && count <= 4) return `${count} ${ui.cs.results.countFew}`;
+  return `${count} ${ui.cs.results.countMany}`;
 }
 
 /** Apply `data-i18n` and `data-i18n-html` nodes in the document. */

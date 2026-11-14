@@ -6,8 +6,8 @@ import {
   getWorldById,
   getChapterById,
   themeTaxonomy,
+  resolveRelatedWorlds,
 } from '../../lib/worlds';
-import { similarWorlds } from '../../lib/similarity';
 import { t } from '../../lib/i18n';
 
 export function getStaticPaths() {
@@ -21,7 +21,8 @@ if (!world) throw new Error(`Unknown world: ${slug}`);
 const base = import.meta.env.BASE_URL;
 const chapter = getChapterById(world.chapterId);
 const themeLabels = Object.fromEntries(themeTaxonomy.map((th) => [th.slug, th.label]));
-const similar = similarWorlds(world, worlds, 3);
+const baseUrl = base.replace(/\/$/, '');
+const related = resolveRelatedWorlds(world, worlds, themeLabels, baseUrl);
 
 const pageTitle = `${t(world.gameTitle, 'cs')} — Here Be Worlds`;
 ---
@@ -30,10 +31,10 @@ const pageTitle = `${t(world.gameTitle, 'cs')} — Here Be Worlds`;
   <WorldPageShell
     client:load
     base={base}
-    baseUrl={base.replace(/\/$/, '')}
+    baseUrl={baseUrl}
     world={world}
     chapterTitle={chapter?.title}
     themeLabels={themeLabels}
-    similar={similar}
+    related={related}
   />
 </BaseLayout>

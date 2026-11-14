@@ -4,7 +4,7 @@ worldId: diablo
 language: cs
 coverTitle: Kronika Svatyně
 coverTagline: Příběh světa Diabla
-coverRange: od stvoření vesmíru po konec věku nenávisti
+coverRange: "od stvoření vesmíru po konec věku nenávisti"
 ---
 
 KNIHA PRVNÍ

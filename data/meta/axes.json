@@ -3,10 +3,10 @@
     {
       "id": "hopeDespair",
       "left": { "en": "Hope", "cs": "Naděje" },
-      "right": { "en": "Despair", "cs": "Beznaděj" },
+      "right": { "en": "Despair", "cs": "Zoufalství" },
       "help": {
-        "en": "The world's basic outlook on existence. Can there be renewal, or is decline inevitable?",
-        "cs": "Základní pohled světa na existenci. Je možná obnova? Nebo je úpadek nevyhnutelný?"
+        "en": "The world's basic outlook on existence. Is salvation possible? Or is decline inevitable?",
+        "cs": "Základní pohled světa na existenci. Je možná spása? Nebo je úpadek nevyhnutelný?"
       }
     },
     {
@@ -32,8 +32,12 @@
       "left": { "en": "Morally clear", "cs": "Morálně jednoznačné" },
       "right": { "en": "Morally ambiguous", "cs": "Morálně komplexní" },
       "help": {
-        "en": "Can you tell who is on the right side? Factions, key figures, and choices shape the world's moral profile.",
-        "cs": "Dá se ve světě poznat, kdo stojí na správné straně? Hodnotí se frakce, klíčové postavy a volby, a morální profil ve světě."
+        "en": "Can you tell who stands on the right side? Can right even be defined?",
+        "cs": "Dá se ve světě poznat, kdo stojí na správné straně? Dá se vůbec definovat, co je správné?"
+      },
+      "notesExtra": {
+        "en": "What is judged are factions, key figures, and the choices the player faces in the story.",
+        "cs": "Hodnotí se frakce, klíčové postavy a volby, před kterými stojí hráč v příběhu."
       }
     },
     {
@@ -42,7 +46,7 @@
       "right": { "en": "Metaphysical", "cs": "Metafyzično" },
       "help": {
         "en": "The nature of reality itself. Do physics, biology, economy, and politics rule—or gods, souls, dreams, and supernatural law?",
-        "cs": "Povaha samotné reality. Řídí svět fyzika, biologie, ekonomika a lidská politika či spíše bohové, duše, sny a nadpřirozené zákony?"
+        "cs": "Povaha samotné reality. Řídí svět fyzika, biologie, ekonomika a lidská politika či spíš bohové, duše, sny a nadpřirozené zákony?"
       }
     }
   ]
