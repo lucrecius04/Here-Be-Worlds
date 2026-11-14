@@ -89,7 +89,9 @@ body:has(.world-card--page) {
   color: #f6f0e6;
 }
 
-.theme-switch__btn--active {
+html[data-theme='light'] .theme-switch__btn[data-theme-pick='light'],
+html:not([data-theme]) .theme-switch__btn[data-theme-pick='light'],
+html[data-theme='dark'] .theme-switch__btn[data-theme-pick='dark'] {
   color: #f6f0e6;
   background: rgb(255 255 255 / 0.1);
   box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.18);
@@ -122,8 +124,8 @@ body:has(.world-card--page) {
   --frame-pad-bottom: 4rem;
   max-width: var(--content-max);
   width: calc(100% - 2.3rem);
-  flex: 0 1 auto;
-  margin: 1.15rem auto 1.65rem;
+  flex: 1 0 auto;
+  margin: 1.15rem auto;
   padding: var(--frame-pad-y) var(--frame-pad-x) var(--frame-pad-bottom);
   background-color: var(--color-paper);
   background-image: radial-gradient(
@@ -142,7 +144,7 @@ body:has(.world-card--page) {
     --frame-pad-x: 1rem;
     --frame-pad-y: 1.35rem;
     --frame-pad-bottom: 2.5rem;
-    margin: 0.75rem 0.75rem 1.15rem;
+    margin: 0.75rem;
     border-radius: 10px;
   }
 }

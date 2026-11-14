@@ -14,8 +14,7 @@ function readStoredTheme(): Theme {
 }
 
 function applyTheme(theme: Theme): void {
-  if (theme === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
-  else document.documentElement.removeAttribute('data-theme');
+  document.documentElement.setAttribute('data-theme', theme);
 }
 
 let snapshot = readStoredTheme();

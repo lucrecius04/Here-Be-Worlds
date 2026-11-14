@@ -8,6 +8,10 @@
       "thesis": {
         "en": "Worlds of magic, gods, and myth—from exalted realms to ashen ruins.",
         "cs": "Světy magie, bohů a mýtů – od vznešených říší po popelavé ruiny."
+      },
+      "lead": {
+        "cs": "Svět, kde se staré mýty a božská moc mísí s osudy smrtelníků. Místo, kde meče a magie oživují krajiny plné neprozkoumaných ruin, hlubokých kleteb a naděje na vykoupení.",
+        "en": "A world where old myths and divine power mix with the fates of mortals. A place where swords and magic bring to life landscapes full of unexplored ruins, deep curses, and the hope of redemption."
       }
     },
     {
@@ -18,6 +22,10 @@
       "thesis": {
         "en": "Science and technology open paths to the stars—and to powers older than humanity.",
         "cs": "Věda a technologie otevírají cestu ke hvězdám i k novým formám života."
+      },
+      "lead": {
+        "cs": "Vesmíry ocelových věží, hvězdných koridorů a technologií tak pokročilých, že se prolínají se zázrakem. Místo, kde lidstvo roztahuje křídla ke hvězdám, ale naráží na limity vlastního rozumu a staré hříchy civilizací.",
+        "en": "Universes of steel towers, star corridors, and technologies so advanced they blur into miracle. A place where humanity spreads its wings toward the stars, yet runs into the limits of its own reason and the old sins of civilizations."
       }
     },
     {
@@ -28,6 +36,10 @@
       "thesis": {
         "en": "Civilization has fallen; life continues in the ruins, with the question of what to rebuild.",
         "cs": "Civilizace padla, ale život pokračuje v troskách."
+      },
+      "lead": {
+        "cs": "Krajina po tichém či ohlušujícím konci, kde civilizace zanechala jen ohořelé trosky a prach. Svět, kde se na popelu starého světa teprve rodí otázka, co znamená znovu začít.",
+        "en": "A landscape after a silent or deafening end, where civilization left only charred wreckage and dust. A world where, on the ashes of the old, the question of what it means to begin again is only just being born."
       }
     },
     {
@@ -38,6 +50,10 @@
       "thesis": {
         "en": "Fear as a language—often grown from guilt, science, or unbearable truth.",
         "cs": "Strach jako hlavní jazyk světa."
+      },
+      "lead": {
+        "cs": "Místo, kde se realita tenčí a do tmy ustupují všechny lidské jistoty. Svět, kde strach není jen emocí, ale vlastním jazykem, kterým promlouvají dávná tajemství a skryté hrozby.",
+        "en": "A place where reality thins and every human certainty recedes into the dark. A world where fear is not merely an emotion, but a language of its own, through which ancient secrets and hidden threats speak."
       }
     },
     {
@@ -48,6 +64,10 @@
       "thesis": {
         "en": "Real history and its echoes—who writes the past, and who owns it.",
         "cs": "Světy na skutečných dějinách nebo na jejich věrné ozvěně."
+      },
+      "lead": {
+        "cs": "Pozemské dějiny, které se na křižovatce osudu vydaly jinou, temnější či podivuhodnější cestou. Svět, kde známé kulisy minulosti skrývají neznámé mocenské hry, skryté kulty a proměněný řád věcí.",
+        "en": "Earthly histories that, at a crossroads of fate, took another, darker or more wondrous path. A world where the familiar scenery of the past conceals unknown power plays, hidden cults, and a transformed order of things."
       }
     },
     {
@@ -58,6 +78,10 @@
       "thesis": {
         "en": "Promised order, progress, or paradise—built as a cage.",
         "cs": "Společnosti, které slibovaly ráj, a postavily klec."
+      },
+      "lead": {
+        "cs": "Dokonale naplánovaná společnost, která slibovala ráj, ale postavila klec. Svět sevřený v okovech řádu, kde je svoboda nejnebezpečnějším luxusem a každá vzpoura vykoupena krví.",
+        "en": "A perfectly planned society that promised paradise, and built a cage. A world locked in the shackles of order, where freedom is the most dangerous luxury and every revolt is paid for in blood."
       }
     },
     {
@@ -68,6 +92,10 @@
       "thesis": {
         "en": "Reality bends; narrative, belief, and consciousness reshape the map.",
         "cs": "Světy, v nichž se láme samotná struktura reality."
+      },
+      "lead": {
+        "cs": "Prostory, kde se fyzikální zákony hroutí a tvar reality určuje lidská mysl, sen nebo paměť. Svět, který odmítá prostou logiku a vtahuje hráče do hlubin čisté symboliky a tajemných paradoxů.",
+        "en": "Spaces where physical laws collapse and the shape of reality is set by the human mind, a dream, or memory. A world that refuses plain logic and draws the reader into the depths of pure symbolism and consciousness."
       }
     }
   ]

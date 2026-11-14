@@ -98,6 +98,15 @@
   color: var(--color-ink);
 }
 
+.world-card__canon-link {
+  text-decoration: none;
+}
+
+.world-card__canon-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
 .world-card__core-wrap {
   margin: 1.5rem 0;
 }
@@ -599,6 +608,10 @@ html[data-theme='dark'] .world-page__pane::before {
   color: #fff;
 }
 
+.world-page__masthead .world-card__canon-link:hover {
+  color: #fff;
+}
+
 .world-page__masthead .world-back__link {
   color: var(--masthead-ink-muted);
 }
@@ -718,14 +731,42 @@ html[data-theme='dark'] .world-page__pane::before {
 }
 
 .carto-axis {
-  margin-bottom: 0.85rem;
+  position: relative;
+  margin-bottom: 0;
+  padding: 0.95rem 0 1.15rem;
+}
+
+.axes-block__head + .carto-axis {
+  padding-top: 0;
+}
+
+.carto-axis:last-child {
+  padding-bottom: 0.15rem;
+}
+
+.carto-axis:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 16.5rem;
+  height: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    color-mix(in srgb, var(--color-accent) 22%, var(--color-line)) 30%,
+    color-mix(in srgb, var(--color-accent) 22%, var(--color-line)) 70%,
+    transparent 100%
+  );
+  pointer-events: none;
 }
 
 .carto-axis__row {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.85rem;
+  gap: 1.85rem;
 }
 
 .carto-axis__pole {
@@ -741,8 +782,9 @@ html[data-theme='dark'] .world-page__pane::before {
 }
 
 .carto-axis__pole--active {
-  color: var(--color-accent);
+  color: color-mix(in srgb, var(--color-accent) 90%, #ffe9b0);
   font-weight: 700;
+  text-shadow: 0 0 0.36em color-mix(in srgb, var(--color-accent) 36%, #fff4d6);
 }
 
 .carto-axis__pole--dim,
@@ -776,31 +818,32 @@ html[data-theme='dark'] .world-page__pane::before {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  border: 1.5px solid var(--color-accent-soft);
-  background: transparent;
+  border: none;
+  background: color-mix(in srgb, var(--color-accent) 18%, var(--color-paper));
   box-sizing: border-box;
 }
 
 .carto-axis__dot--near {
-  background: color-mix(in srgb, var(--color-accent) 32%, var(--color-paper));
-  border-color: color-mix(in srgb, var(--color-accent) 55%, var(--color-accent-soft));
+  background: color-mix(in srgb, var(--color-accent) 50%, #fff4d6);
+  box-shadow: 0 0 0.7rem color-mix(in srgb, var(--color-accent) 55%, transparent);
 }
 
 .carto-axis__dot--on {
-  flex: 0 0 11px;
-  width: 11px;
-  height: 11px;
-  border-radius: 1px;
-  border-color: var(--color-accent);
-  background: var(--color-accent);
+  flex: 0 0 14px;
+  width: 14px;
+  height: 14px;
+  border-radius: 1.5px;
+  background: color-mix(in srgb, var(--color-accent) 68%, #ffe9b0);
   transform: rotate(45deg);
-  box-shadow: 0 0 0 1px var(--color-accent-soft);
+  box-shadow:
+    0 0 0.35rem color-mix(in srgb, var(--color-accent) 50%, #fff4d6),
+    0 0 0.95rem color-mix(in srgb, var(--color-accent) 70%, transparent);
 }
 
 .carto-axis__comment {
   font-size: 0.82rem;
   color: var(--color-ink-muted);
-  margin: 0.28rem 0 0;
+  margin: 0.18rem 0 0;
   text-align: center;
 }
 
@@ -842,6 +885,25 @@ html[data-theme='dark'] .world-page__pane::before {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.85rem;
   align-items: start;
+}
+
+.related-worlds__item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.related-worlds__compare {
+  font-size: 0.82rem;
+  color: var(--color-accent);
+  text-decoration: none;
+  align-self: flex-start;
+}
+
+.related-worlds__compare:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.16em;
 }
 
 .related-worlds__card {

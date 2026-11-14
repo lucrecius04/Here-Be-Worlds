@@ -1,11 +1,25 @@
+.site-main:has(.chapter-page) {
+  display: flex;
+  flex-direction: column;
+}
+
 .chapter-page {
   --chapter-hue: var(--chapter-hue-light);
   --color-accent: var(--chapter-hue);
   --color-paper: color-mix(in srgb, var(--chapter-hue) 5%, #fbf8f3);
   --color-tile: #ffffff;
   --color-line: color-mix(in srgb, var(--chapter-hue) 16%, #e6dfd4);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
   margin: calc(var(--frame-pad-y) * -1) calc(var(--frame-pad-x) * -1) calc(var(--frame-pad-bottom) * -1);
-  background: var(--color-paper);
+  background-color: var(--color-paper);
+  background-image: radial-gradient(
+    color-mix(in srgb, var(--color-ink) 8%, transparent) 1px,
+    transparent 1px
+  );
+  background-size: 20px 20px;
 }
 
 html[data-theme='dark'] .chapter-page {
@@ -19,6 +33,7 @@ html[data-theme='dark'] .chapter-page {
   position: relative;
   isolation: isolate;
   overflow: hidden;
+  flex: 0 0 auto;
   padding: 1.25rem 1.6rem 1.2rem;
   color: #f6f0e6;
   background-color: color-mix(in srgb, var(--chapter-hue-light) 82%, #16110c);
@@ -106,17 +121,19 @@ html[data-theme='dark'] .chapter-hero {
 }
 
 .chapter-hero__thesis {
-  margin: 0.45rem 0 0;
-  max-width: 38rem;
+  margin: 0.7rem 0 0.15rem;
+  max-width: min(68rem, calc(100% - 0.25rem));
   font-family: var(--font-serif);
-  font-size: 1.18rem;
+  font-size: 1.12rem;
   font-style: italic;
-  line-height: 1.45;
+  line-height: 1.5;
   color: color-mix(in srgb, #f6f0e6 82%, var(--chapter-hue-dark));
 }
 
 .chapter-page .world-grid,
 .chapter-page .catalog-empty {
+  flex: 0 0 auto;
+  align-content: start;
   padding: 1.6rem 1.5rem 3rem;
 }
 

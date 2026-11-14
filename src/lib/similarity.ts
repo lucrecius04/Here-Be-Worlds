@@ -3,7 +3,7 @@ import type { World } from '../schemas/world';
 export const AXIS_WEIGHT = 0.7;
 export const THEME_WEIGHT = 0.3;
 
-const AXIS_KEYS = [
+export const AXIS_KEYS = [
   'hopeDespair',
   'knownUnknown',
   'intimateEpic',

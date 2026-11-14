@@ -1,12 +1,15 @@
 import type { RelatedWorld } from '../../schemas/world';
 import { t, uiT } from '../../lib/i18n';
 import { useLocale } from '../../lib/locale-store';
+import { withBase } from '../../lib/base-url';
 
 type Props = {
   items: Array<RelatedWorld & { href?: string }>;
+  sourceId?: string;
+  base?: string;
 };
 
-export default function SimilarWorlds({ items }: Props) {
+export default function SimilarWorlds({ items, sourceId, base = '' }: Props) {
   const locale = useLocale();
   if (items.length === 0) return null;
   return (
@@ -17,6 +20,10 @@ export default function SimilarWorlds({ items }: Props) {
           const title = t(item.title, locale);
           const note = t(item.note, locale);
           const genre = item.genreProfile ? t(item.genreProfile, locale) : null;
+          const compareHref =
+            sourceId && item.id && item.href
+              ? withBase(base, `/compare/?w=${sourceId},${item.id}`)
+              : null;
           const inner = (
             <>
               <div className="related-worlds__name">
@@ -26,13 +33,20 @@ export default function SimilarWorlds({ items }: Props) {
               {note ? <p className="related-worlds__note">{note}</p> : null}
             </>
           );
-          return item.href ? (
-            <a key={item.id ?? title} className="related-worlds__card" href={item.href}>
-              {inner}
-            </a>
-          ) : (
-            <div key={item.id ?? title} className="related-worlds__card related-worlds__card--static">
-              {inner}
+          return (
+            <div key={item.id ?? title} className="related-worlds__item">
+              {item.href ? (
+                <a className="related-worlds__card" href={item.href}>
+                  {inner}
+                </a>
+              ) : (
+                <div className="related-worlds__card related-worlds__card--static">{inner}</div>
+              )}
+              {compareHref ? (
+                <a className="related-worlds__compare" href={compareHref}>
+                  {uiT('compare.compareWith', locale)}
+                </a>
+              ) : null}
             </div>
           );
         })}

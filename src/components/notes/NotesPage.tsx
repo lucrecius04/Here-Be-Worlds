@@ -62,7 +62,15 @@ export default function NotesPage({ base }: Props) {
       <h2 className="notes-page__section notes-page__section--center" id="kanon">
         {uiT('notes.canonTitle', locale)}
       </h2>
-      <p className="notes-page__canon">{t(noteCanon, locale)}</p>
+      <div className="notes-page__canon">
+        {t(noteCanon, locale)
+          .split(/\n\s*\n/)
+          .map((para) => para.trim())
+          .filter(Boolean)
+          .map((para) => (
+            <p key={para.slice(0, 48)}>{para}</p>
+          ))}
+      </div>
     </article>
   );
 }

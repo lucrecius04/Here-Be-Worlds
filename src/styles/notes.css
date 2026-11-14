@@ -57,12 +57,49 @@
 }
 
 .notes-page__canon {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.05rem;
+  margin: 0 auto;
+  max-width: 42.5rem;
+  padding: 0.2rem 1.55rem;
+}
+
+.notes-page__canon::before,
+.notes-page__canon::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 1.5px;
+  height: 5cm;
+  transform: translateY(-50%);
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    color-mix(in srgb, var(--color-accent) 55%, var(--color-line)) 16%,
+    color-mix(in srgb, var(--color-accent) 55%, var(--color-line)) 84%,
+    transparent
+  );
+  pointer-events: none;
+}
+
+.notes-page__canon::before {
+  left: 0;
+}
+
+.notes-page__canon::after {
+  right: 0;
+}
+
+.notes-page__canon p {
+  margin: 0;
   font-family: var(--font-serif);
   font-size: 1.15rem;
-  line-height: 1.6;
-  margin: 0 auto;
-  max-width: 40rem;
-  text-align: center;
+  font-weight: 500;
+  line-height: 1.65;
+  text-align: justify;
+  color: var(--color-ink);
 }
 
 .notes-table {

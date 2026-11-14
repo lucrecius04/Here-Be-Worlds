@@ -1,0 +1,10 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ContactPage from '../../components/contact/ContactPage';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title="Kontakt — Here Be Worlds">
+  <ContactPage client:load base={base} />
+</BaseLayout>

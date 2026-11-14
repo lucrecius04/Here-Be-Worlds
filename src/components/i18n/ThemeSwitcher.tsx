@@ -19,7 +19,8 @@ export default function ThemeSwitcher() {
     <div className="theme-switch" role="group" aria-label={uiT('theme.group', locale)}>
       <button
         type="button"
-        className={`theme-switch__btn${theme === 'light' ? ' theme-switch__btn--active' : ''}`}
+        className="theme-switch__btn"
+        data-theme-pick="light"
         aria-pressed={theme === 'light'}
         aria-label={uiT('theme.light', locale)}
         title={uiT('theme.light', locale)}
@@ -29,7 +30,8 @@ export default function ThemeSwitcher() {
       </button>
       <button
         type="button"
-        className={`theme-switch__btn${theme === 'dark' ? ' theme-switch__btn--active' : ''}`}
+        className="theme-switch__btn"
+        data-theme-pick="dark"
         aria-pressed={theme === 'dark'}
         aria-label={uiT('theme.dark', locale)}
         title={uiT('theme.dark', locale)}

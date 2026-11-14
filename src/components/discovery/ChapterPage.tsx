@@ -10,12 +10,13 @@ type Props = {
   id: string;
   title: LocalizedString;
   thesis: LocalizedString;
+  lead?: LocalizedString;
   accent: { light: string; dark: string };
   worlds: World[];
   base: string;
 };
 
-export default function ChapterPage({ id, title, thesis, accent, worlds, base }: Props) {
+export default function ChapterPage({ id, title, thesis, lead, accent, worlds, base }: Props) {
   const locale = useLocale();
   const hueVars = {
     '--chapter-hue-light': accent.light,
@@ -35,7 +36,7 @@ export default function ChapterPage({ id, title, thesis, accent, worlds, base }:
             {uiT('chapterPage.back', locale)}
           </a>
         </div>
-        <p className="chapter-hero__thesis">{t(thesis, locale)}</p>
+        <p className="chapter-hero__thesis">{t(lead ?? thesis, locale)}</p>
       </header>
       {worlds.length === 0 ? (
         <p className="catalog-empty">{uiT('chapterPage.empty', locale)}</p>

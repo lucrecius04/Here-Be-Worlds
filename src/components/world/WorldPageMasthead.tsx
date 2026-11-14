@@ -14,13 +14,17 @@ export default function WorldPageMasthead({ base, world, chapterTitle }: Props) 
   const universe = (world.universe ?? []).map((name) => t(name, locale)).filter(Boolean);
   const facts = [
     chapterTitle
-      ? { label: uiT('world.genreLine', locale), value: t(chapterTitle, locale) }
+      ? {
+          label: uiT('world.genreLine', locale),
+          value: t(chapterTitle, locale),
+          href: withBase(base, `/chapters/${world.chapterId}/`),
+        }
       : null,
     universe.length
       ? { label: uiT('world.universe', locale), value: universe.join(' · ') }
       : null,
     { label: uiT('world.canonScope', locale), value: t(world.canonScope, locale) },
-  ].filter((item): item is { label: string; value: string } => Boolean(item));
+  ].filter((item): item is { label: string; value: string; href?: string } => Boolean(item));
 
   return (
     <header className="world-card__header">
@@ -45,7 +49,13 @@ export default function WorldPageMasthead({ base, world, chapterTitle }: Props) 
             ) : null}
             <span className="world-card__fact">
               <span className="world-card__canon-label">{fact.label}</span>
-              <span className="world-card__canon-value">{fact.value}</span>
+              {fact.href ? (
+                <a className="world-card__canon-value world-card__canon-link" href={fact.href}>
+                  {fact.value}
+                </a>
+              ) : (
+                <span className="world-card__canon-value">{fact.value}</span>
+              )}
             </span>
           </span>
         ))}

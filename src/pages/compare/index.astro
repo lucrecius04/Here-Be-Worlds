@@ -1,16 +1,24 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import StubPage from '../../components/i18n/StubPage';
+import ComparePage from '../../components/compare/ComparePage';
+import { worlds, chapters, themeTaxonomy, axesMeta } from '../../lib/worlds';
 
 const base = import.meta.env.BASE_URL;
+const themeLabels = Object.fromEntries(themeTaxonomy.map((item) => [item.slug, item.label]));
+const chapterCards = chapters.map((chapter) => ({
+  id: chapter.id,
+  title: chapter.title,
+  accent: chapter.accent,
+}));
 ---
 
 <BaseLayout title="Srovnání — Here Be Worlds">
-  <StubPage
+  <ComparePage
     client:load
-    titleKey="compare.title"
-    bodyKey="compare.body"
-    backKey="compare.back"
+    worlds={worlds}
+    chapters={chapterCards}
+    themeLabels={themeLabels}
+    axes={axesMeta}
     base={base}
   />
 </BaseLayout>

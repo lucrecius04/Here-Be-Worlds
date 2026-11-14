@@ -41,6 +41,13 @@ export default function WorldPageShell({
   const [chronicleLoading, setChronicleLoading] = useState(false);
   const [analysisAnchor, setAnalysisAnchor] = useState<TriadAnchor | null>(null);
 
+  useEffect(() => {
+    const view = new URLSearchParams(window.location.search).get('view');
+    if (view === 'chronicle' || view === 'appendices' || view === 'analysis') {
+      setMode(view);
+    }
+  }, []);
+
   const needsChronicle = mode !== 'card';
 
   useEffect(() => {
@@ -129,7 +136,7 @@ export default function WorldPageShell({
                 setMode('analysis');
               }}
             />
-            <SimilarWorlds items={related} />
+            <SimilarWorlds items={related} sourceId={world.id} base={base} />
           </div>
         ) : chronicleLoading ? (
           <p className="world-chronicle-loading">{uiT('world.chronicleLoading', locale)}</p>

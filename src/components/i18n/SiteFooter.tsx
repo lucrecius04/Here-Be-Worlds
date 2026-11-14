@@ -69,12 +69,16 @@ export default function SiteFooter({ base }: Props) {
         </nav>
         <nav className="site-footer__col" aria-label={uiT('footer.about', locale)}>
           <h2 className="site-footer__heading">{uiT('footer.about', locale)}</h2>
-          <Placeholder>{uiT('footer.aboutProject', locale)}</Placeholder>
+          <a className="site-footer__link" href={withBase(base, '/about/')}>
+            {uiT('footer.aboutProject', locale)}
+          </a>
           <a className="site-footer__link" href={withBase(base, '/notes/')}>
             {uiT('footer.method', locale)}
           </a>
           <Placeholder>{uiT('footer.sources', locale)}</Placeholder>
-          <Placeholder>{uiT('footer.contact', locale)}</Placeholder>
+          <a className="site-footer__link" href={withBase(base, '/contact/')}>
+            {uiT('footer.contact', locale)}
+          </a>
         </nav>
       </div>
       <div className="site-footer__bottom">
