@@ -4,6 +4,13 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { useLocale } from '../../lib/locale-store';
 import { uiT } from '../../lib/i18n';
+import type { LocalizedString } from '../../schemas/world';
+import {
+  isChronicleInProgress,
+  readReaderDesk,
+  useReaderDesk,
+  writeChronicleProgress,
+} from '../../lib/reader-desk';
 import {
   extractChronicleToc,
   parseBookLabel,
@@ -36,12 +43,37 @@ type Props = {
   showCover?: boolean;
   variant?: Variant;
   scrollToId?: string | null;
+  worldId?: string;
+  worldTitle?: LocalizedString;
+  resumeOnMount?: boolean;
 };
 
 function scrollHeadingIntoView(root: HTMLElement | null, id: string) {
   if (!root || !id) return;
   const el = root.querySelector(`#${CSS.escape(id)}`);
   el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function scrollToPercent(root: HTMLElement | null, percent: number) {
+  if (!root) return;
+  const max = root.scrollHeight - root.clientHeight;
+  if (max <= 0) return;
+  root.scrollTo({ top: (percent / 100) * max, behavior: 'smooth' });
+}
+
+function headingAtScroll(root: HTMLElement): { heading: string; headingId: string } {
+  const nodes = [...root.querySelectorAll('h2[id], h3[id], p.chronicle-book-label[id]')];
+  const top = root.getBoundingClientRect().top + 96;
+  let current: Element | null = null;
+  for (const node of nodes) {
+    if (node.getBoundingClientRect().top <= top) current = node;
+    else break;
+  }
+  if (!current) return { heading: '', headingId: '' };
+  return {
+    heading: (current.textContent ?? '').replace(/\s+/g, ' ').trim(),
+    headingId: current.id,
+  };
 }
 
 function nodesToText(children: ReactNode): string {
@@ -80,10 +112,15 @@ export default function ChronicleReader({
   showCover = true,
   variant = 'narrative',
   scrollToId = null,
+  worldId,
+  worldTitle,
+  resumeOnMount = false,
 }: Props) {
   const locale = useLocale();
+  const desk = useReaderDesk();
   const [active, setActive] = useState('');
   const scrollRef = useRef<HTMLDivElement>(null);
+  const activeRef = useRef('');
   const formatted = useMemo(() => formatChronicleMarkdown(markdown), [markdown]);
   const cover = coverTitle ? splitCoverTitle(coverTitle) : null;
   const range = rangeFromCover(coverTitle, coverRange);
@@ -92,6 +129,11 @@ export default function ChronicleReader({
     () => (showToc ? extractChronicleToc(tocSource) : []),
     [tocSource, showToc],
   );
+  const trackProgress = variant === 'narrative' && Boolean(worldId && worldTitle);
+  const saved =
+    trackProgress && desk.chronicle?.id === worldId && isChronicleInProgress(desk.chronicle.scrollPercent)
+      ? desk.chronicle
+      : null;
 
   useEffect(() => {
     const root = scrollRef.current;
@@ -100,7 +142,10 @@ export default function ChronicleReader({
         const visible = entries
           .filter((e) => e.isIntersecting)
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-        if (visible[0]?.target.id) setActive(visible[0].target.id);
+        if (visible[0]?.target.id) {
+          activeRef.current = visible[0].target.id;
+          setActive(visible[0].target.id);
+        }
       },
       { root, rootMargin: '-10% 0px -70% 0px', threshold: [0, 0.25, 0.5] },
     );
@@ -119,6 +164,51 @@ export default function ChronicleReader({
     });
     return () => cancelAnimationFrame(frame);
   }, [scrollToId, formatted]);
+
+  useEffect(() => {
+    if (!resumeOnMount || !trackProgress || !worldId) return;
+    const savedProgress = readReaderDesk().chronicle;
+    if (!savedProgress || savedProgress.id !== worldId) return;
+    const root = scrollRef.current;
+    let frame = requestAnimationFrame(() => {
+      frame = requestAnimationFrame(() => {
+        if (savedProgress.headingId) scrollHeadingIntoView(root, savedProgress.headingId);
+        else scrollToPercent(root, savedProgress.scrollPercent);
+      });
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [resumeOnMount, trackProgress, worldId, formatted]);
+
+  useEffect(() => {
+    if (!trackProgress || !worldId || !worldTitle) return;
+    const root = scrollRef.current;
+    if (!root) return;
+    let timer = 0;
+    const persist = () => {
+      const max = root.scrollHeight - root.clientHeight;
+      const percent = max <= 0 ? 0 : (root.scrollTop / max) * 100;
+      const fromDom = headingAtScroll(root);
+      const currentId = activeRef.current || fromDom.headingId;
+      const entry = toc.find((item) => item.id === currentId);
+      const heading = entry?.title || entry?.label || fromDom.heading;
+      writeChronicleProgress(worldId, worldTitle, percent, heading, currentId || fromDom.headingId);
+    };
+    const onScroll = () => {
+      window.clearTimeout(timer);
+      timer = window.setTimeout(persist, 250);
+    };
+    root.addEventListener('scroll', onScroll, { passive: true });
+    return () => {
+      window.clearTimeout(timer);
+      root.removeEventListener('scroll', onScroll);
+    };
+  }, [trackProgress, worldId, worldTitle, toc, formatted]);
+
+  const continueReading = () => {
+    if (!saved) return;
+    if (saved.headingId) scrollHeadingIntoView(scrollRef.current, saved.headingId);
+    else scrollToPercent(scrollRef.current, saved.scrollPercent);
+  };
 
   const headingEl = (tag: 'h2' | 'h3', children: ReactNode) => {
     const text = nodesToText(children);
@@ -158,8 +248,18 @@ export default function ChronicleReader({
 
   return (
     <div
-      className={`chronicle-layout chronicle-layout--${variant}${showToc ? '' : ' chronicle-layout--wide'}`}
+      className={`chronicle-layout chronicle-layout--${variant}${showToc ? '' : ' chronicle-layout--wide'}${saved ? ' chronicle-layout--resume' : ''}`}
     >
+      {saved ? (
+        <p className="chronicle-resume">
+          {locale === 'cs'
+            ? `Rozečtená kronika (kapitola: ${saved.heading || '—'} · ${saved.scrollPercent} %) — `
+            : `Chronicle in progress (${saved.heading || '—'} · ${saved.scrollPercent}%) — `}
+          <button type="button" className="chronicle-resume__go" onClick={continueReading}>
+            {uiT('home.deskContinue', locale)}
+          </button>
+        </p>
+      ) : null}
       {showToc ? (
         <nav className="chronicle-toc" aria-label={locale === 'cs' ? 'Obsah kroniky' : 'Chronicle contents'}>
           {toc.length > 0 ? (
@@ -171,6 +271,7 @@ export default function ChronicleReader({
                     className={active === h.id ? 'chronicle-toc__link--active' : undefined}
                     onClick={(e) => {
                       e.preventDefault();
+                      activeRef.current = h.id;
                       setActive(h.id);
                       scrollHeadingIntoView(scrollRef.current, h.id);
                     }}

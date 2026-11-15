@@ -70,9 +70,13 @@ html[data-theme='dark'] .chapter-hero {
 }
 
 .chapter-hero__top,
+.chapter-hero__grid,
 .chapter-hero__title,
 .chapter-hero__thesis,
-.chapter-hero__back {
+.chapter-hero__lead,
+.chapter-hero__count,
+.chapter-hero__back,
+.chapter-portrait {
   position: relative;
   z-index: 1;
 }
@@ -86,7 +90,7 @@ html[data-theme='dark'] .chapter-hero {
 
 .chapter-hero__back {
   flex-shrink: 0;
-  margin: 0.45rem 0 0;
+  margin: 0;
   font-size: 0.88rem;
   color: color-mix(in srgb, #f6f0e6 78%, var(--chapter-hue-dark));
   text-decoration: none;
@@ -94,6 +98,22 @@ html[data-theme='dark'] .chapter-hero {
 
 .chapter-hero__back:hover {
   color: #fff;
+}
+
+.chapter-hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(16rem, 0.8fr);
+  gap: 1.4rem 2.2rem;
+  align-items: start;
+  margin-top: 0.85rem;
+}
+
+.chapter-hero__roman {
+  margin: 0 0 0.15rem;
+  font-family: var(--font-serif);
+  font-size: 0.82rem;
+  letter-spacing: 0.28em;
+  color: #c5a059;
 }
 
 .chapter-hero__title {
@@ -108,6 +128,7 @@ html[data-theme='dark'] .chapter-hero {
 }
 
 .chapter-hero__kicker {
+  margin: 0;
   font-family: var(--font-sans);
   font-size: 0.72rem;
   font-weight: 500;
@@ -121,13 +142,99 @@ html[data-theme='dark'] .chapter-hero {
 }
 
 .chapter-hero__thesis {
-  margin: 0.7rem 0 0.15rem;
-  max-width: min(68rem, calc(100% - 0.25rem));
+  margin: 0.7rem 0 0;
+  max-width: 42rem;
   font-family: var(--font-serif);
   font-size: 1.12rem;
   font-style: italic;
   line-height: 1.5;
   color: color-mix(in srgb, #f6f0e6 82%, var(--chapter-hue-dark));
+}
+
+.chapter-hero__lead {
+  margin: 0.55rem 0 0;
+  max-width: 42rem;
+  font-family: var(--font-serif);
+  font-size: 0.98rem;
+  line-height: 1.55;
+  color: color-mix(in srgb, #f6f0e6 74%, var(--chapter-hue-dark));
+}
+
+.chapter-hero__count {
+  margin: 0.85rem 0 0;
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #c5a059;
+}
+
+.chapter-portrait {
+  padding: 0.95rem 1.05rem 1.05rem;
+  border: 1px solid color-mix(in srgb, #c5a059 42%, transparent);
+  background: color-mix(in srgb, #0d0a08 42%, transparent);
+}
+
+.chapter-portrait__kicker {
+  margin: 0 0 0.65rem;
+  font-family: var(--font-sans);
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #c5a059;
+}
+
+.chapter-portrait .mini-axes__pole {
+  color: color-mix(in srgb, #f6f0e6 68%, var(--chapter-hue-dark));
+}
+
+.chapter-portrait .mini-axes__tick {
+  background: rgb(255 255 255 / 0.16);
+}
+
+.chapter-portrait .mini-axes__tick--near {
+  background: color-mix(in srgb, #c5a059 55%, #fff);
+}
+
+.chapter-portrait .mini-axes__tick--on {
+  background: #c5a059;
+  box-shadow: 0 0 0.7rem color-mix(in srgb, #c5a059 70%, transparent);
+}
+
+.chapter-portrait__extremes {
+  list-style: none;
+  margin: 0.85rem 0 0;
+  padding: 0.75rem 0 0;
+  border-top: 1px solid color-mix(in srgb, #c5a059 28%, transparent);
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.chapter-portrait__extremes li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.12rem;
+  font-size: 0.82rem;
+  line-height: 1.35;
+}
+
+.chapter-portrait__extremes span {
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, #f6f0e6 62%, var(--chapter-hue-dark));
+}
+
+.chapter-portrait__extremes a {
+  color: #f6f0e6;
+  text-decoration: none;
+}
+
+.chapter-portrait__extremes a:hover {
+  color: #c5a059;
 }
 
 .chapter-page .world-grid,
@@ -146,6 +253,10 @@ html[data-theme='dark'] .chapter-hero {
 }
 
 @media (max-width: 900px) {
+  .chapter-hero__grid {
+    grid-template-columns: 1fr;
+  }
+
   .chapter-hero__name {
     font-size: 2rem;
   }

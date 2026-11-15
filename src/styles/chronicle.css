@@ -11,6 +11,43 @@
   overflow: hidden;
 }
 
+.chronicle-layout--resume {
+  grid-template-rows: auto minmax(0, 1fr);
+}
+
+.chronicle-resume {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 0.5rem;
+  margin: 0 0 0.55rem;
+  padding: 0.45rem 0.75rem;
+  border: 1px solid #c5a059;
+  border-radius: var(--radius-sm);
+  background: color-mix(in srgb, #c5a059 10%, var(--color-paper));
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+  color: var(--color-ink);
+}
+
+.chronicle-resume__go {
+  appearance: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: #c5a059;
+  cursor: pointer;
+}
+
+.chronicle-resume__go:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.16em;
+}
+
 .chronicle-toc {
   min-height: 0;
   max-height: 100%;

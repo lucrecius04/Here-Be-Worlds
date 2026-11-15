@@ -13,6 +13,7 @@ import WorldPageMasthead from './WorldPageMasthead';
 import WorldCard from './WorldCard';
 import SimilarWorlds from './SimilarWorlds';
 import ChronicleReader from '../chronicle/ChronicleReader';
+import { touchRecent } from '../../lib/reader-desk';
 
 type ViewMode = 'card' | 'chronicle' | 'appendices' | 'analysis';
 
@@ -40,13 +41,20 @@ export default function WorldPageShell({
   const [chronicle, setChronicle] = useState<ChronicleDoc | null>(null);
   const [chronicleLoading, setChronicleLoading] = useState(false);
   const [analysisAnchor, setAnalysisAnchor] = useState<TriadAnchor | null>(null);
+  const [resume, setResume] = useState(false);
 
   useEffect(() => {
-    const view = new URLSearchParams(window.location.search).get('view');
+    const params = new URLSearchParams(window.location.search);
+    const view = params.get('view');
     if (view === 'chronicle' || view === 'appendices' || view === 'analysis') {
       setMode(view);
     }
+    if (params.get('resume') === '1') setResume(true);
   }, []);
+
+  useEffect(() => {
+    touchRecent(world.id, world.gameTitle);
+  }, [world.id, world.gameTitle]);
 
   const needsChronicle = mode !== 'card';
 
@@ -149,6 +157,9 @@ export default function WorldPageShell({
             coverTitle={chronicle.coverTitle}
             coverTagline={chronicle.coverTagline}
             coverRange={chronicle.coverRange}
+            worldId={world.id}
+            worldTitle={world.gameTitle}
+            resumeOnMount={resume}
           />
         ) : mode === 'appendices' ? (
           parts.appendices ? (

@@ -1,0 +1,94 @@
+{
+  "stars": [
+    {
+      "id": "planescape-torment",
+      "title": { "cs": "Planescape: Torment", "en": "Planescape: Torment" },
+      "axes": { "hopeDespair": 3, "knownUnknown": 5, "intimateEpic": 2, "moralClarityAmbiguity": 5, "realismMetaphysical": 5 }
+    },
+    {
+      "id": "mass-effect",
+      "title": { "cs": "Mass Effect", "en": "Mass Effect" },
+      "axes": { "hopeDespair": 2, "knownUnknown": 3, "intimateEpic": 5, "moralClarityAmbiguity": 4, "realismMetaphysical": 3 }
+    },
+    {
+      "id": "the-witcher",
+      "title": { "cs": "Zaklínač", "en": "The Witcher" },
+      "axes": { "hopeDespair": 4, "knownUnknown": 3, "intimateEpic": 3, "moralClarityAmbiguity": 5, "realismMetaphysical": 3 }
+    },
+    {
+      "id": "fallout",
+      "title": { "cs": "Fallout", "en": "Fallout" },
+      "axes": { "hopeDespair": 4, "knownUnknown": 2, "intimateEpic": 4, "moralClarityAmbiguity": 4, "realismMetaphysical": 1 }
+    },
+    {
+      "id": "disco-elysium",
+      "title": { "cs": "Disco Elysium", "en": "Disco Elysium" },
+      "axes": { "hopeDespair": 4, "knownUnknown": 4, "intimateEpic": 1, "moralClarityAmbiguity": 5, "realismMetaphysical": 4 }
+    },
+    {
+      "id": "bloodborne",
+      "title": { "cs": "Bloodborne", "en": "Bloodborne" },
+      "axes": { "hopeDespair": 5, "knownUnknown": 5, "intimateEpic": 2, "moralClarityAmbiguity": 4, "realismMetaphysical": 5 }
+    },
+    {
+      "id": "elden-ring",
+      "title": { "cs": "Elden Ring", "en": "Elden Ring" },
+      "axes": { "hopeDespair": 4, "knownUnknown": 5, "intimateEpic": 5, "moralClarityAmbiguity": 4, "realismMetaphysical": 5 }
+    },
+    {
+      "id": "bioshock",
+      "title": { "cs": "BioShock", "en": "BioShock" },
+      "axes": { "hopeDespair": 4, "knownUnknown": 3, "intimateEpic": 2, "moralClarityAmbiguity": 4, "realismMetaphysical": 3 }
+    },
+    {
+      "id": "deus-ex",
+      "title": { "cs": "Deus Ex", "en": "Deus Ex" },
+      "axes": { "hopeDespair": 3, "knownUnknown": 3, "intimateEpic": 3, "moralClarityAmbiguity": 4, "realismMetaphysical": 2 }
+    },
+    {
+      "id": "pathologic",
+      "title": { "cs": "Pathologic", "en": "Pathologic" },
+      "axes": { "hopeDespair": 5, "knownUnknown": 4, "intimateEpic": 1, "moralClarityAmbiguity": 5, "realismMetaphysical": 4 }
+    },
+    {
+      "id": "hollow-knight",
+      "title": { "cs": "Hollow Knight", "en": "Hollow Knight" },
+      "axes": { "hopeDespair": 4, "knownUnknown": 4, "intimateEpic": 2, "moralClarityAmbiguity": 3, "realismMetaphysical": 4 }
+    },
+    {
+      "id": "silent-hill",
+      "title": { "cs": "Silent Hill", "en": "Silent Hill" },
+      "axes": { "hopeDespair": 5, "knownUnknown": 5, "intimateEpic": 1, "moralClarityAmbiguity": 4, "realismMetaphysical": 4 }
+    },
+    {
+      "id": "half-life",
+      "title": { "cs": "Half-Life", "en": "Half-Life" },
+      "axes": { "hopeDespair": 3, "knownUnknown": 3, "intimateEpic": 4, "moralClarityAmbiguity": 2, "realismMetaphysical": 3 }
+    },
+    {
+      "id": "cyberpunk-2077",
+      "title": { "cs": "Cyberpunk 2077", "en": "Cyberpunk 2077" },
+      "axes": { "hopeDespair": 4, "knownUnknown": 3, "intimateEpic": 4, "moralClarityAmbiguity": 4, "realismMetaphysical": 2 }
+    },
+    {
+      "id": "warhammer-40k",
+      "title": { "cs": "Warhammer 40,000", "en": "Warhammer 40,000" },
+      "axes": { "hopeDespair": 5, "knownUnknown": 3, "intimateEpic": 5, "moralClarityAmbiguity": 3, "realismMetaphysical": 4 }
+    },
+    {
+      "id": "outer-wilds",
+      "title": { "cs": "Outer Wilds", "en": "Outer Wilds" },
+      "axes": { "hopeDespair": 2, "knownUnknown": 5, "intimateEpic": 3, "moralClarityAmbiguity": 2, "realismMetaphysical": 5 }
+    },
+    {
+      "id": "control",
+      "title": { "cs": "Control", "en": "Control" },
+      "axes": { "hopeDespair": 3, "knownUnknown": 5, "intimateEpic": 2, "moralClarityAmbiguity": 3, "realismMetaphysical": 5 }
+    },
+    {
+      "id": "soma",
+      "title": { "cs": "SOMA", "en": "SOMA" },
+      "axes": { "hopeDespair": 5, "knownUnknown": 4, "intimateEpic": 2, "moralClarityAmbiguity": 4, "realismMetaphysical": 4 }
+    }
+  ]
+}

@@ -20,10 +20,16 @@ const chapterCards = chapters.map((c) => ({
 }));
 
 const themeLabels = Object.fromEntries(themeTaxonomy.map((t) => [t.slug, t.label]));
+const published = worlds.filter((world) => !world.draft);
 ---
 
 <BaseLayout title="Here Be Worlds — Atlas" homePalette={homePalette}>
-  <HomeIntro client:load chapters={chapterCards} base={base.replace(/\/$/, '')} />
+  <HomeIntro
+    client:load
+    chapters={chapterCards}
+    worlds={published}
+    base={base.replace(/\/$/, '')}
+  />
   <AtlasExplorer
     client:load
     worlds={worlds}

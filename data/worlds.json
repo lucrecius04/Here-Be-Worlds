@@ -4,6 +4,7 @@
       "id": "baldurs-gate",
       "number": 1,
       "chapterId": "fantasy",
+      "addedAt": "2026-11-01",
       "gameTitle": {
         "en": "Baldur's Gate",
         "cs": "Baldur's Gate"
@@ -226,6 +227,7 @@
       "id": "dark-souls",
       "number": 2,
       "chapterId": "fantasy",
+      "addedAt": "2026-11-08",
       "gameTitle": {
         "en": "Dark Souls",
         "cs": "Dark Souls"
@@ -455,6 +457,7 @@
       "id": "diablo",
       "number": 3,
       "chapterId": "fantasy",
+      "addedAt": "2026-11-15",
       "gameTitle": {
         "en": "Diablo",
         "cs": "Diablo"

@@ -7,9 +7,12 @@ import '../styles/chronicle.css';
 import '../styles/home.css';
 import '../styles/chapter.css';
 import '../styles/compare.css';
+import '../styles/map.css';
 import SiteHeader from '../components/i18n/SiteHeader';
 import SiteFooter from '../components/i18n/SiteFooter';
 import LocaleBridge from '../components/i18n/LocaleBridge';
+import CompareTray from '../components/discovery/CompareTray';
+import { worlds } from '../lib/worlds';
 
 const {
   title = 'Here Be Worlds',
@@ -19,6 +22,9 @@ const {
 import { withBase } from '../lib/base-url';
 
 const base = import.meta.env.BASE_URL;
+const published = worlds
+  .filter((world) => !world.draft)
+  .map((world) => ({ id: world.id, gameTitle: world.gameTitle }));
 ---
 
 <!doctype html>
@@ -60,5 +66,6 @@ const base = import.meta.env.BASE_URL;
       <slot />
     </main>
     <SiteFooter client:load base={base} />
+    <CompareTray client:load worlds={published} base={base.replace(/\/$/, '')} />
   </body>
 </html>

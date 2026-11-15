@@ -1,16 +1,22 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import StubPage from '../../components/i18n/StubPage';
+import ConstellationMap from '../../components/discovery/ConstellationMap';
+import { chapters, worlds } from '../../lib/worlds';
 
 const base = import.meta.env.BASE_URL;
+const published = worlds.filter((world) => !world.draft);
+const chapterCards = chapters.map((chapter) => ({
+  id: chapter.id,
+  title: chapter.title,
+  accent: chapter.accent,
+}));
 ---
 
 <BaseLayout title="Mapa — Here Be Worlds">
-  <StubPage
+  <ConstellationMap
     client:load
-    titleKey="map.title"
-    bodyKey="map.body"
-    backKey="map.back"
-    base={base}
+    worlds={published}
+    chapters={chapterCards}
+    base={base.replace(/\/$/, '')}
   />
 </BaseLayout>
