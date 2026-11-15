@@ -5,9 +5,9 @@ export const MAX_COMPARE = 3;
 
 export const SLOT_COLORS = ['#D4AF37', '#4EA8B4', '#9B7EDE'] as const;
 export const SLOT_WASH = [
-  'rgba(212, 175, 55, 0.16)',
-  'rgba(78, 168, 180, 0.16)',
-  'rgba(155, 126, 222, 0.18)',
+  'rgba(212, 175, 55, 0.28)',
+  'rgba(78, 168, 180, 0.28)',
+  'rgba(155, 126, 222, 0.32)',
 ] as const;
 
 export function slotHue(index: number): string {

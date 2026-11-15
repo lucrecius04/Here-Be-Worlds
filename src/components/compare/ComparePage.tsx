@@ -6,7 +6,6 @@ import { withBase } from '../../lib/base-url';
 import {
   MAX_COMPARE,
   SUGGESTED_PAIRS,
-  averageBreakdown,
   kinshipPairs,
   kinshipPercent,
   parseCompareIds,
@@ -163,6 +162,7 @@ export default function ComparePage({ worlds, chapters, themeLabels, axes, base 
   const [stickyOn, setStickyOn] = useState(false);
   const [shareDone, setShareDone] = useState(false);
   const [factFilter, setFactFilter] = useState<FactFilter>('all');
+  const [activePairKey, setActivePairKey] = useState<string | null>(null);
   const slotsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -272,9 +272,14 @@ export default function ComparePage({ worlds, chapters, themeLabels, axes, base 
 
   const suggested = SUGGESTED_PAIRS.filter(([a, b]) => validIds.has(a) && validIds.has(b));
   const showAddThird = ready && filled.length === 2;
+  const pairKey = (pair: { left: number; right: number }) => `${pair.left}-${pair.right}`;
+  const pairKeys = pairScores.map(pairKey);
+  const resolvedPairKey =
+    activePairKey && pairKeys.includes(activePairKey) ? activePairKey : (pairKeys[0] ?? null);
+  const activePair = pairScores.find((pair) => pairKey(pair) === resolvedPairKey) ?? pairScores[0];
   const barScore = ready
     ? selected.length === 3
-      ? averageBreakdown(pairScores)
+      ? (activePair?.breakdown ?? null)
       : pairScores[0]?.breakdown
     : null;
   const pageStyle = { '--compare-cols': String(colCount) } as CSSProperties;
@@ -409,16 +414,26 @@ export default function ComparePage({ worlds, chapters, themeLabels, axes, base 
               )}
             </div>
             {selected.length === 3 ? (
-              <div className="compare-verdict__pairs">
-                {pairScores.map((pair) => (
-                  <p key={`${pair.left}-${pair.right}`} className="compare-verdict__pair">
-                    <SlotMark hue={hues[pair.left]} />
-                    {t(selected[pair.left].gameTitle, locale)}
-                    <span> {uiT('compare.versus', locale)} </span>
-                    <SlotMark hue={hues[pair.right]} />
-                    {t(selected[pair.right].gameTitle, locale)}: {pair.percent} %
-                  </p>
-                ))}
+              <div className="compare-verdict__pairs" role="group" aria-label={uiT('compare.kinship', locale)}>
+                {pairScores.map((pair) => {
+                  const key = pairKey(pair);
+                  const on = key === resolvedPairKey;
+                  return (
+                    <button
+                      key={key}
+                      type="button"
+                      className={`compare-verdict__pair${on ? ' is-on' : ''}`}
+                      aria-pressed={on}
+                      onClick={() => setActivePairKey(key)}
+                    >
+                      <SlotMark hue={hues[pair.left]} />
+                      {t(selected[pair.left].gameTitle, locale)}
+                      <span> {uiT('compare.versus', locale)} </span>
+                      <SlotMark hue={hues[pair.right]} />
+                      {t(selected[pair.right].gameTitle, locale)}: {pair.percent} %
+                    </button>
+                  );
+                })}
               </div>
             ) : null}
             {barScore ? (
