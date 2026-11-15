@@ -1,16 +1,19 @@
 import { useEffect, useMemo, useRef, useState, type CSSProperties } from 'react';
 import type { LocalizedString, World } from '../../schemas/world';
-import { t, uiT } from '../../lib/i18n';
+import { t, uiT, type Locale } from '../../lib/i18n';
 import { useLocale } from '../../lib/locale-store';
-import { useTheme } from '../../lib/theme-store';
 import { withBase } from '../../lib/base-url';
 import {
   MAX_COMPARE,
   SUGGESTED_PAIRS,
-  closestAxisIds,
-  exclusiveThemes,
+  averageBreakdown,
+  kinshipPairs,
+  kinshipPercent,
   parseCompareIds,
-  sharedThemes,
+  slotHue,
+  slotWash,
+  themeCoverage,
+  valueFrequencies,
   writeCompareQuery,
 } from '../../lib/compare';
 import AxisOverlay from './AxisOverlay';
@@ -44,9 +47,107 @@ type FactRow = {
   subs: Array<string | null>;
 };
 
+type FilledSlot = {
+  index: number;
+  world: World;
+};
+
+type FactFilter = 'all' | 'diffs' | 'matches';
+
+function genreSub(world: World, locale: Locale): string {
+  const main = t(world.metadata.genreProfile, locale);
+  const extra = world.metadata.genreProfile.sub ? t(world.metadata.genreProfile.sub, locale) : '';
+  if (main && extra) return `${main} · ${extra}`;
+  return extra || main;
+}
+
+function SlotMark({ hue }: { hue: string }) {
+  return (
+    <span
+      className="compare-legend__mark"
+      style={{ '--mark-hue': hue } as CSSProperties}
+      aria-hidden="true"
+    />
+  );
+}
+
+function AffinityHint({ locale }: { locale: Locale }) {
+  const [open, setOpen] = useState(false);
+  const [pinned, setPinned] = useState(false);
+  const rootRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+    const onDoc = (event: MouseEvent) => {
+      if (!rootRef.current?.contains(event.target as Node)) {
+        setOpen(false);
+        setPinned(false);
+      }
+    };
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setOpen(false);
+        setPinned(false);
+      }
+    };
+    document.addEventListener('mousedown', onDoc);
+    document.addEventListener('keydown', onKey);
+    return () => {
+      document.removeEventListener('mousedown', onDoc);
+      document.removeEventListener('keydown', onKey);
+    };
+  }, [open]);
+
+  const prices = [
+    `${uiT('world.genreLine', locale)} 12 %`,
+    `${uiT('card.genreProfile', locale)} 8 % (${uiT('compare.affinityPriceOverlap', locale)})`,
+    `${uiT('card.profileWorld', locale)} — ${uiT('compare.affinityPriceAxes', locale)}`,
+    `${uiT('compare.factsTitle', locale)} — ${uiT('card.atmosphere', locale)} 8 %`,
+    `${uiT('card.sourceOfPower', locale)} 6 %`,
+    `${uiT('card.historicalDepth', locale)} 4 %`,
+    `${uiT('card.societalOrder', locale)} 4 %`,
+    `${uiT('card.protagonistPerspective', locale)} 4 %`,
+    `${uiT('card.spatialScope', locale)} 4 %`,
+    `${uiT('card.themesHeading', locale)} 15 %`,
+  ];
+
+  return (
+    <div
+      className="compare-affinity"
+      ref={rootRef}
+      onMouseEnter={() => setOpen(true)}
+      onMouseLeave={() => {
+        if (!pinned) setOpen(false);
+      }}
+    >
+      <button
+        type="button"
+        className="compare-affinity__btn"
+        aria-expanded={open}
+        aria-label={uiT('compare.affinityHint', locale)}
+        onClick={() => {
+          setPinned((value) => !value);
+          setOpen(true);
+        }}
+      >
+        ?
+      </button>
+      {open ? (
+        <div className="compare-affinity__pop" role="dialog" aria-label={uiT('compare.affinityMethod', locale)}>
+          <p className="compare-affinity__title">{uiT('compare.affinityMethod', locale)}</p>
+          <ul>
+            {prices.map((line) => (
+              <li key={line}>{line}</li>
+            ))}
+          </ul>
+        </div>
+      ) : null}
+    </div>
+  );
+}
+
 export default function ComparePage({ worlds, chapters, themeLabels, axes, base }: Props) {
   const locale = useLocale();
-  const theme = useTheme();
   const catalog = useMemo(() => worlds.filter((world) => !world.draft), [worlds]);
   const validIds = useMemo(() => new Set(catalog.map((world) => world.id)), [catalog]);
   const byId = useMemo(
@@ -59,14 +160,19 @@ export default function ComparePage({ worlds, chapters, themeLabels, axes, base 
   );
 
   const [slots, setSlots] = useState<Array<string | null>>([null, null]);
+  const [stickyOn, setStickyOn] = useState(false);
+  const [shareDone, setShareDone] = useState(false);
+  const [factFilter, setFactFilter] = useState<FactFilter>('all');
+  const slotsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const parsed = parseCompareIds(window.location.search, validIds);
-    setSlots(
+    const next =
       parsed.length >= MAX_COMPARE
         ? [parsed[0] ?? null, parsed[1] ?? null, parsed[2] ?? null]
-        : [parsed[0] ?? null, parsed[1] ?? null],
-    );
+        : [parsed[0] ?? null, parsed[1] ?? null];
+    setSlots(next);
+    writeCompareQuery(next.filter((id): id is string => Boolean(id)));
   }, [validIds]);
 
   const commit = (next: Array<string | null>) => {
@@ -75,65 +181,58 @@ export default function ComparePage({ worlds, chapters, themeLabels, axes, base 
   };
 
   const setSlot = (index: number, id: string | null) => {
-    const next = slots.map((slot, i) => (i === index ? id : slot));
-    commit(next);
+    if (id) {
+      commit(slots.map((slot, i) => (i === index ? id : slot)));
+      return;
+    }
+    const remaining = slots.filter((slot, i) => i !== index && Boolean(slot));
+    if (remaining.length >= 2) {
+      commit(remaining);
+      return;
+    }
+    const next = slots.map((slot, i) => (i === index ? null : slot));
+    commit(next.length > 2 ? next.slice(0, 2) : next);
   };
 
-  const addThird = () => {
-    if (slots.length >= MAX_COMPARE) return;
-    commit([...slots, null]);
-  };
-
-  const removeThird = () => {
-    commit(slots.slice(0, 2));
+  const pickThird = (id: string) => {
+    const kept = slots.filter((slot): slot is string => Boolean(slot)).slice(0, 2);
+    if (kept.length < 2 || kept.includes(id)) return;
+    commit([kept[0], kept[1], id]);
   };
 
   const applyPair = (pair: [string, string]) => {
     commit([pair[0], pair[1]]);
   };
 
-  const selected = slots
-    .map((id) => (id ? byId.get(id) : undefined))
-    .filter((world): world is World => Boolean(world));
-
-  const hues = selected.map((world) => {
-    const chapter = chapterById.get(world.chapterId);
-    if (!chapter) return 'var(--color-accent)';
-    return theme === 'dark' ? chapter.accent.dark : chapter.accent.light;
+  const filled: FilledSlot[] = slots.flatMap((id, index) => {
+    const world = id ? byId.get(id) : undefined;
+    return world ? [{ index, world }] : [];
   });
-
-  const hueForId = (id: string | null) => {
-    if (!id) return undefined;
-    const world = byId.get(id);
-    if (!world) return undefined;
-    const chapter = chapterById.get(world.chapterId);
-    if (!chapter) return undefined;
-    return theme === 'dark' ? chapter.accent.dark : chapter.accent.light;
-  };
-
+  const selected = filled.map((item) => item.world);
+  const hues = filled.map((item) => slotHue(item.index));
+  const washes = filled.map((item) => slotWash(item.index));
   const ready = selected.length >= 2;
-  const shared = ready ? sharedThemes(selected) : [];
-  const closeAxes = ready ? closestAxisIds(selected) : [];
-  const axisNames = closeAxes
-    .map((id) => axes.find((axis) => axis.id === id))
-    .filter(Boolean)
-    .map((axis) => `${t(axis!.left, locale)} / ${t(axis!.right, locale)}`);
+  const colCount = Math.max(filled.length, 2);
+  const coverage = ready ? themeCoverage(selected) : [];
+  const sharedCoverage = coverage.filter((item) => item.owners.length >= 2);
+  const pairScores = ready ? kinshipPairs(selected) : [];
 
-  const insightParts: string[] = [];
-  if (ready) {
-    if (shared.length) {
-      insightParts.push(
-        `${uiT('compare.insightThemes', locale)}: ${shared
-          .map((slug) => (themeLabels[slug] ? t(themeLabels[slug], locale) : slug))
-          .join(', ')}`,
-      );
-    } else {
-      insightParts.push(uiT('compare.insightNone', locale));
+  useEffect(() => {
+    const node = slotsRef.current;
+    if (!node || !ready) {
+      setStickyOn(false);
+      return;
     }
-    if (axisNames.length) {
-      insightParts.push(`${uiT('compare.insightAxes', locale)}: ${axisNames.join(', ')}`);
-    }
-  }
+    const headerPx = Math.round(
+      document.querySelector('.site-header')?.getBoundingClientRect().height || 56,
+    );
+    const observer = new IntersectionObserver(
+      ([entry]) => setStickyOn(!entry.isIntersecting),
+      { root: null, threshold: 0, rootMargin: `-${headerPx}px 0px 0px 0px` },
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, [ready, selected.length]);
 
   const factRows: FactRow[] = ready
     ? [
@@ -144,7 +243,7 @@ export default function ComparePage({ worlds, chapters, themeLabels, axes, base 
             const chapter = chapterById.get(world.chapterId);
             return chapter ? t(chapter.title, locale) : world.chapterId;
           }),
-          subs: selected.map(() => null),
+          subs: selected.map((world) => genreSub(world, locale) || null),
         },
         ...factField(selected, locale, 'atmosphere', uiT('card.atmosphere', locale)),
         ...factField(selected, locale, 'historicalDepth', uiT('card.historicalDepth', locale)),
@@ -169,110 +268,282 @@ export default function ComparePage({ worlds, chapters, themeLabels, axes, base 
       ]
     : [];
 
-  const pairs = SUGGESTED_PAIRS.filter(([a, b]) => validIds.has(a) && validIds.has(b));
-  const colCount = Math.max(slots.length, 2);
+  const kinship = ready ? kinshipPercent(selected) : 0;
+
+  const suggested = SUGGESTED_PAIRS.filter(([a, b]) => validIds.has(a) && validIds.has(b));
+  const showAddThird = ready && filled.length === 2;
+  const barScore = ready
+    ? selected.length === 3
+      ? averageBreakdown(pairScores)
+      : pairScores[0]?.breakdown
+    : null;
+  const pageStyle = { '--compare-cols': String(colCount) } as CSSProperties;
+
+  const shareComparison = async () => {
+    writeCompareQuery(filled.map((item) => item.world.id));
+    try {
+      await navigator.clipboard.writeText(window.location.href);
+      setShareDone(true);
+      window.setTimeout(() => setShareDone(false), 1800);
+    } catch {
+      setShareDone(false);
+    }
+  };
 
   return (
-    <div className="compare-page" style={{ '--compare-cols': String(colCount) } as CSSProperties}>
+    <div className="compare-page" style={pageStyle}>
       <p className="compare-page__back">
         <a href={withBase(base, '/')}>{uiT('compare.back', locale)}</a>
       </p>
-      <h1 className="compare-page__title display">{uiT('compare.title', locale)}</h1>
-      <p className="compare-page__lead">{uiT('compare.lead', locale)}</p>
-
-      <div className="compare-slots">
-        {slots.map((id, index) => (
-          <WorldSlot
-            key={`slot-${index}`}
-            index={index}
-            selectedId={id}
-            hue={hueForId(id)}
-            catalog={catalog}
-            taken={new Set(slots.filter((slot): slot is string => Boolean(slot)))}
-            chapterById={chapterById}
-            locale={locale}
-            onPick={(worldId) => setSlot(index, worldId)}
-            onClear={() => setSlot(index, null)}
-            onRemoveThird={index === 2 ? removeThird : undefined}
-          />
-        ))}
+      <div className="compare-page__heading">
+        <h1 className="compare-page__title display">{uiT('compare.title', locale)}</h1>
+        {ready ? (
+          <button type="button" className="compare-share" onClick={shareComparison}>
+            {shareDone ? uiT('compare.shareDone', locale) : uiT('compare.share', locale)}
+          </button>
+        ) : null}
       </div>
 
-      {slots.length < MAX_COMPARE ? (
-        <button type="button" className="compare-add" onClick={addThird}>
-          {uiT('compare.addThird', locale)}
-        </button>
-      ) : null}
+      <div className="compare-slots" ref={slotsRef}>
+        {slots.map((id, index) => {
+          if (index === 2 && !id) return null;
+          return (
+            <WorldSlot
+              key={`slot-${index}`}
+              index={index}
+              selectedId={id}
+              hue={slotHue(index)}
+              wash={slotWash(index)}
+              catalog={catalog}
+              taken={new Set(slots.filter((slot): slot is string => Boolean(slot)))}
+              chapterById={chapterById}
+              locale={locale}
+              onPick={(worldId) => setSlot(index, worldId)}
+              onClear={() => setSlot(index, null)}
+            />
+          );
+        })}
+      </div>
 
-      {pairs.length > 0 ? (
+      {suggested.length > 0 || showAddThird ? (
         <div className="compare-pairs">
-          <span className="compare-pairs__label">{uiT('compare.suggested', locale)}</span>
-          <div className="compare-pairs__list">
-            {pairs.map((pair) => {
-              const left = byId.get(pair[0]);
-              const right = byId.get(pair[1]);
-              if (!left || !right) return null;
-              return (
-                <button
-                  key={pair.join('-')}
-                  type="button"
-                  className="compare-pairs__btn"
-                  onClick={() => applyPair(pair)}
-                >
-                  {t(left.gameTitle, locale)}
-                  <span aria-hidden="true"> {uiT('compare.versus', locale)} </span>
-                  {t(right.gameTitle, locale)}
-                </button>
-              );
-            })}
-          </div>
+          {suggested.length > 0 ? (
+            <>
+              <span className="compare-pairs__label">{uiT('compare.suggested', locale)}</span>
+              <div className="compare-pairs__list">
+                {suggested.map((pair) => {
+                  const left = byId.get(pair[0]);
+                  const right = byId.get(pair[1]);
+                  if (!left || !right) return null;
+                  return (
+                    <button
+                      key={pair.join('-')}
+                      type="button"
+                      className="compare-pairs__btn"
+                      onClick={() => applyPair(pair)}
+                    >
+                      {t(left.gameTitle, locale)}
+                      <span aria-hidden="true"> {uiT('compare.versus', locale)} </span>
+                      {t(right.gameTitle, locale)}
+                    </button>
+                  );
+                })}
+              </div>
+            </>
+          ) : null}
+          {showAddThird ? (
+            <AddThirdControl
+              catalog={catalog}
+              taken={new Set(slots.filter((slot): slot is string => Boolean(slot)))}
+              chapterById={chapterById}
+              locale={locale}
+              onPick={pickThird}
+            />
+          ) : null}
         </div>
       ) : null}
 
       {ready ? (
         <>
-          {insightParts.length ? <p className="compare-insight">{insightParts.join(' · ')}</p> : null}
+          <div className={`compare-sticky${stickyOn ? ' is-on' : ''}`}>
+            <span className="compare-sticky__kicker">{uiT('compare.stickyKicker', locale)}</span>
+            {filled.map((item) => (
+              <div
+                key={item.world.id}
+                className="compare-sticky__world"
+                style={
+                  {
+                    '--slot-hue': slotHue(item.index),
+                    '--slot-wash': slotWash(item.index),
+                  } as CSSProperties
+                }
+              >
+                <span className="compare-sticky__mark" aria-hidden="true" />
+                <span className="compare-sticky__name">{t(item.world.gameTitle, locale)}</span>
+                <button
+                  type="button"
+                  className="compare-sticky__remove"
+                  onClick={() => setSlot(item.index, null)}
+                  aria-label={`${uiT('compare.clear', locale)} ${t(item.world.gameTitle, locale)}`}
+                >
+                  ×
+                </button>
+              </div>
+            ))}
+          </div>
 
-          <AxisOverlay worlds={selected} hues={hues} axes={axes} locale={locale} />
+          <section
+            className={`compare-verdict${selected.length === 3 ? ' compare-verdict--triples' : ''}`}
+            aria-label={uiT('compare.kinship', locale)}
+          >
+            <div className="compare-verdict__score-col">
+              <div className="compare-verdict__head">
+                <p className="compare-verdict__kicker">{uiT('compare.kinship', locale)}</p>
+                {selected.length === 3 ? <AffinityHint locale={locale} /> : null}
+              </div>
+              {selected.length === 3 ? null : (
+                <div className="compare-verdict__score-row">
+                  <p className="compare-verdict__score display">{kinship} %</p>
+                  <AffinityHint locale={locale} />
+                </div>
+              )}
+            </div>
+            {selected.length === 3 ? (
+              <div className="compare-verdict__pairs">
+                {pairScores.map((pair) => (
+                  <p key={`${pair.left}-${pair.right}`} className="compare-verdict__pair">
+                    <SlotMark hue={hues[pair.left]} />
+                    {t(selected[pair.left].gameTitle, locale)}
+                    <span> {uiT('compare.versus', locale)} </span>
+                    <SlotMark hue={hues[pair.right]} />
+                    {t(selected[pair.right].gameTitle, locale)}: {pair.percent} %
+                  </p>
+                ))}
+              </div>
+            ) : null}
+            {barScore ? (
+              <div className="compare-verdict__bars">
+                {(
+                  [
+                    {
+                      key: 'archetype',
+                      label: uiT('compare.affinityArchetype', locale),
+                      value: barScore.archetype,
+                      max: 20,
+                    },
+                    {
+                      key: 'axes',
+                      label: uiT('compare.affinityAxes', locale),
+                      value: barScore.axes,
+                      max: 35,
+                    },
+                    {
+                      key: 'character',
+                      label: uiT('compare.affinityCharacter', locale),
+                      value: barScore.character,
+                      max: 30,
+                    },
+                    {
+                      key: 'themes',
+                      label: uiT('compare.affinityThemes', locale),
+                      value: barScore.themes,
+                      max: 15,
+                    },
+                  ] as const
+                ).map((pillar) => (
+                  <div key={pillar.key} className="compare-bar">
+                    <span className="compare-bar__label">{pillar.label}</span>
+                    <span className="compare-bar__value">
+                      {pillar.value} / {pillar.max} %
+                    </span>
+                    <span className="compare-bar__track" aria-hidden="true">
+                      <span
+                        className="compare-bar__fill"
+                        style={{ width: `${Math.min(100, (pillar.value / pillar.max) * 100)}%` }}
+                      />
+                    </span>
+                  </div>
+                ))}
+              </div>
+            ) : null}
+          </section>
+
+          <AxisOverlay worlds={selected} hues={hues} axes={axes} locale={locale} base={base} />
 
           <section className="compare-themes" aria-label={uiT('compare.themesTitle', locale)}>
             <h2 className="compare-section__title">{uiT('compare.themesTitle', locale)}</h2>
-            <ThemeGroup
-              label={uiT('compare.themesShared', locale)}
-              slugs={shared}
-              themeLabels={themeLabels}
-              locale={locale}
-              variant="shared"
-            />
-            {selected.map((world, index) => {
-              const only = exclusiveThemes(
-                world,
-                selected.filter((other) => other.id !== world.id),
-              );
-              return (
-                <ThemeGroup
-                  key={world.id}
-                  label={`${uiT('compare.themesOnly', locale)} ${t(world.gameTitle, locale)}`}
-                  slugs={only}
-                  themeLabels={themeLabels}
-                  locale={locale}
-                  variant="own"
-                  hue={hues[index]}
-                />
-              );
-            })}
+            <div className="compare-themes__grid">
+              {sharedCoverage.length ? (
+                <div className="compare-theme-group compare-theme-group--shared">
+                  <span className="compare-theme-group__label">{uiT('compare.themesShared', locale)}</span>
+                  <div className="theme-pills">
+                    {sharedCoverage.map((item) => (
+                      <span key={item.slug} className="theme-pill compare-pill compare-pill--shared">
+                        {themeLabels[item.slug] ? t(themeLabels[item.slug], locale) : item.slug}
+                        <span className="compare-pill__marks">
+                          {item.owners.map((owner) => (
+                            <SlotMark key={`${item.slug}-${owner}`} hue={hues[owner]} />
+                          ))}
+                        </span>
+                        {item.owners.length === selected.length ? (
+                          <span className="compare-pill__all">{uiT('compare.themesAll', locale)}</span>
+                        ) : null}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
+              {filled.map((item, selectedIndex) => {
+                const only = coverage.filter(
+                  (entry) => entry.owners.length === 1 && entry.owners[0] === selectedIndex,
+                );
+                if (only.length === 0) return null;
+                return (
+                  <div
+                    key={item.world.id}
+                    className="compare-theme-group compare-theme-group--own"
+                    style={
+                      {
+                        '--slot-hue': slotHue(item.index),
+                        '--slot-wash': slotWash(item.index),
+                      } as CSSProperties
+                    }
+                  >
+                    <span className="compare-theme-group__label">
+                      {uiT('compare.themesOnly', locale)} {t(item.world.gameTitle, locale)}
+                    </span>
+                    <div className="theme-pills">
+                      {only.map((entry) => (
+                        <span
+                          key={entry.slug}
+                          className="theme-pill compare-pill compare-pill--own"
+                          style={{ '--slot-hue': slotHue(item.index) } as CSSProperties}
+                        >
+                          {themeLabels[entry.slug] ? t(themeLabels[entry.slug], locale) : entry.slug}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </section>
 
-          <section className="compare-cores" aria-label={uiT('compare.coresTitle', locale)}>
-            <h2 className="compare-section__title">{uiT('compare.coresTitle', locale)}</h2>
+          <section className="compare-cores" aria-label={uiT('compare.coresLabel', locale)}>
             <div className="compare-cores__grid">
-              {selected.map((world, index) => (
+              <div className="compare-facts__label">{uiT('compare.coresLabel', locale)}</div>
+              {filled.map((item) => (
                 <blockquote
-                  key={world.id}
+                  key={item.world.id}
                   className="compare-core"
-                  style={{ '--slot-hue': hues[index] } as CSSProperties}
+                  style={
+                    {
+                      '--slot-hue': slotHue(item.index),
+                      '--slot-wash': slotWash(item.index),
+                    } as CSSProperties
+                  }
                 >
-                  {t(world.core, locale)}
+                  {t(item.world.core, locale)}
                 </blockquote>
               ))}
             </div>
@@ -282,45 +553,57 @@ export default function ComparePage({ worlds, chapters, themeLabels, axes, base 
             title={uiT('compare.factsTitle', locale)}
             rows={factRows}
             hues={hues}
+            washes={washes}
             count={selected.length}
+            filter={factFilter}
+            onFilter={setFactFilter}
+            locale={locale}
           />
 
           <FactTable
             title={uiT('compare.triadTitle', locale)}
             rows={triadRows}
             hues={hues}
+            washes={washes}
             count={selected.length}
             prose
           />
 
           <div className="compare-links">
-            {selected.map((world, index) => (
+            <div className="compare-facts__label" />
+            {filled.map((item) => (
               <div
-                key={world.id}
+                key={`links-${item.world.id}`}
                 className="compare-links__world"
-                style={{ '--slot-hue': hues[index] } as CSSProperties}
+                style={
+                  {
+                    '--slot-hue': slotHue(item.index),
+                    '--slot-wash': slotWash(item.index),
+                  } as CSSProperties
+                }
               >
-                <span className="compare-links__name">{t(world.gameTitle, locale)}</span>
-                <a href={withBase(base, `/worlds/${world.id}/`)}>
+                <span className="compare-links__name">{t(item.world.gameTitle, locale)}</span>
+                <a className="compare-links__card" href={withBase(base, `/worlds/${item.world.id}/`)}>
                   {uiT('compare.openCard', locale)}
                 </a>
-                <a href={withBase(base, `/worlds/${world.id}/?view=chronicle`)}>
+                <a
+                  className="compare-links__chronicle"
+                  href={withBase(base, `/worlds/${item.world.id}/?view=chronicle`)}
+                >
                   {uiT('compare.openChronicle', locale)}
                 </a>
               </div>
             ))}
           </div>
         </>
-      ) : (
-        <p className="compare-hint">{uiT('compare.pickTwo', locale)}</p>
-      )}
+      ) : null}
     </div>
   );
 }
 
 function factField(
   worlds: World[],
-  locale: ReturnType<typeof useLocale>,
+  locale: Locale,
   key: keyof World['metadata'],
   label: string,
 ): FactRow[] {
@@ -338,7 +621,7 @@ function factField(
 
 function triadField(
   worlds: World[],
-  locale: ReturnType<typeof useLocale>,
+  locale: Locale,
   key: keyof World['triad'],
   label: string,
 ): FactRow {
@@ -350,80 +633,103 @@ function triadField(
   };
 }
 
-function ThemeGroup({
-  label,
-  slugs,
-  themeLabels,
-  locale,
-  variant,
-  hue,
-}: {
-  label: string;
-  slugs: string[];
-  themeLabels: Record<string, LocalizedString>;
-  locale: ReturnType<typeof useLocale>;
-  variant: 'shared' | 'own';
-  hue?: string;
-}) {
-  if (slugs.length === 0) return null;
-  return (
-    <div className={`compare-theme-group compare-theme-group--${variant}`}>
-      <span className="compare-theme-group__label">{label}</span>
-      <div className="theme-pills">
-        {slugs.map((slug) => (
-          <span
-            key={slug}
-            className={`theme-pill compare-pill compare-pill--${variant}`}
-            style={hue ? ({ '--slot-hue': hue } as CSSProperties) : undefined}
-          >
-            {themeLabels[slug] ? t(themeLabels[slug], locale) : slug}
-          </span>
-        ))}
-      </div>
-    </div>
-  );
+function rowVisible(values: string[], filter: FactFilter | undefined, count: number): boolean {
+  if (!filter || filter === 'all') return true;
+  const allSame = values.every((value) => value === values[0]);
+  if (count < 3) return filter === 'matches' ? allSame : !allSame;
+  const freqs = valueFrequencies(values);
+  const hasPair = freqs.some((freq) => freq >= 2);
+  return filter === 'matches' ? hasPair : !allSame;
+}
+
+function cellShown(values: string[], index: number, filter: FactFilter | undefined, count: number): boolean {
+  if (!filter || filter === 'all' || count < 3) return true;
+  const freq = valueFrequencies(values)[index] ?? 0;
+  if (filter === 'matches') return freq >= 2;
+  return freq === 1;
 }
 
 function FactTable({
   title,
   rows,
   hues,
+  washes,
   count,
   prose = false,
+  filter,
+  onFilter,
+  locale,
 }: {
   title: string;
   rows: FactRow[];
   hues: string[];
+  washes: string[];
   count: number;
   prose?: boolean;
+  filter?: FactFilter;
+  onFilter?: (next: FactFilter) => void;
+  locale?: Locale;
 }) {
+  const highlightMatches = Boolean(filter) && filter !== 'diffs';
+  const visible = rows.filter((row) => rowVisible(row.values, filter, count));
+
   return (
     <section className={`compare-facts${prose ? ' compare-facts--prose' : ''}`}>
-      <h2 className="compare-section__title">{title}</h2>
+      <div className="compare-section__head">
+        <h2 className="compare-section__title">{title}</h2>
+        {onFilter && locale ? (
+          <div className="compare-filter" role="group" aria-label={title}>
+            {(['all', 'diffs', 'matches'] as const).map((mode) => (
+              <button
+                key={mode}
+                type="button"
+                className={`compare-filter__btn${filter === mode ? ' is-on' : ''}`}
+                onClick={() => onFilter(mode)}
+              >
+                {mode === 'all'
+                  ? uiT('compare.filterAll', locale)
+                  : mode === 'diffs'
+                    ? uiT('compare.filterDiffs', locale)
+                    : uiT('compare.filterMatches', locale)}
+              </button>
+            ))}
+          </div>
+        ) : null}
+      </div>
       <div
         className="compare-facts__table"
         style={{ '--compare-cols': String(count) } as CSSProperties}
       >
-        {rows.map((row) => {
-          const match = row.values.every((value) => value === row.values[0]);
+        {visible.map((row) => {
+          const freqs = valueFrequencies(row.values);
           return (
-            <div
-              key={row.id}
-              className={`compare-facts__row${match ? ' compare-facts__row--match' : ''}`}
-            >
+            <div key={row.id} className="compare-facts__row">
               <div className="compare-facts__label">{row.label}</div>
-              {row.values.map((value, index) => (
-                <div
-                  key={`${row.id}-${index}`}
-                  className="compare-facts__cell"
-                  style={{ '--slot-hue': hues[index] } as CSSProperties}
-                >
-                  <div className="compare-facts__value">{value}</div>
-                  {row.subs[index] ? (
-                    <p className="compare-facts__sub">{row.subs[index]}</p>
-                  ) : null}
-                </div>
-              ))}
+              {row.values.map((value, index) => {
+                const shown = cellShown(row.values, index, filter, count);
+                const matched = highlightMatches && shown && freqs[index] >= 2;
+                return (
+                  <div
+                    key={`${row.id}-${index}`}
+                    className={`compare-facts__cell${matched ? ' compare-facts__cell--match' : ''}`}
+                    style={
+                      {
+                        '--slot-hue': hues[index],
+                        '--slot-wash': washes[index],
+                      } as CSSProperties
+                    }
+                  >
+                    {shown ? (
+                      <>
+                        <div className="compare-facts__value">{value}</div>
+                        {row.subs[index] ? (
+                          <p className="compare-facts__sub">{row.subs[index]}</p>
+                        ) : null}
+                      </>
+                    ) : null}
+                  </div>
+                );
+              })}
             </div>
           );
         })}
@@ -432,34 +738,97 @@ function FactTable({
   );
 }
 
+function AddThirdControl({
+  catalog,
+  taken,
+  chapterById,
+  locale,
+  onPick,
+}: {
+  catalog: World[];
+  taken: Set<string>;
+  chapterById: Map<string, ChapterInfo>;
+  locale: Locale;
+  onPick: (id: string) => void;
+}) {
+  const [open, setOpen] = useState(false);
+  const rootRef = useRef<HTMLDivElement>(null);
+  const options = catalog.filter((world) => !taken.has(world.id));
+
+  useEffect(() => {
+    const onDoc = (event: MouseEvent) => {
+      if (!rootRef.current?.contains(event.target as Node)) setOpen(false);
+    };
+    document.addEventListener('mousedown', onDoc);
+    return () => document.removeEventListener('mousedown', onDoc);
+  }, []);
+
+  return (
+    <div className="compare-pairs__add" ref={rootRef}>
+      <button type="button" className="compare-pairs__btn compare-pairs__btn--add" onClick={() => setOpen((v) => !v)}>
+        {uiT('compare.addThird', locale)}
+      </button>
+      {open ? (
+        <ul className="compare-slot__list compare-slot__list--pairs" role="listbox">
+          {options.length === 0 ? (
+            <li className="compare-slot__empty">{uiT('compare.noMatch', locale)}</li>
+          ) : (
+            options.map((world) => {
+              const ch = chapterById.get(world.chapterId);
+              return (
+                <li key={world.id}>
+                  <button
+                    type="button"
+                    className="compare-slot__option"
+                    onClick={() => {
+                      onPick(world.id);
+                      setOpen(false);
+                    }}
+                  >
+                    <span className="compare-slot__option-title">{t(world.gameTitle, locale)}</span>
+                    <span className="compare-slot__option-meta">
+                      {ch ? t(ch.title, locale) : world.chapterId}
+                    </span>
+                  </button>
+                </li>
+              );
+            })
+          )}
+        </ul>
+      ) : null}
+    </div>
+  );
+}
+
 function WorldSlot({
   index,
   selectedId,
   hue,
+  wash,
   catalog,
   taken,
   chapterById,
   locale,
   onPick,
   onClear,
-  onRemoveThird,
 }: {
   index: number;
   selectedId: string | null;
-  hue?: string;
+  hue: string;
+  wash: string;
   catalog: World[];
   taken: Set<string>;
   chapterById: Map<string, ChapterInfo>;
-  locale: ReturnType<typeof useLocale>;
+  locale: Locale;
   onPick: (id: string) => void;
   onClear: () => void;
-  onRemoveThird?: () => void;
 }) {
   const [query, setQuery] = useState('');
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
   const selected = selectedId ? catalog.find((world) => world.id === selectedId) : undefined;
   const chapter = selected ? chapterById.get(selected.chapterId) : undefined;
+  const slotStyle = { '--slot-hue': hue, '--slot-wash': wash } as CSSProperties;
 
   const options = catalog.filter((world) => {
     if (taken.has(world.id) && world.id !== selectedId) return false;
@@ -486,32 +855,60 @@ function WorldSlot({
     return () => document.removeEventListener('mousedown', onDoc);
   }, []);
 
+  const picker = open ? (
+    <ul className="compare-slot__list" role="listbox">
+      {options.length === 0 ? (
+        <li className="compare-slot__empty">{uiT('compare.noMatch', locale)}</li>
+      ) : (
+        options.map((world) => {
+          const ch = chapterById.get(world.chapterId);
+          return (
+            <li key={world.id}>
+              <button
+                type="button"
+                className="compare-slot__option"
+                onClick={() => {
+                  onPick(world.id);
+                  setQuery('');
+                  setOpen(false);
+                }}
+              >
+                <span className="compare-slot__option-title">{t(world.gameTitle, locale)}</span>
+                <span className="compare-slot__option-meta">
+                  {ch ? t(ch.title, locale) : world.chapterId}
+                </span>
+              </button>
+            </li>
+          );
+        })
+      )}
+    </ul>
+  ) : null;
+
   if (selected) {
     return (
-      <div
-        className="compare-slot compare-slot--filled"
-        style={hue ? ({ '--slot-hue': hue } as CSSProperties) : undefined}
-      >
-        <div className="compare-slot__tools">
-          <button type="button" className="compare-slot__clear" onClick={onClear}>
-            {uiT('compare.clear', locale)}
-          </button>
-          {onRemoveThird ? (
-            <button type="button" className="compare-slot__clear" onClick={onRemoveThird}>
-              {uiT('compare.removeSlot', locale)}
+      <div className="compare-slot compare-slot--filled" ref={rootRef} style={slotStyle}>
+        <div className="compare-slot__head">
+          <p className="compare-slot__kicker">{chapter ? t(chapter.title, locale) : selected.chapterId}</p>
+          <div className="compare-slot__tools">
+            <button type="button" className="compare-slot__clear" onClick={() => setOpen((value) => !value)}>
+              {uiT('compare.swap', locale)}
             </button>
-          ) : null}
+            <button type="button" className="compare-slot__clear" onClick={onClear}>
+              {uiT('compare.clear', locale)}
+            </button>
+          </div>
         </div>
-        <p className="compare-slot__kicker">{chapter ? t(chapter.title, locale) : selected.chapterId}</p>
         <h2 className="compare-slot__title">{t(selected.gameTitle, locale)}</h2>
         <p className="compare-slot__meta">{selected.yearRange}</p>
         <p className="compare-slot__core">{t(selected.core, locale)}</p>
+        {picker}
       </div>
     );
   }
 
   return (
-    <div className="compare-slot compare-slot--empty" ref={rootRef}>
+    <div className="compare-slot compare-slot--empty" ref={rootRef} style={slotStyle}>
       <label className="compare-slot__label" htmlFor={`compare-slot-${index}`}>
         {uiT('compare.slotEmpty', locale)}
       </label>
@@ -528,40 +925,7 @@ function WorldSlot({
         }}
         onFocus={() => setOpen(true)}
       />
-      {onRemoveThird ? (
-        <button type="button" className="compare-slot__clear compare-slot__clear--empty" onClick={onRemoveThird}>
-          {uiT('compare.removeSlot', locale)}
-        </button>
-      ) : null}
-      {open ? (
-        <ul className="compare-slot__list" role="listbox">
-          {options.length === 0 ? (
-            <li className="compare-slot__empty">{uiT('compare.noMatch', locale)}</li>
-          ) : (
-            options.map((world) => {
-              const ch = chapterById.get(world.chapterId);
-              return (
-                <li key={world.id}>
-                  <button
-                    type="button"
-                    className="compare-slot__option"
-                    onClick={() => {
-                      onPick(world.id);
-                      setQuery('');
-                      setOpen(false);
-                    }}
-                  >
-                    <span className="compare-slot__option-title">{t(world.gameTitle, locale)}</span>
-                    <span className="compare-slot__option-meta">
-                      {ch ? t(ch.title, locale) : world.chapterId}
-                    </span>
-                  </button>
-                </li>
-              );
-            })
-          )}
-        </ul>
-      ) : null}
+      {picker}
     </div>
   );
 }
