@@ -32,6 +32,7 @@ export const ui: Record<Locale, UiTree> = {
       about: 'O atlasu',
       aboutProject: 'O projektu',
       method: 'Vysvětlivky',
+      essay: 'Anatomie herního lore',
       contact: 'Kontakt',
       sources: 'Zdroje a kánon',
       copyright: '© 2026 Here Be Worlds',
@@ -165,6 +166,14 @@ export const ui: Record<Locale, UiTree> = {
       originalSin: 'Prvotní hřích',
       centralDilemma: 'Ústřední dilema',
       ultimateMystery: 'Hlavní tajemství',
+      triadHelpButton: 'Co znamená',
+      triadHelpOriginalSin:
+        'Dávné provinění proti řádu světa, z něhož vyrůstá všechno ostatní. Svět je jeho důsledkem, ne kulisou.',
+      triadHelpCentralDilemma:
+        'Otázka, kterou svět klade svým obyvatelům i hráči a na kterou nemá jednoduchou odpověď. Každá frakce a postava je jednou z možných odpovědí.',
+      triadHelpUltimateMystery:
+        'Co dílo záměrně nechává otevřené. Dobrá mezera má několik soudržných výkladů a každý se opírá o stopy ve hře.',
+      triadHelpMore: 'Více v eseji Anatomie herního lore',
     },
     compare: {
       title: 'Srovnání světů',
@@ -248,6 +257,11 @@ export const ui: Record<Locale, UiTree> = {
     stub: {
       coming: 'Připravujeme',
     },
+    anatomy: {
+      title: 'Anatomie herního lore',
+      back: 'Zpět na atlas',
+      toc: 'Obsah',
+    },
     notes: {
       title: 'Vysvětlivky',
       back: 'Zpět na atlas',
@@ -256,6 +270,18 @@ export const ui: Record<Locale, UiTree> = {
       profileLead: 'Relativní redakční zařazení povahy světa.',
       scaleTitle: 'Stupnice',
       canonTitle: 'Kánon, výklad a naše metoda',
+      triadTitle: 'Triáda',
+      essayLink: 'Proč karty vypadají právě takto, vysvětluje esej Anatomie herního lore',
+    },
+    essay: {
+      title: 'Anatomie herního lore',
+      back: 'Zpět na atlas',
+      toc: 'Obsah',
+      spoilerShow: 'Zobrazit',
+      spoilerHide: 'Skrýt',
+      homeKicker: 'Esej o metodě',
+      homeLead: 'Proč některé herní světy žijí desítky let a jiné zůstanou jen kulisou. Ústřední otázka, prvotní hřích, vrstvy pravdy a řízená mezera.',
+      homeCta: 'Číst esej',
     },
     about: {
       title: 'O projektu',
@@ -303,6 +329,7 @@ Berte prosím tento atlas jako skromnou poctu všem scenáristům, designérům 
       about: 'About',
       aboutProject: 'The project',
       method: 'Notes on method',
+      essay: 'The anatomy of game lore',
       contact: 'Contact',
       sources: 'Sources and canon',
       copyright: '© 2026 Here Be Worlds',
@@ -434,6 +461,14 @@ Berte prosím tento atlas jako skromnou poctu všem scenáristům, designérům 
       originalSin: 'Original sin',
       centralDilemma: 'Central dilemma',
       ultimateMystery: 'Ultimate mystery',
+      triadHelpButton: 'What is',
+      triadHelpOriginalSin:
+        'An ancient transgression against the order of the world from which everything else grows. The world is its consequence, not a backdrop.',
+      triadHelpCentralDilemma:
+        'The question the world puts to its inhabitants and to the player, with no simple answer. Every faction and character is one possible answer.',
+      triadHelpUltimateMystery:
+        'What the work deliberately leaves open. A good gap allows several coherent readings, each resting on clues in the game.',
+      triadHelpMore: 'More in the essay The anatomy of game lore',
     },
     compare: {
       title: 'World comparison',
@@ -517,6 +552,11 @@ Berte prosím tento atlas jako skromnou poctu všem scenáristům, designérům 
     stub: {
       coming: 'Coming soon',
     },
+    anatomy: {
+      title: 'Anatomy of game lore',
+      back: 'Back to the atlas',
+      toc: 'Contents',
+    },
     notes: {
       title: 'Notes',
       back: 'Back to the atlas',
@@ -525,6 +565,18 @@ Berte prosím tento atlas jako skromnou poctu všem scenáristům, designérům 
       profileLead: 'A relative editorial placement of the world’s character.',
       scaleTitle: 'Scale',
       canonTitle: 'Canon, interpretation, and our method',
+      triadTitle: 'Triad',
+      essayLink: 'Why the cards look the way they do is explained in the essay The anatomy of game lore',
+    },
+    essay: {
+      title: 'The anatomy of game lore',
+      back: 'Back to the atlas',
+      toc: 'Contents',
+      spoilerShow: 'Show',
+      spoilerHide: 'Hide',
+      homeKicker: 'An essay on method',
+      homeLead: 'Why some game worlds live for decades and others stay mere backdrops. The central question, the original sin, layers of truth, and the managed gap.',
+      homeCta: 'Read the essay',
     },
     about: {
       title: 'About the project',

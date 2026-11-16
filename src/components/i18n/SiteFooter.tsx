@@ -75,6 +75,9 @@ export default function SiteFooter({ base }: Props) {
           <a className="site-footer__link" href={withBase(base, '/notes/')}>
             {uiT('footer.method', locale)}
           </a>
+          <a className="site-footer__link" href={withBase(base, '/anatomie-herniho-lore/')}>
+            {uiT('footer.essay', locale)}
+          </a>
           <Placeholder>{uiT('footer.sources', locale)}</Placeholder>
           <a className="site-footer__link" href={withBase(base, '/contact/')}>
             {uiT('footer.contact', locale)}

@@ -1,0 +1,414 @@
+/* Esej „Anatomie herního lore“ — stránka /anatomie-herniho-lore/ */
+
+.essay-frame {
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+  background: var(--color-paper);
+  box-shadow: var(--shadow-card);
+  padding: 1.35rem 1.85rem 2.6rem;
+}
+
+.essay__back {
+  margin: 0 0 0.35rem;
+  font-size: 0.78rem;
+}
+
+.essay__back a {
+  color: var(--color-ink-muted);
+  text-decoration: none;
+}
+
+.essay__back a:hover {
+  color: var(--color-accent);
+}
+
+.essay__masthead {
+  text-align: center;
+  margin: 1.4rem auto 2.4rem;
+  max-width: 40rem;
+}
+
+.essay__kicker {
+  margin: 0 0 0.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.essay__title {
+  margin: 0;
+  font-size: clamp(2.3rem, 6vw, 3.6rem);
+  line-height: 1.05;
+  text-wrap: balance;
+}
+
+.essay__ornament {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 0.9rem 0 0.8rem;
+  color: var(--color-accent);
+  font-size: 0.95rem;
+}
+
+.essay__tagline {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.3rem;
+  line-height: 1.4;
+  color: var(--color-ink-muted);
+  text-wrap: balance;
+}
+
+/* Rozvržení: obsah vlevo, text vpravo */
+
+.essay-layout {
+  display: grid;
+  grid-template-columns: 13.5rem minmax(0, 1fr);
+  gap: 2.4rem;
+  align-items: start;
+}
+
+.essay-toc {
+  align-self: stretch;
+}
+
+.essay-toc__desktop {
+  position: sticky;
+  top: calc(var(--site-header-height) + 1.25rem);
+  max-height: calc(100vh - var(--site-header-height) - 2.5rem);
+  overflow-y: auto;
+  padding-right: 1.1rem;
+  border-right: 1px solid var(--color-line);
+}
+
+.essay-toc__mobile {
+  display: none;
+}
+
+.essay-toc__label {
+  margin: 0 0 0.7rem;
+  font-family: var(--font-sans);
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+.essay-toc__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.essay-toc__list li {
+  margin: 0 0 0.35rem;
+}
+
+.essay-toc__list a {
+  display: grid;
+  grid-template-columns: 2.1rem 1fr;
+  align-items: baseline;
+  padding: 0.18rem 0 0.18rem 0.5rem;
+  border-left: 2px solid transparent;
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  line-height: 1.25;
+  color: var(--color-ink-muted);
+  text-decoration: none;
+}
+
+.essay-toc__no {
+  font-family: var(--font-sans);
+  font-size: 0.66rem;
+  letter-spacing: 0.06em;
+  color: var(--color-accent);
+}
+
+.essay-toc__list a:hover,
+.essay-toc__list a.is-active {
+  color: var(--color-accent);
+}
+
+.essay-toc__list a.is-active {
+  border-left-color: var(--color-accent);
+}
+
+/* Text */
+
+.essay-prose {
+  max-width: 44rem;
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  line-height: 1.62;
+  color: var(--color-ink);
+}
+
+.essay-prose p {
+  margin: 0 0 0.95rem;
+  hyphens: auto;
+}
+
+.essay-prose ul,
+.essay-prose ol {
+  margin: 0 0 1.1rem;
+  padding-left: 1.4rem;
+}
+
+.essay-prose li {
+  margin: 0 0 0.45rem;
+}
+
+.essay-prose li::marker {
+  color: var(--color-accent);
+}
+
+.essay-prose a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+.essay-chapter {
+  scroll-margin-top: calc(var(--site-header-height) + 1rem);
+  margin: 3rem 0 1.1rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-line);
+  font-size: 2.1rem;
+  font-weight: 600;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+.essay-prose > .essay-chapter:first-child {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+
+.essay-chapter__no {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: var(--color-accent);
+}
+
+.essay-subhead {
+  scroll-margin-top: calc(var(--site-header-height) + 1rem);
+  margin: 2rem 0 0.6rem;
+  font-size: 1.45rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+/* Rámečky: Na kartě světa, Jak to souvisí s atlasem, Upozornění */
+
+.essay-callout {
+  margin: 1.6rem 0;
+  padding: 0.95rem 1.2rem 0.4rem;
+  border: 1px solid var(--color-line);
+  border-left: 3px solid var(--color-accent);
+  border-radius: var(--radius-sm);
+  background: var(--color-tile);
+  font-size: 1.08rem;
+  line-height: 1.55;
+}
+
+.essay-callout--note {
+  border-left-color: var(--color-ink-muted);
+  font-style: italic;
+}
+
+.essay-callout__label {
+  margin: 0 0 0.45rem !important;
+  font-family: var(--font-sans);
+  font-size: 0.66rem;
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.essay-callout--note .essay-callout__label {
+  color: var(--color-ink-muted);
+}
+
+/* Spoilery */
+
+.essay-spoiler {
+  margin: 1.6rem 0;
+  border: 1px dashed var(--color-accent-soft);
+  border-radius: var(--radius-sm);
+  background: color-mix(in srgb, var(--color-tile) 60%, var(--color-paper));
+}
+
+.essay-spoiler summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.75rem 1.1rem;
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--color-ink);
+}
+
+.essay-spoiler summary::-webkit-details-marker {
+  display: none;
+}
+
+.essay-spoiler summary::before {
+  content: 'Spoiler';
+  margin-right: 0.6rem;
+  padding: 0.1rem 0.45rem;
+  border: 1px solid var(--color-accent);
+  border-radius: 999px;
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.essay-spoiler__label {
+  flex: 1;
+}
+
+.essay-spoiler__hint::after {
+  content: attr(data-show) ' ▾';
+  color: var(--color-accent);
+  font-weight: 500;
+}
+
+.essay-spoiler[open] .essay-spoiler__hint::after {
+  content: attr(data-hide) ' ▴';
+}
+
+.essay-spoiler__body {
+  padding: 0 1.1rem 0.6rem;
+}
+
+/* Tabulky */
+
+.essay-table {
+  margin: 1.2rem 0 1.8rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.essay-table table {
+  width: 100%;
+  min-width: 34rem;
+  border-collapse: collapse;
+  font-family: var(--font-sans);
+  font-size: 0.84rem;
+  line-height: 1.45;
+}
+
+.essay-table th,
+.essay-table td {
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--color-line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.essay-table th {
+  background: var(--color-tile);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.essay-table td:first-child {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.essay-table tbody tr:nth-child(even) td {
+  background: color-mix(in srgb, var(--color-tile) 55%, var(--color-paper));
+}
+
+.essay-table td a {
+  color: var(--color-accent);
+}
+
+@media (max-width: 900px) {
+  .essay-frame {
+    padding: 1rem 1rem 2rem;
+  }
+
+  .essay-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+
+  .essay-toc__desktop {
+    display: none;
+  }
+
+  .essay-toc__mobile {
+    display: block;
+    margin: 0 0 1.6rem;
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-sm);
+    background: var(--color-tile);
+  }
+
+  .essay-toc__mobile summary {
+    padding: 0.7rem 0.9rem;
+    cursor: pointer;
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+  }
+
+  .essay-toc__mobile .essay-toc__list {
+    padding: 0 0.6rem 0.7rem;
+  }
+
+  .essay-prose {
+    font-size: 1.12rem;
+  }
+
+  .essay-chapter {
+    font-size: 1.75rem;
+  }
+
+  .essay-table td:first-child {
+    white-space: normal;
+  }
+
+  .essay-spoiler summary {
+    flex-wrap: wrap;
+    row-gap: 0.45rem;
+  }
+
+  .essay-spoiler__label {
+    flex-basis: 100%;
+    order: 3;
+  }
+}
+
+/* .site-main má overflow: hidden, což ruší position: sticky. Na této stránce ho nahradí clip (ořez zůstane stejný). */
+.site-main:has(.essay-frame) {
+  overflow: clip;
+}

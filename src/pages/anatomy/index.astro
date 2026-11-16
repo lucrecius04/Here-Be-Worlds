@@ -1,0 +1,12 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import AnatomyPage from '../../components/anatomy/AnatomyPage';
+import { loadAnatomy } from '../../lib/anatomy';
+
+const base = import.meta.env.BASE_URL;
+const doc = loadAnatomy();
+---
+
+<BaseLayout title="Anatomie herního lore — Here Be Worlds">
+  <AnatomyPage client:load base={base} doc={doc} />
+</BaseLayout>

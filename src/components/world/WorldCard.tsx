@@ -1,3 +1,4 @@
+import { useEffect, useId, useRef, useState } from 'react';
 import type { LocalizedString, World } from '../../schemas/world';
 
 import { t, uiT } from '../../lib/i18n';
@@ -83,21 +84,26 @@ export default function WorldCard({
       ) : null}
 
       <section className="triad-grid" aria-label={uiT('card.triadAria', locale)}>
-        <MetaTile
-          label={uiT('card.originalSin', locale)}
-          body={t(world.triad.originalSin, locale)}
-          onActivate={onOpenAnalysis ? () => onOpenAnalysis('originalSin') : undefined}
-        />
-        <MetaTile
-          label={uiT('card.centralDilemma', locale)}
-          body={t(world.triad.centralDilemma, locale)}
-          onActivate={onOpenAnalysis ? () => onOpenAnalysis('centralDilemma') : undefined}
-        />
-        <MetaTile
-          label={uiT('card.ultimateMystery', locale)}
-          body={t(world.triad.ultimateMystery, locale)}
-          onActivate={onOpenAnalysis ? () => onOpenAnalysis('ultimateMystery') : undefined}
-        />
+        {(
+          [
+            ['originalSin', 'card.originalSin', 'card.triadHelpOriginalSin', 'prvotni-hrich'],
+            ['centralDilemma', 'card.centralDilemma', 'card.triadHelpCentralDilemma', 'ustredni-otazka'],
+            ['ultimateMystery', 'card.ultimateMystery', 'card.triadHelpUltimateMystery', 'rizena-mezera'],
+          ] as const
+        ).map(([key, labelKey, helpKey, anchor]) => (
+          <div className="triad-cell" key={key}>
+            <MetaTile
+              label={uiT(labelKey, locale)}
+              body={t(world.triad[key], locale)}
+              onActivate={onOpenAnalysis ? () => onOpenAnalysis(key) : undefined}
+            />
+            <TriadHelp
+              label={uiT(labelKey, locale)}
+              text={uiT(helpKey, locale)}
+              href={`${baseUrl}/anatomie-herniho-lore/#${anchor}`}
+            />
+          </div>
+        ))}
       </section>
     </>
   );
@@ -159,4 +165,52 @@ function MetaTile({
   }
 
   return <div className={className}>{inner}</div>;
+}
+
+/** Otazník u pole triády: krátká definice a odkaz do eseje Anatomie herního lore. */
+function TriadHelp({ label, text, href }: { label: string; text: string; href: string }) {
+  const locale = useLocale();
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+  const id = useId();
+
+  useEffect(() => {
+    if (!open) return;
+    const onDown = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpen(false);
+    };
+    document.addEventListener('mousedown', onDown);
+    document.addEventListener('keydown', onKey);
+    return () => {
+      document.removeEventListener('mousedown', onDown);
+      document.removeEventListener('keydown', onKey);
+    };
+  }, [open]);
+
+  return (
+    <div className="triad-help" ref={ref}>
+      <button
+        type="button"
+        className="triad-help__toggle"
+        aria-expanded={open}
+        aria-controls={id}
+        aria-label={`${uiT('card.triadHelpButton', locale)} ${label}?`}
+        onClick={() => setOpen((v) => !v)}
+      >
+        ?
+      </button>
+      {open ? (
+        <div className="triad-help__pop" id={id} role="dialog" aria-label={label}>
+          <p className="triad-help__term">{label}</p>
+          <p className="triad-help__text">{text}</p>
+          <a className="triad-help__more" href={href}>
+            {uiT('card.triadHelpMore', locale)} →
+          </a>
+        </div>
+      ) : null}
+    </div>
+  );
 }

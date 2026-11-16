@@ -16,6 +16,7 @@ import {
 } from '../../../data/meta/field-options';
 import CatalogWorldCard from './CatalogWorldCard';
 import ThematicTrails from './ThematicTrails';
+import EssayTeaser from './EssayTeaser';
 import WorldCompass from './WorldCompass';
 import { trailById, type TrailId } from '../../lib/trails';
 import { latestAdded } from '../../lib/atlas-news';
@@ -138,6 +139,7 @@ export default function AtlasExplorer({
 
   return (
     <>
+    <EssayTeaser locale={locale} base={baseUrl} />
     <ThematicTrails locale={locale} active={activeTrail} onSelect={selectTrail} />
     <WorldCompass worlds={worlds} locale={locale} base={baseUrl} />
     <section className="catalog" id="catalog-results" aria-label={uiT('home.catalog', locale)}>

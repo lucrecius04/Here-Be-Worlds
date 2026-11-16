@@ -94,7 +94,7 @@ export const noteFields: NoteField[] = [
   {
     term: { cs: 'Témata', en: 'Themes' },
     help: {
-      cs: 'Významná témata a konflikty přítomny v herním světě. Maximálně šest témat na herní svět.',
+      cs: 'Významná témata a konflikty přítomné v herním světě. Nejvýš šest témat na jeden svět.',
       en: 'Significant themes and conflicts present in the game world. At most six themes per world.',
     },
     values: {

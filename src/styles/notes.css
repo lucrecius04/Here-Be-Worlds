@@ -163,3 +163,54 @@
     gap: 0.35rem;
   }
 }
+
+.notes-page__essay {
+  margin: 0.9rem 0 0;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.05rem;
+}
+
+.notes-page__essay a,
+.notes-table__values a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.notes-page__essay a:hover,
+.notes-table__values a:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.16em;
+}
+
+.notes-scale {
+  max-width: 30rem;
+  margin: 1.1rem auto 0.5rem;
+}
+
+.notes-scale__row {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin: 0 0 0.35rem;
+  font-size: 0.92rem;
+  color: var(--color-ink-muted);
+}
+
+.notes-scale__value {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: var(--radius-sm);
+  background: var(--color-accent);
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-paper);
+}
+
+.notes-scale__value--mid {
+  background: var(--color-ink-muted);
+}
