@@ -1,5 +1,5 @@
 import type { World } from '../schemas/world';
-import { AXIS_KEYS } from './similarity';
+import { AXIS_KEYS } from './axes';
 
 export type AxisValues = Record<(typeof AXIS_KEYS)[number], number>;
 

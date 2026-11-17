@@ -1,6 +1,6 @@
 import type { World } from '../schemas/world';
 import { DEFAULT_IMPRINT, type AxisValues } from './imprint';
-import { AXIS_KEYS } from './similarity';
+import { AXIS_KEYS } from './axes';
 
 export const EXTREME_LABEL: Record<(typeof AXIS_KEYS)[number], string> = {
   hopeDespair: 'chapterPage.extremeHopeDespair',

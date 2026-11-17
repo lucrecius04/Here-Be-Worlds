@@ -32,7 +32,6 @@ Příkazy: `npm run dev` · `npm run build` · `npm test` · `npm run import:chr
 | `data/meta/axes.json` | 5 os, plné póly + help. |
 | `data/meta/theme-taxonomy.json` | Slugy témat + labely. |
 | `data/meta/field-options.ts` | Filtry katalogu (nálada, hloubka, dosah, …). |
-| `data/meta/unmapped-stars.json` | Šedé hvězdy na mapě. |
 | `data/meta/notes.ts` | Texty Vysvětlivek. |
 | `content/chronicles/*.md` | Kroniky. Načítá `src/lib/chronicles.ts` (lazy raw import). |
 | `content/essays/*.md` | Esej Anatomie herního lore (`/anatomie-herniho-lore/`). |
@@ -60,7 +59,7 @@ Kroniky a eseje **nejsou** v `data/`.
 |---|---|---|
 | `/` | `src/pages/index.astro` | `HomeIntro` (bento, `ReaderDesk`) + `AtlasExplorer` (katalog, filtry, stezky, kompas) |
 | `/compare/` | `src/pages/compare/index.astro` | `ComparePage` + `AxisOverlay` |
-| `/map/` | `src/pages/map/index.astro` | `ConstellationMap` |
+| `/map/` | `src/pages/map/index.astro` | `AxisGridMap` — Kartografie os (mřížka 5 × 5, bez výpočtu příbuznosti) |
 | `/chapters/[id]/` | `src/pages/chapters/[id].astro` | `ChapterPage` — URL zůstává `chapters`, UI = Archetyp |
 | `/worlds/[slug]/` | `src/pages/worlds/[slug].astro` | `WorldPageShell` |
 | `/about/` | `src/pages/about/index.astro` | `AboutPage` |
@@ -77,14 +76,14 @@ Layout: `src/layouts/BaseLayout.astro` — header/footer, theme/lang FOUC, glob�
 - `appendices` / `analysis` skáčou do částí markdown kroniky (`chronicle-toc.ts`). Nejsou to samostatné JSON stránky.
 - Triáda (Prvotní hřích / Ústřední dilema / Hlavní tajemství) je **i na kartě** (`WorldCard`).
 - `WorldCard` skládá jádro, meta-dlaždice, témata, `FiveAxes` (Profil světa), signaturu, triádu.
-- `SimilarWorlds` na kartě = `similarity.ts`, ne compare affinity.
+- `SimilarWorlds` na kartě = kurátorské `relatedWorlds` z atlasu; když chybí, záloha přes `kinshipRanking` (index příbuznosti ze srovnání).
 
-### Knihovny — dva scoringy neslučovat
+### Knihovny — jeden index příbuznosti
 
 | Soubor | Účel |
 |---|---|
-| `src/lib/compare.ts` | `/compare/` — `affinityBreakdown` (4 pilíře, shody podle **`en`** řetězců). Max 3 světy. URL `?w=`. |
-| `src/lib/similarity.ts` | Podobné světy na kartě / fallback related: osy 0.7 + Jaccard témat 0.3. Úprava srovnávače **nesmí** tento soubor měnit. |
+| `src/lib/compare.ts` | **Jediný index příbuznosti na webu.** `affinityBreakdown` (4 pilíře, shody podle **`en`** řetězců), `kinshipRanking` (nejpříbuznější světy pro kartu a mapu). Max 3 světy. URL `?w=`. |
+| `src/lib/axes.ts` | `AXIS_KEYS` — pořadí pěti os. |
 | `src/lib/i18n.ts` | UI copy `cs`/`en`. `uiT('world.viewCard')` atd. |
 | `src/lib/worlds.ts` | Parse katalogu, kapitoly, related, `buildSearchText`. |
 | `src/lib/search.ts` | MiniSearch pro katalog. Filtry: `AtlasExplorer` + `field-options.ts`. |
@@ -106,7 +105,7 @@ Styly: `src/styles/tokens.css`, `layout.css`, `typography.css`, `home.css`, `wor
 |---|---|---|
 | `hbw_theme` | `theme-store.ts` | `ThemeSwitcher`, FOUC v `BaseLayout` |
 | `hbw_lang` | `locale-store.ts` | `LanguageSwitcher`, FOUC v `BaseLayout` |
-| `hbw_compare` | `compare-tray.ts` | `CompareTray`, `CatalogWorldCard`, `WorldTeaser`, `ConstellationMap` |
+| `hbw_compare` | `compare-tray.ts` | `CompareTray`, `CatalogWorldCard`, `WorldTeaser`, `AxisGridMap` |
 | `hbw_reader_desk` | `reader-desk.ts` | `ReaderDesk`, `WorldPageShell` (`touchRecent`), `ChronicleReader` |
 
 **`/compare/` `hbw_compare` nečte.** Stav slotů = URL `?w=id1,id2[,id3]` (alias čtení `?worlds=`, zápis vždy `w`). Tray na homepage a stránka srovnání jsou oddělené.
@@ -165,6 +164,8 @@ Tři různé „Charakter“ neslučovat: záložka `Charakter světa` ≠ tabul
 | `moralClarityAmbiguity` | Morálně jednoznačné ↔ Morálně komplexní | Morally clear ↔ Morally ambiguous |
 | `realismMetaphysical` | Realismus ↔ Metafyzično | Realism ↔ Metaphysical |
 
+Jednoslovné názvy os (filtr a atlas dvojic na mapě, `map.name*` v i18n): CS Naděje · Poznání · Měřítko · Morálka · Realismus, EN Hope · Knowledge · Scale · Morality · Realism.
+
 Compact póly **jen** 4. osy v `MiniAxes` / `WorldCompass` (`SHORT_POLES`): CS `Jednoznačné` ↔ `Komplexní`, EN `Absolute` ↔ `Complex`. Plné názvy na kartě (`FiveAxes`) a v `axes.json` neměnit.
 
 EN UI nepřekládat ad hoc — brát z `i18n.ts`.
@@ -185,7 +186,8 @@ Bez **výslovného** pokynu neměnit:
 Další:
 
 - Úprava jedné stránky (např. `/compare/`) **nesmí** měnit strukturu/styl karty světa ani jiné hotové stránky.
-- `/compare/` = `src/pages/compare/index.astro` + `ComparePage.tsx` + `compare.ts` + `compare.css`. **Ne** `similarity.ts`.
+- `/compare/` = `src/pages/compare/index.astro` + `ComparePage.tsx` + `compare.ts` + `compare.css`.
+- Příbuznost světů počítá **jen** `compare.ts`. Žádný další výpočet podobnosti nezakládat; karta (`SimilarWorlds` záloha) i mapa (spis světa) berou `kinshipRanking`. Kartografie os ukazuje jen polohu na dvou osách, procenta nepočítá. Výjimka: „Nejblíž tvému ladění“ na mapě řadí podle vzdálenosti os, protože čtenář zadává jen osy; neukazuje procenta ani slovo příbuznost.
 - Nepřidávej vysvětlující věty a doslovné štítky tam, kde stačí barva, osa nebo pozice.
 - Filtry a vyhledávání katalogu nesahají na srovnávač a naopak.
 - Po každé úpravě: `npm run build`. UI změna: ověř v prohlížeči (ne jen screenshot).

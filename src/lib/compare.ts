@@ -1,5 +1,5 @@
 import type { World } from '../schemas/world';
-import { AXIS_KEYS } from './similarity';
+import { AXIS_KEYS } from './axes';
 
 export const MAX_COMPARE = 3;
 
@@ -203,6 +203,19 @@ export function averageBreakdown(pairs: KinshipPair[]): AffinityBreakdown {
 
 export function affinityPercent(a: World, b: World): number {
   return affinityBreakdown(a, b).percent;
+}
+
+/** Nejpříbuznější světy podle indexu příbuznosti (jediný index na webu: srovnání, karta i mapa). */
+export function kinshipRanking(
+  source: World,
+  all: World[],
+  limit = 3,
+): Array<{ world: World; percent: number }> {
+  return all
+    .filter((world) => world.id !== source.id && !world.draft)
+    .map((world) => ({ world, percent: affinityPercent(source, world) }))
+    .sort((a, b) => b.percent - a.percent || a.world.id.localeCompare(b.world.id))
+    .slice(0, limit);
 }
 
 export type KinshipPair = {

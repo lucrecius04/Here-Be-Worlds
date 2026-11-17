@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import ConstellationMap from '../../components/discovery/ConstellationMap';
-import { chapters, worlds } from '../../lib/worlds';
+import AxisGridMap from '../../components/discovery/AxisGridMap';
+import { chapters, themeTaxonomy, worlds } from '../../lib/worlds';
 
 const base = import.meta.env.BASE_URL;
 const published = worlds.filter((world) => !world.draft);
@@ -10,13 +10,14 @@ const chapterCards = chapters.map((chapter) => ({
   title: chapter.title,
   accent: chapter.accent,
 }));
+// Témata v nabídce zvýraznění: jen ta, která má aspoň jeden publikovaný svět, od nejčastějších.
+const themeCount = (slug: string) => published.filter((w) => w.themes.includes(slug)).length;
+const themes = themeTaxonomy
+  .filter((theme) => themeCount(theme.slug) > 0)
+  .sort((a, b) => themeCount(b.slug) - themeCount(a.slug))
+  .map((theme) => ({ slug: theme.slug, label: theme.label }));
 ---
 
-<BaseLayout title="Mapa — Here Be Worlds">
-  <ConstellationMap
-    client:load
-    worlds={published}
-    chapters={chapterCards}
-    base={base.replace(/\/$/, '')}
-  />
+<BaseLayout title="Kartografie os — Here Be Worlds">
+  <AxisGridMap client:load worlds={published} chapters={chapterCards} themes={themes} base={base.replace(/\/$/, '')} />
 </BaseLayout>

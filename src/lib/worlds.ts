@@ -4,7 +4,7 @@ import axesData from '../../data/meta/axes.json';
 import themesData from '../../data/meta/theme-taxonomy.json';
 import narrationData from '../../data/meta/narration-taxonomy.json';
 import { worldsFileSchema, type LocalizedString, type RelatedWorld, type World } from '../schemas/world';
-import { similarWorlds } from './similarity';
+import { kinshipRanking } from './compare';
 
 const parsed = worldsFileSchema.parse(worldsData);
 
@@ -61,7 +61,7 @@ export function resolveRelatedWorlds(
   }
 
   const published = catalog.filter((item) => !item.draft);
-  return similarWorlds(world, published, 3).map((other) => ({
+  return kinshipRanking(world, published, 3).map(({ world: other }) => ({
     id: other.id,
     title: other.gameTitle,
     note: {

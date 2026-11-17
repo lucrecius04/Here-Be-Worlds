@@ -2,7 +2,7 @@ import type { CSSProperties } from 'react';
 import type { LocalizedString, World } from '../../schemas/world';
 import { t, uiT, type Locale } from '../../lib/i18n';
 import { withBase } from '../../lib/base-url';
-import { AXIS_KEYS } from '../../lib/similarity';
+import { AXIS_KEYS } from '../../lib/axes';
 
 type AxisMeta = {
   id: string;

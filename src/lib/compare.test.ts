@@ -5,6 +5,7 @@ import {
   farthestAxis,
   kinshipPairs,
   kinshipPercent,
+  kinshipRanking,
   parseCompareIds,
   slotHue,
   themeCoverage,
@@ -226,5 +227,17 @@ describe('parseCompareIds', () => {
       'baldurs-gate',
       'dark-souls',
     ]);
+  });
+});
+
+describe('kinshipRanking', () => {
+  it('orders other worlds by affinity and skips the source and drafts', () => {
+    const source = minimal('a', ['x', 'y', 'z'], 3);
+    const close = minimal('b', ['x', 'y', 'z'], 3);
+    const far = minimal('c', [], 1, 5);
+    const draft = { ...minimal('d', ['x', 'y', 'z'], 3), draft: true } as World;
+    const ranked = kinshipRanking(source, [source, far, close, draft], 3);
+    expect(ranked.map((r) => r.world.id)).toEqual(['b', 'c']);
+    expect(ranked[0].percent).toBe(affinityPercent(source, close));
   });
 });

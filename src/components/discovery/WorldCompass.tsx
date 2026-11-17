@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react';
 import type { World } from '../../schemas/world';
 import { t, uiT, type Locale } from '../../lib/i18n';
 import { withBase } from '../../lib/base-url';
-import { AXIS_KEYS } from '../../lib/similarity';
+import { AXIS_KEYS } from '../../lib/axes';
 import { DEFAULT_IMPRINT, imprintNeighbors, type AxisValues } from '../../lib/imprint';
 import axesMeta from '../../../data/meta/axes.json';
 

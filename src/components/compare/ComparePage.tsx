@@ -308,6 +308,10 @@ export default function ComparePage({ worlds, chapters, themeLabels, axes, base 
           </button>
         ) : null}
       </div>
+      <p className="compare-page__lead">
+        {uiT('compare.lead', locale)}{' '}
+        <a href={withBase(base, '/map/')}>{uiT('compare.leadMap', locale)}</a>
+      </p>
 
       <div className="compare-slots" ref={slotsRef}>
         {slots.map((id, index) => {
