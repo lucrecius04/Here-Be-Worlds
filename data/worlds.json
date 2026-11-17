@@ -4006,6 +4006,1111 @@
       }
     },
     {
+      "id": "death-stranding",
+      "number": 19,
+      "chapterId": "post-apocalypse",
+      "addedAt": "2026-11-17",
+      "gameTitle": {
+        "en": "Death Stranding",
+        "cs": "Death Stranding"
+      },
+      "chronicleTitle": {
+        "en": "Chronicle of the Beach",
+        "cs": "Kronika Pláže"
+      },
+      "subtitlePoetic": {
+        "en": "Chronicle of the Beach",
+        "cs": "Kronika Pláže"
+      },
+      "studios": [
+        "Kojima Productions"
+      ],
+      "yearRange": "2019–2025",
+      "canonScope": {
+        "en": "Death Stranding and Death Stranding 2: On the Beach",
+        "cs": "Death Stranding a Death Stranding 2: On the Beach"
+      },
+      "universe": [
+        {
+          "en": "The UCA (former USA)",
+          "cs": "UCA (bývalé USA)"
+        }
+      ],
+      "header": {
+        "relatedWorldSlugs": [
+          "metro",
+          "horizon",
+          "soma"
+        ]
+      },
+      "relatedWorlds": [
+        {
+          "id": "metro",
+          "title": {
+            "en": "Metro",
+            "cs": "Metro"
+          },
+          "genreProfile": {
+            "en": "Post-nuclear survival",
+            "cs": "Postjaderné přežití"
+          },
+          "yearRange": "2010–2024",
+          "note": {
+            "en": "life in isolation after catastrophe",
+            "cs": "život v izolaci po katastrofě"
+          }
+        },
+        {
+          "id": "horizon",
+          "title": {
+            "en": "Horizon",
+            "cs": "Horizon"
+          },
+          "genreProfile": {
+            "en": "Ecological apocalypse",
+            "cs": "Ekologická apokalypsa"
+          },
+          "yearRange": "2017–2023",
+          "note": {
+            "en": "a new world on the ruins",
+            "cs": "nový svět na troskách"
+          }
+        },
+        {
+          "id": "soma",
+          "title": {
+            "en": "SOMA",
+            "cs": "SOMA"
+          },
+          "genreProfile": {
+            "en": "Sci-fi horror",
+            "cs": "Sci-fi horor"
+          },
+          "yearRange": "2015",
+          "note": {
+            "en": "consciousness between life and death",
+            "cs": "vědomí mezi životem a smrtí"
+          }
+        }
+      ],
+      "core": {
+        "en": "Svět rozdrolený smrtí, který se dá znovu spojit jen pěšky – jeden náklad, jeden most a jeden člověk po druhém.",
+        "cs": "Svět rozdrolený smrtí, který se dá znovu spojit jen pěšky – jeden náklad, jeden most a jeden člověk po druhém."
+      },
+      "signatureBullets": [
+        {
+          "en": "Pláž mezi světy. Každý má vlastní Pláž, odkud se mrtví vracejí jako BT.",
+          "cs": "Pláž mezi světy. Každý má vlastní Pláž, odkud se mrtví vracejí jako BT."
+        },
+        {
+          "en": "Doručovatel jako hrdina. Spojovat zemi znamená nosit náklad krok za krokem.",
+          "cs": "Doručovatel jako hrdina. Spojovat zemi znamená nosit náklad krok za krokem."
+        },
+        {
+          "en": "Vymírání jako zákon. Dějiny Země tvoří pět vymírání a šesté přichází.",
+          "cs": "Vymírání jako zákon. Dějiny Země tvoří pět vymírání a šesté přichází."
+        },
+        {
+          "en": "Pomoc na dálku. Mosty a stezky jiných hráčů se objevují ve vašem světě.",
+          "cs": "Pomoc na dálku. Mosty a stezky jiných hráčů se objevují ve vašem světě."
+        }
+      ],
+      "metadata": {
+        "genreProfile": {
+          "en": "Mystical apocalypse",
+          "cs": "Mystická apokalypsa",
+          "sub": {
+            "en": "overlap: metaphysical thriller",
+            "cs": "přesah: metafyzický thriller"
+          }
+        },
+        "atmosphere": {
+          "en": "Melancholy",
+          "cs": "Melancholie",
+          "sub": {
+            "en": "secondary: Hope",
+            "cs": "vedlejší: Naděje"
+          }
+        },
+        "spatialScope": {
+          "en": "Continent",
+          "cs": "Kontinent",
+          "sub": {
+            "en": "the USA; in DS2 Mexico and Australia",
+            "cs": "USA, v DS2 Mexiko a Austrálie"
+          }
+        },
+        "historicalDepth": {
+          "en": "Cosmic",
+          "cs": "Kosmická",
+          "sub": {
+            "en": "five extinctions in Earth's history",
+            "cs": "pět vymírání v dějinách Země"
+          }
+        },
+        "societalOrder": {
+          "en": "Fragmented enclaves after collapse",
+          "cs": "Roztříštěné enklávy po kolapsu",
+          "sub": {
+            "en": "the knots and bunkers of a broken America",
+            "cs": "uzly a bunkry rozpadlé Ameriky"
+          }
+        },
+        "sourceOfPower": {
+          "en": "The force of mind, faith, and souls",
+          "cs": "Síla mysli, víry a duší",
+          "sub": {
+            "en": "the Beach, chiral matter, ka and ha",
+            "cs": "Pláž, chirální hmota, ka a ha"
+          }
+        },
+        "protagonistPerspective": {
+          "en": "Pilgrim and outcast on the margins",
+          "cs": "Poutník a psanec na okraji",
+          "sub": {
+            "en": "Sam Porter Bridges, a porter and repatriate",
+            "cs": "Sam Porter Bridges, kurýr a repatriant"
+          }
+        },
+        "keyActors": {
+          "en": "Bridges and the UCA · the separatists and Homo Demens · the Extinction Entity Amelie · BTs and the Beaches · Cliff Unger",
+          "cs": "Bridges a UCA · separatisté a Homo Demens · Entita vymírání Amelie · BT a Pláže · Cliff Unger"
+        }
+      },
+      "themes": [
+        "civilizational-collapse",
+        "survival",
+        "identity-and-existence",
+        "friendship-and-fellowship",
+        "cyclical-history",
+        "death-and-immortality"
+      ],
+      "narration": [
+        "cinematics",
+        "books-and-documents",
+        "mechanics-as-meaning"
+      ],
+      "axes": {
+        "hopeDespair": {
+          "value": 2
+        },
+        "knownUnknown": {
+          "value": 4
+        },
+        "intimateEpic": {
+          "value": 4
+        },
+        "moralClarityAmbiguity": {
+          "value": 3
+        },
+        "realismMetaphysical": {
+          "value": 4
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "Amelie poslala mrtvého novorozeného Sama zpět mezi živé – a tím protrhla hranici smrti.",
+          "cs": "Amelie poslala mrtvého novorozeného Sama zpět mezi živé – a tím protrhla hranici smrti."
+        },
+        "centralDilemma": {
+          "en": "Najdeme odvahu vyjít z bunkrů a dotknout se druhého, nebo zvolíme pohodlí digitální klece?",
+          "cs": "Najdeme odvahu vyjít z bunkrů a dotknout se druhého, nebo zvolíme pohodlí digitální klece?"
+        },
+        "ultimateMystery": {
+          "en": "Měli jsme se spojit? Druhý díl zpochybňuje oslavu propojení, kterou nesl první.",
+          "cs": "Měli jsme se spojit? Druhý díl zpochybňuje oslavu propojení, kterou nesl první."
+        }
+      },
+      "chronicleSlug": "death-stranding",
+      "chronicleTeaser": {
+        "en": "From the Death Stranding to the Plate Gate.",
+        "cs": "Od Přílivu smrti po Deskovou bránu."
+      }
+    },
+    {
+      "id": "fallout",
+      "number": 20,
+      "chapterId": "post-apocalypse",
+      "addedAt": "2026-11-17",
+      "gameTitle": {
+        "en": "Fallout",
+        "cs": "Fallout"
+      },
+      "chronicleTitle": {
+        "en": "Chronicle of the Wasteland",
+        "cs": "Kronika pustiny"
+      },
+      "subtitlePoetic": {
+        "en": "Chronicle of the Wasteland",
+        "cs": "Kronika pustiny"
+      },
+      "studios": [
+        "Interplay",
+        "Obsidian",
+        "Bethesda"
+      ],
+      "yearRange": "1997–2018",
+      "canonScope": {
+        "en": "Fallout 1–4, New Vegas, and Fallout 76",
+        "cs": "Fallout 1–4, New Vegas a Fallout 76"
+      },
+      "universe": [
+        {
+          "en": "Post-atomic America",
+          "cs": "postatomová Amerika"
+        }
+      ],
+      "header": {
+        "relatedWorldSlugs": [
+          "bioshock",
+          "metro",
+          "cyberpunk-2077"
+        ]
+      },
+      "relatedWorlds": [
+        {
+          "id": "bioshock",
+          "title": {
+            "en": "BioShock",
+            "cs": "BioShock"
+          },
+          "genreProfile": {
+            "en": "Political dystopia",
+            "cs": "Politická dystopie"
+          },
+          "yearRange": "2007–2014",
+          "note": {
+            "en": "a utopia that failed",
+            "cs": "utopie, která selhala"
+          }
+        },
+        {
+          "id": "metro",
+          "title": {
+            "en": "Metro",
+            "cs": "Metro"
+          },
+          "genreProfile": {
+            "en": "Post-nuclear survival",
+            "cs": "Postjaderné přežití"
+          },
+          "yearRange": "2010–2024",
+          "note": {
+            "en": "life after nuclear war",
+            "cs": "život po jaderné válce"
+          }
+        },
+        {
+          "id": "cyberpunk-2077",
+          "title": {
+            "en": "Cyberpunk 2077",
+            "cs": "Cyberpunk 2077"
+          },
+          "genreProfile": {
+            "en": "Cyberpunk",
+            "cs": "Kyberpunk"
+          },
+          "yearRange": "2020–2023",
+          "note": {
+            "en": "corporations above the state",
+            "cs": "korporace nad státem"
+          }
+        }
+      ],
+      "core": {
+        "en": "Retrofuturistický sen padesátých let, který přežil vlastní jadernou apokalypsu – a pořád se usmívá z plakátů.",
+        "cs": "Retrofuturistický sen padesátých let, který přežil vlastní jadernou apokalypsu – a pořád se usmívá z plakátů."
+      },
+      "signatureBullets": [
+        {
+          "en": "Válka se nikdy nemění. Lidstvo v pustině opakuje stejné chyby v novém šatě.",
+          "cs": "Válka se nikdy nemění. Lidstvo v pustině opakuje stejné chyby v novém šatě."
+        },
+        {
+          "en": "Vaulty jako experiment. Úkryty nebyly záchranou, ale pokusy na lidech.",
+          "cs": "Vaulty jako experiment. Úkryty nebyly záchranou, ale pokusy na lidech."
+        },
+        {
+          "en": "Retro budoucnost. Atomový optimismus 50. let dává katastrofě ironický úsměv.",
+          "cs": "Retro budoucnost. Atomový optimismus 50. let dává katastrofě ironický úsměv."
+        },
+        {
+          "en": "Černý humor. Satira a absurdita zlehčují hrůzu, aniž by ji popíraly.",
+          "cs": "Černý humor. Satira a absurdita zlehčují hrůzu, aniž by ji popíraly."
+        }
+      ],
+      "metadata": {
+        "genreProfile": {
+          "en": "Post-nuclear satire",
+          "cs": "Postjaderná satira",
+          "sub": {
+            "en": "overlap: retrofuturism",
+            "cs": "přesah: retrofuturismus"
+          }
+        },
+        "atmosphere": {
+          "en": "Nostalgia",
+          "cs": "Nostalgie",
+          "sub": {
+            "en": "secondary: Cynicism",
+            "cs": "vedlejší: Cynismus"
+          }
+        },
+        "spatialScope": {
+          "en": "Region",
+          "cs": "Region",
+          "sub": {
+            "en": "the American wastelands, a different one in every game",
+            "cs": "pustiny USA, v každém díle jiná"
+          }
+        },
+        "historicalDepth": {
+          "en": "Historical",
+          "cs": "Historická",
+          "sub": {
+            "en": "from the Great War of 2077",
+            "cs": "od Velké války roku 2077"
+          }
+        },
+        "societalOrder": {
+          "en": "Fragmented enclaves after collapse",
+          "cs": "Roztříštěné enklávy po kolapsu",
+          "sub": {
+            "en": "Vaults, settlements, and wasteland factions",
+            "cs": "Vaulty, osady a frakce pustiny"
+          }
+        },
+        "sourceOfPower": {
+          "en": "Technology and cybernetics",
+          "cs": "Technologie a kybernetika",
+          "sub": {
+            "en": "the atom, Vault-Tec, and FEV",
+            "cs": "atom, Vault-Tec a FEV"
+          }
+        },
+        "protagonistPerspective": {
+          "en": "Pilgrim and outcast on the margins",
+          "cs": "Poutník a psanec na okraji",
+          "sub": {
+            "en": "a Vault dweller or a courier",
+            "cs": "obyvatel Vaultu či kurýr"
+          }
+        },
+        "keyActors": {
+          "en": "Vault-Tec and the corporations · the Brotherhood of Steel · the NCR and Caesar's Legion · the Enclave and the Institute · super mutants and FEV",
+          "cs": "Vault-Tec a korporace · Bratrstvo oceli · NCR a Caesarova legie · Enkláva a Institut · supermutanti a FEV"
+        }
+      },
+      "themes": [
+        "civilizational-collapse",
+        "power-and-dominion",
+        "survival",
+        "humor-irony-exaggeration",
+        "politics-and-intrigue"
+      ],
+      "narration": [
+        "environmental",
+        "books-and-documents",
+        "dialogue"
+      ],
+      "axes": {
+        "hopeDespair": {
+          "value": 3
+        },
+        "knownUnknown": {
+          "value": 2
+        },
+        "intimateEpic": {
+          "value": 3
+        },
+        "moralClarityAmbiguity": {
+          "value": 4
+        },
+        "realismMetaphysical": {
+          "value": 2
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "Vláda a korporace věděly, že přijde jaderná válka, a udělaly z ní příležitost – Vaulty se staly pokusy na lidech.",
+          "cs": "Vláda a korporace věděly, že přijde jaderná válka, a udělaly z ní příležitost – Vaulty se staly pokusy na lidech."
+        },
+        "centralDilemma": {
+          "en": "Poučí se lidstvo z jaderné sebedestrukce, nebo ji v novém šatě zopakuje?",
+          "cs": "Poučí se lidstvo z jaderné sebedestrukce, nebo ji v novém šatě zopakuje?"
+        },
+        "ultimateMystery": {
+          "en": "Kdo odpálil první bombu? Hra záměrně nikdy neukáže jediného viníka.",
+          "cs": "Kdo odpálil první bombu? Hra záměrně nikdy neukáže jediného viníka."
+        }
+      },
+      "chronicleSlug": "fallout",
+      "chronicleTeaser": {
+        "en": "From the Great War to the return to California.",
+        "cs": "Od Velké války po návrat do Kalifornie."
+      }
+    },
+    {
+      "id": "horizon",
+      "number": 21,
+      "chapterId": "post-apocalypse",
+      "addedAt": "2026-11-17",
+      "gameTitle": {
+        "en": "Horizon",
+        "cs": "Horizon"
+      },
+      "chronicleTitle": {
+        "en": "Chronicle of the Dawn",
+        "cs": "Kronika úsvitu"
+      },
+      "subtitlePoetic": {
+        "en": "Chronicle of the Dawn",
+        "cs": "Kronika úsvitu"
+      },
+      "studios": [
+        "Guerrilla Games"
+      ],
+      "yearRange": "2017–2023",
+      "canonScope": {
+        "en": "Horizon Zero Dawn and Forbidden West with expansions",
+        "cs": "Horizon Zero Dawn a Forbidden West s rozšířeními"
+      },
+      "universe": [
+        {
+          "en": "The American West",
+          "cs": "americký západ"
+        }
+      ],
+      "header": {
+        "relatedWorldSlugs": [
+          "nier-automata",
+          "fallout",
+          "death-stranding"
+        ]
+      },
+      "relatedWorlds": [
+        {
+          "id": "nier-automata",
+          "title": {
+            "en": "NieR: Automata",
+            "cs": "NieR: Automata"
+          },
+          "genreProfile": {
+            "en": "Machine apocalypse",
+            "cs": "Apokalypsa strojů"
+          },
+          "yearRange": "2017",
+          "note": {
+            "en": "machines after the end of humanity",
+            "cs": "stroje po konci lidstva"
+          }
+        },
+        {
+          "id": "fallout",
+          "title": {
+            "en": "Fallout",
+            "cs": "Fallout"
+          },
+          "genreProfile": {
+            "en": "Post-nuclear satire",
+            "cs": "Postjaderná satira"
+          },
+          "yearRange": "1997–2018",
+          "note": {
+            "en": "life in the ruins of civilization",
+            "cs": "život v troskách civilizace"
+          }
+        },
+        {
+          "id": "death-stranding",
+          "title": {
+            "en": "Death Stranding",
+            "cs": "Death Stranding"
+          },
+          "genreProfile": {
+            "en": "Mystical apocalypse",
+            "cs": "Mystická apokalypsa"
+          },
+          "yearRange": "2019–2025",
+          "note": {
+            "en": "a new world on the ruins",
+            "cs": "nový svět na troskách"
+          }
+        }
+      ],
+      "core": {
+        "en": "Tisíc let po konci světa chodí po Zemi stroje jako zvěř – a lidé zapomněli, kdo je kdysi stvořil.",
+        "cs": "Tisíc let po konci světa chodí po Zemi stroje jako zvěř – a lidé zapomněli, kdo je kdysi stvořil."
+      },
+      "signatureBullets": [
+        {
+          "en": "Stroje jako příroda. Mechanická zvířata obnovují biosféru, kterou zničily jiné stroje.",
+          "cs": "Stroje jako příroda. Mechanická zvířata obnovují biosféru, kterou zničily jiné stroje."
+        },
+        {
+          "en": "Archeologie vlastní minulosti. Aloy skládá zánik civilizace ze záznamů a ruin.",
+          "cs": "Archeologie vlastní minulosti. Aloy skládá zánik civilizace ze záznamů a ruin."
+        },
+        {
+          "en": "Kmeny na troskách. Lidé uctívají pozůstatky dávné techniky jako posvátné.",
+          "cs": "Kmeny na troskách. Lidé uctívají pozůstatky dávné techniky jako posvátné."
+        },
+        {
+          "en": "Klon jako hrdinka. Aloy je klonem vědkyně Elisabet Sobeckové, která svět zachránila.",
+          "cs": "Klon jako hrdinka. Aloy je klonem vědkyně Elisabet Sobeckové, která svět zachránila."
+        }
+      ],
+      "metadata": {
+        "genreProfile": {
+          "en": "Ecological apocalypse",
+          "cs": "Ekologická apokalypsa",
+          "sub": {
+            "en": "overlap: tribal society",
+            "cs": "přesah: kmenová společnost"
+          }
+        },
+        "atmosphere": {
+          "en": "Wonder",
+          "cs": "Úžas",
+          "sub": {
+            "en": "secondary: Hope",
+            "cs": "vedlejší: Naděje"
+          }
+        },
+        "spatialScope": {
+          "en": "Region",
+          "cs": "Region",
+          "sub": {
+            "en": "the American West",
+            "cs": "americký západ"
+          }
+        },
+        "historicalDepth": {
+          "en": "Civilizational",
+          "cs": "Civilizační",
+          "sub": {
+            "en": "a thousand years after the Faro Plague",
+            "cs": "tisíc let po Farově pohromě"
+          }
+        },
+        "societalOrder": {
+          "en": "Fragmented enclaves after collapse",
+          "cs": "Roztříštěné enklávy po kolapsu",
+          "sub": {
+            "en": "the Nora, Carja, and Tenakth tribes on the ruins of the Old Ones",
+            "cs": "kmeny Nora, Carja a Tenakth na troskách Starých"
+          }
+        },
+        "sourceOfPower": {
+          "en": "Technology and cybernetics",
+          "cs": "Technologie a kybernetika",
+          "sub": {
+            "en": "GAIA, the machines, and terraforming",
+            "cs": "GAIA, stroje a terraformace"
+          }
+        },
+        "protagonistPerspective": {
+          "en": "Chosen champion of fate",
+          "cs": "Vyvolený a šampion osudu",
+          "sub": {
+            "en": "Aloy, a clone of Elisabet Sobeck",
+            "cs": "Aloy, klon Elisabet Sobeckové"
+          }
+        },
+        "keyActors": {
+          "en": "GAIA and her subordinate functions · the Nora, Carja, and Tenakth tribes · Far Zenith and Nemesis · Elisabet Sobeck and Ted Faro",
+          "cs": "GAIA a její podřízené funkce · kmeny Nora, Carja a Tenakth · Far Zenith a Nemesis · Elisabet Sobecková a Ted Faro"
+        }
+      },
+      "themes": [
+        "uncovering-the-past",
+        "progress-and-its-costs",
+        "identity-and-existence",
+        "civilizational-collapse"
+      ],
+      "narration": [
+        "recordings-and-logs",
+        "cinematics"
+      ],
+      "axes": {
+        "hopeDespair": {
+          "value": 2
+        },
+        "knownUnknown": {
+          "value": 2
+        },
+        "intimateEpic": {
+          "value": 4
+        },
+        "moralClarityAmbiguity": {
+          "value": 2
+        },
+        "realismMetaphysical": {
+          "value": 1
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "Ted Faro vyrobil stroje, které požíraly biosféru, a pak smazal veškeré vědění, aby skryl vlastní vinu.",
+          "cs": "Ted Faro vyrobil stroje, které požíraly biosféru, a pak smazal veškeré vědění, aby skryl vlastní vinu."
+        },
+        "centralDilemma": {
+          "en": "Je technologie darem, který uzdraví svět, nebo zbraní elit, které raději spálí planetu?",
+          "cs": "Je technologie darem, který uzdraví svět, nebo zbraní elit, které raději spálí planetu?"
+        },
+        "ultimateMystery": {
+          "en": "Co je Nemesis? Vznikla ze skenů mozků Far Zenith, mezi nimiž byli i lidé se svědomím.",
+          "cs": "Co je Nemesis? Vznikla ze skenů mozků Far Zenith, mezi nimiž byli i lidé se svědomím."
+        }
+      },
+      "chronicleSlug": "horizon",
+      "chronicleTeaser": {
+        "en": "From the Faro Plague to the coming of Nemesis.",
+        "cs": "Od Farova moru po příchod Nemesis."
+      }
+    },
+    {
+      "id": "metro",
+      "number": 22,
+      "chapterId": "post-apocalypse",
+      "addedAt": "2026-11-17",
+      "gameTitle": {
+        "en": "Metro",
+        "cs": "Metro"
+      },
+      "chronicleTitle": {
+        "en": "Chronicle of the Tunnels",
+        "cs": "Kronika tunelů"
+      },
+      "subtitlePoetic": {
+        "en": "Chronicle of the Tunnels",
+        "cs": "Kronika tunelů"
+      },
+      "studios": [
+        "4A Games"
+      ],
+      "yearRange": "2010–2024",
+      "canonScope": {
+        "en": "Metro 2033, Last Light, Exodus, and Awakening; the novels of Dmitry Glukhovsky",
+        "cs": "Metro 2033, Last Light, Exodus a Awakening; romány Dmitrije Gluchovského"
+      },
+      "universe": [
+        {
+          "en": "The Moscow Metro",
+          "cs": "moskevské metro"
+        }
+      ],
+      "header": {
+        "relatedWorldSlugs": [
+          "fallout",
+          "the-witcher",
+          "death-stranding"
+        ]
+      },
+      "relatedWorlds": [
+        {
+          "id": "fallout",
+          "title": {
+            "en": "Fallout",
+            "cs": "Fallout"
+          },
+          "genreProfile": {
+            "en": "Post-nuclear satire",
+            "cs": "Postjaderná satira"
+          },
+          "yearRange": "1997–2018",
+          "note": {
+            "en": "life after nuclear war",
+            "cs": "život po jaderné válce"
+          }
+        },
+        {
+          "id": "the-witcher",
+          "title": {
+            "en": "The Witcher",
+            "cs": "Zaklínač"
+          },
+          "genreProfile": {
+            "en": "Dark fantasy",
+            "cs": "Temná fantasy"
+          },
+          "yearRange": "2007–2016",
+          "note": {
+            "en": "Slavic melancholy",
+            "cs": "slovanská melancholie"
+          }
+        },
+        {
+          "id": "death-stranding",
+          "title": {
+            "en": "Death Stranding",
+            "cs": "Death Stranding"
+          },
+          "genreProfile": {
+            "en": "Mystical apocalypse",
+            "cs": "Mystická apokalypsa"
+          },
+          "yearRange": "2019–2025",
+          "note": {
+            "en": "isolation after catastrophe",
+            "cs": "izolace po katastrofě"
+          }
+        }
+      ],
+      "core": {
+        "en": "Poslední lidé žijí v tunelech moskevského metra – a i tam stavějí stejné říše, které je zničily.",
+        "cs": "Poslední lidé žijí v tunelech moskevského metra – a i tam stavějí stejné říše, které je zničily."
+      },
+      "signatureBullets": [
+        {
+          "en": "Stanice jako státy. Komunisté, nacisté a kupci obnovují v tunelech staré ideologie.",
+          "cs": "Stanice jako státy. Komunisté, nacisté a kupci obnovují v tunelech staré ideologie."
+        },
+        {
+          "en": "Lež o konci světa. Vedení metra tají, že venku přežili i další lidé.",
+          "cs": "Lež o konci světa. Vedení metra tají, že venku přežili i další lidé."
+        },
+        {
+          "en": "Duchové v tunelech. Mrtví nemají kam odejít a zůstávají v podzemí.",
+          "cs": "Duchové v tunelech. Mrtví nemají kam odejít a zůstávají v podzemí."
+        },
+        {
+          "en": "Cizí jako zrcadlo. Temní nebyli hrozbou, ale nabídnutou rukou, kterou lidé odmítli.",
+          "cs": "Cizí jako zrcadlo. Temní nebyli hrozbou, ale nabídnutou rukou, kterou lidé odmítli."
+        }
+      ],
+      "metadata": {
+        "genreProfile": {
+          "en": "Post-nuclear survival",
+          "cs": "Postjaderné přežití",
+          "sub": {
+            "en": "overlap: mystical horror",
+            "cs": "přesah: mystický horor"
+          }
+        },
+        "atmosphere": {
+          "en": "Oppression",
+          "cs": "Tísnivost",
+          "sub": {
+            "en": "secondary: Hope",
+            "cs": "vedlejší: Naděje"
+          }
+        },
+        "spatialScope": {
+          "en": "City",
+          "cs": "Město",
+          "sub": {
+            "en": "the Moscow Metro; in Exodus, Russia",
+            "cs": "moskevské metro, v Exodu Rusko"
+          }
+        },
+        "historicalDepth": {
+          "en": "Generational",
+          "cs": "Generační",
+          "sub": {
+            "en": "from Judgment Day in 2013",
+            "cs": "od Soudného dne roku 2013"
+          }
+        },
+        "societalOrder": {
+          "en": "Fragmented enclaves after collapse",
+          "cs": "Roztříštěné enklávy po kolapsu",
+          "sub": {
+            "en": "metro stations as miniature states",
+            "cs": "stanice metra jako miniaturní státy"
+          }
+        },
+        "sourceOfPower": {
+          "en": "Purely human means",
+          "cs": "Čistě lidské prostředky",
+          "sub": {
+            "en": "bullets as currency, station ideologies",
+            "cs": "náboje jako měna, ideologie stanic"
+          }
+        },
+        "protagonistPerspective": {
+          "en": "Witness and survivor in the machinery",
+          "cs": "Svědek a přeživší v soukolí",
+          "sub": {
+            "en": "Artyom of VDNKh",
+            "cs": "Arťom z VDNCh"
+          }
+        },
+        "keyActors": {
+          "en": "the Hanza, the Red Line, and the Reich · the Spartan Order · the Dark Ones · Khan and the ghosts of the tunnels",
+          "cs": "Hansa, Rudá linie a Říše · Řád Sparta · Temní · Chán a duchové tunelů"
+        }
+      },
+      "themes": [
+        "survival",
+        "power-and-dominion",
+        "civilizational-collapse",
+        "politics-and-intrigue",
+        "friendship-and-fellowship"
+      ],
+      "narration": [
+        "environmental",
+        "mechanics-as-meaning"
+      ],
+      "axes": {
+        "hopeDespair": {
+          "value": 3
+        },
+        "knownUnknown": {
+          "value": 3
+        },
+        "intimateEpic": {
+          "value": 3
+        },
+        "moralClarityAmbiguity": {
+          "value": 4
+        },
+        "realismMetaphysical": {
+          "value": 3
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "Generálové obklíčili Moskvu rušičkami a zatajili, že svět přežil – aby lidi v metru udrželi pod svou mocí.",
+          "cs": "Generálové obklíčili Moskvu rušičkami a zatajili, že svět přežil – aby lidi v metru udrželi pod svou mocí."
+        },
+        "centralDilemma": {
+          "en": "Zopakuje lidstvo v krytu totalitní hrůzy minulosti, nebo vyjde zpátky na světlo?",
+          "cs": "Zopakuje lidstvo v krytu totalitní hrůzy minulosti, nebo vyjde zpátky na světlo?"
+        },
+        "ultimateMystery": {
+          "en": "Proč lidé v románu Metro 2035 odmítnou odejít, zatímco hra Exodus končí nadějí?",
+          "cs": "Proč lidé v románu Metro 2035 odmítnou odejít, zatímco hra Exodus končí nadějí?"
+        }
+      },
+      "chronicleSlug": "metro",
+      "chronicleTeaser": {
+        "en": "From Judgment Day to Lake Baikal.",
+        "cs": "Od Soudného dne po Bajkal."
+      }
+    },
+    {
+      "id": "nier-automata",
+      "number": 23,
+      "chapterId": "post-apocalypse",
+      "addedAt": "2026-11-17",
+      "gameTitle": {
+        "en": "NieR: Automata",
+        "cs": "NieR: Automata"
+      },
+      "chronicleTitle": {
+        "en": "Chronicle of YoRHa",
+        "cs": "Kronika YoRHa"
+      },
+      "subtitlePoetic": {
+        "en": "Chronicle of YoRHa",
+        "cs": "Kronika YoRHa"
+      },
+      "studios": [
+        "PlatinumGames"
+      ],
+      "yearRange": "2017",
+      "canonScope": {
+        "en": "NieR: Automata with its expansion; the context of NieR Replicant",
+        "cs": "NieR: Automata s rozšířením; kontext NieR Replicant"
+      },
+      "universe": [
+        {
+          "en": "An Earth without humans",
+          "cs": "Země bez lidí"
+        }
+      ],
+      "header": {
+        "relatedWorldSlugs": [
+          "horizon",
+          "soma",
+          "xenoblade"
+        ]
+      },
+      "relatedWorlds": [
+        {
+          "id": "horizon",
+          "title": {
+            "en": "Horizon",
+            "cs": "Horizon"
+          },
+          "genreProfile": {
+            "en": "Ecological apocalypse",
+            "cs": "Ekologická apokalypsa"
+          },
+          "yearRange": "2017–2023",
+          "note": {
+            "en": "machines after the end of humanity",
+            "cs": "stroje po konci lidstva"
+          }
+        },
+        {
+          "id": "soma",
+          "title": {
+            "en": "SOMA",
+            "cs": "SOMA"
+          },
+          "genreProfile": {
+            "en": "Sci-fi horror",
+            "cs": "Sci-fi horor"
+          },
+          "yearRange": "2015",
+          "note": {
+            "en": "a machine that believes it is human",
+            "cs": "stroj, který věří, že je člověk"
+          }
+        },
+        {
+          "id": "xenoblade",
+          "title": {
+            "en": "Xenoblade",
+            "cs": "Xenoblade"
+          },
+          "genreProfile": {
+            "en": "Science fantasy",
+            "cs": "Science fantasy"
+          },
+          "yearRange": "2010–2023",
+          "note": {
+            "en": "cycles and the question of meaning",
+            "cs": "cykly a otázka smyslu"
+          }
+        }
+      ],
+      "core": {
+        "en": "Androidi bojují za lidstvo, které dávno vymřelo – a v nepřátelských strojích potkávají sami sebe.",
+        "cs": "Androidi bojují za lidstvo, které dávno vymřelo – a v nepřátelských strojích potkávají sami sebe."
+      },
+      "signatureBullets": [
+        {
+          "en": "Válka bez pánů. Lidé i stvořitelé strojů jsou mrtví, a přesto se bojuje dál.",
+          "cs": "Válka bez pánů. Lidé i stvořitelé strojů jsou mrtví, a přesto se bojuje dál."
+        },
+        {
+          "en": "Stroje, které se učí žít. Nepřátelé zakládají vesnice, náboženství i rodiny.",
+          "cs": "Stroje, které se učí žít. Nepřátelé zakládají vesnice, náboženství i rodiny."
+        },
+        {
+          "en": "Hra hraná znovu. Teprve další průchody odhalí, co se skutečně stalo.",
+          "cs": "Hra hraná znovu. Teprve další průchody odhalí, co se skutečně stalo."
+        },
+        {
+          "en": "Oběť hráče. V Konci E může hráč smazat svá uložení, aby pomohl cizímu.",
+          "cs": "Oběť hráče. V Konci E může hráč smazat svá uložení, aby pomohl cizímu."
+        }
+      ],
+      "metadata": {
+        "genreProfile": {
+          "en": "Machine apocalypse",
+          "cs": "Apokalypsa strojů",
+          "sub": {
+            "en": "overlap: philosophical drama",
+            "cs": "přesah: filozofické drama"
+          }
+        },
+        "atmosphere": {
+          "en": "Melancholy",
+          "cs": "Melancholie",
+          "sub": {
+            "en": "secondary: Hope",
+            "cs": "vedlejší: Naděje"
+          }
+        },
+        "spatialScope": {
+          "en": "Region",
+          "cs": "Region",
+          "sub": {
+            "en": "the ruined city and its surroundings",
+            "cs": "zřícené město a okolí"
+          }
+        },
+        "historicalDepth": {
+          "en": "Civilizational",
+          "cs": "Civilizační",
+          "sub": {
+            "en": "thousands of years after Project Gestalt",
+            "cs": "tisíce let po Projektu Gestalt"
+          }
+        },
+        "societalOrder": {
+          "en": "Dying world in ruins",
+          "cs": "Umírající svět v troskách",
+          "sub": {
+            "en": "an Earth without humans, a war of androids and machines",
+            "cs": "Země bez lidí, válka androidů se stroji"
+          }
+        },
+        "sourceOfPower": {
+          "en": "Technology and cybernetics",
+          "cs": "Technologie a kybernetika",
+          "sub": {
+            "en": "androids, machines, and their network",
+            "cs": "androidi, stroje a jejich síť"
+          }
+        },
+        "protagonistPerspective": {
+          "en": "Witness and survivor in the machinery",
+          "cs": "Svědek a přeživší v soukolí",
+          "sub": {
+            "en": "the androids 2B, 9S, and A2",
+            "cs": "androidi 2B, 9S a A2"
+          }
+        },
+        "keyActors": {
+          "en": "YoRHa · the Machine Network · the Council of Humanity on the Moon · Adam and Eve · Pascal's village",
+          "cs": "YoRHa · Síť strojů · Rada lidstva na Měsíci · Adam a Eva · Pascalova vesnice"
+        }
+      },
+      "themes": [
+        "identity-and-existence",
+        "faith",
+        "war",
+        "cyclical-history",
+        "love-and-relationships",
+        "death-and-immortality"
+      ],
+      "narration": [
+        "multiple-playthroughs",
+        "mechanics-as-meaning"
+      ],
+      "axes": {
+        "hopeDespair": {
+          "value": 4
+        },
+        "knownUnknown": {
+          "value": 3
+        },
+        "intimateEpic": {
+          "value": 3
+        },
+        "moralClarityAmbiguity": {
+          "value": 4
+        },
+        "realismMetaphysical": {
+          "value": 2
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "YoRHa udržuje válku na lži, že lidstvo přežívá na Měsíci – a androidy cyklicky maže, aby pravdu nezjistili.",
+          "cs": "YoRHa udržuje válku na lži, že lidstvo přežívá na Měsíci – a androidy cyklicky maže, aby pravdu nezjistili."
+        },
+        "centralDilemma": {
+          "en": "Najdeme smysl ve světě bez bohů a stvořitelů – skrze lásku a oběť pro druhého?",
+          "cs": "Najdeme smysl ve světě bez bohů a stvořitelů – skrze lásku a oběť pro druhého?"
+        },
+        "ultimateMystery": {
+          "en": "Proč se 2B a 9S zacyklili ve vzájemném zabíjení – a kdo jsou Červené dívky?",
+          "cs": "Proč se 2B a 9S zacyklili ve vzájemném zabíjení – a kdo jsou Červené dívky?"
+        }
+      },
+      "chronicleSlug": "nier-automata",
+      "chronicleTeaser": {
+        "en": "From Project Gestalt to the androids' last war.",
+        "cs": "Od Projektu Gestalt po poslední válku androidů."
+      }
+    },
+    {
       "id": "vzorek-fantasy",
       "number": 90,
       "chapterId": "fantasy",
