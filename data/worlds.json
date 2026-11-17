@@ -7752,6 +7752,1766 @@
       }
     },
     {
+      "id": "control",
+      "number": 36,
+      "chapterId": "metaphysical",
+      "addedAt": "2026-11-17",
+      "gameTitle": {
+        "en": "Control",
+        "cs": "Control"
+      },
+      "chronicleTitle": {
+        "en": "Chronicle of the Bureau",
+        "cs": "Kronika Úřadu"
+      },
+      "subtitlePoetic": {
+        "en": "Chronicle of the Bureau",
+        "cs": "Kronika Úřadu"
+      },
+      "studios": [
+        "Remedy Entertainment"
+      ],
+      "yearRange": "2019–2020",
+      "canonScope": {
+        "en": "Control with The Foundation and AWE expansions",
+        "cs": "Control s rozšířeními The Foundation a AWE"
+      },
+      "universe": [
+        {
+          "en": "The Oldest House",
+          "cs": "Nejstarší dům"
+        }
+      ],
+      "header": {
+        "relatedWorldSlugs": [
+          "half-life",
+          "bloodborne",
+          "silent-hill"
+        ]
+      },
+      "relatedWorlds": [
+        {
+          "id": "half-life",
+          "title": {
+            "en": "Half-Life",
+            "cs": "Half-Life"
+          },
+          "genreProfile": {
+            "en": "Occupation dystopia",
+            "cs": "Okupační dystopie"
+          },
+          "yearRange": "1998–2020",
+          "note": {
+            "en": "bureaucracies and the supernatural",
+            "cs": "úřady a nadpřirozeno"
+          }
+        },
+        {
+          "id": "bloodborne",
+          "title": {
+            "en": "Bloodborne",
+            "cs": "Bloodborne"
+          },
+          "genreProfile": {
+            "en": "Cosmic horror",
+            "cs": "Kosmický horor"
+          },
+          "yearRange": "2015",
+          "note": {
+            "en": "forces behind the curtain of reality",
+            "cs": "síly za oponou reality"
+          }
+        },
+        {
+          "id": "silent-hill",
+          "title": {
+            "en": "Silent Hill",
+            "cs": "Silent Hill"
+          },
+          "genreProfile": {
+            "en": "Psychological horror",
+            "cs": "Psychologický horor"
+          },
+          "yearRange": "1999–2024",
+          "note": {
+            "en": "a reality that bends",
+            "cs": "realita, která se ohýbá"
+          }
+        }
+      ],
+      "core": {
+        "en": "Úřad, který katalogizuje nadpřirozeno – a sám sídlí v budově, která mění tvar a myslí po svém.",
+        "cs": "Úřad, který katalogizuje nadpřirozeno – a sám sídlí v budově, která mění tvar a myslí po svém."
+      },
+      "signatureBullets": [
+        {
+          "en": "Byrokracie nadpřirozena. Spisy, formuláře a začerněné texty tvoří jazyk hrůzy.",
+          "cs": "Byrokracie nadpřirozena. Spisy, formuláře a začerněné texty tvoří jazyk hrůzy."
+        },
+        {
+          "en": "Dům, který žije. Nejstarší dům je uvnitř větší než zvenku a mění tvar.",
+          "cs": "Dům, který žije. Nejstarší dům je uvnitř větší než zvenku a mění tvar."
+        },
+        {
+          "en": "Předměty moci. Obyčejné věci jako lednička či projektor jsou nebezpečné artefakty.",
+          "cs": "Předměty moci. Obyčejné věci jako lednička či projektor jsou nebezpečné artefakty."
+        },
+        {
+          "en": "Propojený vesmír. Control sdílí svět s hrami o Alanu Wakeovi.",
+          "cs": "Propojený vesmír. Control sdílí svět s hrami o Alanu Wakeovi."
+        }
+      ],
+      "metadata": {
+        "genreProfile": {
+          "en": "New weird",
+          "cs": "New weird",
+          "sub": {
+            "en": "overlap: supernatural thriller",
+            "cs": "přesah: nadpřirozený thriller"
+          }
+        },
+        "atmosphere": {
+          "en": "Dreamlike",
+          "cs": "Snovost",
+          "sub": {
+            "en": "secondary: Oppression",
+            "cs": "vedlejší: Tísnivost"
+          }
+        },
+        "spatialScope": {
+          "en": "Single location",
+          "cs": "Lokalita",
+          "sub": {
+            "en": "the Oldest House in New York",
+            "cs": "Nejstarší dům v New Yorku"
+          }
+        },
+        "historicalDepth": {
+          "en": "Generational",
+          "cs": "Generační",
+          "sub": {
+            "en": "since the founding of the Bureau",
+            "cs": "od založení Úřadu"
+          }
+        },
+        "societalOrder": {
+          "en": "A world in the shadow of hidden power",
+          "cs": "Svět ve stínu utajené moci",
+          "sub": {
+            "en": "the Federal Bureau of Control and the hidden paranatural",
+            "cs": "Federální úřad pro kontrolu a utajené paranaturálno"
+          }
+        },
+        "sourceOfPower": {
+          "en": "The force of mind, faith, and souls",
+          "cs": "Síla mysli, víry a duší",
+          "sub": {
+            "en": "Objects of Power from the collective unconscious",
+            "cs": "Předměty moci z kolektivního nevědomí"
+          }
+        },
+        "protagonistPerspective": {
+          "en": "Chosen champion of fate",
+          "cs": "Vyvolený a šampion osudu",
+          "sub": {
+            "en": "Jesse Faden, chosen by the Service Weapon",
+            "cs": "Jesse Fadenová, vyvolená Služební zbraní"
+          }
+        },
+        "keyActors": {
+          "en": "the Federal Bureau of Control · the Hiss · the Board and the Oldest House · Ahti · Dylan Faden",
+          "cs": "Federální úřad pro kontrolu · Šum · Rada a Nejstarší dům · Ahti · Dylan Faden"
+        }
+      },
+      "themes": [
+        "conspiracy",
+        "identity-and-existence",
+        "power-and-dominion",
+        "humor-irony-exaggeration"
+      ],
+      "narration": [
+        "books-and-documents",
+        "recordings-and-logs"
+      ],
+      "axes": {
+        "hopeDespair": {
+          "value": 3
+        },
+        "knownUnknown": {
+          "value": 5
+        },
+        "intimateEpic": {
+          "value": 3
+        },
+        "moralClarityAmbiguity": {
+          "value": 4
+        },
+        "realismMetaphysical": {
+          "value": 4
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "Úřad unesl desetiletého Dylana jako pokusný objekt a vymazal mu dětství – místo aby sourozencům pomohl.",
+          "cs": "Úřad unesl desetiletého Dylana jako pokusný objekt a vymazal mu dětství – místo aby sourozencům pomohl."
+        },
+        "centralDilemma": {
+          "en": "Lze si uchovat svobodnou vůli v nepochopitelném vesmíru, nebo je každá snaha o kontrolu další klecí?",
+          "cs": "Lze si uchovat svobodnou vůli v nepochopitelném vesmíru, nebo je každá snaha o kontrolu další klecí?"
+        },
+        "ultimateMystery": {
+          "en": "Jsou Jesse a Dylan dva lidé, nebo jedna rozštěpená bytost – a napsal její příchod Alan Wake?",
+          "cs": "Jsou Jesse a Dylan dva lidé, nebo jedna rozštěpená bytost – a napsal její příchod Alan Wake?"
+        }
+      },
+      "chronicleSlug": "control",
+      "chronicleTeaser": {
+        "en": "From the founding of the Bureau to the Hiss in the Oldest House.",
+        "cs": "Od založení Úřadu po Šum v Nejstarším domě."
+      }
+    },
+    {
+      "id": "inscryption",
+      "number": 37,
+      "chapterId": "metaphysical",
+      "addedAt": "2026-11-17",
+      "gameTitle": {
+        "en": "Inscryption",
+        "cs": "Inscryption"
+      },
+      "chronicleTitle": {
+        "en": "Chronicle of the Scrybes",
+        "cs": "Kronika Písařů"
+      },
+      "subtitlePoetic": {
+        "en": "Chronicle of the Scrybes",
+        "cs": "Kronika Písařů"
+      },
+      "studios": [
+        "Daniel Mullins Games"
+      ],
+      "yearRange": "2021",
+      "canonScope": {
+        "en": "Inscryption",
+        "cs": "Inscryption"
+      },
+      "universe": [
+        {
+          "en": "Leshy's cabin",
+          "cs": "Leshyho chata"
+        }
+      ],
+      "header": {
+        "relatedWorldSlugs": [
+          "undertale",
+          "nier-automata",
+          "pathologic"
+        ]
+      },
+      "relatedWorlds": [
+        {
+          "id": "undertale",
+          "title": {
+            "en": "Undertale",
+            "cs": "Undertale"
+          },
+          "genreProfile": {
+            "en": "Metafiction",
+            "cs": "Metafikce"
+          },
+          "yearRange": "2015",
+          "note": {
+            "en": "a game that knows about the player",
+            "cs": "hra, která ví o hráči"
+          }
+        },
+        {
+          "id": "nier-automata",
+          "title": {
+            "en": "NieR: Automata",
+            "cs": "NieR: Automata"
+          },
+          "genreProfile": {
+            "en": "Machine apocalypse",
+            "cs": "Apokalypsa strojů"
+          },
+          "yearRange": "2017",
+          "note": {
+            "en": "meta elements and deleted saves",
+            "cs": "meta-prvky a smazaná uložení"
+          }
+        },
+        {
+          "id": "pathologic",
+          "title": {
+            "en": "Pathologic",
+            "cs": "Pathologic"
+          },
+          "genreProfile": {
+            "en": "Surreal tragedy",
+            "cs": "Surrealistická tragédie"
+          },
+          "yearRange": "2005–2019",
+          "note": {
+            "en": "the game as theater",
+            "cs": "hra jako divadlo"
+          }
+        }
+      ],
+      "core": {
+        "en": "Karetní hra v temné chatě, která je hrou ve hře – a pod ní se skrývá prokletý kód, který nikdo neměl najít.",
+        "cs": "Karetní hra v temné chatě, která je hrou ve hře – a pod ní se skrývá prokletý kód, který nikdo neměl najít."
+      },
+      "signatureBullets": [
+        {
+          "en": "Hra ve hře. Karetní partie je jen vrstvou digitální hry, kterou někdo natáčí.",
+          "cs": "Hra ve hře. Karetní partie je jen vrstvou digitální hry, kterou někdo natáčí."
+        },
+        {
+          "en": "Čtyři Písaři. Mistři smrti, zvířat, strojů a magie si hru navzájem uzurpují.",
+          "cs": "Čtyři Písaři. Mistři smrti, zvířat, strojů a magie si hru navzájem uzurpují."
+        },
+        {
+          "en": "Karty se životem. Karty mluví, prosí a pamatují si, že byly živé.",
+          "cs": "Karty se životem. Karty mluví, prosí a pamatují si, že byly živé."
+        },
+        {
+          "en": "Svět za obrazovkou. Záběry z kamery ukazují člověka, který hře propadá.",
+          "cs": "Svět za obrazovkou. Záběry z kamery ukazují člověka, který hře propadá."
+        }
+      ],
+      "metadata": {
+        "genreProfile": {
+          "en": "Metafiction",
+          "cs": "Metafikce",
+          "sub": {
+            "en": "overlap: occult horror",
+            "cs": "přesah: okultní horor"
+          }
+        },
+        "atmosphere": {
+          "en": "Oppression",
+          "cs": "Tísnivost",
+          "sub": {
+            "en": "secondary: Fascination",
+            "cs": "vedlejší: Fascinace"
+          }
+        },
+        "spatialScope": {
+          "en": "Single location",
+          "cs": "Lokalita",
+          "sub": {
+            "en": "Leshy's cabin and Luke Carder's room",
+            "cs": "Leshyho chata a pokoj Lukea Cardera"
+          }
+        },
+        "historicalDepth": {
+          "en": "Generational",
+          "cs": "Generační",
+          "sub": {
+            "en": "from a wartime bunker to the present day",
+            "cs": "od válečného bunkru po dnešek"
+          }
+        },
+        "societalOrder": {
+          "en": "A closed microcosm",
+          "cs": "Uzavřený mikrokosmos",
+          "sub": {
+            "en": "Leshy's cabin and the game within the game",
+            "cs": "Leshyho chata a hra ve hře"
+          }
+        },
+        "sourceOfPower": {
+          "en": "The force of mind, faith, and souls",
+          "cs": "Síla mysli, víry a duší",
+          "sub": {
+            "en": "souls trapped in cards, and the OLD_DATA",
+            "cs": "duše uvězněné v kartách a OLD_DATA"
+          }
+        },
+        "protagonistPerspective": {
+          "en": "The player as part of the world",
+          "cs": "Hráč jako součást světa",
+          "sub": {
+            "en": "the player at the table and Luke behind the camera",
+            "cs": "hráč u stolu i Luke za kamerou"
+          }
+        },
+        "keyActors": {
+          "en": "the four Scrybes · Luke Carder · GameFuna and the Karnoffel code · the OLD_DATA",
+          "cs": "čtyři Písaři · Luke Carder · GameFuna a Karnoffelův kód · OLD_DATA"
+        }
+      },
+      "themes": [
+        "identity-and-existence",
+        "conspiracy",
+        "power-and-dominion",
+        "humor-irony-exaggeration"
+      ],
+      "narration": [
+        "mechanics-as-meaning",
+        "unreliable-narrators"
+      ],
+      "axes": {
+        "hopeDespair": {
+          "value": 4
+        },
+        "knownUnknown": {
+          "value": 5
+        },
+        "intimateEpic": {
+          "value": 2
+        },
+        "moralClarityAmbiguity": {
+          "value": 3
+        },
+        "realismMetaphysical": {
+          "value": 4
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "Okultní Karnoffelův kód byl vynesen z bunkru a přepsán na disketu – a touha po zbrani uvěznila zlo v počítači.",
+          "cs": "Okultní Karnoffelův kód byl vynesen z bunkru a přepsán na disketu – a touha po zbrani uvěznila zlo v počítači."
+        },
+        "centralDilemma": {
+          "en": "Co se stane s duší hry, když se v ní střetne láska k vyprávění s chladným honem za optimalizací?",
+          "cs": "Co se stane s duší hry, když se v ní střetne láska k vyprávění s chladným honem za optimalizací?"
+        },
+        "ultimateMystery": {
+          "en": "Co viděl Luke Carder v souboru OLD_DATA, než disketu rozbil kladivem?",
+          "cs": "Co viděl Luke Carder v souboru OLD_DATA, než disketu rozbil kladivem?"
+        }
+      },
+      "chronicleSlug": "inscryption",
+      "chronicleTeaser": {
+        "en": "From a floppy disk buried in the woods to the four Scrybes.",
+        "cs": "Od diskety zakopané v lese po čtyři Písaře."
+      }
+    },
+    {
+      "id": "outer-wilds",
+      "number": 38,
+      "chapterId": "metaphysical",
+      "addedAt": "2026-11-17",
+      "gameTitle": {
+        "en": "Outer Wilds",
+        "cs": "Outer Wilds"
+      },
+      "chronicleTitle": {
+        "en": "Chronicle of the Campfire",
+        "cs": "Kronika Táboráku"
+      },
+      "subtitlePoetic": {
+        "en": "Chronicle of the Campfire",
+        "cs": "Kronika Táboráku"
+      },
+      "studios": [
+        "Mobius Digital"
+      ],
+      "yearRange": "2019–2021",
+      "canonScope": {
+        "en": "Outer Wilds and Echoes of the Eye",
+        "cs": "Outer Wilds a Echoes of the Eye"
+      },
+      "universe": [
+        {
+          "en": "The Hearthian system",
+          "cs": "soustava Hearthianů"
+        }
+      ],
+      "header": {
+        "relatedWorldSlugs": [
+          "hades",
+          "xenoblade",
+          "horizon"
+        ]
+      },
+      "relatedWorlds": [
+        {
+          "id": "hades",
+          "title": {
+            "en": "Hades",
+            "cs": "Hades"
+          },
+          "genreProfile": {
+            "en": "Mythic fantasy",
+            "cs": "Mytická fantasy"
+          },
+          "yearRange": "2020–2025",
+          "note": {
+            "en": "a loop as the path to truth",
+            "cs": "smyčka jako cesta k pravdě"
+          }
+        },
+        {
+          "id": "xenoblade",
+          "title": {
+            "en": "Xenoblade",
+            "cs": "Xenoblade"
+          },
+          "genreProfile": {
+            "en": "Science fantasy",
+            "cs": "Science fantasy"
+          },
+          "yearRange": "2010–2023",
+          "note": {
+            "en": "the end and birth of worlds",
+            "cs": "konec a zrod světů"
+          }
+        },
+        {
+          "id": "horizon",
+          "title": {
+            "en": "Horizon",
+            "cs": "Horizon"
+          },
+          "genreProfile": {
+            "en": "Ecological apocalypse",
+            "cs": "Ekologická apokalypsa"
+          },
+          "yearRange": "2017–2023",
+          "note": {
+            "en": "archaeology of a vanished civilization",
+            "cs": "archeologie zaniklé civilizace"
+          }
+        }
+      ],
+      "core": {
+        "en": "Sluneční soustava, která za 22 minut zanikne – a malý astronaut, který ji poznává smyčku po smyčce.",
+        "cs": "Sluneční soustava, která za 22 minut zanikne – a malý astronaut, který ji poznává smyčku po smyčce."
+      },
+      "signatureBullets": [
+        {
+          "en": "Vědění místo vybavení. Postup ve hře je jen to, co hráč pochopil.",
+          "cs": "Vědění místo vybavení. Postup ve hře je jen to, co hráč pochopil."
+        },
+        {
+          "en": "Smyčka konce světa. Každých 22 minut exploduje slunce a vše začne znovu.",
+          "cs": "Smyčka konce světa. Každých 22 minut exploduje slunce a vše začne znovu."
+        },
+        {
+          "en": "Mrtvá civilizace. Nomaiové zanechali texty, které hráč skládá dohromady.",
+          "cs": "Mrtvá civilizace. Nomaiové zanechali texty, které hráč skládá dohromady."
+        },
+        {
+          "en": "Konec jako začátek. Zánik vesmíru je cestou ke zrodu nového.",
+          "cs": "Konec jako začátek. Zánik vesmíru je cestou ke zrodu nového."
+        }
+      ],
+      "metadata": {
+        "genreProfile": {
+          "en": "Experimental sci-fi",
+          "cs": "Experimentální sci-fi",
+          "sub": {
+            "en": "overlap: cosmic archaeology",
+            "cs": "přesah: kosmická archeologie"
+          }
+        },
+        "atmosphere": {
+          "en": "Wonder",
+          "cs": "Úžas",
+          "sub": {
+            "en": "secondary: Melancholy",
+            "cs": "vedlejší: Melancholie"
+          }
+        },
+        "spatialScope": {
+          "en": "Star system",
+          "cs": "Hvězdný systém",
+          "sub": {
+            "en": "a miniature solar system",
+            "cs": "miniaturní sluneční soustava"
+          }
+        },
+        "historicalDepth": {
+          "en": "Cosmic",
+          "cs": "Kosmická",
+          "sub": {
+            "en": "from the Nomai to the end of the universe",
+            "cs": "od Nomaiů po konec vesmíru"
+          }
+        },
+        "societalOrder": {
+          "en": "A closed microcosm",
+          "cs": "Uzavřený mikrokosmos",
+          "sub": {
+            "en": "a miniature system in a twenty-two-minute loop",
+            "cs": "miniaturní soustava v dvaadvacetiminutové smyčce"
+          }
+        },
+        "sourceOfPower": {
+          "en": "Divine and cosmic essence",
+          "cs": "Božská a kosmická esence",
+          "sub": {
+            "en": "the Eye of the Universe and the quantum nature of reality",
+            "cs": "Oko vesmíru a kvantová povaha reality"
+          }
+        },
+        "protagonistPerspective": {
+          "en": "Investigator and seeker of truth",
+          "cs": "Vyšetřovatel a hledač pravdy",
+          "sub": {
+            "en": "a rookie astronaut piecing together the Nomai legacy",
+            "cs": "astronaut-nováček, který skládá odkaz Nomaiů"
+          }
+        },
+        "keyActors": {
+          "en": "the Nomai · the Eye of the Universe · the Inhabitants of the Stranger · the Hearthians and Outer Wilds Ventures",
+          "cs": "Nomaiové · Oko vesmíru · Obyvatelé Cizince · Hearthiané a Outer Wilds Ventures"
+        }
+      },
+      "themes": [
+        "discovery",
+        "uncovering-the-past",
+        "identity-and-existence",
+        "cyclical-history",
+        "friendship-and-fellowship",
+        "death-and-immortality"
+      ],
+      "narration": [
+        "books-and-documents",
+        "environmental",
+        "mechanics-as-meaning"
+      ],
+      "axes": {
+        "hopeDespair": {
+          "value": 2
+        },
+        "knownUnknown": {
+          "value": 2
+        },
+        "intimateEpic": {
+          "value": 4
+        },
+        "moralClarityAmbiguity": {
+          "value": 2
+        },
+        "realismMetaphysical": {
+          "value": 3
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "Obyvatelé Cizince zjistili, že Oko znamená konec jejich světa, a jeho volání umlčeli – i za cenu uvěznění Vězně.",
+          "cs": "Obyvatelé Cizince zjistili, že Oko znamená konec jejich světa, a jeho volání umlčeli – i za cenu uvěznění Vězně."
+        },
+        "centralDilemma": {
+          "en": "Dokážeme přijmout, že vše jednou skončí, a předat pochodeň těm, kdo přijdou po nás?",
+          "cs": "Dokážeme přijmout, že vše jednou skončí, a předat pochodeň těm, kdo přijdou po nás?"
+        },
+        "ultimateMystery": {
+          "en": "Je Oko vesmíru vědomá bytost, nebo slepý kvantový mechanismus zrodu vesmírů?",
+          "cs": "Je Oko vesmíru vědomá bytost, nebo slepý kvantový mechanismus zrodu vesmírů?"
+        }
+      },
+      "chronicleSlug": "outer-wilds",
+      "chronicleTeaser": {
+        "en": "From the Nomai to the Eye of the Universe.",
+        "cs": "Od Nomaiů po Oko vesmíru."
+      }
+    },
+    {
+      "id": "pathologic",
+      "number": 39,
+      "chapterId": "metaphysical",
+      "addedAt": "2026-11-17",
+      "gameTitle": {
+        "en": "Pathologic",
+        "cs": "Pathologic"
+      },
+      "chronicleTitle": {
+        "en": "Chronicle of the Steppe",
+        "cs": "Kronika Stepi"
+      },
+      "subtitlePoetic": {
+        "en": "Chronicle of the Steppe",
+        "cs": "Kronika Stepi"
+      },
+      "studios": [
+        "Ice-Pick Lodge"
+      ],
+      "yearRange": "2005–2019",
+      "canonScope": {
+        "en": "Pathologic, Classic HD, and Pathologic 2",
+        "cs": "Pathologic, Classic HD a Pathologic 2"
+      },
+      "universe": [
+        {
+          "en": "The Town on the Gorkhon",
+          "cs": "Město na Gorchonu"
+        }
+      ],
+      "header": {
+        "relatedWorldSlugs": [
+          "disco-elysium",
+          "silent-hill",
+          "the-witcher"
+        ]
+      },
+      "relatedWorlds": [
+        {
+          "id": "disco-elysium",
+          "title": {
+            "en": "Disco Elysium",
+            "cs": "Disco Elysium"
+          },
+          "genreProfile": {
+            "en": "Alternate world",
+            "cs": "Alternativní svět"
+          },
+          "yearRange": "2019–2021",
+          "note": {
+            "en": "a city and its ideologies",
+            "cs": "město a jeho ideologie"
+          }
+        },
+        {
+          "id": "silent-hill",
+          "title": {
+            "en": "Silent Hill",
+            "cs": "Silent Hill"
+          },
+          "genreProfile": {
+            "en": "Psychological horror",
+            "cs": "Psychologický horor"
+          },
+          "yearRange": "1999–2024",
+          "note": {
+            "en": "a town that judges",
+            "cs": "město, které soudí"
+          }
+        },
+        {
+          "id": "the-witcher",
+          "title": {
+            "en": "The Witcher",
+            "cs": "Zaklínač"
+          },
+          "genreProfile": {
+            "en": "Dark fantasy",
+            "cs": "Temná fantasy"
+          },
+          "yearRange": "2007–2016",
+          "note": {
+            "en": "choices that hurt",
+            "cs": "volby, které bolí"
+          }
+        }
+      ],
+      "core": {
+        "en": "Město ve stepi, kde mor trvá dvanáct dní – a každý den je méně času, chleba a lidí, které lze zachránit.",
+        "cs": "Město ve stepi, kde mor trvá dvanáct dní – a každý den je méně času, chleba a lidí, které lze zachránit."
+      },
+      "signatureBullets": [
+        {
+          "en": "Čas jako nepřítel. Úkoly propadají, i když na ně hráč nestihne dojít.",
+          "cs": "Čas jako nepřítel. Úkoly propadají, i když na ně hráč nestihne dojít."
+        },
+        {
+          "en": "Hra jako divadlo. Herci a Tragédové připomínají, že vše je inscenace.",
+          "cs": "Hra jako divadlo. Herci a Tragédové připomínají, že vše je inscenace."
+        },
+        {
+          "en": "Step a věž. Živá země Bodcho stojí proti Mnohostěnu, věži pokroku.",
+          "cs": "Step a věž. Živá země Bodcho stojí proti Mnohostěnu, věži pokroku."
+        },
+        {
+          "en": "Žádná pravda navrch. Tři hrdinové vidí totéž město ve třech neslučitelných žánrech.",
+          "cs": "Žádná pravda navrch. Tři hrdinové vidí totéž město ve třech neslučitelných žánrech."
+        }
+      ],
+      "metadata": {
+        "genreProfile": {
+          "en": "Surreal tragedy",
+          "cs": "Surrealistická tragédie",
+          "sub": {
+            "en": "overlap: mystical horror",
+            "cs": "přesah: mystický horor"
+          }
+        },
+        "atmosphere": {
+          "en": "Despair",
+          "cs": "Zoufalství",
+          "sub": {
+            "en": "secondary: Dreamlike",
+            "cs": "vedlejší: Snovost"
+          }
+        },
+        "spatialScope": {
+          "en": "City",
+          "cs": "Město",
+          "sub": {
+            "en": "the Town on the Gorkhon",
+            "cs": "Město na Gorchonu"
+          }
+        },
+        "historicalDepth": {
+          "en": "Mythic",
+          "cs": "Mytická",
+          "sub": {
+            "en": "since Mother Boddho and the steppe",
+            "cs": "od matky Bodcho a stepi"
+          }
+        },
+        "societalOrder": {
+          "en": "A closed microcosm",
+          "cs": "Uzavřený mikrokosmos",
+          "sub": {
+            "en": "the Town on the steppe under the rule of three families",
+            "cs": "Město na stepi pod vládou tří rodů"
+          }
+        },
+        "sourceOfPower": {
+          "en": "Divine and cosmic essence",
+          "cs": "Božská a kosmická esence",
+          "sub": {
+            "en": "Mother Boddho, the Lines, and the blood of the Bull",
+            "cs": "matka Bodcho, linie Země a krev Býka"
+          }
+        },
+        "protagonistPerspective": {
+          "en": "Witness and survivor in the machinery",
+          "cs": "Svědek a přeživší v soukolí",
+          "sub": {
+            "en": "the Bachelor, the Haruspex, and the Changeling in the Town's theater",
+            "cs": "Bakalář, Haruspex a Řeholnice v divadle Města"
+          }
+        },
+        "keyActors": {
+          "en": "the Kains, the Olgimskys, and the Saburovs · the steppe and the Kin · the plague · the Polyhedron and the children of the Town",
+          "cs": "rody Kainů, Olgimských a Saburovů · step a kmen Kin · mor · Mnohostěn a děti Města"
+        }
+      },
+      "themes": [
+        "survival",
+        "faith",
+        "progress-and-its-costs",
+        "free-will-and-fate"
+      ],
+      "narration": [
+        "dialogue",
+        "mechanics-as-meaning",
+        "unreliable-narrators"
+      ],
+      "axes": {
+        "hopeDespair": {
+          "value": 5
+        },
+        "knownUnknown": {
+          "value": 5
+        },
+        "intimateEpic": {
+          "value": 3
+        },
+        "moralClarityAmbiguity": {
+          "value": 5
+        },
+        "realismMetaphysical": {
+          "value": 4
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "Kainové vztyčili Mnohostěn uprostřed stepi a jeho nosníkem probodli spící tělo matky Bodcho.",
+          "cs": "Kainové vztyčili Mnohostěn uprostřed stepi a jeho nosníkem probodli spící tělo matky Bodcho."
+        },
+        "centralDilemma": {
+          "en": "Má lidstvo právo vyrvat se z kruhu přírody za cenu zničení světa, který ho zrodil?",
+          "cs": "Má lidstvo právo vyrvat se z kruhu přírody za cenu zničení světa, který ho zrodil?"
+        },
+        "ultimateMystery": {
+          "en": "Proč zemřel Šimon Kain a čím je samotný mor? Hra nedává žádný nadřazený pohled.",
+          "cs": "Proč zemřel Šimon Kain a čím je samotný mor? Hra nedává žádný nadřazený pohled."
+        }
+      },
+      "chronicleSlug": "pathologic",
+      "chronicleTeaser": {
+        "en": "Twelve days of plague in the Town on the Gorkhon.",
+        "cs": "Dvanáct dní moru ve Městě na Gorchonu."
+      }
+    },
+    {
+      "id": "planescape-torment",
+      "number": 40,
+      "chapterId": "metaphysical",
+      "addedAt": "2026-11-17",
+      "gameTitle": {
+        "en": "Planescape: Torment",
+        "cs": "Planescape: Torment"
+      },
+      "chronicleTitle": {
+        "en": "Chronicle of the Nameless One",
+        "cs": "Kronika Bezejmenného"
+      },
+      "subtitlePoetic": {
+        "en": "Chronicle of the Nameless One",
+        "cs": "Kronika Bezejmenného"
+      },
+      "studios": [
+        "Black Isle Studios"
+      ],
+      "yearRange": "1999",
+      "canonScope": {
+        "en": "Planescape: Torment",
+        "cs": "Planescape: Torment"
+      },
+      "universe": [
+        {
+          "en": "Sigil and the planes",
+          "cs": "Sigil a roviny"
+        }
+      ],
+      "header": {
+        "relatedWorldSlugs": [
+          "tides-of-numenera",
+          "disco-elysium",
+          "baldurs-gate"
+        ]
+      },
+      "relatedWorlds": [
+        {
+          "id": "tides-of-numenera",
+          "title": {
+            "en": "Tides of Numenera",
+            "cs": "Tides of Numenera"
+          },
+          "genreProfile": {
+            "en": "Science fantasy",
+            "cs": "Science fantasy"
+          },
+          "yearRange": "2017",
+          "note": {
+            "en": "a spiritual successor",
+            "cs": "duchovní pokračování"
+          }
+        },
+        {
+          "id": "disco-elysium",
+          "title": {
+            "en": "Disco Elysium",
+            "cs": "Disco Elysium"
+          },
+          "genreProfile": {
+            "en": "Alternate world",
+            "cs": "Alternativní svět"
+          },
+          "yearRange": "2019–2021",
+          "note": {
+            "en": "a hero without memory",
+            "cs": "hrdina bez paměti"
+          }
+        },
+        {
+          "id": "baldurs-gate",
+          "title": {
+            "en": "Baldur's Gate",
+            "cs": "Baldur's Gate"
+          },
+          "genreProfile": {
+            "en": "High fantasy",
+            "cs": "Vysoká fantasy"
+          },
+          "yearRange": "1998–2023",
+          "note": {
+            "en": "D&D and the question of identity",
+            "cs": "D&D a otázka identity"
+          }
+        }
+      ],
+      "core": {
+        "en": "Muž, který nemůže zemřít, se probouzí v márnici bez paměti – a každý jeho minulý život po sobě nechal jizvy.",
+        "cs": "Muž, který nemůže zemřít, se probouzí v márnici bez paměti – a každý jeho minulý život po sobě nechal jizvy."
+      },
+      "signatureBullets": [
+        {
+          "en": "Smrt jako začátek. Hrdina nemůže zemřít; každá smrt jen posune příběh.",
+          "cs": "Smrt jako začátek. Hrdina nemůže zemřít; každá smrt jen posune příběh."
+        },
+        {
+          "en": "Minulé já jako nepřítel. Předchozí inkarnace zanechaly pasti, deníky i zrazené přátele.",
+          "cs": "Minulé já jako nepřítel. Předchozí inkarnace zanechaly pasti, deníky i zrazené přátele."
+        },
+        {
+          "en": "Víra mění svět. V rovinách se realita ohýbá podle přesvědčení lidí.",
+          "cs": "Víra mění svět. V rovinách se realita ohýbá podle přesvědčení lidí."
+        },
+        {
+          "en": "Slova místo mečů. Většinu konfliktů lze vyřešit rozhovorem.",
+          "cs": "Slova místo mečů. Většinu konfliktů lze vyřešit rozhovorem."
+        }
+      ],
+      "metadata": {
+        "genreProfile": {
+          "en": "Planar fantasy",
+          "cs": "Planární fantasy",
+          "sub": {
+            "en": "overlap: philosophical drama",
+            "cs": "přesah: filozofické drama"
+          }
+        },
+        "atmosphere": {
+          "en": "Melancholy",
+          "cs": "Melancholie",
+          "sub": {
+            "en": "secondary: Fascination",
+            "cs": "vedlejší: Fascinace"
+          }
+        },
+        "spatialScope": {
+          "en": "Multiverse and multiple planes",
+          "cs": "Multiverzum a více rovin",
+          "sub": {
+            "en": "Sigil and the planes of existence",
+            "cs": "Sigil a roviny bytí"
+          }
+        },
+        "historicalDepth": {
+          "en": "Mythic",
+          "cs": "Mytická",
+          "sub": {
+            "en": "the eternal planes and the Blood War",
+            "cs": "věčné roviny a Válka krve"
+          }
+        },
+        "societalOrder": {
+          "en": "A closed microcosm",
+          "cs": "Uzavřený mikrokosmos",
+          "sub": {
+            "en": "Sigil, the City of Doors under the Lady of Pain",
+            "cs": "Sigil, město dveří pod Paní bolesti"
+          }
+        },
+        "sourceOfPower": {
+          "en": "The force of mind, faith, and souls",
+          "cs": "Síla mysli, víry a duší",
+          "sub": {
+            "en": "belief shapes the planes",
+            "cs": "víra tvaruje roviny"
+          }
+        },
+        "protagonistPerspective": {
+          "en": "Pilgrim and outcast on the margins",
+          "cs": "Poutník a psanec na okraji",
+          "sub": {
+            "en": "the Nameless One, immortal without memory",
+            "cs": "Bezejmenný, nesmrtelný bez paměti"
+          }
+        },
+        "keyActors": {
+          "en": "the Lady of Pain · the factions of Sigil · the Transcendent One · the Blood War · Ravel Puzzlewell",
+          "cs": "Paní bolesti · frakce Sigilu · Transcendentní · Válka krve · Ravel Puzzlewell"
+        }
+      },
+      "themes": [
+        "identity-and-existence",
+        "guilt-and-redemption",
+        "faith",
+        "love-and-relationships",
+        "death-and-immortality"
+      ],
+      "narration": [
+        "dialogue",
+        "item-descriptions"
+      ],
+      "axes": {
+        "hopeDespair": {
+          "value": 3
+        },
+        "knownUnknown": {
+          "value": 4
+        },
+        "intimateEpic": {
+          "value": 1
+        },
+        "moralClarityAmbiguity": {
+          "value": 4
+        },
+        "realismMetaphysical": {
+          "value": 5
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "První inkarnace spáchala nepojmenovaný zločin – a před trestem se skryla v nesmrtelnosti, která pohlcuje cizí životy.",
+          "cs": "První inkarnace spáchala nepojmenovaný zločin – a před trestem se skryla v nesmrtelnosti, která pohlcuje cizí životy."
+        },
+        "centralDilemma": {
+          "en": "Co dokáže změnit povahu člověka – a vyváží lítost tisíc let sobectví?",
+          "cs": "Co dokáže změnit povahu člověka – a vyváží lítost tisíc let sobectví?"
+        },
+        "ultimateMystery": {
+          "en": "Jaký zločin spáchala První inkarnace a jaké je pravé jméno Bezejmenného? Hráč ho nikdy neuslyší.",
+          "cs": "Jaký zločin spáchala První inkarnace a jaké je pravé jméno Bezejmenného? Hráč ho nikdy neuslyší."
+        }
+      },
+      "chronicleSlug": "planescape-torment",
+      "chronicleTeaser": {
+        "en": "From the Nameless One's first life to the Fortress of Regrets.",
+        "cs": "Od prvního života Bezejmenného po Pevnost lítosti."
+      }
+    },
+    {
+      "id": "tides-of-numenera",
+      "number": 41,
+      "chapterId": "metaphysical",
+      "addedAt": "2026-11-17",
+      "gameTitle": {
+        "en": "Tides of Numenera",
+        "cs": "Tides of Numenera"
+      },
+      "chronicleTitle": {
+        "en": "Chronicle of the Castoffs",
+        "cs": "Kronika Odvržených"
+      },
+      "subtitlePoetic": {
+        "en": "Chronicle of the Castoffs",
+        "cs": "Kronika Odvržených"
+      },
+      "studios": [
+        "inXile Entertainment"
+      ],
+      "yearRange": "2017",
+      "canonScope": {
+        "en": "Torment: Tides of Numenera",
+        "cs": "Torment: Tides of Numenera"
+      },
+      "universe": [
+        {
+          "en": "The Ninth World",
+          "cs": "Devátý svět"
+        }
+      ],
+      "header": {
+        "relatedWorldSlugs": [
+          "planescape-torment",
+          "pillars-of-eternity",
+          "xenoblade"
+        ]
+      },
+      "relatedWorlds": [
+        {
+          "id": "planescape-torment",
+          "title": {
+            "en": "Planescape: Torment",
+            "cs": "Planescape: Torment"
+          },
+          "genreProfile": {
+            "en": "Planar fantasy",
+            "cs": "Planární fantasy"
+          },
+          "yearRange": "1999",
+          "note": {
+            "en": "a spiritual predecessor",
+            "cs": "duchovní předchůdce"
+          }
+        },
+        {
+          "id": "pillars-of-eternity",
+          "title": {
+            "en": "Pillars of Eternity",
+            "cs": "Pillars of Eternity"
+          },
+          "genreProfile": {
+            "en": "High fantasy",
+            "cs": "Vysoká fantasy"
+          },
+          "yearRange": "2015–2025",
+          "note": {
+            "en": "consciousness and its vessels",
+            "cs": "vědomí a jeho schránky"
+          }
+        },
+        {
+          "id": "xenoblade",
+          "title": {
+            "en": "Xenoblade",
+            "cs": "Xenoblade"
+          },
+          "genreProfile": {
+            "en": "Science fantasy",
+            "cs": "Science fantasy"
+          },
+          "yearRange": "2010–2023",
+          "note": {
+            "en": "a man who became a god",
+            "cs": "člověk, který se stal bohem"
+          }
+        }
+      ],
+      "core": {
+        "en": "Země za miliardu let, postavená na troskách osmi civilizací – a ty jsi jen tělo, které po sobě odhodil bůh.",
+        "cs": "Země za miliardu let, postavená na troskách osmi civilizací – a ty jsi jen tělo, které po sobě odhodil bůh."
+      },
+      "signatureBullets": [
+        {
+          "en": "Devátý svět. Technika osmi zaniklých civilizací působí jako magie.",
+          "cs": "Devátý svět. Technika osmi zaniklých civilizací působí jako magie."
+        },
+        {
+          "en": "Tělo po bohu. Hrdina je odhozená schránka, kterou Měnící se bůh opustil.",
+          "cs": "Tělo po bohu. Hrdina je odhozená schránka, kterou Měnící se bůh opustil."
+        },
+        {
+          "en": "Přílivy místo dobra a zla. Morálku nahrazuje pět barevných Přílivů motivací.",
+          "cs": "Přílivy místo dobra a zla. Morálku nahrazuje pět barevných Přílivů motivací."
+        },
+        {
+          "en": "Selhání jako příběh. I prohraný boj otevírá novou cestu, ne konec hry.",
+          "cs": "Selhání jako příběh. I prohraný boj otevírá novou cestu, ne konec hry."
+        }
+      ],
+      "metadata": {
+        "genreProfile": {
+          "en": "Science fantasy",
+          "cs": "Science fantasy",
+          "sub": {
+            "en": "overlap: philosophical drama",
+            "cs": "přesah: filozofické drama"
+          }
+        },
+        "atmosphere": {
+          "en": "Fascination",
+          "cs": "Fascinace",
+          "sub": {
+            "en": "secondary: Melancholy",
+            "cs": "vedlejší: Melancholie"
+          }
+        },
+        "spatialScope": {
+          "en": "Region",
+          "cs": "Region",
+          "sub": {
+            "en": "Sagus Cliffs and the Bloom",
+            "cs": "Sagus Cliffs a Bloom"
+          }
+        },
+        "historicalDepth": {
+          "en": "Cosmic",
+          "cs": "Kosmická",
+          "sub": {
+            "en": "a billion years, eight civilizations",
+            "cs": "miliarda let, osm civilizací"
+          }
+        },
+        "societalOrder": {
+          "en": "Fragmented enclaves after collapse",
+          "cs": "Roztříštěné enklávy po kolapsu",
+          "sub": {
+            "en": "the Ninth World on the ruins of eight civilizations",
+            "cs": "Devátý svět na troskách osmi civilizací"
+          }
+        },
+        "sourceOfPower": {
+          "en": "Technology and cybernetics",
+          "cs": "Technologie a kybernetika",
+          "sub": {
+            "en": "the numenera, legacy of past worlds",
+            "cs": "numenera, odkaz minulých světů"
+          }
+        },
+        "protagonistPerspective": {
+          "en": "Pilgrim and outcast on the margins",
+          "cs": "Poutník a psanec na okraji",
+          "sub": {
+            "en": "the Last Castoff",
+            "cs": "Poslední odvržený"
+          }
+        },
+        "keyActors": {
+          "en": "the Changing God · the Sorrow · the castoffs · the living Bloom",
+          "cs": "Měnící se bůh · Trýzeň · odvržení · živoucí Bloom"
+        }
+      },
+      "themes": [
+        "identity-and-existence",
+        "guilt-and-redemption",
+        "discovery",
+        "uncovering-the-past",
+        "death-and-immortality"
+      ],
+      "narration": [
+        "dialogue",
+        "item-descriptions"
+      ],
+      "axes": {
+        "hopeDespair": {
+          "value": 3
+        },
+        "knownUnknown": {
+          "value": 4
+        },
+        "intimateEpic": {
+          "value": 3
+        },
+        "moralClarityAmbiguity": {
+          "value": 3
+        },
+        "realismMetaphysical": {
+          "value": 3
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "Měnící se bůh unikal smrti stěhováním do nových těl – a opuštěné schránky nechával napospas osudu.",
+          "cs": "Měnící se bůh unikal smrti stěhováním do nových těl – a opuštěné schránky nechával napospas osudu."
+        },
+        "centralDilemma": {
+          "en": "Jakou cenu má život, který nevznikl z lásky, ale jako odhozená ulita nesmrtelného?",
+          "cs": "Jakou cenu má život, který nevznikl z lásky, ale jako odhozená ulita nesmrtelného?"
+        },
+        "ultimateMystery": {
+          "en": "Čím bylo osm předchozích civilizací a proč zanikly – a čím je Trýzeň?",
+          "cs": "Čím bylo osm předchozích civilizací a proč zanikly – a čím je Trýzeň?"
+        }
+      },
+      "chronicleSlug": "tides-of-numenera",
+      "chronicleTeaser": {
+        "en": "From the Changing God to the Last Castoff.",
+        "cs": "Od Měnícího se boha po Posledního odvrženého."
+      }
+    },
+    {
+      "id": "undertale",
+      "number": 42,
+      "chapterId": "metaphysical",
+      "addedAt": "2026-11-17",
+      "gameTitle": {
+        "en": "Undertale",
+        "cs": "Undertale"
+      },
+      "chronicleTitle": {
+        "en": "Chronicle of the Underground",
+        "cs": "Kronika Podzemí"
+      },
+      "subtitlePoetic": {
+        "en": "Chronicle of the Underground",
+        "cs": "Kronika Podzemí"
+      },
+      "studios": [
+        "Toby Fox"
+      ],
+      "yearRange": "2015",
+      "canonScope": {
+        "en": "Undertale; Deltarune as context",
+        "cs": "Undertale; kontext Deltarune"
+      },
+      "universe": [
+        {
+          "en": "The Underground",
+          "cs": "Podzemí"
+        }
+      ],
+      "header": {
+        "relatedWorldSlugs": [
+          "inscryption",
+          "hades",
+          "nier-automata"
+        ]
+      },
+      "relatedWorlds": [
+        {
+          "id": "inscryption",
+          "title": {
+            "en": "Inscryption",
+            "cs": "Inscryption"
+          },
+          "genreProfile": {
+            "en": "Metafiction",
+            "cs": "Metafikce"
+          },
+          "yearRange": "2021",
+          "note": {
+            "en": "a game that knows about the player",
+            "cs": "hra, která ví o hráči"
+          }
+        },
+        {
+          "id": "hades",
+          "title": {
+            "en": "Hades",
+            "cs": "Hades"
+          },
+          "genreProfile": {
+            "en": "Mythic fantasy",
+            "cs": "Mytická fantasy"
+          },
+          "yearRange": "2020–2025",
+          "note": {
+            "en": "mercy instead of victory",
+            "cs": "milosrdenství místo vítězství"
+          }
+        },
+        {
+          "id": "nier-automata",
+          "title": {
+            "en": "NieR: Automata",
+            "cs": "NieR: Automata"
+          },
+          "genreProfile": {
+            "en": "Machine apocalypse",
+            "cs": "Apokalypsa strojů"
+          },
+          "yearRange": "2017",
+          "note": {
+            "en": "the player's sacrifice",
+            "cs": "oběť hráče"
+          }
+        }
+      ],
+      "core": {
+        "en": "Svět, kde nikdo nemusí zemřít – a hra si pamatuje, co jste udělali, i když jste se vrátili zpátky.",
+        "cs": "Svět, kde nikdo nemusí zemřít – a hra si pamatuje, co jste udělali, i když jste se vrátili zpátky."
+      },
+      "signatureBullets": [
+        {
+          "en": "Milosrdenství jako mechanika. Každý souboj lze vyřešit bez zabíjení.",
+          "cs": "Milosrdenství jako mechanika. Každý souboj lze vyřešit bez zabíjení."
+        },
+        {
+          "en": "Hra si pamatuje. Postavy vědí o resetech a znovu načtených pozicích.",
+          "cs": "Hra si pamatuje. Postavy vědí o resetech a znovu načtených pozicích."
+        },
+        {
+          "en": "Monstra jako lidé. Nepřátelé jsou laskaví, vtipní a zranitelní.",
+          "cs": "Monstra jako lidé. Nepřátelé jsou laskaví, vtipní a zranitelní."
+        },
+        {
+          "en": "Moc ukládat. Schopnost vracet čas je v příběhu skutečnou a nebezpečnou silou.",
+          "cs": "Moc ukládat. Schopnost vracet čas je v příběhu skutečnou a nebezpečnou silou."
+        }
+      ],
+      "metadata": {
+        "genreProfile": {
+          "en": "Metafiction",
+          "cs": "Metafikce",
+          "sub": {
+            "en": "overlap: fairy-tale fantasy",
+            "cs": "přesah: pohádková fantasy"
+          }
+        },
+        "atmosphere": {
+          "en": "Hope",
+          "cs": "Naděje",
+          "sub": {
+            "en": "secondary: Melancholy",
+            "cs": "vedlejší: Melancholie"
+          }
+        },
+        "spatialScope": {
+          "en": "Region",
+          "cs": "Region",
+          "sub": {
+            "en": "the Underground beneath Mount Ebott",
+            "cs": "Podzemí pod horou Ebott"
+          }
+        },
+        "historicalDepth": {
+          "en": "Historical",
+          "cs": "Historická",
+          "sub": {
+            "en": "since the war between humans and monsters",
+            "cs": "od války lidí a monster"
+          }
+        },
+        "societalOrder": {
+          "en": "A closed microcosm",
+          "cs": "Uzavřený mikrokosmos",
+          "sub": {
+            "en": "the Underground behind a magic barrier",
+            "cs": "Podzemí za kouzelnou bariérou"
+          }
+        },
+        "sourceOfPower": {
+          "en": "The force of mind, faith, and souls",
+          "cs": "Síla mysli, víry a duší",
+          "sub": {
+            "en": "SOULS and DETERMINATION",
+            "cs": "DUŠE a ODHODLÁNÍ"
+          }
+        },
+        "protagonistPerspective": {
+          "en": "The player as part of the world",
+          "cs": "Hráč jako součást světa",
+          "sub": {
+            "en": "Frisk and the player with the power to save",
+            "cs": "Frisk a hráč s mocí ukládat"
+          }
+        },
+        "keyActors": {
+          "en": "King Asgore and the monsters · humans and the barrier · Flowey and Chara · Toriel · Sans",
+          "cs": "král Asgore a monstra · lidé a bariéra · Flowey a Chara · Toriel · Sans"
+        }
+      },
+      "themes": [
+        "free-will-and-fate",
+        "guilt-and-redemption",
+        "identity-and-existence",
+        "friendship-and-fellowship",
+        "humor-irony-exaggeration"
+      ],
+      "narration": [
+        "mechanics-as-meaning",
+        "dialogue"
+      ],
+      "axes": {
+        "hopeDespair": {
+          "value": 2
+        },
+        "knownUnknown": {
+          "value": 3
+        },
+        "intimateEpic": {
+          "value": 1
+        },
+        "moralClarityAmbiguity": {
+          "value": 2
+        },
+        "realismMetaphysical": {
+          "value": 4
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "Lidé zaútočili na monstra kvůli tomu, co by mohla udělat, a zazdili je pod horou Ebott.",
+          "cs": "Lidé zaútočili na monstra kvůli tomu, co by mohla udělat, a zazdili je pod horou Ebott."
+        },
+        "centralDilemma": {
+          "en": "Když máte božskou moc nad časem a životy bez následků, budete laskaví, nebo jen zvědaví?",
+          "cs": "Když máte božskou moc nad časem a životy bez následků, budete laskaví, nebo jen zvědaví?"
+        },
+        "ultimateMystery": {
+          "en": "Kdo je doktor W. D. Gaster a jak souvisí s Deltarune?",
+          "cs": "Kdo je doktor W. D. Gaster a jak souvisí s Deltarune?"
+        }
+      },
+      "chronicleSlug": "undertale",
+      "chronicleTeaser": {
+        "en": "From the war of humans and monsters to a barrier that can fall.",
+        "cs": "Od války lidí a monster po bariéru, která může padnout."
+      }
+    },
+    {
+      "id": "pillars-of-eternity",
+      "number": 43,
+      "chapterId": "fantasy",
+      "addedAt": "2026-11-17",
+      "gameTitle": {
+        "en": "Pillars of Eternity",
+        "cs": "Pillars of Eternity"
+      },
+      "chronicleTitle": {
+        "en": "Chronicle of Eora",
+        "cs": "Kronika Eory"
+      },
+      "subtitlePoetic": {
+        "en": "Chronicle of Eora",
+        "cs": "Kronika Eory"
+      },
+      "studios": [
+        "Obsidian Entertainment"
+      ],
+      "yearRange": "2015–2025",
+      "canonScope": {
+        "en": "Pillars of Eternity I–II with expansions, and Avowed",
+        "cs": "Pillars of Eternity I–II s rozšířeními a Avowed"
+      },
+      "universe": [
+        {
+          "en": "Eora",
+          "cs": "Eora"
+        }
+      ],
+      "header": {
+        "relatedWorldSlugs": [
+          "dragon-age",
+          "planescape-torment",
+          "tides-of-numenera"
+        ]
+      },
+      "relatedWorlds": [
+        {
+          "id": "dragon-age",
+          "title": {
+            "en": "Dragon Age",
+            "cs": "Dragon Age"
+          },
+          "genreProfile": {
+            "en": "Dark fantasy",
+            "cs": "Temná fantasy"
+          },
+          "yearRange": "2009–2024",
+          "note": {
+            "en": "faith built on a lie",
+            "cs": "víra postavená na lži"
+          }
+        },
+        {
+          "id": "planescape-torment",
+          "title": {
+            "en": "Planescape: Torment",
+            "cs": "Planescape: Torment"
+          },
+          "genreProfile": {
+            "en": "Planar fantasy",
+            "cs": "Planární fantasy"
+          },
+          "yearRange": "1999",
+          "note": {
+            "en": "past lives and identity",
+            "cs": "minulé životy a identita"
+          }
+        },
+        {
+          "id": "tides-of-numenera",
+          "title": {
+            "en": "Tides of Numenera",
+            "cs": "Tides of Numenera"
+          },
+          "genreProfile": {
+            "en": "Science fantasy",
+            "cs": "Science fantasy"
+          },
+          "yearRange": "2017",
+          "note": {
+            "en": "consciousness and its vessels",
+            "cs": "vědomí a jeho schránky"
+          }
+        }
+      ],
+      "core": {
+        "en": "Svět, v němž víra drží pohromadě celou společnost – i když jsou bohové jen dokonale postavená lež.",
+        "cs": "Svět, v němž víra drží pohromadě celou společnost – i když jsou bohové jen dokonale postavená lež."
+      },
+      "signatureBullets": [
+        {
+          "en": "Vyrobení bohové. Panteon postavili Engwithané z duší vlastního národa.",
+          "cs": "Vyrobení bohové. Panteon postavili Engwithané z duší vlastního národa."
+        },
+        {
+          "en": "Duše jako věda. Animancie zkoumá duše jako přírodní jev a lidé se jí bojí.",
+          "cs": "Duše jako věda. Animancie zkoumá duše jako přírodní jev a lidé se jí bojí."
+        },
+        {
+          "en": "Strážce minulých životů. Hrdina vidí vzpomínky cizích duší i svých minulých životů.",
+          "cs": "Strážce minulých životů. Hrdina vidí vzpomínky cizích duší i svých minulých životů."
+        },
+        {
+          "en": "Bůh, který rozbil Kolo. Eothas ve druhém díle zničí koloběh reinkarnace.",
+          "cs": "Bůh, který rozbil Kolo. Eothas ve druhém díle zničí koloběh reinkarnace."
+        }
+      ],
+      "metadata": {
+        "genreProfile": {
+          "en": "High fantasy",
+          "cs": "Vysoká fantasy",
+          "sub": {
+            "en": "overlap: philosophical fantasy",
+            "cs": "přesah: filozofická fantasy"
+          }
+        },
+        "atmosphere": {
+          "en": "Melancholy",
+          "cs": "Melancholie",
+          "sub": {
+            "en": "secondary: Fascination",
+            "cs": "vedlejší: Fascinace"
+          }
+        },
+        "spatialScope": {
+          "en": "Region",
+          "cs": "Region",
+          "sub": {
+            "en": "the Dyrwood and the Deadfire",
+            "cs": "Dyrwood a Deadfire"
+          }
+        },
+        "historicalDepth": {
+          "en": "Civilizational",
+          "cs": "Civilizační",
+          "sub": {
+            "en": "since the empire of the Engwithans",
+            "cs": "od říše Engwithanů"
+          }
+        },
+        "societalOrder": {
+          "en": "Contending realms and nations",
+          "cs": "Zápasící říše a národy",
+          "sub": {
+            "en": "the Dyrwood, Readceras, and the Vailian Republics",
+            "cs": "Dyrwood, Readceras a Vailyjské republiky"
+          }
+        },
+        "sourceOfPower": {
+          "en": "The force of mind, faith, and souls",
+          "cs": "Síla mysli, víry a duší",
+          "sub": {
+            "en": "souls, animancy, and gods made of souls",
+            "cs": "duše, animancie a bohové z duší"
+          }
+        },
+        "protagonistPerspective": {
+          "en": "Investigator and seeker of truth",
+          "cs": "Vyšetřovatel a hledač pravdy",
+          "sub": {
+            "en": "the Watcher, who reads souls and searches the past",
+            "cs": "Pozorovatel, který čte duše a pátrá po minulosti"
+          }
+        },
+        "keyActors": {
+          "en": "the artificial gods of the pantheon · the machines of the Engwithans · the Wheel of soul reincarnation · Thaos and the Leaden Key · Eothas",
+          "cs": "umělí bohové panteonu · stroje Engwithanů · Kolo reinkarnace duší · Thaos a Olověný klíč · Eothas"
+        }
+      },
+      "themes": [
+        "faith",
+        "identity-and-existence",
+        "uncovering-the-past",
+        "gods",
+        "death-and-immortality"
+      ],
+      "narration": [
+        "dialogue",
+        "books-and-documents"
+      ],
+      "axes": {
+        "hopeDespair": {
+          "value": 3
+        },
+        "knownUnknown": {
+          "value": 3
+        },
+        "intimateEpic": {
+          "value": 4
+        },
+        "moralClarityAmbiguity": {
+          "value": 4
+        },
+        "realismMetaphysical": {
+          "value": 4
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "Engwithané zjistili, že nebesa jsou prázdná, a ze strachu z chaosu vyrobili bohy z duší vlastního národa.",
+          "cs": "Engwithané zjistili, že nebesa jsou prázdná, a ze strachu z chaosu vyrobili bohy z duší vlastního národa."
+        },
+        "centralDilemma": {
+          "en": "Jak žít a věřit, když jsou bohové jen strojem, který má lidstvo udržet v poslušnosti?",
+          "cs": "Jak žít a věřit, když jsou bohové jen strojem, který má lidstvo udržet v poslušnosti?"
+        },
+        "ultimateMystery": {
+          "en": "Co leželo pod Kolem před Engwithany – a jak bude fungovat svět bez něj?",
+          "cs": "Co leželo pod Kolem před Engwithany – a jak bude fungovat svět bez něj?"
+        }
+      },
+      "chronicleSlug": "pillars-of-eternity",
+      "chronicleTeaser": {
+        "en": "From the Engwithans to the broken Wheel.",
+        "cs": "Od Engwithanů po rozbité Kolo."
+      }
+    },
+    {
       "id": "vzorek-fantasy",
       "number": 90,
       "chapterId": "fantasy",
