@@ -259,11 +259,6 @@ export const ui: Record<Locale, UiTree> = {
     stub: {
       coming: 'Připravujeme',
     },
-    anatomy: {
-      title: 'Anatomie herního lore',
-      back: 'Zpět na atlas',
-      toc: 'Obsah',
-    },
     notes: {
       title: 'Vysvětlivky',
       back: 'Zpět na atlas',
@@ -555,11 +550,6 @@ Berte prosím tento atlas jako skromnou poctu všem scenáristům, designérům 
     },
     stub: {
       coming: 'Coming soon',
-    },
-    anatomy: {
-      title: 'Anatomy of game lore',
-      back: 'Back to the atlas',
-      toc: 'Contents',
     },
     notes: {
       title: 'Notes',

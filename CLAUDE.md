@@ -35,9 +35,9 @@ Příkazy: `npm run dev` · `npm run build` · `npm test` · `npm run import:chr
 | `data/meta/unmapped-stars.json` | Šedé hvězdy na mapě. |
 | `data/meta/notes.ts` | Texty Vysvětlivek. |
 | `content/chronicles/*.md` | Kroniky. Načítá `src/lib/chronicles.ts` (lazy raw import). |
-| `content/anatomy/*.md` | Anatomie herního lore — zatím prázdné. |
+| `content/essays/*.md` | Esej Anatomie herního lore (`/anatomie-herniho-lore/`). |
 
-Kroniky a anatomie **nejsou** v `data/`.
+Kroniky a eseje **nejsou** v `data/`.
 
 ### Schéma světa (`src/schemas/world.ts`)
 
@@ -65,7 +65,7 @@ Kroniky a anatomie **nejsou** v `data/`.
 | `/worlds/[slug]/` | `src/pages/worlds/[slug].astro` | `WorldPageShell` |
 | `/about/` | `src/pages/about/index.astro` | `AboutPage` |
 | `/notes/` | `src/pages/notes/index.astro` | `NotesPage` |
-| `/anatomy/` | `src/pages/anatomy/index.astro` | `AnatomyPage` — zatím placeholder |
+| `/anatomie-herniho-lore/` | `src/pages/anatomie-herniho-lore/index.astro` | `EssayPage` |
 | `/contact/` | `src/pages/contact/index.astro` | `ContactPage` |
 
 Layout: `src/layouts/BaseLayout.astro` — header/footer, theme/lang FOUC, globální `CompareTray`.
