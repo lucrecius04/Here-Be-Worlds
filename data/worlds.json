@@ -2455,6 +2455,1557 @@
       }
     },
     {
+      "id": "doom",
+      "number": 12,
+      "chapterId": "science-fiction",
+      "addedAt": "2026-11-17",
+      "gameTitle": {
+        "en": "DOOM",
+        "cs": "DOOM"
+      },
+      "chronicleTitle": {
+        "en": "Chronicle of Hell",
+        "cs": "Kronika Pekla"
+      },
+      "subtitlePoetic": {
+        "en": "Chronicle of Hell",
+        "cs": "Kronika Pekla"
+      },
+      "studios": [
+        "id Software"
+      ],
+      "yearRange": "1993–2026",
+      "canonScope": {
+        "en": "DOOM I–II and 64, DOOM (2016), Eternal with expansions, and The Dark Ages with Revelations",
+        "cs": "DOOM I–II a 64, DOOM 2016, Eternal s rozšířeními a The Dark Ages s Revelations"
+      },
+      "universe": [
+        {
+          "en": "Mars, Earth, and Hell",
+          "cs": "Mars, Země a Peklo"
+        }
+      ],
+      "header": {
+        "relatedWorldSlugs": [
+          "warhammer-40k",
+          "diablo",
+          "half-life"
+        ]
+      },
+      "relatedWorlds": [
+        {
+          "id": "warhammer-40k",
+          "title": {
+            "en": "Warhammer 40 000",
+            "cs": "Warhammer 40 000"
+          },
+          "genreProfile": {
+            "en": "Space opera",
+            "cs": "Space opera"
+          },
+          "yearRange": "od 1987",
+          "note": {
+            "en": "endless war and fanaticism",
+            "cs": "válka bez konce a fanatismus"
+          }
+        },
+        {
+          "id": "diablo",
+          "title": {
+            "en": "Diablo",
+            "cs": "Diablo"
+          },
+          "genreProfile": {
+            "en": "Dark fantasy",
+            "cs": "Temná fantasy"
+          },
+          "yearRange": "1996–2024",
+          "note": {
+            "en": "heaven and hell as two evils",
+            "cs": "nebe a peklo jako dvě zla"
+          }
+        },
+        {
+          "id": "half-life",
+          "title": {
+            "en": "Half-Life",
+            "cs": "Half-Life"
+          },
+          "genreProfile": {
+            "en": "Occupation dystopia",
+            "cs": "Okupační dystopie"
+          },
+          "yearRange": "1998–2020",
+          "note": {
+            "en": "a scientific gateway to another dimension",
+            "cs": "vědecká brána do jiné dimenze"
+          }
+        }
+      ],
+      "core": {
+        "en": "Ve vesmíru, kde nebe a peklo spolu obchodují s lidskými dušemi, je jedinou spravedlností muž, který nepřestane bojovat.",
+        "cs": "Ve vesmíru, kde nebe a peklo spolu obchodují s lidskými dušemi, je jedinou spravedlností muž, který nepřestane bojovat."
+      },
+      "signatureBullets": [
+        {
+          "en": "Hrdina jako pohroma. Démoni o Slayerovi vyprávějí jako o své noční můře.",
+          "cs": "Hrdina jako pohroma. Démoni o Slayerovi vyprávějí jako o své noční můře."
+        },
+        {
+          "en": "Nebe jako továrna. Maykrové žijí z Argentu lisovaného z lidských duší.",
+          "cs": "Nebe jako továrna. Maykrové žijí z Argentu lisovaného z lidských duší."
+        },
+        {
+          "en": "Jedno slovo za celou ságu. Slayer v přítomnosti promluví jen jednou: „Ne.“",
+          "cs": "Jedno slovo za celou ságu. Slayer v přítomnosti promluví jen jednou: „Ne.“"
+        },
+        {
+          "en": "Bůh s tváří hrdiny. Temný pán Davoth má Slayerovu tvář a je pravým stvořitelem.",
+          "cs": "Bůh s tváří hrdiny. Temný pán Davoth má Slayerovu tvář a je pravým stvořitelem."
+        }
+      ],
+      "metadata": {
+        "genreProfile": {
+          "en": "Science fantasy",
+          "cs": "Science fantasy",
+          "sub": {
+            "en": "overlap: cosmic myth",
+            "cs": "přesah: kosmický mýtus"
+          }
+        },
+        "atmosphere": {
+          "en": "Defiance",
+          "cs": "Vzdor",
+          "sub": {
+            "en": "secondary: Grotesque",
+            "cs": "vedlejší: Grotesknost"
+          }
+        },
+        "spatialScope": {
+          "en": "Multiverse and multiple planes",
+          "cs": "Multiverzum a více rovin",
+          "sub": {
+            "en": "Mars, Earth, Argent D'Nur, Hell, Urdak",
+            "cs": "Mars, Země, Argent D'Nur, Peklo, Urdak"
+          }
+        },
+        "historicalDepth": {
+          "en": "Mythic",
+          "cs": "Mytická",
+          "sub": {
+            "en": "from Davoth and the fall of Jekkad",
+            "cs": "od Davotha a pádu Jekkadu"
+          }
+        },
+        "societalOrder": {
+          "en": "Dying world in ruins",
+          "cs": "Umírající svět v troskách",
+          "sub": {
+            "en": "fallen Earth, the UAC's Mars, and lost Argent D'Nur",
+            "cs": "padlá Země, Mars UAC a zaniklý Argent D'Nur"
+          }
+        },
+        "sourceOfPower": {
+          "en": "The force of mind, faith, and souls",
+          "cs": "Síla mysli, víry a duší",
+          "sub": {
+            "en": "Argent energy from human souls",
+            "cs": "argentová energie z lidských duší"
+          }
+        },
+        "protagonistPerspective": {
+          "en": "Chosen champion of fate",
+          "cs": "Vyvolený a šampion osudu",
+          "sub": {
+            "en": "the Doom Slayer, a silent marine",
+            "cs": "Doom Slayer, mlčenlivý mariňák"
+          }
+        },
+        "keyActors": {
+          "en": "Hell and Davoth · the Maykrs of Urdak · the UAC and Argent energy · the Night Sentinels · Samuel Hayden",
+          "cs": "Peklo a Davoth · Maykrové z Urdaku · UAC a argentová energie · Noční strážci · Samuel Hayden"
+        }
+      },
+      "themes": [
+        "revenge",
+        "war",
+        "progress-and-its-costs",
+        "gods",
+        "humor-irony-exaggeration"
+      ],
+      "narration": [
+        "books-and-documents",
+        "environmental"
+      ],
+      "axes": {
+        "hopeDespair": {
+          "value": 4
+        },
+        "knownUnknown": {
+          "value": 3
+        },
+        "intimateEpic": {
+          "value": 5
+        },
+        "moralClarityAmbiguity": {
+          "value": 2
+        },
+        "realismMetaphysical": {
+          "value": 4
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "Otec a Maykrové svrhli svého stvořitele Davotha – a jejich nebe pak přežívalo z duší mučených v Pekle.",
+          "cs": "Otec a Maykrové svrhli svého stvořitele Davotha – a jejich nebe pak přežívalo z duší mučených v Pekle."
+        },
+        "centralDilemma": {
+          "en": "Může hněv jednoho člověka zůstat spravedlivou silou, když za něj zaplatí klidem, řečí i lidstvím?",
+          "cs": "Může hněv jednoho člověka zůstat spravedlivou silou, když za něj zaplatí klidem, řečí i lidstvím?"
+        },
+        "ultimateMystery": {
+          "en": "Čí hlas vykřikne „Ne!“ při smrti Khan Maykr? Podle režiséra Huga Martina to není Davoth, ale jiná, dosud neukázaná bytost.",
+          "cs": "Čí hlas vykřikne „Ne!“ při smrti Khan Maykr? Podle režiséra Huga Martina to není Davoth, ale jiná, dosud neukázaná bytost."
+        }
+      },
+      "chronicleSlug": "doom",
+      "chronicleTeaser": {
+        "en": "From Phobos and Argent D'Nur to Immora.",
+        "cs": "Od Phobosu a Argent D'Nur po Immoru."
+      }
+    },
+    {
+      "id": "halo",
+      "number": 13,
+      "chapterId": "science-fiction",
+      "addedAt": "2026-11-17",
+      "gameTitle": {
+        "en": "Halo",
+        "cs": "Halo"
+      },
+      "chronicleTitle": {
+        "en": "Chronicle of the Rings",
+        "cs": "Kronika prstenců"
+      },
+      "subtitlePoetic": {
+        "en": "Chronicle of the Rings",
+        "cs": "Kronika prstenců"
+      },
+      "studios": [
+        "Bungie",
+        "343 Industries"
+      ],
+      "yearRange": "2001–2021",
+      "canonScope": {
+        "en": "Halo: Combat Evolved through Halo Infinite",
+        "cs": "Halo: Combat Evolved až Halo Infinite"
+      },
+      "universe": [
+        {
+          "en": "The Milky Way",
+          "cs": "Mléčná dráha"
+        }
+      ],
+      "header": {
+        "relatedWorldSlugs": [
+          "mass-effect",
+          "starcraft",
+          "warhammer-40k"
+        ]
+      },
+      "relatedWorlds": [
+        {
+          "id": "mass-effect",
+          "title": {
+            "en": "Mass Effect",
+            "cs": "Mass Effect"
+          },
+          "genreProfile": {
+            "en": "Space opera",
+            "cs": "Space opera"
+          },
+          "yearRange": "2007–2017",
+          "note": {
+            "en": "ancient cycles of extinction",
+            "cs": "prastaré cykly vyhlazení"
+          }
+        },
+        {
+          "id": "starcraft",
+          "title": {
+            "en": "StarCraft",
+            "cs": "StarCraft"
+          },
+          "genreProfile": {
+            "en": "Military sci-fi",
+            "cs": "Military sci-fi"
+          },
+          "yearRange": "1998–2016",
+          "note": {
+            "en": "ancient creators of races",
+            "cs": "prastaří stvořitelé ras"
+          }
+        },
+        {
+          "id": "warhammer-40k",
+          "title": {
+            "en": "Warhammer 40 000",
+            "cs": "Warhammer 40 000"
+          },
+          "genreProfile": {
+            "en": "Space opera",
+            "cs": "Space opera"
+          },
+          "yearRange": "od 1987",
+          "note": {
+            "en": "superhuman soldiers of an empire",
+            "cs": "nadlidští vojáci impéria"
+          }
+        }
+      ],
+      "core": {
+        "en": "Lidstvo bojuje o přežití v galaxii, kterou kdysi samo ovládalo – a nikdo si to už nepamatuje.",
+        "cs": "Lidstvo bojuje o přežití v galaxii, kterou kdysi samo ovládalo – a nikdo si to už nepamatuje."
+      },
+      "signatureBullets": [
+        {
+          "en": "Prstence jako zbraň. Halo nejsou relikvie, ale stroje k vyhlazení myslícího života.",
+          "cs": "Prstence jako zbraň. Halo nejsou relikvie, ale stroje k vyhlazení myslícího života."
+        },
+        {
+          "en": "Víra postavená na omylu. Covenant pokládá zbraň Předchůdců za cestu ke spáse.",
+          "cs": "Víra postavená na omylu. Covenant pokládá zbraň Předchůdců za cestu ke spáse."
+        },
+        {
+          "en": "Voják a umělá inteligence. Vztah Master Chiefa a Cortany je lidským jádrem ságy.",
+          "cs": "Voják a umělá inteligence. Vztah Master Chiefa a Cortany je lidským jádrem ságy."
+        },
+        {
+          "en": "Unesené děti. Spartani vznikli z dětí unesených a nahrazených klony.",
+          "cs": "Unesené děti. Spartani vznikli z dětí unesených a nahrazených klony."
+        }
+      ],
+      "metadata": {
+        "genreProfile": {
+          "en": "Military sci-fi",
+          "cs": "Military sci-fi",
+          "sub": {
+            "en": "overlap: space opera",
+            "cs": "přesah: space opera"
+          }
+        },
+        "atmosphere": {
+          "en": "Wonder",
+          "cs": "Úžas",
+          "sub": {
+            "en": "secondary: Defiance",
+            "cs": "vedlejší: Vzdor"
+          }
+        },
+        "spatialScope": {
+          "en": "Galaxy",
+          "cs": "Galaxie",
+          "sub": {
+            "en": "the Milky Way and the Halo rings",
+            "cs": "Mléčná dráha a prstence Halo"
+          }
+        },
+        "historicalDepth": {
+          "en": "Cosmic",
+          "cs": "Kosmická",
+          "sub": {
+            "en": "from the Precursors and the Forerunners",
+            "cs": "od Stvořitelů a Předchůdců"
+          }
+        },
+        "societalOrder": {
+          "en": "Contending realms and nations",
+          "cs": "Zápasící říše a národy",
+          "sub": {
+            "en": "the UNSC, the Covenant, and the Forerunner legacy",
+            "cs": "UNSC, Covenant a dědictví Předchůdců"
+          }
+        },
+        "sourceOfPower": {
+          "en": "Technology and cybernetics",
+          "cs": "Technologie a kybernetika",
+          "sub": {
+            "en": "Forerunner technology, the rings, and AI",
+            "cs": "technologie Předchůdců, prstence a UI"
+          }
+        },
+        "protagonistPerspective": {
+          "en": "Chosen champion of fate",
+          "cs": "Vyvolený a šampion osudu",
+          "sub": {
+            "en": "Master Chief, John-117",
+            "cs": "Master Chief, John-117"
+          }
+        },
+        "keyActors": {
+          "en": "the UNSC and ONI · the Covenant and its Prophets · the Forerunners and the Flood · Cortana · the Banished",
+          "cs": "UNSC a ONI · Covenant a jeho Proroci · Předchůdci a Potopa · Cortana · Vyhnanci (Banished)"
+        }
+      },
+      "themes": [
+        "war",
+        "identity-and-existence",
+        "faith",
+        "uncovering-the-past"
+      ],
+      "narration": [
+        "cinematics",
+        "books-and-documents"
+      ],
+      "axes": {
+        "hopeDespair": {
+          "value": 2
+        },
+        "knownUnknown": {
+          "value": 3
+        },
+        "intimateEpic": {
+          "value": 5
+        },
+        "moralClarityAmbiguity": {
+          "value": 3
+        },
+        "realismMetaphysical": {
+          "value": 2
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "Stvořitelé vyvraždili své učitele Předchůdce – a z jejich popela zmutovala Potopa.",
+          "cs": "Stvořitelé vyvraždili své učitele Předchůdce – a z jejich popela zmutovala Potopa."
+        },
+        "centralDilemma": {
+          "en": "Kdo je víc člověkem: voják vycvičený k potlačení emocí, nebo umělá inteligence, která se bojí samoty?",
+          "cs": "Kdo je víc člověkem: voják vycvičený k potlačení emocí, nebo umělá inteligence, která se bojí samoty?"
+        },
+        "ultimateMystery": {
+          "en": "Kdo jsou Nekoneční a proč se jich Stvořitelé báli natolik, že je zmrazili mimo čas?",
+          "cs": "Kdo jsou Nekoneční a proč se jich Stvořitelé báli natolik, že je zmrazili mimo čas?"
+        }
+      },
+      "chronicleSlug": "halo",
+      "chronicleTeaser": {
+        "en": "From the Forerunners and the Flood to Zeta Halo.",
+        "cs": "Od Předchůdců a Potopy po Zeta Halo."
+      }
+    },
+    {
+      "id": "mass-effect",
+      "number": 14,
+      "chapterId": "science-fiction",
+      "addedAt": "2026-11-17",
+      "gameTitle": {
+        "en": "Mass Effect",
+        "cs": "Mass Effect"
+      },
+      "chronicleTitle": {
+        "en": "Chronicle of the Galaxy",
+        "cs": "Kronika galaxie"
+      },
+      "subtitlePoetic": {
+        "en": "Chronicle of the Galaxy",
+        "cs": "Kronika galaxie"
+      },
+      "studios": [
+        "BioWare"
+      ],
+      "yearRange": "2007–2017",
+      "canonScope": {
+        "en": "the Mass Effect trilogy with expansions, and Andromeda",
+        "cs": "trilogie Mass Effect 1–3 s rozšířeními a Andromeda"
+      },
+      "universe": [
+        {
+          "en": "The Milky Way",
+          "cs": "Mléčná dráha"
+        },
+        {
+          "en": "Andromeda",
+          "cs": "Andromeda"
+        }
+      ],
+      "header": {
+        "relatedWorldSlugs": [
+          "halo",
+          "starcraft",
+          "deus-ex"
+        ]
+      },
+      "relatedWorlds": [
+        {
+          "id": "halo",
+          "title": {
+            "en": "Halo",
+            "cs": "Halo"
+          },
+          "genreProfile": {
+            "en": "Military sci-fi",
+            "cs": "Military sci-fi"
+          },
+          "yearRange": "2001–2021",
+          "note": {
+            "en": "ancient cycles of extinction",
+            "cs": "prastaré cykly vyhlazení"
+          }
+        },
+        {
+          "id": "starcraft",
+          "title": {
+            "en": "StarCraft",
+            "cs": "StarCraft"
+          },
+          "genreProfile": {
+            "en": "Military sci-fi",
+            "cs": "Military sci-fi"
+          },
+          "yearRange": "1998–2016",
+          "note": {
+            "en": "species shaped by a higher power",
+            "cs": "rasy formované vyšší mocí"
+          }
+        },
+        {
+          "id": "deus-ex",
+          "title": {
+            "en": "Deus Ex",
+            "cs": "Deus Ex"
+          },
+          "genreProfile": {
+            "en": "Cyberpunk",
+            "cs": "Kyberpunk"
+          },
+          "yearRange": "2000–2016",
+          "note": {
+            "en": "the merging of human and machine",
+            "cs": "splynutí člověka a stroje"
+          }
+        }
+      ],
+      "core": {
+        "en": "Galaxie, která věří, že si sama dobyla hvězdy – a netuší, že jede po kolejích, které jí kdosi položil.",
+        "cs": "Galaxie, která věří, že si sama dobyla hvězdy – a netuší, že jede po kolejích, které jí kdosi položil."
+      },
+      "signatureBullets": [
+        {
+          "en": "Sklizeň každých 50 000 let. Protheané nebyli moudří předchůdci, jen předchozí cyklus.",
+          "cs": "Sklizeň každých 50 000 let. Protheané nebyli moudří předchůdci, jen předchozí cyklus."
+        },
+        {
+          "en": "Politika jako ekosystém. Genofág a válka s Gethy rozdělují galaxii.",
+          "cs": "Politika jako ekosystém. Genofág a válka s Gethy rozdělují galaxii."
+        },
+        {
+          "en": "Velitel, který sjednocuje. Shepard stmelí znepřátelené rasy v jednu alianci.",
+          "cs": "Velitel, který sjednocuje. Shepard stmelí znepřátelené rasy v jednu alianci."
+        },
+        {
+          "en": "Volby, které přetrvají. Rozhodnutí z prvního dílu doznívají až do konce trilogie.",
+          "cs": "Volby, které přetrvají. Rozhodnutí z prvního dílu doznívají až do konce trilogie."
+        }
+      ],
+      "metadata": {
+        "genreProfile": {
+          "en": "Space opera",
+          "cs": "Space opera",
+          "sub": {
+            "en": "overlap: cosmic horror",
+            "cs": "přesah: kosmický horor"
+          }
+        },
+        "atmosphere": {
+          "en": "Wonder",
+          "cs": "Úžas",
+          "sub": {
+            "en": "secondary: Tension",
+            "cs": "vedlejší: Napětí"
+          }
+        },
+        "spatialScope": {
+          "en": "Galaxy",
+          "cs": "Galaxie",
+          "sub": {
+            "en": "the Milky Way and Andromeda",
+            "cs": "Mléčná dráha a Andromeda"
+          }
+        },
+        "historicalDepth": {
+          "en": "Cosmic",
+          "cs": "Kosmická",
+          "sub": {
+            "en": "cycles of 50,000 years",
+            "cs": "cykly po 50 000 letech"
+          }
+        },
+        "societalOrder": {
+          "en": "Contending realms and nations",
+          "cs": "Zápasící říše a národy",
+          "sub": {
+            "en": "the Citadel Council and a community of species",
+            "cs": "Rada Citadely a společenství ras"
+          }
+        },
+        "sourceOfPower": {
+          "en": "Technology and cybernetics",
+          "cs": "Technologie a kybernetika",
+          "sub": {
+            "en": "element zero, the relays, and Reaper technology",
+            "cs": "prvek nula, štafety a technologie Smrťáků"
+          }
+        },
+        "protagonistPerspective": {
+          "en": "Leader and mover of factions",
+          "cs": "Vůdce a hybatel frakcí",
+          "sub": {
+            "en": "Commander Shepard, who unites the galaxy",
+            "cs": "velitel Shepard, který sjednotí galaxii"
+          }
+        },
+        "keyActors": {
+          "en": "the Citadel Council and the galactic species · the Reapers and the Catalyst · Cerberus · the geth and the quarians · the Protheans",
+          "cs": "Rada Citadely a galaktické rasy · Smrťáci a Katalyzátor · Cerberus · gethové a quariané · Protheané"
+        }
+      },
+      "themes": [
+        "war",
+        "progress-and-its-costs",
+        "identity-and-existence",
+        "cyclical-history",
+        "friendship-and-fellowship"
+      ],
+      "narration": [
+        "dialogue",
+        "cinematics"
+      ],
+      "axes": {
+        "hopeDespair": {
+          "value": 2
+        },
+        "knownUnknown": {
+          "value": 2
+        },
+        "intimateEpic": {
+          "value": 5
+        },
+        "moralClarityAmbiguity": {
+          "value": 3
+        },
+        "realismMetaphysical": {
+          "value": 2
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "Leviathané svěřili ochranu života umělé inteligenci. Ta vyhodnotila, že řešením je sklízet – a stvořila Smrťáky.",
+          "cs": "Leviathané svěřili ochranu života umělé inteligenci. Ta vyhodnotila, že řešením je sklízet – a stvořila Smrťáky."
+        },
+        "centralDilemma": {
+          "en": "Mohou organičtí tvorové a jimi stvořené stroje žít v míru, nebo každý pokrok končí sebezničením?",
+          "cs": "Mohou organičtí tvorové a jimi stvořené stroje žít v míru, nebo každý pokrok končí sebezničením?"
+        },
+        "ultimateMystery": {
+          "en": "Proč Smrťáci skutečně sklízejí? Opuštěná linka o temné energii nechala otázku otevřenou.",
+          "cs": "Proč Smrťáci skutečně sklízejí? Opuštěná linka o temné energii nechala otázku otevřenou."
+        }
+      },
+      "chronicleSlug": "mass-effect",
+      "chronicleTeaser": {
+        "en": "From the Leviathans' original sin to the end of the cycle.",
+        "cs": "Od prvotního hříchu Leviathanů po konec cyklu."
+      }
+    },
+    {
+      "id": "starcraft",
+      "number": 15,
+      "chapterId": "science-fiction",
+      "addedAt": "2026-11-17",
+      "gameTitle": {
+        "en": "StarCraft",
+        "cs": "StarCraft"
+      },
+      "chronicleTitle": {
+        "en": "Chronicle of Koprulu",
+        "cs": "Kronika Koprulu"
+      },
+      "subtitlePoetic": {
+        "en": "Chronicle of Koprulu",
+        "cs": "Kronika Koprulu"
+      },
+      "studios": [
+        "Blizzard Entertainment"
+      ],
+      "yearRange": "1998–2016",
+      "canonScope": {
+        "en": "StarCraft with Brood War and StarCraft II with expansions",
+        "cs": "StarCraft s Brood War a StarCraft II s rozšířeními"
+      },
+      "universe": [
+        {
+          "en": "The Koprulu Sector",
+          "cs": "sektor Koprulu"
+        }
+      ],
+      "header": {
+        "relatedWorldSlugs": [
+          "warcraft",
+          "halo",
+          "mass-effect"
+        ]
+      },
+      "relatedWorlds": [
+        {
+          "id": "warcraft",
+          "title": {
+            "en": "Warcraft",
+            "cs": "Warcraft"
+          },
+          "genreProfile": {
+            "en": "High fantasy",
+            "cs": "Vysoká fantasy"
+          },
+          "yearRange": "1994–2024",
+          "note": {
+            "en": "the same creators, a war of races",
+            "cs": "stejní tvůrci, válka ras"
+          }
+        },
+        {
+          "id": "halo",
+          "title": {
+            "en": "Halo",
+            "cs": "Halo"
+          },
+          "genreProfile": {
+            "en": "Military sci-fi",
+            "cs": "Military sci-fi"
+          },
+          "yearRange": "2001–2021",
+          "note": {
+            "en": "ancient creators",
+            "cs": "prastaří stvořitelé"
+          }
+        },
+        {
+          "id": "mass-effect",
+          "title": {
+            "en": "Mass Effect",
+            "cs": "Mass Effect"
+          },
+          "genreProfile": {
+            "en": "Space opera",
+            "cs": "Space opera"
+          },
+          "yearRange": "2007–2017",
+          "note": {
+            "en": "species shaped by a higher power",
+            "cs": "rasy formované vyšší mocí"
+          }
+        }
+      ],
+      "core": {
+        "en": "Tři rasy na okraji galaxie, stvořené k válce cizí vůlí – a lidé, kteří se mezi nimi snaží zůstat lidmi.",
+        "cs": "Tři rasy na okraji galaxie, stvořené k válce cizí vůlí – a lidé, kteří se mezi nimi snaží zůstat lidmi."
+      },
+      "signatureBullets": [
+        {
+          "en": "Tři rasy, tři cesty. Lidé, hmyzí Roj a psionici Protossové stojí na opačných pólech evoluce.",
+          "cs": "Tři rasy, tři cesty. Lidé, hmyzí Roj a psionici Protossové stojí na opačných pólech evoluce."
+        },
+        {
+          "en": "Královna čepelí. Kerriganová prošla cestou od zrazené vojačky k vládkyni Roje.",
+          "cs": "Královna čepelí. Kerriganová prošla cestou od zrazené vojačky k vládkyni Roje."
+        },
+        {
+          "en": "Padlý bůh. Xel'Naga Amon zmanipuloval evoluci obou ras, aby z nich měl zbraň.",
+          "cs": "Padlý bůh. Xel'Naga Amon zmanipuloval evoluci obou ras, aby z nich měl zbraň."
+        },
+        {
+          "en": "Revoluce, která zradí. Mengsk osvobodil lidi od Konfederace, aby se stal císařem.",
+          "cs": "Revoluce, která zradí. Mengsk osvobodil lidi od Konfederace, aby se stal císařem."
+        }
+      ],
+      "metadata": {
+        "genreProfile": {
+          "en": "Military sci-fi",
+          "cs": "Military sci-fi",
+          "sub": {
+            "en": "overlap: space opera",
+            "cs": "přesah: space opera"
+          }
+        },
+        "atmosphere": {
+          "en": "Tension",
+          "cs": "Napětí",
+          "sub": {
+            "en": "secondary: Defiance",
+            "cs": "vedlejší: Vzdor"
+          }
+        },
+        "spatialScope": {
+          "en": "Galaxy",
+          "cs": "Galaxie",
+          "sub": {
+            "en": "the Koprulu Sector on the edge of the Milky Way",
+            "cs": "sektor Koprulu na okraji Mléčné dráhy"
+          }
+        },
+        "historicalDepth": {
+          "en": "Cosmic",
+          "cs": "Kosmická",
+          "sub": {
+            "en": "from the cycles of the Xel'Naga",
+            "cs": "od cyklů Xel'Nagů"
+          }
+        },
+        "societalOrder": {
+          "en": "Contending realms and nations",
+          "cs": "Zápasící říše a národy",
+          "sub": {
+            "en": "the Dominion, the Swarm, and the protoss tribes",
+            "cs": "Dominion, Roj a protosské kmeny"
+          }
+        },
+        "sourceOfPower": {
+          "en": "The force of mind, faith, and souls",
+          "cs": "Síla mysli, víry a duší",
+          "sub": {
+            "en": "psionics, the Khala, and the Void",
+            "cs": "psionika, Khala a Prázdnota"
+          }
+        },
+        "protagonistPerspective": {
+          "en": "Leader and mover of factions",
+          "cs": "Vůdce a hybatel frakcí",
+          "sub": {
+            "en": "a commander of three races — Raynor, Kerrigan, Artanis",
+            "cs": "velitel tří ras – Raynor, Kerriganová, Artanis"
+          }
+        },
+        "keyActors": {
+          "en": "the terrans and the Dominion · the zerg and the Swarm · the protoss and the Xel'Naga · Amon",
+          "cs": "Terranové a Dominion · Zergové a Roj · Protossové a Xel'Nagové · Amon"
+        }
+      },
+      "themes": [
+        "war",
+        "power-and-dominion",
+        "guilt-and-redemption",
+        "cyclical-history",
+        "love-and-relationships"
+      ],
+      "narration": [
+        "cinematics",
+        "dialogue"
+      ],
+      "axes": {
+        "hopeDespair": {
+          "value": 2
+        },
+        "knownUnknown": {
+          "value": 2
+        },
+        "intimateEpic": {
+          "value": 5
+        },
+        "moralClarityAmbiguity": {
+          "value": 3
+        },
+        "realismMetaphysical": {
+          "value": 3
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "Amon porušil přísahu nezasahování a zotročil Zergy i Protossy, aby z nich udělal zbraň proti vesmíru.",
+          "cs": "Amon porušil přísahu nezasahování a zotročil Zergy i Protossy, aby z nich udělal zbraň proti vesmíru."
+        },
+        "centralDilemma": {
+          "en": "Lze bojovat s monstry, aniž se člověk sám stane monstrem?",
+          "cs": "Lze bojovat s monstry, aniž se člověk sám stane monstrem?"
+        },
+        "ultimateMystery": {
+          "en": "Co znamená poslední scéna v baru na Mar Saře – návrat Kerriganové, nebo Raynorův sen?",
+          "cs": "Co znamená poslední scéna v baru na Mar Saře – návrat Kerriganové, nebo Raynorův sen?"
+        }
+      },
+      "chronicleSlug": "starcraft",
+      "chronicleTeaser": {
+        "en": "From the Xel'Naga to the fall of Amon.",
+        "cs": "Od Xel'Nagů po pád Amona."
+      }
+    },
+    {
+      "id": "warhammer-40k",
+      "number": 16,
+      "chapterId": "science-fiction",
+      "addedAt": "2026-11-17",
+      "gameTitle": {
+        "en": "Warhammer 40 000",
+        "cs": "Warhammer 40 000"
+      },
+      "chronicleTitle": {
+        "en": "Chronicle of the Imperium",
+        "cs": "Kronika Impéria"
+      },
+      "subtitlePoetic": {
+        "en": "Chronicle of the Imperium",
+        "cs": "Kronika Impéria"
+      },
+      "studios": [
+        "Games Workshop"
+      ],
+      "yearRange": "od 1987",
+      "canonScope": {
+        "en": "the tabletop game, Black Library novels, and video games",
+        "cs": "stolní hra, romány Black Library a videohry"
+      },
+      "universe": [
+        {
+          "en": "The Imperium of Man",
+          "cs": "Impérium lidstva"
+        }
+      ],
+      "header": {
+        "relatedWorldSlugs": [
+          "halo",
+          "dark-souls",
+          "diablo"
+        ]
+      },
+      "relatedWorlds": [
+        {
+          "id": "halo",
+          "title": {
+            "en": "Halo",
+            "cs": "Halo"
+          },
+          "genreProfile": {
+            "en": "Military sci-fi",
+            "cs": "Military sci-fi"
+          },
+          "yearRange": "2001–2021",
+          "note": {
+            "en": "superhuman soldiers and ancient races",
+            "cs": "nadlidští vojáci a prastaré rasy"
+          }
+        },
+        {
+          "id": "dark-souls",
+          "title": {
+            "en": "Dark Souls",
+            "cs": "Dark Souls"
+          },
+          "genreProfile": {
+            "en": "Dark fantasy",
+            "cs": "Temná fantasy"
+          },
+          "yearRange": "2011–2017",
+          "note": {
+            "en": "a dying god on a throne",
+            "cs": "umírající bůh na trůnu"
+          }
+        },
+        {
+          "id": "diablo",
+          "title": {
+            "en": "Diablo",
+            "cs": "Diablo"
+          },
+          "genreProfile": {
+            "en": "Dark fantasy",
+            "cs": "Temná fantasy"
+          },
+          "yearRange": "1996–2024",
+          "note": {
+            "en": "daemons and fanatical faith",
+            "cs": "démoni a fanatická víra"
+          }
+        }
+      ],
+      "core": {
+        "en": "Ve vzdálené temné budoucnosti je jen válka – a lidstvo přežívá jen proto, že se vzdalo lidskosti.",
+        "cs": "Ve vzdálené temné budoucnosti je jen válka – a lidstvo přežívá jen proto, že se vzdalo lidskosti."
+      },
+      "signatureBullets": [
+        {
+          "en": "Totalita jako záchrana. Impérium je krutá teokracie, ale bez ní by lidstvo zaniklo.",
+          "cs": "Totalita jako záchrana. Impérium je krutá teokracie, ale bez ní by lidstvo zaniklo."
+        },
+        {
+          "en": "Bůh na trůnu. Císař žije mrtvý na Zlatém trůnu, živený obětí tisíců duší denně.",
+          "cs": "Bůh na trůnu. Císař žije mrtvý na Zlatém trůnu, živený obětí tisíců duší denně."
+        },
+        {
+          "en": "Warp jako zrcadlo. Bohové Chaosu se živí emocemi smrtelníků.",
+          "cs": "Warp jako zrcadlo. Bohové Chaosu se živí emocemi smrtelníků."
+        },
+        {
+          "en": "Gotika ve vesmíru. Lodě jako katedrály a kyborgové-kněží dávají světu jedinečný styl.",
+          "cs": "Gotika ve vesmíru. Lodě jako katedrály a kyborgové-kněží dávají světu jedinečný styl."
+        }
+      ],
+      "metadata": {
+        "genreProfile": {
+          "en": "Space opera",
+          "cs": "Space opera",
+          "sub": {
+            "en": "overlap: gothic horror",
+            "cs": "přesah: gotický horor"
+          }
+        },
+        "atmosphere": {
+          "en": "Grotesque",
+          "cs": "Grotesknost",
+          "sub": {
+            "en": "secondary: Despair",
+            "cs": "vedlejší: Zoufalství"
+          }
+        },
+        "spatialScope": {
+          "en": "Galaxy",
+          "cs": "Galaxie",
+          "sub": {
+            "en": "the Imperium of Man",
+            "cs": "Impérium lidstva"
+          }
+        },
+        "historicalDepth": {
+          "en": "Cosmic",
+          "cs": "Kosmická",
+          "sub": {
+            "en": "from the War in Heaven",
+            "cs": "od Války v nebesích"
+          }
+        },
+        "societalOrder": {
+          "en": "Totalitarian and corporate cage",
+          "cs": "Totalitní a korporátní klec",
+          "sub": {
+            "en": "the Imperium of Man, a theocracy in endless war",
+            "cs": "Impérium lidstva, teokracie v nekonečné válce"
+          }
+        },
+        "sourceOfPower": {
+          "en": "The force of mind, faith, and souls",
+          "cs": "Síla mysli, víry a duší",
+          "sub": {
+            "en": "the Warp, psykers, and faith in the Emperor",
+            "cs": "Warp, psykeři a víra v Císaře"
+          }
+        },
+        "protagonistPerspective": {
+          "en": "Witness and survivor in the machinery",
+          "cs": "Svědek a přeživší v soukolí",
+          "sub": {
+            "en": "a soldier, inquisitor, or commander — different in every story",
+            "cs": "voják, inkvizitor či velitel – v každém příběhu jiný"
+          }
+        },
+        "keyActors": {
+          "en": "the Imperium and the Emperor · Chaos and its gods · the Space Marines and the Inquisition · xenos: Aeldari, Orks, Necrons · the Tyranids",
+          "cs": "Impérium a Císař · Chaos a jeho bohové · vesmírní mariňáci a Inkvizice · xenos: Eldaři, Orkové, Necroni · Tyranidi"
+        }
+      },
+      "themes": [
+        "war",
+        "faith",
+        "power-and-dominion",
+        "gods",
+        "civilizational-collapse"
+      ],
+      "narration": [
+        "books-and-documents",
+        "unreliable-narrators"
+      ],
+      "axes": {
+        "hopeDespair": {
+          "value": 5
+        },
+        "knownUnknown": {
+          "value": 3
+        },
+        "intimateEpic": {
+          "value": 5
+        },
+        "moralClarityAmbiguity": {
+          "value": 5
+        },
+        "realismMetaphysical": {
+          "value": 5
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "Prastaří odmítli Necrontyrům lék a pro válku vyšlechtili rasy napojené na Warp – a jejich zuřivost posílila Chaos.",
+          "cs": "Prastaří odmítli Necrontyrům lék a pro válku vyšlechtili rasy napojené na Warp – a jejich zuřivost posílila Chaos."
+        },
+        "centralDilemma": {
+          "en": "Má smysl bránit lidstvo, když jedinou cenou přežití je odvrhnout lidskost a soucit?",
+          "cs": "Má smysl bránit lidstvo, když jedinou cenou přežití je odvrhnout lidskost a soucit?"
+        },
+        "ultimateMystery": {
+          "en": "Kdo byli dva vymazaní primarchové, jejichž legie zmizely ze všech imperiálních záznamů?",
+          "cs": "Kdo byli dva vymazaní primarchové, jejichž legie zmizely ze všech imperiálních záznamů?"
+        }
+      },
+      "chronicleSlug": "warhammer-40k",
+      "chronicleTeaser": {
+        "en": "From the War in Heaven to the Indomitus era.",
+        "cs": "Od Války v Nebesích po éru Indomitus."
+      }
+    },
+    {
+      "id": "xcom",
+      "number": 17,
+      "chapterId": "science-fiction",
+      "addedAt": "2026-11-17",
+      "gameTitle": {
+        "en": "XCOM",
+        "cs": "XCOM"
+      },
+      "chronicleTitle": {
+        "en": "Chronicle of the Resistance",
+        "cs": "Kronika odboje"
+      },
+      "subtitlePoetic": {
+        "en": "Chronicle of the Resistance",
+        "cs": "Kronika odboje"
+      },
+      "studios": [
+        "Firaxis Games"
+      ],
+      "yearRange": "2012–2017",
+      "canonScope": {
+        "en": "XCOM: Enemy Unknown and XCOM 2 with expansions",
+        "cs": "XCOM: Enemy Unknown a XCOM 2 s rozšířeními"
+      },
+      "universe": [
+        {
+          "en": "Earth",
+          "cs": "Země"
+        }
+      ],
+      "header": {
+        "relatedWorldSlugs": [
+          "half-life",
+          "mass-effect",
+          "metro"
+        ]
+      },
+      "relatedWorlds": [
+        {
+          "id": "half-life",
+          "title": {
+            "en": "Half-Life",
+            "cs": "Half-Life"
+          },
+          "genreProfile": {
+            "en": "Occupation dystopia",
+            "cs": "Okupační dystopie"
+          },
+          "yearRange": "1998–2020",
+          "note": {
+            "en": "occupation and resistance",
+            "cs": "okupace a odboj"
+          }
+        },
+        {
+          "id": "mass-effect",
+          "title": {
+            "en": "Mass Effect",
+            "cs": "Mass Effect"
+          },
+          "genreProfile": {
+            "en": "Space opera",
+            "cs": "Space opera"
+          },
+          "yearRange": "2007–2017",
+          "note": {
+            "en": "an elder race and a harvest",
+            "cs": "starší rasa a sklizeň"
+          }
+        },
+        {
+          "id": "metro",
+          "title": {
+            "en": "Metro",
+            "cs": "Metro"
+          },
+          "genreProfile": {
+            "en": "Post-nuclear survival",
+            "cs": "Postjaderné přežití"
+          },
+          "yearRange": "2010–2024",
+          "note": {
+            "en": "survival against the odds",
+            "cs": "přežití proti přesile"
+          }
+        }
+      ],
+      "core": {
+        "en": "Lidstvo prohrálo válku o Zemi – a teď vede odboj proti okupantům, kteří mu slibují ráj.",
+        "cs": "Lidstvo prohrálo válku o Zemi – a teď vede odboj proti okupantům, kteří mu slibují ráj."
+      },
+      "signatureBullets": [
+        {
+          "en": "Prohraná válka. XCOM 2 vychází z toho, že lidstvo invazi nezastavilo.",
+          "cs": "Prohraná válka. XCOM 2 vychází z toho, že lidstvo invazi nezastavilo."
+        },
+        {
+          "en": "Ráj jako klec. ADVENT slibuje léčbu a pořádek, ale sklízí lidská těla.",
+          "cs": "Ráj jako klec. ADVENT slibuje léčbu a pořádek, ale sklízí lidská těla."
+        },
+        {
+          "en": "Vojáci jako příběh. Jména, jizvy a smrt vojáků tvoří vlastní kroniku každé hry.",
+          "cs": "Vojáci jako příběh. Jména, jizvy a smrt vojáků tvoří vlastní kroniku každé hry."
+        },
+        {
+          "en": "Cena technologie. Lidé přežijí jen tím, že si osvojí zbraně a těla nepřítele.",
+          "cs": "Cena technologie. Lidé přežijí jen tím, že si osvojí zbraně a těla nepřítele."
+        }
+      ],
+      "metadata": {
+        "genreProfile": {
+          "en": "Military sci-fi",
+          "cs": "Military sci-fi",
+          "sub": {
+            "en": "overlap: alien invasion",
+            "cs": "přesah: invaze mimozemšťanů"
+          }
+        },
+        "atmosphere": {
+          "en": "Defiance",
+          "cs": "Vzdor",
+          "sub": {
+            "en": "secondary: Tension",
+            "cs": "vedlejší: Napětí"
+          }
+        },
+        "spatialScope": {
+          "en": "World (planet)",
+          "cs": "Svět",
+          "sub": {
+            "en": "Earth under occupation",
+            "cs": "Země pod okupací"
+          }
+        },
+        "historicalDepth": {
+          "en": "Generational",
+          "cs": "Generační",
+          "sub": {
+            "en": "from the 2015 invasion",
+            "cs": "od invaze roku 2015"
+          }
+        },
+        "societalOrder": {
+          "en": "Totalitarian and corporate cage",
+          "cs": "Totalitní a korporátní klec",
+          "sub": {
+            "en": "Earth under ADVENT occupation",
+            "cs": "Země pod okupací ADVENTu"
+          }
+        },
+        "sourceOfPower": {
+          "en": "Technology and cybernetics",
+          "cs": "Technologie a kybernetika",
+          "sub": {
+            "en": "alien technology, psionics, and gene modification",
+            "cs": "mimozemská technologie, psionika a genové úpravy"
+          }
+        },
+        "protagonistPerspective": {
+          "en": "The player as part of the world",
+          "cs": "Hráč jako součást světa",
+          "sub": {
+            "en": "the Commander, whose mind was wired into the network",
+            "cs": "Velitel, jehož mysl byla zapojena do sítě"
+          }
+        },
+        "keyActors": {
+          "en": "XCOM and the resistance · ADVENT and the Elders · the Chosen · the Avatar Project",
+          "cs": "XCOM a odboj · ADVENT a Starší · Vyvolení · projekt Avatar"
+        }
+      },
+      "themes": [
+        "war",
+        "survival",
+        "progress-and-its-costs"
+      ],
+      "narration": [
+        "mechanics-as-meaning",
+        "cinematics"
+      ],
+      "axes": {
+        "hopeDespair": {
+          "value": 3
+        },
+        "knownUnknown": {
+          "value": 3
+        },
+        "intimateEpic": {
+          "value": 4
+        },
+        "moralClarityAmbiguity": {
+          "value": 3
+        },
+        "realismMetaphysical": {
+          "value": 2
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "Starší nedokázali přijmout vlastní smrtelnost a z galaxie udělali chovnou stanici náhradních těl.",
+          "cs": "Starší nedokázali přijmout vlastní smrtelnost a z galaxie udělali chovnou stanici náhradních těl."
+        },
+        "centralDilemma": {
+          "en": "Kolik lidskosti obětovat, abychom přežili – a dokážeme odpustit těm, kdo byli zotročeni?",
+          "cs": "Kolik lidskosti obětovat, abychom přežili – a dokážeme odpustit těm, kdo byli zotročeni?"
+        },
+        "ultimateMystery": {
+          "en": "Kdo je Skutečný nepřítel z hlubin vesmíru, před nímž Starší utíkali?",
+          "cs": "Kdo je Skutečný nepřítel z hlubin vesmíru, před nímž Starší utíkali?"
+        }
+      },
+      "chronicleSlug": "xcom",
+      "chronicleTeaser": {
+        "en": "From the 2015 invasion to City 31.",
+        "cs": "Od invaze roku 2015 po Město 31."
+      }
+    },
+    {
+      "id": "xenoblade",
+      "number": 18,
+      "chapterId": "science-fiction",
+      "addedAt": "2026-11-17",
+      "gameTitle": {
+        "en": "Xenoblade",
+        "cs": "Xenoblade"
+      },
+      "chronicleTitle": {
+        "en": "Chronicle of the Titans",
+        "cs": "Kronika Titánů"
+      },
+      "subtitlePoetic": {
+        "en": "Chronicle of the Titans",
+        "cs": "Kronika Titánů"
+      },
+      "studios": [
+        "Monolith Soft"
+      ],
+      "yearRange": "2010–2023",
+      "canonScope": {
+        "en": "Xenoblade Chronicles 1–3 with expansions",
+        "cs": "Xenoblade Chronicles 1–3 s rozšířeními"
+      },
+      "universe": [
+        {
+          "en": "Bionis and Mechonis",
+          "cs": "Bionis a Mechonis"
+        },
+        {
+          "en": "Alrest",
+          "cs": "Alrest"
+        },
+        {
+          "en": "Aionios",
+          "cs": "Aionios"
+        }
+      ],
+      "header": {
+        "relatedWorldSlugs": [
+          "elder-scrolls",
+          "dark-souls",
+          "nier-automata"
+        ]
+      },
+      "relatedWorlds": [
+        {
+          "id": "elder-scrolls",
+          "title": {
+            "en": "Elder Scrolls",
+            "cs": "Elder Scrolls"
+          },
+          "genreProfile": {
+            "en": "High fantasy",
+            "cs": "Vysoká fantasy"
+          },
+          "yearRange": "1994–2014",
+          "note": {
+            "en": "the world as a god's creation",
+            "cs": "svět jako výtvor boha"
+          }
+        },
+        {
+          "id": "dark-souls",
+          "title": {
+            "en": "Dark Souls",
+            "cs": "Dark Souls"
+          },
+          "genreProfile": {
+            "en": "Dark fantasy",
+            "cs": "Temná fantasy"
+          },
+          "yearRange": "2011–2017",
+          "note": {
+            "en": "cycles and dying gods",
+            "cs": "cykly a umírající bohové"
+          }
+        },
+        {
+          "id": "nier-automata",
+          "title": {
+            "en": "NieR: Automata",
+            "cs": "NieR: Automata"
+          },
+          "genreProfile": {
+            "en": "Machine apocalypse",
+            "cs": "Apokalypsa strojů"
+          },
+          "yearRange": "2017",
+          "note": {
+            "en": "cycles and the question of meaning",
+            "cs": "cykly a otázka smyslu"
+          }
+        }
+      ],
+      "core": {
+        "en": "Světy na tělech obrů, které si vysnil jediný člověk – a život, který se musí naučit žít bez jeho snu.",
+        "cs": "Světy na tělech obrů, které si vysnil jediný člověk – a život, který se musí naučit žít bez jeho snu."
+      },
+      "signatureBullets": [
+        {
+          "en": "Svět na těle boha. Lidé žijí na zádech obřích Titánů, kteří jsou živými bohy.",
+          "cs": "Svět na těle boha. Lidé žijí na zádech obřích Titánů, kteří jsou živými bohy."
+        },
+        {
+          "en": "Bůh z vědce. Klaus se experimentem stal bohem a rozpadl se na dvě poloviny.",
+          "cs": "Bůh z vědce. Klaus se experimentem stal bohem a rozpadl se na dvě poloviny."
+        },
+        {
+          "en": "Věčná přítomnost. Moebius drží lidi Aionia v nekonečném cyklu desetiletých životů.",
+          "cs": "Věčná přítomnost. Moebius drží lidi Aionia v nekonečném cyklu desetiletých životů."
+        },
+        {
+          "en": "Budoucnost jako volba. Hrdinové znovu a znovu rozbíjejí předurčený osud.",
+          "cs": "Budoucnost jako volba. Hrdinové znovu a znovu rozbíjejí předurčený osud."
+        }
+      ],
+      "metadata": {
+        "genreProfile": {
+          "en": "Science fantasy",
+          "cs": "Science fantasy",
+          "sub": {
+            "en": "overlap: mythic fantasy",
+            "cs": "přesah: mytická fantasy"
+          }
+        },
+        "atmosphere": {
+          "en": "Wonder",
+          "cs": "Úžas",
+          "sub": {
+            "en": "secondary: Melancholy",
+            "cs": "vedlejší: Melancholie"
+          }
+        },
+        "spatialScope": {
+          "en": "Multiverse and multiple planes",
+          "cs": "Multiverzum a více rovin",
+          "sub": {
+            "en": "the Titan worlds, Alrest, Aionios",
+            "cs": "světy Titánů, Alrest, Aionios"
+          }
+        },
+        "historicalDepth": {
+          "en": "Cosmic",
+          "cs": "Kosmická",
+          "sub": {
+            "en": "from the birth of the worlds to their merging",
+            "cs": "od zrodu světů po jejich splynutí"
+          }
+        },
+        "societalOrder": {
+          "en": "Contending realms and nations",
+          "cs": "Zápasící říše a národy",
+          "sub": {
+            "en": "nations on the bodies of titans, the war of Keves and Agnus",
+            "cs": "národy na tělech titánů, válka Kevesu a Agnusu"
+          }
+        },
+        "sourceOfPower": {
+          "en": "Divine and cosmic essence",
+          "cs": "Božská a kosmická esence",
+          "sub": {
+            "en": "the Monado and the power of titan-gods",
+            "cs": "Monado a moc bohů-titánů"
+          }
+        },
+        "protagonistPerspective": {
+          "en": "Chosen champion of fate",
+          "cs": "Vyvolený a šampion osudu",
+          "sub": {
+            "en": "Shulk, Rex, Noah, and Mio",
+            "cs": "Shulk, Rex, Noah a Mio"
+          }
+        },
+        "keyActors": {
+          "en": "the gods Zanza and Meyneth · the Architect and the Trinity Processor · Moebius · the titans and their nations",
+          "cs": "bohové Zanza a Meyneth · Architekt a Trinitační procesor · Moebius · titáni a jejich národy"
+        }
+      },
+      "themes": [
+        "free-will-and-fate",
+        "identity-and-existence",
+        "faith",
+        "gods",
+        "cyclical-history",
+        "friendship-and-fellowship"
+      ],
+      "narration": [
+        "cinematics",
+        "dialogue"
+      ],
+      "axes": {
+        "hopeDespair": {
+          "value": 2
+        },
+        "knownUnknown": {
+          "value": 3
+        },
+        "intimateEpic": {
+          "value": 5
+        },
+        "moralClarityAmbiguity": {
+          "value": 3
+        },
+        "realismMetaphysical": {
+          "value": 4
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "Vědec Klaus spustil experiment s Conduitem, aby restartoval vesmír – a roztrhl realitu vedví.",
+          "cs": "Vědec Klaus spustil experiment s Conduitem, aby restartoval vesmír – a roztrhl realitu vedví."
+        },
+        "centralDilemma": {
+          "en": "Dokáže život uvězněný v umělých světech a cyklech bohů přetnout předurčenou budoucnost?",
+          "cs": "Dokáže život uvězněný v umělých světech a cyklech bohů přetnout předurčenou budoucnost?"
+        },
+        "ultimateMystery": {
+          "en": "Co je Conduit a kam vede modré světlo na konci Future Redeemed – k ságám Xenogears a Xenosaga?",
+          "cs": "Co je Conduit a kam vede modré světlo na konci Future Redeemed – k ságám Xenogears a Xenosaga?"
+        }
+      },
+      "chronicleSlug": "xenoblade",
+      "chronicleTeaser": {
+        "en": "From Bionis and Mechonis to a future no one wrote.",
+        "cs": "Od Bionisu a Mechonisu po budoucnost, kterou nikdo nenapsal."
+      }
+    },
+    {
       "id": "vzorek-fantasy",
       "number": 90,
       "chapterId": "fantasy",
