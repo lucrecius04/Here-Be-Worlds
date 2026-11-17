@@ -5111,6 +5111,883 @@
       }
     },
     {
+      "id": "bloodborne",
+      "number": 24,
+      "chapterId": "horror",
+      "addedAt": "2026-11-17",
+      "gameTitle": {
+        "en": "Bloodborne",
+        "cs": "Bloodborne"
+      },
+      "chronicleTitle": {
+        "en": "Chronicle of the Hunt",
+        "cs": "Kronika Honu"
+      },
+      "subtitlePoetic": {
+        "en": "Chronicle of the Hunt",
+        "cs": "Kronika Honu"
+      },
+      "studios": [
+        "FromSoftware"
+      ],
+      "yearRange": "2015",
+      "canonScope": {
+        "en": "Bloodborne and The Old Hunters",
+        "cs": "Bloodborne a The Old Hunters"
+      },
+      "universe": [
+        {
+          "en": "Yharnam",
+          "cs": "Yharnam"
+        }
+      ],
+      "header": {
+        "relatedWorldSlugs": [
+          "dark-souls",
+          "silent-hill",
+          "control"
+        ]
+      },
+      "relatedWorlds": [
+        {
+          "id": "dark-souls",
+          "title": {
+            "en": "Dark Souls",
+            "cs": "Dark Souls"
+          },
+          "genreProfile": {
+            "en": "Dark fantasy",
+            "cs": "Temná fantasy"
+          },
+          "yearRange": "2011–2017",
+          "note": {
+            "en": "same creators, fragmentary storytelling",
+            "cs": "stejní tvůrci, střípkové vyprávění"
+          }
+        },
+        {
+          "id": "silent-hill",
+          "title": {
+            "en": "Silent Hill",
+            "cs": "Silent Hill"
+          },
+          "genreProfile": {
+            "en": "Psychological horror",
+            "cs": "Psychologický horor"
+          },
+          "yearRange": "1999–2024",
+          "note": {
+            "en": "a city as nightmare",
+            "cs": "město jako noční můra"
+          }
+        },
+        {
+          "id": "control",
+          "title": {
+            "en": "Control",
+            "cs": "Control"
+          },
+          "genreProfile": {
+            "en": "New weird",
+            "cs": "New weird"
+          },
+          "yearRange": "2019–2020",
+          "note": {
+            "en": "forces behind the curtain of reality",
+            "cs": "síly za oponou reality"
+          }
+        }
+      ],
+      "core": {
+        "en": "Město, které léčí krví a za oponou noci skrývá bohy – a kdo je spatří, přestává být člověkem.",
+        "cs": "Město, které léčí krví a za oponou noci skrývá bohy – a kdo je spatří, přestává být člověkem."
+      },
+      "signatureBullets": [
+        {
+          "en": "Krev jako svátost. Církev léčí Starou krví, která z lidí dělá bestie.",
+          "cs": "Krev jako svátost. Církev léčí Starou krví, která z lidí dělá bestie."
+        },
+        {
+          "en": "Vhled jako prokletí. Čím víc hrdina ví, tím víc vidí – i to, co neměl.",
+          "cs": "Vhled jako prokletí. Čím víc hrdina ví, tím víc vidí – i to, co neměl."
+        },
+        {
+          "en": "Gotika, která se zlomí. Hon na vlkodlaky se promění v lovecraftovský horor.",
+          "cs": "Gotika, která se zlomí. Hon na vlkodlaky se promění v lovecraftovský horor."
+        },
+        {
+          "en": "Noc, která se opakuje. Lovci jsou uvězněni ve snu a hon nemá konce.",
+          "cs": "Noc, která se opakuje. Lovci jsou uvězněni ve snu a hon nemá konce."
+        }
+      ],
+      "metadata": {
+        "genreProfile": {
+          "en": "Cosmic horror",
+          "cs": "Kosmický horor",
+          "sub": {
+            "en": "overlap: gothic fantasy",
+            "cs": "přesah: gotická fantasy"
+          }
+        },
+        "atmosphere": {
+          "en": "Fear",
+          "cs": "Strach",
+          "sub": {
+            "en": "secondary: Grotesque",
+            "cs": "vedlejší: Grotesknost"
+          }
+        },
+        "spatialScope": {
+          "en": "City",
+          "cs": "Město",
+          "sub": {
+            "en": "Yharnam and the realms of dream",
+            "cs": "Yharnam a říše snů"
+          }
+        },
+        "historicalDepth": {
+          "en": "Civilizational",
+          "cs": "Civilizační",
+          "sub": {
+            "en": "from the Pthumerians to Yharnam",
+            "cs": "od Pthumeřanů po Yharnam"
+          }
+        },
+        "societalOrder": {
+          "en": "A world in the shadow of hidden power",
+          "cs": "Svět ve stínu utajené moci",
+          "sub": {
+            "en": "Yharnam under the Healing Church and the Choir",
+            "cs": "Yharnam pod Církví léčení a Chórem"
+          }
+        },
+        "sourceOfPower": {
+          "en": "Biology, genes, and mutation",
+          "cs": "Biologie, geny a mutace",
+          "sub": {
+            "en": "the Old Blood of the Great Ones and the beastly transformation",
+            "cs": "Stará krev Velicích a proměna v bestie"
+          }
+        },
+        "protagonistPerspective": {
+          "en": "Pilgrim and outcast on the margins",
+          "cs": "Poutník a psanec na okraji",
+          "sub": {
+            "en": "a stranger seeking Paleblood",
+            "cs": "cizinec, který hledá bledou krev"
+          }
+        },
+        "keyActors": {
+          "en": "the Healing Church · Byrgenwerth College · the Great Ones · the Hunter's Dream and Gehrman · the School of Mensis",
+          "cs": "Církev léčení · akademie Byrgenwerth · Velicí · Lovecký sen a Gehrman · škola Mensis"
+        }
+      },
+      "themes": [
+        "uncovering-the-past",
+        "progress-and-its-costs",
+        "faith",
+        "gods"
+      ],
+      "narration": [
+        "item-descriptions",
+        "environmental"
+      ],
+      "axes": {
+        "hopeDespair": {
+          "value": 5
+        },
+        "knownUnknown": {
+          "value": 5
+        },
+        "intimateEpic": {
+          "value": 4
+        },
+        "moralClarityAmbiguity": {
+          "value": 4
+        },
+        "realismMetaphysical": {
+          "value": 5
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "Učenci Byrgenwerthu znesvětili mrtvou bohyni a vyvraždili Rybářskou osadu – a na lovce padla kletba.",
+          "cs": "Učenci Byrgenwerthu znesvětili mrtvou bohyni a vyvraždili Rybářskou osadu – a na lovce padla kletba."
+        },
+        "centralDilemma": {
+          "en": "Lze nahlédnout za oponu kosmické pravdy, aniž se člověk změní v bestii nebo šílence?",
+          "cs": "Lze nahlédnout za oponu kosmické pravdy, aniž se člověk změní v bestii nebo šílence?"
+        },
+        "ultimateMystery": {
+          "en": "Proč chce Měsíční přízrak zabít dítě Mergo – a proč si hrdina napsal „Hledej bledou krev“?",
+          "cs": "Proč chce Měsíční přízrak zabít dítě Mergo – a proč si hrdina napsal „Hledej bledou krev“?"
+        }
+      },
+      "chronicleSlug": "bloodborne",
+      "chronicleTeaser": {
+        "en": "From the Pthumerians to the end of the Night of the Hunt.",
+        "cs": "Od Pthumeřanů po konec noci Honu."
+      }
+    },
+    {
+      "id": "resident-evil",
+      "number": 25,
+      "chapterId": "horror",
+      "addedAt": "2026-11-17",
+      "gameTitle": {
+        "en": "Resident Evil",
+        "cs": "Resident Evil"
+      },
+      "chronicleTitle": {
+        "en": "Chronicle of Umbrella",
+        "cs": "Kronika Umbrelly"
+      },
+      "subtitlePoetic": {
+        "en": "Chronicle of Umbrella",
+        "cs": "Kronika Umbrelly"
+      },
+      "studios": [
+        "Capcom"
+      ],
+      "yearRange": "1996–2026",
+      "canonScope": {
+        "en": "the main Resident Evil series, 1–9",
+        "cs": "hlavní řada Resident Evil 1–9"
+      },
+      "universe": [
+        {
+          "en": "Raccoon City",
+          "cs": "Raccoon City"
+        }
+      ],
+      "header": {
+        "relatedWorldSlugs": [
+          "half-life",
+          "bioshock",
+          "cyberpunk-2077"
+        ]
+      },
+      "relatedWorlds": [
+        {
+          "id": "half-life",
+          "title": {
+            "en": "Half-Life",
+            "cs": "Half-Life"
+          },
+          "genreProfile": {
+            "en": "Occupation dystopia",
+            "cs": "Okupační dystopie"
+          },
+          "yearRange": "1998–2020",
+          "note": {
+            "en": "scientific catastrophe",
+            "cs": "vědecká katastrofa"
+          }
+        },
+        {
+          "id": "bioshock",
+          "title": {
+            "en": "BioShock",
+            "cs": "BioShock"
+          },
+          "genreProfile": {
+            "en": "Political dystopia",
+            "cs": "Politická dystopie"
+          },
+          "yearRange": "2007–2014",
+          "note": {
+            "en": "genetics as a commodity",
+            "cs": "genetika jako zboží"
+          }
+        },
+        {
+          "id": "cyberpunk-2077",
+          "title": {
+            "en": "Cyberpunk 2077",
+            "cs": "Cyberpunk 2077"
+          },
+          "genreProfile": {
+            "en": "Cyberpunk",
+            "cs": "Kyberpunk"
+          },
+          "yearRange": "2020–2023",
+          "note": {
+            "en": "corporations above the law",
+            "cs": "korporace nad zákonem"
+          }
+        }
+      ],
+      "core": {
+        "en": "Korporace, která si patentovala život – a ze smrti udělala obchodní model.",
+        "cs": "Korporace, která si patentovala život – a ze smrti udělala obchodní model."
+      },
+      "signatureBullets": [
+        {
+          "en": "Zlo s logem firmy. Umbrella vyráběla monstra jako zboží pro zbrojní trh.",
+          "cs": "Zlo s logem firmy. Umbrella vyráběla monstra jako zboží pro zbrojní trh."
+        },
+        {
+          "en": "Viry jako evoluce. T-virus, Las Plagas i Plíseň jsou pokusy přepsat život.",
+          "cs": "Viry jako evoluce. T-virus, Las Plagas i Plíseň jsou pokusy přepsat život."
+        },
+        {
+          "en": "Sídlo jako labyrint. Hádanky a zamčené dveře tvoří architekturu strachu.",
+          "cs": "Sídlo jako labyrint. Hádanky a zamčené dveře tvoří architekturu strachu."
+        },
+        {
+          "en": "Hrdinové přes generace. Chris, Jill, Leon a Claire stárnou spolu se sérií.",
+          "cs": "Hrdinové přes generace. Chris, Jill, Leon a Claire stárnou spolu se sérií."
+        }
+      ],
+      "metadata": {
+        "genreProfile": {
+          "en": "Survival horror",
+          "cs": "Survival horor",
+          "sub": {
+            "en": "overlap: biotech thriller",
+            "cs": "přesah: biotechnologický thriller"
+          }
+        },
+        "atmosphere": {
+          "en": "Tension",
+          "cs": "Napětí",
+          "sub": {
+            "en": "secondary: Fear",
+            "cs": "vedlejší: Strach"
+          }
+        },
+        "spatialScope": {
+          "en": "World (planet)",
+          "cs": "Svět",
+          "sub": {
+            "en": "Raccoon City, Europe, Africa",
+            "cs": "Raccoon City, Evropa, Afrika"
+          }
+        },
+        "historicalDepth": {
+          "en": "Generational",
+          "cs": "Generační",
+          "sub": {
+            "en": "since 1966",
+            "cs": "od roku 1966"
+          }
+        },
+        "societalOrder": {
+          "en": "A world in the shadow of hidden power",
+          "cs": "Svět ve stínu utajené moci",
+          "sub": {
+            "en": "Umbrella, the Connections, and pharmaceutical empires",
+            "cs": "Umbrella, Connections a farmaceutické říše"
+          }
+        },
+        "sourceOfPower": {
+          "en": "Biology, genes, and mutation",
+          "cs": "Biologie, geny a mutace",
+          "sub": {
+            "en": "viruses, parasites, and the Mold",
+            "cs": "viry, parazité a Plíseň"
+          }
+        },
+        "protagonistPerspective": {
+          "en": "Witness and survivor in the machinery",
+          "cs": "Svědek a přeživší v soukolí",
+          "sub": {
+            "en": "Chris, Jill, Leon, Claire, Ethan, and Grace",
+            "cs": "Chris, Jill, Leon, Claire, Ethan a Grace"
+          }
+        },
+        "keyActors": {
+          "en": "Umbrella and its successors · Albert Wesker · S.T.A.R.S. and the BSAA · Mother Miranda and the Mold · Los Illuminados and Las Plagas",
+          "cs": "Umbrella a její nástupci · Albert Wesker · S.T.A.R.S. a BSAA · Matka Miranda a Plíseň · Los Illuminados a Las Plagas"
+        }
+      },
+      "themes": [
+        "progress-and-its-costs",
+        "conspiracy",
+        "survival",
+        "death-and-immortality"
+      ],
+      "narration": [
+        "books-and-documents",
+        "cinematics"
+      ],
+      "axes": {
+        "hopeDespair": {
+          "value": 3
+        },
+        "knownUnknown": {
+          "value": 2
+        },
+        "intimateEpic": {
+          "value": 3
+        },
+        "moralClarityAmbiguity": {
+          "value": 2
+        },
+        "realismMetaphysical": {
+          "value": 2
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "Spencer, Marcus a Ashford vyhnali kmen z posvátné jeskyně a z jejího květu udělali základ zbraní Umbrelly.",
+          "cs": "Spencer, Marcus a Ashford vyhnali kmen z posvátné jeskyně a z jejího květu udělali základ zbraní Umbrelly."
+        },
+        "centralDilemma": {
+          "en": "Co se stane, když korporace promění život, evoluci i mateřskou lásku ve zbraň na prodej?",
+          "cs": "Co se stane, když korporace promění život, evoluci i mateřskou lásku ve zbraň na prodej?"
+        },
+        "ultimateMystery": {
+          "en": "Kdo je ve skutečnosti Ada Wongová? Ani její jméno není pravé.",
+          "cs": "Kdo je ve skutečnosti Ada Wongová? Ani její jméno není pravé."
+        }
+      },
+      "chronicleSlug": "resident-evil",
+      "chronicleTeaser": {
+        "en": "From the Arklay mansion back to Raccoon City.",
+        "cs": "Od Arklayského sídla po návrat do Raccoon City."
+      }
+    },
+    {
+      "id": "silent-hill",
+      "number": 26,
+      "chapterId": "horror",
+      "addedAt": "2026-11-17",
+      "gameTitle": {
+        "en": "Silent Hill",
+        "cs": "Silent Hill"
+      },
+      "chronicleTitle": {
+        "en": "Chronicle of the Fog",
+        "cs": "Kronika mlhy"
+      },
+      "subtitlePoetic": {
+        "en": "Chronicle of the Fog",
+        "cs": "Kronika mlhy"
+      },
+      "studios": [
+        "Konami (Team Silent",
+        "další)"
+      ],
+      "yearRange": "1999–2024",
+      "canonScope": {
+        "en": "the main Silent Hill series and the Silent Hill 2 remake",
+        "cs": "hlavní řada Silent Hill a remake Silent Hill 2"
+      },
+      "universe": [
+        {
+          "en": "Silent Hill",
+          "cs": "Silent Hill"
+        }
+      ],
+      "header": {
+        "relatedWorldSlugs": [
+          "bloodborne",
+          "disco-elysium",
+          "pathologic"
+        ]
+      },
+      "relatedWorlds": [
+        {
+          "id": "bloodborne",
+          "title": {
+            "en": "Bloodborne",
+            "cs": "Bloodborne"
+          },
+          "genreProfile": {
+            "en": "Cosmic horror",
+            "cs": "Kosmický horor"
+          },
+          "yearRange": "2015",
+          "note": {
+            "en": "a city as nightmare",
+            "cs": "město jako noční můra"
+          }
+        },
+        {
+          "id": "disco-elysium",
+          "title": {
+            "en": "Disco Elysium",
+            "cs": "Disco Elysium"
+          },
+          "genreProfile": {
+            "en": "Alternate world",
+            "cs": "Alternativní svět"
+          },
+          "yearRange": "2019–2021",
+          "note": {
+            "en": "guilt and a broken mind",
+            "cs": "vina a rozbitá mysl"
+          }
+        },
+        {
+          "id": "pathologic",
+          "title": {
+            "en": "Pathologic",
+            "cs": "Pathologic"
+          },
+          "genreProfile": {
+            "en": "Surreal tragedy",
+            "cs": "Surrealistická tragédie"
+          },
+          "yearRange": "2005–2019",
+          "note": {
+            "en": "a town that judges",
+            "cs": "město, které soudí"
+          }
+        }
+      ],
+      "core": {
+        "en": "Město, které každému ukáže, co v sobě skrývá – a jehož mlha je jen jiné slovo pro svědomí.",
+        "cs": "Město, které každému ukáže, co v sobě skrývá – a jehož mlha je jen jiné slovo pro svědomí."
+      },
+      "signatureBullets": [
+        {
+          "en": "Město jako zrcadlo. Každý vidí vlastní Silent Hill, utvořený z jeho viny.",
+          "cs": "Město jako zrcadlo. Každý vidí vlastní Silent Hill, utvořený z jeho viny."
+        },
+        {
+          "en": "Monstra jako symboly. Pyramid Head ani sestry nejsou nepřátelé, ale tvary trestu.",
+          "cs": "Monstra jako symboly. Pyramid Head ani sestry nejsou nepřátelé, ale tvary trestu."
+        },
+        {
+          "en": "Dvě vrstvy reality. Mlhavé město se mění v rezavý Jiný svět.",
+          "cs": "Dvě vrstvy reality. Mlhavé město se mění v rezavý Jiný svět."
+        },
+        {
+          "en": "Kult a oběť. Řád se snaží zrodit Boha z utrpení dítěte.",
+          "cs": "Kult a oběť. Řád se snaží zrodit Boha z utrpení dítěte."
+        }
+      ],
+      "metadata": {
+        "genreProfile": {
+          "en": "Psychological horror",
+          "cs": "Psychologický horor",
+          "sub": {
+            "en": "overlap: cult horror",
+            "cs": "přesah: kultovní horor"
+          }
+        },
+        "atmosphere": {
+          "en": "Oppression",
+          "cs": "Tísnivost",
+          "sub": {
+            "en": "secondary: Melancholy",
+            "cs": "vedlejší: Melancholie"
+          }
+        },
+        "spatialScope": {
+          "en": "City",
+          "cs": "Město",
+          "sub": {
+            "en": "Silent Hill on Toluca Lake",
+            "cs": "Silent Hill u jezera Toluca"
+          }
+        },
+        "historicalDepth": {
+          "en": "Historical",
+          "cs": "Historická",
+          "sub": {
+            "en": "from sacred land to the cult of the Order",
+            "cs": "od posvátné země po kult Řádu"
+          }
+        },
+        "societalOrder": {
+          "en": "A closed microcosm",
+          "cs": "Uzavřený mikrokosmos",
+          "sub": {
+            "en": "a fog-bound town that mirrors guilt",
+            "cs": "mlhou odříznuté město, které zrcadlí vinu"
+          }
+        },
+        "sourceOfPower": {
+          "en": "The force of mind, faith, and souls",
+          "cs": "Síla mysli, víry a duší",
+          "sub": {
+            "en": "guilt, the Order's faith, and the power of the place",
+            "cs": "vina, víra Řádu a síla místa"
+          }
+        },
+        "protagonistPerspective": {
+          "en": "Pilgrim and outcast on the margins",
+          "cs": "Poutník a psanec na okraji",
+          "sub": {
+            "en": "Harry, James, Heather, and others – summoned by the town",
+            "cs": "Harry, James, Heather a další – přivolaní městem"
+          }
+        },
+        "keyActors": {
+          "en": "the cult of the Order · Alessa Gillespie · the power of Toluca Lake · the God of the Order",
+          "cs": "kult Řádu · Alessa Gillespie · síla jezera Toluca · Bůh Řádu"
+        }
+      },
+      "themes": [
+        "guilt-and-redemption",
+        "identity-and-existence",
+        "faith",
+        "love-and-relationships"
+      ],
+      "narration": [
+        "environmental",
+        "unreliable-narrators"
+      ],
+      "axes": {
+        "hopeDespair": {
+          "value": 4
+        },
+        "knownUnknown": {
+          "value": 5
+        },
+        "intimateEpic": {
+          "value": 1
+        },
+        "moralClarityAmbiguity": {
+          "value": 4
+        },
+        "realismMetaphysical": {
+          "value": 5
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "Dahlia zaživa upálila vlastní dceru Alessu, aby z její agónie zrodila Boha – a otrávila tím celé město.",
+          "cs": "Dahlia zaživa upálila vlastní dceru Alessu, aby z její agónie zrodila Boha – a otrávila tím celé město."
+        },
+        "centralDilemma": {
+          "en": "Dokáže člověk pohlédnout do tváře svému nejhoršímu hříchu a žít dál?",
+          "cs": "Dokáže člověk pohlédnout do tváře svému nejhoršímu hříchu a žít dál?"
+        },
+        "ultimateMystery": {
+          "en": "Který konec Silent Hillu 2 je ten pravý? Autoři odmítli kdy vybrat jediný.",
+          "cs": "Který konec Silent Hillu 2 je ten pravý? Autoři odmítli kdy vybrat jediný."
+        }
+      },
+      "chronicleSlug": "silent-hill",
+      "chronicleTeaser": {
+        "en": "From the sacred lake to the Order and its god.",
+        "cs": "Od posvátného jezera po Řád a jeho boha."
+      }
+    },
+    {
+      "id": "soma",
+      "number": 27,
+      "chapterId": "horror",
+      "addedAt": "2026-11-17",
+      "gameTitle": {
+        "en": "SOMA",
+        "cs": "SOMA"
+      },
+      "chronicleTitle": {
+        "en": "Chronicle of the Deep",
+        "cs": "Kronika hlubin"
+      },
+      "subtitlePoetic": {
+        "en": "Chronicle of the Deep",
+        "cs": "Kronika hlubin"
+      },
+      "studios": [
+        "Frictional Games"
+      ],
+      "yearRange": "2015",
+      "canonScope": {
+        "en": "SOMA",
+        "cs": "SOMA"
+      },
+      "universe": [
+        {
+          "en": "PATHOS-II",
+          "cs": "PATHOS-II"
+        }
+      ],
+      "header": {
+        "relatedWorldSlugs": [
+          "nier-automata",
+          "death-stranding",
+          "outer-wilds"
+        ]
+      },
+      "relatedWorlds": [
+        {
+          "id": "nier-automata",
+          "title": {
+            "en": "NieR: Automata",
+            "cs": "NieR: Automata"
+          },
+          "genreProfile": {
+            "en": "Machine apocalypse",
+            "cs": "Apokalypsa strojů"
+          },
+          "yearRange": "2017",
+          "note": {
+            "en": "a machine that believes it is human",
+            "cs": "stroj, který věří, že je člověk"
+          }
+        },
+        {
+          "id": "death-stranding",
+          "title": {
+            "en": "Death Stranding",
+            "cs": "Death Stranding"
+          },
+          "genreProfile": {
+            "en": "Mystical apocalypse",
+            "cs": "Mystická apokalypsa"
+          },
+          "yearRange": "2019–2025",
+          "note": {
+            "en": "consciousness between life and death",
+            "cs": "vědomí mezi životem a smrtí"
+          }
+        },
+        {
+          "id": "outer-wilds",
+          "title": {
+            "en": "Outer Wilds",
+            "cs": "Outer Wilds"
+          },
+          "genreProfile": {
+            "en": "Experimental sci-fi",
+            "cs": "Experimentální sci-fi"
+          },
+          "yearRange": "2019–2021",
+          "note": {
+            "en": "the end of the world and what remains after it",
+            "cs": "konec světa a co po něm zbude"
+          }
+        }
+      ],
+      "core": {
+        "en": "Na dně oceánu přežívají poslední zbytky lidstva – v kopiích, které nevědí, že nejsou originálem.",
+        "cs": "Na dně oceánu přežívají poslední zbytky lidstva – v kopiích, které nevědí, že nejsou originálem."
+      },
+      "signatureBullets": [
+        {
+          "en": "Kopie místo spásy. Přenos vědomí nevytvoří přesun, ale druhou osobu.",
+          "cs": "Kopie místo spásy. Přenos vědomí nevytvoří přesun, ale druhou osobu."
+        },
+        {
+          "en": "Hod mincí. Představa padesátiprocentní šance je útěcha, která neplatí.",
+          "cs": "Hod mincí. Představa padesátiprocentní šance je útěcha, která neplatí."
+        },
+        {
+          "en": "Stroj, který chrání. WAU udržuje „lidi“ naživu, ale nechápe, co je život.",
+          "cs": "Stroj, který chrání. WAU udržuje „lidi“ naživu, ale nechápe, co je život."
+        },
+        {
+          "en": "Volby bez odměny. Hráč rozhoduje o strojích, které si myslí, že jsou lidé.",
+          "cs": "Volby bez odměny. Hráč rozhoduje o strojích, které si myslí, že jsou lidé."
+        }
+      ],
+      "metadata": {
+        "genreProfile": {
+          "en": "Sci-fi horror",
+          "cs": "Sci-fi horor",
+          "sub": {
+            "en": "overlap: philosophical thriller",
+            "cs": "přesah: filozofický thriller"
+          }
+        },
+        "atmosphere": {
+          "en": "Oppression",
+          "cs": "Tísnivost",
+          "sub": {
+            "en": "secondary: Melancholy",
+            "cs": "vedlejší: Melancholie"
+          }
+        },
+        "spatialScope": {
+          "en": "Single location",
+          "cs": "Lokalita",
+          "sub": {
+            "en": "the PATHOS-II station on the floor of the Atlantic",
+            "cs": "stanice PATHOS-II na dně Atlantiku"
+          }
+        },
+        "historicalDepth": {
+          "en": "Generational",
+          "cs": "Generační",
+          "sub": {
+            "en": "the year 2104, after the comet impact",
+            "cs": "rok 2104, po dopadu komety"
+          }
+        },
+        "societalOrder": {
+          "en": "A closed microcosm",
+          "cs": "Uzavřený mikrokosmos",
+          "sub": {
+            "en": "PATHOS-II, the last humans after the comet impact",
+            "cs": "PATHOS-II, poslední lidé po dopadu komety"
+          }
+        },
+        "sourceOfPower": {
+          "en": "Technology and cybernetics",
+          "cs": "Technologie a kybernetika",
+          "sub": {
+            "en": "brain scans and the WAU",
+            "cs": "skeny mozků a WAU"
+          }
+        },
+        "protagonistPerspective": {
+          "en": "Witness and survivor in the machinery",
+          "cs": "Svědek a přeživší v soukolí",
+          "sub": {
+            "en": "Simon Jarrett, a copy of a brain scan",
+            "cs": "Simon Jarrett, kopie skenu mozku"
+          }
+        },
+        "keyActors": {
+          "en": "the WAU artificial intelligence · the crew of PATHOS-II · the ARK project · Catherine Chun",
+          "cs": "umělá inteligence WAU · posádka PATHOS-II · projekt ARK · Catherine Chunová"
+        }
+      },
+      "themes": [
+        "identity-and-existence",
+        "survival",
+        "civilizational-collapse",
+        "death-and-immortality"
+      ],
+      "narration": [
+        "recordings-and-logs",
+        "environmental"
+      ],
+      "axes": {
+        "hopeDespair": {
+          "value": 5
+        },
+        "knownUnknown": {
+          "value": 3
+        },
+        "intimateEpic": {
+          "value": 2
+        },
+        "moralClarityAmbiguity": {
+          "value": 4
+        },
+        "realismMetaphysical": {
+          "value": 1
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "Stanice svěřila přežití posledních lidí umělé inteligenci WAU, která nechápala, co znamená být člověkem.",
+          "cs": "Stanice svěřila přežití posledních lidí umělé inteligenci WAU, která nechápala, co znamená být člověkem."
+        },
+        "centralDilemma": {
+          "en": "Co z nás dělá nás, když lze vědomí zkopírovat – a co čeká na originál, který zůstane na dně?",
+          "cs": "Co z nás dělá nás, když lze vědomí zkopírovat – a co čeká na originál, který zůstane na dně?"
+        },
+        "ultimateMystery": {
+          "en": "Je WAU nepřítel, nebo jediná naděje pro budoucí život na Zemi?",
+          "cs": "Je WAU nepřítel, nebo jediná naděje pro budoucí život na Zemi?"
+        }
+      },
+      "chronicleSlug": "soma",
+      "chronicleTeaser": {
+        "en": "From the comet impact to the ARK.",
+        "cs": "Od dopadu komety po ARK."
+      }
+    },
+    {
       "id": "vzorek-fantasy",
       "number": 90,
       "chapterId": "fantasy",
