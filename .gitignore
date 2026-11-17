@@ -27,3 +27,6 @@ receptive-remnant/
 
 # Source DOCX (local only)
 source/
+
+# patche z Clauda se nekomitují
+*.patch

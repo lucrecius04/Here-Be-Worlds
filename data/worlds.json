@@ -5988,6 +5988,664 @@
       }
     },
     {
+      "id": "assassins-creed",
+      "number": 28,
+      "chapterId": "historical",
+      "addedAt": "2026-11-17",
+      "gameTitle": {
+        "en": "Assassin's Creed",
+        "cs": "Assassin's Creed"
+      },
+      "chronicleTitle": {
+        "en": "Chronicle of the Brotherhood",
+        "cs": "Kronika Bratrstva"
+      },
+      "subtitlePoetic": {
+        "en": "Chronicle of the Brotherhood",
+        "cs": "Kronika Bratrstva"
+      },
+      "studios": [
+        "Ubisoft"
+      ],
+      "yearRange": "2007–2025",
+      "canonScope": {
+        "en": "the main series from the first game to Shadows",
+        "cs": "hlavní řada od prvního dílu po Shadows"
+      },
+      "universe": [
+        {
+          "en": "human history",
+          "cs": "dějiny lidstva"
+        }
+      ],
+      "header": {
+        "relatedWorldSlugs": [
+          "pentiment",
+          "deus-ex",
+          "halo"
+        ]
+      },
+      "relatedWorlds": [
+        {
+          "id": "pentiment",
+          "title": {
+            "en": "Pentiment",
+            "cs": "Pentiment"
+          },
+          "genreProfile": {
+            "en": "Historical realism",
+            "cs": "Historický realismus"
+          },
+          "yearRange": "2022",
+          "note": {
+            "en": "history and who writes it",
+            "cs": "dějiny a kdo je píše"
+          }
+        },
+        {
+          "id": "deus-ex",
+          "title": {
+            "en": "Deus Ex",
+            "cs": "Deus Ex"
+          },
+          "genreProfile": {
+            "en": "Cyberpunk",
+            "cs": "Kyberpunk"
+          },
+          "yearRange": "2000–2016",
+          "note": {
+            "en": "secret societies in the background",
+            "cs": "tajné společnosti v pozadí"
+          }
+        },
+        {
+          "id": "halo",
+          "title": {
+            "en": "Halo",
+            "cs": "Halo"
+          },
+          "genreProfile": {
+            "en": "Military sci-fi",
+            "cs": "Military sci-fi"
+          },
+          "yearRange": "2001–2021",
+          "note": {
+            "en": "an ancient civilization and humanity",
+            "cs": "prastará civilizace a lidstvo"
+          }
+        }
+      ],
+      "core": {
+        "en": "Dějiny lidstva jako tajná válka dvou řádů – a v jejich pozadí ti, kdo kdysi člověka stvořili.",
+        "cs": "Dějiny lidstva jako tajná válka dvou řádů – a v jejich pozadí ti, kdo kdysi člověka stvořili."
+      },
+      "signatureBullets": [
+        {
+          "en": "Dějiny jako tajná válka. Asasíni a Templáři stojí za velkými událostmi minulosti.",
+          "cs": "Dějiny jako tajná válka. Asasíni a Templáři stojí za velkými událostmi minulosti."
+        },
+        {
+          "en": "Paměť v genech. Animus přehrává vzpomínky předků uložené v DNA.",
+          "cs": "Paměť v genech. Animus přehrává vzpomínky předků uložené v DNA."
+        },
+        {
+          "en": "Lidé jako nářadí. Isu stvořili člověka jako otroka ovladatelného Jablky.",
+          "cs": "Lidé jako nářadí. Isu stvořili člověka jako otroka ovladatelného Jablky."
+        },
+        {
+          "en": "Historie na dosah. Renesanční Florencie, Egypt či vikingská Anglie jako dějiště.",
+          "cs": "Historie na dosah. Renesanční Florencie, Egypt či vikingská Anglie jako dějiště."
+        }
+      ],
+      "metadata": {
+        "genreProfile": {
+          "en": "Alternate history",
+          "cs": "Alternativní historie",
+          "sub": {
+            "en": "overlap: sci-fi conspiracy",
+            "cs": "přesah: sci-fi konspirace"
+          }
+        },
+        "atmosphere": {
+          "en": "Fascination",
+          "cs": "Fascinace",
+          "sub": {
+            "en": "secondary: Defiance",
+            "cs": "vedlejší: Vzdor"
+          }
+        },
+        "spatialScope": {
+          "en": "World (planet)",
+          "cs": "Svět",
+          "sub": {
+            "en": "across centuries and continents",
+            "cs": "napříč staletími a kontinenty"
+          }
+        },
+        "historicalDepth": {
+          "en": "Mythic",
+          "cs": "Mytická",
+          "sub": {
+            "en": "from the First Civilization, the Isu",
+            "cs": "od První civilizace Isu"
+          }
+        },
+        "societalOrder": {
+          "en": "A world in the shadow of hidden power",
+          "cs": "Svět ve stínu utajené moci",
+          "sub": {
+            "en": "the centuries-long war of Assassins and Templars",
+            "cs": "staletá válka asasínů a templářů"
+          }
+        },
+        "sourceOfPower": {
+          "en": "Technology and cybernetics",
+          "cs": "Technologie a kybernetika",
+          "sub": {
+            "en": "the Animus and the Isu Apples of Eden",
+            "cs": "Animus a Jablka ráje Isu"
+          }
+        },
+        "protagonistPerspective": {
+          "en": "Witness and survivor in the machinery",
+          "cs": "Svědek a přeživší v soukolí",
+          "sub": {
+            "en": "the memories of Altaïr, Ezio, Kassandra, or Eivor in the Animus",
+            "cs": "vzpomínky Altaïra, Ezia, Kassandry či Eivor v Animu"
+          }
+        },
+        "keyActors": {
+          "en": "the Assassins · the Templars and Abstergo · the Isu and the Apples of Eden · Desmond Miles and Layla Hassan",
+          "cs": "Asasíni · Templáři a Abstergo · Isu a Jablka ráje · Desmond Miles a Layla Hassanová"
+        }
+      },
+      "themes": [
+        "free-will-and-fate",
+        "conspiracy",
+        "power-and-dominion",
+        "uncovering-the-past"
+      ],
+      "narration": [
+        "cinematics",
+        "books-and-documents"
+      ],
+      "axes": {
+        "hopeDespair": {
+          "value": 3
+        },
+        "knownUnknown": {
+          "value": 3
+        },
+        "intimateEpic": {
+          "value": 4
+        },
+        "moralClarityAmbiguity": {
+          "value": 4
+        },
+        "realismMetaphysical": {
+          "value": 2
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "Isu stvořili člověka jako poslušné nářadí s přijímačem v mozku, ovladatelné zlatými Jablky ráje.",
+          "cs": "Isu stvořili člověka jako poslušné nářadí s přijímačem v mozku, ovladatelné zlatými Jablky ráje."
+        },
+        "centralDilemma": {
+          "en": "Bezpečný mír vykoupený kontrolou, nebo svoboda, v níž je každý architektem svých chyb?",
+          "cs": "Bezpečný mír vykoupený kontrolou, nebo svoboda, v níž je každý architektem svých chyb?"
+        },
+        "ultimateMystery": {
+          "en": "Co chystá vzkříšený Basim, alias Loki, v moderním světě – a kým je Eva?",
+          "cs": "Co chystá vzkříšený Basim, alias Loki, v moderním světě – a kým je Eva?"
+        }
+      },
+      "chronicleSlug": "assassins-creed",
+      "chronicleTeaser": {
+        "en": "From the fall of the Isu to the return of Loki.",
+        "cs": "Od pádu Isu po návrat Lokiho."
+      }
+    },
+    {
+      "id": "disco-elysium",
+      "number": 29,
+      "chapterId": "historical",
+      "addedAt": "2026-11-17",
+      "gameTitle": {
+        "en": "Disco Elysium",
+        "cs": "Disco Elysium"
+      },
+      "chronicleTitle": {
+        "en": "Chronicle of Revachol",
+        "cs": "Kronika Revacholu"
+      },
+      "subtitlePoetic": {
+        "en": "Chronicle of Revachol",
+        "cs": "Kronika Revacholu"
+      },
+      "studios": [
+        "ZA/UM"
+      ],
+      "yearRange": "2019–2021",
+      "canonScope": {
+        "en": "Disco Elysium and The Final Cut",
+        "cs": "Disco Elysium a The Final Cut"
+      },
+      "universe": [
+        {
+          "en": "Elysium",
+          "cs": "Elysium"
+        }
+      ],
+      "header": {
+        "relatedWorldSlugs": [
+          "planescape-torment",
+          "pathologic",
+          "silent-hill"
+        ]
+      },
+      "relatedWorlds": [
+        {
+          "id": "planescape-torment",
+          "title": {
+            "en": "Planescape: Torment",
+            "cs": "Planescape: Torment"
+          },
+          "genreProfile": {
+            "en": "Planar fantasy",
+            "cs": "Planární fantasy"
+          },
+          "yearRange": "1999",
+          "note": {
+            "en": "a hero without memory",
+            "cs": "hrdina bez paměti"
+          }
+        },
+        {
+          "id": "pathologic",
+          "title": {
+            "en": "Pathologic",
+            "cs": "Pathologic"
+          },
+          "genreProfile": {
+            "en": "Surreal tragedy",
+            "cs": "Surrealistická tragédie"
+          },
+          "yearRange": "2005–2019",
+          "note": {
+            "en": "a city and its ideologies",
+            "cs": "město a jeho ideologie"
+          }
+        },
+        {
+          "id": "silent-hill",
+          "title": {
+            "en": "Silent Hill",
+            "cs": "Silent Hill"
+          },
+          "genreProfile": {
+            "en": "Psychological horror",
+            "cs": "Psychologický horor"
+          },
+          "yearRange": "1999–2024",
+          "note": {
+            "en": "guilt and a broken mind",
+            "cs": "vina a rozbitá mysl"
+          }
+        }
+      ],
+      "core": {
+        "en": "Policista bez paměti se probouzí ve městě, které prohrálo revoluci – a obojí se snaží znovu poskládat.",
+        "cs": "Policista bez paměti se probouzí ve městě, které prohrálo revoluci – a obojí se snaží znovu poskládat."
+      },
+      "signatureBullets": [
+        {
+          "en": "Mysl jako družina. Schopnosti hrdiny mluví vlastními hlasy a hádají se s ním.",
+          "cs": "Mysl jako družina. Schopnosti hrdiny mluví vlastními hlasy a hádají se s ním."
+        },
+        {
+          "en": "Prohraná revoluce. Revachol žije v troskách komuny pod správou cizího kapitálu.",
+          "cs": "Prohraná revoluce. Revachol žije v troskách komuny pod správou cizího kapitálu."
+        },
+        {
+          "en": "Ideologie na zkoušku. Hráč si zkouší komunismus, ultraliberalismus i fašismus.",
+          "cs": "Ideologie na zkoušku. Hráč si zkouší komunismus, ultraliberalismus i fašismus."
+        },
+        {
+          "en": "Šeď. Mezi ostrovy světa se rozpíná entropie, která polyká realitu.",
+          "cs": "Šeď. Mezi ostrovy světa se rozpíná entropie, která polyká realitu."
+        }
+      ],
+      "metadata": {
+        "genreProfile": {
+          "en": "Alternate world",
+          "cs": "Alternativní svět",
+          "sub": {
+            "en": "overlap: noir detective story",
+            "cs": "přesah: noir detektivka"
+          }
+        },
+        "atmosphere": {
+          "en": "Melancholy",
+          "cs": "Melancholie",
+          "sub": {
+            "en": "secondary: Cynicism",
+            "cs": "vedlejší: Cynismus"
+          }
+        },
+        "spatialScope": {
+          "en": "City",
+          "cs": "Město",
+          "sub": {
+            "en": "the Martinaise district of Revachol",
+            "cs": "čtvrť Martinaise v Revacholu"
+          }
+        },
+        "historicalDepth": {
+          "en": "Civilizational",
+          "cs": "Civilizační",
+          "sub": {
+            "en": "eight thousand years since the fall of Perikarnassis",
+            "cs": "osm tisíc let od pádu Perikarnassis"
+          }
+        },
+        "societalOrder": {
+          "en": "Dying world in ruins",
+          "cs": "Umírající svět v troskách",
+          "sub": {
+            "en": "occupied Revachol after the defeated revolution",
+            "cs": "okupovaný Revachol po porážce revoluce"
+          }
+        },
+        "sourceOfPower": {
+          "en": "Purely human means",
+          "cs": "Čistě lidské prostředky",
+          "sub": {
+            "en": "ideology, capital, and the unions",
+            "cs": "ideologie, kapitál a odbory"
+          }
+        },
+        "protagonistPerspective": {
+          "en": "Investigator and seeker of truth",
+          "cs": "Vyšetřovatel a hledač pravdy",
+          "sub": {
+            "en": "Harry Du Bois, a detective without memory",
+            "cs": "Harry Du Bois, detektiv bez paměti"
+          }
+        },
+        "keyActors": {
+          "en": "the Moralintern and the Coalition · the union and the corporations · the Pale · the Krenel mercenaries",
+          "cs": "Moralintern a Koalice · odbory a korporace · Šeď · žoldáci z Krenelu"
+        }
+      },
+      "themes": [
+        "identity-and-existence",
+        "politics-and-intrigue",
+        "guilt-and-redemption",
+        "humor-irony-exaggeration",
+        "love-and-relationships"
+      ],
+      "narration": [
+        "dialogue",
+        "unreliable-narrators"
+      ],
+      "axes": {
+        "hopeDespair": {
+          "value": 4
+        },
+        "knownUnknown": {
+          "value": 4
+        },
+        "intimateEpic": {
+          "value": 1
+        },
+        "moralClarityAmbiguity": {
+          "value": 5
+        },
+        "realismMetaphysical": {
+          "value": 2
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "Koaliční vojska rozstřílela Revacholskou komunu a zastavila dějiny města – a Harry stejně neunesl odchod lásky.",
+          "cs": "Koaliční vojska rozstřílela Revacholskou komunu a zastavila dějiny města – a Harry stejně neunesl odchod lásky."
+        },
+        "centralDilemma": {
+          "en": "Má smysl vstát z podlahy a dělat správnou věc ve světě, který prohrál revoluci i lásku?",
+          "cs": "Má smysl vstát z podlahy a dělat správnou věc ve světě, který prohrál revoluci i lásku?"
+        },
+        "ultimateMystery": {
+          "en": "Co je Šeď – a je Harry jen geniální troska, nebo bytost napojená na entropii světa?",
+          "cs": "Co je Šeď – a je Harry jen geniální troska, nebo bytost napojená na entropii světa?"
+        }
+      },
+      "chronicleSlug": "disco-elysium",
+      "chronicleTeaser": {
+        "en": "From the fallen revolution to one investigation in Martinaise.",
+        "cs": "Od pádu revoluce po jedno vyšetřování v Martinaise."
+      }
+    },
+    {
+      "id": "pentiment",
+      "number": 30,
+      "chapterId": "historical",
+      "addedAt": "2026-11-17",
+      "gameTitle": {
+        "en": "Pentiment",
+        "cs": "Pentiment"
+      },
+      "chronicleTitle": {
+        "en": "Chronicle of Tassing",
+        "cs": "Kronika Tassingu"
+      },
+      "subtitlePoetic": {
+        "en": "Chronicle of Tassing",
+        "cs": "Kronika Tassingu"
+      },
+      "studios": [
+        "Obsidian Entertainment"
+      ],
+      "yearRange": "2022",
+      "canonScope": {
+        "en": "Pentiment",
+        "cs": "Pentiment"
+      },
+      "universe": [
+        {
+          "en": "Tassing",
+          "cs": "Tassing"
+        }
+      ],
+      "header": {
+        "relatedWorldSlugs": [
+          "assassins-creed",
+          "disco-elysium",
+          "pathologic"
+        ]
+      },
+      "relatedWorlds": [
+        {
+          "id": "assassins-creed",
+          "title": {
+            "en": "Assassin's Creed",
+            "cs": "Assassin's Creed"
+          },
+          "genreProfile": {
+            "en": "Alternate history",
+            "cs": "Alternativní historie"
+          },
+          "yearRange": "2007–2025",
+          "note": {
+            "en": "history and who writes it",
+            "cs": "dějiny a kdo je píše"
+          }
+        },
+        {
+          "id": "disco-elysium",
+          "title": {
+            "en": "Disco Elysium",
+            "cs": "Disco Elysium"
+          },
+          "genreProfile": {
+            "en": "Alternate world",
+            "cs": "Alternativní svět"
+          },
+          "yearRange": "2019–2021",
+          "note": {
+            "en": "a detective story and conscience",
+            "cs": "detektivka a svědomí"
+          }
+        },
+        {
+          "id": "pathologic",
+          "title": {
+            "en": "Pathologic",
+            "cs": "Pathologic"
+          },
+          "genreProfile": {
+            "en": "Surreal tragedy",
+            "cs": "Surrealistická tragédie"
+          },
+          "yearRange": "2005–2019",
+          "note": {
+            "en": "community and guilt",
+            "cs": "komunita a vina"
+          }
+        }
+      ],
+      "core": {
+        "en": "Vraždy v alpském údolí 16. století, které nelze s jistotou vyřešit – jen rozhodnout, komu uvěříme.",
+        "cs": "Vraždy v alpském údolí 16. století, které nelze s jistotou vyřešit – jen rozhodnout, komu uvěříme."
+      },
+      "signatureBullets": [
+        {
+          "en": "Hra jako rukopis. Postavy i písmo vypadají jako středověké iluminace.",
+          "cs": "Hra jako rukopis. Postavy i písmo vypadají jako středověké iluminace."
+        },
+        {
+          "en": "Vrah bez jistoty. Hra nikdy neřekne, kdo vraždil; hráč nese tíhu obvinění.",
+          "cs": "Vrah bez jistoty. Hra nikdy neřekne, kdo vraždil; hráč nese tíhu obvinění."
+        },
+        {
+          "en": "Dějiny jako vrstvy. Pod klášterem leží římský chrám, pod světci pohanští bohové.",
+          "cs": "Dějiny jako vrstvy. Pod klášterem leží římský chrám, pod světci pohanští bohové."
+        },
+        {
+          "en": "Komunita v čase. Příběh sleduje jednu vesnici přes čtvrt století.",
+          "cs": "Komunita v čase. Příběh sleduje jednu vesnici přes čtvrt století."
+        }
+      ],
+      "metadata": {
+        "genreProfile": {
+          "en": "Historical realism",
+          "cs": "Historický realismus",
+          "sub": {
+            "en": "overlap: detective story",
+            "cs": "přesah: detektivka"
+          }
+        },
+        "atmosphere": {
+          "en": "Fascination",
+          "cs": "Fascinace",
+          "sub": {
+            "en": "secondary: Melancholy",
+            "cs": "vedlejší: Melancholie"
+          }
+        },
+        "spatialScope": {
+          "en": "Region",
+          "cs": "Region",
+          "sub": {
+            "en": "the Tassing valley in Bavaria",
+            "cs": "údolí Tassing v Bavorsku"
+          }
+        },
+        "historicalDepth": {
+          "en": "Historical",
+          "cs": "Historická",
+          "sub": {
+            "en": "from the Romans to the Reformation",
+            "cs": "od Římanů po reformaci"
+          }
+        },
+        "societalOrder": {
+          "en": "A closed microcosm",
+          "cs": "Uzavřený mikrokosmos",
+          "sub": {
+            "en": "the Tassing valley and Kiersau Abbey",
+            "cs": "údolí Tassing a opatství Kiersau"
+          }
+        },
+        "sourceOfPower": {
+          "en": "Purely human means",
+          "cs": "Čistě lidské prostředky",
+          "sub": {
+            "en": "faith, land, writing, and the power of the nobility",
+            "cs": "víra, půda, písmo a moc šlechty"
+          }
+        },
+        "protagonistPerspective": {
+          "en": "Investigator and seeker of truth",
+          "cs": "Vyšetřovatel a hledač pravdy",
+          "sub": {
+            "en": "Andreas Maler, later Magdalene, hunt for murderers",
+            "cs": "Andreas Maler, později Magdalena, pátrají po vrazích"
+          }
+        },
+        "keyActors": {
+          "en": "Kiersau Abbey · the village of Tassing · the nobility and the Reformation · the memory and legends of the valley",
+          "cs": "opatství Kiersau · vesnice Tassing · šlechta a reformace · paměť a pověsti údolí"
+        }
+      },
+      "themes": [
+        "faith",
+        "uncovering-the-past",
+        "guilt-and-redemption",
+        "friendship-and-fellowship"
+      ],
+      "narration": [
+        "dialogue",
+        "mechanics-as-meaning"
+      ],
+      "axes": {
+        "hopeDespair": {
+          "value": 3
+        },
+        "knownUnknown": {
+          "value": 3
+        },
+        "intimateEpic": {
+          "value": 1
+        },
+        "moralClarityAmbiguity": {
+          "value": 4
+        },
+        "realismMetaphysical": {
+          "value": 1
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "Mniši postavili opatství na pohanském chrámu a z římských bohů udělali světce – lež, kvůli níž se později vraždí.",
+          "cs": "Mniši postavili opatství na pohanském chrámu a z římských bohů udělali světce – lež, kvůli níž se později vraždí."
+        },
+        "centralDilemma": {
+          "en": "Máme právo zničit mýtus, na němž stojí komunita, ve jménu historické pravdy?",
+          "cs": "Máme právo zničit mýtus, na němž stojí komunita, ve jménu historické pravdy?"
+        },
+        "ultimateMystery": {
+          "en": "Kdo skutečně zabil barona Lorenze a dřevorubce Otta? Hra to záměrně neprozradí.",
+          "cs": "Kdo skutečně zabil barona Lorenze a dřevorubce Otta? Hra to záměrně neprozradí."
+        }
+      },
+      "chronicleSlug": "pentiment",
+      "chronicleTeaser": {
+        "en": "From the Romans to the Reformation: three murders in one valley.",
+        "cs": "Od Římanů po reformaci: tři vraždy v jednom údolí."
+      }
+    },
+    {
       "id": "vzorek-fantasy",
       "number": 90,
       "chapterId": "fantasy",
