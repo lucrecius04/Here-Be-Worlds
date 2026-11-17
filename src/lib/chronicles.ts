@@ -38,21 +38,16 @@ const COVER_RANGE: Record<string, string> = {
   diablo: 'od stvoření vesmíru po konec věku nenávisti',
 };
 
+/** Všechny kroniky ve složce content/chronicles se načtou samy — nový svět nepotřebuje zásah do kódu. */
+const CHRONICLES = import.meta.glob('../../content/chronicles/*.md', { query: '?raw', import: 'default' }) as Record<
+  string,
+  () => Promise<string>
+>;
+
 export async function loadChronicleMarkdown(slug: string): Promise<ChronicleDoc> {
-  let raw: string;
-  switch (slug) {
-    case 'baldurs-gate':
-      raw = (await import('../../content/chronicles/baldurs-gate.md?raw')).default;
-      break;
-    case 'dark-souls':
-      raw = (await import('../../content/chronicles/dark-souls.md?raw')).default;
-      break;
-    case 'diablo':
-      raw = (await import('../../content/chronicles/diablo.md?raw')).default;
-      break;
-    default:
-      return { markdown: '' };
-  }
+  const loader = CHRONICLES[`../../content/chronicles/${slug}.md`];
+  if (!loader) return { markdown: '' };
+  const raw = await loader();
   const parsed = parseChronicleRaw(raw);
   return {
     ...parsed,

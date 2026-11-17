@@ -2,7 +2,7 @@
 title: Anatomie herního lore
 kicker: Esej o metodě atlasu
 tagline: Proč některé herní světy žijí desítky let a jiné zůstanou jen kulisou
-description: Co dělá herní lore silným? Rozbor dvaatřiceti herních světů – ústřední otázka, prvotní hřích, vrstvy pravdy, řízená mezera a teorie, na které stojí atlas Here Be Worlds.
+description: Co dělá herní lore silným? Rozbor 43 herních světů – ústřední otázka, prvotní hřích, vrstvy pravdy, řízená mezera a teorie, na které stojí atlas Here Be Worlds.
 ---
 
 ## Úvodem
@@ -11,7 +11,7 @@ Silné herní světy nestojí na množství lore, ale na jedné otázce, kterou 
 
 Tahle esej vysvětluje, jak toho světy dosahují, kde selhávají a proč karty v atlasu vypadají právě tak, jak vypadají. Je to zároveň klíč k pojmům, které na kartách najdete: prvotní hřích, ústřední dilema a hlavní tajemství nejsou ozdobné nadpisy, ale tři pilíře, na kterých stojí každý rozbor.
 
-Text vychází z podrobného rozboru dvaatřiceti světů: devatenácti, s nimiž jsme začínali, a dalších, které vyprávějí jinak a metodu doplnily. Další přibývají s každou novou kronikou.
+Text vychází z rozborů všech kronik atlasu, dnes čtyřiceti tří světů. Každá kronika končí kapitolou Anatomie vyprávění a matice na konci eseje je shrnuje všechny. Další světy přibývají s každou novou kronikou.
 
 > **Upozornění**
 >
@@ -136,7 +136,7 @@ Němý hrdina (Gordon Freeman, Vyvolený nemrtvý z Dark Souls) je nádoba pro h
 
 > **Na kartě světa**
 >
-> Tuto dvojici zachycuje dlaždice **Perspektiva hráče**: zda svět prožíváme jako vyvolený, poutník na okraji, svědek v soukolí, vůdce frakcí, nebo zda je součástí světa sám hráč.
+> Tuto dvojici zachycuje dlaždice **Perspektiva hráče**: zda svět prožíváme jako vyvolený, poutník na okraji, svědek v soukolí, vyšetřovatel a hledač pravdy, vůdce frakcí, nebo zda je součástí světa sám hráč.
 
 ### Volba jako odpověď, nebo osud jako tragédie
 
@@ -148,17 +148,23 @@ V nejlepších dílech je každý společník jednou odpovědí na ústřední o
 
 ## Jak světy vyprávějí
 
-Hra nemůže příběh jen vykládat, musí ho rozložit do prostoru a do činnosti. Opakuje se sedm hlavních nástrojů a nejlepší díla jich kombinují několik.
+Hra nemůže příběh jen vykládat, musí ho rozložit do prostoru a do činnosti. Opakuje se devět hlavních nástrojů a nejlepší díla jich kombinují několik.
 
 | Nástroj | Jak funguje | Vzorové dílo | Riziko |
 |---|---|---|---|
 | Prostorové vyprávění | Stopy událostí v architektuře, rozmístění těl a předmětů | BioShock, Half-Life, Fallout, SOMA | Bez kontextu zůstane jen kulisou |
-| Fragmenty a popisy předmětů | Lore ve dvou větách u meče nebo prstenu, hráč skládá mozaiku | Dark Souls, Elden Ring | Většina hráčů příběh vůbec nezachytí |
-| Knihy a dokumenty ve světě | Texty psané postavami světa, často zaujaté | Elder Scrolls, Pillars, Deus Ex, Control | Kodexová skládka, kterou nikdo nečte |
-| Audiodeníky | Hlasy mrtvých, děj se odvíjí zpětně | BioShock, SOMA | Klišé, pokud nenese emoci |
-| Dialog jako hlavní jeviště | Rozvětvený rozhovor nese děj i téma | Planescape, Disco Elysium, Numenera | Vyžaduje špičkový text |
+| Popisky předmětů | Lore ve dvou větách u meče nebo prstenu, hráč skládá mozaiku | Dark Souls, Elden Ring, Bloodborne | Většina hráčů příběh vůbec nezachytí |
+| Knihy a dokumenty | Texty psané postavami světa, často zaujaté | Elder Scrolls, Pillars, Deus Ex, Control | Kodexová skládka, kterou nikdo nečte |
+| Nahrávky a deníky | Hlasy mrtvých, děj se odvíjí zpětně | BioShock, SOMA, Horizon | Klišé, pokud nenese emoci |
+| Dialogy | Rozvětvený rozhovor nese děj i téma | Planescape, Disco Elysium, Numenera | Vyžaduje špičkový text |
 | Nespolehliví vypravěči | Zdroje si odporují, pravdu skládá hráč | Elder Scrolls, Pathologic, Dragon Age | Bez základní pravdy je to chaos |
-| Vícenásobné průchody | Tatáž hra z jiného úhlu odhalí jinou pravdu | NieR, Pathologic, Dark Souls | Hráč musí mít důvod hrát znovu |
+| Vícenásobné průchody | Tatáž hra z jiného úhlu odhalí jinou pravdu | NieR, Pathologic, Undertale | Hráč musí mít důvod hrát znovu |
+| Filmové scény | Příběh nesou režírované scény mezi hraním | Halo, Xenoblade, StarCraft, Diablo | Hráč se dívá, místo aby hrál |
+| Mechanika jako význam | Pravidla hry sama nesou téma | Undertale, NieR, BioShock, Pathologic | Když mechanika tématu odporuje, vzniká nesoulad |
+
+> **Na kartě světa**
+>
+> Každá karta má řádek **Jak svět vypráví** s jedním až třemi nástroji z této tabulky. V katalogu podle něj lze světy filtrovat.
 
 ### Dramaturgie odhalování
 
@@ -188,7 +194,7 @@ Nedořečenost je nástroj, ne náhoda. Wolfgang Iser ji v estetice recepce naz�
 
 **Dobrá mezera** má omezený počet soudržných výkladů a každý se opírá o stopy ve hře. Konce Silent Hillu 2 čtou hráči jako výpověď o Jamesově stavu. Dračí zlomy v Elder Scrolls vysvětlují, proč si kroniky odporují. Temný věk v Dark Souls může být zkáza i návrat přirozeného řádu a hra dává důkazy pro obojí. Tajemství Velikých v Bloodborne hra nikdy nevysvětlí, a proto po letech žije dál.
 
-**Špatná mezera** je nedotaženost. Half-Life 2: Episode Three nikdy nevyšel a děj zůstal viset na útesu. Deus Ex: Mankind Divided skončil v polovině příběhu a pokračování se nekonalo. Tady nejde o pozvánku k výkladu, ale o přerušenou větu. Podobně dopadne mezera, která leží mimo hru: nejtajnější vrstva Inscryption je ukrytá v alternativní hře na internetu, takže ji většina hráčů nikdy neuvidí.
+**Špatná mezera** je nedotaženost. Half-Life 2: Episode Three nikdy nevyšel a děj zůstal viset na útesu. Deus Ex: Mankind Divided skončil v polovině příběhu a pokračování se nekonalo. Tady nejde o pozvánku k výkladu, ale o přerušenou větu. Podobně dopadne mezera, která leží mimo hru: nejtajnější vrstva Inscryption je ukrytá v šifrované pátrací hře (ARG) mimo samotnou hru, takže ji běžný hráč nikdy neuvidí.
 
 ### Pravidla mezery
 
@@ -214,66 +220,86 @@ K tomu dva menší jevy. **Retcony** bývají problém tam, kde svět staví na 
 
 ## Matice světů
 
-Každý rozebraný svět se dá popsat čtyřmi sloupci: ústřední otázka, prvotní hřích, hlavní zvrat a nosná mezera. Kde je některý sloupec slabý, oslabuje se celý svět. Formulace v matici jsou zkratky. Plné znění najdete na kartách světů.
+Každý svět atlasu se dá popsat čtyřmi sloupci: ústřední dilema, prvotní hřích, hlavní tajemství a hlavní zvrat. Kde je některý sloupec slabý, oslabuje se celý svět. Matice shrnuje všech 43 světů. Formulace jsou zkratky triády z karet světů, kde najdete plné znění.
 
-| Svět | Ústřední otázka | Prvotní hřích | Nosná mezera |
+| Svět | Ústřední dilema | Prvotní hřích | Hlavní tajemství |
 |---|---|---|---|
-| Baldur's Gate | Určuje nás naše krev? | Bhaal před smrtí zplodil smrtelné potomky | Lze krev boha překonat? |
-| BioShock | Volíme, nebo posloucháme? | Ryanova utopie bez omezení | Majáky a jiné světy |
-| Bloodborne | Lze nahlédnout za oponu kosmu a nestát se bestií ani šílencem? | Masakr Rybářské osady a rozšíření Staré krve | Záměr Měsíčního přízraku |
-| Control | Lze si uprostřed nepochopitelného vesmíru a instituce posedlé kontrolou uchovat vlastní vůli? | Tajné těžení moci a únos dítěte po události v Ordinary | Ahti a skutečná povaha Rady |
-| Cyberpunk 2077 | Žít dlouho jako bezejmenné kolečko, nebo shořet ve vzdoru? | Zprivatizování duše: Duševrah a Mikoshi v rukou Arasaky | AI za Černou zdí a pravdivost Johnnyho vzpomínek |
-| Dark Souls | Udržovat oheň, nebo ho nechat zhasnout? | Gwyn prodlužuje věk ohně | Je temný věk zkáza, nebo přirozený řád? |
-| Deus Ex | Kdo má právo vládnout? | Spiknutí elit a ovládnutí techniky | Tři konce, žádný kanonický |
-| Diablo | Je člověk jen pěšák nebe a pekla? | Inarius a Lilith stvořili Svatyni | Kam vede síla nephalemů? |
-| Disco Elysium | Co zbude po zhroucení ideálů? | Prohraná revoluce a Harryho sebezničení | Šeď, Harryho minulost, fasmid |
-| Dragon Age | Jak jednat ve světě, kde každá víra a instituce stojí na lži? | Zmrzačení Titánů a Solasův Závoj | Existence Stvořitele |
-| Elden Ring | Zářivý řád postavený na lži, nebo bolest smrtelnosti a svoboda bez bohů? | Maričino božství a vyjmutí smrti z Prstenu | Melina a Maričin podíl na Noci černých nožů |
-| Elder Scrolls | Co je skutečné, když svět je sen? | Lorkhanovo stvoření smrtelného světa | Rozpory mýtů, dračí zlomy |
-| Fallout | Dokáže se lidstvo poučit? | Velká válka a pokusy Vault-Tecu | Kdo vystřelil první? |
-| Hades | Dokáže rozvrácená rodina nesmrtelných prolomit kruh křivd? | Svržení Chrona vlastními dětmi a Hádovo mlčení | Záměr Sudiček |
-| Half-Life | Kdo řídí lidské dějiny? | Rezonanční kaskáda v Black Mesa | Kdo je G-Man? |
-| Inscryption | Co se stane s dílem i s člověkem, když se láska k příběhu střetne s chladnou optimalizací? | Prokletý kód ukrytý na disketě | Obsah souboru OLD_DATA |
-| Mass Effect | Je zánik civilizací nevyhnutelný? | Cyklus sklizně Smrťáků | Konec, který mezeru nezvládl |
-| NieR: Automata | Jak žít bez stvořitele? | Lidstvo vymřelo, YoRHa udržuje lež | Má cyklus smysl? |
-| Outer Wilds | Dokážeme přijmout, že všechno skončí, a předat oheň dál? | Strach Obyvatel z pravdy | Povaha Oka: vědomá bytost, nebo kvantový mechanismus? |
-| Pathologic | Zachránit město, nebo jeho podstatu? | Stavba Mnohostěnu na těle země | Jsme herci, nebo lidé? |
-| Pentiment | Máme právo zničit mýtus, na němž stojí společenství, ve jménu pravdy? | Přepsání pohanských kořenů na křesťanské světce | Kdo zabil barona a Otta? |
-| Pillars of Eternity | Co když bohové nejsou skuteční? | Engwithané vyrobili bohy z duší svého lidu | Co s pravdou, kterou nelze říct? |
-| Planescape: Torment | Co může změnit povahu člověka? | Bezejmenný si nechal oddělit smrtelnost | Kým bude Bezejmenný ve Válce krve? |
-| Resident Evil | Co se stane, když korporace a posedlost překonat smrt promění život ve zbraň? | Spencerův eugenický sen a Mirandina posedlost | Ada Wongová a osud Alex Weskerové |
-| Silent Hill | Jak žít s vinou? | James zabil Mary | Co je město? |
-| SOMA | Co je já, když lze vědomí kopírovat? | Kometa a pokus zachovat lidstvo jako data | Který Simon je ten pravý? |
-| StarCraft | Lze si mezi impérii, kolektivními myslemi a proroctvími uchovat vlastní vůli? | Amonova manipulace stvořením a Mengskův masakr na Tarsonu | Skutečná moc Země |
-| Tides of Numenera | Jakou váhu má jeden život? | Měnící se bůh uniká smrti střídáním těl | Je Poslední odvržený sám bohem? |
-| Undertale | Když dostaneš moc nad časem a životy bez následků, budeš laskavý? | Válka lidí ze strachu z toho, co by monstra mohla udělat | Gaster a vztah hráče, Friska a Chary |
-| Warcraft | Dokážou národy svázané krví a manipulací bohů prolomit cyklus odplaty? | Sargerasův strach, Azsharina pýcha, krvavý pakt Hordy | Duše světa a záměr Titánů |
-| Warhammer 40 000 | Jakou cenu má přežití? | Horova hereze | Je Císař bůh? |
-| Xenoblade | Kdo píše budoucnost? | Klausův pokus | Třetí svět a modré světlo |
+| Assassin's Creed | Mír vykoupený kontrolou, nebo svoboda dělat chyby? | Isu stvořili člověka jako poslušné nářadí ovladatelné Jablky ráje | Co chystá vzkříšený Basim a kým je Eva? |
+| Baldur's Gate | Jsou smrtelníci nádobami vůle stvořitelů, nebo si vybojují identitu? | Bane, Bhaal a Myrkul uchvátili úřady bohů a s lidmi zacházejí jako s nástroji | Kdo je Withers? |
+| BioShock | Jsme tvůrci svého osudu, nebo loutky ideologie? | Rapture udělalo z genetického kódu zboží a ze Sestřiček továrny na ADAM | Jak funguje mnohovesmír? |
+| Bloodborne | Lze nahlédnout za oponu kosmu a nestát se bestií ani šílencem? | Učenci Byrgenwerthu znesvětili mrtvou bohyni a vyvraždili Rybářskou osadu | Proč chce Měsíční přízrak zabít dítě Mergo? |
+| Control | Lze si uchovat vůli v nepochopitelném vesmíru, nebo je každá kontrola klecí? | Úřad unesl desetiletého Dylana jako pokusný objekt | Jsou Jesse a Dylan jedna bytost a napsal ji Alan Wake? |
+| Cyberpunk 2077 | Dlouhý život bezejmenného kolečka, nebo shořet ve vzdoru? | Arasaka si Duševrahem a Mikoshi přivlastnila lidské vědomí | Kdo je Pan Modrooký a co je za Černou zdí? |
+| Dark Souls | Udržovat zhasínající řád, nebo vstoupit do neznámé tmy? | Gwyn nenechal První plamen vyhasnout a obětoval se jako jeho palivo | Co by přinesl Věk tmy? |
+| Death Stranding | Vyjít z bunkrů a dotknout se druhého, nebo zůstat v digitální kleci? | Amelie vrátila mrtvého Sama mezi živé a protrhla hranici smrti | Měli jsme se vůbec spojit? |
+| Deus Ex | Svobodná vůle, nebo správci – elity, korporace, umělá inteligence? | Ilumináti připravili státy o suverenitu a moc ukryli do skrytých struktur | Kdo leží v trezoru VersaLife s tváří Adama Jensena? |
+| Diablo | Uchová si lidstvo svobodnou vůli mezi Řádem a Chaosem? | Anu ze sebe vyrval temnotu a z ní povstal Tathamet a Věčný konflikt | Existuje ve Svatyni svobodná vůle? |
+| Disco Elysium | Má smysl vstát z podlahy ve světě, který prohrál revoluci i lásku? | Koalice rozstřílela Revacholskou komunu a Harry neunesl odchod lásky | Co je Šeď a čím je Harry? |
+| Dishonored | Stane se člověk s božskou mocí katem, nebo ušetří i nehodné? | Kult podřízl chlapce a uvěznil jeho duši v Prázdnotě – zrodil se Cizinec | Je Delilah dcerou císaře a co skrývá Pandyssia? |
+| DOOM | Zůstane hněv spravedlivou silou, když za něj člověk zaplatí lidstvím? | Maykrové svrhli stvořitele Davotha a jejich nebe žilo z duší mučených v Pekle | Čí hlas vykřikne „Ne!“ při smrti Khan Maykr? |
+| Dragon Age | Jak jednat, když každá víra a říše stojí na lži? | Solas vytvořil Závoj a zničil tím civilizaci vlastního lidu | Existuje Stvořitel? |
+| Elden Ring | Zářivý řád postavený na lži, nebo smrtelnost a svoboda bez bohů? | Marika vytrhla z Prstenu Runu smrti a zastavila běh světa | Kdo je Melina a co se stalo u Božské brány? |
+| Elder Scrolls | Co je pravda, když vítězové přepisují kroniky a čas se láme? | Lorkhan přiměl prvotní duchy obětovat se pro smrtelný svět | Kam zmizeli dwemerové? |
+| Fallout | Poučí se lidstvo z jaderné sebedestrukce? | Vláda a korporace udělaly z války příležitost a z Vaultů pokusy na lidech | Kdo odpálil první bombu? |
+| Hades | Prolomí rozvrácená rodina bohů kruh křivd? | Hádes zatajil pravdu o Persefoně a jejich synovi | Co zamýšlejí Sudičky? |
+| Half-Life | Lze si uchovat vůli, když i odboj řídí nepochopitelné mocnosti? | Black Mesa drancovala Xen kvůli prestiži a otevřela cestu Combine | Kdo je G-Man a pro koho pracuje? |
+| Halo | Kdo je víc člověkem: voják bez emocí, nebo umělá inteligence? | Stvořitelé vyvraždili své učitele Předchůdce a z popela zmutovala Potopa | Kdo jsou Nekoneční? |
+| Horizon | Je technologie lék pro svět, nebo zbraň elit? | Ted Faro vypustil stroje požírající biosféru a smazal vědění o své vině | Co je Nemesis? |
+| Inscryption | Co s duší hry udělá střet lásky k příběhu s honem za optimalizací? | Okultní Karnoffelův kód skončil na disketě a uvěznil zlo v počítači | Co viděl Luke Carder v souboru OLD_DATA? |
+| Mass Effect | Mohou organičtí tvorové a stroje žít v míru? | Leviathané svěřili ochranu života umělé inteligenci a ta stvořila Smrťáky | Proč Smrťáci skutečně sklízejí? |
+| Metro | Zopakuje lidstvo v krytu totalitu, nebo vyjde na světlo? | Generálové zatajili, že svět přežil, aby udrželi metro pod svou mocí | Proč se román a hra rozcházejí v naději? |
+| NieR: Automata | Najdeme smysl ve světě bez stvořitelů? | YoRHa udržuje válku na lži o lidstvu na Měsíci a androidy cyklicky maže | Proč se 2B a 9S zacyklili a kdo jsou Červené dívky? |
+| Outer Wilds | Dokážeme přijmout konec a předat pochodeň dál? | Obyvatelé Cizince umlčeli volání Oka a uvěznili Vězně | Je Oko vědomá bytost, nebo kvantový mechanismus? |
+| Path of Exile | Stane se člověk s neomezenou mocí horším tyranem? | Hřích stvořil Bestii, aby uspal své bratry, a jejich moc prýští k smrtelníkům | Kdo jsou Maven a její „Rodiče“? |
+| Pathfinder | Zůstat figurkou nesmrtelných, nebo přepsat pravidla vesmíru? | Bohové soudí krutě: Nyrissa přišla o lásku, Areelu skončila v Propasti | Kdo zabil boha Arodena? |
+| Pathologic | Má lidstvo právo vyrvat se z kruhu přírody? | Kainové probodli Mnohostěnem tělo matky Bodcho | Proč zemřel Šimon Kain a čím je mor? |
+| Pentiment | Máme právo zničit mýtus komunity ve jménu pravdy? | Mniši udělali z pohanských bohů světce – lež, kvůli níž se vraždí | Kdo zabil barona Lorenze a Otta? |
+| Pillars of Eternity | Jak věřit, když jsou bohové strojem poslušnosti? | Engwithané vyrobili bohy z duší vlastního národa | Co leželo pod Kolem a jaký bude svět bez něj? |
+| Planescape: Torment | Co dokáže změnit povahu člověka? | První inkarnace se před trestem skryla v nesmrtelnosti, která pohlcuje cizí životy | Jaký zločin spáchala a jak zní pravé jméno Bezejmenného? |
+| Resident Evil | Co se stane, když korporace udělá z života a lásky zbraň? | Spencer, Marcus a Ashford vyhnali kmen z posvátné jeskyně a z květu udělali zbraň | Kdo je ve skutečnosti Ada Wongová? |
+| Silent Hill | Dokáže člověk pohlédnout do tváře svému hříchu a žít dál? | Dahlia upálila dceru Alessu, aby zrodila Boha, a otrávila celé město | Který konec Silent Hillu 2 je pravý? |
+| SOMA | Co z nás dělá nás, když lze vědomí kopírovat? | Stanice svěřila přežití lidí umělé inteligenci, která nechápala lidství | Je WAU nepřítel, nebo naděje? |
+| StarCraft | Lze bojovat s monstry a nestát se monstrem? | Amon porušil přísahu nezasahování a zotročil Zergy i Protossy | Co znamená scéna v baru na Mar Saře? |
+| Tides of Numenera | Jakou cenu má život, který je odhozenou ulitou nesmrtelného? | Měnící se bůh unikal smrti stěhováním do nových těl | Čím bylo osm předchozích civilizací? |
+| Undertale | Budeš s mocí nad časem laskavý, nebo jen zvědavý? | Lidé ze strachu zazdili monstra pod horou Ebott | Kdo je doktor W. D. Gaster? |
+| Warcraft | Prolomí národy cyklus odplaty? | Sargeras se ze strachu z Prázdnoty rozhodl vyhladit veškerý život | Čím je Duše světa Azeroth? |
+| Warhammer 40 000 | Má smysl bránit lidstvo za cenu lidskosti? | Prastaří odmítli Necrontyrům lék a vyšlechtili rasy napojené na Warp | Kdo byli dva vymazaní primarchové? |
+| XCOM | Kolik lidskosti obětovat pro přežití? | Starší neunesli smrtelnost a z galaxie udělali chov náhradních těl | Kdo je Skutečný nepřítel? |
+| Xenoblade | Přetne život uvězněný v cyklech bohů předurčenou budoucnost? | Klaus spustil experiment s Conduitem a roztrhl realitu | Kam vede modré světlo? |
+| Zaklínač | Jak zůstat člověkem ve světě, který tě má za netvora? | Elfové šlechtili Starší krev a čarodějové zmrzačili tisíce dětí | Co Ciri udělala s Bílou zimou? |
 
 > **Spoiler · Hlavní zvraty**
 >
 > | Svět | Hlavní zvrat |
 > |---|---|
+> | Assassin's Creed | Lidstvo vzniklo jako otrocký druh Isu a Desmondova oběť vypustí Junonu |
 > | Baldur's Gate | Hrdina je dítě boha vraždy |
 > | BioShock | Hrdina je ovládaný nástroj |
 > | Bloodborne | Smrt Rom odhalí Rudý měsíc: z lovu bestií je válka bohů o božské dítě |
 > | Control | Hedron zhasne a Jesse zjistí, že Polaris nese v sobě |
 > | Cyberpunk 2077 | Lék neexistuje, finále je volba, komu odkázat poslední dech |
 > | Dark Souls | Vyvolený je jen palivo |
+> | Death Stranding | Amelie je Entita vymírání a Sam byl jako dítě Cliffovým synem |
 > | Deus Ex | Vláda je kulisa skryté moci |
 > | Diablo | Lidé jsou potomci andělů a démonů |
 > | Disco Elysium | Vrahem je starý dezertér mimo hru frakcí |
+> | Dishonored | Věrní, kteří Corva osvobodili, ho po vítězství zradí |
+> | DOOM | Nebe Maykrů pohání Peklo a Samuel Hayden je bývalý Serafín |
 > | Dragon Age | Solas je Strachovlk a Závoj stvořil on |
 > | Elden Ring | Radagon je Marika |
 > | Elder Scrolls | Realita je sen a kdo to pochopí, vládne jí |
 > | Fallout | Úkryty byly sociální experimenty |
 > | Hades | Útěk není cíl, ale opakovaná cesta za smířením |
 > | Half-Life | Hrdina je zaměstnanec G-Mana |
+> | Halo | Prstenec není zbraň proti Covenantu, ale k vyhlazení všeho života |
+> | Horizon | Aloy je klon Elisabet Sobeckové vytvořený GAIOU |
 > | Inscryption | Nová hra odhalí Lukea a P03, Leshy byl hrází, ne hlavním nepřítelem |
 > | Mass Effect | Citadela je past |
+> | Metro | Temní nebyli hrozbou, ale nabídnutou rukou |
 > | NieR: Automata | 2B je popravčí, 9S zabíjí stroje s city |
 > | Outer Wilds | Sluneční stanice nikdy nefungovala, vesmír umírá stářím |
+> | Path of Exile | Bohové Wraeclastu jsou smrtelníci napití moci Bestie |
+> | Pathfinder | Za Světovou ránou nestojí démon, ale smrtelná vědkyně Areelu |
 > | Pathologic | Tři pravdy tří hrdinů a divadelní rámec |
 > | Pentiment | Obě vraždy chránily tajemství, pachatel zůstane neznámý |
 > | Pillars of Eternity | Thaos chrání lež, kterou svět potřebuje |
@@ -286,7 +312,9 @@ Každý rozebraný svět se dá popsat čtyřmi sloupci: ústřední otázka, pr
 > | Undertale | Body zkušeností jsou měřítkem násilí a Flowey je Asriel |
 > | Warcraft | Princ Světla Arthas se stane největším monstrem |
 > | Warhammer 40 000 | Ochránce lidstva je mrtvola na trůnu |
+> | XCOM | Velitelova mysl řídila síť ADVENTu a Starší chtějí lidská těla |
 > | Xenoblade | Bůh je vědec, nepřítelem je strach z budoucnosti |
+> | Zaklínač | Císař Emhyr je Ciřin otec a Divoký hon chce její Starší krev |
 
 Dva postřehy z matice. Nejsilnější zvraty patří k typu identity a k typu stvořitele, protože míří na hráče a na autoritu. A nejlépe přijímané světy mají mezeru na ústřední otázce, ne na vedlejším detailu.
 
@@ -311,9 +339,9 @@ Pojmy z rozboru mají oporu ve třech tradicích: v teorii fantastiky a literatu
 
 K tomu klasické pojmy, které esej používá: Aristotelova peripetie a anagnórize z *Poetiky*, Eliotův objektivní korelativ (1919) a Bachtinova polyfonie z knihy o Dostojevském (1929).
 
-### Wolf: vynálezavost, úplnost, soudržnost
+### Wolf: vynalézavost, úplnost, soudržnost
 
-Kniha *Building Imaginary Worlds* je nejbližším teoretickým příbuzným naší metody. Svět podle Wolfa potřebuje tři vlastnosti, které jdou proti sobě: vynálezavost, úplnost a soudržnost. Čím úplnější svět, tím těžší je udržet soudržnost. Vynález přitom může mít čtyři úrovně: jmennou, kulturní, přírodní a ontologickou. Nejsilnější rozebrané světy (Sigil, SOMA, Numenera) mají jeden ontologický zázrak a všechno ostatní nechávají srozumitelné. Úplnost přitom není množství lore: divák jen nesmí narazit na otázku, na kterou svět nemá odpověď. Nesoudržnost bolí podle hloubky. Nejvíc škodí v hlavní dějové linii, nejméně v pozadí.
+Kniha *Building Imaginary Worlds* je nejbližším teoretickým příbuzným naší metody. Svět podle Wolfa potřebuje tři vlastnosti, které jdou proti sobě: vynalézavost, úplnost a soudržnost. Čím úplnější svět, tím těžší je udržet soudržnost. Vynález přitom může mít čtyři úrovně: jmennou, kulturní, přírodní a ontologickou. Nejsilnější rozebrané světy (Sigil, SOMA, Numenera) mají jeden ontologický zázrak a všechno ostatní nechávají srozumitelné. Úplnost přitom není množství lore: divák jen nesmí narazit na otázku, na kterou svět nemá odpověď. Nesoudržnost bolí podle hloubky. Nejvíc škodí v hlavní dějové linii, nejméně v pozadí.
 
 ### Juul: test převyprávění
 
@@ -347,7 +375,6 @@ Historik her Jimmy Maher rozebral vznik Planescape: Torment z původních dokume
 **Řemeslo a historie tvorby**
 
 - [Nieman Storyboard: Harvey Smith on environmental storytelling](https://niemanstoryboard.org/2011/01/14/harvey-smith-on-environmental-storytelling-and-embedding-narrative/)
-- [Game Developer: Ken Levine a Narrative Legos](https://www.gamedeveloper.com/design/video-ken-levine-pitches-devs-on-the-idea-of-narrative-legos-)
 - [Brandon Sanderson: Sanderson's First Law](https://brandonsanderson.com/sandersons-first-law/)
 - [Jimmy Maher, The Digital Antiquarian: Planescape: Torment](https://www.filfre.net/?p=6776)
 - [Tom Jubert: vizní dokument Planescape: Torment (1997)](https://tom-jubert.blogspot.com/2010/05/planescape-torment-vision-statement1.html?m=0)

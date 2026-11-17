@@ -4,6 +4,7 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { useLocale } from '../../lib/locale-store';
 import { uiT } from '../../lib/i18n';
+import { withBase } from '../../lib/base-url';
 import type { LocalizedString } from '../../schemas/world';
 import {
   isChronicleInProgress,
@@ -329,6 +330,14 @@ export default function ChronicleReader({
               h3: ({ children }) => headingEl('h3', children),
               hr: () => <Ornament />,
               strong: ({ children }) => <strong>{children}</strong>,
+              img: ({ src = '', alt = '' }) => (
+                <img
+                  className="chronicle-figure"
+                  src={typeof src === 'string' && src.startsWith('/') ? withBase(import.meta.env.BASE_URL, src) : src}
+                  alt={alt}
+                  loading="lazy"
+                />
+              ),
             }}
           >
             {formatted}

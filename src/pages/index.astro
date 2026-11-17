@@ -16,14 +16,26 @@ const chapterCards = chapters.map((c) => ({
   title: c.title,
   thesis: c.thesis,
   accent: c.accent,
-  count: worlds.filter((w) => w.chapterId === c.id).length,
+  count: worlds.filter((w) => w.chapterId === c.id && !w.draft).length,
 }));
 
 const themeLabels = Object.fromEntries(themeTaxonomy.map((t) => [t.slug, t.label]));
 const published = worlds.filter((world) => !world.draft);
 ---
 
-<BaseLayout title="Here Be Worlds — Atlas" homePalette={homePalette}>
+<BaseLayout
+  title="Here Be Worlds — An Atlas of Game Universes · Atlas herních vesmírů a jejich lore"
+  homePalette={homePalette}
+  jsonLd={{
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Here Be Worlds',
+    alternateName: ['An Atlas of Game Universes', 'Atlas herních vesmírů'],
+    description:
+      'Atlas herních vesmírů a jejich lore: kroniky, časové osy, mapy a srovnání herních světů.',
+    inLanguage: ['cs', 'en'],
+  }}
+>
   <HomeIntro
     client:load
     chapters={chapterCards}
@@ -32,7 +44,7 @@ const published = worlds.filter((world) => !world.draft);
   />
   <AtlasExplorer
     client:load
-    worlds={worlds}
+    worlds={published}
     chapters={chapterCards}
     themeLabels={themeLabels}
     baseUrl={base.replace(/\/$/, '')}

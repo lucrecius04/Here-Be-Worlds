@@ -1,0 +1,13 @@
+{
+  "narration": [
+    { "slug": "environmental", "label": { "en": "Environmental storytelling", "cs": "Prostorové vyprávění" } },
+    { "slug": "item-descriptions", "label": { "en": "Item descriptions", "cs": "Popisky předmětů" } },
+    { "slug": "books-and-documents", "label": { "en": "Books and documents", "cs": "Knihy a dokumenty" } },
+    { "slug": "recordings-and-logs", "label": { "en": "Recordings and logs", "cs": "Nahrávky a deníky" } },
+    { "slug": "dialogue", "label": { "en": "Dialogue", "cs": "Dialogy" } },
+    { "slug": "unreliable-narrators", "label": { "en": "Unreliable narrators", "cs": "Nespolehliví vypravěči" } },
+    { "slug": "multiple-playthroughs", "label": { "en": "Multiple playthroughs", "cs": "Vícenásobné průchody" } },
+    { "slug": "cinematics", "label": { "en": "Cinematic scenes", "cs": "Filmové scény" } },
+    { "slug": "mechanics-as-meaning", "label": { "en": "Mechanics as meaning", "cs": "Mechanika jako význam" } }
+  ]
+}

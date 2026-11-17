@@ -56,6 +56,8 @@ export const worldSchema = z.object({
     keyActors: metadataFieldSchema,
   }),
   themes: z.array(z.string()),
+  /** Slugy z data/meta/narration-taxonomy.json — „Jak svět vypráví“, 1–3 nástroje. */
+  narration: z.array(z.string()).optional(),
   axes: z.object({
     hopeDespair: axisValueSchema,
     knownUnknown: axisValueSchema,

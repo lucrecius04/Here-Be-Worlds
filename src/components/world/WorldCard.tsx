@@ -5,6 +5,11 @@ import { t, uiT } from '../../lib/i18n';
 import type { TriadAnchor } from '../../lib/chronicle-toc';
 import { useLocale } from '../../lib/locale-store';
 import FiveAxes from './FiveAxes';
+import narrationData from '../../../data/meta/narration-taxonomy.json';
+
+const NARRATION_LABELS: Record<string, LocalizedString> = Object.fromEntries(
+  narrationData.narration.map((item) => [item.slug, item.label]),
+);
 import '../../styles/world-card.css';
 
 type MetadataField = World['metadata'][keyof World['metadata']];
@@ -67,6 +72,17 @@ export default function WorldCard({
         ))}
         </div>
       </section>
+
+      {world.narration?.length ? (
+        <section className="world-card__narration" aria-label={uiT('card.narrationHeading', locale)}>
+          <a className="world-card__narration-title" href={`${baseUrl}/anatomie-herniho-lore/#jak-svety-vypraveji`}>
+            {uiT('card.narrationHeading', locale)}
+          </a>
+          <span className="world-card__narration-values">
+            {world.narration.map((slug) => (NARRATION_LABELS[slug] ? t(NARRATION_LABELS[slug], locale) : slug)).join(' · ')}
+          </span>
+        </section>
+      ) : null}
 
       <FiveAxes world={world} notesHref={baseUrl ? `${baseUrl}/notes/` : undefined} />
 

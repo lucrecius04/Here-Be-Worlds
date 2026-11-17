@@ -1180,6 +1180,14 @@ html[data-theme='light'] .compare-facts__cell--match .compare-facts__sub {
     grid-template-columns: 1fr 1fr;
   }
 
+  .compare-slots {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .compare-slot--filled {
+    min-height: 0;
+  }
+
   .compare-sticky,
   .compare-verdict,
   .compare-themes__grid,

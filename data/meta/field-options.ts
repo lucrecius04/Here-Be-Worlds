@@ -35,6 +35,7 @@ export const historicalDepthOptions: FieldOption[] = [
 ];
 
 export const spatialScopeOptions: FieldOption[] = [
+  { en: 'Single location', cs: 'Lokalita' },
   { en: 'City', cs: 'Město' },
   { en: 'Region', cs: 'Region' },
   { en: 'Continent', cs: 'Kontinent' },
@@ -67,6 +68,7 @@ export const protagonistPerspectiveOptions: FieldOption[] = [
   { en: 'Pilgrim and outcast on the margins', cs: 'Poutník a psanec na okraji' },
   { en: 'Witness and survivor in the machinery', cs: 'Svědek a přeživší v soukolí' },
   { en: 'Leader and mover of factions', cs: 'Vůdce a hybatel frakcí' },
+  { en: 'Investigator and seeker of truth', cs: 'Vyšetřovatel a hledač pravdy' },
   { en: 'Chosen champion of fate', cs: 'Vyvolený a šampion osudu' },
 ];
 

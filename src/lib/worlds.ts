@@ -2,6 +2,7 @@ import worldsData from '../../data/worlds.json';
 import chaptersData from '../../data/meta/chapters.json';
 import axesData from '../../data/meta/axes.json';
 import themesData from '../../data/meta/theme-taxonomy.json';
+import narrationData from '../../data/meta/narration-taxonomy.json';
 import { worldsFileSchema, type LocalizedString, type RelatedWorld, type World } from '../schemas/world';
 import { similarWorlds } from './similarity';
 
@@ -13,6 +14,7 @@ export const worlds: World[] = parsed.worlds;
 export const chapters = chaptersData.chapters;
 export const axesMeta = axesData.axes;
 export const themeTaxonomy = themesData.themes;
+export const narrationTaxonomy = narrationData.narration;
 
 export function getWorldById(id: string): World | undefined {
   return worlds.find((w) => w.id === id);

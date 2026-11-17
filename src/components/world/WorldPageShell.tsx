@@ -42,6 +42,7 @@ export default function WorldPageShell({
   const [chronicleLoading, setChronicleLoading] = useState(false);
   const [analysisAnchor, setAnalysisAnchor] = useState<TriadAnchor | null>(null);
   const [resume, setResume] = useState(false);
+  const [compact, setCompact] = useState(false);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -104,7 +105,7 @@ export default function WorldPageShell({
 
   return (
     <article
-      className="world-card world-card--page"
+      className={`world-card world-card--page${compact ? ' is-compact' : ''}`}
       data-chapter={world.chapterId}
       style={chapterVars}
     >
@@ -120,6 +121,7 @@ export default function WorldPageShell({
               className={`view-tab${mode === tab.id ? ' view-tab--active' : ''}`}
               onClick={() => {
                 setAnalysisAnchor(null);
+                setCompact(false);
                 if (tab.id !== 'card' && chronicle === null) setChronicleLoading(true);
                 setMode(tab.id);
               }}
@@ -130,7 +132,15 @@ export default function WorldPageShell({
         </div>
       </div>
 
-      <div className="world-page__pane">
+      <div
+        className="world-page__pane"
+        onScrollCapture={(e) => {
+          // Hlavička se při čtení stáhne; hystereze brání poskakování.
+          const top = (e.target as HTMLElement).scrollTop ?? 0;
+          if (!compact && top > 80) setCompact(true);
+          else if (compact && top < 8) setCompact(false);
+        }}
+      >
         {mode === 'card' ? (
           <div className="world-page__pane-scroll">
             <WorldCard

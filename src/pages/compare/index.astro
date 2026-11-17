@@ -15,7 +15,7 @@ const chapterCards = chapters.map((chapter) => ({
 <BaseLayout title="Srovnání — Here Be Worlds">
   <ComparePage
     client:load
-    worlds={worlds}
+    worlds={worlds.filter((world) => !world.draft)}
     chapters={chapterCards}
     themeLabels={themeLabels}
     axes={axesMeta}

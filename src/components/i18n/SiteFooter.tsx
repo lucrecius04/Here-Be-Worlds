@@ -1,7 +1,9 @@
-import { t, uiT } from '../../lib/i18n';
+import { t, uiCount, uiT } from '../../lib/i18n';
 import { useLocale } from '../../lib/locale-store';
 import { withBase } from '../../lib/base-url';
-import { chapters } from '../../lib/worlds';
+import { chapters, worlds } from '../../lib/worlds';
+
+const PUBLISHED_COUNT = worlds.filter((world) => !world.draft).length;
 
 type Props = { base: string };
 
@@ -33,7 +35,7 @@ export default function SiteFooter({ base }: Props) {
             {uiT('siteName', locale)}
           </a>
           <p className="site-footer__tagline">{uiT('footer.tagline', locale)}</p>
-          <p className="site-footer__meta">{uiT('home.kicker', locale)}</p>
+          <p className="site-footer__meta">{uiCount('home.kicker', PUBLISHED_COUNT, locale)}</p>
         </div>
         <nav className="site-footer__col" aria-label={uiT('footer.explore', locale)}>
           <h2 className="site-footer__heading">{uiT('footer.explore', locale)}</h2>

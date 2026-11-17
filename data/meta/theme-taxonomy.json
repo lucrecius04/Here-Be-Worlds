@@ -15,6 +15,7 @@
     { "slug": "revenge", "label": { "en": "Revenge", "cs": "Pomsta" } },
     { "slug": "friendship-and-fellowship", "label": { "en": "Friendship and fellowship", "cs": "Přátelství a společenství" } },
     { "slug": "survival", "label": { "en": "Survival", "cs": "Přežití" } },
+    { "slug": "death-and-immortality", "label": { "en": "Death and immortality", "cs": "Smrt a nesmrtelnost" } },
     { "slug": "free-will-and-fate", "label": { "en": "Free will and fate", "cs": "Svobodná vůle a osud" } },
     { "slug": "war", "label": { "en": "War", "cs": "Válka" } },
     { "slug": "guilt-and-redemption", "label": { "en": "Guilt and redemption", "cs": "Vina a vykoupení" } },

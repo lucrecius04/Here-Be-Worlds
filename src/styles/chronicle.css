@@ -587,3 +587,18 @@
     font-size: 1.8rem;
   }
 }
+
+/* Grafy a schémata z brožur */
+.chronicle-prose img.chronicle-figure {
+  display: block;
+  max-width: min(100%, 34rem);
+  height: auto;
+  margin: 1.8rem auto 0.5rem;
+  border-radius: var(--radius-sm);
+}
+
+.chronicle-prose p:has(> img.chronicle-figure) {
+  text-indent: 0;
+  text-align: center;
+  margin: 0;
+}

@@ -14,7 +14,11 @@ import {
   spatialScopeOptions,
   type FieldOption,
 } from '../../../data/meta/field-options';
+import narrationData from '../../../data/meta/narration-taxonomy.json';
 import CatalogWorldCard from './CatalogWorldCard';
+
+const narrationOptions: FieldOption[] = narrationData.narration.map((item) => ({ en: item.label.en, cs: item.label.cs }));
+const narrationSlugByEn = Object.fromEntries(narrationData.narration.map((item) => [item.label.en, item.slug]));
 import ThematicTrails from './ThematicTrails';
 import EssayTeaser from './EssayTeaser';
 import WorldCompass from './WorldCompass';
@@ -57,10 +61,11 @@ export default function AtlasExplorer({
   const [societalOrder, setSocietalOrder] = useState('');
   const [sourceOfPower, setSourceOfPower] = useState('');
   const [perspective, setPerspective] = useState('');
+  const [narration, setNarration] = useState('');
   const [moreOpen, setMoreOpen] = useState(false);
   const [activeTrail, setActiveTrail] = useState<TrailId | null>(null);
 
-  const extraActive = Boolean(historicalDepth || spatialScope || societalOrder || sourceOfPower || perspective);
+  const extraActive = Boolean(historicalDepth || spatialScope || societalOrder || sourceOfPower || perspective || narration);
   const anyFilter =
     Boolean(query.trim()) ||
     Boolean(chapterId || theme || atmosphere) ||
@@ -78,6 +83,7 @@ export default function AtlasExplorer({
     setSocietalOrder('');
     setSourceOfPower('');
     setPerspective('');
+    setNarration('');
     setMoreOpen(false);
     setActiveTrail(null);
   };
@@ -111,6 +117,7 @@ export default function AtlasExplorer({
       if (societalOrder && !fieldMatchesOption(w.metadata.societalOrder, societalOrder)) return false;
       if (sourceOfPower && !fieldMatchesOption(w.metadata.sourceOfPower, sourceOfPower)) return false;
       if (perspective && !fieldMatchesOption(w.metadata.protagonistPerspective, perspective)) return false;
+      if (narration && !(w.narration ?? []).includes(narrationSlugByEn[narration])) return false;
       return true;
     });
   }, [
@@ -125,6 +132,7 @@ export default function AtlasExplorer({
     societalOrder,
     sourceOfPower,
     perspective,
+    narration,
     activeTrail,
   ]);
 
@@ -278,6 +286,16 @@ export default function AtlasExplorer({
               value={perspective}
               onChange={setPerspective}
               options={protagonistPerspectiveOptions}
+              locale={locale}
+              sort
+            />
+            <FieldFilter
+              id="catalog-narration"
+              label={uiT('card.narrationHeading', locale)}
+              allLabel={uiT('filter.allNarrations', locale)}
+              value={narration}
+              onChange={setNarration}
+              options={narrationOptions}
               locale={locale}
               sort
             />

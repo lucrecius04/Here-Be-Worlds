@@ -47,8 +47,8 @@ export const noteFields: NoteField[] = [
       en: 'The main stage of the story.',
     },
     values: {
-      cs: 'Město · Region · Kontinent · Svět (planeta) · Hvězdný systém · Galaxie · Multiverzum a více rovin',
-      en: 'City · Region · Continent · World (planet) · Star system · Galaxy · Multiverse and multiple planes',
+      cs: 'Lokalita (budova, stanice, izolované místo) · Město · Region · Kontinent · Svět (planeta) · Hvězdný systém · Galaxie · Multiverzum a více rovin',
+      en: 'Single location (a building, station, or isolated place) · City · Region · Continent · World (planet) · Star system · Galaxy · Multiverse and multiple planes',
     },
   },
   {
@@ -87,8 +87,19 @@ export const noteFields: NoteField[] = [
       en: 'From what position the world is typically lived.',
     },
     values: {
-      cs: 'Vyvolený a šampion osudu · Poutník a psanec na okraji · Svědek a přeživší v soukolí · Vůdce a hybatel frakcí · Hráč jako součást světa',
-      en: 'Chosen champion of fate · Pilgrim and outcast on the margins · Witness and survivor in the machinery · Leader and mover of factions · The player as part of the world',
+      cs: 'Vyvolený a šampion osudu · Poutník a psanec na okraji · Svědek a přeživší v soukolí · Vyšetřovatel a hledač pravdy · Vůdce a hybatel frakcí · Hráč jako součást světa',
+      en: 'Chosen champion of fate · Pilgrim and outcast on the margins · Witness and survivor in the machinery · Investigator and seeker of truth · Leader and mover of factions · The player as part of the world',
+    },
+  },
+  {
+    term: { cs: 'Jak svět vypráví', en: 'How the world tells its story' },
+    help: {
+      cs: 'Hlavní nástroje, jimiž svět předává svůj příběh. Nejvýš tři.',
+      en: 'The main tools through which the world tells its story. At most three.',
+    },
+    values: {
+      cs: 'Prostorové vyprávění · Popisky předmětů · Knihy a dokumenty · Nahrávky a deníky · Dialogy · Nespolehliví vypravěči · Vícenásobné průchody · Filmové scény · Mechanika jako význam',
+      en: 'Environmental storytelling · Item descriptions · Books and documents · Recordings and logs · Dialogue · Unreliable narrators · Multiple playthroughs · Cinematic scenes · Mechanics as meaning',
     },
   },
   {
@@ -98,8 +109,8 @@ export const noteFields: NoteField[] = [
       en: 'Significant themes and conflicts present in the game world. At most six themes per world.',
     },
     values: {
-      cs: 'Bohové · Cyklické dějiny · Humor, ironie, nadsázka · Identita a existence · Kolaps civilizace · Konspirace · Láska a vztahy · Moc a nadvláda · Objevování · Odhalování minulosti · Pokrok a jeho důsledky · Politika a intriky · Pomsta · Přátelství a společenství · Přežití · Svobodná vůle a osud · Válka · Vina a vykoupení · Víra',
-      en: 'Civilizational collapse · Conspiracy · Cyclical history · Discovery · Faith · Free will and fate · Friendship and fellowship · Gods · Guilt and redemption · Humor, irony, exaggeration · Identity and existence · Love and relationships · Politics and intrigue · Power and dominion · Progress and its costs · Revenge · Survival · Uncovering the past · War',
+      cs: 'Bohové · Cyklické dějiny · Humor, ironie, nadsázka · Identita a existence · Kolaps civilizace · Konspirace · Láska a vztahy · Moc a nadvláda · Objevování · Odhalování minulosti · Pokrok a jeho důsledky · Politika a intriky · Pomsta · Přátelství a společenství · Přežití · Smrt a nesmrtelnost · Svobodná vůle a osud · Válka · Vina a vykoupení · Víra',
+      en: 'Civilizational collapse · Conspiracy · Cyclical history · Death and immortality · Discovery · Faith · Free will and fate · Friendship and fellowship · Gods · Guilt and redemption · Humor, irony, exaggeration · Identity and existence · Love and relationships · Politics and intrigue · Power and dominion · Progress and its costs · Revenge · Survival · Uncovering the past · War',
     },
   },
 ];

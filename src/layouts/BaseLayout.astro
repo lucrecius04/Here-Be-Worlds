@@ -16,8 +16,9 @@ import { worlds } from '../lib/worlds';
 
 const {
   title = 'Here Be Worlds',
-  description = 'Atlas herních vesmírů',
+  description = 'Here Be Worlds – atlas herních vesmírů a jejich lore. Kroniky, časové osy, mapy a srovnání herních světů.',
   homePalette,
+  jsonLd,
 } = Astro.props;
 import { withBase } from '../lib/base-url';
 
@@ -33,6 +34,13 @@ const published = worlds
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    <meta property="og:site_name" content="Here Be Worlds" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="cs_CZ" />
+    <meta name="twitter:card" content="summary" />
+    {jsonLd ? <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} /> : null}
     <link rel="icon" type="image/svg+xml" href={withBase(base, '/favicon.svg')} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

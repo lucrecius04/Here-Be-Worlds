@@ -1123,3 +1123,79 @@ html[data-theme='dark'] .world-page__pane::before {
   text-decoration: underline;
   text-underline-offset: 0.16em;
 }
+
+/* Stažená hlavička při čtení (třída is-compact nastavuje WorldPageShell) */
+
+.world-page__masthead .world-card__title {
+  transition: font-size 0.2s ease;
+}
+
+.world-card--page.is-compact .world-page__masthead {
+  padding-bottom: 0.7rem;
+}
+
+.world-card--page.is-compact .world-page__masthead .world-card__title {
+  font-size: 2.1rem;
+}
+
+.world-card--page.is-compact .world-page__masthead .world-card__facts {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .world-page__masthead .world-card__title-row {
+    padding-right: 0;
+  }
+
+  .world-page__masthead .world-card__title {
+    font-size: 2.5rem;
+  }
+
+  .world-page__masthead .world-card__kicker {
+    position: static;
+    justify-content: flex-start;
+    margin: 0.2rem 0 0.1rem;
+  }
+
+  .world-card--page.is-compact .world-page__masthead .world-card__title {
+    font-size: 1.55rem;
+  }
+
+  .world-card--page.is-compact .world-page__masthead .world-card__byline,
+  .world-card--page.is-compact .world-page__masthead .world-card__kicker {
+    display: none;
+  }
+}
+
+/* Jak svět vypráví — tichý řádek pod tématy, nadpis vede do eseje */
+
+.world-card__narration {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 0.65rem;
+  margin: 0.55rem 0 0;
+}
+
+.world-card__narration-title {
+  flex-shrink: 0;
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.world-card__narration-title:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.16em;
+}
+
+.world-card__narration-values {
+  font-family: var(--font-serif);
+  font-size: 1.02rem;
+  font-style: italic;
+  color: var(--color-ink-muted);
+}

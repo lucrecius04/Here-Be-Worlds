@@ -41,8 +41,8 @@ export const ui: Record<Locale, UiTree> = {
         'Názvy her a ochranné známky patří jejich vlastníkům.',
     },
     home: {
-      tagline: '43 světů · 5 os · srovnání',
-      kicker: '43 kosmologií · příběhové kroniky · anatomie a mýty',
+      tagline: '{n} · 5 os · srovnání',
+      kicker: '{n} · příběhové kroniky · anatomie a mýty',
       title: 'Atlas herních vesmírů',
       slogan: 'Každý svět má příběh. Žádný nestojí sám.',
       lead: 'Kartografická skříň vnitřní anatomie herních světů — ne mechaniky, ale historie, metafyzika a kroniky.',
@@ -53,7 +53,7 @@ export const ui: Record<Locale, UiTree> = {
       readAtlas: 'Jak číst tento atlas →',
       chapterSoon: 'připravujeme',
       noResults: 'Tomuto výběru neodpovídá žádný svět.',
-      heroKicker: '43 světů · příběhové kroniky · anatomie a mýty',
+      heroKicker: '{n} · příběhové kroniky · anatomie a mýty',
       heroSlogan: '„Anatomie míst, kam se nedá doletět.“',
       randomWorld: 'Objevit náhodný svět →',
       featured: 'Svět v popředí',
@@ -122,6 +122,7 @@ export const ui: Record<Locale, UiTree> = {
       allSocietalOrders: 'Všechny struktury',
       allSourcesOfPower: 'Všechny původy moci',
       allPerspectives: 'Všechny perspektivy',
+      allNarrations: 'Všechny způsoby vyprávění',
       axisMin: 'Minimum osy (1–5)',
     },
     results: {
@@ -166,6 +167,7 @@ export const ui: Record<Locale, UiTree> = {
       originalSin: 'Prvotní hřích',
       centralDilemma: 'Ústřední dilema',
       ultimateMystery: 'Hlavní tajemství',
+      narrationHeading: 'Jak svět vypráví',
       triadHelpButton: 'Co znamená',
       triadHelpOriginalSin:
         'Dávné provinění proti řádu světa, z něhož vyrůstá všechno ostatní. Svět je jeho důsledkem, ne kulisou.',
@@ -247,12 +249,12 @@ export const ui: Record<Locale, UiTree> = {
       back: 'Zpět',
       kicker: 'Archetyp',
       empty: 'V tomto archetypu zatím není žádný profil.',
-      portrait: 'Průměrný profil oblasti',
-      extremeHopeDespair: 'Nejzoufalejší svět oblasti',
-      extremeKnownUnknown: 'Nejvíc zahalený svět oblasti',
-      extremeIntimateEpic: 'Nejvíc epický svět oblasti',
-      extremeMoral: 'Nejkomplexnější morálka oblasti',
-      extremeMetaphysical: 'Nejvíc metafyzický svět oblasti',
+      portrait: 'Průměrný profil archetypu',
+      extremeHopeDespair: 'Nejzoufalejší svět archetypu',
+      extremeKnownUnknown: 'Nejvíc zahalený svět archetypu',
+      extremeIntimateEpic: 'Nejvíc epický svět archetypu',
+      extremeMoral: 'Nejkomplexnější morálka archetypu',
+      extremeMetaphysical: 'Nejvíc metafyzický svět archetypu',
     },
     stub: {
       coming: 'Připravujeme',
@@ -337,8 +339,8 @@ Berte prosím tento atlas jako skromnou poctu všem scenáristům, designérům 
       disclaimer: 'Game names and marks belong to their respective owners.',
     },
     home: {
-      tagline: '43 worlds · 5 axes · comparison',
-      kicker: '43 cosmologies · narrative chronicles · anatomy and myth',
+      tagline: '{n} · 5 axes · comparison',
+      kicker: '{n} · narrative chronicles · anatomy and myth',
       title: 'An Atlas of Game Universes',
       slogan: 'Every world has a story. None stands alone.',
       lead: 'A cartographic cabinet of the inner anatomy of game worlds—not mechanics, but history, metaphysics, and chronicle.',
@@ -349,7 +351,7 @@ Berte prosím tento atlas jako skromnou poctu všem scenáristům, designérům 
       readAtlas: 'How to read this atlas →',
       chapterSoon: 'coming soon',
       noResults: 'No world matches this selection.',
-      heroKicker: '43 worlds · narrative chronicles · anatomy & myths',
+      heroKicker: '{n} · narrative chronicles · anatomy & myths',
       heroSlogan: '“The anatomy of places beyond reach.”',
       randomWorld: 'Discover a random world →',
       featured: 'Featured world',
@@ -418,6 +420,7 @@ Berte prosím tento atlas jako skromnou poctu všem scenáristům, designérům 
       allSocietalOrders: 'All orders',
       allSourcesOfPower: 'All sources of power',
       allPerspectives: 'All perspectives',
+      allNarrations: 'All ways of storytelling',
       axisMin: 'Axis minimum (1–5)',
     },
     results: {
@@ -461,6 +464,7 @@ Berte prosím tento atlas jako skromnou poctu všem scenáristům, designérům 
       originalSin: 'Original sin',
       centralDilemma: 'Central dilemma',
       ultimateMystery: 'Ultimate mystery',
+      narrationHeading: 'How the world tells its story',
       triadHelpButton: 'What is',
       triadHelpOriginalSin:
         'An ancient transgression against the order of the world from which everything else grows. The world is its consequence, not a backdrop.',
@@ -618,6 +622,17 @@ export function uiT(path: string, locale: Locale = DEFAULT_LOCALE): string {
     }
   }
   return typeof node === 'string' ? node : path;
+}
+
+/** „3 světy“, „43 světů“ / „1 world“, „43 worlds“ — dosadí počet do textu s {n}. */
+export function worldsCountLabel(count: number, locale: Locale): string {
+  if (locale === 'en') return `${count} ${count === 1 ? 'world' : 'worlds'}`;
+  const word = count === 1 ? 'svět' : count >= 2 && count <= 4 ? 'světy' : 'světů';
+  return `${count} ${word}`;
+}
+
+export function uiCount(path: string, count: number, locale: Locale): string {
+  return uiT(path, locale).replace('{n}', worldsCountLabel(count, locale));
 }
 
 export function profileCountLabel(count: number, locale: Locale): string {

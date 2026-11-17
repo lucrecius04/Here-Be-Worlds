@@ -202,10 +202,10 @@ export default function ConstellationMap({ worlds, chapters, base }: Props) {
               />
             </g>
           ))}
-          <text className="map-canvas__pole map-canvas__pole--left" x={PAD - 18} y={cy} textAnchor="end">
+          <text className="map-canvas__pole map-canvas__pole--left" x={PAD + 4} y={cy - 12} textAnchor="start">
             {axisPoleLabel(xMeta, 'left', locale)}
           </text>
-          <text className="map-canvas__pole map-canvas__pole--right" x={VIEW_W - PAD + 18} y={cy} textAnchor="start">
+          <text className="map-canvas__pole map-canvas__pole--right" x={VIEW_W - PAD - 4} y={cy - 12} textAnchor="end">
             {axisPoleLabel(xMeta, 'right', locale)}
           </text>
           <text className="map-canvas__pole map-canvas__pole--top" x={cx} y={PAD - 22} textAnchor="middle">
@@ -215,7 +215,7 @@ export default function ConstellationMap({ worlds, chapters, base }: Props) {
             {axisPoleLabel(yMeta, 'left', locale)}
           </text>
 
-          {STARS.map((star) => {
+          {STARS.filter((star) => !worlds.some((w) => w.id === star.id)).map((star) => {
             const jitter = hashJitter(star.id);
             const x = plotX(star.axes[axisX] + jitter.x);
             const y = plotY(star.axes[axisY] + jitter.y);

@@ -184,7 +184,13 @@
       "themes": [
         "free-will-and-fate",
         "identity-and-existence",
-        "power-and-dominion"
+        "power-and-dominion",
+        "gods",
+        "friendship-and-fellowship"
+      ],
+      "narration": [
+        "dialogue",
+        "books-and-documents"
       ],
       "axes": {
         "hopeDespair": {
@@ -414,7 +420,14 @@
       "themes": [
         "uncovering-the-past",
         "faith",
-        "power-and-dominion"
+        "power-and-dominion",
+        "cyclical-history",
+        "gods",
+        "death-and-immortality"
+      ],
+      "narration": [
+        "item-descriptions",
+        "environmental"
       ],
       "axes": {
         "hopeDespair": {
@@ -581,11 +594,11 @@
           }
         },
         "spatialScope": {
-          "en": "World",
-          "cs": "Svět",
+          "en": "Multiverse and multiple planes",
+          "cs": "Multiverzum a více rovin",
           "sub": {
-            "en": "Sanctuary, Heaven, and Hell",
-            "cs": "Svatyně, Nebesa a Peklo"
+            "en": "Sanctuary, the High Heavens, and the Burning Hells",
+            "cs": "Svatyně, Vysoká nebesa a Hořící pekla"
           }
         },
         "historicalDepth": {
@@ -636,7 +649,13 @@
       "themes": [
         "war",
         "free-will-and-fate",
-        "faith"
+        "faith",
+        "gods"
+      ],
+      "narration": [
+        "cinematics",
+        "books-and-documents",
+        "recordings-and-logs"
       ],
       "axes": {
         "hopeDespair": {
@@ -673,6 +692,1766 @@
       "chronicleTeaser": {
         "en": "From Anu and Tathamet to Tristram's cathedral—an Eternal Conflict fought in human flesh.",
         "cs": "Od Anua a Tathameta po katedrálu v Tristramu."
+      }
+    },
+    {
+      "id": "dragon-age",
+      "number": 4,
+      "chapterId": "fantasy",
+      "addedAt": "2026-11-16",
+      "gameTitle": {
+        "en": "Dragon Age",
+        "cs": "Dragon Age"
+      },
+      "chronicleTitle": {
+        "en": "Chronicle of Thedas",
+        "cs": "Kronika Thedasu"
+      },
+      "subtitlePoetic": {
+        "en": "Chronicle of Thedas",
+        "cs": "Kronika Thedasu"
+      },
+      "studios": [
+        "BioWare"
+      ],
+      "yearRange": "2009–2024",
+      "canonScope": {
+        "en": "Dragon Age: Origins through Dragon Age: The Veilguard",
+        "cs": "Dragon Age: Origins až Dragon Age: The Veilguard"
+      },
+      "universe": [
+        {
+          "en": "Thedas",
+          "cs": "Thedas"
+        }
+      ],
+      "header": {
+        "relatedWorldSlugs": [
+          "the-witcher",
+          "pillars-of-eternity",
+          "baldurs-gate"
+        ]
+      },
+      "relatedWorlds": [
+        {
+          "id": "the-witcher",
+          "title": {
+            "en": "The Witcher",
+            "cs": "Zaklínač"
+          },
+          "genreProfile": {
+            "en": "Dark fantasy",
+            "cs": "Temná fantasy"
+          },
+          "yearRange": "2007–2016",
+          "note": {
+            "en": "racial hatred and grey choices",
+            "cs": "rasová nenávist a šedé volby"
+          }
+        },
+        {
+          "id": "pillars-of-eternity",
+          "title": {
+            "en": "Pillars of Eternity",
+            "cs": "Pillars of Eternity"
+          },
+          "genreProfile": {
+            "en": "High fantasy",
+            "cs": "Vysoká fantasy"
+          },
+          "yearRange": "2015–2025",
+          "note": {
+            "en": "gods as a lie",
+            "cs": "bohové jako lež"
+          }
+        },
+        {
+          "id": "baldurs-gate",
+          "title": {
+            "en": "Baldur's Gate",
+            "cs": "Baldur's Gate"
+          },
+          "genreProfile": {
+            "en": "High fantasy",
+            "cs": "Vysoká fantasy"
+          },
+          "yearRange": "1998–2023",
+          "note": {
+            "en": "the party and personal arcs",
+            "cs": "družina a osobní linky"
+          }
+        }
+      ],
+      "core": {
+        "en": "Každá víra a každá říše Thedasu stojí na staré lži – a pravda bývá horší než mýtus.",
+        "cs": "Každá víra a každá říše Thedasu stojí na staré lži – a pravda bývá horší než mýtus."
+      },
+      "signatureBullets": [
+        {
+          "en": "Dějiny jako lež. Chantry, Tevinter i elfské legendy se ukážou jako zkreslené.",
+          "cs": "Dějiny jako lež. Chantry, Tevinter i elfské legendy se ukážou jako zkreslené."
+        },
+        {
+          "en": "Mágové v kleci. Magie je dar i hrozba a mágové žijí pod dohledem templářů.",
+          "cs": "Mágové v kleci. Magie je dar i hrozba a mágové žijí pod dohledem templářů."
+        },
+        {
+          "en": "Závoj mezi světy. Solas oddělil svět snů, Únik, a tím zničil vlastní lid.",
+          "cs": "Závoj mezi světy. Solas oddělil svět snů, Únik, a tím zničil vlastní lid."
+        },
+        {
+          "en": "Nákaza ze snů Titánů. Vyrvané sny kamenných obrů se zvrhly v pohromu, která se vrací.",
+          "cs": "Nákaza ze snů Titánů. Vyrvané sny kamenných obrů se zvrhly v pohromu, která se vrací."
+        }
+      ],
+      "metadata": {
+        "genreProfile": {
+          "en": "Dark fantasy",
+          "cs": "Temná fantasy",
+          "sub": {
+            "en": "overlap: political fantasy",
+            "cs": "přesah: politická fantasy"
+          }
+        },
+        "atmosphere": {
+          "en": "Fascination",
+          "cs": "Fascinace",
+          "sub": {
+            "en": "secondary: Tension",
+            "cs": "vedlejší: Napětí"
+          }
+        },
+        "spatialScope": {
+          "en": "Continent",
+          "cs": "Kontinent",
+          "sub": {
+            "en": "Thedas",
+            "cs": "Thedas"
+          }
+        },
+        "historicalDepth": {
+          "en": "Mythic",
+          "cs": "Mytická",
+          "sub": {
+            "en": "from the Titans and the elven gods",
+            "cs": "od Titánů a elfských bohů"
+          }
+        },
+        "societalOrder": {
+          "en": "Contending realms and nations",
+          "cs": "Zápasící říše a národy",
+          "sub": {
+            "en": "Orlais, Ferelden, Tevinter, and the power of the Chantry",
+            "cs": "Orlais, Ferelden, Tevinter a moc Chantry"
+          }
+        },
+        "sourceOfPower": {
+          "en": "Magic and alchemy",
+          "cs": "Magie a alchymie",
+          "sub": {
+            "en": "the Fade, lyrium, and blood magic",
+            "cs": "Únik, lyrium a krevní magie"
+          }
+        },
+        "protagonistPerspective": {
+          "en": "Leader and mover of factions",
+          "cs": "Vůdce a hybatel frakcí",
+          "sub": {
+            "en": "the Warden, Hawke, the Inquisitor, and Rook — a new hero in every game",
+            "cs": "Strážce, Hawke, Inkvizitor a Rook – v každém díle jiný"
+          }
+        },
+        "keyActors": {
+          "en": "the Chantry and templars · the Grey Wardens and the Blight · the elven gods and Solas · the Tevinter Imperium · the Circles of Magi",
+          "cs": "Chantry a templáři · Šedí strážci a Nákaza · elfští bohové a Solas · Tevinterské impérium · kruhy mágů"
+        }
+      },
+      "themes": [
+        "faith",
+        "politics-and-intrigue",
+        "uncovering-the-past",
+        "gods",
+        "friendship-and-fellowship"
+      ],
+      "narration": [
+        "dialogue",
+        "unreliable-narrators",
+        "books-and-documents"
+      ],
+      "axes": {
+        "hopeDespair": {
+          "value": 3
+        },
+        "knownUnknown": {
+          "value": 3
+        },
+        "intimateEpic": {
+          "value": 4
+        },
+        "moralClarityAmbiguity": {
+          "value": 5
+        },
+        "realismMetaphysical": {
+          "value": 4
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "Solas vytvořil Závoj, aby zastavil tyranské elfské bohy – a zničil tím civilizaci vlastního lidu.",
+          "cs": "Solas vytvořil Závoj, aby zastavil tyranské elfské bohy – a zničil tím civilizaci vlastního lidu."
+        },
+        "centralDilemma": {
+          "en": "Jak jednat a v co věřit, když každé náboženství i říše stojí na dávné lži a vině?",
+          "cs": "Jak jednat a v co věřit, když každé náboženství i říše stojí na dávné lži a vině?"
+        },
+        "ultimateMystery": {
+          "en": "Existuje Stvořitel? Studio slíbilo, že to nikdy definitivně nepotvrdí ani nevyvrátí.",
+          "cs": "Existuje Stvořitel? Studio slíbilo, že to nikdy definitivně nepotvrdí ani nevyvrátí."
+        }
+      },
+      "chronicleSlug": "dragon-age",
+      "chronicleTeaser": {
+        "en": "From the Titans and the Veil to the return of the elven gods.",
+        "cs": "Od Titánů a Závoje po návrat elfských bohů."
+      }
+    },
+    {
+      "id": "elden-ring",
+      "number": 5,
+      "chapterId": "fantasy",
+      "addedAt": "2026-11-16",
+      "gameTitle": {
+        "en": "Elden Ring",
+        "cs": "Elden Ring"
+      },
+      "chronicleTitle": {
+        "en": "Chronicle of the Lands Between",
+        "cs": "Kronika Mezizemí"
+      },
+      "subtitlePoetic": {
+        "en": "Chronicle of the Lands Between",
+        "cs": "Kronika Mezizemí"
+      },
+      "studios": [
+        "FromSoftware"
+      ],
+      "yearRange": "2022–2024",
+      "canonScope": {
+        "en": "Elden Ring and Shadow of the Erdtree",
+        "cs": "Elden Ring a Shadow of the Erdtree"
+      },
+      "universe": [
+        {
+          "en": "The Lands Between",
+          "cs": "Mezizemí"
+        }
+      ],
+      "header": {
+        "relatedWorldSlugs": [
+          "dark-souls",
+          "bloodborne",
+          "hades"
+        ]
+      },
+      "relatedWorlds": [
+        {
+          "id": "dark-souls",
+          "title": {
+            "en": "Dark Souls",
+            "cs": "Dark Souls"
+          },
+          "genreProfile": {
+            "en": "Dark fantasy",
+            "cs": "Temná fantasy"
+          },
+          "yearRange": "2011–2017",
+          "note": {
+            "en": "cycles of ages and a broken order",
+            "cs": "cykly věků a zlomený řád"
+          }
+        },
+        {
+          "id": "bloodborne",
+          "title": {
+            "en": "Bloodborne",
+            "cs": "Bloodborne"
+          },
+          "genreProfile": {
+            "en": "Cosmic horror",
+            "cs": "Kosmický horor"
+          },
+          "yearRange": "2015",
+          "note": {
+            "en": "distant and alien gods",
+            "cs": "vzdálení a cizí bohové"
+          }
+        },
+        {
+          "id": "hades",
+          "title": {
+            "en": "Hades",
+            "cs": "Hades"
+          },
+          "genreProfile": {
+            "en": "Mythic fantasy",
+            "cs": "Mytická fantasy"
+          },
+          "yearRange": "2020–2025",
+          "note": {
+            "en": "a divine family in ruin",
+            "cs": "božská rodina v rozvratu"
+          }
+        }
+      ],
+      "core": {
+        "en": "Pozlacený svět, který zapomněl umírat – a teď čeká, kdo jeho rozbitý řád znovu sestaví.",
+        "cs": "Pozlacený svět, který zapomněl umírat – a teď čeká, kdo jeho rozbitý řád znovu sestaví."
+      },
+      "signatureBullets": [
+        {
+          "en": "Svět bez smrti. Marika vytrhla Runu smrti a nesmrtelnost změnila zemi v pozlacenou mrtvolu.",
+          "cs": "Svět bez smrti. Marika vytrhla Runu smrti a nesmrtelnost změnila zemi v pozlacenou mrtvolu."
+        },
+        {
+          "en": "Polobozi v troskách. Marikiny děti si rozebraly střepy prstenu a válka je zlomila.",
+          "cs": "Polobozi v troskách. Marikiny děti si rozebraly střepy prstenu a válka je zlomila."
+        },
+        {
+          "en": "Vnější bohové. Za řády Mezizemí stojí vzdálené síly jako Sběsilý plamen či hniloba.",
+          "cs": "Vnější bohové. Za řády Mezizemí stojí vzdálené síly jako Sběsilý plamen či hniloba."
+        },
+        {
+          "en": "Mýtus od Martina. Dávné dějiny světa napsal George R. R. Martin.",
+          "cs": "Mýtus od Martina. Dávné dějiny světa napsal George R. R. Martin."
+        }
+      ],
+      "metadata": {
+        "genreProfile": {
+          "en": "Dark fantasy",
+          "cs": "Temná fantasy",
+          "sub": {
+            "en": "overlap: mythic fantasy",
+            "cs": "přesah: mytická fantasy"
+          }
+        },
+        "atmosphere": {
+          "en": "Wonder",
+          "cs": "Úžas",
+          "sub": {
+            "en": "secondary: Melancholy",
+            "cs": "vedlejší: Melancholie"
+          }
+        },
+        "spatialScope": {
+          "en": "Region",
+          "cs": "Region",
+          "sub": {
+            "en": "the Lands Between and the Land of Shadow",
+            "cs": "Mezizemí a Země stínu"
+          }
+        },
+        "historicalDepth": {
+          "en": "Mythic",
+          "cs": "Mytická",
+          "sub": {
+            "en": "from Marika's rise to the Shattering",
+            "cs": "od zrodu Mariky po Roztříštění"
+          }
+        },
+        "societalOrder": {
+          "en": "Dying world in ruins",
+          "cs": "Umírající svět v troskách",
+          "sub": {
+            "en": "the shattered Lands Between, demigods at war",
+            "cs": "Roztříštěné Mezizemí, polobozi ve válce"
+          }
+        },
+        "sourceOfPower": {
+          "en": "Divine and cosmic essence",
+          "cs": "Božská a kosmická esence",
+          "sub": {
+            "en": "the Elden Ring, the Greater Will, and grace",
+            "cs": "Elden Ring, Velká vůle a milost"
+          }
+        },
+        "protagonistPerspective": {
+          "en": "Pilgrim and outcast on the margins",
+          "cs": "Poutník a psanec na okraji",
+          "sub": {
+            "en": "a Tarnished without a past, summoned back",
+            "cs": "Poskvrněný bez minulosti, povolaný zpět"
+          }
+        },
+        "keyActors": {
+          "en": "the Golden Order and the Erdtree · Marika and the demigods · the Outer Gods · Ranni and the Age of Stars",
+          "cs": "Zlatý řád a Erdtree · Marika a polobozi · Vnější bohové · Ranni a Věk hvězd"
+        }
+      },
+      "themes": [
+        "power-and-dominion",
+        "faith",
+        "uncovering-the-past",
+        "gods",
+        "death-and-immortality"
+      ],
+      "narration": [
+        "item-descriptions",
+        "environmental"
+      ],
+      "axes": {
+        "hopeDespair": {
+          "value": 4
+        },
+        "knownUnknown": {
+          "value": 5
+        },
+        "intimateEpic": {
+          "value": 5
+        },
+        "moralClarityAmbiguity": {
+          "value": 4
+        },
+        "realismMetaphysical": {
+          "value": 5
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "Marika vytrhla z Eldenského prstenu Runu smrti, aby už nikoho neztratila – a zastavila přirozený běh světa.",
+          "cs": "Marika vytrhla z Eldenského prstenu Runu smrti, aby už nikoho neztratila – a zastavila přirozený běh světa."
+        },
+        "centralDilemma": {
+          "en": "Udržet zářivý, ale na lži postavený božský řád, nebo přijmout smrtelnost a svobodu bez bohů?",
+          "cs": "Udržet zářivý, ale na lži postavený božský řád, nebo přijmout smrtelnost a svobodu bez bohů?"
+        },
+        "ultimateMystery": {
+          "en": "Kdo je Melina a co přesně Marika spáchala u Božské brány?",
+          "cs": "Kdo je Melina a co přesně Marika spáchala u Božské brány?"
+        }
+      },
+      "chronicleSlug": "elden-ring",
+      "chronicleTeaser": {
+        "en": "From Marika's rise to the Shattering and the Land of Shadow.",
+        "cs": "Od Maričina zrodu po Roztříštění a Zemi stínu."
+      }
+    },
+    {
+      "id": "elder-scrolls",
+      "number": 6,
+      "chapterId": "fantasy",
+      "addedAt": "2026-11-16",
+      "gameTitle": {
+        "en": "Elder Scrolls",
+        "cs": "Elder Scrolls"
+      },
+      "chronicleTitle": {
+        "en": "Chronicle of Tamriel",
+        "cs": "Kronika Tamrielu"
+      },
+      "subtitlePoetic": {
+        "en": "Chronicle of Tamriel",
+        "cs": "Kronika Tamrielu"
+      },
+      "studios": [
+        "Bethesda"
+      ],
+      "yearRange": "1994–2014",
+      "canonScope": {
+        "en": "The Elder Scrolls I–V and The Elder Scrolls Online",
+        "cs": "The Elder Scrolls I–V a The Elder Scrolls Online"
+      },
+      "universe": [
+        {
+          "en": "Nirn and Tamriel",
+          "cs": "Nirn a Tamriel"
+        }
+      ],
+      "header": {
+        "relatedWorldSlugs": [
+          "warcraft",
+          "planescape-torment",
+          "xenoblade"
+        ]
+      },
+      "relatedWorlds": [
+        {
+          "id": "warcraft",
+          "title": {
+            "en": "Warcraft",
+            "cs": "Warcraft"
+          },
+          "genreProfile": {
+            "en": "High fantasy",
+            "cs": "Vysoká fantasy"
+          },
+          "yearRange": "1994–2024",
+          "note": {
+            "en": "a vast world of many races",
+            "cs": "rozlehlý svět mnoha ras"
+          }
+        },
+        {
+          "id": "planescape-torment",
+          "title": {
+            "en": "Planescape: Torment",
+            "cs": "Planescape: Torment"
+          },
+          "genreProfile": {
+            "en": "Planar fantasy",
+            "cs": "Planární fantasy"
+          },
+          "yearRange": "1999",
+          "note": {
+            "en": "the metaphysics of identity",
+            "cs": "metafyzika identity"
+          }
+        },
+        {
+          "id": "xenoblade",
+          "title": {
+            "en": "Xenoblade",
+            "cs": "Xenoblade"
+          },
+          "genreProfile": {
+            "en": "Science fantasy",
+            "cs": "Science fantasy"
+          },
+          "yearRange": "2010–2023",
+          "note": {
+            "en": "the world as a god's creation",
+            "cs": "svět jako výtvor boha"
+          }
+        }
+      ],
+      "core": {
+        "en": "Svět, který je snem spícího boha – a v němž se dají přepsat i dějiny, když se zlomí čas.",
+        "cs": "Svět, který je snem spícího boha – a v němž se dají přepsat i dějiny, když se zlomí čas."
+      },
+      "signatureBullets": [
+        {
+          "en": "Svět jako sen. Mundus může být snem spícího boha a hrdina ho může prohlédnout.",
+          "cs": "Svět jako sen. Mundus může být snem spícího boha a hrdina ho může prohlédnout."
+        },
+        {
+          "en": "Dračí zlomy. Čas se rozpadá do protichůdných dějin, které platí současně.",
+          "cs": "Dračí zlomy. Čas se rozpadá do protichůdných dějin, které platí současně."
+        },
+        {
+          "en": "Knihy, které lžou. Stovky textů ve hře si odporují; pravda je otázkou výkladu.",
+          "cs": "Knihy, které lžou. Stovky textů ve hře si odporují; pravda je otázkou výkladu."
+        },
+        {
+          "en": "Zmizelí dwemerové. Celá rasa se vypařila v jediném okamžiku u Rudé hory.",
+          "cs": "Zmizelí dwemerové. Celá rasa se vypařila v jediném okamžiku u Rudé hory."
+        }
+      ],
+      "metadata": {
+        "genreProfile": {
+          "en": "High fantasy",
+          "cs": "Vysoká fantasy",
+          "sub": {
+            "en": "overlap: mythic fantasy",
+            "cs": "přesah: mytická fantasy"
+          }
+        },
+        "atmosphere": {
+          "en": "Wonder",
+          "cs": "Úžas",
+          "sub": {
+            "en": "secondary: Fascination",
+            "cs": "vedlejší: Fascinace"
+          }
+        },
+        "spatialScope": {
+          "en": "Continent",
+          "cs": "Kontinent",
+          "sub": {
+            "en": "Tamriel",
+            "cs": "Tamriel"
+          }
+        },
+        "historicalDepth": {
+          "en": "Mythic",
+          "cs": "Mytická",
+          "sub": {
+            "en": "from Lorkhan's creation of Mundus",
+            "cs": "od Lorkhanova stvoření Mundusu"
+          }
+        },
+        "societalOrder": {
+          "en": "Contending realms and nations",
+          "cs": "Zápasící říše a národy",
+          "sub": {
+            "en": "the Empire, the Thalmor, and the provinces of Tamriel",
+            "cs": "Impérium, Thalmor a provincie Tamrielu"
+          }
+        },
+        "sourceOfPower": {
+          "en": "Divine and cosmic essence",
+          "cs": "Božská a kosmická esence",
+          "sub": {
+            "en": "Aedra, Daedra, and magicka from Aetherius",
+            "cs": "Aedra, daedra a magicka z Aetheria"
+          }
+        },
+        "protagonistPerspective": {
+          "en": "Chosen champion of fate",
+          "cs": "Vyvolený a šampion osudu",
+          "sub": {
+            "en": "a prisoner without a past who becomes the chosen one",
+            "cs": "vězeň bez minulosti, z něhož se stává vyvolený"
+          }
+        },
+        "keyActors": {
+          "en": "the Aedra and the Daedric Princes · the Empire and the Septim blood · the Thalmor and the Aldmeri Dominion · Lorkhan and his Heart",
+          "cs": "Aedra a daedričtí princové · Impérium a krev Septimů · Thalmor a Aldmerské dominium · Lorkhan a jeho Srdce"
+        }
+      },
+      "themes": [
+        "faith",
+        "identity-and-existence",
+        "power-and-dominion",
+        "gods",
+        "cyclical-history"
+      ],
+      "narration": [
+        "books-and-documents",
+        "unreliable-narrators"
+      ],
+      "axes": {
+        "hopeDespair": {
+          "value": 2
+        },
+        "knownUnknown": {
+          "value": 4
+        },
+        "intimateEpic": {
+          "value": 4
+        },
+        "moralClarityAmbiguity": {
+          "value": 3
+        },
+        "realismMetaphysical": {
+          "value": 5
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "Lorkhan přiměl prvotní duchy obětovat část své podstaty pro smrtelný svět – a za trest přišel o srdce.",
+          "cs": "Lorkhan přiměl prvotní duchy obětovat část své podstaty pro smrtelný svět – a za trest přišel o srdce."
+        },
+        "centralDilemma": {
+          "en": "Co je pravda ve světě, kde vítězové přepisují kroniky a čas se rozpadá do paralelních dějin?",
+          "cs": "Co je pravda ve světě, kde vítězové přepisují kroniky a čas se rozpadá do paralelních dějin?"
+        },
+        "ultimateMystery": {
+          "en": "Kam zmizeli dwemerové? Todd Howard zakázal scenáristům to kdy definitivně vyřešit.",
+          "cs": "Kam zmizeli dwemerové? Todd Howard zakázal scenáristům to kdy definitivně vyřešit."
+        }
+      },
+      "chronicleSlug": "elder-scrolls",
+      "chronicleTeaser": {
+        "en": "From Lorkhan's Heart to the return of the Dragonborn.",
+        "cs": "Od Lorkhanova srdce po návrat drakobijců."
+      }
+    },
+    {
+      "id": "hades",
+      "number": 7,
+      "chapterId": "fantasy",
+      "addedAt": "2026-11-16",
+      "gameTitle": {
+        "en": "Hades",
+        "cs": "Hades"
+      },
+      "chronicleTitle": {
+        "en": "Chronicle of the Underworld",
+        "cs": "Kronika Podsvětí"
+      },
+      "subtitlePoetic": {
+        "en": "Chronicle of the Underworld",
+        "cs": "Kronika Podsvětí"
+      },
+      "studios": [
+        "Supergiant Games"
+      ],
+      "yearRange": "2020–2025",
+      "canonScope": {
+        "en": "Hades and Hades II",
+        "cs": "Hades a Hades II"
+      },
+      "universe": [
+        {
+          "en": "the Greek Underworld",
+          "cs": "řecké podsvětí"
+        }
+      ],
+      "header": {
+        "relatedWorldSlugs": [
+          "outer-wilds",
+          "elden-ring",
+          "undertale"
+        ]
+      },
+      "relatedWorlds": [
+        {
+          "id": "outer-wilds",
+          "title": {
+            "en": "Outer Wilds",
+            "cs": "Outer Wilds"
+          },
+          "genreProfile": {
+            "en": "Experimental sci-fi",
+            "cs": "Experimentální sci-fi"
+          },
+          "yearRange": "2019–2021",
+          "note": {
+            "en": "the loop as a path to truth",
+            "cs": "smyčka jako cesta k pravdě"
+          }
+        },
+        {
+          "id": "elden-ring",
+          "title": {
+            "en": "Elden Ring",
+            "cs": "Elden Ring"
+          },
+          "genreProfile": {
+            "en": "Dark fantasy",
+            "cs": "Temná fantasy"
+          },
+          "yearRange": "2022–2024",
+          "note": {
+            "en": "a shattered divine family",
+            "cs": "rozvrácená božská rodina"
+          }
+        },
+        {
+          "id": "undertale",
+          "title": {
+            "en": "Undertale",
+            "cs": "Undertale"
+          },
+          "genreProfile": {
+            "en": "Metafiction",
+            "cs": "Metafikce"
+          },
+          "yearRange": "2015",
+          "note": {
+            "en": "mercy instead of victory",
+            "cs": "milosrdenství místo vítězství"
+          }
+        }
+      ],
+      "core": {
+        "en": "Útěk z podsvětí, který se opakuje znovu a znovu – a pokaždé vede o krok blíž k odpuštění.",
+        "cs": "Útěk z podsvětí, který se opakuje znovu a znovu – a pokaždé vede o krok blíž k odpuštění."
+      },
+      "signatureBullets": [
+        {
+          "en": "Smrt jako začátek. Každá smrt vrací Zagrea domů a příběh pokračuje dalším rozhovorem.",
+          "cs": "Smrt jako začátek. Každá smrt vrací Zagrea domů a příběh pokračuje dalším rozhovorem."
+        },
+        {
+          "en": "Rodina bohů. Řecký panteon jako rozhádaná, ale milující rodina.",
+          "cs": "Rodina bohů. Řecký panteon jako rozhádaná, ale milující rodina."
+        },
+        {
+          "en": "Odpuštění místo vítězství. Cílem není porazit otce, ale přivést matku domů.",
+          "cs": "Odpuštění místo vítězství. Cílem není porazit otce, ale přivést matku domů."
+        },
+        {
+          "en": "Konec věku mýtů. Hades II naznačuje soumrak bohů a příchod věku člověka.",
+          "cs": "Konec věku mýtů. Hades II naznačuje soumrak bohů a příchod věku člověka."
+        }
+      ],
+      "metadata": {
+        "genreProfile": {
+          "en": "Mythic fantasy",
+          "cs": "Mytická fantasy",
+          "sub": {
+            "en": "overlap: family drama",
+            "cs": "přesah: rodinné drama"
+          }
+        },
+        "atmosphere": {
+          "en": "Defiance",
+          "cs": "Vzdor",
+          "sub": {
+            "en": "secondary: Hope",
+            "cs": "vedlejší: Naděje"
+          }
+        },
+        "spatialScope": {
+          "en": "Region",
+          "cs": "Region",
+          "sub": {
+            "en": "the Underworld, in Hades II also the surface",
+            "cs": "podsvětí, v Hades II i povrch"
+          }
+        },
+        "historicalDepth": {
+          "en": "Mythic",
+          "cs": "Mytická",
+          "sub": {
+            "en": "from the fall of the Titan Chronos",
+            "cs": "od pádu Titána Chrona"
+          }
+        },
+        "societalOrder": {
+          "en": "A closed microcosm",
+          "cs": "Uzavřený mikrokosmos",
+          "sub": {
+            "en": "a family house in the Underworld, and Olympus",
+            "cs": "rodinný dům v podsvětí a Olymp"
+          }
+        },
+        "sourceOfPower": {
+          "en": "Divine and cosmic essence",
+          "cs": "Božská a kosmická esence",
+          "sub": {
+            "en": "boons of the Olympians and the power of the Chthonic gods",
+            "cs": "dary olympských bohů a moc Chtonských"
+          }
+        },
+        "protagonistPerspective": {
+          "en": "Pilgrim and outcast on the margins",
+          "cs": "Poutník a psanec na okraji",
+          "sub": {
+            "en": "Zagreus escaping home; in Hades II, Melinoë",
+            "cs": "Zagreus na útěku z domova, v Hades II Melinoé"
+          }
+        },
+        "keyActors": {
+          "en": "Hades and the House of the Underworld · the Olympian gods · the Titan Chronos · Persephone and Nyx",
+          "cs": "Hádes a dům podsvětí · olympští bohové · Titán Chronos · Persefona a Nyx"
+        }
+      },
+      "themes": [
+        "guilt-and-redemption",
+        "free-will-and-fate",
+        "gods",
+        "love-and-relationships",
+        "humor-irony-exaggeration",
+        "death-and-immortality"
+      ],
+      "narration": [
+        "dialogue",
+        "mechanics-as-meaning"
+      ],
+      "axes": {
+        "hopeDespair": {
+          "value": 1
+        },
+        "knownUnknown": {
+          "value": 2
+        },
+        "intimateEpic": {
+          "value": 2
+        },
+        "moralClarityAmbiguity": {
+          "value": 3
+        },
+        "realismMetaphysical": {
+          "value": 5
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "Hádes zatajil pravdu o Persefoně a jejich synovi – a celý dům podsvětí obestřel lží.",
+          "cs": "Hádes zatajil pravdu o Persefoně a jejich synovi – a celý dům podsvětí obestřel lží."
+        },
+        "centralDilemma": {
+          "en": "Dokáže rozvrácená rodina bohů prolomit kruh křivd trpělivostí, pravdou a odpuštěním?",
+          "cs": "Dokáže rozvrácená rodina bohů prolomit kruh křivd trpělivostí, pravdou a odpuštěním?"
+        },
+        "ultimateMystery": {
+          "en": "Co zamýšlejí Sudičky? Na konci ohlásí nový věk, v němž už nebudou plést osudy.",
+          "cs": "Co zamýšlejí Sudičky? Na konci ohlásí nový věk, v němž už nebudou plést osudy."
+        }
+      },
+      "chronicleSlug": "hades",
+      "chronicleTeaser": {
+        "en": "From the fall of Chronos to Zagreus's escape and the war with Time.",
+        "cs": "Od Chronova pádu po Zagreův útěk a válku s Časem."
+      }
+    },
+    {
+      "id": "path-of-exile",
+      "number": 8,
+      "chapterId": "fantasy",
+      "addedAt": "2026-11-16",
+      "gameTitle": {
+        "en": "Path of Exile",
+        "cs": "Path of Exile"
+      },
+      "chronicleTitle": {
+        "en": "Chronicle of Wraeclast",
+        "cs": "Kronika Wraeclastu"
+      },
+      "subtitlePoetic": {
+        "en": "Chronicle of Wraeclast",
+        "cs": "Kronika Wraeclastu"
+      },
+      "studios": [
+        "Grinding Gear Games"
+      ],
+      "yearRange": "2013–2024",
+      "canonScope": {
+        "en": "Path of Exile with expansions and Path of Exile 2",
+        "cs": "Path of Exile s rozšířeními a Path of Exile 2"
+      },
+      "universe": [
+        {
+          "en": "Wraeclast",
+          "cs": "Wraeclast"
+        }
+      ],
+      "header": {
+        "relatedWorldSlugs": [
+          "diablo",
+          "dark-souls",
+          "warhammer-40k"
+        ]
+      },
+      "relatedWorlds": [
+        {
+          "id": "diablo",
+          "title": {
+            "en": "Diablo",
+            "cs": "Diablo"
+          },
+          "genreProfile": {
+            "en": "Dark fantasy",
+            "cs": "Temná fantasy"
+          },
+          "yearRange": "1996–2024",
+          "note": {
+            "en": "a dark quest for power",
+            "cs": "temná výprava za mocí"
+          }
+        },
+        {
+          "id": "dark-souls",
+          "title": {
+            "en": "Dark Souls",
+            "cs": "Dark Souls"
+          },
+          "genreProfile": {
+            "en": "Dark fantasy",
+            "cs": "Temná fantasy"
+          },
+          "yearRange": "2011–2017",
+          "note": {
+            "en": "cycles of decay",
+            "cs": "cykly úpadku"
+          }
+        },
+        {
+          "id": "warhammer-40k",
+          "title": {
+            "en": "Warhammer 40 000",
+            "cs": "Warhammer 40 000"
+          },
+          "genreProfile": {
+            "en": "Space opera",
+            "cs": "Space opera"
+          },
+          "yearRange": "od 1987",
+          "note": {
+            "en": "a universe that devours",
+            "cs": "vesmír, který požírá"
+          }
+        }
+      ],
+      "core": {
+        "en": "Kontinent vyhnanců, kde každý, kdo porazí tyrana, sáhne po jeho moci – a stane se dalším.",
+        "cs": "Kontinent vyhnanců, kde každý, kdo porazí tyrana, sáhne po jeho moci – a stane se dalším."
+      },
+      "signatureBullets": [
+        {
+          "en": "Moc jako nákaza. Drahokamy ctnosti proměňují každého vládce v monstrum.",
+          "cs": "Moc jako nákaza. Drahokamy ctnosti proměňují každého vládce v monstrum."
+        },
+        {
+          "en": "Říše na troskách říší. Vaalové i Věční padli stejnou chamtivostí.",
+          "cs": "Říše na troskách říší. Vaalové i Věční padli stejnou chamtivostí."
+        },
+        {
+          "en": "Bohové ve spánku. Bestie pod Vysokou bránou drží bohy v snění, dokud žije.",
+          "cs": "Bohové ve spánku. Bestie pod Vysokou bránou drží bohy v snění, dokud žije."
+        },
+        {
+          "en": "Vesmír predátorů. Starší a Maven ukazují, že i bohové jsou v kosmu drobotina.",
+          "cs": "Vesmír predátorů. Starší a Maven ukazují, že i bohové jsou v kosmu drobotina."
+        }
+      ],
+      "metadata": {
+        "genreProfile": {
+          "en": "Dark fantasy",
+          "cs": "Temná fantasy",
+          "sub": {
+            "en": "overlap: cosmic horror",
+            "cs": "přesah: kosmický horor"
+          }
+        },
+        "atmosphere": {
+          "en": "Despair",
+          "cs": "Zoufalství",
+          "sub": {
+            "en": "secondary: Grotesque",
+            "cs": "vedlejší: Grotesknost"
+          }
+        },
+        "spatialScope": {
+          "en": "Continent",
+          "cs": "Kontinent",
+          "sub": {
+            "en": "Wraeclast",
+            "cs": "Wraeclast"
+          }
+        },
+        "historicalDepth": {
+          "en": "Mythic",
+          "cs": "Mytická",
+          "sub": {
+            "en": "from the Beast and the birth of the gods",
+            "cs": "od Bestie a zrodu bohů"
+          }
+        },
+        "societalOrder": {
+          "en": "Dying world in ruins",
+          "cs": "Umírající svět v troskách",
+          "sub": {
+            "en": "a continent of exiles on the ruins of empires",
+            "cs": "kontinent vyhnanců na troskách říší"
+          }
+        },
+        "sourceOfPower": {
+          "en": "Divine and cosmic essence",
+          "cs": "Božská a kosmická esence",
+          "sub": {
+            "en": "the Beast's essence and the Gems of Virtue",
+            "cs": "esence Bestie a Drahokamy ctnosti"
+          }
+        },
+        "protagonistPerspective": {
+          "en": "Pilgrim and outcast on the margins",
+          "cs": "Poutník a psanec na okraji",
+          "sub": {
+            "en": "an exile of the chosen class",
+            "cs": "vyhnanec zvolené třídy"
+          }
+        },
+        "keyActors": {
+          "en": "the gods and the Beast · the Gems of Virtue · the Elder and cosmic predators · Oriath and its templars",
+          "cs": "bohové a Bestie · Drahokamy ctnosti · Starší a kosmičtí predátoři · Oriath a jeho templáři"
+        }
+      },
+      "themes": [
+        "power-and-dominion",
+        "civilizational-collapse",
+        "survival",
+        "gods"
+      ],
+      "narration": [
+        "books-and-documents",
+        "environmental"
+      ],
+      "axes": {
+        "hopeDespair": {
+          "value": 5
+        },
+        "knownUnknown": {
+          "value": 4
+        },
+        "intimateEpic": {
+          "value": 4
+        },
+        "moralClarityAmbiguity": {
+          "value": 4
+        },
+        "realismMetaphysical": {
+          "value": 4
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "Bůh Hřích stvořil ze soucitu Bestii, aby uspal své kruté bratry – a jejich moc začala prýštit k nohám smrtelníků.",
+          "cs": "Bůh Hřích stvořil ze soucitu Bestii, aby uspal své kruté bratry – a jejich moc začala prýštit k nohám smrtelníků."
+        },
+        "centralDilemma": {
+          "en": "Dokáže člověk s neomezenou mocí nestat se horším tyranem než ten, koho porazil?",
+          "cs": "Dokáže člověk s neomezenou mocí nestat se horším tyranem než ten, koho porazil?"
+        },
+        "ultimateMystery": {
+          "en": "Kdo jsou Maven a její „Rodiče“? Naznačují, že i nejmocnější bytosti jsou v kosmu jen dětmi.",
+          "cs": "Kdo jsou Maven a její „Rodiče“? Naznačují, že i nejmocnější bytosti jsou v kosmu jen dětmi."
+        }
+      },
+      "chronicleSlug": "path-of-exile",
+      "chronicleTeaser": {
+        "en": "From the Beast and the Vaal Empire to the Seed of Corruption.",
+        "cs": "Od Bestie a Vaalské říše po Semeno zkázy."
+      }
+    },
+    {
+      "id": "pathfinder",
+      "number": 9,
+      "chapterId": "fantasy",
+      "addedAt": "2026-11-16",
+      "gameTitle": {
+        "en": "Pathfinder",
+        "cs": "Pathfinder"
+      },
+      "chronicleTitle": {
+        "en": "Chronicle of Golarion",
+        "cs": "Kronika Golarionu"
+      },
+      "subtitlePoetic": {
+        "en": "Chronicle of Golarion",
+        "cs": "Kronika Golarionu"
+      },
+      "studios": [
+        "Owlcat Games"
+      ],
+      "yearRange": "2018–2021",
+      "canonScope": {
+        "en": "Kingmaker and Wrath of the Righteous",
+        "cs": "Kingmaker a Wrath of the Righteous"
+      },
+      "universe": [
+        {
+          "en": "Golarion",
+          "cs": "Golarion"
+        }
+      ],
+      "header": {
+        "relatedWorldSlugs": [
+          "baldurs-gate",
+          "pillars-of-eternity",
+          "warcraft"
+        ]
+      },
+      "relatedWorlds": [
+        {
+          "id": "baldurs-gate",
+          "title": {
+            "en": "Baldur's Gate",
+            "cs": "Baldur's Gate"
+          },
+          "genreProfile": {
+            "en": "High fantasy",
+            "cs": "Vysoká fantasy"
+          },
+          "yearRange": "1998–2023",
+          "note": {
+            "en": "the D&D legacy and divine politics",
+            "cs": "dědictví D&D a božská politika"
+          }
+        },
+        {
+          "id": "pillars-of-eternity",
+          "title": {
+            "en": "Pillars of Eternity",
+            "cs": "Pillars of Eternity"
+          },
+          "genreProfile": {
+            "en": "High fantasy",
+            "cs": "Vysoká fantasy"
+          },
+          "yearRange": "2015–2025",
+          "note": {
+            "en": "gods who fail",
+            "cs": "bohové, kteří selhávají"
+          }
+        },
+        {
+          "id": "warcraft",
+          "title": {
+            "en": "Warcraft",
+            "cs": "Warcraft"
+          },
+          "genreProfile": {
+            "en": "High fantasy",
+            "cs": "Vysoká fantasy"
+          },
+          "yearRange": "1994–2024",
+          "note": {
+            "en": "a demonic invasion",
+            "cs": "démonická invaze"
+          }
+        }
+      ],
+      "core": {
+        "en": "Svět, kde zemřel bůh lidstva a proroctví přestala platit – a smrtelníci si musí psát pravidla sami.",
+        "cs": "Svět, kde zemřel bůh lidstva a proroctví přestala platit – a smrtelníci si musí psát pravidla sami."
+      },
+      "signatureBullets": [
+        {
+          "en": "Mrtvý bůh lidstva. Aroden zemřel v den, kdy měl naplnit proroctví, a nikdo neví proč.",
+          "cs": "Mrtvý bůh lidstva. Aroden zemřel v den, kdy měl naplnit proroctví, a nikdo neví proč."
+        },
+        {
+          "en": "Hrdina jako bůh. Mytické cesty dovolí stát se andělem, démonem, lichem i trickstrem.",
+          "cs": "Hrdina jako bůh. Mytické cesty dovolí stát se andělem, démonem, lichem i trickstrem."
+        },
+        {
+          "en": "Království na hraní. V Kingmakeru hrdina buduje říši, kterou víla chystá zničit.",
+          "cs": "Království na hraní. V Kingmakeru hrdina buduje říši, kterou víla chystá zničit."
+        },
+        {
+          "en": "Rána do Propasti. Světovou ránou proudí po celé století démoni.",
+          "cs": "Rána do Propasti. Světovou ránou proudí po celé století démoni."
+        }
+      ],
+      "metadata": {
+        "genreProfile": {
+          "en": "High fantasy",
+          "cs": "Vysoká fantasy",
+          "sub": {
+            "en": "overlap: dark fantasy",
+            "cs": "přesah: temná fantasy"
+          }
+        },
+        "atmosphere": {
+          "en": "Tension",
+          "cs": "Napětí",
+          "sub": {
+            "en": "secondary: Fascination",
+            "cs": "vedlejší: Fascinace"
+          }
+        },
+        "spatialScope": {
+          "en": "Region",
+          "cs": "Region",
+          "sub": {
+            "en": "the Stolen Lands and the Worldwound",
+            "cs": "Ukradené země a Světová rána"
+          }
+        },
+        "historicalDepth": {
+          "en": "Mythic",
+          "cs": "Mytická",
+          "sub": {
+            "en": "from the Dawn of Creation and Rovagug's imprisonment",
+            "cs": "od Úsvitu stvoření a uvěznění Rovaguga"
+          }
+        },
+        "societalOrder": {
+          "en": "Contending realms and nations",
+          "cs": "Zápasící říše a národy",
+          "sub": {
+            "en": "the Stolen Lands, Mendev, and the crusades",
+            "cs": "Ukradené země, Mendev a křížové výpravy"
+          }
+        },
+        "sourceOfPower": {
+          "en": "Magic and alchemy",
+          "cs": "Magie a alchymie",
+          "sub": {
+            "en": "magic, mythic paths, and the demonic Wound",
+            "cs": "magie, mýtické cesty a démonická Rána"
+          }
+        },
+        "protagonistPerspective": {
+          "en": "Leader and mover of factions",
+          "cs": "Vůdce a hybatel frakcí",
+          "sub": {
+            "en": "a baron, later Knight Commander",
+            "cs": "baron, později Velitel výpravy"
+          }
+        },
+        "keyActors": {
+          "en": "the gods and Pharasma · the demons of the Abyss · the fey Nyrissa and the Lantern King · the crusaders of Mendev",
+          "cs": "bohové a Pharasma · démoni Propasti · víla Nyrissa a Lucernový král · křižáci Mendevu"
+        }
+      },
+      "themes": [
+        "power-and-dominion",
+        "free-will-and-fate",
+        "war",
+        "gods",
+        "politics-and-intrigue"
+      ],
+      "narration": [
+        "dialogue",
+        "books-and-documents"
+      ],
+      "axes": {
+        "hopeDespair": {
+          "value": 3
+        },
+        "knownUnknown": {
+          "value": 3
+        },
+        "intimateEpic": {
+          "value": 5
+        },
+        "moralClarityAmbiguity": {
+          "value": 4
+        },
+        "realismMetaphysical": {
+          "value": 4
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "Bohové soudí krutě: víla Nyrissa přišla o schopnost milovat a dítě Areelu bylo odsouzeno do Propasti.",
+          "cs": "Bohové soudí krutě: víla Nyrissa přišla o schopnost milovat a dítě Areelu bylo odsouzeno do Propasti."
+        },
+        "centralDilemma": {
+          "en": "Přijmout roli figurky v rukou nesmrtelných manipulátorů, nebo přepsat pravidla vesmíru?",
+          "cs": "Přijmout roli figurky v rukou nesmrtelných manipulátorů, nebo přepsat pravidla vesmíru?"
+        },
+        "ultimateMystery": {
+          "en": "Kdo nebo co zabilo boha Arodena? Vydavatel Paizo slíbil, že to nikdy neprozradí.",
+          "cs": "Kdo nebo co zabilo boha Arodena? Vydavatel Paizo slíbil, že to nikdy neprozradí."
+        }
+      },
+      "chronicleSlug": "pathfinder",
+      "chronicleTeaser": {
+        "en": "From the death of Aroden to the closing of the Worldwound.",
+        "cs": "Od smrti Arodena po uzavření Světové rány."
+      }
+    },
+    {
+      "id": "warcraft",
+      "number": 10,
+      "chapterId": "fantasy",
+      "addedAt": "2026-11-16",
+      "gameTitle": {
+        "en": "Warcraft",
+        "cs": "Warcraft"
+      },
+      "chronicleTitle": {
+        "en": "Chronicle of Azeroth",
+        "cs": "Kronika Azerothu"
+      },
+      "subtitlePoetic": {
+        "en": "Chronicle of Azeroth",
+        "cs": "Kronika Azerothu"
+      },
+      "studios": [
+        "Blizzard Entertainment"
+      ],
+      "yearRange": "1994–2024",
+      "canonScope": {
+        "en": "Warcraft I–III and World of Warcraft through The War Within",
+        "cs": "Warcraft I–III a World of Warcraft po The War Within"
+      },
+      "universe": [
+        {
+          "en": "Azeroth",
+          "cs": "Azeroth"
+        }
+      ],
+      "header": {
+        "relatedWorldSlugs": [
+          "starcraft",
+          "elder-scrolls",
+          "diablo"
+        ]
+      },
+      "relatedWorlds": [
+        {
+          "id": "starcraft",
+          "title": {
+            "en": "StarCraft",
+            "cs": "StarCraft"
+          },
+          "genreProfile": {
+            "en": "Military sci-fi",
+            "cs": "Military sci-fi"
+          },
+          "yearRange": "1998–2016",
+          "note": {
+            "en": "races at war for survival",
+            "cs": "rasy ve válce o přežití"
+          }
+        },
+        {
+          "id": "elder-scrolls",
+          "title": {
+            "en": "Elder Scrolls",
+            "cs": "Elder Scrolls"
+          },
+          "genreProfile": {
+            "en": "High fantasy",
+            "cs": "Vysoká fantasy"
+          },
+          "yearRange": "1994–2014",
+          "note": {
+            "en": "a vast world of many races",
+            "cs": "rozlehlý svět mnoha ras"
+          }
+        },
+        {
+          "id": "diablo",
+          "title": {
+            "en": "Diablo",
+            "cs": "Diablo"
+          },
+          "genreProfile": {
+            "en": "Dark fantasy",
+            "cs": "Temná fantasy"
+          },
+          "yearRange": "1996–2024",
+          "note": {
+            "en": "a demonic invasion",
+            "cs": "démonická invaze"
+          }
+        }
+      ],
+      "core": {
+        "en": "Svět, v němž se nepřátelé střídají jako roční období – a každá válka začíná odplatou za tu předchozí.",
+        "cs": "Svět, v němž se nepřátelé střídají jako roční období – a každá válka začíná odplatou za tu předchozí."
+      },
+      "signatureBullets": [
+        {
+          "en": "Válka bez konce. Aliance a Horda se smiřují a znovu vraždí, generaci za generací.",
+          "cs": "Válka bez konce. Aliance a Horda se smiřují a znovu vraždí, generaci za generací."
+        },
+        {
+          "en": "Padlí hrdinové. Arthas, Sylvanas či Illidan ukazují, jak se hrdina mění v nepřítele.",
+          "cs": "Padlí hrdinové. Arthas, Sylvanas či Illidan ukazují, jak se hrdina mění v nepřítele."
+        },
+        {
+          "en": "Kosmické síly. Světlo, Prázdnota, Smrt i Život bojují o Azeroth přes smrtelníky.",
+          "cs": "Kosmické síly. Světlo, Prázdnota, Smrt i Život bojují o Azeroth přes smrtelníky."
+        },
+        {
+          "en": "Planeta jako bytost. V jádru Azerothu spí Duše světa a Titáni s ní mají vlastní plány.",
+          "cs": "Planeta jako bytost. V jádru Azerothu spí Duše světa a Titáni s ní mají vlastní plány."
+        }
+      ],
+      "metadata": {
+        "genreProfile": {
+          "en": "High fantasy",
+          "cs": "Vysoká fantasy",
+          "sub": {
+            "en": "overlap: cosmic fantasy",
+            "cs": "přesah: kosmická fantasy"
+          }
+        },
+        "atmosphere": {
+          "en": "Wonder",
+          "cs": "Úžas",
+          "sub": {
+            "en": "secondary: Defiance",
+            "cs": "vedlejší: Vzdor"
+          }
+        },
+        "spatialScope": {
+          "en": "Multiverse and multiple planes",
+          "cs": "Multiverzum a více rovin",
+          "sub": {
+            "en": "Azeroth, Outland, Argus, and the Shadowlands",
+            "cs": "Azeroth, Outland, Argus a Říše smrti"
+          }
+        },
+        "historicalDepth": {
+          "en": "Cosmic",
+          "cs": "Kosmická",
+          "sub": {
+            "en": "from the Titans and the Void",
+            "cs": "od Titánů a Prázdnoty"
+          }
+        },
+        "societalOrder": {
+          "en": "Contending realms and nations",
+          "cs": "Zápasící říše a národy",
+          "sub": {
+            "en": "the Alliance, the Horde, and their kingdoms",
+            "cs": "Aliance, Horda a jejich království"
+          }
+        },
+        "sourceOfPower": {
+          "en": "Divine and cosmic essence",
+          "cs": "Božská a kosmická esence",
+          "sub": {
+            "en": "the Light, the Void, fel, and arcane",
+            "cs": "Světlo, Prázdnota, fel a arkána"
+          }
+        },
+        "protagonistPerspective": {
+          "en": "Leader and mover of factions",
+          "cs": "Vůdce a hybatel frakcí",
+          "sub": {
+            "en": "an adventurer, later a faction champion",
+            "cs": "dobrodruh, později šampion frakce"
+          }
+        },
+        "keyActors": {
+          "en": "the Alliance and the Horde · the Burning Legion · the Worldsoul and the Titans · the Scourge and the Lich King · the Void and the Old Gods",
+          "cs": "Aliance a Horda · Plamenná legie · Duše světa a Titáni · Pohroma a Král lichů · Prázdnota a Staří bozi"
+        }
+      },
+      "themes": [
+        "war",
+        "revenge",
+        "power-and-dominion",
+        "gods"
+      ],
+      "narration": [
+        "cinematics",
+        "environmental"
+      ],
+      "axes": {
+        "hopeDespair": {
+          "value": 2
+        },
+        "knownUnknown": {
+          "value": 2
+        },
+        "intimateEpic": {
+          "value": 5
+        },
+        "moralClarityAmbiguity": {
+          "value": 3
+        },
+        "realismMetaphysical": {
+          "value": 4
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "Sargeras se ze strachu z Prázdnoty rozhodl vyhladit veškerý život – a rozpoutal Plamennou legii.",
+          "cs": "Sargeras se ze strachu z Prázdnoty rozhodl vyhladit veškerý život – a rozpoutal Plamennou legii."
+        },
+        "centralDilemma": {
+          "en": "Dokážou národy svázané generacemi prolité krve prolomit cyklus odplaty a vybojovat si vlastní osud?",
+          "cs": "Dokážou národy svázané generacemi prolité krve prolomit cyklus odplaty a vybojovat si vlastní osud?"
+        },
+        "ultimateMystery": {
+          "en": "Čím je Duše světa Azeroth a co s ní Titáni zamýšlejí? Odpověď chystá sága Worldsoul.",
+          "cs": "Čím je Duše světa Azeroth a co s ní Titáni zamýšlejí? Odpověď chystá sága Worldsoul."
+        }
+      },
+      "chronicleSlug": "warcraft",
+      "chronicleTeaser": {
+        "en": "From the Titans and the Burning Legion to the Worldsoul.",
+        "cs": "Od Titánů a Plamenné legie po Duši světa."
+      }
+    },
+    {
+      "id": "the-witcher",
+      "number": 11,
+      "chapterId": "fantasy",
+      "addedAt": "2026-11-16",
+      "gameTitle": {
+        "en": "The Witcher",
+        "cs": "Zaklínač"
+      },
+      "chronicleTitle": {
+        "en": "Chronicle of the Continent",
+        "cs": "Kronika Kontinentu"
+      },
+      "subtitlePoetic": {
+        "en": "Chronicle of the Continent",
+        "cs": "Kronika Kontinentu"
+      },
+      "studios": [
+        "CD Projekt Red"
+      ],
+      "yearRange": "2007–2016",
+      "canonScope": {
+        "en": "The Witcher 1–3 with expansions",
+        "cs": "Zaklínač 1–3 s rozšířeními"
+      },
+      "universe": [
+        {
+          "en": "The Continent",
+          "cs": "Kontinent"
+        }
+      ],
+      "header": {
+        "relatedWorldSlugs": [
+          "dragon-age",
+          "pathologic",
+          "metro"
+        ]
+      },
+      "relatedWorlds": [
+        {
+          "id": "dragon-age",
+          "title": {
+            "en": "Dragon Age",
+            "cs": "Dragon Age"
+          },
+          "genreProfile": {
+            "en": "Dark fantasy",
+            "cs": "Temná fantasy"
+          },
+          "yearRange": "2009–2024",
+          "note": {
+            "en": "racial hatred and grey choices",
+            "cs": "rasová nenávist a šedé volby"
+          }
+        },
+        {
+          "id": "pathologic",
+          "title": {
+            "en": "Pathologic",
+            "cs": "Pathologic"
+          },
+          "genreProfile": {
+            "en": "Surreal tragedy",
+            "cs": "Surrealistická tragédie"
+          },
+          "yearRange": "2005–2019",
+          "note": {
+            "en": "choices that hurt",
+            "cs": "volby, které bolí"
+          }
+        },
+        {
+          "id": "metro",
+          "title": {
+            "en": "Metro",
+            "cs": "Metro"
+          },
+          "genreProfile": {
+            "en": "Post-nuclear survival",
+            "cs": "Postjaderné přežití"
+          },
+          "yearRange": "2010–2024",
+          "note": {
+            "en": "Slavic melancholy",
+            "cs": "slovanská melancholie"
+          }
+        }
+      ],
+      "core": {
+        "en": "Svět, v němž netvorem bývá častěji člověk než bestie – a zaklínač musí volit mezi dvěma zly.",
+        "cs": "Svět, v němž netvorem bývá častěji člověk než bestie – a zaklínač musí volit mezi dvěma zly."
+      },
+      "signatureBullets": [
+        {
+          "en": "Mutant mezi lidmi. Zaklínači jsou zmrzačené děti přetvořené v nástroj, kterým lidé pohrdají.",
+          "cs": "Mutant mezi lidmi. Zaklínači jsou zmrzačené děti přetvořené v nástroj, kterým lidé pohrdají."
+        },
+        {
+          "en": "Volba mezi zly. Úkoly málokdy mají dobré řešení a následky přicházejí později.",
+          "cs": "Volba mezi zly. Úkoly málokdy mají dobré řešení a následky přicházejí později."
+        },
+        {
+          "en": "Slovanský folklór. Strzygy, leší a vodníci dávají světu známou, ale temnou tvář.",
+          "cs": "Slovanský folklór. Strzygy, leší a vodníci dávají světu známou, ale temnou tvář."
+        },
+        {
+          "en": "Dítě Starší krve. Ciri nese gen, který otevírá cestu mezi světy.",
+          "cs": "Dítě Starší krve. Ciri nese gen, který otevírá cestu mezi světy."
+        }
+      ],
+      "metadata": {
+        "genreProfile": {
+          "en": "Dark fantasy",
+          "cs": "Temná fantasy",
+          "sub": {
+            "en": "overlap: Slavic fantasy",
+            "cs": "přesah: slovanská fantasy"
+          }
+        },
+        "atmosphere": {
+          "en": "Melancholy",
+          "cs": "Melancholie",
+          "sub": {
+            "en": "secondary: Cynicism",
+            "cs": "vedlejší: Cynismus"
+          }
+        },
+        "spatialScope": {
+          "en": "Continent",
+          "cs": "Kontinent",
+          "sub": {
+            "en": "the Northern Kingdoms and Nilfgaard",
+            "cs": "Severní království a Nilfgaard"
+          }
+        },
+        "historicalDepth": {
+          "en": "Civilizational",
+          "cs": "Civilizační",
+          "sub": {
+            "en": "from the Aen Seidhe elves and the Conjunction of the Spheres",
+            "cs": "od elfů Aen Seidhe a Konjunkce sfér"
+          }
+        },
+        "societalOrder": {
+          "en": "Contending realms and nations",
+          "cs": "Zápasící říše a národy",
+          "sub": {
+            "en": "Nilfgaard against the Northern Kingdoms",
+            "cs": "Nilfgaard proti Severním královstvím"
+          }
+        },
+        "sourceOfPower": {
+          "en": "Magic and alchemy",
+          "cs": "Magie a alchymie",
+          "sub": {
+            "en": "Chaos, sorceresses, and witcher mutations",
+            "cs": "Chaos, čarodějky a zaklínačské mutace"
+          }
+        },
+        "protagonistPerspective": {
+          "en": "Pilgrim and outcast on the margins",
+          "cs": "Poutník a psanec na okraji",
+          "sub": {
+            "en": "Geralt of Rivia, a witcher apart from people",
+            "cs": "Geralt z Rivie, zaklínač stranou lidí"
+          }
+        },
+        "keyActors": {
+          "en": "Nilfgaard and the Northern Kingdoms · the Lodge of Sorceresses · the Wild Hunt · Ciri and the Elder Blood · the Eternal Fire and witch hunters",
+          "cs": "Nilfgaard a Severní království · Lóže čarodějek · Divoký hon · Ciri a Starší krev · Věčný oheň a lovci čarodějnic"
+        }
+      },
+      "themes": [
+        "politics-and-intrigue",
+        "identity-and-existence",
+        "free-will-and-fate",
+        "love-and-relationships",
+        "war"
+      ],
+      "narration": [
+        "dialogue",
+        "cinematics"
+      ],
+      "axes": {
+        "hopeDespair": {
+          "value": 3
+        },
+        "knownUnknown": {
+          "value": 2
+        },
+        "intimateEpic": {
+          "value": 3
+        },
+        "moralClarityAmbiguity": {
+          "value": 5
+        },
+        "realismMetaphysical": {
+          "value": 3
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "Elfové se pokusili vyšlechtit gen Starší krve – a čarodějové zmrzačili tisíce dětí, aby stvořili zaklínače.",
+          "cs": "Elfové se pokusili vyšlechtit gen Starší krve – a čarodějové zmrzačili tisíce dětí, aby stvořili zaklínače."
+        },
+        "centralDilemma": {
+          "en": "Jak si uchovat lidskost ve světě, který vás má za netvora a nutí volit mezi dvěma zly?",
+          "cs": "Jak si uchovat lidskost ve světě, který vás má za netvora a nutí volit mezi dvěma zly?"
+        },
+        "ultimateMystery": {
+          "en": "Co Ciri doopravdy udělala ve věži s Bílou zimou – a jak přežila Zkoušku trav?",
+          "cs": "Co Ciri doopravdy udělala ve věži s Bílou zimou – a jak přežila Zkoušku trav?"
+        }
+      },
+      "chronicleSlug": "the-witcher",
+      "chronicleTeaser": {
+        "en": "From the Conjunction of the Spheres to Ciri's path.",
+        "cs": "Od Konjunkce sfér po stezku Ciri."
       }
     },
     {

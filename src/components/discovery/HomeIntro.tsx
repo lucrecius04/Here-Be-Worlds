@@ -1,6 +1,6 @@
 import { useEffect, useState, type CSSProperties } from 'react';
 import { useLocale } from '../../lib/locale-store';
-import { profileCountLabel, t, uiT, type Locale } from '../../lib/i18n';
+import { profileCountLabel, t, uiCount, uiT, type Locale } from '../../lib/i18n';
 import { withBase } from '../../lib/base-url';
 import type { LocalizedString, World } from '../../schemas/world';
 import { dailyWorldIndex } from '../../lib/calendar';
@@ -52,7 +52,7 @@ export default function HomeIntro({ chapters, worlds = [], base }: Props) {
       <div className="home-bento">
         <header className="home-panel home-bento__identity">
           <div className="home-bento__identity-main">
-            <p className="home-cover__kicker">{uiT('home.heroKicker', locale)}</p>
+            <p className="home-cover__kicker">{uiCount('home.heroKicker', worlds.length, locale)}</p>
             <p className="home-cover__brand">{uiT('siteName', locale)}</p>
             <h1 className="home-cover__title display">{uiT('home.title', locale)}</h1>
             <div className="home-cover__ornament" aria-hidden="true">
