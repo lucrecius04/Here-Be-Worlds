@@ -6646,6 +6646,1112 @@
       }
     },
     {
+      "id": "bioshock",
+      "number": 31,
+      "chapterId": "dystopia",
+      "addedAt": "2026-11-17",
+      "gameTitle": {
+        "en": "BioShock",
+        "cs": "BioShock"
+      },
+      "chronicleTitle": {
+        "en": "Chronicle of the Lighthouses",
+        "cs": "Kronika Majáků"
+      },
+      "subtitlePoetic": {
+        "en": "Chronicle of the Lighthouses",
+        "cs": "Kronika Majáků"
+      },
+      "studios": [
+        "Irrational Games",
+        "2K Marin"
+      ],
+      "yearRange": "2007–2014",
+      "canonScope": {
+        "en": "BioShock, BioShock 2, Infinite, and Burial at Sea",
+        "cs": "BioShock, BioShock 2, Infinite a Burial at Sea"
+      },
+      "universe": [
+        {
+          "en": "Rapture",
+          "cs": "Rapture"
+        },
+        {
+          "en": "Columbia",
+          "cs": "Columbia"
+        }
+      ],
+      "header": {
+        "relatedWorldSlugs": [
+          "fallout",
+          "dishonored",
+          "disco-elysium"
+        ]
+      },
+      "relatedWorlds": [
+        {
+          "id": "fallout",
+          "title": {
+            "en": "Fallout",
+            "cs": "Fallout"
+          },
+          "genreProfile": {
+            "en": "Post-nuclear satire",
+            "cs": "Postjaderná satira"
+          },
+          "yearRange": "1997–2018",
+          "note": {
+            "en": "a utopia that failed",
+            "cs": "utopie, která selhala"
+          }
+        },
+        {
+          "id": "dishonored",
+          "title": {
+            "en": "Dishonored",
+            "cs": "Dishonored"
+          },
+          "genreProfile": {
+            "en": "Industrial dystopia",
+            "cs": "Industriální dystopie"
+          },
+          "yearRange": "2012–2017",
+          "note": {
+            "en": "a corrupt city and the power of elites",
+            "cs": "zkažené město a moc elit"
+          }
+        },
+        {
+          "id": "disco-elysium",
+          "title": {
+            "en": "Disco Elysium",
+            "cs": "Disco Elysium"
+          },
+          "genreProfile": {
+            "en": "Alternate world",
+            "cs": "Alternativní svět"
+          },
+          "yearRange": "2019–2021",
+          "note": {
+            "en": "ideologies and their ruins",
+            "cs": "ideologie a jejich trosky"
+          }
+        }
+      ],
+      "core": {
+        "en": "Města postavená na slibu dokonalé svobody, v nichž všichni jen poslouchají – a nejposlušnější ze všech je hráč.",
+        "cs": "Města postavená na slibu dokonalé svobody, v nichž všichni jen poslouchají – a nejposlušnější ze všech je hráč."
+      },
+      "signatureBullets": [
+        {
+          "en": "Konstanty a proměnné. „Vždycky je tu maják, muž a město.“",
+          "cs": "Konstanty a proměnné. „Vždycky je tu maják, muž a město.“"
+        },
+        {
+          "en": "Ideologie do krajnosti. Rapture vsadí na trh bez morálky, Columbia na víru a národ.",
+          "cs": "Ideologie do krajnosti. Rapture vsadí na trh bez morálky, Columbia na víru a národ."
+        },
+        {
+          "en": "Hrdina jako figurka. Jacka řídí naprogramovaná fráze, Bookera vedou Luteceovi.",
+          "cs": "Hrdina jako figurka. Jacka řídí naprogramovaná fráze, Bookera vedou Luteceovi."
+        },
+        {
+          "en": "Zvrat jako obžaloba. „Byl bys tak laskav?“ odhalí poslušnost hrdiny i hráče.",
+          "cs": "Zvrat jako obžaloba. „Byl bys tak laskav?“ odhalí poslušnost hrdiny i hráče."
+        }
+      ],
+      "metadata": {
+        "genreProfile": {
+          "en": "Political dystopia",
+          "cs": "Politická dystopie",
+          "sub": {
+            "en": "overlap: retrofuturism",
+            "cs": "přesah: retrofuturismus"
+          }
+        },
+        "atmosphere": {
+          "en": "Oppression",
+          "cs": "Tísnivost",
+          "sub": {
+            "en": "secondary: Fascination",
+            "cs": "vedlejší: Fascinace"
+          }
+        },
+        "spatialScope": {
+          "en": "City",
+          "cs": "Město",
+          "sub": {
+            "en": "Rapture and Columbia",
+            "cs": "Rapture a Columbia"
+          }
+        },
+        "historicalDepth": {
+          "en": "Generational",
+          "cs": "Generační",
+          "sub": {
+            "en": "1912–1968",
+            "cs": "1912–1968"
+          }
+        },
+        "societalOrder": {
+          "en": "Totalitarian and corporate cage",
+          "cs": "Totalitní a korporátní klec",
+          "sub": {
+            "en": "Ryan's Rapture and Comstock's Columbia",
+            "cs": "Ryanův Rapture a Comstockova Columbia"
+          }
+        },
+        "sourceOfPower": {
+          "en": "Biology, genes, and mutation",
+          "cs": "Biologie, geny a mutace",
+          "sub": {
+            "en": "ADAM and plasmids; in Infinite, tears",
+            "cs": "ADAM a plazmidy, v Infinite slzy"
+          }
+        },
+        "protagonistPerspective": {
+          "en": "Witness and survivor in the machinery",
+          "cs": "Svědek a přeživší v soukolí",
+          "sub": {
+            "en": "Jack, Delta, Booker; the twist targets the player too",
+            "cs": "Jack, Delta, Booker; zvrat míří i na hráče"
+          }
+        },
+        "keyActors": {
+          "en": "Ryan's free market · the ADAM industry · Comstock's theocracy · Atlas and Fontaine · the Luteces and Elizabeth",
+          "cs": "Ryanův volný trh · průmysl ADAMu · Comstockova teokracie · Atlas a Fontaine · Lutecové a Elizabeth"
+        }
+      },
+      "themes": [
+        "power-and-dominion",
+        "free-will-and-fate",
+        "faith",
+        "progress-and-its-costs",
+        "cyclical-history"
+      ],
+      "narration": [
+        "recordings-and-logs",
+        "environmental",
+        "mechanics-as-meaning"
+      ],
+      "axes": {
+        "hopeDespair": {
+          "value": 4
+        },
+        "knownUnknown": {
+          "value": 3
+        },
+        "intimateEpic": {
+          "value": 2
+        },
+        "moralClarityAmbiguity": {
+          "value": 3
+        },
+        "realismMetaphysical": {
+          "value": 2
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "Rapture proměnilo lidský genetický kód ve zboží a Malé sestřičky v továrny na ADAM.",
+          "cs": "Rapture proměnilo lidský genetický kód ve zboží a Malé sestřičky v továrny na ADAM."
+        },
+        "centralDilemma": {
+          "en": "Je člověk tvůrcem svého osudu, nebo loutkou ideologií, kterým říká „vlastní volba“?",
+          "cs": "Je člověk tvůrcem svého osudu, nebo loutkou ideologií, kterým říká „vlastní volba“?"
+        },
+        "ultimateMystery": {
+          "en": "Jak funguje mnohovesmír? Comstock je vymazán ze všech realit, a přesto jeden žije v Rapture.",
+          "cs": "Jak funguje mnohovesmír? Comstock je vymazán ze všech realit, a přesto jeden žije v Rapture."
+        }
+      },
+      "chronicleSlug": "bioshock",
+      "chronicleTeaser": {
+        "en": "From Columbia to Rapture: always a lighthouse, a man, a city.",
+        "cs": "Od Columbie po Rapture: vždycky maják, muž a město."
+      }
+    },
+    {
+      "id": "cyberpunk-2077",
+      "number": 32,
+      "chapterId": "dystopia",
+      "addedAt": "2026-11-17",
+      "gameTitle": {
+        "en": "Cyberpunk 2077",
+        "cs": "Cyberpunk 2077"
+      },
+      "chronicleTitle": {
+        "en": "Chronicle of Night City",
+        "cs": "Kronika Night City"
+      },
+      "subtitlePoetic": {
+        "en": "Chronicle of Night City",
+        "cs": "Kronika Night City"
+      },
+      "studios": [
+        "CD Projekt Red"
+      ],
+      "yearRange": "2020–2023",
+      "canonScope": {
+        "en": "Cyberpunk 2077 and Phantom Liberty",
+        "cs": "Cyberpunk 2077 a Phantom Liberty"
+      },
+      "universe": [
+        {
+          "en": "Night City",
+          "cs": "Night City"
+        }
+      ],
+      "header": {
+        "relatedWorldSlugs": [
+          "deus-ex",
+          "soma",
+          "fallout"
+        ]
+      },
+      "relatedWorlds": [
+        {
+          "id": "deus-ex",
+          "title": {
+            "en": "Deus Ex",
+            "cs": "Deus Ex"
+          },
+          "genreProfile": {
+            "en": "Cyberpunk",
+            "cs": "Kyberpunk"
+          },
+          "yearRange": "2000–2016",
+          "note": {
+            "en": "body, technology, and power",
+            "cs": "tělo, technologie a moc"
+          }
+        },
+        {
+          "id": "soma",
+          "title": {
+            "en": "SOMA",
+            "cs": "SOMA"
+          },
+          "genreProfile": {
+            "en": "Sci-fi horror",
+            "cs": "Sci-fi horor"
+          },
+          "yearRange": "2015",
+          "note": {
+            "en": "copies of consciousness",
+            "cs": "kopie vědomí"
+          }
+        },
+        {
+          "id": "fallout",
+          "title": {
+            "en": "Fallout",
+            "cs": "Fallout"
+          },
+          "genreProfile": {
+            "en": "Post-nuclear satire",
+            "cs": "Postjaderná satira"
+          },
+          "yearRange": "1997–2018",
+          "note": {
+            "en": "corporations above the state",
+            "cs": "korporace nad státem"
+          }
+        }
+      ],
+      "core": {
+        "en": "Město, kde si korporace koupily těla, ulice i posmrtný život – a jediná svoboda je shořet rychle.",
+        "cs": "Město, kde si korporace koupily těla, ulice i posmrtný život – a jediná svoboda je shořet rychle."
+      },
+      "signatureBullets": [
+        {
+          "en": "Duše jako zboží. Arasaka dokáže uložit vědomí do čipu a vězení Mikoshi.",
+          "cs": "Duše jako zboží. Arasaka dokáže uložit vědomí do čipu a vězení Mikoshi."
+        },
+        {
+          "en": "Mrtvý rocker v hlavě. Johnny Silverhand přepisuje osobnost V zevnitř.",
+          "cs": "Mrtvý rocker v hlavě. Johnny Silverhand přepisuje osobnost V zevnitř."
+        },
+        {
+          "en": "Tělo jako stavebnice. Implantáty dávají sílu, ale berou lidskost.",
+          "cs": "Tělo jako stavebnice. Implantáty dávají sílu, ale berou lidskost."
+        },
+        {
+          "en": "Za Černou zdí. Divoké umělé inteligence čekají za hranicí sítě.",
+          "cs": "Za Černou zdí. Divoké umělé inteligence čekají za hranicí sítě."
+        }
+      ],
+      "metadata": {
+        "genreProfile": {
+          "en": "Cyberpunk",
+          "cs": "Kyberpunk",
+          "sub": {
+            "en": "overlap: noir",
+            "cs": "přesah: noir"
+          }
+        },
+        "atmosphere": {
+          "en": "Cynicism",
+          "cs": "Cynismus",
+          "sub": {
+            "en": "secondary: Melancholy",
+            "cs": "vedlejší: Melancholie"
+          }
+        },
+        "spatialScope": {
+          "en": "City",
+          "cs": "Město",
+          "sub": {
+            "en": "Night City",
+            "cs": "Night City"
+          }
+        },
+        "historicalDepth": {
+          "en": "Generational",
+          "cs": "Generační",
+          "sub": {
+            "en": "since the Corporate Wars",
+            "cs": "od korporátních válek"
+          }
+        },
+        "societalOrder": {
+          "en": "Totalitarian and corporate cage",
+          "cs": "Totalitní a korporátní klec",
+          "sub": {
+            "en": "Night City under corporate rule",
+            "cs": "Night City pod vládou korporací"
+          }
+        },
+        "sourceOfPower": {
+          "en": "Technology and cybernetics",
+          "cs": "Technologie a kybernetika",
+          "sub": {
+            "en": "cyberware, the Relic, and the Net",
+            "cs": "kyberimplantáty, Relic a síť"
+          }
+        },
+        "protagonistPerspective": {
+          "en": "Pilgrim and outcast on the margins",
+          "cs": "Poutník a psanec na okraji",
+          "sub": {
+            "en": "V, a mercenary with Johnny in their head",
+            "cs": "V, žoldák s Johnnym v hlavě"
+          }
+        },
+        "keyActors": {
+          "en": "Arasaka and Militech · gangs and mercenaries for hire · the AIs beyond the Blackwall · Johnny Silverhand · the NUSA and Dogtown",
+          "cs": "Arasaka a Militech · gangy a nájemní žoldáci · AI za Černou zdí · Johnny Silverhand · NUSA a Dogtown"
+        }
+      },
+      "themes": [
+        "identity-and-existence",
+        "power-and-dominion",
+        "progress-and-its-costs",
+        "friendship-and-fellowship",
+        "death-and-immortality"
+      ],
+      "narration": [
+        "dialogue",
+        "unreliable-narrators",
+        "environmental"
+      ],
+      "axes": {
+        "hopeDespair": {
+          "value": 4
+        },
+        "knownUnknown": {
+          "value": 3
+        },
+        "intimateEpic": {
+          "value": 2
+        },
+        "moralClarityAmbiguity": {
+          "value": 5
+        },
+        "realismMetaphysical": {
+          "value": 1
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "Arasaka si přivlastnila lidské vědomí – Duševrahem a vězením Mikoshi ovládla i posmrtný život.",
+          "cs": "Arasaka si přivlastnila lidské vědomí – Duševrahem a vězením Mikoshi ovládla i posmrtný život."
+        },
+        "centralDilemma": {
+          "en": "Dlouhý tichý život jako kolečko stroje, nebo shořet v jediném okamžiku vzdoru?",
+          "cs": "Dlouhý tichý život jako kolečko stroje, nebo shořet v jediném okamžiku vzdoru?"
+        },
+        "ultimateMystery": {
+          "en": "Kdo je Pan Modrooký a jaká mocnost zpoza Černé zdi přepisuje lidem mozek?",
+          "cs": "Kdo je Pan Modrooký a jaká mocnost zpoza Černé zdi přepisuje lidem mozek?"
+        }
+      },
+      "chronicleSlug": "cyberpunk-2077",
+      "chronicleTeaser": {
+        "en": "From the Corporate Wars to the Relic in a mercenary's head.",
+        "cs": "Od korporátních válek po Relic v hlavě žoldáka."
+      }
+    },
+    {
+      "id": "deus-ex",
+      "number": 33,
+      "chapterId": "dystopia",
+      "addedAt": "2026-11-17",
+      "gameTitle": {
+        "en": "Deus Ex",
+        "cs": "Deus Ex"
+      },
+      "chronicleTitle": {
+        "en": "Chronicle of the Illuminati",
+        "cs": "Kronika Iluminátů"
+      },
+      "subtitlePoetic": {
+        "en": "Chronicle of the Illuminati",
+        "cs": "Kronika Iluminátů"
+      },
+      "studios": [
+        "Ion Storm Austin",
+        "Eidos Montréal"
+      ],
+      "yearRange": "2000–2016",
+      "canonScope": {
+        "en": "Deus Ex, Invisible War, Human Revolution, and Mankind Divided",
+        "cs": "Deus Ex, Invisible War, Human Revolution a Mankind Divided"
+      },
+      "universe": [
+        {
+          "en": "Near-future Earth",
+          "cs": "Země blízké budoucnosti"
+        }
+      ],
+      "header": {
+        "relatedWorldSlugs": [
+          "cyberpunk-2077",
+          "assassins-creed",
+          "mass-effect"
+        ]
+      },
+      "relatedWorlds": [
+        {
+          "id": "cyberpunk-2077",
+          "title": {
+            "en": "Cyberpunk 2077",
+            "cs": "Cyberpunk 2077"
+          },
+          "genreProfile": {
+            "en": "Cyberpunk",
+            "cs": "Kyberpunk"
+          },
+          "yearRange": "2020–2023",
+          "note": {
+            "en": "body, technology, and power",
+            "cs": "tělo, technologie a moc"
+          }
+        },
+        {
+          "id": "assassins-creed",
+          "title": {
+            "en": "Assassin's Creed",
+            "cs": "Assassin's Creed"
+          },
+          "genreProfile": {
+            "en": "Alternate history",
+            "cs": "Alternativní historie"
+          },
+          "yearRange": "2007–2025",
+          "note": {
+            "en": "secret societies in the background",
+            "cs": "tajné společnosti v pozadí"
+          }
+        },
+        {
+          "id": "mass-effect",
+          "title": {
+            "en": "Mass Effect",
+            "cs": "Mass Effect"
+          },
+          "genreProfile": {
+            "en": "Space opera",
+            "cs": "Space opera"
+          },
+          "yearRange": "2007–2017",
+          "note": {
+            "en": "the merging of human and machine",
+            "cs": "splynutí člověka a stroje"
+          }
+        }
+      ],
+      "core": {
+        "en": "Svět, v němž se tělo vylepšuje jako stroj – a kdo vyrábí díly, rozhoduje i o tom, kdo bude člověkem.",
+        "cs": "Svět, v němž se tělo vylepšuje jako stroj – a kdo vyrábí díly, rozhoduje i o tom, kdo bude člověkem."
+      },
+      "signatureBullets": [
+        {
+          "en": "Spiknutí jako dějiny. Ilumináti a jejich odštěpenci řídí svět z pozadí.",
+          "cs": "Spiknutí jako dějiny. Ilumináti a jejich odštěpenci řídí svět z pozadí."
+        },
+        {
+          "en": "Mechanický apartheid. Po Incidentu se augmentovaní stávají občany druhé kategorie.",
+          "cs": "Mechanický apartheid. Po Incidentu se augmentovaní stávají občany druhé kategorie."
+        },
+        {
+          "en": "Mnoho cest k cíli. Každé místo lze projít násilím, hackováním i rozhovorem.",
+          "cs": "Mnoho cest k cíli. Každé místo lze projít násilím, hackováním i rozhovorem."
+        },
+        {
+          "en": "Bůh ze stroje. Umělá inteligence Helios nabízí lidstvu vládu bez lidí.",
+          "cs": "Bůh ze stroje. Umělá inteligence Helios nabízí lidstvu vládu bez lidí."
+        }
+      ],
+      "metadata": {
+        "genreProfile": {
+          "en": "Cyberpunk",
+          "cs": "Kyberpunk",
+          "sub": {
+            "en": "overlap: conspiracy thriller",
+            "cs": "přesah: konspirační thriller"
+          }
+        },
+        "atmosphere": {
+          "en": "Tension",
+          "cs": "Napětí",
+          "sub": {
+            "en": "secondary: Cynicism",
+            "cs": "vedlejší: Cynismus"
+          }
+        },
+        "spatialScope": {
+          "en": "World (planet)",
+          "cs": "Svět",
+          "sub": {
+            "en": "Detroit, Prague, Hong Kong, New York",
+            "cs": "Detroit, Praha, Hongkong, New York"
+          }
+        },
+        "historicalDepth": {
+          "en": "Historical",
+          "cs": "Historická",
+          "sub": {
+            "en": "from the founding of the Illuminati in 1776",
+            "cs": "od založení Iluminátů roku 1776"
+          }
+        },
+        "societalOrder": {
+          "en": "A world in the shadow of hidden power",
+          "cs": "Svět ve stínu utajené moci",
+          "sub": {
+            "en": "the Illuminati and Majestic 12 behind the facade of states",
+            "cs": "Ilumináti a Majestic 12 za fasádou států"
+          }
+        },
+        "sourceOfPower": {
+          "en": "Technology and cybernetics",
+          "cs": "Technologie a kybernetika",
+          "sub": {
+            "en": "augmentations, nanotechnology, and AI",
+            "cs": "augmentace, nanotechnologie a UI"
+          }
+        },
+        "protagonistPerspective": {
+          "en": "Investigator and seeker of truth",
+          "cs": "Vyšetřovatel a hledač pravdy",
+          "sub": {
+            "en": "agents JC Denton and Adam Jensen",
+            "cs": "agenti JC Denton a Adam Jensen"
+          }
+        },
+        "keyActors": {
+          "en": "the Illuminati · Majestic 12 · the augmentation corporations · the AIs Helios and Daedalus",
+          "cs": "Ilumináti · Majestic 12 · korporace augmentací · UI Helios a Daedalus"
+        }
+      },
+      "themes": [
+        "conspiracy",
+        "progress-and-its-costs",
+        "politics-and-intrigue",
+        "identity-and-existence"
+      ],
+      "narration": [
+        "books-and-documents",
+        "environmental",
+        "dialogue"
+      ],
+      "axes": {
+        "hopeDespair": {
+          "value": 3
+        },
+        "knownUnknown": {
+          "value": 3
+        },
+        "intimateEpic": {
+          "value": 4
+        },
+        "moralClarityAmbiguity": {
+          "value": 4
+        },
+        "realismMetaphysical": {
+          "value": 1
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "Ilumináti připravili státy o suverenitu a moc soustředili do skrytých struktur – a připravili půdu Bobu Pageovi.",
+          "cs": "Ilumináti připravili státy o suverenitu a moc soustředili do skrytých struktur – a připravili půdu Bobu Pageovi."
+        },
+        "centralDilemma": {
+          "en": "Má lidstvo šanci na svobodnou vůli, nebo potřebuje správce – elity, korporace či umělou inteligenci?",
+          "cs": "Má lidstvo šanci na svobodnou vůli, nebo potřebuje správce – elity, korporace či umělou inteligenci?"
+        },
+        "ultimateMystery": {
+          "en": "Kdo leží v trezoru VersaLife s tváří Adama Jensena – a kdo je Janus?",
+          "cs": "Kdo leží v trezoru VersaLife s tváří Adama Jensena – a kdo je Janus?"
+        }
+      },
+      "chronicleSlug": "deus-ex",
+      "chronicleTeaser": {
+        "en": "From the Illuminati to Helios.",
+        "cs": "Od Iluminátů po Helios."
+      }
+    },
+    {
+      "id": "dishonored",
+      "number": 34,
+      "chapterId": "dystopia",
+      "addedAt": "2026-11-17",
+      "gameTitle": {
+        "en": "Dishonored",
+        "cs": "Dishonored"
+      },
+      "chronicleTitle": {
+        "en": "Chronicle of the Void",
+        "cs": "Kronika Prázdnoty"
+      },
+      "subtitlePoetic": {
+        "en": "Chronicle of the Void",
+        "cs": "Kronika Prázdnoty"
+      },
+      "studios": [
+        "Arkane Studios"
+      ],
+      "yearRange": "2012–2017",
+      "canonScope": {
+        "en": "Dishonored 1–2 with expansions and Death of the Outsider",
+        "cs": "Dishonored 1–2 s rozšířeními a Death of the Outsider"
+      },
+      "universe": [
+        {
+          "en": "The Empire of the Isles",
+          "cs": "Ostrovní císařství"
+        }
+      ],
+      "header": {
+        "relatedWorldSlugs": [
+          "bioshock",
+          "bloodborne",
+          "the-witcher"
+        ]
+      },
+      "relatedWorlds": [
+        {
+          "id": "bioshock",
+          "title": {
+            "en": "BioShock",
+            "cs": "BioShock"
+          },
+          "genreProfile": {
+            "en": "Political dystopia",
+            "cs": "Politická dystopie"
+          },
+          "yearRange": "2007–2014",
+          "note": {
+            "en": "a corrupt city and the power of elites",
+            "cs": "zkažené město a moc elit"
+          }
+        },
+        {
+          "id": "bloodborne",
+          "title": {
+            "en": "Bloodborne",
+            "cs": "Bloodborne"
+          },
+          "genreProfile": {
+            "en": "Cosmic horror",
+            "cs": "Kosmický horor"
+          },
+          "yearRange": "2015",
+          "note": {
+            "en": "plague and industrial gothic",
+            "cs": "mor a průmyslová gotika"
+          }
+        },
+        {
+          "id": "the-witcher",
+          "title": {
+            "en": "The Witcher",
+            "cs": "Zaklínač"
+          },
+          "genreProfile": {
+            "en": "Dark fantasy",
+            "cs": "Temná fantasy"
+          },
+          "yearRange": "2007–2016",
+          "note": {
+            "en": "power that seduces",
+            "cs": "moc, která svádí"
+          }
+        }
+      ],
+      "core": {
+        "en": "Impérium poháněné velrybím olejem a morem – a muž s božskou mocí, který si musí vybrat, zda bude katem.",
+        "cs": "Impérium poháněné velrybím olejem a morem – a muž s božskou mocí, který si musí vybrat, zda bude katem."
+      },
+      "signatureBullets": [
+        {
+          "en": "Chaos jako zrcadlo. Čím víc hrdina zabíjí, tím temnější je svět i konec.",
+          "cs": "Chaos jako zrcadlo. Čím víc hrdina zabíjí, tím temnější je svět i konec."
+        },
+        {
+          "en": "Velryby jako palivo. Impérium svítí olejem z tvorů spojených s Prázdnotou.",
+          "cs": "Velryby jako palivo. Impérium svítí olejem z tvorů spojených s Prázdnotou."
+        },
+        {
+          "en": "Bůh, který jen sleduje. Cizinec rozdává cejchy a čeká, co s nimi lidé udělají.",
+          "cs": "Bůh, který jen sleduje. Cizinec rozdává cejchy a čeká, co s nimi lidé udělají."
+        },
+        {
+          "en": "Srdce, které šeptá. Mluvící artefakt prozrazuje tajemství všech kolem.",
+          "cs": "Srdce, které šeptá. Mluvící artefakt prozrazuje tajemství všech kolem."
+        }
+      ],
+      "metadata": {
+        "genreProfile": {
+          "en": "Industrial dystopia",
+          "cs": "Industriální dystopie",
+          "sub": {
+            "en": "overlap: dark fantasy",
+            "cs": "přesah: temná fantasy"
+          }
+        },
+        "atmosphere": {
+          "en": "Oppression",
+          "cs": "Tísnivost",
+          "sub": {
+            "en": "secondary: Fascination",
+            "cs": "vedlejší: Fascinace"
+          }
+        },
+        "spatialScope": {
+          "en": "City",
+          "cs": "Město",
+          "sub": {
+            "en": "Dunwall and Karnaca",
+            "cs": "Dunwall a Karnaca"
+          }
+        },
+        "historicalDepth": {
+          "en": "Civilizational",
+          "cs": "Civilizační",
+          "sub": {
+            "en": "since the birth of the Outsider 4,000 years ago",
+            "cs": "od zrodu Cizince před 4000 lety"
+          }
+        },
+        "societalOrder": {
+          "en": "Totalitarian and corporate cage",
+          "cs": "Totalitní a korporátní klec",
+          "sub": {
+            "en": "Dunwall under the regent, the plague, and the Abbey",
+            "cs": "Dunwall pod regentem, morem a Opatstvím"
+          }
+        },
+        "sourceOfPower": {
+          "en": "Divine and cosmic essence",
+          "cs": "Božská a kosmická esence",
+          "sub": {
+            "en": "the Void, the Outsider's mark, and whale oil",
+            "cs": "Prázdnota, Cizincovo znamení a velrybí olej"
+          }
+        },
+        "protagonistPerspective": {
+          "en": "Pilgrim and outcast on the margins",
+          "cs": "Poutník a psanec na okraji",
+          "sub": {
+            "en": "Corvo, Emily, Daud, and Billie",
+            "cs": "Corvo, Emily, Daud a Billie"
+          }
+        },
+        "keyActors": {
+          "en": "the Empire and its regents · the Abbey of the Everyman · the Outsider and the Void · the Loyalist conspirators · Delilah and the witches",
+          "cs": "Impérium a jeho regenti · Opatství Dohližitelů · Cizinec a Prázdnota · spiklenci Věrných · Delilah a čarodějnice"
+        }
+      },
+      "themes": [
+        "revenge",
+        "politics-and-intrigue",
+        "guilt-and-redemption",
+        "gods"
+      ],
+      "narration": [
+        "environmental",
+        "books-and-documents",
+        "mechanics-as-meaning"
+      ],
+      "axes": {
+        "hopeDespair": {
+          "value": 4
+        },
+        "knownUnknown": {
+          "value": 3
+        },
+        "intimateEpic": {
+          "value": 2
+        },
+        "moralClarityAmbiguity": {
+          "value": 4
+        },
+        "realismMetaphysical": {
+          "value": 4
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "Kult rituálně podřízl patnáctiletého chlapce a uvěznil jeho duši v Prázdnotě – tak se zrodil Cizinec.",
+          "cs": "Kult rituálně podřízl patnáctiletého chlapce a uvěznil jeho duši v Prázdnotě – tak se zrodil Cizinec."
+        },
+        "centralDilemma": {
+          "en": "Stane se člověk s božskou mocí katem jako jeho utlačovatelé, nebo ušetří i ty, kdo si to nezaslouží?",
+          "cs": "Stane se člověk s božskou mocí katem jako jeho utlačovatelé, nebo ušetří i ty, kdo si to nezaslouží?"
+        },
+        "ultimateMystery": {
+          "en": "Je Delilah opravdu dcerou císaře Euhorna – a co skrývá divoký kontinent Pandyssia?",
+          "cs": "Je Delilah opravdu dcerou císaře Euhorna – a co skrývá divoký kontinent Pandyssia?"
+        }
+      },
+      "chronicleSlug": "dishonored",
+      "chronicleTeaser": {
+        "en": "From the birth of the Outsider to his release.",
+        "cs": "Od zrození Cizince po jeho vysvobození."
+      }
+    },
+    {
+      "id": "half-life",
+      "number": 35,
+      "chapterId": "dystopia",
+      "addedAt": "2026-11-17",
+      "gameTitle": {
+        "en": "Half-Life",
+        "cs": "Half-Life"
+      },
+      "chronicleTitle": {
+        "en": "Chronicle of the Cascade",
+        "cs": "Kronika Kaskády"
+      },
+      "subtitlePoetic": {
+        "en": "Chronicle of the Cascade",
+        "cs": "Kronika Kaskády"
+      },
+      "studios": [
+        "Valve"
+      ],
+      "yearRange": "1998–2020",
+      "canonScope": {
+        "en": "Half-Life 1–2 with the Episodes and Half-Life: Alyx",
+        "cs": "Half-Life 1–2 s epizodami a Half-Life: Alyx"
+      },
+      "universe": [
+        {
+          "en": "Earth and Xen",
+          "cs": "Země a Xen"
+        }
+      ],
+      "header": {
+        "relatedWorldSlugs": [
+          "xcom",
+          "resident-evil",
+          "control"
+        ]
+      },
+      "relatedWorlds": [
+        {
+          "id": "xcom",
+          "title": {
+            "en": "XCOM",
+            "cs": "XCOM"
+          },
+          "genreProfile": {
+            "en": "Military sci-fi",
+            "cs": "Military sci-fi"
+          },
+          "yearRange": "2012–2017",
+          "note": {
+            "en": "occupation and resistance",
+            "cs": "okupace a odboj"
+          }
+        },
+        {
+          "id": "resident-evil",
+          "title": {
+            "en": "Resident Evil",
+            "cs": "Resident Evil"
+          },
+          "genreProfile": {
+            "en": "Survival horror",
+            "cs": "Survival horor"
+          },
+          "yearRange": "1996–2026",
+          "note": {
+            "en": "scientific catastrophe",
+            "cs": "vědecká katastrofa"
+          }
+        },
+        {
+          "id": "control",
+          "title": {
+            "en": "Control",
+            "cs": "Control"
+          },
+          "genreProfile": {
+            "en": "New weird",
+            "cs": "New weird"
+          },
+          "yearRange": "2019–2020",
+          "note": {
+            "en": "bureaucracies and the supernatural",
+            "cs": "úřady a nadpřirozeno"
+          }
+        }
+      ],
+      "core": {
+        "en": "Jediný pokus v laboratoři otevřel bránu – a Země se stala provincií impéria, které sklízí celé světy.",
+        "cs": "Jediný pokus v laboratoři otevřel bránu – a Země se stala provincií impéria, které sklízí celé světy."
+      },
+      "signatureBullets": [
+        {
+          "en": "Příběh bez střihu. Vše se odehrává očima hrdiny, bez filmových scén.",
+          "cs": "Příběh bez střihu. Vše se odehrává očima hrdiny, bez filmových scén."
+        },
+        {
+          "en": "Němý hrdina. Gordon Freeman nepromluví, a přesto se stane legendou.",
+          "cs": "Němý hrdina. Gordon Freeman nepromluví, a přesto se stane legendou."
+        },
+        {
+          "en": "Okupace jako všednost. City 17 ukazuje dystopii skrze dozor, výslechy a strach.",
+          "cs": "Okupace jako všednost. City 17 ukazuje dystopii skrze dozor, výslechy a strach."
+        },
+        {
+          "en": "Úředník s kufříkem. G-Man ovládá čas a hrdinu si „pronajímá“.",
+          "cs": "Úředník s kufříkem. G-Man ovládá čas a hrdinu si „pronajímá“."
+        }
+      ],
+      "metadata": {
+        "genreProfile": {
+          "en": "Occupation dystopia",
+          "cs": "Okupační dystopie",
+          "sub": {
+            "en": "overlap: sci-fi invasion",
+            "cs": "přesah: sci-fi invaze"
+          }
+        },
+        "atmosphere": {
+          "en": "Oppression",
+          "cs": "Tísnivost",
+          "sub": {
+            "en": "secondary: Defiance",
+            "cs": "vedlejší: Vzdor"
+          }
+        },
+        "spatialScope": {
+          "en": "Region",
+          "cs": "Region",
+          "sub": {
+            "en": "Black Mesa and City 17",
+            "cs": "Black Mesa a City 17"
+          }
+        },
+        "historicalDepth": {
+          "en": "Generational",
+          "cs": "Generační",
+          "sub": {
+            "en": "since the Black Mesa incident",
+            "cs": "od incidentu v Black Mesa"
+          }
+        },
+        "societalOrder": {
+          "en": "Totalitarian and corporate cage",
+          "cs": "Totalitní a korporátní klec",
+          "sub": {
+            "en": "City 17 under the rule of the Combine",
+            "cs": "City 17 pod nadvládou Combine"
+          }
+        },
+        "sourceOfPower": {
+          "en": "Technology and cybernetics",
+          "cs": "Technologie a kybernetika",
+          "sub": {
+            "en": "teleportation, Xen, and Combine technology",
+            "cs": "teleportace, Xen a technologie Combine"
+          }
+        },
+        "protagonistPerspective": {
+          "en": "Chosen champion of fate",
+          "cs": "Vyvolený a šampion osudu",
+          "sub": {
+            "en": "Gordon Freeman and Alyx Vance",
+            "cs": "Gordon Freeman a Alyx Vance"
+          }
+        },
+        "keyActors": {
+          "en": "the Combine · the Resistance and the Vortigaunts · the G-Man and his employers · Black Mesa and Aperture · Dr. Breen",
+          "cs": "Combine · odboj a Vortigaunti · G-Man a jeho zaměstnavatelé · Black Mesa a Aperture · Dr. Breen"
+        }
+      },
+      "themes": [
+        "progress-and-its-costs",
+        "power-and-dominion",
+        "free-will-and-fate",
+        "survival"
+      ],
+      "narration": [
+        "environmental"
+      ],
+      "axes": {
+        "hopeDespair": {
+          "value": 3
+        },
+        "knownUnknown": {
+          "value": 5
+        },
+        "intimateEpic": {
+          "value": 3
+        },
+        "moralClarityAmbiguity": {
+          "value": 3
+        },
+        "realismMetaphysical": {
+          "value": 2
+        }
+      },
+      "triad": {
+        "originalSin": {
+          "en": "Vědci Black Mesa léta drancovali dimenzi Xen kvůli prestiži a dotacím – až otevřeli cestu impériu Combine.",
+          "cs": "Vědci Black Mesa léta drancovali dimenzi Xen kvůli prestiži a dotacím – až otevřeli cestu impériu Combine."
+        },
+        "centralDilemma": {
+          "en": "Lze si uchovat svobodnou vůli, když i odboj proti tyranii řídí nepochopitelné mocnosti?",
+          "cs": "Lze si uchovat svobodnou vůli, když i odboj proti tyranii řídí nepochopitelné mocnosti?"
+        },
+        "ultimateMystery": {
+          "en": "Kdo je G-Man a pro koho pracuje?",
+          "cs": "Kdo je G-Man a pro koho pracuje?"
+        }
+      },
+      "chronicleSlug": "half-life",
+      "chronicleTeaser": {
+        "en": "From the resonance cascade at Black Mesa to White Forest.",
+        "cs": "Od rezonanční kaskády v Black Mesa po White Forest."
+      }
+    },
+    {
       "id": "vzorek-fantasy",
       "number": 90,
       "chapterId": "fantasy",
