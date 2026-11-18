@@ -4,7 +4,7 @@ import axesData from '../../data/meta/axes.json';
 import themesData from '../../data/meta/theme-taxonomy.json';
 import narrationData from '../../data/meta/narration-taxonomy.json';
 import { worldsFileSchema, type LocalizedString, type RelatedWorld, type World } from '../schemas/world';
-import { kinshipRanking } from './compare';
+import { kinshipLevel, kinshipRanking, type KinshipLevel } from './compare';
 
 const parsed = worldsFileSchema.parse(worldsData);
 
@@ -31,7 +31,7 @@ export function resolveRelatedWorlds(
     themeTaxonomy.map((th) => [th.slug, th.label]),
   ),
   baseUrl = '',
-): Array<RelatedWorld & { href?: string }> {
+): Array<RelatedWorld & { href?: string; level?: KinshipLevel }> {
   const prefix = baseUrl.replace(/\/$/, '');
   const hrefFor = (id?: string) =>
     id && catalog.some((w) => w.id === id) ? `${prefix}/worlds/${id}/` : undefined;
@@ -48,6 +48,12 @@ export function resolveRelatedWorlds(
     };
   };
 
+  const published = catalog.filter((item) => !item.draft);
+  const levelFor = (id?: string) => {
+    const other = id ? published.find((item) => item.id === id) : undefined;
+    return other ? kinshipLevel(world, other, published) : undefined;
+  };
+
   if (world.relatedWorlds?.length) {
     return world.relatedWorlds.map((item) => {
       const fromCatalog = extras(item.id);
@@ -56,12 +62,12 @@ export function resolveRelatedWorlds(
         genreProfile: fromCatalog.genreProfile ?? item.genreProfile,
         yearRange: fromCatalog.yearRange ?? item.yearRange,
         href: hrefFor(item.id),
+        level: levelFor(item.id),
       };
     });
   }
 
-  const published = catalog.filter((item) => !item.draft);
-  return kinshipRanking(world, published, 3).map(({ world: other }) => ({
+  return kinshipRanking(world, published, 3).map(({ world: other, level }) => ({
     id: other.id,
     title: other.gameTitle,
     note: {
@@ -70,6 +76,7 @@ export function resolveRelatedWorlds(
     },
     ...extras(other.id),
     href: hrefFor(other.id),
+    level,
   }));
 }
 

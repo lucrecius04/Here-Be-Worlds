@@ -473,3 +473,30 @@
 @media (prefers-reduced-motion: reduce) {
   .agm-plot, .agm-cell, .agm-w, .agm-bar, .agm-tick, .agm-barn, .agm-me { transition: none; }
 }
+
+/* příbuznost vybraného světa: ostatní světy ztlumené podle stupně */
+.agm-w.lvl-5, .agm-legend .lvl-5 i { opacity: 1; }
+.agm-w.lvl-4, .agm-legend .lvl-4 i { opacity: 0.85; }
+.agm-w.lvl-3, .agm-legend .lvl-3 i { opacity: 0.5; }
+.agm-w.lvl-2, .agm-legend .lvl-2 i { opacity: 0.28; }
+.agm-w.lvl-1, .agm-legend .lvl-1 i { opacity: 0.13; }
+.agm-w.lvl-1:hover, .agm-w.lvl-2:hover, .agm-w.lvl-3:hover { opacity: 1; }
+.agm-w.is-hidden { opacity: 0.04; pointer-events: none; }
+.agm-w.is-off { opacity: var(--agm-dim); }
+.agm-hint { margin: 0; font-family: var(--font-serif); font-size: 1.05rem; font-style: italic; color: var(--color-ink-muted); }
+.agm-kinhead { display: flex; justify-content: space-between; align-items: baseline; gap: 0.5rem; }
+.agm-kintoggle {
+  border: 1px solid var(--color-line);
+  border-radius: 999px;
+  background: none;
+  padding: 0.1rem 0.6rem;
+  font: inherit;
+  font-size: 0.7rem;
+  color: var(--color-ink-muted);
+  cursor: pointer;
+}
+.agm-kintoggle[aria-pressed='true'] { border-color: var(--color-accent); color: var(--color-accent); }
+.agm-legend { display: flex; flex-wrap: wrap; gap: 0.25rem 0.7rem; margin: 0 0 0.6rem; font-size: 0.68rem; color: var(--color-ink-muted); }
+.agm-legend span { display: inline-flex; align-items: center; gap: 0.3rem; }
+.agm-legend i { width: 7px; height: 7px; transform: rotate(45deg); background: var(--color-accent); }
+.agm-kin em { white-space: nowrap; }

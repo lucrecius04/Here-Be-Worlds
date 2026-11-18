@@ -942,6 +942,16 @@ html[data-theme='dark'] .world-page__pane::before {
   white-space: nowrap;
 }
 
+.related-worlds__kin {
+  margin: 0.25rem 0 0;
+  font-family: var(--font-sans);
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
 .related-worlds__note {
   margin: 0.3rem 0 0;
   font-size: 0.88rem;

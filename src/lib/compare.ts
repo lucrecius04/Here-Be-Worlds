@@ -1,5 +1,6 @@
 import type { World } from '../schemas/world';
 import { AXIS_KEYS } from './axes';
+import overridesData from '../../data/meta/kinship-overrides.json';
 
 export const MAX_COMPARE = 3;
 
@@ -205,17 +206,88 @@ export function affinityPercent(a: World, b: World): number {
   return affinityBreakdown(a, b).percent;
 }
 
-/** Nejpříbuznější světy podle indexu příbuznosti (jediný index na webu: srovnání, karta i mapa). */
+/* ---------- Stupně příbuznosti ----------
+ * Index (affinityPercent) slouží jen k řazení a na webu se nezobrazuje.
+ * Všechny dvojice publikovaných světů seřadíme podle indexu a rozdělíme podle podílu:
+ * nejbližší 3 % = Sourozenci, dalších 9 % = Blízcí příbuzní, dalších 23 % = Spříznění,
+ * dalších 30 % = Vzdálení příbuzní, zbytek = Cizí. Při úpravě výpočtu se stupně jen přeskupí.
+ * Kurátorské vazby z atlasu (relatedWorlds) mají vždy aspoň stupeň Blízcí příbuzní.
+ * Ruční výjimky: data/meta/kinship-overrides.json.
+ */
+export type KinshipLevel = 1 | 2 | 3 | 4 | 5;
+export const KINSHIP_SHARES = [0.03, 0.12, 0.35, 0.65] as const;
+export const CURATED_FLOOR: KinshipLevel = 4;
+
+type Override = { a: string; b: string; level: number };
+const OVERRIDES = new Map<string, KinshipLevel>(
+  ((overridesData as { pairs?: Override[] }).pairs ?? []).map((o) => [pairId(o.a, o.b), o.level as KinshipLevel]),
+);
+
+function pairId(a: string, b: string): string {
+  return a < b ? `${a}|${b}` : `${b}|${a}`;
+}
+
+const cutoffCache = new Map<string, number[]>();
+
+/** Prahy indexu pro stupně 5, 4, 3, 2 (sestupně) nad všemi dvojicemi daných světů. */
+export function kinshipCutoffs(all: World[]): number[] {
+  const pool = all.filter((w) => !w.draft);
+  const key = pool.map((w) => w.id).sort().join(',');
+  const hit = cutoffCache.get(key);
+  if (hit) return hit;
+  const scores: number[] = [];
+  for (let i = 0; i < pool.length; i++)
+    for (let j = i + 1; j < pool.length; j++) scores.push(affinityPercent(pool[i], pool[j]));
+  scores.sort((a, b) => b - a);
+  const cut = KINSHIP_SHARES.map((share) => scores[Math.min(scores.length - 1, Math.floor(share * scores.length))] ?? 0);
+  cutoffCache.set(key, cut);
+  return cut;
+}
+
+export function levelFromPercent(percent: number, cutoffs: number[]): KinshipLevel {
+  for (let i = 0; i < cutoffs.length; i++) if (percent >= cutoffs[i]) return (5 - i) as KinshipLevel;
+  return 1;
+}
+
+export function isCuratedPair(a: World, b: World): boolean {
+  return Boolean(
+    a.relatedWorlds?.some((r) => r.id === b.id) || b.relatedWorlds?.some((r) => r.id === a.id),
+  );
+}
+
+/** Kurátorská poznámka k dvojici (z kterékoli strany), pokud existuje. */
+export function curatedNote(a: World, b: World) {
+  return a.relatedWorlds?.find((r) => r.id === b.id)?.note ?? b.relatedWorlds?.find((r) => r.id === a.id)?.note;
+}
+
+export function kinshipLevel(a: World, b: World, all: World[]): KinshipLevel {
+  const manual = OVERRIDES.get(pairId(a.id, b.id));
+  if (manual) return manual;
+  const computed = levelFromPercent(affinityPercent(a, b), kinshipCutoffs(all));
+  return isCuratedPair(a, b) ? (Math.max(computed, CURATED_FLOOR) as KinshipLevel) : computed;
+}
+
+/** Nejpříbuznější světy (jediný index na webu: srovnání, karta i mapa), řazeno podle stupně a indexu. */
 export function kinshipRanking(
   source: World,
   all: World[],
   limit = 3,
-): Array<{ world: World; percent: number }> {
+): Array<{ world: World; percent: number; level: KinshipLevel }> {
   return all
     .filter((world) => world.id !== source.id && !world.draft)
-    .map((world) => ({ world, percent: affinityPercent(source, world) }))
-    .sort((a, b) => b.percent - a.percent || a.world.id.localeCompare(b.world.id))
+    .map((world) => ({ world, percent: affinityPercent(source, world), level: kinshipLevel(source, world, all) }))
+    .sort((a, b) => b.level - a.level || b.percent - a.percent || a.world.id.localeCompare(b.world.id))
     .slice(0, limit);
+}
+
+/** Slovní síla pilíře podle podílu bodů (0–1); klíč do i18n `compare.strength*`. */
+export function pillarStrength(value: number, max: number): 'Strong' | 'Marked' | 'Partial' | 'Faint' | 'None' {
+  const r = max ? value / max : 0;
+  if (r >= 0.8) return 'Strong';
+  if (r >= 0.55) return 'Marked';
+  if (r >= 0.3) return 'Partial';
+  if (r > 0) return 'Faint';
+  return 'None';
 }
 
 export type KinshipPair = {

@@ -6,6 +6,9 @@ import {
   kinshipPairs,
   kinshipPercent,
   kinshipRanking,
+  kinshipLevel,
+  levelFromPercent,
+  pillarStrength,
   parseCompareIds,
   slotHue,
   themeCoverage,
@@ -239,5 +242,29 @@ describe('kinshipRanking', () => {
     const ranked = kinshipRanking(source, [source, far, close, draft], 3);
     expect(ranked.map((r) => r.world.id)).toEqual(['b', 'c']);
     expect(ranked[0].percent).toBe(affinityPercent(source, close));
+  });
+});
+
+describe('kinship levels', () => {
+  it('maps percent to five levels by cutoffs', () => {
+    const cut = [66, 51, 38, 29];
+    expect(levelFromPercent(70, cut)).toBe(5);
+    expect(levelFromPercent(51, cut)).toBe(4);
+    expect(levelFromPercent(40, cut)).toBe(3);
+    expect(levelFromPercent(30, cut)).toBe(2);
+    expect(levelFromPercent(10, cut)).toBe(1);
+  });
+
+  it('lifts curated pairs to at least close kin', () => {
+    const a = { ...minimal('a', [], 1, 1), relatedWorlds: [{ id: 'b', title: { en: 'b' }, note: { en: 'n' } }] } as World;
+    const b = minimal('b', ['x'], 5, 5);
+    const fillers = ['c', 'd', 'e', 'f', 'g'].map((id) => minimal(id, ['x'], 5, 5));
+    expect(kinshipLevel(a, b, [a, b, ...fillers])).toBeGreaterThanOrEqual(4);
+  });
+
+  it('describes pillar strength in words', () => {
+    expect(pillarStrength(20, 20)).toBe('Strong');
+    expect(pillarStrength(0, 15)).toBe('None');
+    expect(pillarStrength(6, 15)).toBe('Partial');
   });
 });

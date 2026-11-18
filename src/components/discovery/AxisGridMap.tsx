@@ -1,10 +1,10 @@
 import { useEffect, useMemo, useRef, useState, type CSSProperties } from 'react';
 import type { LocalizedString, World } from '../../schemas/world';
-import { t, uiT, worldsCountLabel, type Locale } from '../../lib/i18n';
+import { t, uiT, type Locale } from '../../lib/i18n';
 import { useLocale } from '../../lib/locale-store';
 import { withBase } from '../../lib/base-url';
 import { AXIS_KEYS, type AxisKey } from '../../lib/axes';
-import { kinshipRanking } from '../../lib/compare';
+import { kinshipLevel, kinshipRanking, type KinshipLevel } from '../../lib/compare';
 import { toggleCompareTray, useCompareTray } from '../../lib/compare-tray';
 import axesMeta from '../../../data/meta/axes.json';
 import { axisPoleLabel } from './MiniAxes';
@@ -49,24 +49,6 @@ const AXIS_NAME_KEY: Record<AxisKey, string> = {
 const meta = (key: AxisKey) => axesMeta.axes.find((a) => a.id === key) ?? axesMeta.axes[0];
 const axisName = (key: AxisKey, locale: Locale) => uiT(AXIS_NAME_KEY[key], locale);
 const value = (w: World, key: AxisKey) => w.axes[key].value;
-
-function pearson(worlds: World[], a: AxisKey, b: AxisKey): number {
-  const n = worlds.length;
-  if (n < 2) return 0;
-  const xs = worlds.map((w) => value(w, a));
-  const ys = worlds.map((w) => value(w, b));
-  const mx = xs.reduce((s, v) => s + v, 0) / n;
-  const my = ys.reduce((s, v) => s + v, 0) / n;
-  let sxy = 0;
-  let sxx = 0;
-  let syy = 0;
-  for (let i = 0; i < n; i++) {
-    sxy += (xs[i] - mx) * (ys[i] - my);
-    sxx += (xs[i] - mx) ** 2;
-    syy += (ys[i] - my) ** 2;
-  }
-  return sxx && syy ? sxy / Math.sqrt(sxx * syy) : 0;
-}
 
 function layoutGrid(worlds: World[], order: Record<string, number>, ax: AxisKey, ay: AxisKey, W: number): Layout {
   const compact = W < 620;
@@ -169,8 +151,20 @@ export default function AxisGridMap({ worlds, chapters, themes, base }: Props) {
 
   const L = useMemo(() => layoutGrid(worlds, chapterOrder, ax, ay, width), [worlds, chapterOrder, ax, ay, width]);
   const selWorld = sel ? byId[sel] : undefined;
-  const kin = useMemo(() => (selWorld ? kinshipRanking(selWorld, worlds, 3) : []), [selWorld, worlds]);
+  const [kinOnly, setKinOnly] = useState(false);
+  // Nejbližší příbuzní: všichni Sourozenci a Blízcí příbuzní (max. 6), aspoň tři světy.
+  const kin = useMemo(() => {
+    if (!selWorld) return [];
+    const ranked = kinshipRanking(selWorld, worlds, worlds.length);
+    const close = ranked.filter((k) => k.level >= 4).slice(0, 6);
+    return close.length >= 3 ? close : ranked.slice(0, 3);
+  }, [selWorld, worlds]);
   const kinIds = kin.map((k) => k.world.id);
+  const levels = useMemo(() => {
+    const out = new Map<string, KinshipLevel>();
+    if (selWorld) for (const w of worlds) if (w.id !== selWorld.id) out.set(w.id, kinshipLevel(selWorld, w, worlds));
+    return out;
+  }, [selWorld, worlds]);
 
   const q = query.trim().toLowerCase();
   const highlightOn = focusChapters.size > 0 || Boolean(theme) || Boolean(q);
@@ -203,60 +197,6 @@ export default function AxisGridMap({ worlds, chapters, themes, base }: Props) {
 
   const pole = (key: AxisKey, side: 'left' | 'right') => axisPoleLabel(meta(key), side, locale);
   const fullPole = (key: AxisKey, side: 'left' | 'right') => t(meta(key)[side], locale);
-
-  /* ----- co ukazuje dvojice ----- */
-  const insights = useMemo(() => {
-    const r = pearson(worlds, ax, ay);
-    const posWord = (v: number, key: AxisKey) =>
-      v === 3
-        ? uiT('map.posMid', locale)
-        : uiT(v === 1 || v === 5 ? 'map.posStrong' : 'map.posLean', locale).replace('{p}', pole(key, v < 3 ? 'left' : 'right'));
-    let best = { cx: 2, cy: 2, n: 0 };
-    let empty = 0;
-    L.cells.forEach((col, cx) =>
-      col.forEach((list, cy) => {
-        if (!list.length) empty++;
-        if (list.length > best.n) best = { cx, cy, n: list.length };
-      }),
-    );
-    const corners = (
-      [
-        [0, 0],
-        [4, 0],
-        [0, 4],
-        [4, 4],
-      ] as const
-    )
-      .filter(([cx, cy]) => !L.cells[cx][cy].length)
-      .map(([cx, cy]) => `${pole(ax, cx ? 'right' : 'left')} + ${pole(ay, cy ? 'right' : 'left')}`);
-    let lone: { w: World; d: number } | null = null;
-    for (const w of worlds) {
-      let d = Infinity;
-      for (const o of worlds) {
-        if (o === w) continue;
-        d = Math.min(d, Math.hypot(value(o, ax) - value(w, ax), value(o, ay) - value(w, ay)));
-      }
-      if (!lone || d > lone.d) lone = { w, d };
-    }
-    const rel =
-      Math.abs(r) < 0.2
-        ? uiT('map.insRelNone', locale)
-        : uiT('map.insRelText', locale)
-            .replace('{a}', pole(ax, 'right'))
-            .replace('{b}', pole(ay, r > 0 ? 'right' : 'left'))
-            .replace('{s}', uiT(Math.abs(r) < 0.4 ? 'map.insWeak' : 'map.insClear', locale));
-    return {
-      rel,
-      dense: uiT('map.insDenseText', locale)
-        .replace('{x}', posWord(best.cx + 1, ax))
-        .replace('{y}', posWord(best.cy + 1, ay))
-        .replace('{n}', worldsCountLabel(best.n, locale)),
-      empty: uiT('map.insEmptyText', locale).replace('{n}', String(empty)),
-      corners: corners.length ? uiT('map.insCorners', locale).replace('{list}', corners.join(', ')) : '',
-      lone: lone?.w,
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [worlds, ax, ay, L, locale]);
 
   /* ----- tvůj otisk ----- */
   const meKin = useMemo(() => {
@@ -474,6 +414,8 @@ export default function AxisGridMap({ worlds, chapters, themes, base }: Props) {
                 w.id === sel ? 'is-sel' : '',
                 kinIds.includes(w.id) ? 'is-kin' : '',
                 highlightOn && !isOn(w) ? 'is-off' : '',
+                levels.has(w.id) ? `lvl-${levels.get(w.id)}` : '',
+                kinOnly && (levels.get(w.id) ?? 5) < 4 ? 'is-hidden' : '',
               ]
                 .filter(Boolean)
                 .join(' ');
@@ -536,15 +478,28 @@ export default function AxisGridMap({ worlds, chapters, themes, base }: Props) {
                     </div>
                   ))}
                 </div>
-                <h3 className="agm-h3">{uiT('map.kin', locale)}</h3>
+                <div className="agm-kinhead">
+                  <h3 className="agm-h3">{uiT('map.kin', locale)}</h3>
+                  <button type="button" className="agm-kintoggle" aria-pressed={kinOnly} onClick={() => setKinOnly((v) => !v)}>
+                    {uiT(kinOnly ? 'map.kinAll' : 'map.kinOnly', locale)}
+                  </button>
+                </div>
                 <p className="agm-meta agm-meta--note">{uiT('map.kinNote', locale)}</p>
+                <div className="agm-legend" aria-hidden="true">
+                  {([5, 4, 3, 2, 1] as const).map((lv) => (
+                    <span key={lv} className={`lvl-${lv}`}>
+                      <i />
+                      {uiT(`compare.kinLevel${lv}`, locale)}
+                    </span>
+                  ))}
+                </div>
                 <ul className="agm-kin">
-                  {kin.map(({ world, percent }) => (
+                  {kin.map(({ world, level }) => (
                     <li key={world.id} style={chapterStyle(world.chapterId)}>
                       <button type="button" onClick={() => select(world.id)}>
                         <i aria-hidden="true" />
                         {t(world.gameTitle, locale)}
-                        <em>{percent} %</em>
+                        <em>{uiT(`compare.kinLevel${level}`, locale)}</em>
                       </button>
                       <a href={withBase(base, `/compare/?w=${selWorld.id},${world.id}`)}>{uiT('map.kinCompare', locale)}</a>
                     </li>
@@ -565,31 +520,7 @@ export default function AxisGridMap({ worlds, chapters, themes, base }: Props) {
               </div>
             ) : (
               <>
-                <h3 className="agm-h3">{uiT('map.insTitle', locale)}</h3>
-                <ul className="agm-ins">
-                  <li>
-                    <b>{uiT('map.insRel', locale)}</b>
-                    {insights.rel}
-                  </li>
-                  <li>
-                    <b>{uiT('map.insDense', locale)}</b>
-                    {insights.dense}
-                  </li>
-                  <li>
-                    <b>{uiT('map.insEmpty', locale)}</b>
-                    {insights.empty} {insights.corners}
-                  </li>
-                  {insights.lone ? (
-                    <li>
-                      <b>{uiT('map.insLoner', locale)}</b>
-                      <button type="button" onClick={() => select(insights.lone!.id)}>
-                        {t(insights.lone.gameTitle, locale)}
-                      </button>{' '}
-                      {uiT('map.insLonerText', locale)}
-                    </li>
-                  ) : null}
-                </ul>
-                <p className="agm-meta agm-hint">{uiT('map.insHint', locale)}</p>
+                <p className="agm-hint">{uiT('map.insHint', locale)}</p>
               </>
             )}
           </div>

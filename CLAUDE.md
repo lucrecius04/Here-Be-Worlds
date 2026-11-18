@@ -82,7 +82,7 @@ Layout: `src/layouts/BaseLayout.astro` — header/footer, theme/lang FOUC, glob�
 
 | Soubor | Účel |
 |---|---|
-| `src/lib/compare.ts` | **Jediný index příbuznosti na webu.** `affinityBreakdown` (4 pilíře, shody podle **`en`** řetězců), `kinshipRanking` (nejpříbuznější světy pro kartu a mapu). Max 3 světy. URL `?w=`. |
+| `src/lib/compare.ts` | **Jediný index příbuznosti na webu.** `affinityBreakdown` (4 pilíře, shody podle **`en`** řetězců) slouží jen k řazení. Na webu se ukazuje **slovní stupeň** `kinshipLevel` (5 Sourozenci · 4 Blízcí příbuzní · 3 Spříznění · 2 Vzdálení příbuzní · 1 Cizí) podle podílu všech dvojic (3 / 9 / 23 / 30 / zbytek %); kurátorské `relatedWorlds` mají vždy aspoň 4; ruční výjimky `data/meta/kinship-overrides.json`. `kinshipRanking` pro kartu a mapu. Max 3 světy. URL `?w=`. |
 | `src/lib/axes.ts` | `AXIS_KEYS` — pořadí pěti os. |
 | `src/lib/i18n.ts` | UI copy `cs`/`en`. `uiT('world.viewCard')` atd. |
 | `src/lib/worlds.ts` | Parse katalogu, kapitoly, related, `buildSearchText`. |
@@ -187,6 +187,7 @@ Další:
 
 - Úprava jedné stránky (např. `/compare/`) **nesmí** měnit strukturu/styl karty světa ani jiné hotové stránky.
 - `/compare/` = `src/pages/compare/index.astro` + `ComparePage.tsx` + `compare.ts` + `compare.css`.
+- Procenta příbuznosti se v UI **nezobrazují** (ani v metodice), jen stupně slovy a síla pilířů slovy.
 - Příbuznost světů počítá **jen** `compare.ts`. Žádný další výpočet podobnosti nezakládat; karta (`SimilarWorlds` záloha) i mapa (spis světa) berou `kinshipRanking`. Kartografie os ukazuje jen polohu na dvou osách, procenta nepočítá. Výjimka: „Nejblíž tvému ladění“ na mapě řadí podle vzdálenosti os, protože čtenář zadává jen osy; neukazuje procenta ani slovo příbuznost.
 - Nepřidávej vysvětlující věty a doslovné štítky tam, kde stačí barva, osa nebo pozice.
 - Filtry a vyhledávání katalogu nesahají na srovnávač a naopak.

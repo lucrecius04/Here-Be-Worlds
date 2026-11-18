@@ -4,7 +4,7 @@ import { useLocale } from '../../lib/locale-store';
 import { withBase } from '../../lib/base-url';
 
 type Props = {
-  items: Array<RelatedWorld & { href?: string }>;
+  items: Array<RelatedWorld & { href?: string; level?: number }>;
   sourceId?: string;
   base?: string;
 };
@@ -30,6 +30,9 @@ export default function SimilarWorlds({ items, sourceId, base = '' }: Props) {
                 {title}
                 {genre ? <span className="related-worlds__genre"> ({genre})</span> : null}
               </div>
+              {item.level ? (
+                <p className="related-worlds__kin">{uiT(`compare.kinLevel${item.level}`, locale)}</p>
+              ) : null}
               {note ? <p className="related-worlds__note">{note}</p> : null}
             </>
           );

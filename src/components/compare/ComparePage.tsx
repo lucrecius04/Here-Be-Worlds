@@ -6,8 +6,14 @@ import { withBase } from '../../lib/base-url';
 import {
   MAX_COMPARE,
   SUGGESTED_PAIRS,
+  curatedNote,
+  kinshipCutoffs,
+  kinshipLevel,
   kinshipPairs,
   kinshipPercent,
+  levelFromPercent,
+  pillarStrength,
+  type KinshipLevel,
   parseCompareIds,
   slotHue,
   slotWash,
@@ -97,18 +103,7 @@ function AffinityHint({ locale }: { locale: Locale }) {
     };
   }, [open]);
 
-  const prices = [
-    `${uiT('world.genreLine', locale)} 12 %`,
-    `${uiT('card.genreProfile', locale)} 8 % (${uiT('compare.affinityPriceOverlap', locale)})`,
-    `${uiT('card.profileWorld', locale)} — ${uiT('compare.affinityPriceAxes', locale)}`,
-    `${uiT('compare.factsTitle', locale)} — ${uiT('card.atmosphere', locale)} 8 %`,
-    `${uiT('card.sourceOfPower', locale)} 6 %`,
-    `${uiT('card.historicalDepth', locale)} 4 %`,
-    `${uiT('card.societalOrder', locale)} 4 %`,
-    `${uiT('card.protagonistPerspective', locale)} 4 %`,
-    `${uiT('card.spatialScope', locale)} 4 %`,
-    `${uiT('card.themesHeading', locale)} 15 %`,
-  ];
+  const lines = uiT('compare.methodLines', locale).split('|');
 
   return (
     <div
@@ -134,14 +129,27 @@ function AffinityHint({ locale }: { locale: Locale }) {
       {open ? (
         <div className="compare-affinity__pop" role="dialog" aria-label={uiT('compare.affinityMethod', locale)}>
           <p className="compare-affinity__title">{uiT('compare.affinityMethod', locale)}</p>
-          <ul>
-            {prices.map((line) => (
-              <li key={line}>{line}</li>
-            ))}
-          </ul>
+          {lines.map((line) => (
+            <p key={line} className="compare-affinity__line">
+              {line}
+            </p>
+          ))}
         </div>
       ) : null}
     </div>
+  );
+}
+
+function KinshipGrade({ level, locale }: { level: KinshipLevel; locale: Locale }) {
+  return (
+    <span className="compare-grade">
+      <span className="compare-grade__name display">{uiT(`compare.kinLevel${level}`, locale)}</span>
+      <span className="compare-grade__marks" aria-hidden="true">
+        {[1, 2, 3, 4, 5].map((i) => (
+          <i key={i} className={i <= level ? 'is-on' : ''} />
+        ))}
+      </span>
+    </span>
   );
 }
 
@@ -268,7 +276,8 @@ export default function ComparePage({ worlds, chapters, themeLabels, axes, base 
       ]
     : [];
 
-  const kinship = ready ? kinshipPercent(selected) : 0;
+  const cutoffs = useMemo(() => kinshipCutoffs(worlds), [worlds]);
+  const pairLevel = (a: World, b: World) => kinshipLevel(a, b, worlds);
 
   const suggested = SUGGESTED_PAIRS.filter(([a, b]) => validIds.has(a) && validIds.has(b));
   const showAddThird = ready && filled.length === 2;
@@ -277,6 +286,18 @@ export default function ComparePage({ worlds, chapters, themeLabels, axes, base 
   const resolvedPairKey =
     activePairKey && pairKeys.includes(activePairKey) ? activePairKey : (pairKeys[0] ?? null);
   const activePair = pairScores.find((pair) => pairKey(pair) === resolvedPairKey) ?? pairScores[0];
+  const verdictLevel: KinshipLevel | null = ready
+    ? selected.length === 2
+      ? pairLevel(selected[0], selected[1])
+      : levelFromPercent(kinshipPercent(selected), cutoffs)
+    : null;
+  const notePair =
+    ready && selected.length === 2
+      ? [selected[0], selected[1]]
+      : activePair
+        ? [selected[activePair.left], selected[activePair.right]]
+        : null;
+  const verdictNote = notePair ? curatedNote(notePair[0], notePair[1]) : undefined;
   const barScore = ready
     ? selected.length === 3
       ? (activePair?.breakdown ?? null)
@@ -412,7 +433,7 @@ export default function ComparePage({ worlds, chapters, themeLabels, axes, base 
               </div>
               {selected.length === 3 ? null : (
                 <div className="compare-verdict__score-row">
-                  <p className="compare-verdict__score display">{kinship} %</p>
+                  {verdictLevel ? <KinshipGrade level={verdictLevel} locale={locale} /> : null}
                   <AffinityHint locale={locale} />
                 </div>
               )}
@@ -434,11 +455,17 @@ export default function ComparePage({ worlds, chapters, themeLabels, axes, base 
                       {t(selected[pair.left].gameTitle, locale)}
                       <span> {uiT('compare.versus', locale)} </span>
                       <SlotMark hue={hues[pair.right]} />
-                      {t(selected[pair.right].gameTitle, locale)}: {pair.percent} %
+                      {t(selected[pair.right].gameTitle, locale)}:{' '}
+                      {uiT(`compare.kinLevel${pairLevel(selected[pair.left], selected[pair.right])}`, locale)}
                     </button>
                   );
                 })}
               </div>
+            ) : null}
+            {verdictNote ? (
+              <p className="compare-verdict__note">
+                <span>{uiT('compare.curatedLabel', locale)}</span> {t(verdictNote, locale)}
+              </p>
             ) : null}
             {barScore ? (
               <div className="compare-verdict__bars">
@@ -473,7 +500,7 @@ export default function ComparePage({ worlds, chapters, themeLabels, axes, base 
                   <div key={pillar.key} className="compare-bar">
                     <span className="compare-bar__label">{pillar.label}</span>
                     <span className="compare-bar__value">
-                      {pillar.value} / {pillar.max} %
+                      {uiT(`compare.strength${pillarStrength(pillar.value, pillar.max)}`, locale)}
                     </span>
                     <span className="compare-bar__track" aria-hidden="true">
                       <span
