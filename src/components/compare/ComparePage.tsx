@@ -319,7 +319,7 @@ export default function ComparePage({ worlds, chapters, themeLabels, axes, base 
   return (
     <div className="compare-page" style={pageStyle}>
       <p className="compare-page__back">
-        <a href={withBase(base, '/')}>{uiT('compare.back', locale)}</a>
+        <a href={withBase(base, '/atlas/')}>{uiT('compare.back', locale)}</a>
       </p>
       <div className="compare-page__heading">
         <h1 className="compare-page__title display">{uiT('compare.title', locale)}</h1>

@@ -7,10 +7,12 @@ export type Theme = 'light' | 'dark';
 
 export const DEFAULT_THEME: Theme = 'dark';
 
+/** Uložená volba čtenáře; bez ní systémové nastavení (prefers-color-scheme). */
 function readStoredTheme(): Theme {
   if (typeof window === 'undefined') return DEFAULT_THEME;
   const stored = localStorage.getItem(THEME_STORAGE_KEY);
-  return stored === 'light' ? 'light' : DEFAULT_THEME;
+  if (stored === 'light' || stored === 'dark') return stored;
+  return window.matchMedia?.('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 }
 
 function applyTheme(theme: Theme): void {

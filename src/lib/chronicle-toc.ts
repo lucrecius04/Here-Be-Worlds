@@ -167,3 +167,39 @@ export function findAnalysisHeadingId(markdown: string, key: TriadAnchor): strin
   }
   return null;
 }
+
+export type ChronicleStats = {
+  /** Kapitoly vyprávění (bez Úvodem, Epilogu a Odkazu). */
+  chapters: number;
+  /** Odhad doby čtení vyprávění v minutách (200 slov za minutu). */
+  minutes: number;
+  /** Oddíly Faktografie (podnadpisy Příloh). */
+  appendices: number;
+  /** Číslované části Anatomie vyprávění. */
+  analysisParts: number;
+};
+
+const NOT_A_CHAPTER = /^(úvodem|epilog|odkaz|prolog)(?:\s|$)/i;
+
+/** Obsah záložek světa: počty kapitol, oddílů a částí + doba čtení. Počítá se při sestavení stránky. */
+export function chronicleStats(markdown: string): ChronicleStats {
+  const { narrative, appendices, analysis } = splitChronicleMarkdown(markdown);
+  const h2 = (text: string) =>
+    text
+      .split('\n')
+      .filter((line) => /^##\s/.test(line))
+      .map((line) => headingText(line) ?? '');
+  const chapters = h2(narrative).filter((title) => title && !NOT_A_CHAPTER.test(title)).length;
+  const words = narrative
+    .replace(/[#>*_`|[\]()-]+/g, ' ')
+    .split(/\s+/)
+    .filter(Boolean).length;
+  const appendixCount = appendices.split('\n').filter((line) => /^###\s/.test(line)).length;
+  const analysisParts = h2(analysis).filter((title) => /^\d+\.\s/.test(title)).length;
+  return {
+    chapters,
+    minutes: words > 0 ? Math.max(1, Math.round(words / 200)) : 0,
+    appendices: appendixCount,
+    analysisParts,
+  };
+}

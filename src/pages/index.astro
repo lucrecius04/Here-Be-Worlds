@@ -1,15 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import AtlasExplorer from '../components/discovery/AtlasExplorer';
 import HomeIntro from '../components/discovery/HomeIntro';
-import { worlds, chapters, themeTaxonomy } from '../lib/worlds';
+import { worlds, chapters } from '../lib/worlds';
 
 const base = import.meta.env.BASE_URL;
-const url = new URL(Astro.request.url);
-const initialTheme = url.searchParams.get('theme') ?? '';
-const homeParam = url.searchParams.get('home');
-const homePalette =
-  homeParam === 'chart' || homeParam === 'constellation' ? homeParam : 'cabinet';
 
 const chapterCards = chapters.map((c) => ({
   id: c.id,
@@ -19,13 +13,12 @@ const chapterCards = chapters.map((c) => ({
   count: worlds.filter((w) => w.chapterId === c.id && !w.draft).length,
 }));
 
-const themeLabels = Object.fromEntries(themeTaxonomy.map((t) => [t.slug, t.label]));
 const published = worlds.filter((world) => !world.draft);
+const atlasUrl = `${base.replace(/\/$/, '')}/atlas/`;
 ---
 
 <BaseLayout
   title="Here Be Worlds — An Atlas of Game Universes · Atlas herních vesmírů a jejich lore"
-  homePalette={homePalette}
   jsonLd={{
     '@context': 'https://schema.org',
     '@type': 'WebSite',
@@ -36,18 +29,12 @@ const published = worlds.filter((world) => !world.draft);
     inLanguage: ['cs', 'en'],
   }}
 >
-  <HomeIntro
-    client:load
-    chapters={chapterCards}
-    worlds={published}
-    base={base.replace(/\/$/, '')}
-  />
-  <AtlasExplorer
-    client:load
-    worlds={published}
-    chapters={chapterCards}
-    themeLabels={themeLabels}
-    baseUrl={base.replace(/\/$/, '')}
-    initialTheme={initialTheme}
-  />
+  <script is:inline define:vars={{ atlasUrl }}>
+    // Starší odkazy na filtry katalogu (/?theme=…, /?trail=…) vedou do atlasu.
+    (function () {
+      var q = location.search;
+      if (/[?&](theme|trail)=/.test(q)) location.replace(atlasUrl + q + location.hash);
+    })();
+  </script>
+  <HomeIntro client:load chapters={chapterCards} worlds={published} base={base.replace(/\/$/, '')} />
 </BaseLayout>

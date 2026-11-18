@@ -13,7 +13,7 @@ export default function NotesPage({ base }: Props) {
   return (
     <article className="notes-frame">
       <p className="notes-page__back">
-        <a href={withBase(base, '/')}>{uiT('notes.back', locale)}</a>
+        <a href={withBase(base, '/atlas/')}>{uiT('notes.back', locale)}</a>
       </p>
       <header className="notes-page__masthead">
         <h1 className="notes-page__title display">{uiT('notes.title', locale)}</h1>

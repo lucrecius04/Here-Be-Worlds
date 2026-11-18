@@ -18,7 +18,36 @@ export const ui: Record<Locale, UiTree> = {
     nav: {
       atlas: 'Atlas',
       compare: 'Srovnání',
-      map: 'Mapa',
+      map: 'Kartografie os',
+      essay: 'Esej',
+    },
+    atlasPage: {
+      title: 'Atlas světů',
+      lead: 'Všechny zmapované herní vesmíry. Hledej podle archetypu, témat, nálady i způsobu vyprávění.',
+    },
+    home2: {
+      kicker: '{n} · 7 souhvězdí · kroniky a faktografie',
+      title: 'Mapy světů, kam se |nedá| doletět',
+      lead: 'Atlas herních vesmírů. Každý rozebraný jako skutečná země: dějiny v kronice, povaha na kartě, příbuzní ve srovnání.',
+      openAtlas: 'Otevřít atlas',
+      random: 'Náhodný svět',
+      skyAria: 'Obloha světů: každá hvězda je jeden svět, souhvězdí jsou archetypy',
+      skyCaption: 'Každá hvězda je zmapovaný svět · souhvězdí A–G jsou archetypy',
+      latest: 'Poslední zápis',
+      index: 'Rejstřík světů',
+      indexAll: 'Celý atlas s filtry →',
+      waysAria: 'Cesty atlasem',
+      wayAtlas: 'Všech {n} s filtry podle archetypu, témat, nálady a způsobu vyprávění.',
+      wayCompare: 'Dva nebo tři světy vedle sebe. Příbuznost od Sourozenců po Cizí.',
+      wayMap: 'Mřížka dvou os profilu. Kde svět leží v ladění.',
+      trailsMore: 'a dalších {n}',
+      skyFantasy: 'Fantasy',
+      skyScienceFiction: 'Sci-fi',
+      skyPostApocalypse: 'Postapokalypsa',
+      skyHorror: 'Horor',
+      skyHistorical: 'Historie',
+      skyDystopia: 'Dystopie',
+      skyMetaphysical: 'Metafyzika',
     },
     theme: {
       group: 'Vzhled',
@@ -138,7 +167,12 @@ export const ui: Record<Locale, UiTree> = {
       chronicleMissing: 'Kronika pro tento svět zatím chybí. Spusťte',
       chronicleLoading: 'Načítám kroniku…',
       spoilerNotice: 'Upozornění: Text vyzrazuje dějiny světa, obsahuje spoilery.',
-      similarWorlds: 'Tematicky příbuzné světy',
+      similarWorlds: 'Příbuzenstvo',
+      studio: 'Studio',
+      years: 'Roky',
+      showOnMap: 'Ukázat na mapě →',
+      tabsAria: 'Záložky světa',
+      minutes: 'min',
       viewCard: 'Charakter světa',
       viewChronicle: 'Kronika',
       viewAppendices: 'Faktografie',
@@ -348,7 +382,36 @@ Berte prosím tento atlas jako skromnou poctu všem scenáristům, designérům 
     nav: {
       atlas: 'Atlas',
       compare: 'Compare',
-      map: 'Map',
+      map: 'Axis cartography',
+      essay: 'Essay',
+    },
+    atlasPage: {
+      title: 'Atlas of worlds',
+      lead: 'Every mapped game universe. Search by archetype, themes, mood and the way a world tells its story.',
+    },
+    home2: {
+      kicker: '{n} · 7 constellations · chronicles & factography',
+      title: 'Maps of worlds |beyond| reach',
+      lead: 'An atlas of game universes. Each one taken apart like a real country: its history in a chronicle, its character on a card, its kin in comparison.',
+      openAtlas: 'Open the atlas',
+      random: 'Random world',
+      skyAria: 'Sky of worlds: every star is one world, constellations are archetypes',
+      skyCaption: 'Every star is a mapped world · constellations A–G are archetypes',
+      latest: 'Latest entry',
+      index: 'Index of worlds',
+      indexAll: 'Full atlas with filters →',
+      waysAria: 'Ways through the atlas',
+      wayAtlas: 'All {n} with filters by archetype, themes, mood and storytelling.',
+      wayCompare: 'Two or three worlds side by side. Kinship from Siblings to Strangers.',
+      wayMap: 'A grid of two profile axes. Where a world sits in tone.',
+      trailsMore: 'and {n} more',
+      skyFantasy: 'Fantasy',
+      skyScienceFiction: 'Sci-fi',
+      skyPostApocalypse: 'Post-apocalypse',
+      skyHorror: 'Horror',
+      skyHistorical: 'History',
+      skyDystopia: 'Dystopia',
+      skyMetaphysical: 'Metaphysics',
     },
     theme: {
       group: 'Appearance',
@@ -466,7 +529,12 @@ Berte prosím tento atlas jako skromnou poctu všem scenáristům, designérům 
       chronicleMissing: 'Chronicle not found. Run',
       chronicleLoading: 'Loading chronicle…',
       spoilerNotice: 'Note: This text reveals the history of the world and contains spoilers.',
-      similarWorlds: 'Thematically related worlds',
+      similarWorlds: 'Kinship',
+      studio: 'Studio',
+      years: 'Years',
+      showOnMap: 'Show on the map →',
+      tabsAria: 'World tabs',
+      minutes: 'min',
       viewCard: 'World character',
       viewChronicle: 'Chronicle',
       viewAppendices: 'Factography',
@@ -690,6 +758,18 @@ export function uiT(path: string, locale: Locale = DEFAULT_LOCALE): string {
 export function worldsCountLabel(count: number, locale: Locale): string {
   if (locale === 'en') return `${count} ${count === 1 ? 'world' : 'worlds'}`;
   const word = count === 1 ? 'svět' : count >= 2 && count <= 4 ? 'světy' : 'světů';
+  return `${count} ${word}`;
+}
+
+/** Počet se správným tvarem slova: cs [1, 2–4, 5+], en [1, many]. */
+export function countWord(
+  count: number,
+  cs: [string, string, string],
+  en: [string, string],
+  locale: Locale,
+): string {
+  if (locale === 'en') return `${count} ${count === 1 ? en[0] : en[1]}`;
+  const word = count === 1 ? cs[0] : count >= 2 && count <= 4 ? cs[1] : cs[2];
   return `${count} ${word}`;
 }
 

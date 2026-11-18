@@ -12,13 +12,15 @@ export default function SiteHeader({ base }: Props) {
   return (
     <header className="site-header">
       <a href={withBase(base, '/')} className="site-header__brand">
-        {uiT('siteName', locale)}
+        <span className="site-header__name">{uiT('siteName', locale)}</span>
+        <span className="site-header__tagline">{uiT('footer.tagline', locale)}</span>
       </a>
       <div className="site-header__end">
         <nav className="site-nav" aria-label={locale === 'cs' ? 'Hlavní' : 'Main'}>
-          <a href={withBase(base, '/')}>{uiT('nav.atlas', locale)}</a>
+          <a href={withBase(base, '/atlas/')}>{uiT('nav.atlas', locale)}</a>
           <a href={withBase(base, '/compare/')}>{uiT('nav.compare', locale)}</a>
           <a href={withBase(base, '/map/')}>{uiT('nav.map', locale)}</a>
+          <a href={withBase(base, '/anatomie-herniho-lore/')}>{uiT('nav.essay', locale)}</a>
         </nav>
         <LanguageSwitcher />
         <ThemeSwitcher />

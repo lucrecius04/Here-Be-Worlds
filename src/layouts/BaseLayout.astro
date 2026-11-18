@@ -5,6 +5,7 @@ import '../styles/layout.css';
 import '../styles/world-card.css';
 import '../styles/chronicle.css';
 import '../styles/home.css';
+import '../styles/home-page.css';
 import '../styles/chapter.css';
 import '../styles/compare.css';
 import '../styles/map.css';
@@ -17,7 +18,6 @@ import { worlds } from '../lib/worlds';
 const {
   title = 'Here Be Worlds',
   description = 'Here Be Worlds – atlas herních vesmírů a jejich lore. Kroniky, časové osy, mapy a srovnání herních světů.',
-  homePalette,
   jsonLd,
 } = Astro.props;
 import { withBase } from '../lib/base-url';
@@ -29,7 +29,7 @@ const published = worlds
 ---
 
 <!doctype html>
-<html lang="cs" data-home={homePalette}>
+<html lang="cs">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -45,25 +45,20 @@ const published = worlds
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
     <title>{title}</title>
-    <script is:inline define:vars={{ isHome: Boolean(homePalette) }}>
+    <script is:inline>
       (function () {
         var l = localStorage.getItem('hbw_lang');
         document.documentElement.lang = l === 'en' || l === 'cs' ? l : 'cs';
-        document.documentElement.setAttribute(
-          'data-theme',
-          localStorage.getItem('hbw_theme') === 'light' ? 'light' : 'dark',
-        );
-        if (isHome) {
-          var p = new URLSearchParams(location.search).get('home');
-          document.documentElement.setAttribute(
-            'data-home',
-            p === 'chart' || p === 'constellation' ? p : 'cabinet',
-          );
+        // Bez uložené volby se web řídí nastavením systému čtenáře.
+        var th = localStorage.getItem('hbw_theme');
+        if (th !== 'light' && th !== 'dark') {
+          th = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
         }
+        document.documentElement.setAttribute('data-theme', th);
       })();
     </script>
   </head>

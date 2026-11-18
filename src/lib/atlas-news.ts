@@ -13,7 +13,7 @@ export function isMappedWorld(world: World): boolean {
 export function latestAdded(worlds: World[], limit = 3): World[] {
   return worlds
     .filter((world) => Boolean(world.addedAt) && isMappedWorld(world))
-    .sort((a, b) => (b.addedAt ?? '').localeCompare(a.addedAt ?? '') || a.id.localeCompare(b.id))
+    .sort((a, b) => (b.addedAt ?? '').localeCompare(a.addedAt ?? '') || b.number - a.number)
     .slice(0, limit);
 }
 

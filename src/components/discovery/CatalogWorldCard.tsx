@@ -72,7 +72,7 @@ export default function CatalogWorldCard({
               <a
                 key={slug}
                 className="theme-pill"
-                href={withBase(base, `/?theme=${encodeURIComponent(slug)}`)}
+                href={withBase(base, `/atlas/?theme=${encodeURIComponent(slug)}`)}
               >
                 {themeLabels[slug] ? t(themeLabels[slug], locale) : slug}
               </a>

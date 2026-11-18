@@ -1,35 +1,74 @@
+/*
+ * Vizuální identita „noční atlas“ (2026-11):
+ * světlý režim = lehce teplý papír, tuš a jeden ultramarínový akcent pro odkazy a akce;
+ * tmavý režim = noční modř z oblohy na titulní straně.
+ * Akcent leží mimo barvy archetypů (ty žijí v data/meta/chapters.json, light/dark).
+ */
 :root {
-  --color-paper: #faf7f2;
-  --color-tile: #f3efea;
-  --color-ink: #1e1d1a;
-  --color-ink-muted: #5c584f;
-  --color-line: #d8d0c4;
-  --color-accent: #9a7b4f;
-  --color-accent-soft: #c4a574;
-  --color-desk: #e7e0d4;
+  --color-paper: #f4f2ee;
+  --color-tile: #fbfaf7;
+  --color-ink: #17161a;
+  --color-ink-muted: #57534d;
+  --color-line: #d6d1c8;
+  --color-accent: #2b44c9;
+  --color-accent-soft: #8f9de0;
+  --color-chip: #e8e4dd;
+  --color-chip-line: #cfc9bf;
+  --color-desk: #f4f2ee;
+  --color-night: #0d1324;
+  --color-night-ink: #ece8e0;
+  --color-night-muted: #8e97ad;
+  --color-night-line: #1c2540;
+  --color-night-soft: #c9ceda;
+  --color-night-kicker: #e5be7e;
+  --color-night-button: #f4f1ea;
+  --color-night-edge: #3a4562;
+  --color-sky-line: #26304a;
+  --color-sky-tick: #3a4562;
+  --color-bar: #dedad2;
+  --shadow-lift: 0 14px 30px rgba(23, 22, 26, 0.09);
+  --gutter: 2.5rem;
   --masthead-wash: 8%;
   color-scheme: light;
 
-  --font-serif: 'Cormorant Garamond', 'Newsreader', Georgia, serif;
-  --font-sans: 'Plus Jakarta Sans', Inter, system-ui, sans-serif;
+  /* Fraunces: nadpisy a názvy světů; Source Serif 4: dlouhé texty; Public Sans: rozhraní; Plex Mono: štítky a čísla. */
+  --font-display: 'Fraunces', 'Source Serif 4', Georgia, serif;
+  --font-serif: var(--font-display);
+  --font-text: 'Source Serif 4', Georgia, serif;
+  --font-sans: 'Public Sans', Inter, system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --shadow-card: 0 1px 0 rgba(30, 29, 26, 0.06), 0 8px 24px rgba(30, 29, 26, 0.05);
-  --content-max: 1120px;
-  --read-max: 38.5rem;
-  --site-header-height: 3.5rem;
+  --radius-sm: 3px;
+  --radius-md: 6px;
+  --shadow-card: 0 1px 0 rgba(23, 22, 26, 0.06), 0 10px 26px rgba(23, 22, 26, 0.06);
+  --content-max: 1240px;
+  --read-max: 42rem;
+  --site-header-height: 3.6rem;
+}
+
+@media (max-width: 720px) {
+  :root {
+    --gutter: 1rem;
+  }
 }
 
 [data-theme='dark'] {
-  --color-paper: #1a1917;
-  --color-tile: #242220;
-  --color-ink: #f0ebe3;
-  --color-ink-muted: #a69f94;
-  --color-line: #3d3934;
-  --color-accent: #c4a574;
-  --color-accent-soft: #9a7b4f;
-  --color-desk: #100f0e;
+  --color-paper: #0d1324;
+  --color-tile: #141b2f;
+  --color-ink: #ece8e0;
+  --color-ink-muted: #a3aabb;
+  --color-line: #283149;
+  --color-accent: #9db0ff;
+  --color-accent-soft: #4b5a99;
+  --color-chip: #1c2640;
+  --color-chip-line: #34406a;
+  --color-desk: #0d1324;
+  --color-night: #080c18;
+  --color-night-ink: #ece8e0;
+  --color-night-muted: #8e97ad;
+  --color-night-line: #1a2238;
+  --color-bar: #283149;
+  --shadow-lift: 0 0 0 1px #1f2840;
   --masthead-wash: 10%;
   color-scheme: dark;
 }

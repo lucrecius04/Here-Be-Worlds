@@ -79,26 +79,24 @@ export default function DailyMystery({ catalog, locale, base, today }: Props) {
   };
 
   return (
-    <section className="home-panel home-mystery" aria-label={uiT('home.dailyMystery', locale)}>
-      <div className="home-mystery__head">
-        <p className="home-panel__kicker">
+    <section className="hp-mystery" aria-label={uiT('home.dailyMystery', locale)}>
+      <div className="hp-mystery__head">
+        <p className="hp-kicker">
           {uiT('home.dailyMystery', locale)} · {kickerDate}
         </p>
-        <p className="home-mystery__nav">
+        <p className="hp-mystery__nav">
           <button
             type="button"
-            className="home-mystery__nav-btn"
+            className="hp-mystery__nav-btn"
             disabled={offset === -1}
             onClick={() => shift(-1)}
           >
             {uiT('home.mysteryYesterday', locale)}
           </button>
-          <span className="home-mystery__nav-sep" aria-hidden="true">
-            |
-          </span>
+          <span aria-hidden="true">|</span>
           <button
             type="button"
-            className="home-mystery__nav-btn"
+            className="hp-mystery__nav-btn"
             disabled={offset === 0}
             onClick={() => shift(0)}
           >
@@ -106,37 +104,39 @@ export default function DailyMystery({ catalog, locale, base, today }: Props) {
           </button>
         </p>
       </div>
-      <p className="home-mystery__prompt">{uiT(PROMPT_KEYS[mode], locale)}</p>
-      <p className="home-mystery__sin">
-        <span className="home-mystery__sin-label">{clue.label}</span>
-        {clue.body}
+      <h2 className="hp-mystery__prompt">{uiT(PROMPT_KEYS[mode], locale)}</h2>
+      <p className="hp-mystery__clue">
+        <span className="visually-hidden">{clue.label}: </span>„{clue.body}“
       </p>
-      <MiniAxes world={world} locale={locale} />
-      <div className="home-mystery__choices">
-        {choices.map((choice) => {
+      {mode === 3 ? <MiniAxes world={world} locale={locale} /> : null}
+      <div className="hp-mystery__choices">
+        {choices.map((choice, i) => {
           const state =
             picked === null
               ? ''
               : choice.id === world.id
-                ? ' home-mystery__choice--right'
+                ? ' is-right'
                 : picked === choice.id
-                  ? ' home-mystery__choice--wrong'
+                  ? ' is-wrong'
                   : '';
           return (
             <button
               key={choice.id}
               type="button"
-              className={`home-mystery__choice${state}`}
+              className={`hp-mystery__choice${state}`}
               disabled={answered}
               onClick={() => setPicked(choice.id)}
             >
-              {t(choice.gameTitle, locale)}
+              <span>{t(choice.gameTitle, locale)}</span>
+              <span className="hp-mystery__letter" aria-hidden="true">
+                {'ABCDE'[i]}
+              </span>
             </button>
           );
         })}
       </div>
       {answered ? (
-        <a className="home-mystery__link" href={withBase(base, `/worlds/${world.id}/`)}>
+        <a className="hp-link hp-mystery__link" href={withBase(base, `/worlds/${world.id}/`)}>
           {uiT('home.mysteryLink', locale)}
         </a>
       ) : null}

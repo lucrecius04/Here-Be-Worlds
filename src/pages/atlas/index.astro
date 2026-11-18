@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import AtlasExplorer from '../../components/discovery/AtlasExplorer';
+import { worlds, chapters, themeTaxonomy } from '../../lib/worlds';
+
+const base = import.meta.env.BASE_URL;
+
+const chapterCards = chapters.map((c) => ({
+  id: c.id,
+  title: c.title,
+  thesis: c.thesis,
+  accent: c.accent,
+  count: worlds.filter((w) => w.chapterId === c.id && !w.draft).length,
+}));
+
+const themeLabels = Object.fromEntries(themeTaxonomy.map((t) => [t.slug, t.label]));
+const published = worlds.filter((world) => !world.draft);
+---
+
+<BaseLayout
+  title="Atlas světů · Here Be Worlds"
+  description="Všechny zmapované herní vesmíry v atlasu Here Be Worlds. Hledání podle archetypu, témat, nálady a způsobu vyprávění."
+>
+  <AtlasExplorer
+    client:load
+    worlds={published}
+    chapters={chapterCards}
+    themeLabels={themeLabels}
+    baseUrl={base.replace(/\/$/, '')}
+    initialTheme=""
+  />
+</BaseLayout>

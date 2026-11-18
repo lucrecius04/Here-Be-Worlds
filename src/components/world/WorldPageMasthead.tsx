@@ -7,59 +7,59 @@ type Props = {
   base: string;
   world: World;
   chapterTitle?: LocalizedString;
+  chapterLetter?: string;
 };
 
-export default function WorldPageMasthead({ base, world, chapterTitle }: Props) {
+/** Hlavička spisu světa: drobečky, záložka archetypu, velký název a kartotéční údaje. */
+export default function WorldPageMasthead({ base, world, chapterTitle, chapterLetter = '' }: Props) {
   const locale = useLocale();
   const universe = (world.universe ?? []).map((name) => t(name, locale)).filter(Boolean);
+  const genre = t(world.metadata.genreProfile, locale);
+  const genreSub = world.metadata.genreProfile.sub ? t(world.metadata.genreProfile.sub, locale) : '';
+  const chronicleTitle = t(world.chronicleTitle, locale);
   const facts = [
-    chapterTitle
-      ? {
-          label: uiT('world.genreLine', locale),
-          value: t(chapterTitle, locale),
-          href: withBase(base, `/chapters/${world.chapterId}/`),
-        }
-      : null,
-    universe.length
-      ? { label: uiT('world.universe', locale), value: universe.join(' · ') }
-      : null,
+    world.studios.length ? { label: uiT('world.studio', locale), value: world.studios.join(' · ') } : null,
+    world.yearRange ? { label: uiT('world.years', locale), value: world.yearRange } : null,
+    universe.length ? { label: uiT('world.universe', locale), value: universe.join(' · ') } : null,
     { label: uiT('world.canonScope', locale), value: t(world.canonScope, locale) },
-  ].filter((item): item is { label: string; value: string; href?: string } => Boolean(item));
+  ].filter((item): item is { label: string; value: string } => Boolean(item && item.value));
+  const archetype = chapterTitle ? t(chapterTitle, locale) : '';
 
   return (
-    <header className="world-card__header">
-      <div className="world-card__kicker">
-        <a href={withBase(base, '/')} className="world-back__link">
-          ← {uiT('world.backToAtlas', locale)}
-        </a>
-      </div>
-      <div className="world-card__title-row">
-        <h1 className="world-card__title display">{t(world.gameTitle, locale)}</h1>
-        <p className="world-card__byline">
-          {world.studios.join(' · ')} · {world.yearRange}
-        </p>
-      </div>
-      <p className="world-card__facts">
-        {facts.map((fact, index) => (
-          <span key={fact.label} className="world-card__fact-wrap">
-            {index > 0 ? (
-              <span className="world-card__fact-dot" aria-hidden="true">
-                ·
-              </span>
-            ) : null}
-            <span className="world-card__fact">
-              <span className="world-card__canon-label">{fact.label}</span>
-              {fact.href ? (
-                <a className="world-card__canon-value world-card__canon-link" href={fact.href}>
-                  {fact.value}
-                </a>
-              ) : (
-                <span className="world-card__canon-value">{fact.value}</span>
-              )}
-            </span>
-          </span>
-        ))}
+    <header className="wp-head">
+      <p className="wp-head__crumbs">
+        <a href={withBase(base, '/atlas/')}>{uiT('nav.atlas', locale)}</a>
+        <span aria-hidden="true">/</span>
+        {archetype ? (
+          <>
+            <a href={withBase(base, `/chapters/${world.chapterId}/`)}>
+              {chapterLetter ? `${chapterLetter} · ` : ''}
+              {archetype}
+            </a>
+            <span aria-hidden="true">/</span>
+          </>
+        ) : null}
+        <span>№ {world.number}</span>
       </p>
+      <span className="wp-head__tab">
+        {chapterLetter ? `${chapterLetter} · ` : ''}
+        {genre}
+        {genreSub ? ` · ${genreSub}` : ''}
+      </span>
+      <div className="wp-head__main">
+        <div className="wp-head__titles">
+          <h1 className="wp-head__title">{t(world.gameTitle, locale)}</h1>
+          {chronicleTitle ? <p className="wp-head__chronicle">{chronicleTitle}</p> : null}
+        </div>
+        <dl className="wp-head__facts">
+          {facts.map((fact) => (
+            <div key={fact.label} className="wp-head__fact">
+              <dt>{fact.label}</dt>
+              <dd>{fact.value}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
     </header>
   );
 }

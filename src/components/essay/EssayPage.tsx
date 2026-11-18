@@ -100,7 +100,7 @@ export default function EssayPage({ base, markdown, title, kicker, tagline, worl
   return (
     <article className="essay-frame">
       <p className="essay__back">
-        <a href={withBase(base, '/')}>{uiT('essay.back', locale)}</a>
+        <a href={withBase(base, '/atlas/')}>{uiT('essay.back', locale)}</a>
       </p>
       <header className="essay__masthead">
         {kicker ? <p className="essay__kicker">{kicker}</p> : null}

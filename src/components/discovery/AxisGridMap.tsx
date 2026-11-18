@@ -238,7 +238,7 @@ export default function AxisGridMap({ worlds, chapters, themes, base }: Props) {
             {uiT('map.leadCompare', locale)}
           </a>
         </div>
-        <a className="map-page__back" href={withBase(base, '/')}>
+        <a className="map-page__back" href={withBase(base, '/atlas/')}>
           {uiT('map.back', locale)}
         </a>
       </header>

@@ -31,7 +31,7 @@ export function resolveRelatedWorlds(
     themeTaxonomy.map((th) => [th.slug, th.label]),
   ),
   baseUrl = '',
-): Array<RelatedWorld & { href?: string; level?: KinshipLevel }> {
+): Array<RelatedWorld & { href?: string; level?: KinshipLevel; number?: number; chapterId?: string }> {
   const prefix = baseUrl.replace(/\/$/, '');
   const hrefFor = (id?: string) =>
     id && catalog.some((w) => w.id === id) ? `${prefix}/worlds/${id}/` : undefined;
@@ -40,6 +40,8 @@ export function resolveRelatedWorlds(
     const match = id ? catalog.find((item) => item.id === id) : undefined;
     if (!match) return {};
     return {
+      number: match.number,
+      chapterId: match.chapterId,
       yearRange: match.yearRange || undefined,
       genreProfile: {
         en: match.metadata.genreProfile.en,
@@ -61,6 +63,8 @@ export function resolveRelatedWorlds(
         ...item,
         genreProfile: fromCatalog.genreProfile ?? item.genreProfile,
         yearRange: fromCatalog.yearRange ?? item.yearRange,
+        number: fromCatalog.number,
+        chapterId: fromCatalog.chapterId,
         href: hrefFor(item.id),
         level: levelFor(item.id),
       };

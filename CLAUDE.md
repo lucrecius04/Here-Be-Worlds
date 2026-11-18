@@ -10,7 +10,7 @@ Tento soubor je zdroj pravdy pro AI. Interní identifikátory v kódu se nepřek
 
 - **HBW** — encyklopedie a srovnávací atlas fiktivních herních světů.
 - **Jazyk:** `cs` výchozí, `en` sekundární. UI řetězce: `src/lib/i18n.ts` (`uiT`). Obsah světů: `{ en, cs? }` v JSON (`t()`). Kroniky: české markdown.
-- **Estetika:** kartografický archiv (dark = stůl při svíčkách, light = pergamen). Nadpisy patkové (`--font-serif`), tenké linky `1px solid`, mosazný akcent přes tokeny. Žádný herní UI jazyk.
+- **Estetika (finální styl „noční atlas“, 2026-11):** light = teplý papír `#F4F2EE` a tuš, dark = noční modř `#0D1324`; hlavička, noční pás titulní strany a patička jsou vždy noční. Jeden ultramarínový akcent (`--color-accent`, dark `#9DB0FF`) pro odkazy a akce, leží mimo barvy archetypů. Barva archetypu (light/dark z `chapters.json`, v CSS `--hue`) jen pro záložky, silné linky, profil os a štítky. Písma: **Fraunces** (nadpisy, názvy světů, jádra, citáty; `--font-display`), **Source Serif 4** (dlouhé texty; `--font-text`), **Public Sans** (rozhraní; `--font-sans`), **IBM Plex Mono** (štítky a čísla; `--font-mono`). Bez zaoblených „pilulek“ a stínových rámů; oddíly dělí linky a vzduch. Motiv řídí systém čtenáře, dokud si nevybere sám (`hbw_theme`). Žádný herní UI jazyk.
 - **Stack:** Astro 7 + React islands (`client:load`), statický export. Node ≥ 20.
 - **GitHub Pages:** `astro.config.mjs` `base` = `HBW_BASE` (default `/Here-Be-Worlds`). Interní odkazy **vždy** `withBase()` z `src/lib/base-url.ts`.
 - **Vizuál:** používej CSS proměnné v `src/styles/tokens.css` (`--color-accent`, `--color-paper`, `--color-line`, …). Do obecného UI nehardcoduj cizí hex. Slotové barvy srovnávače žijí jen ve `src/lib/compare.ts` / `compare.css`.
@@ -57,7 +57,8 @@ Kroniky a eseje **nejsou** v `data/`.
 
 | Routa | Soubor | Hlavní komponenty |
 |---|---|---|
-| `/` | `src/pages/index.astro` | `HomeIntro` (bento, `ReaderDesk`) + `AtlasExplorer` (katalog, filtry, stezky, kompas) |
+| `/` | `src/pages/index.astro` | `HomeIntro` — noční pás s oblohou 43 hvězd (7 souhvězdí = archetypy, trvale popsaná jen jedna hvězda v souhvězdí, ostatní po najetí; dole jemné měřítko), Svět v popředí + `DailyMystery`, `ReaderDesk`, Rejstřík světů, Tři cesty, esej + stezky. Staré odkazy `/?theme=` a `/?trail=` přesměruje do `/atlas/`. |
+| `/atlas/` | `src/pages/atlas/index.astro` | `AtlasExplorer` (katalog, filtry, stezky, kompas); čte `?theme=` a `?trail=` |
 | `/compare/` | `src/pages/compare/index.astro` | `ComparePage` + `AxisOverlay` |
 | `/map/` | `src/pages/map/index.astro` | `AxisGridMap` — Kartografie os (mřížka 5 × 5, bez výpočtu příbuznosti) |
 | `/chapters/[id]/` | `src/pages/chapters/[id].astro` | `ChapterPage` — URL zůstává `chapters`, UI = Archetyp |
@@ -71,12 +72,13 @@ Layout: `src/layouts/BaseLayout.astro` — header/footer, theme/lang FOUC, glob�
 
 ### Karta světa vs záložky
 
-- Záložky jsou v **`WorldPageShell`**, ne ve `WorldCard`.
+- Hlavička spisu (`WorldPageMasthead`): drobečky Atlas / písmeno · archetyp / №, záložka archetypu s profilem archetypu, velký název, název kroniky, údaje Studio · Roky · Vesmír · Rozsah kánonu. Při čtení se stáhne (`is-compact`).
+- Záložky jsou v **`WorldPageShell`**, ne ve `WorldCard`. Ukazují obsah („Kronika · 9 kapitol · 20 min“, „Faktografie · 5 oddílů“, „Anatomie vyprávění · 6 částí“); počty spočítá `chronicleStats` (`chronicle-toc.ts`) při sestavení v `src/pages/worlds/[slug].astro`. Vpravo `+ Srovnat` (zásobník).
 - Módy: `card` (default) · `chronicle` · `appendices` · `analysis` přes `?view=chronicle\|appendices\|analysis`. `?resume=1` pokračuje v kronice.
 - `appendices` / `analysis` skáčou do částí markdown kroniky (`chronicle-toc.ts`). Nejsou to samostatné JSON stránky.
 - Triáda (Prvotní hřích / Ústřední dilema / Hlavní tajemství) je **i na kartě** (`WorldCard`).
-- `WorldCard` skládá jádro, meta-dlaždice, témata, `FiveAxes` (Profil světa), signaturu, triádu.
-- `SimilarWorlds` na kartě = kurátorské `relatedWorlds` z atlasu; když chybí, záloha přes `kinshipRanking` (index příbuznosti ze srovnání).
+- `WorldCard` skládá jádro (Fraunces kurzíva, bez nadpisu), šest údajů vlevo (nálada, hloubka, dosah, společnost, moc, perspektiva), vpravo `FiveAxes` (Profil světa, pět řad po pěti dílcích), Témata (obrysové štítky → `/atlas/?theme=`), Jak svět vypráví (plné štítky), Klíčoví aktéři; pak Čím je svět charakteristický a triádu. Profil archetypu je v záložce hlavičky.
+- `SimilarWorlds` = sekce **Příbuzenstvo**: kurátorské `relatedWorlds` z atlasu se slovním stupněm; když chybí, záloha přes `kinshipRanking` (index příbuznosti ze srovnání). Odkaz „Ukázat na mapě“ vede na `/map/?svet=`.
 
 ### Knihovny — jeden index příbuznosti
 
@@ -87,7 +89,7 @@ Layout: `src/layouts/BaseLayout.astro` — header/footer, theme/lang FOUC, glob�
 | `src/lib/i18n.ts` | UI copy `cs`/`en`. `uiT('world.viewCard')` atd. |
 | `src/lib/worlds.ts` | Parse katalogu, kapitoly, related, `buildSearchText`. |
 | `src/lib/search.ts` | MiniSearch pro katalog. Filtry: `AtlasExplorer` + `field-options.ts`. |
-| `src/lib/compare-tray.ts` | `hbw_compare` — zásobník na atlasu/mapě. **Ne** stav stránky `/compare/`. |
+| `src/lib/compare-tray.ts` | `hbw_compare` — zásobník na atlasu, mapě a spisu světa. **Ne** stav stránky `/compare/`. |
 | `src/lib/reader-desk.ts` | `hbw_reader_desk` — poslední spisy + resume kroniky. |
 | `src/lib/trails.ts` | Tematické stezky homepage. |
 | `src/lib/imprint.ts` | Otisk os pro `WorldCompass`. |
@@ -95,7 +97,7 @@ Layout: `src/layouts/BaseLayout.astro` — header/footer, theme/lang FOUC, glob�
 | `src/lib/chronicle-toc.ts` | Části/kapitoly kroniky; regex `Kapitola I` v **těle kroniky** je správně. |
 | `src/lib/theme-store.ts` / `locale-store.ts` | `hbw_theme` / `hbw_lang`. |
 
-Styly: `src/styles/tokens.css`, `layout.css`, `typography.css`, `home.css`, `world-card.css`, `compare.css`, `chronicle.css`, `map.css`, `chapter.css`, `about.css`, `notes.css`, `contact.css`.
+Styly: `src/styles/tokens.css`, `layout.css`, `typography.css`, `home-page.css` (titulní strana + hlavička `/atlas/`), `home.css` (katalog, stezky, kompas, zásobník), `world-card.css` (spis světa), `compare.css`, `chronicle.css`, `map.css`, `chapter.css`, `about.css`, `notes.css`, `contact.css`, `essay.css`.
 
 ---
 
@@ -105,7 +107,7 @@ Styly: `src/styles/tokens.css`, `layout.css`, `typography.css`, `home.css`, `wor
 |---|---|---|
 | `hbw_theme` | `theme-store.ts` | `ThemeSwitcher`, FOUC v `BaseLayout` |
 | `hbw_lang` | `locale-store.ts` | `LanguageSwitcher`, FOUC v `BaseLayout` |
-| `hbw_compare` | `compare-tray.ts` | `CompareTray`, `CatalogWorldCard`, `WorldTeaser`, `AxisGridMap` |
+| `hbw_compare` | `compare-tray.ts` | `CompareTray`, `CatalogWorldCard`, `WorldTeaser`, `AxisGridMap`, `WorldPageShell` |
 | `hbw_reader_desk` | `reader-desk.ts` | `ReaderDesk`, `WorldPageShell` (`touchRecent`), `ChronicleReader` |
 
 **`/compare/` `hbw_compare` nečte.** Stav slotů = URL `?w=id1,id2[,id3]` (alias čtení `?worlds=`, zápis vždy `w`). Tray na homepage a stránka srovnání jsou oddělené.

@@ -26,7 +26,7 @@ export default function ChapterPage({ id, title, thesis, lead, accent, worlds, b
     '--chapter-hue-light': accent.light,
     '--chapter-hue-dark': accent.dark,
   } as CSSProperties;
-  const home = withBase(base, '/');
+  const home = withBase(base, '/atlas/');
   const mapped = worlds.filter(isMappedWorld);
   const mean = mapped.length > 0 ? meanAxes(mapped) : null;
   const extremes = mean ? axisExtremes(mapped, 3) : [];

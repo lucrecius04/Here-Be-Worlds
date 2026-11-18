@@ -1,4 +1,4 @@
-import { useMemo, useState, type CSSProperties } from 'react';
+import { useEffect, useMemo, useState, type CSSProperties } from 'react';
 import type { World } from '../../schemas/world';
 import type { LocalizedString } from '../../schemas/world';
 import { createWorldIndex } from '../../lib/search';
@@ -20,9 +20,8 @@ import CatalogWorldCard from './CatalogWorldCard';
 const narrationOptions: FieldOption[] = narrationData.narration.map((item) => ({ en: item.label.en, cs: item.label.cs }));
 const narrationSlugByEn = Object.fromEntries(narrationData.narration.map((item) => [item.label.en, item.slug]));
 import ThematicTrails from './ThematicTrails';
-import EssayTeaser from './EssayTeaser';
 import WorldCompass from './WorldCompass';
-import { trailById, type TrailId } from '../../lib/trails';
+import { TRAILS, trailById, type TrailId } from '../../lib/trails';
 import { latestAdded } from '../../lib/atlas-news';
 
 export type ChapterInfo = {
@@ -64,6 +63,20 @@ export default function AtlasExplorer({
   const [narration, setNarration] = useState('');
   const [moreOpen, setMoreOpen] = useState(false);
   const [activeTrail, setActiveTrail] = useState<TrailId | null>(null);
+
+  // Odkazy z titulní strany a z karet světa: /atlas/?theme=… a /atlas/?trail=…
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const themeParam = params.get('theme');
+    if (themeParam && themeLabels[themeParam]) setTheme(themeParam);
+    const trailParam = params.get('trail');
+    if (trailParam && TRAILS.some((trail) => trail.id === trailParam)) setActiveTrail(trailParam as TrailId);
+    if (themeParam || trailParam) {
+      requestAnimationFrame(() =>
+        document.getElementById('catalog-results')?.scrollIntoView({ block: 'start' }),
+      );
+    }
+  }, [themeLabels]);
 
   const extraActive = Boolean(historicalDepth || spatialScope || societalOrder || sourceOfPower || perspective || narration);
   const anyFilter =
@@ -147,7 +160,11 @@ export default function AtlasExplorer({
 
   return (
     <>
-    <EssayTeaser locale={locale} base={baseUrl} />
+    <header className="atlas-page__head">
+      <p className="atlas-page__kicker">{worldCountLabel(worlds.length, locale)}</p>
+      <h1 className="atlas-page__title display">{uiT('atlasPage.title', locale)}</h1>
+      <p className="atlas-page__lead">{uiT('atlasPage.lead', locale)}</p>
+    </header>
     <ThematicTrails locale={locale} active={activeTrail} onSelect={selectTrail} />
     <WorldCompass worlds={worlds} locale={locale} base={baseUrl} />
     <section className="catalog" id="catalog-results" aria-label={uiT('home.catalog', locale)}>

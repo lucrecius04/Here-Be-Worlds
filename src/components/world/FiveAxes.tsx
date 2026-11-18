@@ -5,62 +5,48 @@ import axesMeta from '../../../data/meta/axes.json';
 
 type Props = { world: World; notesHref?: string };
 
+/** Profil světa: pět os po pěti dílcích, zvýrazněný dílek v barvě archetypu. */
 export default function FiveAxes({ world, notesHref }: Props) {
   const locale = useLocale();
 
   return (
-    <section className="axes-block" aria-label={uiT('card.axesAria', locale)}>
-      <div className="axes-block__head">
-        <h2 className="axes-block__title">{uiT('card.profileWorld', locale)}</h2>
+    <section className="wc-block wc-axes" aria-label={uiT('card.axesAria', locale)}>
+      <div className="wc-axes__head">
+        <h2 className="wc-label">{uiT('card.profileWorld', locale)}</h2>
         {notesHref ? (
-          <a className="world-notes-link axes-block__notes" href={notesHref}>
+          <a className="wc-axes__notes" href={notesHref}>
             {uiT('world.howJudged', locale)}
           </a>
         ) : null}
       </div>
-      {axesMeta.axes.map((axis) => {
-        const key = axis.id as keyof World['axes'];
-        const val = world.axes[key];
-        const left = t(axis.left, locale);
-        const right = t(axis.right, locale);
-        const note = t(axis.help, locale);
-        const lean = val.value < 3 ? 'left' : val.value > 3 ? 'right' : null;
-        return (
-          <div className="carto-axis" key={axis.id}>
+      <div className="wc-axes__rows">
+        {axesMeta.axes.map((axis) => {
+          const key = axis.id as keyof World['axes'];
+          const value = world.axes[key].value;
+          const left = t(axis.left, locale);
+          const right = t(axis.right, locale);
+          const lean = value < 3 ? 'left' : value > 3 ? 'right' : null;
+          return (
             <div
-              className="carto-axis__row"
+              className="wc-axis"
+              key={axis.id}
               role="img"
-              aria-label={`${left} ${val.value} / 5 ${right}`}
+              aria-label={`${left} ${value} / 5 ${right}`}
+              title={t(axis.help, locale)}
             >
-              <span
-                className={`carto-axis__pole carto-axis__pole--left${lean === 'left' ? ' carto-axis__pole--active' : lean === 'right' ? ' carto-axis__pole--dim' : ' carto-axis__pole--idle'}`}
-              >
-                {left}
+              <span className={`wc-axis__pole${lean === 'left' ? ' is-lean' : ''}`}>{left}</span>
+              <span className="wc-axis__cells" aria-hidden="true">
+                {[1, 2, 3, 4, 5].map((tick) => (
+                  <i key={tick} className={tick === value ? 'is-on' : undefined} />
+                ))}
               </span>
-              <div className="carto-axis__track" aria-hidden="true">
-                {[1, 2, 3, 4, 5].map((tick) => {
-                  const dist = Math.abs(tick - val.value);
-                  const state = dist === 0 ? 'on' : dist === 1 ? 'near' : '';
-                  return (
-                    <span
-                      key={tick}
-                      className={`carto-axis__dot${state ? ` carto-axis__dot--${state}` : ''}`}
-                    />
-                  );
-                })}
-              </div>
-              <span
-                className={`carto-axis__pole carto-axis__pole--right${lean === 'right' ? ' carto-axis__pole--active' : lean === 'left' ? ' carto-axis__pole--dim' : ' carto-axis__pole--idle'}`}
-              >
+              <span className={`wc-axis__pole wc-axis__pole--right${lean === 'right' ? ' is-lean' : ''}`}>
                 {right}
               </span>
             </div>
-            <p className="carto-axis__comment">
-              <em>{note}</em>
-            </p>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </section>
   );
 }

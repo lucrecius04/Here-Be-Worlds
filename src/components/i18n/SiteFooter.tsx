@@ -39,7 +39,7 @@ export default function SiteFooter({ base }: Props) {
         </div>
         <nav className="site-footer__col" aria-label={uiT('footer.explore', locale)}>
           <h2 className="site-footer__heading">{uiT('footer.explore', locale)}</h2>
-          <a className="site-footer__link" href={withBase(base, '/')}>
+          <a className="site-footer__link" href={withBase(base, '/atlas/')}>
             {uiT('nav.atlas', locale)}
           </a>
           <a className="site-footer__link" href={withBase(base, '/compare/')}>

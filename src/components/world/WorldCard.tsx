@@ -31,65 +31,80 @@ export default function WorldCard({
   onOpenAnalysis,
 }: Props) {
   const locale = useLocale();
+  const actors = t(world.metadata.keyActors, locale);
+
+  const meta: Array<[string, MetadataField]> = [
+    ['card.atmosphere', world.metadata.atmosphere],
+    ['card.historicalDepth', world.metadata.historicalDepth],
+    ['card.spatialScope', world.metadata.spatialScope],
+    ['card.societalOrder', world.metadata.societalOrder],
+    ['card.sourceOfPower', world.metadata.sourceOfPower],
+    ['card.protagonistPerspective', world.metadata.protagonistPerspective],
+  ];
 
   const body = (
     <>
-      <div className="world-card__core-wrap">
-        <section className="world-card__core">{t(world.core, locale)}</section>
+      <p className="wc-core">{t(world.core, locale)}</p>
+
+      <div className="wc-grid">
+        <dl className="wc-meta" aria-label={uiT('card.metadataAria', locale)}>
+          {meta.map(([labelKey, field]) => (
+            <div className="wc-meta__item" key={labelKey}>
+              <dt className="wc-label">{uiT(labelKey, locale)}</dt>
+              <dd className="wc-meta__value">{t(field, locale)}</dd>
+              {field.sub ? <dd className="wc-meta__sub">{t(field.sub, locale)}</dd> : null}
+            </div>
+          ))}
+        </dl>
+
+        <div className="wc-side">
+          <FiveAxes world={world} notesHref={baseUrl ? `${baseUrl}/notes/` : undefined} />
+
+          <section className="wc-block" aria-labelledby="wc-themes">
+            <h2 id="wc-themes" className="wc-label">
+              {uiT('card.themesHeading', locale)}
+            </h2>
+            <div className="wc-chips">
+              {world.themes.map((slug) => (
+                <a key={slug} className="wc-chip" href={`${baseUrl}/atlas/?theme=${encodeURIComponent(slug)}`}>
+                  {themeLabels[slug] ? t(themeLabels[slug], locale) : slug}
+                </a>
+              ))}
+            </div>
+          </section>
+
+          {world.narration?.length ? (
+            <section className="wc-block" aria-labelledby="wc-narration">
+              <h2 id="wc-narration" className="wc-label">
+                <a href={`${baseUrl}/anatomie-herniho-lore/#jak-svety-vypraveji`}>
+                  {uiT('card.narrationHeading', locale)}
+                </a>
+              </h2>
+              <div className="wc-chips">
+                {world.narration.map((slug) => (
+                  <span key={slug} className="wc-chip wc-chip--fill">
+                    {NARRATION_LABELS[slug] ? t(NARRATION_LABELS[slug], locale) : slug}
+                  </span>
+                ))}
+              </div>
+            </section>
+          ) : null}
+
+          {actors ? (
+            <section className="wc-block" aria-labelledby="wc-actors">
+              <h2 id="wc-actors" className="wc-label">
+                {uiT('card.keyActors', locale)}
+              </h2>
+              <p className="wc-actors">{actors}</p>
+            </section>
+          ) : null}
+        </div>
       </div>
 
-      <section className="meta-grid" aria-label={uiT('card.metadataAria', locale)}>
-        <div className="meta-grid__row1">
-          <MetaTile label={uiT('card.genreProfile', locale)} field={world.metadata.genreProfile} />
-          <MetaTile label={uiT('card.atmosphere', locale)} field={world.metadata.atmosphere} />
-          <MetaTile label={uiT('card.historicalDepth', locale)} field={world.metadata.historicalDepth} />
-        </div>
-        <div className="meta-grid__row2">
-          <MetaTile label={uiT('card.spatialScope', locale)} field={world.metadata.spatialScope} />
-          <MetaTile label={uiT('card.societalOrder', locale)} field={world.metadata.societalOrder} />
-          <MetaTile label={uiT('card.sourceOfPower', locale)} field={world.metadata.sourceOfPower} />
-        </div>
-        <div className="meta-grid__row3">
-          <MetaTile
-            label={uiT('card.protagonistPerspective', locale)}
-            field={world.metadata.protagonistPerspective}
-          />
-          <MetaTile label={uiT('card.keyActors', locale)} field={world.metadata.keyActors} actors />
-        </div>
-      </section>
-
-      <section className="world-card__themes" aria-label={uiT('card.themesHeading', locale)}>
-        <span className="world-card__themes-title">{uiT('card.themesHeading', locale)}</span>
-        <div className="theme-pills">
-        {world.themes.map((slug) => (
-          <a
-            key={slug}
-            className="theme-pill"
-            href={`${baseUrl}/?theme=${encodeURIComponent(slug)}`}
-          >
-            {themeLabels[slug] ? t(themeLabels[slug], locale) : slug}
-          </a>
-        ))}
-        </div>
-      </section>
-
-      {world.narration?.length ? (
-        <section className="world-card__narration" aria-label={uiT('card.narrationHeading', locale)}>
-          <a className="world-card__narration-title" href={`${baseUrl}/anatomie-herniho-lore/#jak-svety-vypraveji`}>
-            {uiT('card.narrationHeading', locale)}
-          </a>
-          <span className="world-card__narration-values">
-            {world.narration.map((slug) => (NARRATION_LABELS[slug] ? t(NARRATION_LABELS[slug], locale) : slug)).join(' · ')}
-          </span>
-        </section>
-      ) : null}
-
-      <FiveAxes world={world} notesHref={baseUrl ? `${baseUrl}/notes/` : undefined} />
-
       {world.signatureBullets?.length ? (
-        <section className="world-card__signature" aria-label={uiT('card.signatureAria', locale)}>
-          <h3 className="world-card__signature-title">{uiT('card.signatureHeading', locale)}</h3>
-          <ul className="world-card__bullets">
+        <section className="wc-signature" aria-label={uiT('card.signatureAria', locale)}>
+          <h2 className="wc-h2">{uiT('card.signatureHeading', locale)}</h2>
+          <ul className="wc-bullets">
             {world.signatureBullets.map((b) => (
               <li key={b.en ?? b.cs}>
                 <SignatureLead text={t(b, locale)} />
@@ -99,7 +114,7 @@ export default function WorldCard({
         </section>
       ) : null}
 
-      <section className="triad-grid" aria-label={uiT('card.triadAria', locale)}>
+      <section className="wc-triad" aria-label={uiT('card.triadAria', locale)}>
         {(
           [
             ['originalSin', 'card.originalSin', 'card.triadHelpOriginalSin', 'prvotni-hrich'],
@@ -107,17 +122,22 @@ export default function WorldCard({
             ['ultimateMystery', 'card.ultimateMystery', 'card.triadHelpUltimateMystery', 'rizena-mezera'],
           ] as const
         ).map(([key, labelKey, helpKey, anchor]) => (
-          <div className="triad-cell" key={key}>
-            <MetaTile
-              label={uiT(labelKey, locale)}
-              body={t(world.triad[key], locale)}
-              onActivate={onOpenAnalysis ? () => onOpenAnalysis(key) : undefined}
-            />
-            <TriadHelp
-              label={uiT(labelKey, locale)}
-              text={uiT(helpKey, locale)}
-              href={`${baseUrl}/anatomie-herniho-lore/#${anchor}`}
-            />
+          <div className="wc-triad__cell" key={key}>
+            <div className="wc-triad__head">
+              <h3 className="wc-triad__label">{uiT(labelKey, locale)}</h3>
+              <TriadHelp
+                label={uiT(labelKey, locale)}
+                text={uiT(helpKey, locale)}
+                href={`${baseUrl}/anatomie-herniho-lore/#${anchor}`}
+              />
+            </div>
+            {onOpenAnalysis ? (
+              <button type="button" className="wc-triad__text wc-triad__text--jump" onClick={() => onOpenAnalysis(key)}>
+                {t(world.triad[key], locale)}
+              </button>
+            ) : (
+              <p className="wc-triad__text">{t(world.triad[key], locale)}</p>
+            )}
           </div>
         ))}
       </section>
@@ -125,7 +145,11 @@ export default function WorldCard({
   );
 
   if (hideHeader) {
-    return <div className="world-card__body" id="world-card">{body}</div>;
+    return (
+      <div className="world-card__body" id="world-card">
+        {body}
+      </div>
+    );
   }
 
   return (
@@ -145,42 +169,6 @@ function SignatureLead({ text }: { text: string }) {
       {match[3]}
     </>
   );
-}
-
-function MetaTile({
-  label,
-  field,
-  body,
-  actors,
-  onActivate,
-}: {
-  label: string;
-  field?: MetadataField;
-  body?: string;
-  actors?: boolean;
-  onActivate?: () => void;
-}) {
-  const locale = useLocale();
-  const main = field ? t(field, locale) : (body ?? '');
-  const sub = field?.sub ? t(field.sub, locale) : null;
-  const className = `meta-tile${actors ? ' meta-tile--actors' : ''}${onActivate ? ' meta-tile--jump' : ''}`;
-  const inner = (
-    <>
-      <div className="meta-tile__label">{label}</div>
-      <div className={`meta-tile__body${field && !actors ? ' meta-tile__body--value' : ''}`}>{main}</div>
-      {sub ? <p className="meta-tile__sub">{sub}</p> : null}
-    </>
-  );
-
-  if (onActivate) {
-    return (
-      <button type="button" className={className} onClick={onActivate}>
-        {inner}
-      </button>
-    );
-  }
-
-  return <div className={className}>{inner}</div>;
 }
 
 /** Otazník u pole triády: krátká definice a odkaz do eseje Anatomie herního lore. */

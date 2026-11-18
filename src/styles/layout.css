@@ -2,15 +2,20 @@
   position: sticky;
   top: 0;
   z-index: 40;
-  border-bottom: none;
-  padding: 0.65rem 1.5rem;
+  border-bottom: 1px solid var(--color-night-line);
+  padding: 0.95rem max(var(--gutter), calc((100% - var(--content-max)) / 2));
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 0.75rem;
-  background: #080706;
-  color: #f6f0e6;
+  gap: 0.75rem 1.75rem;
+  background: var(--color-night);
+  color: var(--color-night-ink);
+}
+
+/* Na titulní straně hlavička plynule přechází v noční pás. */
+body:has(.hp) .site-header {
+  border-bottom-color: transparent;
 }
 
 html:has(.world-card--page),
@@ -22,24 +27,48 @@ body:has(.world-card--page) {
 }
 
 .site-header__brand {
-  font-family: var(--font-serif);
-  font-size: 1.35rem;
-  color: inherit;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.875rem;
+  color: var(--color-night-button);
   text-decoration: none;
+}
+
+.site-header__name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  font-size: 1.5rem;
+  line-height: 1.1;
+}
+
+.site-header__tagline {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-night-muted);
+}
+
+@media (max-width: 1000px) {
+  .site-header__tagline {
+    display: none;
+  }
 }
 
 .site-header__end {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 1.25rem;
+  gap: 0.75rem 1.5rem;
 }
 
 .lang-switch {
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
-  font-size: 0.8rem;
+  gap: 0.2rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
   font-weight: 500;
   letter-spacing: 0.04em;
 }
@@ -110,42 +139,46 @@ html[data-theme='dark'] .theme-switch__btn[data-theme-pick='dark'] {
 
 .site-nav {
   display: flex;
-  gap: 1.25rem;
-  font-size: 0.9rem;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 500;
 }
 
-.site-nav a:hover {
+.site-header .site-nav a {
+  color: var(--color-night-soft);
+}
+
+.site-header .site-nav a:hover,
+.site-header .site-nav a:focus-visible {
   color: #fff;
 }
 
+@media (max-width: 720px) {
+  .site-nav {
+    gap: 0.4rem 1.1rem;
+    font-size: 0.875rem;
+  }
+}
+
 .site-main {
-  --frame-pad-x: 1.5rem;
-  --frame-pad-y: 2rem;
-  --frame-pad-bottom: 4rem;
-  max-width: var(--content-max);
-  width: calc(100% - 2.3rem);
+  --frame-pad-x: var(--gutter);
+  --frame-pad-y: 2.5rem;
+  --frame-pad-bottom: 4.5rem;
+  max-width: calc(var(--content-max) + 2 * var(--frame-pad-x));
+  width: 100%;
   flex: 1 0 auto;
-  margin: 1.15rem auto;
+  margin: 0 auto;
   padding: var(--frame-pad-y) var(--frame-pad-x) var(--frame-pad-bottom);
-  background-color: var(--color-paper);
-  background-image: radial-gradient(
-    color-mix(in srgb, var(--color-ink) 8%, transparent) 1px,
-    transparent 1px
-  );
-  background-size: 20px 20px;
-  border: 1px solid var(--color-line);
-  border-radius: 12px;
-  box-shadow: 0 18px 48px color-mix(in srgb, #000 14%, transparent);
-  overflow: hidden;
+  /* Bez „rámu v rámu“: stránka je přímo papír, oddíly dělí linky a vzduch. */
+  background: transparent;
 }
 
 @media (max-width: 720px) {
   .site-main {
-    --frame-pad-x: 1rem;
-    --frame-pad-y: 1.35rem;
+    --frame-pad-y: 1.5rem;
     --frame-pad-bottom: 2.5rem;
-    margin: 0.75rem;
-    border-radius: 10px;
   }
 }
 
@@ -186,15 +219,15 @@ body:has(.world-card--page) .site-footer {
 .site-footer {
   flex-shrink: 0;
   margin-top: auto;
-  border-top: 1px solid rgb(255 255 255 / 0.08);
-  padding: 1.85rem 1.5rem 1.75rem;
-  background: #080706;
-  color: rgb(246 240 230 / 0.55);
+  border-top: 1px solid var(--color-night-line);
+  padding: 2.25rem var(--gutter) 2.25rem;
+  background: var(--color-night);
+  color: var(--color-night-muted);
 }
 
 .site-footer__inner {
-  max-width: 72rem;
-  margin: 0 auto 1.2rem;
+  max-width: var(--content-max);
+  margin: 0 auto 1.5rem;
   display: grid;
   grid-template-columns: minmax(10rem, 12.25rem) minmax(5.75rem, 7rem) auto minmax(7.5rem, 9.25rem);
   gap: 0.85rem 1.75rem;
@@ -204,10 +237,11 @@ body:has(.world-card--page) .site-footer {
 
 .site-footer__name {
   display: inline-block;
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-size: 1.35rem;
-  font-weight: 600;
-  color: #f6f0e6;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--color-night-button);
   text-decoration: none;
   line-height: 1.15;
 }
@@ -217,27 +251,29 @@ body:has(.world-card--page) .site-footer {
 }
 
 .site-footer__tagline {
-  margin: 0.2rem 0 0;
-  font-family: var(--font-serif);
-  font-size: 0.98rem;
-  font-style: italic;
-  color: #f6f0e6;
+  margin: 0.3rem 0 0;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-night-muted);
 }
 
 .site-footer__meta {
   margin: 0.2rem 0 0;
-  font-size: 0.74rem;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
   letter-spacing: 0.04em;
 }
 
 .site-footer__heading {
-  margin: 0 0 0.4rem;
-  font-family: var(--font-sans);
-  font-size: 0.64rem;
+  margin: 0 0 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: color-mix(in srgb, #c4a574 72%, #fff);
+  color: var(--color-night-muted);
 }
 
 .site-footer__col {
@@ -271,10 +307,11 @@ body:has(.world-card--page) .site-footer {
 }
 
 .site-footer__link {
-  color: rgb(246 240 230 / 0.58);
+  color: var(--color-night-soft);
   text-decoration: none;
-  font-size: 0.84rem;
-  line-height: 1.3;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  line-height: 1.35;
 }
 
 .site-footer__link:hover {
@@ -288,24 +325,26 @@ body:has(.world-card--page) .site-footer {
 .site-footer__bottom {
   max-width: var(--content-max);
   margin: 0 auto;
-  padding-top: 1rem;
-  border-top: 1px solid rgb(255 255 255 / 0.1);
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--color-night-line);
   text-align: center;
 }
 
 .site-footer__copy {
   margin: 0;
-  font-size: 0.82rem;
-  color: #f6f0e6;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  color: var(--color-night-soft);
 }
 
 .site-footer__dot {
   margin: 0 0.45rem;
-  color: rgb(246 240 230 / 0.28);
+  color: var(--color-night-edge);
 }
 
 .site-footer__disclaimer {
-  margin: 0.35rem 0 0;
+  margin: 0.4rem 0 0;
   font-size: 0.78rem;
   max-width: 40rem;
   margin-left: auto;
@@ -338,43 +377,6 @@ body:has(.world-card--page) .site-footer {
   .site-footer__inner {
     grid-template-columns: 1fr;
   }
-}
-
-.chapter-strip {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
-  margin: 2rem 0;
-}
-
-.chapter-card {
-  border: 1px solid var(--color-line);
-  border-radius: var(--radius-md);
-  padding: 1rem;
-  background: var(--color-paper);
-  border-top: 3px solid var(--chapter-accent, var(--color-accent));
-}
-
-.atlas-explorer {
-  display: grid;
-  grid-template-columns: minmax(240px, 280px) 1fr;
-  gap: 2rem;
-  align-items: start;
-}
-
-@media (max-width: 800px) {
-  .atlas-explorer {
-    grid-template-columns: 1fr;
-  }
-}
-
-.atlas-explorer__filters {
-  position: sticky;
-  top: calc(var(--site-header-height) + 1rem);
-  border: 1px solid var(--color-line);
-  border-radius: var(--radius-md);
-  padding: 1rem;
-  background: var(--color-tile);
 }
 
 .field-label {
@@ -419,27 +421,24 @@ body:has(.world-card--page) .site-footer {
   font-size: 1.35rem;
 }
 
-.world-teaser__sub {
-  font-size: 0.88rem;
-  color: var(--color-ink-muted);
-  margin: 0;
-}
+/* Úzký displej: značka a přepínače na jednom řádku, navigace pod nimi; hlavička se neposouvá s obsahem. */
+@media (max-width: 720px) {
+  .site-header {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    align-items: center;
+    gap: 0.6rem 0.75rem;
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+  }
 
-.view-tabs {
-  display: flex;
-  gap: 0.5rem;
-  margin: 1.5rem 0;
-}
+  .site-header__end {
+    display: contents;
+  }
 
-.view-tab {
-  padding: 0.4rem 0.9rem;
-  border: 1px solid var(--color-line);
-  border-radius: 999px;
-  background: var(--color-paper);
-  font-size: 0.85rem;
-}
-
-.view-tab--active {
-  border-color: var(--color-accent);
-  background: var(--color-tile);
+  .site-nav {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
 }

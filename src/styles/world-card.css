@@ -1,354 +1,23 @@
+/*
+ * Spis světa (finální styl „noční atlas“, 2026-11).
+ * Stránka světa je pevná na výšku okna: nahoře hlavička se záložkami, pod ní posuvná plocha
+ * (karta, kronika, faktografie, anatomie). Barva archetypu (--hue) žije jen v záložce, linkách
+ * a profilu os; odkazy a akce mají společný ultramarínový akcent webu.
+ */
+
 .world-card {
-  border: 1px solid var(--color-line);
-  border-radius: var(--radius-md);
   background: var(--color-paper);
-  box-shadow: var(--shadow-card);
-  padding: 1.5rem 1.75rem 2rem;
 }
 
 .world-card__body {
   margin: 0;
 }
 
-.world-card__title-row {
-  display: flex;
-  align-items: baseline;
-  justify-content: flex-start;
-  gap: 0.45rem 0.95rem;
-  flex-wrap: wrap;
-}
-
-.world-card__title {
-  font-size: 2rem;
-  margin: 0.25rem 0;
-}
-
-.world-page__masthead .world-card__title-row {
-  margin: 0;
-  padding: 0.42rem 8.5rem 0 0;
-}
-
-.world-page__masthead .world-card__title {
-  font-size: 3.9rem;
-  line-height: 1.02;
-  margin: 0;
-  color: color-mix(in srgb, #fff 78%, #c4b49a);
-}
-
-.world-page__masthead .world-card__facts {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0.15rem 0;
-  margin: 0.18rem 0 0.45rem;
-}
-
-.world-card__fact-wrap {
-  display: inline-flex;
-  align-items: baseline;
-}
-
-.world-card__fact {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 0.35rem 0.5rem;
-}
-
-.world-card__fact-dot {
-  margin: 0 0.55rem;
-  color: var(--color-ink-muted);
-  font-size: 0.95rem;
-  line-height: 1;
-}
-
-.world-card__byline {
-  font-family: var(--font-serif);
-  color: var(--color-ink-muted);
-  margin: 0;
-  font-size: 1.05rem;
-  white-space: nowrap;
-}
-
-.world-card__subtitle {
-  font-family: var(--font-serif);
-  color: var(--color-ink-muted);
-  margin: 0;
-}
-
-.world-card__canon {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0.4rem 0.65rem;
-  margin: 0.2rem 0 0.55rem;
-}
-
-.world-card__canon-label {
-  font-size: 0.65rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--color-accent);
-  font-family: var(--font-sans);
-  font-weight: 600;
-}
-
-.world-card__canon-value {
-  font-size: 0.92rem;
-  line-height: 1.5;
-  color: var(--color-ink);
-}
-
-.world-card__canon-link {
-  text-decoration: none;
-}
-
-.world-card__canon-link:hover {
-  text-decoration: underline;
-  text-underline-offset: 0.18em;
-}
-
-.world-card__core-wrap {
-  margin: 1.5rem 0;
-}
-
-.world-card__core {
-  padding: 1.25rem 1.4rem;
-  border-left: 4px solid var(--color-accent);
-  border-radius: 0 var(--radius-md) var(--radius-md) 0;
-  background: linear-gradient(90deg, var(--color-tile) 0%, var(--color-paper) 100%);
-  font-family: var(--font-serif);
-  font-size: 1.28rem;
-  line-height: 1.55;
-}
-
-.world-card--page .world-card__core {
-  padding: 1.35rem 1.55rem;
-  border-left-width: 6px;
-  background: color-mix(in srgb, var(--chapter-hue) 18%, #fff);
-  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--chapter-hue) 28%, var(--color-line));
-  font-size: 1.42rem;
-  line-height: 1.5;
-  color: var(--color-ink);
-  font-weight: 500;
-}
-
-html[data-theme='dark'] .world-card--page .world-card__core {
-  background: color-mix(in srgb, var(--chapter-hue) 20%, #4a433c);
-  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--chapter-hue) 42%, transparent);
-  color: #f7f1e8;
-}
-
-.world-card__signature {
-  margin: 1.25rem 0 0.2rem;
-  padding-top: 0.5rem;
-  border-top: 1px solid var(--color-line);
-}
-
-.world-card__signature-title {
-  font-size: 0.68rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--color-accent);
-  margin: 0 0 0.6rem;
-  font-family: var(--font-sans);
-  font-weight: 500;
-}
-
-.world-card__bullets {
-  margin: 0;
-  padding-left: 1.25rem;
-  color: var(--color-ink);
-  font-size: 0.92rem;
-  line-height: 1.45;
-}
-
-.world-card__bullets strong {
-  font-weight: 600;
-  color: var(--color-ink);
-}
-
-.meta-grid {
-  display: grid;
-  gap: 0.85rem;
-  margin: 1rem 0 0.2rem;
-}
-
-.meta-grid__row1,
-.meta-grid__row2 {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.85rem;
-}
-
-.meta-grid__row3 {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 0.85rem;
-}
-
-.meta-tile {
-  border: 1px solid var(--color-line);
-  border-radius: var(--radius-md);
-  padding: 0.9rem 1rem;
-  background: var(--color-tile);
-  overflow: visible;
-}
-
-.meta-tile--jump {
-  display: block;
-  width: 100%;
-  margin: 0;
-  text-align: left;
-  font: inherit;
-  color: inherit;
-  cursor: pointer;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
-}
-
-.meta-tile--jump:hover,
-.meta-tile--jump:focus-visible {
-  border-color: var(--color-accent);
-  box-shadow: 0 0 0 1px var(--color-accent);
-  outline: none;
-}
-
-.world-card__kicker {
-  position: absolute;
-  top: 0.52rem;
-  right: 0.7rem;
-  display: flex;
-  align-items: baseline;
-  justify-content: flex-end;
-  margin: 0;
-  z-index: 1;
-}
-
-.world-card__genre {
-  margin: 0;
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--color-accent);
-  font-family: var(--font-sans);
-  font-weight: 600;
-}
-
-.meta-tile__head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.35rem;
-  margin-bottom: 0.35rem;
-}
-
-.meta-tile__head .meta-tile__label {
-  margin-bottom: 0;
-}
-
-.meta-tile__sub {
-  margin: 0.35rem 0 0;
-  font-size: 0.82rem;
-  line-height: 1.4;
-  color: var(--color-ink-muted);
-  font-style: italic;
-}
-
-.meta-info {
-  position: relative;
-  flex-shrink: 0;
-}
-
-.meta-info__btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  list-style: none;
-  width: 1.15rem;
-  height: 1.15rem;
-  padding: 0;
-  border: 1px solid var(--color-line);
-  border-radius: 50%;
-  background: var(--color-paper);
-  color: var(--color-accent);
-  font-size: 0.68rem;
-  font-weight: 700;
-  font-style: italic;
-  font-family: var(--font-serif);
-  cursor: pointer;
-  line-height: 1;
-}
-
-.meta-info__btn::-webkit-details-marker {
-  display: none;
-}
-
-.meta-info__btn:hover {
-  border-color: var(--color-accent);
-  background: var(--color-tile);
-}
-
-.meta-info[open] .meta-info__btn {
-  border-color: var(--color-accent);
-  background: var(--color-tile);
-}
-
-.meta-info__popover {
-  position: absolute;
-  z-index: 50;
-  top: calc(100% + 6px);
-  right: 0;
-  width: min(18rem, 70vw);
-  padding: 0.65rem 0.75rem;
-  border: 1px solid var(--color-line);
-  border-radius: var(--radius-md);
-  background: var(--color-paper);
-  box-shadow: var(--shadow-card);
-  font-size: 0.82rem;
-  line-height: 1.45;
-  color: var(--color-ink);
-}
-
-.meta-tile--actors {
-  background: var(--color-tile);
-}
-
-.meta-tile__label {
-  font-size: 0.65rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--color-accent);
-  margin-bottom: 0.45rem;
-}
-
-.meta-tile__body {
-  font-size: 0.92rem;
-  line-height: 1.5;
-  color: var(--color-ink);
-}
-
-.meta-tile__body--value {
-  font-weight: 600;
-}
-
-.meta-tile__para {
-  margin: 0 0 0.65rem;
-}
-
-.meta-tile__para:last-child {
-  margin-bottom: 0;
-}
+/* ---------- Kostra stránky ---------- */
 
 .world-card--page {
   --chapter-hue: var(--chapter-hue-light);
-  --masthead-ink: #f6f0e6;
-  --masthead-ink-muted: color-mix(in srgb, var(--masthead-ink) 72%, var(--chapter-hue));
-  --page-gutter: max(1.5rem, calc((100% - var(--content-max)) / 2 + 1.5rem));
-  --pane-tuck: 0.85rem;
-  --color-accent: var(--chapter-hue);
-  --color-accent-soft: color-mix(in srgb, var(--chapter-hue) 55%, var(--color-paper));
-  --color-paper: color-mix(in srgb, var(--chapter-hue) 5%, #fbf8f3);
-  --color-tile: #ffffff;
-  --color-line: color-mix(in srgb, var(--chapter-hue) 16%, #e6dfd4);
+  --hue: var(--chapter-hue-light, var(--color-accent));
   flex: 1;
   width: 100%;
   min-width: 0;
@@ -356,177 +25,26 @@ html[data-theme='dark'] .world-card--page .world-card__core {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  overflow-x: hidden;
-  padding: 0;
-  border: none;
-  border-radius: 0;
-  box-shadow: none;
-  background: color-mix(in srgb, var(--chapter-hue-light) 14%, #e7e0d4);
+  background: var(--color-paper);
 }
 
 html[data-theme='dark'] .world-card--page {
   --chapter-hue: var(--chapter-hue-dark);
-  --masthead-ink: var(--chapter-hue-dark);
-  --masthead-ink-muted: color-mix(in srgb, var(--chapter-hue-dark) 70%, #f6f0e6);
-  --color-paper: color-mix(in srgb, var(--chapter-hue) 8%, #262320);
-  --color-tile: color-mix(in srgb, var(--chapter-hue) 14%, #35312c);
-  --color-line: color-mix(in srgb, var(--chapter-hue) 22%, #4a4540);
-  background: color-mix(in srgb, var(--chapter-hue-light) 16%, #100f0e);
+  --hue: var(--chapter-hue-dark, var(--color-accent));
+}
+
+.world-page__wrap {
+  max-width: calc(var(--content-max) + 2 * var(--gutter));
+  margin: 0 auto;
+  padding: 0 var(--gutter);
 }
 
 .world-page__masthead {
-  --color-ink: var(--masthead-ink);
-  --color-ink-muted: var(--masthead-ink-muted);
-  --color-accent: var(--masthead-ink-muted);
-  --color-paper: color-mix(in srgb, var(--masthead-ink) 10%, transparent);
-  --color-tile: var(--masthead-ink);
-  --color-line: color-mix(in srgb, var(--masthead-ink) 32%, transparent);
-  --masthead-base: color-mix(in srgb, var(--chapter-hue-light) 58%, #080706);
   position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  flex: 0 0 auto;
   z-index: 30;
-  margin: 0;
-  padding: 0.4rem var(--page-gutter) 1.15rem;
-  background-color: var(--masthead-base);
-  color: var(--masthead-ink);
-  border-bottom: none;
-  box-shadow:
-    inset 0 1px 0 rgb(255 255 255 / 0.08),
-    0 1px 0 color-mix(in srgb, #000 40%, var(--chapter-hue-light)),
-    0 16px 36px rgb(0 0 0 / 0.42);
-}
-
-html[data-theme='dark'] .world-page__masthead {
-  --masthead-base: color-mix(in srgb, var(--chapter-hue-light) 72%, #080706);
-  box-shadow:
-    inset 0 1px 0 rgb(255 255 255 / 0.05),
-    0 1px 0 color-mix(in srgb, #000 52%, var(--chapter-hue-light)),
-    0 18px 40px rgb(0 0 0 / 0.52);
-}
-
-.world-page__masthead::before,
-.world-page__masthead::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.world-page__masthead::before {
-  background:
-    radial-gradient(120% 90% at 16% -18%, rgb(255 255 255 / 0.16), transparent 52%),
-    radial-gradient(85% 75% at 100% 120%, rgb(0 0 0 / 0.38), transparent 58%),
-    linear-gradient(180deg, rgb(255 255 255 / 0.1) 0%, rgb(0 0 0 / 0.22) 100%);
-}
-
-.world-page__masthead::after {
-  opacity: 0.42;
-  mix-blend-mode: overlay;
-  background-image: url('./textures/masthead-grain.svg');
-  background-size: 160px 160px;
-}
-
-.world-page__masthead .world-card__header,
-.world-page__masthead .view-mode-tabs {
-  position: relative;
-  z-index: 1;
-}
-
-.world-page__masthead .world-card__kicker {
-  right: 0;
-}
-
-.world-card--page[data-chapter='fantasy'] .world-page__masthead::before {
-  background:
-    repeating-linear-gradient(32deg, rgb(255 255 255 / 0.035) 0 1px, transparent 1px 13px),
-    radial-gradient(110% 80% at 12% -25%, rgb(255 255 255 / 0.18), transparent 48%),
-    radial-gradient(70% 90% at 92% 130%, rgb(0 0 0 / 0.4), transparent 55%),
-    linear-gradient(165deg, rgb(255 255 255 / 0.08), rgb(0 0 0 / 0.24));
-}
-
-.world-card--page[data-chapter='fantasy'] .world-page__masthead::after {
-  opacity: 0.48;
-  background-image: url('./textures/masthead-fantasy.svg');
-  background-size: 200px 130px;
-}
-
-.world-card--page[data-chapter='science-fiction'] .world-page__masthead::before {
-  background:
-    linear-gradient(122deg, transparent 36%, rgb(255 255 255 / 0.16) 49%, transparent 62%),
-    radial-gradient(90% 70% at 78% -30%, rgb(255 255 255 / 0.18), transparent 55%),
-    linear-gradient(180deg, rgb(255 255 255 / 0.07), rgb(0 0 0 / 0.26));
-}
-
-.world-card--page[data-chapter='science-fiction'] .world-page__masthead::after {
-  opacity: 0.22;
-  background-size: 220px 220px;
-}
-
-.world-card--page[data-chapter='post-apocalypse'] .world-page__masthead::before {
-  background:
-    radial-gradient(110% 85% at 20% -20%, rgb(255 255 255 / 0.12), transparent 52%),
-    linear-gradient(90deg, rgb(0 0 0 / 0.14), transparent 28%, transparent 72%, rgb(0 0 0 / 0.16)),
-    linear-gradient(180deg, rgb(255 255 255 / 0.06) 0%, rgb(0 0 0 / 0.2) 100%);
-}
-
-.world-card--page[data-chapter='post-apocalypse'] .world-page__masthead::after {
-  opacity: 0.4;
-  background-image: url('./textures/masthead-postapo.svg');
-  background-size: 110px 110px;
-}
-
-.world-card--page[data-chapter='horror'] .world-page__masthead::before {
-  background:
-    radial-gradient(70% 90% at 50% 35%, transparent 14%, rgb(0 0 0 / 0.46) 100%),
-    linear-gradient(180deg, rgb(255 255 255 / 0.05), rgb(0 0 0 / 0.38));
-}
-
-.world-card--page[data-chapter='horror'] .world-page__masthead::after {
-  opacity: 0.28;
-  mix-blend-mode: multiply;
-  background-size: 190px 190px;
-}
-
-.world-card--page[data-chapter='historical'] .world-page__masthead::before {
-  background:
-    repeating-linear-gradient(90deg, rgb(255 255 255 / 0.05) 0 1px, transparent 1px 4px),
-    repeating-linear-gradient(0deg, rgb(0 0 0 / 0.06) 0 1px, transparent 1px 3px),
-    linear-gradient(180deg, rgb(255 255 255 / 0.1), rgb(0 0 0 / 0.24));
-}
-
-.world-card--page[data-chapter='historical'] .world-page__masthead::after {
-  opacity: 0.48;
-  background-image: url('./textures/masthead-fiber.svg');
-  background-size: 160px 160px;
-}
-
-.world-card--page[data-chapter='dystopia'] .world-page__masthead::before {
-  background:
-    repeating-linear-gradient(180deg, rgb(255 255 255 / 0.045) 0 1px, transparent 1px 5px),
-    linear-gradient(90deg, rgb(0 0 0 / 0.14), transparent 18%, transparent 82%, rgb(0 0 0 / 0.18)),
-    linear-gradient(180deg, rgb(255 255 255 / 0.08), rgb(0 0 0 / 0.26));
-}
-
-.world-card--page[data-chapter='dystopia'] .world-page__masthead::after {
-  opacity: 0.4;
-  background-size: 110px 110px;
-}
-
-.world-card--page[data-chapter='metaphysical'] .world-page__masthead::before {
-  background:
-    radial-gradient(80% 120% at 18% -10%, rgb(255 255 255 / 0.22), transparent 50%),
-    radial-gradient(70% 90% at 88% 110%, rgb(255 255 255 / 0.12), transparent 48%),
-    radial-gradient(90% 70% at 50% 120%, rgb(0 0 0 / 0.34), transparent 60%),
-    linear-gradient(115deg, rgb(255 255 255 / 0.06), transparent 40%, rgb(0 0 0 / 0.16));
-}
-
-.world-card--page[data-chapter='metaphysical'] .world-page__masthead::after {
-  opacity: 0.3;
-  mix-blend-mode: soft-light;
-  background-size: 200px 200px;
+  flex: 0 0 auto;
+  background: var(--color-paper);
+  border-bottom: 1px solid var(--color-line);
 }
 
 .world-page__pane {
@@ -537,100 +55,6 @@ html[data-theme='dark'] .world-page__masthead {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  margin: calc(-1 * var(--pane-tuck)) var(--page-gutter) 0.85rem;
-  padding: calc(var(--pane-tuck) + 1.7rem) 1.15rem 0.35rem;
-  border: 1px solid color-mix(in srgb, var(--chapter-hue) 42%, var(--color-line));
-  border-top: none;
-  border-radius: 0 0 12px 12px;
-  background: var(--color-paper);
-  box-shadow:
-    0 14px 36px rgb(0 0 0 / 0.2);
-}
-
-.world-page__pane::before {
-  content: '';
-  position: absolute;
-  top: var(--pane-tuck);
-  left: 0;
-  right: 0;
-  height: 4.1rem;
-  background: linear-gradient(
-    180deg,
-    var(--color-paper) 0,
-    var(--color-paper) 0.38rem,
-    rgb(0 0 0 / 0.26) 0.38rem,
-    transparent 100%
-  );
-  pointer-events: none;
-  z-index: 5;
-}
-
-.world-page__pane::after {
-  content: '';
-  position: absolute;
-  top: calc(var(--pane-tuck) + 0.38rem);
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(
-    90deg,
-    transparent 4%,
-    color-mix(in srgb, var(--chapter-hue) 68%, #000) 20%,
-    color-mix(in srgb, var(--chapter-hue) 68%, #000) 80%,
-    transparent 96%
-  );
-  pointer-events: none;
-  z-index: 6;
-}
-
-html[data-theme='dark'] .world-page__pane {
-  border-color: color-mix(in srgb, var(--chapter-hue) 36%, var(--color-line));
-  box-shadow: 0 16px 40px rgb(0 0 0 / 0.32);
-}
-
-html[data-theme='dark'] .world-page__pane::before {
-  background: linear-gradient(
-    180deg,
-    var(--color-paper) 0,
-    var(--color-paper) 0.38rem,
-    rgb(0 0 0 / 0.44) 0.38rem,
-    transparent 100%
-  );
-}
-
-.world-page__masthead .world-card__byline,
-.world-page__masthead .world-card__canon-label,
-.world-page__masthead .world-card__fact-dot {
-  color: var(--masthead-ink-muted);
-}
-
-.world-page__masthead .world-card__canon-value {
-  color: #fff;
-}
-
-.world-page__masthead .world-card__canon-link:hover {
-  color: #fff;
-}
-
-.world-page__masthead .world-back__link {
-  color: var(--masthead-ink-muted);
-}
-
-.world-page__masthead .world-back__link:hover {
-  color: var(--masthead-ink);
-}
-
-.world-page__masthead .view-tab {
-  background: color-mix(in srgb, var(--masthead-ink) 18%, transparent);
-  border-color: color-mix(in srgb, var(--masthead-ink) 50%, transparent);
-  color: var(--masthead-ink);
-}
-
-.world-page__masthead .view-tab--active,
-.world-page__masthead .view-tab:hover {
-  background: var(--masthead-ink);
-  border-color: var(--masthead-ink);
-  color: color-mix(in srgb, var(--chapter-hue-light) 86%, #16110c);
 }
 
 .world-page__pane-scroll {
@@ -639,395 +63,32 @@ html[data-theme='dark'] .world-page__pane::before {
   overflow-y: auto;
   overflow-x: hidden;
   overscroll-behavior: contain;
-  padding-right: 0.45rem;
-  padding-bottom: 7rem;
-  scrollbar-gutter: stable;
+  padding-bottom: 6rem;
+}
+
+.world-page__pane-scroll > .world-card__body,
+.world-page__pane-scroll > .related-worlds {
+  max-width: calc(var(--content-max) + 2 * var(--gutter));
+  margin-inline: auto;
+  padding-inline: var(--gutter);
 }
 
 .world-page__pane > .chronicle-layout,
-.world-page__pane > .world-chronicle-loading {
+.world-page__pane > .world-chronicle-loading,
+.world-page__pane > p {
   flex: 1;
   min-height: 0;
-}
-
-.world-page__masthead .view-mode-tabs {
-  margin-top: 0.35rem;
-  margin-bottom: 0;
-  padding-bottom: 0.15rem;
-}
-
-.world-card--page .world-card__core-wrap {
-  margin-top: 0.55rem;
-}
-
-.world-card__themes {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.5rem 0.65rem;
-  margin: 0.4rem 0 0;
-}
-
-.world-card__themes-title {
-  font-size: 0.68rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--color-accent);
-  margin: 0;
-  font-family: var(--font-sans);
-  font-weight: 500;
-  flex-shrink: 0;
-}
-
-.theme-pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin: 0;
-}
-
-.theme-pill {
-  border: 1px solid var(--color-line);
-  border-radius: 999px;
-  padding: 0.25rem 0.75rem;
-  font-size: 0.8rem;
-  background: var(--color-paper);
-  color: var(--color-ink);
-  cursor: pointer;
-  text-decoration: none;
-}
-
-.theme-pill:hover {
-  border-color: var(--color-accent);
-}
-
-.axes-block {
-  margin: 0.55rem 0 1.1rem;
-  border-top: 1px solid var(--color-line);
-  padding-top: 0.45rem;
-}
-
-.axes-block__head {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 0.85rem;
-  margin: 0 0 0.55rem;
-}
-
-.axes-block__title {
-  font-size: 0.68rem;
-  font-weight: 500;
-  font-family: var(--font-sans);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--color-accent);
-  margin: 0;
-}
-
-.axes-block__notes {
-  font-size: 0.88rem;
-  margin-left: auto;
-}
-
-.carto-axis {
-  position: relative;
-  margin-bottom: 0;
-  padding: 0.95rem 0 1.15rem;
-}
-
-.axes-block__head + .carto-axis {
-  padding-top: 0;
-}
-
-.carto-axis:last-child {
-  padding-bottom: 0.15rem;
-}
-
-.carto-axis:not(:last-child)::after {
-  content: '';
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  width: 16.5rem;
-  height: 1px;
-  transform: translateX(-50%);
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    color-mix(in srgb, var(--color-accent) 22%, var(--color-line)) 30%,
-    color-mix(in srgb, var(--color-accent) 22%, var(--color-line)) 70%,
-    transparent 100%
-  );
-  pointer-events: none;
-}
-
-.carto-axis__row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1.85rem;
-}
-
-.carto-axis__pole {
-  flex: 1 1 0;
-  min-width: 0;
-  font-family: var(--font-sans);
-  font-size: 0.72rem;
-  font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--color-ink-muted);
-  line-height: 1.25;
-}
-
-.carto-axis__pole--active {
-  color: color-mix(in srgb, var(--color-accent) 90%, #ffe9b0);
-  font-weight: 700;
-  text-shadow: 0 0 0.36em color-mix(in srgb, var(--color-accent) 36%, #fff4d6);
-}
-
-.carto-axis__pole--dim,
-.carto-axis__pole--idle {
-  color: var(--color-ink-muted);
-  font-weight: 400;
-}
-
-.carto-axis__pole--left {
-  text-align: right;
-}
-
-.carto-axis__pole--right {
-  text-align: left;
-}
-
-.carto-axis__track {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex: 0 0 12.75rem;
-  width: 12.75rem;
-  height: auto;
-  margin: 0;
-  border: none;
-  gap: 0.55rem;
-}
-
-.carto-axis__dot {
-  flex: 0 0 8px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  border: none;
-  background: color-mix(in srgb, var(--color-accent) 18%, var(--color-paper));
-  box-sizing: border-box;
-}
-
-.carto-axis__dot--near {
-  background: color-mix(in srgb, var(--color-accent) 50%, #fff4d6);
-  box-shadow: 0 0 0.7rem color-mix(in srgb, var(--color-accent) 55%, transparent);
-}
-
-.carto-axis__dot--on {
-  flex: 0 0 14px;
-  width: 14px;
-  height: 14px;
-  border-radius: 1.5px;
-  background: color-mix(in srgb, var(--color-accent) 68%, #ffe9b0);
-  transform: rotate(45deg);
-  box-shadow:
-    0 0 0.35rem color-mix(in srgb, var(--color-accent) 50%, #fff4d6),
-    0 0 0.95rem color-mix(in srgb, var(--color-accent) 70%, transparent);
-}
-
-.carto-axis__comment {
-  font-size: 0.82rem;
-  color: var(--color-ink-muted);
-  margin: 0.18rem 0 0;
-  text-align: center;
-}
-
-.triad-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.85rem;
-  margin-top: 0.95rem;
-  padding-top: 0;
-}
-
-.triad-grid::after {
-  content: '';
-  grid-column: 1 / -1;
-  width: 16rem;
-  justify-self: center;
-  border-top: 1px solid var(--color-line);
-  margin-top: 0.15rem;
-}
-
-.related-worlds {
-  margin-top: 0.55rem;
-  padding-top: 0.15rem;
-  padding-bottom: 1.25rem;
-}
-
-.related-worlds__title {
-  font-size: 0.68rem;
-  font-weight: 500;
-  font-family: var(--font-sans);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--color-accent);
-  margin: 0 0 0.75rem;
-}
-
-.related-worlds__grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.85rem;
-  align-items: start;
-}
-
-.related-worlds__item {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-  min-width: 0;
-}
-
-.related-worlds__compare {
-  font-size: 0.82rem;
-  color: var(--color-accent);
-  text-decoration: none;
-  align-self: flex-start;
-}
-
-.related-worlds__compare:hover {
-  text-decoration: underline;
-  text-underline-offset: 0.16em;
-}
-
-.related-worlds__card {
-  border: 1px solid var(--color-line);
-  border-radius: var(--radius-md);
-  padding: 0.9rem 1rem;
-  text-decoration: none;
-  color: inherit;
-  background: var(--color-tile);
-  min-width: 0;
-}
-
-.related-worlds__card:hover {
-  border-color: var(--color-accent);
-}
-
-.related-worlds__card--static {
-  cursor: default;
-}
-
-.related-worlds__card--static:hover {
-  border-color: var(--color-line);
-}
-
-.related-worlds__name {
-  font-family: var(--font-serif);
-  font-size: 1.12rem;
-  font-weight: 700;
-  line-height: 1.25;
-}
-
-.related-worlds__genre {
-  font-size: 0.92rem;
-  font-weight: 400;
-  color: var(--color-ink-muted);
-  white-space: nowrap;
-}
-
-.related-worlds__kin {
-  margin: 0.25rem 0 0;
-  font-family: var(--font-sans);
-  font-size: 0.66rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--color-accent);
-}
-
-.related-worlds__note {
-  margin: 0.3rem 0 0;
-  font-size: 0.88rem;
-  font-style: italic;
-  color: var(--color-ink-muted);
-  line-height: 1.4;
-}
-
-.world-notes-link {
-  font-family: var(--font-serif);
-  font-size: 0.92rem;
-  font-style: italic;
-  color: var(--color-accent);
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-.world-notes-link:hover {
-  color: var(--color-ink);
-}
-
-.world-back__link {
-  flex-shrink: 0;
-  font-size: 0.78rem;
-  color: var(--color-ink-muted);
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-.world-back__link:hover {
-  color: var(--color-accent);
-}
-
-.view-mode-tabs {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0.5rem;
-  margin: 0;
   width: 100%;
+  max-width: calc(var(--content-max) + 2 * var(--gutter));
+  margin-inline: auto;
+  padding-inline: var(--gutter);
 }
 
-.view-tab {
-  box-sizing: border-box;
-  width: 100%;
-  min-width: 0;
-  min-height: 1.85rem;
-  padding: 0.2rem 0.45rem;
-  border: 1px solid var(--color-line);
-  border-radius: 999px;
-  background: var(--color-paper);
-  font-size: 0.8rem;
-  line-height: 1.15;
-  cursor: pointer;
-  color: var(--color-ink-muted);
+.world-page__pane > .world-chronicle-loading,
+.world-page__pane > p {
+  padding-top: 2.5rem;
   font-family: var(--font-sans);
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.view-tab--active,
-.view-tab:hover {
-  border-color: var(--color-accent);
-  color: var(--color-ink);
-  background: var(--color-tile);
-}
-
-@media (max-width: 900px) {
-  .meta-grid__row1,
-  .meta-grid__row2,
-  .meta-grid__row3,
-  .triad-grid,
-  .related-worlds__grid {
-    grid-template-columns: 1fr;
-  }
+  color: var(--color-ink-muted);
 }
 
 .world-page__pane-scroll::-webkit-scrollbar,
@@ -1045,86 +106,648 @@ html[data-theme='dark'] .world-page__pane::before {
 .world-page__pane-scroll::-webkit-scrollbar-thumb,
 .chronicle-scroll::-webkit-scrollbar-thumb,
 .chronicle-toc::-webkit-scrollbar-thumb {
-  background: color-mix(in srgb, var(--color-accent) 40%, var(--color-line));
+  background: var(--color-line);
   border-radius: 99px;
   border: 2px solid var(--color-paper);
 }
 
-/* Triáda: otazník s definicí (odkaz do eseje Anatomie herního lore) */
+/* ---------- Hlavička spisu ---------- */
 
-.triad-cell {
-  position: relative;
+.wp-head {
+  padding-top: 1.75rem;
+}
+
+.wp-head__crumbs {
+  margin: 0 0 1.375rem;
   display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+.wp-head__crumbs a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.wp-head__crumbs a:hover,
+.wp-head__crumbs a:focus-visible {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.wp-head__tab {
+  display: inline-block;
+  max-width: 100%;
+  padding: 0.3rem 0.75rem 0.25rem;
+  border-radius: 3px 3px 0 0;
+  background: var(--hue);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-paper);
+}
+
+.wp-head__main {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.25rem 2.5rem;
+  padding-top: 1.25rem;
+  border-top: 4px solid var(--hue);
+}
+
+.wp-head__titles {
+  min-width: 0;
+  flex: 1 1 28rem;
+}
+
+.wp-head__title {
+  margin: 0;
+  font-size: clamp(2.75rem, 6.2vw, 5.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.025em;
+  overflow-wrap: anywhere;
+  transition: font-size 0.2s ease;
+}
+
+.wp-head__chronicle {
+  margin: 0.625rem 0 0;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-style: italic;
+  line-height: 1.25;
+  color: var(--color-ink-muted);
+}
+
+.wp-head__facts {
+  margin: 0;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.375rem 1.125rem;
+  max-width: 26rem;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+.wp-head__fact {
+  display: contents;
+}
+
+.wp-head__fact dt {
+  padding-top: 0.15rem;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+.wp-head__fact dd {
+  margin: 0;
+}
+
+/* Záložky: co v nich je, aktivní tučně s linkou, ostatní tlumeně. */
+.wp-tabs {
+  margin-top: 1.875rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 0.25rem 1.5rem;
+}
+
+.wp-tabs__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.75rem;
+}
+
+.wp-tab {
+  padding: 0 0 0.75rem;
+  margin-bottom: -1px;
+  border: none;
+  border-bottom: 3px solid transparent;
+  background: none;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.3;
+  text-align: left;
+  color: var(--color-ink-muted);
+  cursor: pointer;
+}
+
+.wp-tab__label {
+  font-weight: 500;
+}
+
+.wp-tab__meta {
+  font-size: 0.8125rem;
+  font-weight: 400;
+  color: var(--color-ink-muted);
+  opacity: 0.85;
+}
+
+.wp-tab:hover,
+.wp-tab:focus-visible {
+  color: var(--color-ink);
+}
+
+.wp-tab:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.wp-tab.is-active {
+  color: var(--color-ink);
+  border-bottom-color: var(--color-ink);
+}
+
+.wp-tab.is-active .wp-tab__label {
+  font-weight: 700;
+}
+
+.wp-tab.is-active .wp-tab__meta {
+  color: var(--color-ink-muted);
+  opacity: 1;
+}
+
+.wp-tabs__compare {
+  margin-bottom: 0.75rem;
+  padding: 0;
+  border: none;
+  background: none;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  cursor: pointer;
+}
+
+.wp-tabs__compare:hover,
+.wp-tabs__compare:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.wp-tabs__compare.is-in {
+  color: var(--color-ink-muted);
+}
+
+/* Stažená hlavička při čtení (is-compact nastavuje WorldPageShell). */
+.world-card--page.is-compact .wp-head {
+  padding-top: 0.875rem;
+}
+
+.world-card--page.is-compact .wp-head__crumbs,
+.world-card--page.is-compact .wp-head__tab,
+.world-card--page.is-compact .wp-head__chronicle,
+.world-card--page.is-compact .wp-head__facts {
+  display: none;
+}
+
+.world-card--page.is-compact .wp-head__main {
+  padding-top: 0.625rem;
+  border-top-width: 3px;
+}
+
+.world-card--page.is-compact .wp-head__title {
+  font-size: clamp(1.6rem, 2.6vw, 2.25rem);
+}
+
+.world-card--page.is-compact .wp-tabs {
+  margin-top: 0.75rem;
+}
+
+@media (max-width: 720px) {
+  .wp-head {
+    padding-top: 1.125rem;
+  }
+
+  .wp-head__crumbs {
+    margin-bottom: 0.875rem;
+  }
+
+  .wp-head__chronicle {
+    font-size: 1.2rem;
+  }
+
+  .wp-head__facts {
+    display: none;
+  }
+
+  .wp-tabs {
+    margin-top: 1.125rem;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .wp-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .wp-tabs__list {
+    flex-wrap: nowrap;
+    gap: 1.25rem;
+  }
+
+  .wp-tab {
+    white-space: nowrap;
+    font-size: 0.9375rem;
+  }
+
+  .wp-tab__meta {
+    display: none;
+  }
+
+  .wp-tabs__compare {
+    white-space: nowrap;
+  }
+
+  .world-card--page.is-compact .wp-head__title {
+    font-size: 1.5rem;
+  }
+}
+
+/* ---------- Karta: jádro a údaje ---------- */
+
+.wc-label {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+.wc-label a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.wc-label a:hover,
+.wc-label a:focus-visible {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.wc-h2 {
+  margin: 0;
+  font-size: clamp(1.75rem, 2.6vw, 2.125rem);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+}
+
+.wc-core {
+  margin: 0;
+  padding-top: 3.5rem;
+  max-width: 28ch;
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3.4vw, 2.625rem);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.22;
+  text-wrap: pretty;
+}
+
+.wc-grid {
+  padding-top: 3.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem 3.5rem;
+}
+
+.wc-meta {
+  flex: 1.15 1 32.5rem;
+  min-width: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: 0 2rem;
+  align-content: start;
+}
+
+.wc-meta__item {
+  padding: 0.875rem 0 1rem;
+  border-top: 1px solid var(--color-line);
+}
+
+.wc-meta__item .wc-label {
+  margin-bottom: 0.375rem;
+}
+
+.wc-meta__value {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.wc-meta__sub {
+  margin: 0.25rem 0 0;
+  font-family: var(--font-text);
+  font-size: 1rem;
+  line-height: 1.4;
+  color: var(--color-ink-muted);
+}
+
+.wc-side {
+  flex: 1 1 25rem;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2.125rem;
+}
+
+.wc-block {
   min-width: 0;
 }
 
-.triad-cell > .meta-tile {
-  flex: 1;
-  padding-right: 2.4rem;
+/* Profil světa */
+
+.wc-axes__head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.25rem 1rem;
+  margin-bottom: 0.875rem;
+}
+
+.wc-axes__head .wc-label {
+  margin: 0;
+}
+
+.wc-axes__notes {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.wc-axes__notes:hover,
+.wc-axes__notes:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.wc-axes__rows {
+  display: grid;
+  gap: 0.6875rem;
+}
+
+.wc-axis {
+  display: grid;
+  grid-template-columns: 9.375rem minmax(0, 1fr) 9.375rem;
+  gap: 0.75rem;
+  align-items: center;
+  font-family: var(--font-sans);
+  font-size: 0.84rem;
+  line-height: 1.25;
+  color: var(--color-ink-muted);
+}
+
+.wc-axis__pole.is-lean {
+  color: var(--color-ink);
+  font-weight: 600;
+}
+
+.wc-axis__pole--right {
+  text-align: right;
+}
+
+.wc-axis__cells {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 3px;
+}
+
+.wc-axis__cells i {
+  display: block;
+  height: 10px;
+  background: var(--color-bar);
+}
+
+.wc-axis__cells i.is-on {
+  background: var(--hue);
+}
+
+@media (max-width: 560px) {
+  .wc-axis {
+    grid-template-columns: 6.5rem minmax(0, 1fr) 6.5rem;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+  }
+}
+
+/* Štítky: témata obrysem (vedou do atlasu), způsob vyprávění plnou plochou. */
+
+.wc-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.wc-chip {
+  display: inline-block;
+  padding: 0.375rem 0.75rem;
+  border: 1px solid var(--color-line);
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  line-height: 1.3;
+  color: var(--color-ink);
+  text-decoration: none;
+}
+
+a.wc-chip:hover,
+a.wc-chip:focus-visible {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.wc-chip--fill {
+  background: var(--color-chip);
+  border-color: var(--color-chip-line);
+}
+
+.wc-actors {
+  margin: 0;
+  font-family: var(--font-text);
+  font-size: 1.125rem;
+  line-height: 1.5;
+}
+
+/* Čím je svět charakteristický */
+
+.wc-signature {
+  padding-top: 4rem;
+}
+
+.wc-signature .wc-h2 {
+  margin-bottom: 1.125rem;
+}
+
+.wc-bullets {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--color-line);
+}
+
+.wc-bullets li {
+  padding: 0.875rem 0;
+  border-bottom: 1px solid var(--color-line);
+  font-family: var(--font-text);
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+
+.wc-bullets strong {
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+/* Triáda */
+
+.wc-triad {
+  margin-top: 4rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(17.5rem, 1fr));
+  gap: 0 2.25rem;
+  border-top: 2px solid var(--color-ink);
+}
+
+.wc-triad__cell {
+  position: relative;
+  min-width: 0;
+  padding: 1.375rem 0 1.625rem;
+}
+
+.wc-triad__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.wc-triad__label {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--hue);
+}
+
+.wc-triad__text {
+  margin: 0;
+  font-family: var(--font-text);
+  font-size: 1.3125rem;
+  line-height: 1.45;
+  color: var(--color-ink);
+}
+
+.wc-triad__text--jump {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.wc-triad__text--jump:hover,
+.wc-triad__text--jump:focus-visible {
+  text-decoration: underline;
+  text-decoration-color: var(--color-line);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+}
+
+.triad-help {
+  position: static;
 }
 
 .triad-help__toggle {
-  position: absolute;
-  top: 0.6rem;
-  right: 0.6rem;
-  width: 1.45rem;
-  height: 1.45rem;
+  width: 1.5rem;
+  height: 1.5rem;
   padding: 0;
-  border: 1px solid var(--color-line);
-  border-radius: 50%;
-  background: var(--color-paper);
-  font-family: var(--font-serif);
-  font-size: 0.92rem;
+  border: none;
+  background: none;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
   font-weight: 600;
   line-height: 1;
-  color: var(--color-ink-muted);
+  color: var(--color-accent);
   cursor: pointer;
-  transition: color 0.15s ease, border-color 0.15s ease;
 }
 
 .triad-help__toggle:hover,
 .triad-help__toggle:focus-visible,
 .triad-help__toggle[aria-expanded='true'] {
-  color: var(--color-accent);
-  border-color: var(--color-accent);
+  text-decoration: underline;
   outline: none;
+}
+
+.triad-help__toggle:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
 }
 
 .triad-help__pop {
   position: absolute;
   z-index: 20;
-  top: calc(100% + 0.4rem);
+  top: 3.25rem;
   left: 0;
   right: 0;
-  padding: 0.85rem 0.95rem 0.8rem;
-  border: 1px solid var(--color-accent);
-  border-radius: var(--radius-md);
-  background: var(--color-paper);
-  box-shadow: var(--shadow-card), 0 12px 28px rgba(0, 0, 0, 0.28);
+  padding: 0.875rem 1rem 0.8rem;
+  border: 1px solid var(--color-line);
+  border-top: 2px solid var(--color-accent);
+  background: var(--color-tile);
+  box-shadow: var(--shadow-lift);
   text-align: left;
 }
 
 .triad-help__term {
   margin: 0 0 0.35rem;
-  font-family: var(--font-sans);
-  font-size: 0.64rem;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--color-accent);
 }
 
 .triad-help__text {
   margin: 0 0 0.6rem;
-  font-family: var(--font-serif);
+  font-family: var(--font-text);
   font-size: 1.02rem;
-  line-height: 1.42;
+  line-height: 1.45;
   color: var(--color-ink);
 }
 
 .triad-help__more {
   font-family: var(--font-sans);
-  font-size: 0.76rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
   color: var(--color-accent);
   text-decoration: none;
 }
@@ -1134,78 +757,157 @@ html[data-theme='dark'] .world-page__pane::before {
   text-underline-offset: 0.16em;
 }
 
-/* Stažená hlavička při čtení (třída is-compact nastavuje WorldPageShell) */
+/* ---------- Příbuzenstvo ---------- */
 
-.world-page__masthead .world-card__title {
-  transition: font-size 0.2s ease;
+.related-worlds {
+  padding-top: 4rem;
 }
 
-.world-card--page.is-compact .world-page__masthead {
-  padding-bottom: 0.7rem;
-}
-
-.world-card--page.is-compact .world-page__masthead .world-card__title {
-  font-size: 2.1rem;
-}
-
-.world-card--page.is-compact .world-page__masthead .world-card__facts {
-  display: none;
-}
-
-@media (max-width: 900px) {
-  .world-page__masthead .world-card__title-row {
-    padding-right: 0;
-  }
-
-  .world-page__masthead .world-card__title {
-    font-size: 2.5rem;
-  }
-
-  .world-page__masthead .world-card__kicker {
-    position: static;
-    justify-content: flex-start;
-    margin: 0.2rem 0 0.1rem;
-  }
-
-  .world-card--page.is-compact .world-page__masthead .world-card__title {
-    font-size: 1.55rem;
-  }
-
-  .world-card--page.is-compact .world-page__masthead .world-card__byline,
-  .world-card--page.is-compact .world-page__masthead .world-card__kicker {
-    display: none;
-  }
-}
-
-/* Jak svět vypráví — tichý řádek pod tématy, nadpis vede do eseje */
-
-.world-card__narration {
+.related-worlds__head {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
   align-items: baseline;
-  gap: 0.35rem 0.65rem;
-  margin: 0.55rem 0 0;
+  gap: 0.75rem;
+  margin-bottom: 1.125rem;
 }
 
-.world-card__narration-title {
-  flex-shrink: 0;
+.related-worlds__map {
   font-family: var(--font-sans);
-  font-size: 0.68rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-size: 0.9375rem;
+  font-weight: 600;
   color: var(--color-accent);
   text-decoration: none;
 }
 
-.world-card__narration-title:hover {
+.related-worlds__map:hover,
+.related-worlds__map:focus-visible {
   text-decoration: underline;
-  text-underline-offset: 0.16em;
+  text-underline-offset: 0.2em;
 }
 
-.world-card__narration-values {
-  font-family: var(--font-serif);
-  font-size: 1.02rem;
-  font-style: italic;
+.related-worlds__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16.25rem, 1fr));
+  gap: 1.5rem;
+}
+
+.related-worlds__item {
+  --hue: var(--hue-l, var(--color-line));
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  min-width: 0;
+}
+
+html[data-theme='dark'] .related-worlds__item {
+  --hue: var(--hue-d, var(--color-line));
+}
+
+.related-worlds__card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-top: 0.875rem;
+  border-top: 3px solid var(--hue);
+  color: var(--color-ink);
+  text-decoration: none;
+}
+
+.related-worlds__meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   color: var(--color-ink-muted);
+}
+
+.related-worlds__kin {
+  color: var(--color-accent);
+  text-align: right;
+}
+
+.related-worlds__name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.625rem;
+  line-height: 1.12;
+}
+
+a.related-worlds__card:hover .related-worlds__name,
+a.related-worlds__card:focus-visible .related-worlds__name {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.14em;
+}
+
+.related-worlds__note {
+  font-family: var(--font-text);
+  font-size: 1.0625rem;
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--color-ink-muted);
+}
+
+.related-worlds__compare {
+  align-self: flex-start;
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.related-worlds__compare:hover,
+.related-worlds__compare:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+@media (max-width: 720px) {
+  .wc-core,
+  .wc-grid {
+    padding-top: 2.25rem;
+  }
+
+  .wc-signature,
+  .related-worlds {
+    padding-top: 2.75rem;
+  }
+
+  .wc-triad {
+    margin-top: 2.75rem;
+  }
+
+  .wc-bullets li,
+  .wc-triad__text {
+    font-size: 1.125rem;
+  }
+}
+
+/* ---------- Štítky témat (sdílené se srovnáním) ---------- */
+
+.theme-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+}
+
+.theme-pill {
+  border: 1px solid var(--color-line);
+  padding: 0.25rem 0.7rem;
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  background: transparent;
+  color: var(--color-ink);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.theme-pill:hover {
+  border-color: var(--color-accent);
 }
