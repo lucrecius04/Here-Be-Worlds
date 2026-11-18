@@ -27,6 +27,7 @@ jobs:
       - run: npm run build
         env:
           HBW_BASE: /Here-Be-Worlds/
+          HBW_SITE: https://lucrecius04.github.io
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

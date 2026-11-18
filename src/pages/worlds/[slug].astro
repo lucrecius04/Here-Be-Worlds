@@ -41,7 +41,12 @@ const tabStats = chronicleStats(rawChronicle.replace(/^---\r?\n[\s\S]*?\r?\n---\
 const pageTitle = `${t(world.gameTitle, 'cs')} — Here Be Worlds`;
 ---
 
-<BaseLayout title={pageTitle} description={t(world.core, 'cs')}>
+<BaseLayout
+  title={pageTitle}
+  description={t(world.core, 'cs')}
+  ogImage={world.draft ? undefined : `/og/worlds/${world.id}.jpg`}
+  ogImageAlt={world.draft ? undefined : `${t(world.gameTitle, 'cs')} – karta světa v atlasu Here Be Worlds`}
+>
   <WorldPageShell
     client:load
     base={base}

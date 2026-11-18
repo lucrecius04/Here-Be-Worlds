@@ -19,10 +19,14 @@ const {
   title = 'Here Be Worlds',
   description = 'Here Be Worlds – atlas herních vesmírů a jejich lore. Kroniky, časové osy, mapy a srovnání herních světů.',
   jsonLd,
+  ogImage = '/og/site.jpg',
+  ogImageAlt = 'Here Be Worlds – mapy světů, kam se nedá doletět',
 } = Astro.props;
 import { withBase } from '../lib/base-url';
 
 const base = import.meta.env.BASE_URL;
+// Karty pro sdílení (public/og/, generuje `npm run og`) potřebují absolutní adresu.
+const ogImageUrl = new URL(withBase(base, ogImage), Astro.site ?? Astro.url).href;
 const published = worlds
   .filter((world) => !world.draft)
   .map((world) => ({ id: world.id, gameTitle: world.gameTitle }));
@@ -39,9 +43,17 @@ const published = worlds
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="cs_CZ" />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={ogImageAlt} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={ogImageUrl} />
     {jsonLd ? <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} /> : null}
+    <link rel="icon" href={withBase(base, '/favicon.ico')} sizes="32x32" />
     <link rel="icon" type="image/svg+xml" href={withBase(base, '/favicon.svg')} />
+    <link rel="apple-touch-icon" href={withBase(base, '/apple-touch-icon.png')} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

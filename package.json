@@ -14,6 +14,7 @@
     "import:chronicle": "tsx scripts/import-chronicle.ts",
     "import:atlas": "tsx scripts/import-atlas.ts",
     "import:all": "npm run import:chronicle && npm run import:atlas",
+    "og": "node scripts/og-images.mjs",
     "test": "vitest run"
   },
   "dependencies": {

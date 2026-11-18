@@ -26,6 +26,10 @@
   --color-sky-line: #26304a;
   --color-sky-tick: #3a4562;
   --color-bar: #dedad2;
+  /* Znak (leporelo): stránka ve stínu, stránky na světle, rozsvícená stránka. Stojí vždy na noci. */
+  --mark-shade: #aeb3be;
+  --mark-light: #f4f1ea;
+  --mark-glow: #e5be7e;
   --shadow-lift: 0 14px 30px rgba(23, 22, 26, 0.09);
   --gutter: 2.5rem;
   --masthead-wash: 8%;

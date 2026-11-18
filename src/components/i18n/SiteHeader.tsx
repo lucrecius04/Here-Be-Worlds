@@ -3,6 +3,7 @@ import { uiT } from '../../lib/i18n';
 import { withBase } from '../../lib/base-url';
 import LanguageSwitcher from './LanguageSwitcher';
 import ThemeSwitcher from './ThemeSwitcher';
+import BrandMark, { Wordmark } from './BrandMark';
 
 type Props = { base: string };
 
@@ -11,8 +12,9 @@ export default function SiteHeader({ base }: Props) {
 
   return (
     <header className="site-header">
-      <a href={withBase(base, '/')} className="site-header__brand">
-        <span className="site-header__name">{uiT('siteName', locale)}</span>
+      <a href={withBase(base, '/')} className="site-header__brand" aria-label={uiT('siteName', locale)}>
+        <BrandMark size={30} className="brand-mark site-header__mark" />
+        <Wordmark className="site-header__name" />
         <span className="site-header__tagline">{uiT('footer.tagline', locale)}</span>
       </a>
       <div className="site-header__end">

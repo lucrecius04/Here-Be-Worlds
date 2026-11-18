@@ -6,7 +6,7 @@ const repoBase = process.env.HBW_BASE ?? '/Here-Be-Worlds';
 
 // https://astro.build/config
 export default defineConfig({
-  site: process.env.HBW_SITE ?? 'https://example.github.io',
+  site: process.env.HBW_SITE ?? 'https://lucrecius04.github.io',
   base: repoBase,
   integrations: [react()],
   vite: {

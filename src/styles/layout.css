@@ -28,8 +28,8 @@ body:has(.world-card--page) {
 
 .site-header__brand {
   display: inline-flex;
-  align-items: baseline;
-  gap: 0.875rem;
+  align-items: center;
+  gap: 0.75rem;
   color: var(--color-night-button);
   text-decoration: none;
 }
@@ -40,9 +40,22 @@ body:has(.world-card--page) {
   letter-spacing: -0.01em;
   font-size: 1.5rem;
   line-height: 1.1;
+  white-space: nowrap;
+}
+
+.site-header__name em,
+.site-footer__name em {
+  font-style: italic;
+  font-weight: 500;
+}
+
+.brand-mark {
+  display: block;
+  flex: none;
 }
 
 .site-header__tagline {
+  margin: 0.3rem 0 0 0.25rem;
   font-family: var(--font-mono);
   font-size: 0.6875rem;
   letter-spacing: 0.08em;
@@ -53,6 +66,22 @@ body:has(.world-card--page) {
 @media (max-width: 1000px) {
   .site-header__tagline {
     display: none;
+  }
+}
+
+/* Na telefonu se znak i nápis zmenší, aby se vešly na řádek s přepínači. */
+@media (max-width: 720px) {
+  .site-header__brand {
+    gap: 0.5rem;
+  }
+
+  .site-header__mark {
+    width: 26px;
+    height: 26px;
+  }
+
+  .site-header__name {
+    font-size: 1.15rem;
   }
 }
 
@@ -236,9 +265,12 @@ body:has(.world-card--page) .site-footer {
 }
 
 .site-footer__name {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   font-family: var(--font-display);
-  font-size: 1.35rem;
+  font-size: 1.25rem;
+  white-space: nowrap;
   font-weight: 700;
   letter-spacing: -0.01em;
   color: var(--color-night-button);

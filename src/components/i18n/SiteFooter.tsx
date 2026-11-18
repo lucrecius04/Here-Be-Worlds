@@ -2,6 +2,7 @@ import { t, uiCount, uiT } from '../../lib/i18n';
 import { useLocale } from '../../lib/locale-store';
 import { withBase } from '../../lib/base-url';
 import { chapters, worlds } from '../../lib/worlds';
+import BrandMark, { Wordmark } from './BrandMark';
 
 const PUBLISHED_COUNT = worlds.filter((world) => !world.draft).length;
 
@@ -31,8 +32,9 @@ export default function SiteFooter({ base }: Props) {
     <footer className="site-footer" id="footer">
       <div className="site-footer__inner">
         <div className="site-footer__brand">
-          <a href={withBase(base, '/')} className="site-footer__name">
-            {uiT('siteName', locale)}
+          <a href={withBase(base, '/')} className="site-footer__name" aria-label={uiT('siteName', locale)}>
+            <BrandMark size={26} className="brand-mark site-footer__mark" />
+            <Wordmark />
           </a>
           <p className="site-footer__tagline">{uiT('footer.tagline', locale)}</p>
           <p className="site-footer__meta">{uiCount('home.kicker', PUBLISHED_COUNT, locale)}</p>
