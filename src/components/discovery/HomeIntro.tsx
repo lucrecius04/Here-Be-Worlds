@@ -26,7 +26,6 @@ type Props = {
   base: string;
 };
 
-const LETTERS = 'ABCDEFGHIJ';
 
 /** Krátký název souhvězdí na obloze (i18n klíč podle archetypu). */
 const SKY_NAME: Record<string, string> = {
@@ -70,7 +69,7 @@ const STEP_Y = 44;
 
 type Star = { id: string; title: string; named: boolean; x: number; y: number; size: number; chapterId: string };
 type Line = { x: number; y: number; w: number; a: number; chapterId: string };
-type Group = { chapterId: string; letter: string; x: number; y: number; count: number };
+type Group = { chapterId: string; x: number; y: number; count: number };
 
 function buildSky(worlds: World[], chapters: ChapterCardData[]) {
   const stars: Star[] = [];
@@ -84,7 +83,7 @@ function buildSky(worlds: World[], chapters: ChapterCardData[]) {
     const iconic = items.find((w) => w.id === ICONIC[chapter.id]) ?? items[0];
     items = items.filter((w) => w !== iconic);
     items.splice(Math.min(perRow, items.length + 1) - 1, 0, iconic);
-    groups.push({ chapterId: chapter.id, letter: LETTERS[gi] ?? '', x: ox, y: oy - 30, count: items.length });
+    groups.push({ chapterId: chapter.id, x: ox, y: oy - 30, count: items.length });
     let prev: [number, number] | null = null;
     items.forEach((w, k) => {
       const seed = gi * 13 + k * 7;
@@ -108,11 +107,11 @@ function hueVars(accent?: { light: string; dark: string }): CSSProperties | unde
   return accent ? ({ '--hue-l': accent.light, '--hue-d': accent.dark } as CSSProperties) : undefined;
 }
 
-const pad2 = (n: number) => (n < 10 ? `0${n}` : String(n));
 
 export default function HomeIntro({ chapters, worlds = [], base }: Props) {
   const locale = useLocale();
   const [today, setToday] = useState<Date | null>(null);
+  const [litGroup, setLitGroup] = useState<string | null>(null);
 
   useEffect(() => {
     setToday(new Date());
@@ -160,11 +159,19 @@ export default function HomeIntro({ chapters, worlds = [], base }: Props) {
 
         <div className="hp-wrap">
           <div className="hp-sky-scroll">
-          <div className="hp-sky" role="img" aria-label={uiT('home2.skyAria', locale)} style={{ aspectRatio: `1000 / ${sky.height}` }}>
+          <div
+            className={`hp-sky${litGroup ? ' has-lit' : ''}`}
+            role="group"
+            aria-label={uiT('home2.skyAria', locale)}
+            style={{
+              ['--sky-ratio' as string]: `1000 / ${sky.height}`,
+              ['--sky-ratio-narrow' as string]: `1000 / ${Math.round(sky.height * 1.35)}`,
+            }}
+          >
             {sky.lines.map((line, i) => (
               <i
                 key={`l${i}`}
-                className="hp-sky__line"
+                className={`hp-sky__line${litGroup === line.chapterId ? ' is-lit' : ''}`}
                 style={{
                   left: `${line.x / 10}%`,
                   top: `${(line.y / sky.height) * 100}%`,
@@ -174,20 +181,25 @@ export default function HomeIntro({ chapters, worlds = [], base }: Props) {
               />
             ))}
             {sky.groups.map((group) => (
-              <span
+              <a
                 key={group.chapterId}
-                className="hp-sky__group"
+                className={`hp-sky__group${litGroup === group.chapterId ? ' is-lit' : ''}`}
+                href={`#rejstrik-${group.chapterId}`}
+                onMouseEnter={() => setLitGroup(group.chapterId)}
+                onMouseLeave={() => setLitGroup(null)}
+                onFocus={() => setLitGroup(group.chapterId)}
+                onBlur={() => setLitGroup(null)}
                 style={{ left: `${group.x / 10}%`, top: `${(group.y / sky.height) * 100}%`, ...hueVars(chapterById[group.chapterId]?.accent) }}
               >
-                {group.letter} · {uiT(SKY_NAME[group.chapterId] ?? '', locale)} · {group.count}
-              </span>
+                {uiT(SKY_NAME[group.chapterId] ?? '', locale)} <span className="hp-sky__count">{group.count}</span>
+              </a>
             ))}
             {sky.stars.map((star) => {
               const world = worlds.find((w) => w.id === star.id);
               return (
                 <a
                   key={star.id}
-                  className={`hp-star${star.named ? ' is-named' : ''}`}
+                  className={`hp-star${star.named ? ' is-named' : ''}${litGroup === star.chapterId ? ' is-lit' : ''}`}
                   href={withBase(base, `/worlds/${star.id}/`)}
                   style={{
                     left: `${star.x / 10}%`,
@@ -197,20 +209,27 @@ export default function HomeIntro({ chapters, worlds = [], base }: Props) {
                   }}
                 >
                   <i className="hp-star__dot" aria-hidden="true" />
-                  <span className="hp-star__name">{world ? t(world.gameTitle, locale) : star.title}</span>
+                  <span className="hp-star__name">{(world ? t(world.gameTitle, locale) : star.title).replace(/(\d) (\d)/g, '$1\u00a0$2')}</span>
                 </a>
               );
             })}
           </div>
           <div className="hp-sky__scale" aria-hidden="true" />
           </div>
+          <nav className="hp-sky__legend" aria-label={uiT('home.realms', locale)}>
+            {sky.groups.map((group) => (
+              <a key={group.chapterId} href={`#rejstrik-${group.chapterId}`} style={hueVars(chapterById[group.chapterId]?.accent)}>
+                <i aria-hidden="true" />
+                {uiT(SKY_NAME[group.chapterId] ?? '', locale)} <span className="hp-sky__count">{group.count}</span>
+              </a>
+            ))}
+          </nav>
           <p className="hp-sky__caption">
-            <span>{uiT('home2.skyCaption', locale)}</span>
             {latest ? (
               <span>
                 {uiT('home2.latest', locale)}:{' '}
                 <a href={withBase(base, `/worlds/${latest.id}/`)}>
-                  № {latest.number} {t(latest.gameTitle, locale)}
+                  {t(latest.gameTitle, locale)}
                 </a>
               </span>
             ) : null}
@@ -227,7 +246,7 @@ export default function HomeIntro({ chapters, worlds = [], base }: Props) {
               <p className="hp-featured__meta">
                 <span>{uiT('home.featured', locale)}</span>
                 <span className="hp-featured__arch">
-                  № {featured.number} · {LETTERS[featuredChapter?.index ?? 0]} · {featuredChapter ? t(featuredChapter.title, locale) : ''}
+                  {featuredChapter ? t(featuredChapter.title, locale) : ''}
                 </span>
               </p>
               <h2 className="hp-featured__title">
@@ -258,14 +277,12 @@ export default function HomeIntro({ chapters, worlds = [], base }: Props) {
             </a>
           </div>
           <div className="hp-index__grid">
-            {chapters.map((chapter, gi) => {
+            {chapters.map((chapter) => {
               const items = worlds.filter((w) => w.chapterId === chapter.id).sort((a, b) => a.number - b.number);
               if (!items.length) return null;
               return (
-                <div key={chapter.id} className="hp-index__col" style={hueVars(chapter.accent)}>
-                  <span className="hp-tab">
-                    {LETTERS[gi]} · {items.length}
-                  </span>
+                <div key={chapter.id} id={`rejstrik-${chapter.id}`} className="hp-index__col" style={hueVars(chapter.accent)}>
+                  <span className="hp-tab">{items.length}</span>
                   <div className="hp-index__body">
                     <a className="hp-index__name" href={withBase(base, `/chapters/${chapter.id}/`)}>
                       {t(chapter.title, locale)}
@@ -274,7 +291,6 @@ export default function HomeIntro({ chapters, worlds = [], base }: Props) {
                       {items.map((w) => (
                         <li key={w.id}>
                           <a href={withBase(base, `/worlds/${w.id}/`)}>
-                            <span className="hp-index__num">{pad2(w.number)}</span>
                             <span>{t(w.gameTitle, locale)}</span>
                           </a>
                         </li>

@@ -27,7 +27,6 @@ type Props = {
   chapterAccent?: ChapterAccent;
   themeLabels: Record<string, LocalizedString>;
   related?: Array<RelatedWorld & { href?: string; level?: number; number?: number; chapterId?: string }>;
-  chapterLetter?: string;
   chapterAccents?: ChapterAccentMap;
   tabStats?: ChronicleStats;
 };
@@ -56,7 +55,6 @@ export default function WorldPageShell({
   chapterAccent,
   themeLabels,
   related = [],
-  chapterLetter = '',
   chapterAccents = {},
   tabStats,
 }: Props) {
@@ -136,7 +134,7 @@ export default function WorldPageShell({
     >
       <div className="world-page__masthead">
         <div className="world-page__wrap">
-          <WorldPageMasthead base={base} world={world} chapterTitle={chapterTitle} chapterLetter={chapterLetter} />
+          <WorldPageMasthead base={base} world={world} chapterTitle={chapterTitle} />
           <nav className="wp-tabs" aria-label={uiT('world.tabsAria', locale)}>
             <div className="wp-tabs__list" role="tablist">
               {tabs.map((tab) => {

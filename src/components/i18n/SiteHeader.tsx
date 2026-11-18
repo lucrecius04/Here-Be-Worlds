@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { useLocale } from '../../lib/locale-store';
 import { uiT } from '../../lib/i18n';
 import { withBase } from '../../lib/base-url';
@@ -9,9 +10,18 @@ type Props = { base: string };
 
 export default function SiteHeader({ base }: Props) {
   const locale = useLocale();
+  const [scrolled, setScrolled] = useState(false);
+
+  // Na titulní straně hlavička splývá s nočním pásem; po posunu ji od obsahu oddělí linka.
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   return (
-    <header className="site-header">
+    <header className={`site-header${scrolled ? ' is-scrolled' : ''}`}>
       <a href={withBase(base, '/')} className="site-header__brand" aria-label={uiT('siteName', locale)}>
         <BrandMark size={28} className="brand-mark site-header__mark" />
         <Wordmark className="site-header__name" />

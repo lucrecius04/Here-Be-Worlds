@@ -110,7 +110,7 @@ export default function DailyMystery({ catalog, locale, base, today }: Props) {
       </p>
       {mode === 3 ? <MiniAxes world={world} locale={locale} /> : null}
       <div className="hp-mystery__choices">
-        {choices.map((choice, i) => {
+        {choices.map((choice) => {
           const state =
             picked === null
               ? ''
@@ -128,9 +128,6 @@ export default function DailyMystery({ catalog, locale, base, today }: Props) {
               onClick={() => setPicked(choice.id)}
             >
               <span>{t(choice.gameTitle, locale)}</span>
-              <span className="hp-mystery__letter" aria-hidden="true">
-                {'ABCDE'[i]}
-              </span>
             </button>
           );
         })}

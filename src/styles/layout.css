@@ -16,6 +16,11 @@
 /* Na titulní straně hlavička plynule přechází v noční pás. */
 body:has(.hp) .site-header {
   border-bottom-color: transparent;
+  transition: border-color 0.2s ease;
+}
+
+body:has(.hp) .site-header.is-scrolled {
+  border-bottom-color: var(--color-night-edge);
 }
 
 html:has(.world-card--page),

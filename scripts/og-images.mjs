@@ -27,7 +27,6 @@ try {
 
 const worlds = JSON.parse(readFileSync(join(root, 'data/worlds.json'), 'utf8')).worlds.filter((w) => !w.draft);
 const chapters = JSON.parse(readFileSync(join(root, 'data/meta/chapters.json'), 'utf8')).chapters;
-const LETTERS = 'ABCDEFGHIJ';
 const cs = (v) => (v ? v.cs || v.en || '' : '');
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
@@ -89,13 +88,12 @@ function worldHtml(w) {
   const ci = chapters.findIndex((c) => c.id === w.chapterId);
   const ch = chapters[ci];
   const hue = ch?.accent?.light ?? '#2B44C9';
-  const letter = LETTERS[ci] ?? '';
   const genre = cs(w.metadata.genreProfile);
   const sub = cs(w.metadata.genreProfile.sub);
   return `<div class="card" style="background:#F4F2EE;color:#17161A;padding:56px 80px 48px;display:flex;flex-direction:column">
 <div style="display:flex;justify-content:space-between;align-items:center">
 <span style="display:flex;align-items:center;gap:14px">${badge(ch?.accent?.dark ?? '#E5BE7E', 46)}<span class="word" style="font-size:26px">Here <em>Be</em> Worlds</span></span>
-<span class="mono" style="font-size:15px;color:#57534D">№ ${w.number} · ${esc(letter)} · ${esc(cs(ch?.title))}</span>
+<span class="mono" style="font-size:15px;color:#57534D">${esc(cs(ch?.title))}</span>
 </div>
 <div style="margin-top:58px">
 <span class="mono" style="display:inline-block;max-width:100%;padding:7px 14px 6px;border-radius:3px 3px 0 0;background:${hue};color:#F4F2EE;font-size:15px;font-weight:600;letter-spacing:.04em">${esc(genre)}${sub ? ` · ${esc(sub)}` : ''}</span>

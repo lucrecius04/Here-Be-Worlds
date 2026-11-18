@@ -31,8 +31,7 @@ const chapter = getChapterById(world.chapterId);
 const themeLabels = Object.fromEntries(themeTaxonomy.map((th) => [th.slug, th.label]));
 const baseUrl = base.replace(/\/$/, '');
 const related = resolveRelatedWorlds(world, worlds, themeLabels, baseUrl);
-const chapterIndex = chapters.findIndex((c) => c.id === world.chapterId);
-const chapterAccents = Object.fromEntries(chapters.map((c, i) => [c.id, { ...c.accent, letter: 'ABCDEFGHIJ'[i] }]));
+const chapterAccents = Object.fromEntries(chapters.map((c) => [c.id, { ...c.accent, title: c.title }]));
 
 // Obsah záložek (kapitoly, doba čtení, oddíly) se spočítá z kroniky už při sestavení.
 const rawChronicle = CHRONICLES[`../../../content/chronicles/${world.chronicleSlug}.md`] ?? '';
@@ -56,7 +55,6 @@ const pageTitle = `${t(world.gameTitle, 'cs')} — Here Be Worlds`;
     chapterAccent={chapter?.accent}
     themeLabels={themeLabels}
     related={related}
-    chapterLetter={'ABCDEFGHIJ'[chapterIndex] ?? ''}
     chapterAccents={chapterAccents}
     tabStats={tabStats}
   />

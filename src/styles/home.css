@@ -311,68 +311,71 @@ html[data-theme='dark'] .catalog-card {
 
 .reader-desk {
   margin: 0 0 2.1rem;
-  padding: 0.7rem 0.15rem 0.15rem;
-  border-top: 1px solid color-mix(in srgb, var(--color-accent) 35%, var(--color-line));
-  border-bottom: 1px solid color-mix(in srgb, var(--color-accent) 35%, var(--color-line));
-}
-
-.reader-desk__kicker {
-  margin-bottom: 0.45rem;
-}
-
-.reader-desk__row {
+  padding: 0.65rem 0;
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
   justify-content: space-between;
-  gap: 0.55rem 1.25rem;
+  gap: 0.4rem 1.25rem;
+  border-top: 1px solid var(--color-line);
+  border-bottom: 1px solid var(--color-line);
 }
 
-.reader-desk__read,
-.reader-desk__recent-line,
-.reader-desk__recent-line a {
-  font-family: var(--font-serif);
-  font-size: 0.98rem;
-  color: inherit;
-  text-decoration: none;
-}
-
-.reader-desk__read {
-  color: var(--color-accent);
-}
-
-.reader-desk__read:hover,
-.reader-desk__recent-line a:hover {
-  text-decoration: underline;
-  text-underline-offset: 0.16em;
-}
-
-.reader-desk__recent {
+.reader-desk__line {
+  margin: 0;
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
-  gap: 0.45rem 0.85rem;
-  margin-left: auto;
+  gap: 0.3rem 0.75rem;
 }
 
-.reader-desk__recent-line {
-  margin: 0;
+.reader-desk__label,
+.reader-desk__pct {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   color: var(--color-ink-muted);
 }
 
-.reader-desk__clear {
+.reader-desk__title {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.0625rem;
+  color: var(--color-ink);
+  text-decoration: none;
+}
+
+.reader-desk__resume {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.reader-desk__title:hover,
+.reader-desk__title:focus-visible,
+.reader-desk__resume:hover,
+.reader-desk__resume:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.reader-desk__dismiss {
   appearance: none;
   margin: 0;
   padding: 0;
   border: 0;
   background: none;
-  font: inherit;
+  font-family: var(--font-sans);
   font-size: 0.78rem;
   color: var(--color-ink-muted);
   cursor: pointer;
 }
 
-.reader-desk__clear:hover {
+.reader-desk__dismiss:hover,
+.reader-desk__dismiss:focus-visible {
   color: var(--color-ink);
 }
 

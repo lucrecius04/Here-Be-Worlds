@@ -170,7 +170,12 @@
 .hp-sky {
   position: relative;
   width: 100%;
+  aspect-ratio: var(--sky-ratio);
   container-type: inline-size;
+}
+
+.hp-sky__legend {
+  display: none;
 }
 
 .hp-sky__line {
@@ -181,15 +186,54 @@
   pointer-events: none;
 }
 
+.hp-sky__line.is-lit {
+  background: color-mix(in srgb, var(--hue-d, #fff) 55%, transparent);
+}
+
+/* Název souhvězdí je ovladač: najetí rozsvítí jména jeho světů, klepnutí skočí do rejstříku. */
 .hp-sky__group {
   position: absolute;
+  z-index: 2;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.55em;
+  padding: 0.3rem 0.5rem 0.3rem 0;
+  transform: translateY(-0.3rem);
   font-family: var(--font-mono);
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
+  font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   white-space: nowrap;
   color: var(--hue-d);
-  pointer-events: none;
+  text-decoration: underline dotted color-mix(in srgb, var(--hue-d) 60%, transparent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.45em;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.hp-sky__group:hover,
+.hp-sky__group:focus-visible,
+.hp-sky__group.is-lit {
+  text-decoration-style: solid;
+  text-decoration-color: var(--hue-d);
+}
+
+.hp-sky__count {
+  color: var(--color-night-muted);
+  font-weight: 400;
+}
+
+.hp-sky.has-lit .hp-sky__group:not(.is-lit),
+.hp-sky.has-lit .hp-star:not(.is-lit),
+.hp-sky.has-lit .hp-sky__line:not(.is-lit) {
+  opacity: 0.25;
+}
+
+.hp-star,
+.hp-sky__line {
+  transition: opacity 0.15s ease;
 }
 
 .hp-star {
@@ -267,6 +311,23 @@
   text-underline-offset: 0.2em;
 }
 
+/* Rozsvícené souhvězdí: jména všech světů pod hvězdami, aby se nepřekrývala se sousedy. */
+.hp-star.is-lit .hp-star__name {
+  position: absolute;
+  top: calc(var(--s) + 0.35rem);
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: 8em;
+  padding: 0 0.2rem;
+  white-space: normal;
+  text-align: center;
+  font-size: clamp(11px, 1.05cqw, 13.5px);
+  opacity: 1;
+  background: transparent;
+  text-shadow: 0 0 6px var(--color-night), 0 0 2px var(--color-night);
+}
+
 /* Jemné měřítko mapy na spodním okraji oblohy: dílek po 2 %, hlavní po 10 %. */
 .hp-sky__scale {
   height: 9px;
@@ -289,7 +350,7 @@
   padding: 0.875rem 0 1.375rem;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-end;
   gap: 0.625rem 1.5rem;
   border-top: 1px solid var(--color-night-line);
   font-family: var(--font-mono);
@@ -311,33 +372,61 @@
   text-underline-offset: 0.2em;
 }
 
-@media (hover: none) {
-  .hp-star__name {
+/* Dotyk a úzký displej: obloha je obraz na šířku displeje. Jména světů nese rejstřík pod ní,
+   název souhvězdí do něj skočí. */
+@media (hover: none), (max-width: 760px) {
+  .hp-star__name,
+  .hp-star.is-named .hp-star__name {
     display: none;
   }
 
-  .hp-star.is-named .hp-star__name {
-    display: inline;
+  .hp-sky.has-lit .hp-sky__group:not(.is-lit),
+  .hp-sky.has-lit .hp-star:not(.is-lit),
+  .hp-sky.has-lit .hp-sky__line:not(.is-lit) {
+    opacity: 1;
   }
 }
 
-/* Úzký displej: obloha si drží čitelné měřítko a posouvá se do strany (stránka ne). */
 @media (max-width: 760px) {
   .hp-sky-scroll {
-    margin: 1.75rem calc(-1 * var(--gutter)) 0;
-    padding: 0 var(--gutter);
-    overflow-x: auto;
-    overscroll-behavior-x: contain;
-    scrollbar-width: none;
+    margin-top: 1.75rem;
   }
 
-  .hp-sky-scroll::-webkit-scrollbar {
+  /* Na úzké obloze se názvy nevejdou mezi hvězdy: obloha je vyšší a souhvězdí nese řádek pod ní. */
+  .hp-sky {
+    aspect-ratio: var(--sky-ratio-narrow);
+  }
+
+  .hp-sky__group {
     display: none;
   }
 
-  .hp-sky-scroll > .hp-sky,
-  .hp-sky-scroll > .hp-sky__scale {
-    width: 880px;
+  .hp-sky__legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1.1rem;
+    padding: 0.75rem 0 0.25rem;
+  }
+
+  .hp-sky__legend a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45em;
+    padding: 0.45rem 0;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--hue-d);
+    text-decoration: none;
+  }
+
+  .hp-sky__legend i {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--hue-d);
+    box-shadow: 0 0 8px var(--hue-d);
   }
 
   .hp-hero__lead {
@@ -596,12 +685,6 @@
   text-decoration: line-through;
 }
 
-.hp-mystery__letter {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--color-ink-muted);
-}
-
 .hp-mystery__link {
   display: inline-block;
   margin-top: 1rem;
@@ -639,6 +722,11 @@
   display: flex;
   flex-direction: column;
   min-width: 0;
+  scroll-margin-top: calc(var(--site-header-height) + 2.5rem);
+}
+
+.hp-index__col:target .hp-index__name {
+  color: var(--hue);
 }
 
 .hp-tab {
@@ -695,14 +783,6 @@
 .hp-index__list a:hover,
 .hp-index__list a:focus-visible {
   color: var(--color-accent);
-}
-
-.hp-index__num {
-  flex: none;
-  min-width: 1.25rem;
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  color: var(--color-ink-muted);
 }
 
 /* ---------- Tři cesty ---------- */

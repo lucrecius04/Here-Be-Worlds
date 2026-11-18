@@ -1,10 +1,10 @@
 import type { CSSProperties } from 'react';
-import type { RelatedWorld } from '../../schemas/world';
+import type { LocalizedString, RelatedWorld } from '../../schemas/world';
 import { t, uiT } from '../../lib/i18n';
 import { useLocale } from '../../lib/locale-store';
 import { withBase } from '../../lib/base-url';
 
-export type ChapterAccentMap = Record<string, { light: string; dark: string; letter: string }>;
+export type ChapterAccentMap = Record<string, { light: string; dark: string; title?: LocalizedString }>;
 
 type Props = {
   items: Array<RelatedWorld & { href?: string; level?: number; number?: number; chapterId?: string }>;
@@ -42,11 +42,7 @@ export default function SimilarWorlds({ items, sourceId, base = '', chapterAccen
           const inner = (
             <>
               <span className="related-worlds__meta">
-                <span>
-                  {item.number ? `№ ${item.number}` : ''}
-                  {item.number && accent ? ' · ' : ''}
-                  {accent?.letter ?? ''}
-                </span>
+                <span>{accent?.title ? t(accent.title, locale) : ''}</span>
                 {item.level ? (
                   <span className="related-worlds__kin">{uiT(`compare.kinLevel${item.level}`, locale)}</span>
                 ) : null}

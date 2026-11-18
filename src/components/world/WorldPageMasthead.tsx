@@ -7,11 +7,10 @@ type Props = {
   base: string;
   world: World;
   chapterTitle?: LocalizedString;
-  chapterLetter?: string;
 };
 
 /** Hlavička spisu světa: drobečky, záložka archetypu, velký název a kartotéční údaje. */
-export default function WorldPageMasthead({ base, world, chapterTitle, chapterLetter = '' }: Props) {
+export default function WorldPageMasthead({ base, world, chapterTitle }: Props) {
   const locale = useLocale();
   const universe = (world.universe ?? []).map((name) => t(name, locale)).filter(Boolean);
   const genre = t(world.metadata.genreProfile, locale);
@@ -29,20 +28,14 @@ export default function WorldPageMasthead({ base, world, chapterTitle, chapterLe
     <header className="wp-head">
       <p className="wp-head__crumbs">
         <a href={withBase(base, '/atlas/')}>{uiT('nav.atlas', locale)}</a>
-        <span aria-hidden="true">/</span>
         {archetype ? (
           <>
-            <a href={withBase(base, `/chapters/${world.chapterId}/`)}>
-              {chapterLetter ? `${chapterLetter} · ` : ''}
-              {archetype}
-            </a>
             <span aria-hidden="true">/</span>
+            <a href={withBase(base, `/chapters/${world.chapterId}/`)}>{archetype}</a>
           </>
         ) : null}
-        <span>№ {world.number}</span>
       </p>
       <span className="wp-head__tab">
-        {chapterLetter ? `${chapterLetter} · ` : ''}
         {genre}
         {genreSub ? ` · ${genreSub}` : ''}
       </span>
