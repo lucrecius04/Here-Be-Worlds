@@ -43,12 +43,17 @@ function fontHead() {
   return '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;1,8..60,400&family=IBM+Plex+Mono:wght@400;500;600&display=block">';
 }
 
-const mark = (shade, light, glow, size) =>
-  `<svg width="${size}" height="${size}" viewBox="0 0 64 64"><path d="M5 13L19 24V56L5 45Z" fill="${shade}"/><path d="M19 24L32 13V45L19 56Z" fill="${light}"/><path d="M32 13L45 24V56L32 45Z" fill="${glow}"/><path d="M45 24L59 13V45L45 56Z" fill="${light}"/></svg>`;
+/** Znak: čtyři vrstvy kotouče rozjeté do schodů (stejné cesty jako BrandMark.tsx). */
+const MARK = ['M38 10A22 22 0 0 1 56.37 19.9H19.63A22 22 0 0 1 38 10Z', 'M14.35 22.1H53.65A22 22 0 0 1 55.97 30.9H12.03A22 22 0 0 1 14.35 22.1Z', 'M8.03 33.1H51.97A22 22 0 0 1 49.65 41.9H10.35A22 22 0 0 1 8.03 33.1Z', 'M7.63 44.1H44.37A22 22 0 0 1 26 54A22 22 0 0 1 7.63 44.1Z'];
+const layers = (light, glow, shade) =>
+  [light, glow, light, shade].map((fill, i) => `<path d="${MARK[i]}" fill="${fill}"/>`).join('');
 
-/** Znak v nočním čtverci (jako ikona webu); na papírové kartě nese barvu archetypu. */
+const mark = (light, glow, shade, size) =>
+  `<svg width="${Math.round((size * 7) / 6)}" height="${size}" viewBox="4 8 56 48">${layers(light, glow, shade)}</svg>`;
+
+/** Znak v nočním čtverci (jako ikona webu); na papírové kartě nese zlatá vrstva barvu archetypu. */
 const badge = (glow, size) =>
-  `<svg width="${size}" height="${size}" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#0D1324"/><g transform="translate(32 34.5) scale(0.82) translate(-32 -34.5)"><path d="M5 13L19 24V56L5 45Z" fill="#AEB3BE"/><path d="M19 24L32 13V45L19 56Z" fill="#F4F1EA"/><path d="M32 13L45 24V56L32 45Z" fill="${glow}"/><path d="M45 24L59 13V45L45 56Z" fill="#F4F1EA"/></g></svg>`;
+  `<svg width="${size}" height="${size}" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#0D1324"/><g transform="translate(32 32) scale(0.82) translate(-32 -32)">${layers('#F4F1EA', glow, '#AEB3BE')}</g></svg>`;
 
 const BASE_CSS = `
 *{box-sizing:border-box}body{margin:0;font-variation-settings:'SOFT' 0,'WONK' 0}
@@ -70,7 +75,7 @@ function siteHtml() {
   const word = count === 1 ? 'svět' : count >= 2 && count <= 4 ? 'světy' : 'světů';
   return `<div class="card" style="background:#0D1324;color:#ECE8E0">${sky}
 <div style="position:absolute;left:80px;top:84px;width:640px">
-<div style="display:flex;align-items:center;gap:16px">${mark('#AEB3BE', '#F4F1EA', '#E5BE7E', 64)}<span class="word" style="font-size:44px;color:#F4F1EA">Here <em>Be</em> Worlds</span></div>
+<div style="display:flex;align-items:center;gap:16px">${mark('#F4F1EA', '#E5BE7E', '#AEB3BE', 56)}<span class="word" style="font-size:44px;color:#F4F1EA">Here <em>Be</em> Worlds</span></div>
 <h1 style="margin:50px 0 0;font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:72px;line-height:.98;letter-spacing:-.025em;color:#F4F1EA">Mapy světů, kam se <em style="font-style:italic;font-weight:500">nedá</em> doletět</h1>
 <p style="margin:26px 0 0;font-family:'Source Serif 4',Georgia,serif;font-size:24px;line-height:1.45;color:#C9CEDA;max-width:520px">Atlas herních vesmírů: kroniky, povaha světů, příbuzní ve srovnání.</p>
 </div>

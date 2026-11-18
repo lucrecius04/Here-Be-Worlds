@@ -1,24 +1,36 @@
 /**
- * Znak Here Be Worlds: leporelo o čtyřech stránkách, jehož horní hrana kreslí W.
- * Stránky ve stínu jsou šedá a zlatá (rozsvícená stránka), stránky na světle bílé.
+ * Znak Here Be Worlds: kotouč světa rozložený na čtyři vrstvy (vyprávění, historie,
+ * klasifikace, mapa), které se rozjely do schodů. Sklon / odpovídá kurzívě „Be“ v nápisu.
+ * Shora: bílá, zlatá (rozsvícená vrstva, kterou právě čteme), bílá, šedá (stín dole).
  * Barvy přes tokeny `--mark-*` (tokens.css); znak stojí vždy na noční modři.
  */
 type Props = { size?: number; className?: string };
 
+/** Výřez kresby (x 4–60, y 8–56): poměr 7 : 6. */
+export const MARK_VIEWBOX = '4 8 56 48';
+
 export const MARK_PATHS = {
-  shade: 'M5 13L19 24V56L5 45Z',
-  lightA: 'M19 24L32 13V45L19 56Z',
-  glow: 'M32 13L45 24V56L32 45Z',
-  lightB: 'M45 24L59 13V45L45 56Z',
+  top: 'M38 10A22 22 0 0 1 56.37 19.9H19.63A22 22 0 0 1 38 10Z',
+  glow: 'M14.35 22.1H53.65A22 22 0 0 1 55.97 30.9H12.03A22 22 0 0 1 14.35 22.1Z',
+  middle: 'M8.03 33.1H51.97A22 22 0 0 1 49.65 41.9H10.35A22 22 0 0 1 8.03 33.1Z',
+  shade: 'M7.63 44.1H44.37A22 22 0 0 1 26 54A22 22 0 0 1 7.63 44.1Z',
 } as const;
 
-export default function BrandMark({ size = 32, className = 'brand-mark' }: Props) {
+/** `size` = výška znaku v px; šířka plyne z poměru 7 : 6. */
+export default function BrandMark({ size = 30, className = 'brand-mark' }: Props) {
   return (
-    <svg className={className} width={size} height={size} viewBox="0 0 64 64" aria-hidden="true" focusable="false">
-      <path d={MARK_PATHS.shade} fill="var(--mark-shade)" />
-      <path d={MARK_PATHS.lightA} fill="var(--mark-light)" />
+    <svg
+      className={className}
+      width={Math.round((size * 7) / 6)}
+      height={size}
+      viewBox={MARK_VIEWBOX}
+      aria-hidden="true"
+      focusable="false"
+    >
+      <path d={MARK_PATHS.top} fill="var(--mark-light)" />
       <path d={MARK_PATHS.glow} fill="var(--mark-glow)" />
-      <path d={MARK_PATHS.lightB} fill="var(--mark-light)" />
+      <path d={MARK_PATHS.middle} fill="var(--mark-light)" />
+      <path d={MARK_PATHS.shade} fill="var(--mark-shade)" />
     </svg>
   );
 }

@@ -76,8 +76,8 @@ body:has(.world-card--page) {
   }
 
   .site-header__mark {
-    width: 26px;
-    height: 26px;
+    width: 27px;
+    height: 23px;
   }
 
   .site-header__name {

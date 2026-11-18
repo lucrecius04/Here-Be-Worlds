@@ -13,7 +13,7 @@ export default function SiteHeader({ base }: Props) {
   return (
     <header className="site-header">
       <a href={withBase(base, '/')} className="site-header__brand" aria-label={uiT('siteName', locale)}>
-        <BrandMark size={30} className="brand-mark site-header__mark" />
+        <BrandMark size={28} className="brand-mark site-header__mark" />
         <Wordmark className="site-header__name" />
         <span className="site-header__tagline">{uiT('footer.tagline', locale)}</span>
       </a>
