@@ -44,16 +44,16 @@ function fontHead() {
 }
 
 /** Znak: čtyři vrstvy kotouče rozjeté do schodů (stejné cesty jako BrandMark.tsx). */
-const MARK = ['M38 10A22 22 0 0 1 56.37 19.9H19.63A22 22 0 0 1 38 10Z', 'M14.35 22.1H53.65A22 22 0 0 1 55.97 30.9H12.03A22 22 0 0 1 14.35 22.1Z', 'M8.03 33.1H51.97A22 22 0 0 1 49.65 41.9H10.35A22 22 0 0 1 8.03 33.1Z', 'M7.63 44.1H44.37A22 22 0 0 1 26 54A22 22 0 0 1 7.63 44.1Z'];
+const MARK = ['M38 10A22 22 0 0 1 56.37 19.9H19.63A22 22 0 0 1 38 10Z', 'M14.35 22.1H65L61.4 26.5L65 30.9H12.03A22 22 0 0 1 14.35 22.1Z', 'M8.03 33.1H51.97A22 22 0 0 1 49.65 41.9H10.35A22 22 0 0 1 8.03 33.1Z', 'M7.63 44.1H44.37A22 22 0 0 1 26 54A22 22 0 0 1 7.63 44.1Z'];
 const layers = (light, glow, shade) =>
   [light, glow, light, shade].map((fill, i) => `<path d="${MARK[i]}" fill="${fill}"/>`).join('');
 
 const mark = (light, glow, shade, size) =>
-  `<svg width="${Math.round((size * 7) / 6)}" height="${size}" viewBox="4 8 56 48">${layers(light, glow, shade)}</svg>`;
+  `<svg width="${Math.round((size * 4) / 3)}" height="${size}" viewBox="4 8 64 48">${layers(light, glow, shade)}</svg>`;
 
 /** Znak v nočním čtverci (jako ikona webu); na papírové kartě nese zlatá vrstva barvu archetypu. */
 const badge = (glow, size) =>
-  `<svg width="${size}" height="${size}" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#0D1324"/><g transform="translate(32 32) scale(0.82) translate(-32 -32)">${layers('#F4F1EA', glow, '#AEB3BE')}</g></svg>`;
+  `<svg width="${size}" height="${size}" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#0D1324"/><g transform="translate(32 32) scale(0.82) translate(-36.3 -32)">${layers('#F4F1EA', glow, '#AEB3BE')}</g></svg>`;
 
 const BASE_CSS = `
 *{box-sizing:border-box}body{margin:0;font-variation-settings:'SOFT' 0,'WONK' 0}
