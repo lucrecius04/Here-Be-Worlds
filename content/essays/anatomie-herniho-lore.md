@@ -343,6 +343,7 @@ Pojmy z rozboru mají oporu ve čtyřech tradicích: v teorii fantastiky a liter
 | Autentizace, mezera, fikční encyklopedie | Lubomír Doležel, *Heterocosmica* (1998) | Fikční svět je možný svět, který text uvede do existence. Fakty jsou jen to, co svět autoritativně potvrdí; je neúplný a jeho vědění se liší od encyklopedie skutečného světa. |
 | Podivné a tísnivé | Mark Fisher, *The Weird and the Eerie* (2016) | Podivné je přítomnost něčeho, co nepatří. Tísnivé je něco tam, kde by nemělo být nic, nebo nic tam, kde by mělo být něco, a otázka, kdo tu jednal. |
 | Vznešená a zkrocená monstrozita | Jaroslav Švelch, *Player vs. Monster* (2023) | Herní monstra jsou simulovaná a navržená, aby prohrála. Co se dá spočítat a porazit, ztrácí tajemství. |
+| Obětní beránek, zakládající vražda | René Girard, *Obětní beránek* (1982) | Mýty vyprávějí o kolektivním násilí z pohledu pronásledovatelů. Oběť je napřed vinná krizí, po smrti uctívaná jako zachránce, a z toho dvojího přenosu vzniká posvátno. |
 
 K tomu klasické pojmy, které esej používá: Aristotelova peripetie a anagnórize z *Poetiky*, Eliotův objektivní korelativ (1919) a Bachtinova polyfonie z knihy o Dostojevském (1929).
 
@@ -388,6 +389,12 @@ Otto psal o náboženství, ale popsal tím jádro kosmického hororu i nejsiln�
 
 Pro stavbu světa z toho plyne, že hra musí tajemství chránit pečlivěji než kniha. Nejsilnější světy atlasu to dělají dvojím způsobem. Buď monstrum nedovolí porazit ani pochopit: Astrální bodec v Control se nedá zničit a byl navržen tak, aby mu hráč nerozuměl. Nebo zpochybní samotného zabíječe: Undertale dovolí každé monstrum ušetřit a nakonec prozradí, že zkušenostní body jsou body popravy. Švelch tyto cesty nazývá selháním střetu a selháním odstupu. A ukazuje, že nové monstrum často vzniká ubíráním: Grue ze Zorku děsí právě proto, že hra nemá žádnou grafiku.
 
+### Girard: zakládající vražda
+
+René Girard v knize *Obětní beránek* (1982) tvrdí, že mnohé mýty jsou texty pronásledování psané z pohledu pronásledovatelů. Rozpoznává je podle čtyř opakujících se znaků. Společnost zachvátí krize, v níž mizí rozdíly (mor, hlad, rozvrat). Někdo je obviněn ze zločinu, který rozdíly ruší (otcovražda, vražda krále, incest, svatokrádež). Obviněný nese znamení oběti: je cizinec, nemocný, postižený, nebo naopak král. A nakonec přijde kolektivní násilí. Oidipus má všechny čtyři: mor v Thébách, otcovraždu a incest, kulhání, cizí původ i korunu. Protože se společenství po smrti oběti usmíří, připíše jí i záchranu. Kdo byl vinen nemocí, má zásluhu i na uzdravení, a z toho dvojího přenosu podle Girarda vzniká posvátno, zároveň prokleté i požehnané.
+
+Pro herní světy z toho plynou dvě věci. Za [prvotním hříchem](#prvotni-hrich) často stojí zakládající vražda, kterou si společenství vypráví tak, aby samo nebylo vinné: bohové Elder Scrolls společně vyrvou Lorkhanovi srdce a lidé ho pak uctívají jako stvořitele, z upálené Andraste vznikne v Dragon Age církev. A silné hry dávají hráči do ruky právě obětního beránka. V Pathologic přijíždí Haruspex do města, kde vypukl mor, a hned je obviněn z vraždy vlastního otce. V Dishonored dostane Corvo vinu za vraždu císařovny uprostřed krysího moru. V Pentimentu potřebuje opat rychle někoho oběsit a hra nikdy neřekne, kdo byl skutečný vrah. Mýtus vyprávěl z pohledu davu. Hra může postavit hráče do kruhu, kolem kterého dav stojí.
+
 ### Z dílny tvůrců
 
 Historik her Jimmy Maher rozebral vznik Planescape: Torment z původních dokumentů. Slavná otázka „Co může změnit povahu člověka?“ v prvním vizním dokumentu není. Hra je tam popsaná jako „zjizvený nesmrtelný s amnézií hledá svou identitu“. Otázka se vykrystalizovala až během vývoje z předpokladu, který byl hotový od začátku: nesmrtelnost, amnézie a smrtelnost jako protivník. Ústřední otázku tedy svět nemusí mít jako první, ale jeho předpoklad musí být dost bohatý, aby ji unesl.
@@ -431,3 +438,4 @@ Historik her Jimmy Maher rozebral vznik Planescape: Torment z původních dokume
 - Lubomír Doležel: *Heterocosmica: Fiction and Possible Worlds*, Johns Hopkins University Press 1998; česky *Heterocosmica. Fikce a možné světy*, Karolinum 2003.
 - Mark Fisher: *The Weird and the Eerie*, Repeater Books 2016.
 - Jaroslav Švelch: *Player vs. Monster: The Making and Breaking of Video Game Monstrosity*, MIT Press 2023.
+- René Girard: *Obětní beránek* (Le Bouc émissaire, 1982), Nakladatelství Lidové noviny 1997; anglicky *The Scapegoat*, Johns Hopkins University Press 1986.
