@@ -71,15 +71,15 @@ Nietzsche napsal, že i bohové hnijí. Bloodborne ten obraz bere doslova: Yharn
 
 Ve Warhammeru 40 000 je mrtvý bůh zároveň největší ironií celého vesmíru. Císař lidstva byl za života zapřisáhlý ateista. Věděl, že bohové Chaosu žijí z víry smrtelníků, a chtěl lidstvo odnaučit věřit, aby vyhladověli. Jeho synové se však obrátili proti němu. Když jeden z nich nechtěně rozbil Císařův tajný projekt, musel Císař usednout na Zlatý trůn a vlastní vůlí držet zavřenou bránu, kterou se drali démoni. V závěru občanské války ho jiný syn, Horus, smrtelně zranil. Od té doby ho Zlatý trůn, prastarý stroj, drží na hranici mezi životem a smrtí. Sedí tam deset tisíc let.
 
-Z ateisty se mezitím stal Bůh-Císař. Státní církev převzala knihu, kterou kdysi napsal zrádce, a pochybovat o Císařově božství je hrdelní zločin. Jeho mysl ve Warpu svítí jako maják, podle kterého se řídí všechny lidské lodě, a aby maják nezhasl, svážejí Černé lodě Inkvizice každý den tisíc mladých psykerů, jejichž duše trůn spálí jako palivo. Impérium tedy nejenže uctívá mrtvolu, ale každý den ji krmí lidmi.
+Z ateisty se mezitím stal Bůh-Císař. Státní církev převzala knihu, kterou kdysi napsal zrádce, a pochybovat o Císařově božství je hrdelní zločin. Jeho mysl ve Warpu svítí jako Astronomican, maják, podle kterého se řídí všechny lidské lodě. A aby Císař na trůnu nedotlel docela, svážejí Černé lodě Inkvizice každý den tisíc mladých psykerů, jejichž duše trůn spálí jako palivo. Impérium tedy nejenže uctívá mrtvolu, ale každý den ji krmí lidmi.
 
-Tohle je Nietzscheho stín v jeskyni dotažený do důsledků. Bůh, který nechtěl být bohem, je mrtvý natolik, že nemůže promluvit, a živý natolik, že na něm visí celá civilizace. Lidé neuctívají jeho myšlenku, ale jeho tělo – a tělo jim nemůže odporovat. Když syn Robute Guilliman po deseti tisících letech vstoupí do trůnního sálu, nenajde otce, ale rozbitou mysl, která v něm vidí jen poslední nástroj.
+Tohle je Nietzscheho stín v jeskyni dotažený do důsledků. Bůh, který nechtěl být bohem, je mrtvý natolik, že nemůže promluvit, a živý natolik, že na něm visí celá civilizace. Lidé neuctívají jeho myšlenku, ale jeho tělo – a tělo jim nemůže odporovat. Když syn Roboute Guilliman po deseti tisících letech vstoupí do trůnního sálu, nenajde otce, ale rozbitou mysl, která v něm vidí jen poslední nástroj.
 
 ### Pathfinder: bůh, který se nevrátil
 
 Pathfinder nabízí tu nejtišší variantu, a možná proto nejznepokojivější. Bůh lidstva Aroden byl kdysi smrtelník, který prošel zkouškou Hvězdného kamene a stal se bohem. Všechna proroctví světa se shodovala, že se v roce 4606 osobně vrátí a zahájí věk slávy. Lidé prodali majetky a čekali. V určenou hodinu se zvedly hurikány, na pobřeží vyrostlo věčné oko bouře a Aroden bez jediného slova zemřel.
 
-Žádná mrtvola tu není. Je tu jen díra po bohu, a ta se projeví doslova. Od té chvíle přestala ve světě platit všechna proroctví a začal Věk ztracených znamení. Vědkyně Areelu Vorlesh využila otřesu po Arodenově smrti a sešila svět s Propastí, takže na severu se otevřela Světová rána, kterou proudí démoni. A sama Areelu destiluje mýtickou moc z Nahyndrijských krystalů, tedy ze zkrystalizované krve zavražděných démonických pánů – opět z ostatků mrtvých mocností.
+Žádná mrtvola tu není. Je tu jen díra po bohu, a ta se projeví doslova. Od té chvíle přestala ve světě platit všechna proroctví a začal Věk ztracených znamení. V tažení Wrath of the Righteous, kterým atlas Pathfinder vedle Kingmakeru mapuje, se ukáže, co z té díry vzešlo: vědkyně Areelu Vorlesh využila otřesu po Arodenově smrti a sešila svět s Propastí, takže na severu se otevřela Světová rána, kterou proudí démoni. A sama Areelu destiluje mýtickou moc z Nahyndrijských krystalů, tedy ze zkrystalizované krve zavražděných démonických pánů – opět z ostatků mrtvých mocností.
 
 Příčinu Arodenovy smrti nezná ve světě ani jeden bůh a vydavatel Paizo slíbil, že ji nikdy neprozradí. Je to Eliadeho *deus otiosus* v nejostřejší podobě: bůh neodešel na odpočinek, odešel úplně, a svět se musí naučit žít bez plánu, který mu byl slíben.
 
@@ -117,7 +117,7 @@ Třetím důvodem je **dědictví**. Hráč skoro vždy přichází jako dědic 
 
 ## Co si svět počne se svým mrtvým bohem
 
-Atlas zakresluje každý svět na pěti souřadnicích. Když se podíváme na všech pět světů této stezky, ukáže se jasný vzor. Všech pět leží na souřadnici Realita blízko pólu Metafyzično a na souřadnici Měřítko u Epičnosti. To nikoho nepřekvapí: kde umírají bohové, jde o všechno. Zajímavá je ale souřadnice **Vyhlídka**, mezi Nadějí a Zoufalstvím. Tady se světy rozcházejí od jednoho okraje ke druhému.
+Atlas zakresluje každý svět na pěti souřadnicích. Když se podíváme na všech pět světů této stezky, ukáže se jasný vzor. Všech pět leží na souřadnici Realita blízko pólu Metafyzično a na souřadnici Měřítko u Epičnosti – i Bloodborne, které se odehraje za jedinou noc v jediném městě, protože za oponou té noci stojí kosmos. To nikoho nepřekvapí: kde umírají bohové, jde o všechno. Zajímavá je ale souřadnice **Vyhlídka**, mezi Nadějí a Zoufalstvím. Tady se světy rozcházejí od jednoho okraje ke druhému.
 
 Nejblíž Naději stojí Xenoblade a Elder Scrolls, nejblíž Zoufalství Bloodborne a Warhammer 40 000. Pathfinder leží uprostřed. A právě podle toho, co živí udělají s mrtvým bohem, se dá to rozložení vysvětlit.
 
@@ -129,7 +129,7 @@ Pathfinder stojí uprostřed, protože jeho mrtvý bůh nezanechal tělo, ze kte
 
 Odpověď na otázku z úvodu tedy zní takto. Mrtvý bůh je zkouška dědictví. Nic o světě neprozradí to, jak bůh zemřel – jestli byl poražen, potrestán, nebo zmizel bez vysvětlení. Prozradí to, co s jeho tělem udělají ti, kdo zůstali. Světy, které se naučí mrtvého boha nechat odejít, dávají svým obyvatelům budoucnost. Světy, které z něj nepřestanou čerpat, se samy pomalu mění v mrtvolu.
 
-Nietzsche se ptal, jestli nemusíme sami stát bohy, abychom se ukázali hodni jeho smrti. Herní světy na to odpovídají různě. Bloodborne říká, že ano, a ukazuje, co z člověka zbude. Xenoblade říká, že ne, že stačí žít bez nich. A Warhammer 40 000 varuje před nejhorší možností ze všech: postavit si z mrtvého boha trůn a zapomenout, že na něm nikdo nesedí.
+Nietzsche se ptal, jestli se nemusíme sami stát bohy, abychom se ukázali hodni jeho smrti. Herní světy na to odpovídají různě. Bloodborne říká, že ano, a ukazuje, co z člověka zbude. Xenoblade říká, že ne, že stačí žít bez nich. A Warhammer 40 000 varuje před nejhorší možností ze všech: postavit si z mrtvého boha trůn a zapomenout, že na něm nikdo nesedí.
 
 ## Zdroje
 
