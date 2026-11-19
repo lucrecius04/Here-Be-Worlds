@@ -22,6 +22,28 @@ Pravidla:
 | Jaroslav Švelch: *Player vs. Monster* (2023) | [svelch-player-vs-monster.md](svelch-player-vs-monster.md) | čteno (úvod, kap. 1 a 4, závěr, části kap. 2 a 3) | vznešená a zkrocená monstrozita, ontologie nepřítele, daemoni, hráč proti prostředí, selhání odstupu a střetu |
 | Drobné prameny: mýty o stvoření z těla boha, Eliade, Nietzsche, prameny Anatomie | [drobne-prameny.md](drobne-prameny.md) | přes sekundární zdroje | Ymir, Tiamat, Puruša, deus otiosus, Bůh je mrtev, Iser, Jenkins, Aarseth, Tolkien, Suvin |
 
+## Prameny podle stezek
+
+Opačný pohled k tabulce výše: co číst před psaním eseje ke stezce. Podrobnosti jsou ve výtazích v oddílu „Co z toho plyne pro Here Be Worlds“. Po použití pramene v eseji ho zapsat i do oddílu „Kde už je použito“ ve výtahu.
+
+| Stezka | Esej | Prameny | Čeká na dodání |
+|---|---|---|---|
+| Na mrtvole boha | [na-mrtvole-boha.md](../../content/trails/na-mrtvole-boha.md), čeká na kontrolu majitele | mýty o stvoření, Eliade (deus otiosus), Nietzsche, Otto, Clute (řídnutí), Doležel (mytologický svět), Fisher (tísnivé), Švelch (Ebrietas), Wolf | |
+| Bohové jako břemeno | | Otto, Clute (řídnutí), Eliade (deus otiosus), Nietzsche | Girard (oběť) |
+| Prokleté dědictví | | Clute (řídnutí, porucha), Doležel (přepisy) | Assmann (paměť, zakládající mýty), Girard |
+| Křehká hranice svobodné vůle | | Bogost (co hra nedovolí), Juul, vizní dokument Planescape (hráč se definuje činy) | |
+| Uvězněni v kruhu | | Juul (smrt a návrat jako téma), Clute (řídnutí), vizní dokument Planescape (cyklus jako trest) | Eliade, *Mýtus o věčném návratu* |
+| Hra ví, že ji hraješ | | Juul (vědomý nesoulad), Švelch (útěk ze stroje: Flowey), Bogost | |
+| Kdo se to probudil? | | vizní dokument Planescape (amnézie jako synchronizace vědění), Wolf (narativní rozlišení) | Mendlesohn (portálová fantasy) |
+| Netvor v zrcadle | | Švelch (selhání odstupu, sympatie s monstrem, lebečné krysy), vizní dokument Planescape (minulé inkarnace), Nietzsche | |
+| Ráj, který se nepovedl | | Clute (parodie země), Bogost | Girard |
+| Logo nad troskami | | Fisher (tísnivé jako neviditelná moc), Švelch (korporace jako neviditelná monstrozita podle Weinstocka) | |
+| Mluví už jen mrtví | | Fisher (archeologie, tísnivé), Doležel (mezera), Wolf (katalyzátory spekulace) | Assmann |
+| Smích nad propastí | | Švelch (parodie a humor v Undertale) | |
+| Město, které dýchá | | Wolf (infrastruktury), Doležel (fikční encyklopedie) | Mendlesohn (ponořená fantasy) |
+| Válka, kterou nikdo nevyhraje | | Švelch (ontologie nepřítele, spotřební nepřátelé), Clute (řídnutí) | Girard |
+| Pod lhostejnými hvězdami | | Otto, Fisher (podivné), Švelch (selhání střetu, Astrální bodec, lhostejná monstra), Clute | |
+
 ## Čeká na dodání (od majitele)
 
 - Jan Assmann: *Kultura a paměť* (zakládající mýty, přepisování dějin)

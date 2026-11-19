@@ -49,7 +49,7 @@ Bloodborne (Ebrietas, Klerikova bestie, Mijazakiho „smutná“ monstra), Dark 
 - **Vznešené a zkrocené = řízená mezera z jiné strany.** Co se dá pojmenovat, popsat a porazit, ztrácí tajemství. Proto silné světy své bohy a monstra nevysvětlují (Otto, Fisher). Švelch přidává herní důvod: simulace sama tajemství ruší, takže svět ho musí chránit zadržováním informací nebo ubíráním mechanik.
 - **Ebrietas** (Bloodborne): Švelch ji potkal jako spící kosmickou bytost, nikdo na něj nezaútočil a jméno hra ukazuje teprve při boji. Neutkal se s ní, aby si uchoval její vznešenost. Je to Veliký z naší kroniky, takže se hodí do stezky Na mrtvole boha.
 - **Stezka Netvor v zrcadle** stojí přesně na selhání odstupu: Undertale (EXP a LV), Planescape (lebečné krysy a minulé inkarnace), Dishonored, NieR, Silent Hill. Švelch je pro budoucí esej této stezky hlavní pramen.
-- **Stezka Lhostejné hvězdy** stojí na selhání střetu: Control (Astrální bodec), Bloodborne (Velicí), Outer Wilds, SOMA. Luckhurstova lhostejná monstra „prostě jsou“.
+- **Stezka Pod lhostejnými hvězdami** stojí na selhání střetu: Control (Astrální bodec), Bloodborne (Velicí), Outer Wilds, SOMA. Luckhurstova lhostejná monstra „prostě jsou“.
 - **Stezka Hra ví, že ji hraješ:** útěk ze stroje (Flowey, Psycho Mantis), monstrum se spolčí s hardwarem.
 - **Mechanika jako význam:** nesoulad lore a mechaniky u monster (Drákula s ohnivými koulemi) je protipříklad k Juulovu testu převyprávění. Shadow of the Colossus a Undertale jsou kladné vzory.
 - **Pro Anatomii vyprávění v kronikách:** ptát se, jestli jsou monstra světa spotřební nepřátelé, nebo nesou jeho téma (Klerikova bestie jako zápas lidskosti a bestiálnosti).
