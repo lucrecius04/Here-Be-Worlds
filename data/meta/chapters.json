@@ -4,7 +4,7 @@
       "id": "fantasy",
       "order": 1,
       "title": { "en": "Fantasy", "cs": "Fantasy" },
-      "accent": { "light": "#7A4E1F", "dark": "#E0B36A" },
+      "accent": { "light": "#966300", "dark": "#F0C04E" },
       "thesis": {
         "en": "Worlds of magic, gods, and myth—from exalted realms to ashen ruins.",
         "cs": "Světy magie, bohů a mýtů – od vznešených říší po popelavé ruiny."
@@ -18,7 +18,7 @@
       "id": "science-fiction",
       "order": 2,
       "title": { "en": "Science Fiction", "cs": "Science fiction" },
-      "accent": { "light": "#1F5A7A", "dark": "#7EC0E0" },
+      "accent": { "light": "#0B6A85", "dark": "#62C8E3" },
       "thesis": {
         "en": "Science and technology open paths to the stars—and to powers older than humanity.",
         "cs": "Věda a technologie otevírají cestu ke hvězdám i k novým formám života."
@@ -32,7 +32,7 @@
       "id": "post-apocalypse",
       "order": 3,
       "title": { "en": "Post-Apocalypse", "cs": "Postapokalypsa" },
-      "accent": { "light": "#6B3D32", "dark": "#D4A090" },
+      "accent": { "light": "#56661A", "dark": "#A8BC52" },
       "thesis": {
         "en": "Civilization has fallen; life continues in the ruins, with the question of what to rebuild.",
         "cs": "Civilizace padla, ale život pokračuje v troskách."
@@ -46,7 +46,7 @@
       "id": "horror",
       "order": 4,
       "title": { "en": "Horror", "cs": "Horor" },
-      "accent": { "light": "#4A2458", "dark": "#C49BC8" },
+      "accent": { "light": "#A8173A", "dark": "#F27C8E" },
       "thesis": {
         "en": "Fear as a language—often grown from guilt, science, or unbearable truth.",
         "cs": "Strach jako hlavní jazyk světa."
@@ -57,24 +57,10 @@
       }
     },
     {
-      "id": "historical",
-      "order": 5,
-      "title": { "en": "Historical & Alternate", "cs": "Historické a alternativní světy" },
-      "accent": { "light": "#7A242C", "dark": "#D4848C" },
-      "thesis": {
-        "en": "Real history and its echoes—who writes the past, and who owns it.",
-        "cs": "Světy na skutečných dějinách nebo na jejich věrné ozvěně."
-      },
-      "lead": {
-        "cs": "Pozemské dějiny, které se na křižovatce osudu vydaly jinou, temnější či podivuhodnější cestou. Svět, kde známé kulisy minulosti skrývají neznámé mocenské hry, skryté kulty a proměněný řád věcí.",
-        "en": "Earthly histories that, at a crossroads of fate, took another, darker or more wondrous path. A world where the familiar scenery of the past conceals unknown power plays, hidden cults, and a transformed order of things."
-      }
-    },
-    {
       "id": "dystopia",
-      "order": 6,
+      "order": 5,
       "title": { "en": "Dystopia", "cs": "Dystopie" },
-      "accent": { "light": "#1E5A42", "dark": "#6EC4A0" },
+      "accent": { "light": "#17704A", "dark": "#5FD49B" },
       "thesis": {
         "en": "Promised order, progress, or paradise—built as a cage.",
         "cs": "Společnosti, které slibovaly ráj, a postavily klec."
@@ -85,10 +71,24 @@
       }
     },
     {
+      "id": "historical",
+      "order": 6,
+      "title": { "en": "Historical & Alternate", "cs": "Historické a alternativní světy" },
+      "accent": { "light": "#8C3414", "dark": "#E58A5C" },
+      "thesis": {
+        "en": "Real history and its echoes—who writes the past, and who owns it.",
+        "cs": "Světy na skutečných dějinách nebo na jejich věrné ozvěně."
+      },
+      "lead": {
+        "cs": "Pozemské dějiny, které se na křižovatce osudu vydaly jinou, temnější či podivuhodnější cestou. Svět, kde známé kulisy minulosti skrývají neznámé mocenské hry, skryté kulty a proměněný řád věcí.",
+        "en": "Earthly histories that, at a crossroads of fate, took another, darker or more wondrous path. A world where the familiar scenery of the past conceals unknown power plays, hidden cults, and a transformed order of things."
+      }
+    },
+    {
       "id": "metaphysical",
       "order": 7,
       "title": { "en": "Metaphysical & Experimental", "cs": "Metafyzické a experimentální světy" },
-      "accent": { "light": "#3E2A8A", "dark": "#C4B0F0" },
+      "accent": { "light": "#7B2E9E", "dark": "#CFA0F2" },
       "thesis": {
         "en": "Reality bends; narrative, belief, and consciousness reshape the map.",
         "cs": "Světy, v nichž se láme samotná struktura reality."
