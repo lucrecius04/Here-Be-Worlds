@@ -346,6 +346,7 @@ Pojmy z rozboru mají oporu ve čtyřech tradicích: v teorii fantastiky a liter
 | Obětní beránek, zakládající vražda | René Girard, *Obětní beránek* (1982) | Mýty vyprávějí o kolektivním násilí z pohledu pronásledovatelů. Oběť je napřed vinná krizí, po smrti uctívaná jako zachránce, a z toho dvojího přenosu vzniká posvátno. |
 | Portálová, ponořená, vpádová a prahová fantasy | Farah Mendlesohn, *Rhetorics of Fantasy* (2008) | Fantasy se liší tím, jak do příběhu vstupuje fantastično a kde přitom stojí čtenář: přichází zvenčí, je doma, svět je přepaden, nebo zázrak stojí na prahu. |
 | Věčný návrat, hrůza z dějin | Mircea Eliade, *Mýtus o věčném návratu* (1949) | Tradiční člověk považuje za skutečné jen to, co opakuje vzor z počátku času. Opakováním ruší dějiny a kolektivní paměť z událostí dělá mýty. |
+| Funkční a úložná paměť, místa traumatu | Aleida Assmannová, *Cultural Memory and Western Civilization* (1999) | Kultura si pamatuje dvojím způsobem: výběrovou pamětí, která vytváří identitu, a archivem toho, co se už nepoužívá. Místo traumatu nese příběh, který nejde vyprávět. |
 
 K tomu klasické pojmy, které esej používá: Aristotelova peripetie a anagnórize z *Poetiky*, Eliotův objektivní korelativ (1919) a Bachtinova polyfonie z knihy o Dostojevském (1929).
 
@@ -409,6 +410,12 @@ Religionista Mircea Eliade v knize *Mýtus o věčném návratu* (1949) popsal, 
 
 Pro herní světy jsou nejcennější dvě věci. První je cyklus: Dark Souls staví celý svět na obřadu obnovy, rozdmýchání ohně, který místo obnovy jen prodlužuje úpadek, zatímco Outer Wilds nechává svět každou smyčkou znovu vzniknout. Druhá je mýtizace dějin. Eliade ukazuje, že lidová paměť si nepamatuje události, ale vzory: srbský hrdina Marko Kraljević, skutečný muž ze čtrnáctého století, má v baladách za matku vílu a zabíjí tříhlavého draka. V jedné rumunské vesnici stačilo necelých čtyřicet let, aby se z ženicha, který uklouzl na skále, stala oběť žárlivé horské víly, a vesnice nevěřila ani nevěstě, která to pamatovala jinak. Přesně tak vznikají legendy uvnitř herních světů. Z císaře Tibera Septima se v Elder Scrolls po smrti stal bůh Talos a Pentiment ukazuje, jak městečko přepisuje vlastní minulost do příběhů, které unese.
 
+### Assmannová: funkční a úložná paměť
+
+Literární vědkyně Aleida Assmannová v knize *Cultural Memory and Western Civilization* (německy 1999) rozlišuje dva způsoby, jak si kultura pamatuje. **Funkční paměť** je výběrová a slouží skupině: vytváří identitu, ospravedlňuje moc a dává smysl. Moc podle Assmannové potřebuje původ, a proto si píše genealogie a staví pomníky. Poražení zase pěstují protipaměť, protože na rozdíl od vítězů zapomenout nemohou. **Úložná paměť** je všechno ostatní: archivy, zapomenuté texty a nevyužité možnosti. Sama identitu netvoří, ale je zásobárnou, ze které může budoucnost čerpat, a měřítkem, podle kterého lze oficiální paměť opravit.
+
+Pro herní světy je to přesný popis lore. Popisky předmětů, kodexy a nahrávky jsou úložnou pamětí světa, kterou už nikdo uvnitř nepoužívá, a hráč ji znovu zapojuje do smyslu. Assmannová připomíná řeckého cestovatele Pausania, který ve druhém století procházel zpustlá místa řecké kultury, zapisoval stopy a legendy a udělal ze zaniklého světa krajinu paměti. Přesně to dělá hráč v Outer Wilds nebo v Dark Souls. Nejsilnější světy pak střet obou pamětí rovnou inscenují: Ted Faro v Horizonu smaže knihovnu se vším věděním lidstva, aby se nikdo nedozvěděl o jeho vině, úřad v Control archivuje i začerňuje, a církev ve Warhammeru 40 000 vyznává knihu, kterou napsal zrádce. Assmannová popisuje i **místa traumatu**, jejichž příběh nejde vyprávět, a přesto k nim člověka neodolatelně táhne. Silent Hill 2, kde se James vrací do města kvůli dopisu od mrtvé ženy, je hra přesně o takovém místě.
+
 ### Z dílny tvůrců
 
 Historik her Jimmy Maher rozebral vznik Planescape: Torment z původních dokumentů. Slavná otázka „Co může změnit povahu člověka?“ v prvním vizním dokumentu není. Hra je tam popsaná jako „zjizvený nesmrtelný s amnézií hledá svou identitu“. Otázka se vykrystalizovala až během vývoje z předpokladu, který byl hotový od začátku: nesmrtelnost, amnézie a smrtelnost jako protivník. Ústřední otázku tedy svět nemusí mít jako první, ale jeho předpoklad musí být dost bohatý, aby ji unesl.
@@ -455,3 +462,4 @@ Historik her Jimmy Maher rozebral vznik Planescape: Torment z původních dokume
 - René Girard: *Obětní beránek* (Le Bouc émissaire, 1982), Nakladatelství Lidové noviny 1997; anglicky *The Scapegoat*, Johns Hopkins University Press 1986.
 - Farah Mendlesohn: *Rhetorics of Fantasy*, Wesleyan University Press 2008.
 - Mircea Eliade: *Mýtus o věčném návratu (Archetypy a opakování)* (Le Mythe de l'éternel retour, 1949), Praha 1993; anglicky *The Myth of the Eternal Return*, Princeton University Press 1954.
+- Aleida Assmann: *Cultural Memory and Western Civilization: Functions, Media, Archives* (Erinnerungsräume, 1999), Cambridge University Press 2011.

@@ -23,6 +23,7 @@ Pravidla:
 | René Girard: *Obětní beránek* (1982) | [girard-obetni-beranek.md](girard-obetni-beranek.md) | čteno (kap. 2, 3, 5, 6, části 7 a 10) | stereotypy pronásledování, mýtus jako text pronásledovatelů, dvojí přenos, Teotihuacan, skrývání kolektivní vraždy |
 | Farah Mendlesohn: *Rhetorics of Fantasy* (2008) | [mendlesohn-rhetorics-of-fantasy.md](mendlesohn-rhetorics-of-fantasy.md) | čteno (úvod, epilog, teze kap. 1–4) | portálová, ponořená, vpádová a prahová fantasy, klubové vyprávění, ponoření = řídnutí, eskalace a latence |
 | Mircea Eliade: *Mýtus o věčném návratu* (1949) | [eliade-mytus-o-vecnem-navratu.md](eliade-mytus-o-vecnem-navratu.md) | čteno (kap. 1, hlavní oddíly kap. 2–4) | archetyp a opakování, symbolika středu, obnova času (akitu), mýtizace dějin, kosmické cykly (jugy), hrůza z dějin |
+| Aleida Assmann: *Cultural Memory and Western Civilization* (1999) | [assmann-cultural-memory.md](assmann-cultural-memory.md) | čteno (ars a vis, funkční a úložná paměť, místa, závěr) | funkční a úložná paměť, legitimace a protipaměť, Pausanias, úcta a zvědavost k ruinám, místa traumatu |
 | Drobné prameny: mýty o stvoření z těla boha, Eliade, Nietzsche, prameny Anatomie | [drobne-prameny.md](drobne-prameny.md) | přes sekundární zdroje | Ymir, Tiamat, Puruša, deus otiosus, Bůh je mrtev, Iser, Jenkins, Aarseth, Tolkien, Suvin |
 
 ## Prameny podle stezek
@@ -33,15 +34,15 @@ Opačný pohled k tabulce výše (16 stezek): co číst před psaním eseje ke s
 |---|---|---|---|
 | Na mrtvole boha | [na-mrtvole-boha.md](../../content/trails/na-mrtvole-boha.md), čeká na kontrolu majitele | mýty o stvoření, Eliade (deus otiosus), Nietzsche, Otto, Clute (řídnutí), Doležel (mytologický svět), Fisher (tísnivé), Švelch (Ebrietas), Girard (Teotihuacan, dvojí přenos), Eliade (akitu), Wolf | |
 | Bohové jako břemeno | | Otto, Clute (řídnutí), Eliade (deus otiosus), Nietzsche, Girard (dvojí přenos, bohové bez viny) | |
-| Prokleté dědictví | | Clute (řídnutí, porucha), Doležel (přepisy), Girard (zakládající vražda), Mendlesohn (ponořená fantasy vypráví ztrátu), Eliade (mýtizace dějin) | Assmann (paměť, zakládající mýty) |
+| Prokleté dědictví | | Clute (řídnutí, porucha), Doležel (přepisy), Girard (zakládající vražda), Mendlesohn (ponořená fantasy vypráví ztrátu), Eliade (mýtizace dějin), A. Assmannová (oficiální paměť a protipaměť) | |
 | Křehká hranice svobodné vůle | | Bogost (co hra nedovolí), Juul, vizní dokument Planescape (hráč se definuje činy) | |
 | Uvězněni v kruhu | | Juul (smrt a návrat jako téma), Clute (řídnutí), vizní dokument Planescape (cyklus jako trest), Eliade (věčný návrat, obnova času, jugy) | |
 | Hra ví, že ji hraješ | | Juul (vědomý nesoulad), Švelch (útěk ze stroje: Flowey), Bogost | |
 | Kdo se to probudil? | | vizní dokument Planescape (amnézie jako synchronizace vědění), Wolf (narativní rozlišení), Mendlesohn (amnézie jako portál převlečený za ponoření) | |
-| Netvor v zrcadle | | Švelch (selhání odstupu, sympatie s monstrem, lebečné krysy), vizní dokument Planescape (minulé inkarnace), Nietzsche, Girard (monstrum z rozpadu rozdílů, Silent Hill) | |
+| Netvor v zrcadle | | Švelch (selhání odstupu, sympatie s monstrem, lebečné krysy), vizní dokument Planescape (minulé inkarnace), Nietzsche, Girard (monstrum z rozpadu rozdílů, Silent Hill), A. Assmannová (místo traumatu: Silent Hill 2) | |
 | Ráj, který se nepovedl | | Clute (parodie země), Bogost, Girard (reformátor si vymyslí ztracený ráj) | |
-| Logo nad troskami | | Fisher (tísnivé jako neviditelná moc), Švelch (korporace jako neviditelná monstrozita podle Weinstocka) | |
-| Mluví už jen mrtví | | Fisher (archeologie, tísnivé), Doležel (mezera), Wolf (katalyzátory spekulace), Eliade (kolektivní paměť je nehistorická) | Assmann |
+| Logo nad troskami | | Fisher (tísnivé jako neviditelná moc), Švelch (korporace jako neviditelná monstrozita podle Weinstocka), A. Assmannová (Faro maže APOLLO: zničená úložná paměť) | |
+| Mluví už jen mrtví | | Fisher (archeologie, tísnivé), Doležel (mezera), Wolf (katalyzátory spekulace), Eliade (kolektivní paměť je nehistorická), A. Assmannová (úložná paměť, Pausanias, místa traumatu) | |
 | Smích nad propastí | | Švelch (parodie a humor v Undertale), Mendlesohn (prahový tón: klid a ironie, Control) | |
 | Město, které dýchá | | Wolf (infrastruktury), Doležel (fikční encyklopedie), Mendlesohn (ponořená fantasy, kompetentní obyvatelé), Eliade (symbolika středu) | |
 | Válka, kterou nikdo nevyhraje | | Švelch (ontologie nepřítele, spotřební nepřátelé), Clute (řídnutí), Girard (obětní krize, Kaifášova logika), Eliade (hrůza z dějin) | |
@@ -51,4 +52,4 @@ Opačný pohled k tabulce výše (16 stezek): co číst před psaním eseje ke s
 ## Čeká na dodání (od majitele)
 
 - Farah Mendlesohn, Edward James: *A Short History of Fantasy* (2009). Majitel ji má, zatím nevyžádána: přehled dějin žánru, hodí se, až budeme psát o kořenech herní fantasy (Tolkien, D&D, sword and sorcery).
-- Jan Assmann: *Kultura a paměť* (zakládající mýty, přepisování dějin)
+- Jan Assmann: *Kultura a paměť* (1992, česky Prostor 2001): komunikativní a kulturní paměť, zakládající mýty. Majitel dodal knihu Aleidy Assmannové, která velkou část pokrývá. Janovu knihu jen pokud budeme psát přímo o zakládajících mýtech.

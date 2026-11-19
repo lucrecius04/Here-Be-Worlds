@@ -77,7 +77,7 @@ Nietzsche napsal, že i bohové hnijí. Bloodborne ten obraz bere doslova: Yharn
 
 Ve Warhammeru 40 000 je mrtvý bůh zároveň největší ironií celého vesmíru. Císař lidstva byl za života zapřisáhlý ateista. Věděl, že bohové Chaosu žijí z víry smrtelníků, a chtěl lidstvo odnaučit věřit, aby vyhladověli. Jeho synové se však obrátili proti němu. Když jeden z nich nechtěně rozbil Císařův tajný projekt, musel Císař usednout na Zlatý trůn a vlastní vůlí držet zavřenou bránu, kterou se drali démoni. V závěru občanské války ho jiný syn, Horus, smrtelně zranil. Od té doby ho Zlatý trůn, prastarý stroj, drží na hranici mezi životem a smrtí. Sedí tam deset tisíc let.
 
-Z ateisty se mezitím stal Bůh-Císař. Státní církev převzala knihu, kterou kdysi napsal zrádce, a pochybovat o Císařově božství je hrdelní zločin. Jeho mysl ve Warpu svítí jako Astronomican, maják, podle kterého se řídí všechny lidské lodě. A aby Císař na trůnu nedotlel docela, svážejí Černé lodě Inkvizice každý den tisíc mladých psykerů, jejichž duše trůn spálí jako palivo. Impérium tedy nejenže uctívá mrtvolu, ale každý den ji krmí lidmi. Je to Teotihuacan ve vesmírném měřítku: bůh, který vznikl z oběti, svítí jen tak dlouho, dokud dostává další.
+Z ateisty se mezitím stal Bůh-Císař. Státní církev převzala knihu, kterou kdysi napsal zrádce, a pochybovat o Císařově božství je hrdelní zločin. Aleida Assmannová by to nazvala oficiální pamětí: moc potřebuje původ, a když ho najde, zapomene, odkud ho vzala. Jeho mysl ve Warpu svítí jako Astronomican, maják, podle kterého se řídí všechny lidské lodě. A aby Císař na trůnu nedotlel docela, svážejí Černé lodě Inkvizice každý den tisíc mladých psykerů, jejichž duše trůn spálí jako palivo. Impérium tedy nejenže uctívá mrtvolu, ale každý den ji krmí lidmi. Je to Teotihuacan ve vesmírném měřítku: bůh, který vznikl z oběti, svítí jen tak dlouho, dokud dostává další.
 
 Tohle je Nietzscheho stín v jeskyni dotažený do důsledků. Bůh, který nechtěl být bohem, je mrtvý natolik, že nemůže promluvit, a živý natolik, že na něm visí celá civilizace. Lidé neuctívají jeho myšlenku, ale jeho tělo – a tělo jim nemůže odporovat. Když syn Roboute Guilliman po deseti tisících letech vstoupí do trůnního sálu, nenajde otce, ale rozbitou mysl, která v něm vidí jen poslední nástroj.
 
@@ -164,6 +164,7 @@ Nietzsche se ptal, jestli se nemusíme sami stát bohy, abychom se ukázali hodn
 - Mark J. P. Wolf: *Building Imaginary Worlds: The Theory and History of Subcreation*, Routledge 2012.
 - Lubomír Doležel: *Heterocosmica: Fiction and Possible Worlds*, Johns Hopkins University Press 1998; česky Karolinum 2003.
 - Mark Fisher: *The Weird and the Eerie*, Repeater Books 2016.
+- Aleida Assmann: *Cultural Memory and Western Civilization: Functions, Media, Archives* (Erinnerungsräume, 1999), Cambridge University Press 2011.
 - Jaroslav Švelch: *Player vs. Monster: The Making and Breaking of Video Game Monstrosity*, MIT Press 2023.
 - Wolfgang Iser: *Der Akt des Lesens* (1976), prázdná místa textu.
 - [Henry Jenkins: Game Design as Narrative Architecture](https://web.mit.edu/~21fms/People/henry3/games&narrative.html)
