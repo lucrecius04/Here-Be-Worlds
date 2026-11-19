@@ -347,6 +347,7 @@ Pojmy z rozboru mají oporu ve čtyřech tradicích: v teorii fantastiky a liter
 | Portálová, ponořená, vpádová a prahová fantasy | Farah Mendlesohn, *Rhetorics of Fantasy* (2008) | Fantasy se liší tím, jak do příběhu vstupuje fantastično a kde přitom stojí čtenář: přichází zvenčí, je doma, svět je přepaden, nebo zázrak stojí na prahu. |
 | Věčný návrat, hrůza z dějin | Mircea Eliade, *Mýtus o věčném návratu* (1949) | Tradiční člověk považuje za skutečné jen to, co opakuje vzor z počátku času. Opakováním ruší dějiny a kolektivní paměť z událostí dělá mýty. |
 | Funkční a úložná paměť, místa traumatu | Aleida Assmannová, *Cultural Memory and Western Civilization* (1999) | Kultura si pamatuje dvojím způsobem: výběrovou pamětí, která vytváří identitu, a archivem toho, co se už nepoužívá. Místo traumatu nese příběh, který nejde vyprávět. |
+| Obnovující a reflektující nostalgie | Svetlana Boym, *The Future of Nostalgia* (2001) | Obnovující nostalgie chce ztracený domov znovu postavit a považuje se za pravdu. Reflektující prodlévá u ruin, patiny a touhy samotné a pravdu zpochybňuje. |
 
 K tomu klasické pojmy, které esej používá: Aristotelova peripetie a anagnórize z *Poetiky*, Eliotův objektivní korelativ (1919) a Bachtinova polyfonie z knihy o Dostojevském (1929).
 
@@ -416,6 +417,12 @@ Literární vědkyně Aleida Assmannová v knize *Cultural Memory and Western Ci
 
 Pro herní světy je to přesný popis lore. Popisky předmětů, kodexy a nahrávky jsou úložnou pamětí světa, kterou už nikdo uvnitř nepoužívá, a hráč ji znovu zapojuje do smyslu. Assmannová připomíná řeckého cestovatele Pausania, který ve druhém století procházel zpustlá místa řecké kultury, zapisoval stopy a legendy a udělal ze zaniklého světa krajinu paměti. Přesně to dělá hráč v Outer Wilds nebo v Dark Souls. Nejsilnější světy pak střet obou pamětí rovnou inscenují: Ted Faro v Horizonu smaže knihovnu se vším věděním lidstva, aby se nikdo nedozvěděl o jeho vině, úřad v Control archivuje i začerňuje, a církev ve Warhammeru 40 000 vyznává knihu, kterou napsal zrádce. Assmannová popisuje i **místa traumatu**, jejichž příběh nejde vyprávět, a přesto k nim člověka neodolatelně táhne. Silent Hill 2, kde se James vrací do města kvůli dopisu od mrtvé ženy, je hra přesně o takovém místě.
 
+### Boym: obnovující a reflektující nostalgie
+
+Svetlana Boym, literární vědkyně, která emigrovala z Leningradu, v knize *The Future of Nostalgia* (2001) ukazuje, že nostalgie není jen touha po minulosti, ale i po nesplněných snech a po budoucnostech, které zastaraly. Rozlišuje dva typy. **Obnovující nostalgie** chce ztracený domov znovu postavit, považuje se za pravdu a tradici a vypráví dva příběhy: návrat k počátkům a spiknutí, za kterým vždy stojí nějaký nepřítel. Nesnáší patinu: minulost má být čerstvě natřená, jako když restaurátoři v osmdesátých letech vyčistili Sixtinskou kapli do původního jasu. **Reflektující nostalgie** naopak prodlévá u ruin, praskliny a patiny času, miluje detaily víc než symboly a návrat domů odkládá, protože ví, že domov už takový není.
+
+Herní světy znají obojí. Obnovující nostalgie bývá ideologií jejich mocných: Gwyn v Dark Souls propojuje oheň, aby za každou cenu udržel Věk ohně, Rapture a Columbia v BioShocku jsou ráje postavené na návratu k počátkům. Fallout je Boymina nostalgie po budoucnosti, která nepřišla, celý svět uvízlý v optimismu padesátých let. A Disco Elysium z toho udělalo kosmologii: Šeď se rozrůstá úměrně tomu, kolik dějin a nostalgie civilizace vyprodukuje a jak neumí zapomínat. Hráč sám je přitom skoro vždy nostalgik reflektující. Prochází ruiny, čte popisky předmětů a skládá svět z detailů, a řízená mezera tu chrání patinu před restaurováním.
+
 ### Z dílny tvůrců
 
 Historik her Jimmy Maher rozebral vznik Planescape: Torment z původních dokumentů. Slavná otázka „Co může změnit povahu člověka?“ v prvním vizním dokumentu není. Hra je tam popsaná jako „zjizvený nesmrtelný s amnézií hledá svou identitu“. Otázka se vykrystalizovala až během vývoje z předpokladu, který byl hotový od začátku: nesmrtelnost, amnézie a smrtelnost jako protivník. Ústřední otázku tedy svět nemusí mít jako první, ale jeho předpoklad musí být dost bohatý, aby ji unesl.
@@ -463,3 +470,4 @@ Historik her Jimmy Maher rozebral vznik Planescape: Torment z původních dokume
 - Farah Mendlesohn: *Rhetorics of Fantasy*, Wesleyan University Press 2008.
 - Mircea Eliade: *Mýtus o věčném návratu (Archetypy a opakování)* (Le Mythe de l'éternel retour, 1949), Praha 1993; anglicky *The Myth of the Eternal Return*, Princeton University Press 1954.
 - Aleida Assmann: *Cultural Memory and Western Civilization: Functions, Media, Archives* (Erinnerungsräume, 1999), Cambridge University Press 2011.
+- Svetlana Boym: *The Future of Nostalgia*, Basic Books 2001.

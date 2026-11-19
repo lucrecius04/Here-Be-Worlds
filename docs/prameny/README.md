@@ -24,6 +24,7 @@ Pravidla:
 | Farah Mendlesohn: *Rhetorics of Fantasy* (2008) | [mendlesohn-rhetorics-of-fantasy.md](mendlesohn-rhetorics-of-fantasy.md) | čteno (úvod, epilog, teze kap. 1–4) | portálová, ponořená, vpádová a prahová fantasy, klubové vyprávění, ponoření = řídnutí, eskalace a latence |
 | Mircea Eliade: *Mýtus o věčném návratu* (1949) | [eliade-mytus-o-vecnem-navratu.md](eliade-mytus-o-vecnem-navratu.md) | čteno (kap. 1, hlavní oddíly kap. 2–4) | archetyp a opakování, symbolika středu, obnova času (akitu), mýtizace dějin, kosmické cykly (jugy), hrůza z dějin |
 | Aleida Assmann: *Cultural Memory and Western Civilization* (1999) | [assmann-cultural-memory.md](assmann-cultural-memory.md) | čteno (ars a vis, funkční a úložná paměť, místa, závěr) | funkční a úložná paměť, legitimace a protipaměť, Pausanias, úcta a zvědavost k ruinám, místa traumatu |
+| Svetlana Boym: *The Future of Nostalgia* (2001) | [boym-future-of-nostalgia.md](boym-future-of-nostalgia.md) | čteno (úvod, kap. 3–5, závěr) | obnovující a reflektující nostalgie, spiknutí a návrat k počátkům, patina, syndrom Jurského parku, nostalgie po budoucnosti |
 | Drobné prameny: mýty o stvoření z těla boha, Eliade, Nietzsche, prameny Anatomie | [drobne-prameny.md](drobne-prameny.md) | přes sekundární zdroje | Ymir, Tiamat, Puruša, deus otiosus, Bůh je mrtev, Iser, Jenkins, Aarseth, Tolkien, Suvin |
 
 ## Prameny podle stezek
@@ -33,21 +34,21 @@ Opačný pohled k tabulce výše (16 stezek): co číst před psaním eseje ke s
 | Stezka | Esej | Prameny | Čeká na dodání |
 |---|---|---|---|
 | Na mrtvole boha | [na-mrtvole-boha.md](../../content/trails/na-mrtvole-boha.md), čeká na kontrolu majitele | mýty o stvoření, Eliade (deus otiosus), Nietzsche, Otto, Clute (řídnutí), Doležel (mytologický svět), Fisher (tísnivé), Švelch (Ebrietas), Girard (Teotihuacan, dvojí přenos), Eliade (akitu), Wolf | |
-| Bohové jako břemeno | | Otto, Clute (řídnutí), Eliade (deus otiosus), Nietzsche, Girard (dvojí přenos, bohové bez viny) | |
+| Bohové jako břemeno | | Otto, Clute (řídnutí), Eliade (deus otiosus), Nietzsche, Girard (dvojí přenos, bohové bez viny), Boym (Gwyn a obnovující nostalgie) | |
 | Prokleté dědictví | | Clute (řídnutí, porucha), Doležel (přepisy), Girard (zakládající vražda), Mendlesohn (ponořená fantasy vypráví ztrátu), Eliade (mýtizace dějin), A. Assmannová (oficiální paměť a protipaměť) | |
 | Křehká hranice svobodné vůle | | Bogost (co hra nedovolí), Juul, vizní dokument Planescape (hráč se definuje činy) | |
 | Uvězněni v kruhu | | Juul (smrt a návrat jako téma), Clute (řídnutí), vizní dokument Planescape (cyklus jako trest), Eliade (věčný návrat, obnova času, jugy) | |
 | Hra ví, že ji hraješ | | Juul (vědomý nesoulad), Švelch (útěk ze stroje: Flowey), Bogost | |
 | Kdo se to probudil? | | vizní dokument Planescape (amnézie jako synchronizace vědění), Wolf (narativní rozlišení), Mendlesohn (amnézie jako portál převlečený za ponoření) | |
 | Netvor v zrcadle | | Švelch (selhání odstupu, sympatie s monstrem, lebečné krysy), vizní dokument Planescape (minulé inkarnace), Nietzsche, Girard (monstrum z rozpadu rozdílů, Silent Hill), A. Assmannová (místo traumatu: Silent Hill 2) | |
-| Ráj, který se nepovedl | | Clute (parodie země), Bogost, Girard (reformátor si vymyslí ztracený ráj) | |
+| Ráj, který se nepovedl | | Clute (parodie země), Bogost, Girard (reformátor si vymyslí ztracený ráj), Boym (obnovující nostalgie, Fallout jako nostalgie po budoucnosti, Šeď v Disco Elysium) | |
 | Logo nad troskami | | Fisher (tísnivé jako neviditelná moc), Švelch (korporace jako neviditelná monstrozita podle Weinstocka), A. Assmannová (Faro maže APOLLO: zničená úložná paměť) | |
 | Mluví už jen mrtví | | Fisher (archeologie, tísnivé), Doležel (mezera), Wolf (katalyzátory spekulace), Eliade (kolektivní paměť je nehistorická), A. Assmannová (úložná paměť, Pausanias, místa traumatu) | |
 | Smích nad propastí | | Švelch (parodie a humor v Undertale), Mendlesohn (prahový tón: klid a ironie, Control) | |
 | Město, které dýchá | | Wolf (infrastruktury), Doležel (fikční encyklopedie), Mendlesohn (ponořená fantasy, kompetentní obyvatelé), Eliade (symbolika středu) | |
 | Válka, kterou nikdo nevyhraje | | Švelch (ontologie nepřítele, spotřební nepřátelé), Clute (řídnutí), Girard (obětní krize, Kaifášova logika), Eliade (hrůza z dějin) | |
 | Pod lhostejnými hvězdami | | Otto, Fisher (podivné), Švelch (selhání střetu, Astrální bodec, lhostejná monstra), Clute, Mendlesohn (ponoření = řídnutí) | |
-| Kdo za to může? | | Girard (stereotypy pronásledování, dvojí přenos, Kaifášova logika), Eliade (normálnost utrpení: neštěstí musí mít původce). V eseji zmínit výhradu: Girard je redukcionista, používat ho jako nástroj vedle jiných pramenů | |
+| Kdo za to může? | | Girard (stereotypy pronásledování, dvojí přenos, Kaifášova logika), Eliade (normálnost utrpení: neštěstí musí mít původce), Boym (spiknutí jako zápletka obnovující nostalgie). V eseji zmínit výhradu: Girard je redukcionista, používat ho jako nástroj vedle jiných pramenů | |
 
 ## Čeká na dodání (od majitele)
 
