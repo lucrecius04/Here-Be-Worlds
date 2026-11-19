@@ -16,13 +16,24 @@ import {
 } from '../../../data/meta/field-options';
 import narrationData from '../../../data/meta/narration-taxonomy.json';
 import CatalogWorldCard from './CatalogWorldCard';
+import { withBase } from '../../lib/base-url';
 
 const narrationOptions: FieldOption[] = narrationData.narration.map((item) => ({ en: item.label.en, cs: item.label.cs }));
 const narrationSlugByEn = Object.fromEntries(narrationData.narration.map((item) => [item.label.en, item.slug]));
-import ThematicTrails from './ThematicTrails';
 import WorldCompass from './WorldCompass';
 import { TRAILS, trailById, type TrailId } from '../../lib/trails';
 import { latestAdded } from '../../lib/atlas-news';
+
+/** Krátká jména archetypů jako v rejstříku na titulní straně. */
+const SHORT_NAME: Record<string, string> = {
+  fantasy: 'home2.skyFantasy',
+  'science-fiction': 'home2.skyScienceFiction',
+  'post-apocalypse': 'home2.skyPostApocalypse',
+  horror: 'home2.skyHorror',
+  historical: 'home2.skyHistorical',
+  dystopia: 'home2.skyDystopia',
+  metaphysical: 'home2.skyMetaphysical',
+};
 
 export type ChapterInfo = {
   id: string;
@@ -62,6 +73,7 @@ export default function AtlasExplorer({
   const [perspective, setPerspective] = useState('');
   const [narration, setNarration] = useState('');
   const [moreOpen, setMoreOpen] = useState(false);
+  const [compassOpen, setCompassOpen] = useState(false);
   const [activeTrail, setActiveTrail] = useState<TrailId | null>(null);
 
   // Odkazy z titulní strany a z karet světa: /atlas/?theme=… a /atlas/?trail=…
@@ -78,7 +90,8 @@ export default function AtlasExplorer({
     }
   }, [themeLabels]);
 
-  const extraActive = Boolean(historicalDepth || spatialScope || societalOrder || sourceOfPower || perspective || narration);
+  const extraCount = [historicalDepth, spatialScope, societalOrder, sourceOfPower, perspective, narration].filter(Boolean).length;
+  const extraActive = extraCount > 0;
   const anyFilter =
     Boolean(query.trim()) ||
     Boolean(chapterId || theme || atmosphere) ||
@@ -112,7 +125,7 @@ export default function AtlasExplorer({
 
   const index = useMemo(() => createWorldIndex(worlds), [worlds]);
 
-  const filtered = useMemo(() => {
+  const unscoped = useMemo(() => {
     let ids: Set<string> | null = null;
     if (query.trim()) {
       const hits = index.search(query, { prefix: true, fuzzy: 0.15 });
@@ -122,7 +135,6 @@ export default function AtlasExplorer({
     return worlds.filter((w) => {
       if (ids && !ids.has(w.id)) return false;
       if (trail && !trail.match(w)) return false;
-      if (chapterId && w.chapterId !== chapterId) return false;
       if (theme && !w.themes.includes(theme)) return false;
       if (atmosphere && !fieldMatchesOption(w.metadata.atmosphere, atmosphere)) return false;
       if (historicalDepth && !fieldMatchesOption(w.metadata.historicalDepth, historicalDepth)) return false;
@@ -137,7 +149,6 @@ export default function AtlasExplorer({
     worlds,
     index,
     query,
-    chapterId,
     theme,
     atmosphere,
     historicalDepth,
@@ -148,6 +159,17 @@ export default function AtlasExplorer({
     narration,
     activeTrail,
   ]);
+
+  const filtered = useMemo(
+    () => (chapterId ? unscoped.filter((w) => w.chapterId === chapterId) : unscoped),
+    [unscoped, chapterId],
+  );
+
+  const countByChapter = useMemo(() => {
+    const counts = new Map<string, number>();
+    for (const w of unscoped) counts.set(w.chapterId, (counts.get(w.chapterId) ?? 0) + 1);
+    return counts;
+  }, [unscoped]);
 
   const grouped = chapters
     .map((chapter) => ({
@@ -165,50 +187,57 @@ export default function AtlasExplorer({
       <h1 className="atlas-page__title display">{uiT('atlasPage.title', locale)}</h1>
       <p className="atlas-page__lead">{uiT('atlasPage.lead', locale)}</p>
     </header>
-    <ThematicTrails locale={locale} active={activeTrail} onSelect={selectTrail} />
-    <WorldCompass worlds={worlds} locale={locale} base={baseUrl} />
     <section className="catalog" id="catalog-results" aria-label={uiT('home.catalog', locale)}>
-      <h2 className="home-section-title">{uiT('home.catalog', locale)}</h2>
-      {activeTrailDef ? (
-        <p className="trails__chip">
-          {uiT('home.trailActive', locale)}: {uiT(activeTrailDef.nameKey, locale)}
-          <button type="button" className="trails__chip-clear" onClick={() => setActiveTrail(null)}>
-            ×
-          </button>
-        </p>
-      ) : null}
-      <div className="catalog-toolbar">
-        <div className="catalog-toolbar__search">
-          <label className="field-label" htmlFor="catalog-search">
-            {uiT('search.label', locale)}
-          </label>
-          <input
-            id="catalog-search"
-            type="search"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder={uiT('search.placeholder', locale)}
-            className="field-input"
-          />
-        </div>
-        <div className="catalog-toolbar__row">
-          <div>
-            <label className="field-label" htmlFor="catalog-chapter">
-              {uiT('filter.chapter', locale)}
-            </label>
-            <select
-              id="catalog-chapter"
-              value={chapterId}
-              onChange={(e) => setChapterId(e.target.value)}
-              className="field-input"
+      <div className="atlas-tabs" role="group" aria-label={uiT('filter.chapter', locale)}>
+        <button
+          type="button"
+          className={`atlas-tab${chapterId ? '' : ' is-on'}`}
+          aria-pressed={!chapterId}
+          onClick={() => setChapterId('')}
+        >
+          {uiT('atlasPage.allTab', locale)}
+          <span className="atlas-tab__count">{unscoped.length}</span>
+        </button>
+        {chapters.map((c) => {
+          const count = countByChapter.get(c.id) ?? 0;
+          const on = chapterId === c.id;
+          return (
+            <button
+              key={c.id}
+              type="button"
+              className={`atlas-tab${on ? ' is-on' : ''}${count ? '' : ' is-empty'}`}
+              aria-pressed={on}
+              title={t(c.title, locale)}
+              style={
+                {
+                  '--chapter-hue-light': c.accent.light,
+                  '--chapter-hue-dark': c.accent.dark,
+                } as CSSProperties
+              }
+              onClick={() => setChapterId(on ? '' : c.id)}
             >
-              <option value="">{uiT('filter.allChapters', locale)}</option>
-              {chapters.map((c) => (
-                <option key={c.id} value={c.id}>
-                  {t(c.title, locale)}
-                </option>
-              ))}
-            </select>
+              {uiT(SHORT_NAME[c.id] ?? '', locale) || t(c.title, locale)}
+              <span className="atlas-tab__count">{count}</span>
+            </button>
+          );
+        })}
+      </div>
+
+      <div className="catalog-toolbar">
+        <div className="catalog-toolbar__row">
+          <div className="catalog-toolbar__search">
+            <label className="field-label" htmlFor="catalog-search">
+              {uiT('search.label', locale)}
+            </label>
+            <input
+              id="catalog-search"
+              type="search"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder={uiT('search.placeholder', locale)}
+              aria-label={uiT('search.label', locale)}
+              className="field-input"
+            />
           </div>
           <div>
             <label className="field-label" htmlFor="catalog-theme">
@@ -240,22 +269,48 @@ export default function AtlasExplorer({
             locale={locale}
             sort
           />
-          <div className="catalog-toolbar__actions">
-            <button
-              type="button"
-              className="catalog-toolbar__more"
-              aria-expanded={extraVisible}
-              onClick={() => setMoreOpen((open) => !open)}
-            >
-              {uiT(extraVisible ? 'home.moreFiltersOpen' : 'home.moreFilters', locale)}
-            </button>
-            {anyFilter ? (
-              <button type="button" className="catalog-toolbar__clear" onClick={clearFilters}>
-                {uiT('home.clearFilters', locale)}
-              </button>
-            ) : null}
+        </div>
+
+        <div className="catalog-toolbar__links">
+          <button
+            type="button"
+            className="catalog-toolbar__toggle"
+            aria-expanded={extraVisible}
+            onClick={() => setMoreOpen((open) => !open)}
+          >
+            {uiT('home.moreFilters', locale)}
+            {extraCount ? ` (${extraCount})` : ''}
+            <span aria-hidden="true">{extraVisible ? ' −' : ' +'}</span>
+          </button>
+          <button
+            type="button"
+            className="catalog-toolbar__toggle"
+            aria-expanded={compassOpen}
+            onClick={() => setCompassOpen((open) => !open)}
+          >
+            {uiT('home.compassToggle', locale)}
+            <span aria-hidden="true">{compassOpen ? ' −' : ' +'}</span>
+          </button>
+          <div className="catalog-trails" role="group" aria-label={uiT('home.trailsTitle', locale)}>
+            <span className="catalog-trails__label">{uiT('atlasPage.trails', locale)}</span>
+            {TRAILS.map((trail) => {
+              const on = activeTrail === trail.id;
+              return (
+                <button
+                  key={trail.id}
+                  type="button"
+                  className={`catalog-trails__item${on ? ' is-on' : ''}`}
+                  aria-pressed={on}
+                  title={uiT(trail.descKey, locale)}
+                  onClick={() => selectTrail(on ? null : trail.id)}
+                >
+                  {uiT(trail.nameKey, locale)}
+                </button>
+              );
+            })}
           </div>
         </div>
+
         {extraVisible ? (
           <div className="catalog-toolbar__extra">
             <FieldFilter
@@ -320,6 +375,28 @@ export default function AtlasExplorer({
         ) : null}
       </div>
 
+      <WorldCompass worlds={worlds} locale={locale} base={baseUrl} open={compassOpen} />
+
+      <div className="catalog-status" aria-live="polite">
+        <p className="catalog-status__count">
+          {anyFilter ? `${uiT('atlasPage.found', locale)}: ` : ''}
+          <strong>{worldCountLabel(filtered.length, locale)}</strong>
+          {anyFilter ? (
+            <>
+              {' · '}
+              <button type="button" className="catalog-status__clear" onClick={clearFilters}>
+                {uiT('home.clearFilters', locale)}
+              </button>
+            </>
+          ) : null}
+        </p>
+        {activeTrailDef ? (
+          <p className="catalog-status__trail">
+            <span>{uiT(activeTrailDef.nameKey, locale)}</span> {uiT(activeTrailDef.descKey, locale)}
+          </p>
+        ) : null}
+      </div>
+
       {grouped.length === 0 ? (
         <p className="catalog-empty">{uiT('home.noResults', locale)}</p>
       ) : (
@@ -334,20 +411,18 @@ export default function AtlasExplorer({
               } as CSSProperties
             }
           >
-            <h3 className="home-section-title catalog-group__title">
-              {t(group.chapter.title, locale)}
-              <span className="catalog-group__count">
-                {worldCountLabel(group.worlds.length, locale)}
-              </span>
+            <h3 className="catalog-group__title">
+              <a className="catalog-group__tab" href={withBase(baseUrl, `/chapters/${group.chapter.id}/`)} title={t(group.chapter.title, locale)}>
+                {uiT(SHORT_NAME[group.chapter.id] ?? '', locale) || t(group.chapter.title, locale)} · {group.worlds.length}
+              </a>
             </h3>
-            <div className="world-grid">
+            <div className="catalog-grid">
               {group.worlds.map((world) => (
                 <CatalogWorldCard
                   key={world.id}
                   world={world}
                   locale={locale}
                   base={baseUrl}
-                  chapterTitle={group.chapter.title}
                   themeLabels={themeLabels}
                   accent={group.chapter.accent}
                   isNew={newIds.has(world.id)}

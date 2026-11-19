@@ -13,11 +13,14 @@ type Props = {
   base: string;
   /** Na titulní straně je kompas otevřený rovnou, bez přepínače. */
   alwaysOpen?: boolean;
+  /** Otevírání řízené zvenčí (atlas má přepínač v řádku pod filtry). */
+  open?: boolean;
 };
 
-export default function WorldCompass({ worlds, locale, base, alwaysOpen = false }: Props) {
+export default function WorldCompass({ worlds, locale, base, alwaysOpen = false, open: openProp }: Props) {
   const [toggled, setOpen] = useState(false);
-  const open = alwaysOpen || toggled;
+  const controlled = openProp !== undefined;
+  const open = alwaysOpen || (controlled ? openProp : toggled);
   const [values, setValues] = useState<AxisValues>(DEFAULT_IMPRINT);
   const catalog = useMemo(() => worlds.filter((world) => !world.draft), [worlds]);
   const { nearest, antipode } = useMemo(
@@ -29,9 +32,11 @@ export default function WorldCompass({ worlds, locale, base, alwaysOpen = false 
       ? withBase(base, `/compare/?w=${nearest[0].world.id},${antipode.world.id}`)
       : null;
 
+  if (controlled && !open) return null;
+
   return (
-    <section className={`compass${alwaysOpen ? ' compass--open' : ''}`} aria-label={uiT('home.compassTitle', locale)}>
-      {alwaysOpen ? null : (
+    <section className={`compass${alwaysOpen ? ' compass--open' : ''}${controlled ? ' compass--inline' : ''}`} aria-label={uiT('home.compassTitle', locale)}>
+      {alwaysOpen || controlled ? null : (
         <button
           type="button"
           className="compass__toggle"

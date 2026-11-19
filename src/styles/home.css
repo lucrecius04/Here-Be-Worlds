@@ -1,13 +1,3 @@
-.catalog-card__themes-label {
-  margin: 0.2rem 0 0;
-  font-family: var(--font-sans);
-  font-size: 0.64rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--color-accent);
-}
-
 /* Pruh os jednoho světa (Svět dne, hádanka, karta katalogu). Jazyk Profilu světa ze spisu. */
 .axis-bars {
   display: grid;
@@ -51,7 +41,7 @@
 }
 
 .axis-bars--compact {
-  gap: 0.375rem;
+  gap: 0.3125rem;
 }
 
 .axis-bars--compact .axis-bars__row {
@@ -76,152 +66,6 @@
   }
 }
 
-
-.catalog-card {
-  --chapter-hue: var(--chapter-hue-light);
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  border: 1px solid var(--color-line);
-  border-top: 4px solid var(--chapter-hue);
-  border-radius: 0;
-  padding: 0.9rem 1rem 2.15rem;
-  background: var(--color-tile);
-  transition:
-    transform 0.22s ease,
-    border-color 0.22s ease,
-    box-shadow 0.22s ease;
-}
-
-html[data-theme='dark'] .catalog-card {
-  --chapter-hue: var(--chapter-hue-dark);
-}
-
-.catalog-card:hover {
-  z-index: 2;
-  transform: translateY(-2px);
-  border-color: var(--color-ink-muted);
-  border-top-color: var(--chapter-hue);
-  box-shadow: var(--shadow-lift);
-}
-
-/* Profil os na kartě katalogu v barvě archetypu, jako na spisu světa. */
-.catalog-card .axis-bars {
-  --hue: var(--chapter-hue);
-  margin-top: 0.25rem;
-}
-
-.catalog-card::after {
-  content: attr(data-open);
-  position: absolute;
-  right: 1rem;
-  bottom: 0.65rem;
-  font-family: var(--font-sans);
-  font-size: 0.72rem;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--color-accent);
-  opacity: 0;
-  transform: translateY(4px);
-  pointer-events: none;
-  transition:
-    opacity 0.22s ease,
-    transform 0.22s ease;
-}
-
-.catalog-card:hover::after {
-  opacity: 1;
-  transform: none;
-}
-
-.catalog-card__top {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 0.65rem;
-}
-
-.catalog-card__meta {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0.45rem;
-  min-width: 0;
-  font-size: 0.72rem;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--color-ink-muted);
-}
-
-.catalog-card__new {
-  color: var(--color-accent);
-  font-weight: 600;
-  letter-spacing: 0.12em;
-}
-
-.catalog-card__compare {
-  flex: 0 0 auto;
-  appearance: none;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  background: none;
-  font-family: inherit;
-  font-size: 0.78rem;
-  color: var(--color-accent);
-  cursor: pointer;
-  text-decoration: none;
-}
-
-.catalog-card__compare:hover {
-  text-decoration: underline;
-  text-underline-offset: 0.16em;
-}
-
-.catalog-card__compare--on {
-  color: var(--color-ink);
-}
-
-.catalog-card__body {
-  display: block;
-  margin-top: 0.35rem;
-  color: inherit;
-  text-decoration: none;
-}
-
-.catalog-card__title {
-  margin: 0;
-  font-family: var(--font-serif);
-  font-size: 1.18rem;
-  font-weight: 700;
-  line-height: 1.25;
-}
-
-.catalog-card__genre {
-  font-size: 0.92rem;
-  font-weight: 400;
-  color: var(--color-ink-muted);
-}
-
-.catalog-card__core {
-  margin: 0.4rem 0 0;
-  font-family: var(--font-serif);
-  font-size: 1.02rem;
-  line-height: 1.4;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.catalog-card__themes {
-  margin-top: 0.7rem;
-}
-
-.catalog-card__themes .theme-pills {
-  margin-top: 0.35rem;
-}
 
 .home-section-title {
   margin: 0 0 0.8rem;
@@ -340,114 +184,6 @@ html[data-theme='dark'] .catalog-card {
 
 html[data-theme='dark'] .home-realm__emblem {
   color: var(--color-accent);
-}
-
-.catalog {
-  margin: 0;
-}
-
-.catalog-toolbar {
-  display: grid;
-  gap: 0.7rem 0.85rem;
-  margin: 0 0 1.65rem;
-}
-
-.catalog-toolbar__search {
-  min-width: 0;
-}
-
-.catalog-toolbar__row {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr)) auto;
-  gap: 0.7rem 0.85rem;
-  align-items: end;
-}
-
-.catalog-toolbar__extra {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 0.7rem 0.85rem;
-  align-items: end;
-}
-
-.catalog-toolbar__actions {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.45rem 0.7rem;
-  min-height: 2.35rem;
-}
-
-.catalog-toolbar__more,
-.catalog-toolbar__clear {
-  font-family: var(--font-sans);
-  font-size: 0.78rem;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  color: var(--color-accent);
-  background: none;
-  border: 0;
-  padding: 0;
-  cursor: pointer;
-}
-
-.catalog-toolbar__more:hover,
-.catalog-toolbar__clear:hover {
-  color: var(--color-ink);
-}
-
-.catalog-toolbar .field-label {
-  margin-bottom: 0.28rem;
-}
-
-.catalog-toolbar .field-input {
-  margin-bottom: 0;
-}
-
-.catalog-group {
-  margin: 0 0 1.75rem;
-}
-
-.catalog-group__title {
-  display: flex;
-  align-items: baseline;
-  gap: 0.65rem;
-  margin-bottom: 0.7rem;
-}
-
-.catalog-group__title::after {
-  content: '';
-  flex: 1 1 auto;
-  height: 1px;
-  min-width: 1.5rem;
-  background: linear-gradient(
-    90deg,
-    color-mix(in srgb, var(--color-accent) 35%, var(--color-line)),
-    transparent 96%
-  );
-}
-
-.catalog-group__count {
-  font-size: 0.72rem;
-  font-weight: 400;
-  letter-spacing: 0.02em;
-  text-transform: none;
-  color: var(--color-ink-muted);
-}
-
-.catalog-empty {
-  margin: 0.35rem 0 0;
-  font-family: var(--font-serif);
-  font-style: italic;
-  color: var(--color-ink-muted);
-}
-
-.catalog {
-  scroll-margin-top: 4.5rem;
-}
-
-.trails {
-  margin: 0 0 2.45rem;
 }
 
 .compass {
@@ -621,87 +357,6 @@ html[data-theme='dark'] .home-realm__emblem {
 .compass__compare:focus-visible {
   text-decoration: underline;
   text-underline-offset: 0.16em;
-}
-
-.trails__lead {
-  margin: -0.35rem 0 0.9rem;
-  font-family: var(--font-serif);
-  font-size: 1.05rem;
-  font-style: italic;
-  color: var(--color-ink-muted);
-}
-
-.trails__grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.85rem;
-}
-
-.trails__card {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-  align-items: flex-start;
-  min-width: 0;
-  padding: 0.95rem 1.05rem 1.05rem;
-  border: 1px solid var(--color-line);
-  border-radius: var(--radius-md);
-  background: var(--color-tile);
-  color: inherit;
-  text-align: left;
-  font: inherit;
-  cursor: pointer;
-  transition:
-    border-color 0.18s ease,
-    box-shadow 0.18s ease;
-}
-
-.trails__card:hover {
-  border-color: rgba(197, 160, 89, 0.45);
-}
-
-.trails__card--on {
-  border-color: var(--color-accent);
-  box-shadow: 0 0 0 1px var(--color-accent);
-}
-
-.trails__name {
-  font-family: var(--font-serif);
-  font-size: 1.18rem;
-  font-weight: 700;
-  line-height: 1.25;
-}
-
-.trails__desc {
-  font-family: var(--font-serif);
-  font-size: 0.98rem;
-  line-height: 1.4;
-  color: var(--color-ink-muted);
-}
-
-.trails__chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  margin: 0 0 0.85rem;
-  padding: 0.28rem 0.55rem 0.28rem 0.7rem;
-  border: 1px solid var(--color-accent);
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--color-accent) 12%, var(--color-tile));
-  font-size: 0.78rem;
-  letter-spacing: 0.03em;
-}
-
-.trails__chip-clear {
-  appearance: none;
-  margin: 0;
-  padding: 0 0.15rem;
-  border: 0;
-  background: none;
-  color: inherit;
-  font: inherit;
-  line-height: 1;
-  cursor: pointer;
 }
 
 .compare-tray {
@@ -884,4 +539,519 @@ body:has(.compare-tray) {
     min-height: 0;
     padding-top: 0.15rem;
   }
+}
+
+/*
+ * Atlas světů (/atlas/) — finální styl „noční atlas“ (2026-11).
+ * Záložky archetypů, pole jen s linkou dole, řádek s počtem výsledků,
+ * skupiny se záložkou jako v rejstříku, karty bez rámů oddělené linkami.
+ */
+
+.home-section-title {
+  margin: 0 0 0.8rem;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.catalog {
+  margin: 0;
+  scroll-margin-top: calc(var(--site-header-height) + 1rem);
+}
+
+/* Záložky archetypů */
+
+.atlas-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1.75rem;
+  margin: 0 0 2rem;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.atlas-tab {
+  --chapter-hue: var(--chapter-hue-light, var(--color-ink));
+  appearance: none;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.375rem;
+  margin: 0 0 -1px;
+  padding: 0.75rem 0 0.625rem;
+  border: 0;
+  border-bottom: 3px solid transparent;
+  background: none;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-ink-muted);
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+html[data-theme='dark'] .atlas-tab {
+  --chapter-hue: var(--chapter-hue-dark, var(--color-ink));
+}
+
+.atlas-tab__count {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+
+.atlas-tab:hover,
+.atlas-tab:focus-visible {
+  color: var(--color-ink);
+  border-bottom-color: color-mix(in srgb, var(--chapter-hue) 35%, transparent);
+}
+
+.atlas-tab.is-on {
+  color: var(--color-ink);
+  font-weight: 650;
+  border-bottom-color: var(--chapter-hue);
+}
+
+.atlas-tab.is-empty {
+  opacity: 0.4;
+}
+
+/* Pole: jen linka dole, popisky v mono */
+
+.catalog-toolbar {
+  display: grid;
+  gap: 1.25rem;
+  margin: 0 0 1.5rem;
+}
+
+.catalog-toolbar__row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr) minmax(0, 1fr);
+  gap: 1rem 2rem;
+  align-items: end;
+}
+
+.catalog-toolbar__extra {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem 2rem;
+  align-items: end;
+  padding-top: 0.25rem;
+}
+
+.catalog-toolbar__search .field-label {
+  visibility: hidden;
+}
+
+.catalog-toolbar .field-label {
+  margin: 0 0 0.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+.catalog-toolbar .field-input {
+  margin: 0;
+  padding: 0.5rem 0;
+  border: 0;
+  border-bottom: 1px solid var(--color-ink-muted);
+  border-radius: 0;
+  background-color: transparent;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  color: var(--color-ink);
+  transition: border-color 0.15s ease;
+}
+
+.catalog-toolbar select.field-input {
+  appearance: none;
+  padding-right: 1.5rem;
+  background-image:
+    linear-gradient(45deg, transparent 50%, currentColor 50%),
+    linear-gradient(135deg, currentColor 50%, transparent 50%);
+  background-position:
+    calc(100% - 9px) 55%,
+    calc(100% - 4px) 55%;
+  background-size: 5px 5px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.catalog-toolbar select.field-input option {
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+
+.catalog-toolbar input.field-input {
+  font-size: 1.0625rem;
+}
+
+.catalog-toolbar input.field-input::placeholder {
+  color: var(--color-ink-muted);
+}
+
+.catalog-toolbar .field-input:hover {
+  border-bottom-color: var(--color-ink);
+}
+
+.catalog-toolbar .field-input:focus {
+  outline: none;
+  border-bottom: 2px solid var(--color-accent);
+  padding-bottom: calc(0.5rem - 1px);
+}
+
+/* Řádek pod poli: další filtry, kompas, stezky */
+
+.catalog-toolbar__links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 1.75rem;
+}
+
+.catalog-toolbar__toggle,
+.catalog-trails__item,
+.catalog-status__clear {
+  appearance: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-accent);
+  cursor: pointer;
+}
+
+.catalog-toolbar__toggle:hover,
+.catalog-toolbar__toggle:focus-visible,
+.catalog-status__clear:hover,
+.catalog-status__clear:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.catalog-trails {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.375rem 1.125rem;
+  margin-left: auto;
+}
+
+.catalog-trails__label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+.catalog-trails__item {
+  color: var(--color-ink-muted);
+  text-decoration: underline;
+  text-decoration-color: var(--color-line);
+  text-underline-offset: 0.25em;
+}
+
+.catalog-trails__item:hover,
+.catalog-trails__item:focus-visible {
+  color: var(--color-ink);
+  text-decoration-color: var(--color-ink-muted);
+}
+
+.catalog-trails__item.is-on {
+  color: var(--color-ink);
+  font-weight: 650;
+  text-decoration-color: var(--color-accent);
+  text-decoration-thickness: 2px;
+}
+
+/* Kompas uvnitř atlasu: mezi linkami, bez vlastního přepínače */
+
+.compass--inline {
+  margin: 0 0 1.5rem;
+}
+
+.compass--inline .compass__panel {
+  margin: 0;
+  padding: 1.5rem 0 1.75rem;
+  border-top: 1px solid var(--color-line);
+  border-bottom: 1px solid var(--color-line);
+}
+
+/* Počet výsledků */
+
+.catalog-status {
+  margin: 0 0 2.25rem;
+}
+
+.catalog-status__count {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: var(--color-ink-muted);
+}
+
+.catalog-status__count strong {
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.catalog-status__trail {
+  margin: 0.375rem 0 0;
+  max-width: 60ch;
+  font-family: var(--font-text);
+  font-size: 1.0625rem;
+  font-style: italic;
+  line-height: 1.45;
+  color: var(--color-ink-muted);
+}
+
+.catalog-status__trail span {
+  font-style: normal;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.catalog-status__trail span::after {
+  content: ' —';
+  font-weight: 400;
+  color: var(--color-ink-muted);
+}
+
+.catalog-empty {
+  margin: 0;
+  font-family: var(--font-text);
+  font-size: 1.125rem;
+  font-style: italic;
+  color: var(--color-ink-muted);
+}
+
+/* Skupina = záložka archetypu jako v rejstříku titulní strany */
+
+.catalog-group {
+  --chapter-hue: var(--chapter-hue-light);
+  margin: 0 0 3.5rem;
+}
+
+html[data-theme='dark'] .catalog-group {
+  --chapter-hue: var(--chapter-hue-dark);
+}
+
+.catalog-group__title {
+  display: flex;
+  margin: 0;
+}
+
+.catalog-group__tab {
+  padding: 0.3rem 0.625rem 0.25rem;
+  border-radius: 3px 3px 0 0;
+  background: var(--chapter-hue);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  line-height: 1.3;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--color-paper);
+  text-decoration: none;
+}
+
+.catalog-group__tab:hover,
+.catalog-group__tab:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: 2.5rem;
+  border-top: 3px solid var(--chapter-hue);
+}
+
+/* Karta světa v katalogu: bez rámu, řady oddělené linkou */
+
+.catalog-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 1.25rem 0 1.5rem;
+  border-top: 1px solid var(--color-line);
+}
+
+.catalog-grid > .catalog-card:nth-child(-n + 3) {
+  border-top: 0;
+}
+
+.catalog-card__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.catalog-card__meta {
+  min-width: 0;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  line-height: 1.4;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+.catalog-card__new {
+  margin-right: 0.625rem;
+  color: var(--color-accent);
+}
+
+.catalog-card__compare {
+  flex: none;
+  appearance: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--color-accent);
+  cursor: pointer;
+}
+
+.catalog-card__compare:hover,
+.catalog-card__compare:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 0.16em;
+}
+
+.catalog-card__compare--on {
+  color: var(--color-ink);
+}
+
+.catalog-card__body {
+  display: block;
+  margin-top: 0.375rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+.catalog-card__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.625rem;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  transition: color 0.15s ease;
+}
+
+.catalog-card__body:hover .catalog-card__title,
+.catalog-card__body:focus-visible .catalog-card__title {
+  color: var(--color-accent);
+}
+
+.catalog-card__core {
+  margin: 0.5rem 0 0;
+  font-family: var(--font-text);
+  font-size: 1.0625rem;
+  line-height: 1.45;
+  color: var(--color-ink);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.catalog-card .axis-bars {
+  --hue: var(--chapter-hue);
+  margin-top: 1rem;
+}
+
+.catalog-card__themes {
+  margin: 0.875rem 0 0;
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--color-ink-muted);
+}
+
+.catalog-card__themes a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.catalog-card__themes a:hover,
+.catalog-card__themes a:focus-visible {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 0.16em;
+}
+
+.catalog-card__sep {
+  color: var(--color-ink-muted);
+  opacity: 0.55;
+}
+
+@media (max-width: 1100px) {
+  .catalog-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .catalog-grid > .catalog-card:nth-child(3) {
+    border-top: 1px solid var(--color-line);
+  }
+}
+
+@media (max-width: 900px) {
+  .catalog-toolbar__row,
+  .catalog-toolbar__extra {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .catalog-trails {
+    margin-left: 0;
+  }
+
+  .catalog-toolbar__search .field-label {
+    display: none;
+  }
+
+  .atlas-tabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .atlas-tab {
+    flex: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .catalog-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .catalog-grid > .catalog-card:nth-child(2) {
+    border-top: 1px solid var(--color-line);
+  }
+}
+
+.compass--inline .compass__results {
+  border-top: 0;
+}
+
+.compass--inline .compass__card:first-child {
+  padding-top: 0;
 }

@@ -26,6 +26,9 @@ export const ui: Record<Locale, UiTree> = {
     atlasPage: {
       title: 'Atlas světů',
       lead: 'Všechny zmapované herní vesmíry. Hledej podle archetypu, témat, nálady i způsobu vyprávění.',
+      allTab: 'Všechny',
+      trails: 'Stezky',
+      found: 'Nalezeno',
     },
     home2: {
       kicker: '{n} · kroniky · anatomie vyprávění · faktografie',
@@ -97,8 +100,8 @@ export const ui: Record<Locale, UiTree> = {
       readChronicle: 'Číst kroniku →',
       compareAdd: '+ Srovnat',
       heroStats: '7 archetypů · 5 souřadnic · kroniky a faktografie',
-      moreFilters: 'Další filtry (5) ▾',
-      moreFiltersOpen: 'Další filtry (5) ▴',
+      moreFilters: 'Další filtry',
+      moreFiltersOpen: 'Další filtry',
       clearFilters: 'Zrušit filtry',
       trailsTitle: 'Tematické stezky',
       trailsLead: 'Vybrané souvislosti napříč fiktivními vesmíry',
@@ -126,7 +129,7 @@ export const ui: Record<Locale, UiTree> = {
       mysteryPromptActors: 'Poznáš svět podle jeho aktérů a souřadnic?',
       mysteryYesterday: '‹ Včerejší hádanka',
       mysteryToday: 'Dnešní ›',
-      compassToggle: 'Hledat podle vlastních souřadnic ✦',
+      compassToggle: 'Hledat podle vlastních souřadnic',
       compassTitle: 'Tvůj otisk světa',
       compassLead:
         'Nastav si pět souřadnic podle své chuti a atlas najde nejbližší vesmír i tvého přesného protinožce.',
@@ -134,7 +137,7 @@ export const ui: Record<Locale, UiTree> = {
       compassSecond: 'Hned za ním',
       compassAntipode: 'Tvůj protinožec · nejvzdálenější svět',
       compassCompare: 'Porovnat nejbližší svět a protinožce →',
-      newEntry: 'Nový spis',
+      newEntry: 'Nově zmapováno',
       latestEntry: 'Nově zmapováno:',
     },
     profiles: {
@@ -423,6 +426,9 @@ Berte prosím tento atlas jako skromnou poctu všem scenáristům, designérům 
     atlasPage: {
       title: 'Atlas of worlds',
       lead: 'Every mapped game universe. Search by archetype, themes, mood and the way a world tells its story.',
+      allTab: 'All',
+      trails: 'Trails',
+      found: 'Found',
     },
     home2: {
       kicker: '{n} · chronicles · narrative anatomy · factography',
@@ -493,8 +499,8 @@ Berte prosím tento atlas jako skromnou poctu všem scenáristům, designérům 
       readChronicle: 'Read the chronicle →',
       compareAdd: '+ Compare',
       heroStats: '7 archetypes · 5 coordinates · chronicles & lore',
-      moreFilters: 'More filters (5) ▾',
-      moreFiltersOpen: 'More filters (5) ▴',
+      moreFilters: 'More filters',
+      moreFiltersOpen: 'More filters',
       clearFilters: 'Clear filters',
       trailsTitle: 'Thematic trails',
       trailsLead: 'Selected connections across fictional universes',
@@ -522,7 +528,7 @@ Berte prosím tento atlas jako skromnou poctu všem scenáristům, designérům 
       mysteryPromptActors: 'Can you identify the world by its actors and coordinates?',
       mysteryYesterday: '‹ Yesterday’s mystery',
       mysteryToday: 'Today ›',
-      compassToggle: 'Search by your own coordinates ✦',
+      compassToggle: 'Search by your own coordinates',
       compassTitle: 'Your world imprint',
       compassLead:
         'Set the five coordinates to your taste — the atlas will find the nearest universe and your exact antipode.',
@@ -530,7 +536,7 @@ Berte prosím tento atlas jako skromnou poctu všem scenáristům, designérům 
       compassSecond: 'Next closest',
       compassAntipode: 'Your antipode · the farthest world',
       compassCompare: 'Compare the nearest world and the antipode →',
-      newEntry: 'New entry',
+      newEntry: 'Newly mapped',
       latestEntry: 'Newly mapped:',
     },
     profiles: {
