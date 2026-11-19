@@ -94,7 +94,7 @@ function rotationSets(count: number, perRow: number, first: number[], size: numb
 }
 
 /** Jak často se na obloze vymění popsané světy (ms). */
-const ROTATE_MS = 6000;
+const ROTATE_MS = 5000;
 
 /*
  * Obloha v souřadnicích 1000 × H. Souhvězdí mají pevné počátky a 80jednotkový krok hvězd.
@@ -260,7 +260,7 @@ export default function HomeIntro({ chapters, worlds = [], base }: Props) {
                 onBlur={() => setLitGroup(null)}
                 style={{ left: `${group.x / 10}%`, top: `${(group.y / sky.height) * 100}%`, ...hueVars(chapterById[group.chapterId]?.accent) }}
               >
-                {uiT(SKY_NAME[group.chapterId] ?? '', locale)} <span className="hp-sky__count">{group.count}</span>
+                {uiT(SKY_NAME[group.chapterId] ?? '', locale)}
               </a>
             ))}
             {sky.stars.map((star) => {
@@ -290,7 +290,7 @@ export default function HomeIntro({ chapters, worlds = [], base }: Props) {
             {sky.groups.map((group) => (
               <a key={group.chapterId} href={`#rejstrik-${group.chapterId}`} style={hueVars(chapterById[group.chapterId]?.accent)}>
                 <i aria-hidden="true" />
-                {uiT(SKY_NAME[group.chapterId] ?? '', locale)} <span className="hp-sky__count">{group.count}</span>
+                {uiT(SKY_NAME[group.chapterId] ?? '', locale)}
               </a>
             ))}
           </nav>

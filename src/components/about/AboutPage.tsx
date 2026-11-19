@@ -10,7 +10,7 @@ type Props = {
   base: string;
   stats: Stats;
   latest: { id: string; title: LocalizedString } | null;
-  upcoming: string[];
+  next: string;
 };
 
 const NOT_ITEMS = ['about.notReviews', 'about.notGuide', 'about.notNews', 'about.notOfficial', 'about.notSpoilers'] as const;
@@ -30,7 +30,7 @@ function paragraphs(text: string): string[] {
 }
 
 /** O projektu: autorský text vlevo (beze změny), vpravo poznámka o AI a cesty dál po atlasu. */
-export default function AboutPage({ base, stats, latest, upcoming }: Props) {
+export default function AboutPage({ base, stats, latest, next }: Props) {
   const locale = useLocale();
   const body = paragraphs(uiT('about.body', locale));
   const note = uiT('about.note', locale).trim();
@@ -82,10 +82,9 @@ export default function AboutPage({ base, stats, latest, upcoming }: Props) {
 
           <section className="about-page__section">
             <h2 className="doc-h2">{uiT('about.nextTitle', locale)}</h2>
-            <p>{uiT('about.nextText', locale)}</p>
-            {upcoming.length > 0 ? (
+            {next ? (
               <p className="about-page__next">
-                <span className="doc-kicker">{uiT('about.nextUpcoming', locale)}</span> {upcoming.join(' · ')}
+                {uiT('about.nextWriting', locale)} <em>{next}</em>
               </p>
             ) : null}
             {latest ? (

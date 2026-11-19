@@ -220,11 +220,6 @@
   text-decoration-color: var(--hue-d);
 }
 
-.hp-sky__count {
-  color: var(--color-night-muted);
-  font-weight: 400;
-}
-
 .hp-sky.has-lit .hp-sky__group:not(.is-lit),
 .hp-sky.has-lit .hp-star:not(.is-lit),
 .hp-sky.has-lit .hp-sky__line:not(.is-lit) {
