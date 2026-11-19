@@ -450,7 +450,7 @@
 /* ---------- Tělo stránky ---------- */
 
 .hp-body {
-  padding-bottom: 5rem;
+  padding-bottom: 0;
 }
 
 .hp-body > .reader-desk {
@@ -796,18 +796,42 @@ a.hp-tab:focus-visible {
 .hp-ways {
   margin-top: 5rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(16.25rem, 1fr));
-  gap: 0 2rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   border-top: 1px solid var(--color-line);
 }
 
+/* Tři sloupce oddělené svislými linkami, jako v rejstříkové architektuře stylu. */
 .hp-way {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  padding: 1.375rem 0 1.625rem;
+  padding: 1.375rem 2rem 1.625rem;
+  border-left: 1px solid var(--color-line);
   color: var(--color-ink);
   text-decoration: none;
+}
+
+.hp-way:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+
+.hp-way:last-child {
+  padding-right: 0;
+}
+
+.hp-way__arrow {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 0.8em;
+  color: var(--color-accent);
+  transition: transform 0.15s ease;
+}
+
+.hp-way:hover .hp-way__arrow,
+.hp-way:focus-visible .hp-way__arrow {
+  transform: translateX(0.25em);
 }
 
 .hp-way__title {
@@ -831,11 +855,16 @@ a.hp-tab:focus-visible {
 
 /* ---------- Esej a stezky ---------- */
 
+/* Jediný tónovaný pás stránky: přes celou šířku, bez rámu a stínu, končí u patičky. */
 .hp-essay-row {
-  padding-top: 4.5rem;
+  margin-top: 4.5rem;
+  padding: 4.5rem 0 5rem;
   display: flex;
   flex-wrap: wrap;
   gap: 2.5rem 3.5rem;
+  background: var(--color-band);
+  box-shadow: 0 0 0 100vmax var(--color-band);
+  clip-path: inset(0 -100vmax);
 }
 
 .hp-essay {
@@ -915,17 +944,29 @@ a.hp-tab:focus-visible {
     padding-top: 2.75rem;
   }
 
-  .hp-index,
-  .hp-essay-row {
+  .hp-index {
     padding-top: 3.5rem;
+  }
+
+  .hp-essay-row {
+    margin-top: 3.5rem;
+    padding: 3.5rem 0;
   }
 
   .hp-ways {
     margin-top: 3.5rem;
+    grid-template-columns: 1fr;
   }
 
-  .hp-body {
-    padding-bottom: 3.5rem;
+  .hp-way,
+  .hp-way:first-child,
+  .hp-way:last-child {
+    padding: 1.25rem 0;
+    border-left: 0;
+  }
+
+  .hp-way + .hp-way {
+    border-top: 1px solid var(--color-line);
   }
 
   .hp-index__grid {

@@ -7,6 +7,7 @@
 :root {
   --color-paper: #f4f2ee;
   --color-tile: #fbfaf7;
+  --color-band: #ebe8e2;
   --color-ink: #17161a;
   --color-ink-muted: #57534d;
   --color-line: #d6d1c8;
@@ -61,6 +62,7 @@
 [data-theme='dark'] {
   --color-paper: #0d1324;
   --color-tile: #141b2f;
+  --color-band: #111930;
   --color-ink: #ece8e0;
   --color-ink-muted: #a3aabb;
   --color-line: #283149;

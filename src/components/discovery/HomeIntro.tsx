@@ -378,15 +378,21 @@ export default function HomeIntro({ chapters, worlds = [], base }: Props) {
 
         <nav className="hp-ways" aria-label={uiT('home2.waysAria', locale)}>
           <a className="hp-way" href={withBase(base, '/atlas/')}>
-            <span className="hp-way__title">{uiT('nav.atlas', locale)}</span>
+            <span className="hp-way__title">
+              {uiT('nav.atlas', locale)} <span className="hp-way__arrow" aria-hidden="true">→</span>
+            </span>
             <span className="hp-way__text">{uiT('home2.wayAtlas', locale).replace('{n}', worldsCountLabel(worlds.length, locale))}</span>
           </a>
           <a className="hp-way" href={withBase(base, '/compare/')}>
-            <span className="hp-way__title">{uiT('nav.compare', locale)}</span>
+            <span className="hp-way__title">
+              {uiT('nav.compare', locale)} <span className="hp-way__arrow" aria-hidden="true">→</span>
+            </span>
             <span className="hp-way__text">{uiT('home2.wayCompare', locale)}</span>
           </a>
           <a className="hp-way" href={withBase(base, '/map/')}>
-            <span className="hp-way__title">{uiT('map.title', locale)}</span>
+            <span className="hp-way__title">
+              {uiT('map.title', locale)} <span className="hp-way__arrow" aria-hidden="true">→</span>
+            </span>
             <span className="hp-way__text">{uiT('home2.wayMap', locale)}</span>
           </a>
         </nav>
@@ -405,14 +411,18 @@ export default function HomeIntro({ chapters, worlds = [], base }: Props) {
           <div className="hp-trails">
             <p className="hp-kicker">{uiT('home.trailsTitle', locale)}</p>
             {trails.map(({ trail, members }) => {
-              const shown = members.slice(0, 6).map((w) => t(w.gameTitle, locale));
+              // Nezlomitelné mezery: „Warhammer 40 000“ a „a dalších 18“ se nerozdělí, tečka zůstane u jména.
+              const keep = (text: string) => text.replace(/ /g, '\u00a0');
+              const shown = members.slice(0, 6).map((w) => keep(t(w.gameTitle, locale)));
               const rest = members.length - shown.length;
               return (
                 <a key={trail.id} className="hp-trail" href={withBase(base, `/atlas/?trail=${trail.id}`)}>
                   <span className="hp-trail__name">{uiT(trail.nameKey, locale)}</span>
                   <span className="hp-trail__worlds">
-                    {shown.join(' · ')}
-                    {rest > 0 ? ` · ${uiT(rest === 1 ? 'home2.trailsMoreOne' : rest < 5 ? 'home2.trailsMoreFew' : 'home2.trailsMore', locale).replace('{n}', String(rest))}` : ''}
+                    {shown.join('\u00a0· ')}
+                    {rest > 0
+                      ? `\u00a0· ${keep(uiT(rest === 1 ? 'home2.trailsMoreOne' : rest < 5 ? 'home2.trailsMoreFew' : 'home2.trailsMore', locale).replace('{n}', String(rest)))}`
+                      : ''}
                   </span>
                 </a>
               );
