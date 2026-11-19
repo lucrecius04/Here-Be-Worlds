@@ -124,7 +124,7 @@ Hra má dva protagonisty: postavu a hráče. Nejsilnější světy z té dvojice
 
 ### Amnézie jako synchronizace vědění
 
-Hrdina ví tolik co hráč, tedy nic: Planescape, Numenera, Disco Elysium, částečně SOMA. Je to klišé, ale funguje, protože zapomenutá minulost je morálně zatížená. Bezejmenný zjistí, že jeho dřívější inkarnace zničily životy jeho společníků. Harry zjistí, že se zničil sám. Amnézie má smysl jen tehdy, když to zapomenuté bolí.
+Hrdina ví tolik co hráč, tedy nic: Planescape, Numenera, Disco Elysium, částečně SOMA. Je to klišé, ale funguje, protože zapomenutá minulost je morálně zatížená. Bezejmenný zjistí, že jeho dřívější inkarnace zničily životy jeho společníků. Harry zjistí, že se zničil sám. Farah Mendlesohn by v tom viděla portálovou fantasy převlečenou za ponořenou: amnézie udělá z obyvatele světa cizince, kterému se svět smí vysvětlovat. Amnézie má smysl jen tehdy, když to zapomenuté bolí.
 
 ### Spoluvina hráče
 
@@ -344,6 +344,7 @@ Pojmy z rozboru mají oporu ve čtyřech tradicích: v teorii fantastiky a liter
 | Podivné a tísnivé | Mark Fisher, *The Weird and the Eerie* (2016) | Podivné je přítomnost něčeho, co nepatří. Tísnivé je něco tam, kde by nemělo být nic, nebo nic tam, kde by mělo být něco, a otázka, kdo tu jednal. |
 | Vznešená a zkrocená monstrozita | Jaroslav Švelch, *Player vs. Monster* (2023) | Herní monstra jsou simulovaná a navržená, aby prohrála. Co se dá spočítat a porazit, ztrácí tajemství. |
 | Obětní beránek, zakládající vražda | René Girard, *Obětní beránek* (1982) | Mýty vyprávějí o kolektivním násilí z pohledu pronásledovatelů. Oběť je napřed vinná krizí, po smrti uctívaná jako zachránce, a z toho dvojího přenosu vzniká posvátno. |
+| Portálová, ponořená, vpádová a prahová fantasy | Farah Mendlesohn, *Rhetorics of Fantasy* (2008) | Fantasy se liší tím, jak do příběhu vstupuje fantastično a kde přitom stojí čtenář: přichází zvenčí, je doma, svět je přepaden, nebo zázrak stojí na prahu. |
 
 K tomu klasické pojmy, které esej používá: Aristotelova peripetie a anagnórize z *Poetiky*, Eliotův objektivní korelativ (1919) a Bachtinova polyfonie z knihy o Dostojevském (1929).
 
@@ -395,6 +396,12 @@ René Girard v knize *Obětní beránek* (1982) tvrdí, že mnohé mýty jsou te
 
 Pro herní světy z toho plynou dvě věci. Za [prvotním hříchem](#prvotni-hrich) často stojí zakládající vražda, kterou si společenství vypráví tak, aby samo nebylo vinné: bohové Elder Scrolls společně vyrvou Lorkhanovi srdce a lidé ho pak uctívají jako stvořitele, z upálené Andraste vznikne v Dragon Age církev. A silné hry dávají hráči do ruky právě obětního beránka. V Pathologic přijíždí Haruspex do města, kde vypukl mor, a hned je obviněn z vraždy vlastního otce. V Dishonored dostane Corvo vinu za vraždu císařovny uprostřed krysího moru. V Pentimentu potřebuje opat rychle někoho oběsit a hra nikdy neřekne, kdo byl skutečný vrah. Mýtus vyprávěl z pohledu davu. Hra může postavit hráče do kruhu, kolem kterého dav stojí.
 
+### Mendlesohn: kudy do světa vstupuje fantastično
+
+Farah Mendlesohn v knize *Rhetorics of Fantasy* (2008) netřídí fantasy podle obsahu, ale podle toho, jak do příběhu vstupuje fantastično a kde přitom stojí čtenář. Rozlišuje čtyři způsoby. V **portálové** fantasy přichází hrdina zvenčí a svět se mu postupně vysvětluje; čtenář jede s ním a věří průvodcům, kteří mu svět vykládají. V **ponořené** fantasy je hrdina doma a nic se nevysvětluje, čtenář musí svět pochopit z toho, čeho si postavy všímají a čeho ne. Ve **vpádové** fantasy vtrhne nadpřirozeno do běžného světa a příběh žije ze stupňování, protože si na ně nikdo nesmí zvyknout. A v **prahové** fantasy stojí zázrak na okraji zorného pole a postavy ho přijímají s klidem, který čtenáře znejistí.
+
+Mendlesohn sama poznamenává, že portálové fantasy se podobají počítačovým hrám, které z nich vzešly. Většina herních světů opravdu začíná příchodem zvenčí: vězeň připluje do Morrowindu, Lovec dorazí do Yharnamu. Zajímavé je, co s tím dědictvím dělají nejsilnější světy atlasu. Dark Souls a Bloodborne zachovají příchod cizince, ale odepřou mu průvodce. Nikdo jim svět nevykládá, pravda leží v popiscích předmětů a v postavách, které si odporují, takže portálová stavba dostane rétoriku ponořeného světa. Half-Life a Resident Evil jsou čisté vpády se stupňováním. Úřad v Control zase mluví o nadpřirozenu tónem úředního oběžníku a blíží se tak klidu prahové fantasy. Mendlesohn přidává ještě postřeh, který sedí na třetí pilíř: v ponořeném světě se nevypráví o jeho objevování, ale o jeho ztrátě. Kdo je ve světě doma, může vyprávět jen o tom, jak mizí.
+
 ### Z dílny tvůrců
 
 Historik her Jimmy Maher rozebral vznik Planescape: Torment z původních dokumentů. Slavná otázka „Co může změnit povahu člověka?“ v prvním vizním dokumentu není. Hra je tam popsaná jako „zjizvený nesmrtelný s amnézií hledá svou identitu“. Otázka se vykrystalizovala až během vývoje z předpokladu, který byl hotový od začátku: nesmrtelnost, amnézie a smrtelnost jako protivník. Ústřední otázku tedy svět nemusí mít jako první, ale jeho předpoklad musí být dost bohatý, aby ji unesl.
@@ -439,3 +446,4 @@ Historik her Jimmy Maher rozebral vznik Planescape: Torment z původních dokume
 - Mark Fisher: *The Weird and the Eerie*, Repeater Books 2016.
 - Jaroslav Švelch: *Player vs. Monster: The Making and Breaking of Video Game Monstrosity*, MIT Press 2023.
 - René Girard: *Obětní beránek* (Le Bouc émissaire, 1982), Nakladatelství Lidové noviny 1997; anglicky *The Scapegoat*, Johns Hopkins University Press 1986.
+- Farah Mendlesohn: *Rhetorics of Fantasy*, Wesleyan University Press 2008.
