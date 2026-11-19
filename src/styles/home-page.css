@@ -925,6 +925,11 @@ a.hp-tab:focus-visible {
   color: var(--color-ink-muted);
 }
 
+.hp-trails__all {
+  display: inline-block;
+  margin-top: 1rem;
+}
+
 .hp-trail:hover .hp-trail__name,
 .hp-trail:focus-visible .hp-trail__name {
   color: var(--color-accent);

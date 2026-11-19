@@ -3,8 +3,8 @@ import { useLocale } from '../../lib/locale-store';
 import { t, uiCount, uiT, worldsCountLabel, type Locale } from '../../lib/i18n';
 import { withBase } from '../../lib/base-url';
 import type { LocalizedString, World } from '../../schemas/world';
-import { featuredWorldIndex } from '../../lib/calendar';
-import { TRAILS } from '../../lib/trails';
+import { dayNumber, featuredWorldIndex } from '../../lib/calendar';
+import { TRAILS, dailyTrails } from '../../lib/trails';
 import { mostRecentAdded } from '../../lib/atlas-news';
 import AxisBars from './AxisBars';
 import DailyMystery from './DailyMystery';
@@ -199,7 +199,12 @@ export default function HomeIntro({ chapters, worlds = [], base }: Props) {
   };
 
   const [titleA, titleEm, titleB] = uiT('home2.title', locale).split('|');
-  const trails = TRAILS.map((trail) => ({ trail, members: worlds.filter((w) => trail.match(w)) }));
+  // Stezky dne: před hydratací první trojice, pak trojice podle dne (stejně jako Svět dne).
+  const byId = new Map(worlds.map((w) => [w.id, w]));
+  const trails = (today ? dailyTrails(dayNumber(today)) : TRAILS.slice(0, 3)).map((trail) => ({
+    trail,
+    members: trail.members.map((id) => byId.get(id)).filter((w): w is (typeof worlds)[number] => Boolean(w)),
+  }));
 
   return (
     <div className="hp">
@@ -371,6 +376,9 @@ export default function HomeIntro({ chapters, worlds = [], base }: Props) {
                 </div>
               );
             })}
+            <a className="hp-link hp-trails__all" href={withBase(base, '/atlas/?stezky=1')}>
+              {uiT('trails.all', locale).replace('{n}', String(TRAILS.length))}
+            </a>
           </div>
         </section>
 
@@ -409,11 +417,11 @@ export default function HomeIntro({ chapters, worlds = [], base }: Props) {
             </a>
           </article>
           <div className="hp-trails">
-            <p className="hp-kicker">{uiT('home.trailsTitle', locale)}</p>
+            <p className="hp-kicker">{uiT('trails.daily', locale)}</p>
             {trails.map(({ trail, members }) => {
               // Nezlomitelné mezery: „Warhammer 40 000“ a „a dalších 18“ se nerozdělí, tečka zůstane u jména.
               const keep = (text: string) => text.replace(/ /g, '\u00a0');
-              const shown = members.slice(0, 6).map((w) => keep(t(w.gameTitle, locale)));
+              const shown = members.slice(0, 7).map((w) => keep(t(w.gameTitle, locale)));
               const rest = members.length - shown.length;
               return (
                 <a key={trail.id} className="hp-trail" href={withBase(base, `/atlas/?trail=${trail.id}`)}>
@@ -427,6 +435,9 @@ export default function HomeIntro({ chapters, worlds = [], base }: Props) {
                 </a>
               );
             })}
+            <a className="hp-link hp-trails__all" href={withBase(base, '/atlas/?stezky=1')}>
+              {uiT('trails.all', locale).replace('{n}', String(TRAILS.length))}
+            </a>
           </div>
         </section>
       </div>

@@ -74,6 +74,7 @@ export default function AtlasExplorer({
   const [narration, setNarration] = useState('');
   const [moreOpen, setMoreOpen] = useState(false);
   const [compassOpen, setCompassOpen] = useState(false);
+  const [trailsOpen, setTrailsOpen] = useState(false);
   const [activeTrail, setActiveTrail] = useState<TrailId | null>(null);
 
   // Odkazy z titulní strany a z karet světa: /atlas/?theme=… a /atlas/?trail=…
@@ -83,6 +84,12 @@ export default function AtlasExplorer({
     if (themeParam && themeLabels[themeParam]) setTheme(themeParam);
     const trailParam = params.get('trail');
     if (trailParam && TRAILS.some((trail) => trail.id === trailParam)) setActiveTrail(trailParam as TrailId);
+    if (params.get('stezky')) {
+      setTrailsOpen(true);
+      requestAnimationFrame(() =>
+        document.getElementById('catalog-results')?.scrollIntoView({ block: 'start' }),
+      );
+    }
     if (themeParam || trailParam) {
       requestAnimationFrame(() =>
         document.getElementById('catalog-results')?.scrollIntoView({ block: 'start' }),
@@ -117,8 +124,9 @@ export default function AtlasExplorer({
   const selectTrail = (id: TrailId | null) => {
     setActiveTrail(id);
     if (id) {
+      setTrailsOpen(false);
       requestAnimationFrame(() => {
-        document.getElementById('catalog-results')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        document.getElementById('catalog-status')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
     }
   };
@@ -289,24 +297,16 @@ export default function AtlasExplorer({
             {uiT('home.compassToggle', locale)}
             <span aria-hidden="true">{compassOpen ? ' −' : ' +'}</span>
           </button>
-          <div className="catalog-trails" role="group" aria-label={uiT('home.trailsTitle', locale)}>
-            <span className="catalog-trails__label">{uiT('atlasPage.trails', locale)}</span>
-            {TRAILS.map((trail) => {
-              const on = activeTrail === trail.id;
-              return (
-                <button
-                  key={trail.id}
-                  type="button"
-                  className={`catalog-trails__item${on ? ' is-on' : ''}`}
-                  aria-pressed={on}
-                  title={uiT(trail.descKey, locale)}
-                  onClick={() => selectTrail(on ? null : trail.id)}
-                >
-                  {uiT(trail.nameKey, locale)}
-                </button>
-              );
-            })}
-          </div>
+          <button
+            type="button"
+            className="catalog-toolbar__toggle"
+            aria-expanded={trailsOpen}
+            onClick={() => setTrailsOpen((open) => !open)}
+          >
+            {uiT('trails.toggle', locale)}
+            {activeTrailDef ? `: ${uiT(activeTrailDef.nameKey, locale)}` : ''}
+            <span aria-hidden="true">{trailsOpen ? ' −' : ' +'}</span>
+          </button>
         </div>
 
         {extraVisible ? (
@@ -373,9 +373,32 @@ export default function AtlasExplorer({
         ) : null}
       </div>
 
+      {trailsOpen ? (
+        <div className="catalog-trails" role="group" aria-label={uiT('home.trailsTitle', locale)}>
+          {TRAILS.map((trail) => {
+            const on = activeTrail === trail.id;
+            return (
+              <button
+                key={trail.id}
+                type="button"
+                className={`catalog-trail${on ? ' is-on' : ''}`}
+                aria-pressed={on}
+                onClick={() => selectTrail(on ? null : trail.id)}
+              >
+                <span className="catalog-trail__name">
+                  {uiT(trail.nameKey, locale)}
+                  <span className="catalog-trail__count">{trail.members.length}</span>
+                </span>
+                <span className="catalog-trail__desc">{uiT(trail.descKey, locale)}</span>
+              </button>
+            );
+          })}
+        </div>
+      ) : null}
+
       <WorldCompass worlds={worlds} locale={locale} base={baseUrl} open={compassOpen} />
 
-      <div className="catalog-status" aria-live="polite">
+      <div className="catalog-status" id="catalog-status" aria-live="polite">
         <p className="catalog-status__count">
           {anyFilter ? `${uiT('atlasPage.found', locale)}: ` : ''}
           <strong>{worldCountLabel(filtered.length, locale)}</strong>
