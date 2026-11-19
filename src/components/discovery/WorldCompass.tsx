@@ -43,11 +43,12 @@ export default function WorldCompass({ worlds, locale, base, alwaysOpen = false 
       )}
       {open ? (
         <div className="compass__panel">
-          <h2 className={alwaysOpen ? 'hp-h2' : 'home-section-title'}>
-            {uiT(alwaysOpen ? 'home2.compassTitle' : 'home.compassTitle', locale)}
-          </h2>
-          <p className="compass__lead">{uiT('home.compassLead', locale)}</p>
           <div className="compass__grid">
+            <div className="compass__input">
+            <h2 className={alwaysOpen ? 'hp-h2' : 'home-section-title'}>
+              {uiT(alwaysOpen ? 'home2.compassTitle' : 'home.compassTitle', locale)}
+            </h2>
+            <p className="compass__lead">{uiT('home.compassLead', locale)}</p>
             <div className="axis-bars compass__axes" role="group" aria-label={uiT('card.axesAria', locale)}>
               {axesMeta.axes.map((axis) => {
                 const key = axis.id as (typeof AXIS_KEYS)[number];
@@ -77,15 +78,16 @@ export default function WorldCompass({ worlds, locale, base, alwaysOpen = false 
                 );
               })}
             </div>
+            </div>
             <div className="compass__results">
-              {nearest.map((hit) => (
+              {nearest.map((hit, index) => (
                 <a
                   key={hit.world.id}
                   className="compass__card"
                   href={withBase(base, `/worlds/${hit.world.id}/`)}
                 >
                   <span className="compass__badge">
-                    {uiT('home.compassMatch', locale).replace('{n}', String(hit.percent))}
+                    {uiT(index === 0 ? 'home.compassNearest' : 'home.compassSecond', locale)}
                   </span>
                   <strong className="compass__name">{t(hit.world.gameTitle, locale)}</strong>
                   <span className="compass__core">{t(hit.world.core, locale)}</span>

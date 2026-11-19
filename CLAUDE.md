@@ -197,7 +197,7 @@ Další:
 - Úprava jedné stránky (např. `/compare/`) **nesmí** měnit strukturu/styl karty světa ani jiné hotové stránky.
 - `/compare/` = `src/pages/compare/index.astro` + `ComparePage.tsx` + `compare.ts` + `compare.css`.
 - Procenta příbuznosti se v UI **nezobrazují** (ani v metodice), jen stupně slovy a síla pilířů slovy.
-- Příbuznost světů počítá **jen** `compare.ts`. Žádný další výpočet podobnosti nezakládat; karta (`SimilarWorlds` záloha) i mapa (spis světa) berou `kinshipRanking`. Kartografie os ukazuje jen polohu na dvou osách, procenta nepočítá. Výjimka: „Nejblíž tvému ladění“ na mapě řadí podle vzdálenosti os, protože čtenář zadává jen osy; neukazuje procenta ani slovo příbuznost.
+- Příbuznost světů počítá **jen** `compare.ts`. Žádný další výpočet podobnosti nezakládat; karta (`SimilarWorlds` záloha) i mapa (spis světa) berou `kinshipRanking`. Kartografie os ukazuje jen polohu na dvou osách, procenta nepočítá. Výjimka: „Nejblíž tvému ladění“ na mapě a kompas „Který svět je tvůj?“ / „Tvůj otisk světa“ (`imprint.ts`) řadí podle vzdálenosti pěti os, protože čtenář zadává jen osy; neukazují procenta ani slovo příbuznost (kompas: Nejblíž tvému ladění · Hned za ním · Tvůj protinožec).
 - Nepřidávej vysvětlující věty a doslovné štítky tam, kde stačí barva, osa nebo pozice.
 - Filtry a vyhledávání katalogu nesahají na srovnávač a naopak.
 - Po každé úpravě: `npm run build`. UI změna: ověř v prohlížeči (ne jen screenshot).
