@@ -15,6 +15,13 @@ type Props = {
 
 const NOT_ITEMS = ['about.notReviews', 'about.notGuide', 'about.notNews', 'about.notOfficial', 'about.notSpoilers'] as const;
 
+/** Název webu v textu kurzívou. */
+function withSiteName(text: string) {
+  return text.split('Here Be Worlds').flatMap((part, index) =>
+    index === 0 ? [part] : [<em key={index}>Here Be Worlds</em>, part],
+  );
+}
+
 function paragraphs(text: string): string[] {
   return text
     .split(/\n\s*\n/)
@@ -32,7 +39,6 @@ export default function AboutPage({ base, stats, latest, upcoming }: Props) {
   return (
     <article className="doc about-page">
       <header className="doc-head">
-        <p className="doc-kicker">{uiT('footer.about', locale)}</p>
         <h1 className="doc-title">{uiT('about.title', locale)}</h1>
         <p className="doc-lead">{uiT('about.lead', locale)}</p>
       </header>
@@ -95,7 +101,7 @@ export default function AboutPage({ base, stats, latest, upcoming }: Props) {
             <section className="doc-side__block">
               <h2 className="doc-kicker">{uiT('about.noteTitle', locale)}</h2>
               <p className="about-page__note">
-                {note} <a href={withBase(base, '/contact/')}>{noteLink}</a>
+                {withSiteName(note)} <a href={withBase(base, '/contact/')}>{noteLink}</a>
               </p>
             </section>
           ) : null}

@@ -134,14 +134,14 @@ At the same time we fully understand that living fictional universes cannot be m
 
 /** Příbuznost světů: čtyři pilíře a pět stupňů (slovy, bez procent; počítá compare.ts). */
 export const noteKinshipIntro: LocalizedString = {
-  cs: 'Příbuznost dvou světů skládáme ze čtyř pilířů. Všechny dvojice v atlasu pak seřadíme od nejbližší po nejvzdálenější a rozdělíme do pěti stupňů. Procenta neukazujeme: stupeň slovy řekne víc a z odhadu nedělá falešně přesné číslo.',
-  en: 'We build the kinship of two worlds from four pillars. Then we rank every pair in the atlas from closest to farthest and split them into five degrees. We show no percentages: a degree in words says more and does not turn an estimate into a falsely precise number.',
+  cs: 'Příbuznost dvou světů skládáme ze čtyř pilířů. Všechny dvojice v atlasu pak seřadíme od nejbližší po nejvzdálenější a rozdělíme do pěti stupňů.',
+  en: 'We build the kinship of two worlds from four pillars. Then we rank every pair in the atlas from closest to farthest and split them into five degrees.',
 };
 
 export const noteKinshipPillars: NoteField[] = [
   {
     term: { cs: 'Archetyp a profil archetypu', en: 'Archetype and archetype profile' },
-    help: { cs: 'Stejný archetyp, podtyp a přesahy.', en: 'The same archetype, subtype and overlaps.' },
+    help: { cs: 'Archetyp, podtyp a přesahy.', en: 'Archetype, subtype and overlaps.' },
   },
   {
     term: { cs: 'Profil světa', en: 'World profile' },
@@ -165,20 +165,15 @@ export const noteKinshipLevels: { level: 1 | 2 | 3 | 4 | 5; help: LocalizedStrin
   { level: 4, help: { cs: 'Shodují se ve většině pilířů a liší se spíš v detailech.', en: 'They agree on most pillars and differ mostly in detail.' } },
   { level: 3, help: { cs: 'Mají společný základ, ale každý jde vlastní cestou.', en: 'They share a common ground, but each goes its own way.' } },
   { level: 2, help: { cs: 'Potkají se jen v jednom dvou rysech.', en: 'They meet in only one or two traits.' } },
-  { level: 1, help: { cs: 'Skoro nic společného. Takových dvojic je v atlasu nejvíc.', en: 'Almost nothing in common. Most pairs in the atlas are like this.' } },
+  { level: 1, help: { cs: 'Skoro nic společného.', en: 'Almost nothing in common.' } },
 ];
-
-export const noteKinshipCurated: LocalizedString = {
-  cs: 'Dvojice, které jsme v atlasu spojili ručně, jsou vždy aspoň Blízcí příbuzní.',
-  en: 'Pairs we have linked by hand in the atlas are always at least Close kin.',
-};
 
 /** Kompas a ladění na mapě: jen pět os, žádná příbuznost. */
 export const noteCompass: LocalizedString = {
-  cs: `Kompas „Který svět je tvůj?“ na titulní straně a v atlasu i ladění na mapě pracují jen s pěti osami. Tvoje nastavení se změří proti profilu každého světa jako vzdálenost dvou bodů: nejblíž je svět, jehož profil se tvému ladění podobá nejvíc, a protinožec je ten nejvzdálenější.
+  cs: `Kompas „Který svět je tvůj?“ na titulní straně a v atlasu i ladění „Kde leží tvůj svět?“ v Kartografii os pracují jen s pěti osami. Tvoje nastavení se změří proti profilu každého světa jako vzdálenost dvou bodů: nejblíž je svět, jehož profil se tvému ladění podobá nejvíc, a protinožec je ten nejvzdálenější.
 
 Protože zadáváš jen osy, kompas příbuznost nepočítá. Archetyp, charakter světa ani témata do něj nevstupují, a proto se jeho výsledek může lišit od stupňů příbuznosti ve srovnání.`,
-  en: `The “Which world is yours?” compass on the home page and in the atlas, and the tuning on the map, work only with the five axes. Your setting is measured against each world's profile as the distance between two points: the closest world is the one whose profile resembles your tuning most, and the antipode is the farthest.
+  en: `The “Which world is yours?” compass on the home page and in the atlas, and the “Where does your world lie?” tuning in the Cartography of axes, work only with the five axes. Your setting is measured against each world's profile as the distance between two points: the closest world is the one whose profile resembles your tuning most, and the antipode is the farthest.
 
 Because you only enter axes, the compass does not calculate kinship. Archetype, world character and themes play no part in it, so its result can differ from the degrees of kinship in the comparison.`,
 };

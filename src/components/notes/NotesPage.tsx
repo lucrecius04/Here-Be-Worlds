@@ -5,7 +5,6 @@ import {
   noteCanon,
   noteCompass,
   noteFields,
-  noteKinshipCurated,
   noteKinshipIntro,
   noteKinshipLevels,
   noteKinshipPillars,
@@ -151,7 +150,6 @@ export default function NotesPage({ base }: Props) {
             </div>
           ))}
         </dl>
-        <p className="notes-list__values notes-section__foot">{t(noteKinshipCurated, locale)}</p>
       </section>
 
       <section className="notes-section" id="kompas">

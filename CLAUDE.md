@@ -70,7 +70,7 @@ Kroniky a eseje **nejsou** v `data/`.
 | `/map/` | `src/pages/map/index.astro` | `AxisGridMap` — Kartografie os (mřížka 5 × 5, bez výpočtu příbuznosti) |
 | `/chapters/[id]/` | `src/pages/chapters/[id].astro` | `ChapterPage` — URL zůstává `chapters`, UI = Archetyp |
 | `/worlds/[slug]/` | `src/pages/worlds/[slug].astro` | `WorldPageShell` |
-| `/about/` | `src/pages/about/index.astro` | `AboutPage` — řada „Atlas v číslech“ (počítá se při sestavení z dat a kronik), autorský text vlevo, pod ním „Čím atlas nechce být“ a „Co se chystá“ (`data/meta/upcoming.json` + naposledy zmapovaný svět), vpravo poznámka o AI a „Dál v atlasu“ |
+| `/about/` | `src/pages/about/index.astro` | `AboutPage` — nadpis „O atlasu“ (bez štítku), řada „Atlas v číslech“ (počítá se při sestavení z dat a kronik), autorský text vlevo, pod ním „Čím atlas nechce být“ a „Co se chystá“ (`data/meta/upcoming.json` + naposledy zmapovaný svět), vpravo poznámka o AI a „Dál v atlasu“ |
 | `/notes/` | `src/pages/notes/index.astro` | `NotesPage` — obsah oddílů, rejstříkový seznam pojmů (štítek vlevo, výklad vpravo), legenda 1–5 jako pruh os; oddíly Charakter světa · Profil světa · Triáda · Příbuznost světů (4 pilíře, 5 stupňů slovy, bez procent) · Kompas a ladění · Kánon (texty v `data/meta/notes.ts`) |
 | `/anatomie-herniho-lore/` | `src/pages/anatomie-herniho-lore/index.astro` | `EssayPage` |
 | `/contact/` | `src/pages/contact/index.astro` | `ContactPage` — téma zprávy, věta o e-mailu; odesílání zatím **nezapojené** (`CONTACT_EMAIL` prázdné), plán: bezplatná služba pro formuláře (Web3Forms/Formspree) s klíčem majitele |

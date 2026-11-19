@@ -360,7 +360,7 @@ export const ui: Record<Locale, UiTree> = {
       homeCta: 'Číst esej',
     },
     about: {
-      title: 'O projektu',
+      title: 'O atlasu',
       lead: 'Proč mapujeme místa, která neexistují',
       noteTitle: 'Poznámka k umělé inteligenci',
       statWorlds: 'Zmapovaných světů',
@@ -386,8 +386,8 @@ Každý ze světů v tomto atlase proto prozkoumáváme hlavně ze dvou úhlů. 
 
 Berte prosím tento atlas jako skromnou poctu všem scenáristům, designérům a vypravěčům, kteří dokázali z nul a jedniček vystavět celé civilizace. Ať už sem přicházíte připomenout si dějiny světa, ve kterém jste kdysi strávili stovky hodin, nebo jen hledáte inspiraci a chuť objevit vesmír, do kterého jste se zatím neodvážili vkročit – udělejte si pohodlí. Mapa je rozložená.`,
       signoff: 'Tým Here Be Worlds',
-      note: 'Malá poznámka, která by ale měla být zmíněna. Při tvorbě obsahu využíváme umělou inteligenci jako pomocníka a nástroj. Pomáhá nám shromažďovat, syntetizovat a vizualizovat data. Nejsme neomylní – ani my a bohužel ani AI. K různým halucinacím máme veskrze negativní postoje a nemilosrdně je mýtíme. Pokud nicméně na stránkách Here Be Worlds narazíte na nepřesnost, chybný údaj nebo zavádějící interpretaci, budeme za zpětnou vazbu velmi vděční.',
-      noteLink: 'Napište nám.',
+      note: 'Malé doplnění, které by ale mělo zaznít. Při tvorbě obsahu využíváme umělou inteligenci jako pomocníka a nástroj. Pomáhá nám shromažďovat, syntetizovat a vizualizovat data. Nejsme neomylní – ani my a bohužel ani AI. K různým halucinacím máme veskrze negativní postoje a nemilosrdně je mýtíme. Pokud nicméně na stránkách Here Be Worlds narazíš na nepřesnost, chybný údaj nebo zavádějící interpretaci, budeme za zpětnou vazbu velmi vděční.',
+      noteLink: 'Napiš nám.',
     },
     contact: {
       title: 'Napiš nám',
@@ -753,7 +753,7 @@ Berte prosím tento atlas jako skromnou poctu všem scenáristům, designérům 
       homeCta: 'Read the essay',
     },
     about: {
-      title: 'About the project',
+      title: 'About the atlas',
       lead: 'Why we map places that do not exist',
       noteTitle: 'A note on artificial intelligence',
       statWorlds: 'Mapped worlds',
@@ -779,7 +779,7 @@ Each of the worlds in this atlas is therefore explored mainly from two angles. T
 
 Please take this atlas as a modest tribute to every writer, designer, and storyteller who managed to build entire civilizations out of zeroes and ones. Whether you come here to recall the history of a world in which you once spent hundreds of hours, or you are only looking for inspiration and the appetite to discover a universe you have not yet dared to enter – make yourself comfortable. The map is spread out.`,
       signoff: 'The Here Be Worlds team',
-      note: 'A small note that should nevertheless be mentioned. In creating the content we use artificial intelligence as a helper and a tool. It helps us gather, synthesize, and visualize data. We are not infallible – neither we, unfortunately, nor AI. We take a thoroughly negative view of various hallucinations and weed them out without mercy. If, however, you come across an inaccuracy, a wrong fact, or a misleading interpretation on the pages of Here Be Worlds, we will be very grateful for the feedback.',
+      note: 'A small addition that still deserves to be said. In creating the content we use artificial intelligence as a helper and a tool. It helps us gather, synthesize, and visualize data. We are not infallible – neither we, unfortunately, nor AI. We take a thoroughly negative view of various hallucinations and weed them out without mercy. If, however, you come across an inaccuracy, a wrong fact, or a misleading interpretation on the pages of Here Be Worlds, we will be very grateful for the feedback.',
       noteLink: 'Write to us.',
     },
     contact: {
