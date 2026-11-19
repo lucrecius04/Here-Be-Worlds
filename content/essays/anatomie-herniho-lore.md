@@ -176,7 +176,7 @@ Některé světy vyprávějí tlakem času. Pathologic má dvanáct dní a hrá�
 
 ### Opakování jako význam
 
-NieR, Dark Souls, Xenoblade 3 i Planescape pracují s opakováním: smrt, nový průchod, nová inkarnace. Opakování je tu tématem, ne technickým řešením. Hades ho obrací od tragédie ke smíření: každá smrt je návrat domů a spouští nové rozhovory. Herní médium má opakování v DNA a velká díla z toho dělají filozofii.
+NieR, Dark Souls, Xenoblade 3 i Planescape pracují s opakováním: smrt, nový průchod, nová inkarnace. Opakování je tu tématem, ne technickým řešením. Hades ho obrací od tragédie ke smíření: každá smrt je návrat domů a spouští nové rozhovory. Herní médium má opakování v DNA a velká díla z toho dělají filozofii. Mircea Eliade ukázal, že pro tradiční společnosti bylo opakování způsobem, jak obnovit svět: každý Nový rok se vracel k chaosu a stvoření začínalo znovu. Herní cykly s tím mohou pracovat oběma směry, jako s obnovou, nebo jako s ritualizovaným odkladem konce.
 
 ### Atmosféra a hudba
 
@@ -345,6 +345,7 @@ Pojmy z rozboru mají oporu ve čtyřech tradicích: v teorii fantastiky a liter
 | Vznešená a zkrocená monstrozita | Jaroslav Švelch, *Player vs. Monster* (2023) | Herní monstra jsou simulovaná a navržená, aby prohrála. Co se dá spočítat a porazit, ztrácí tajemství. |
 | Obětní beránek, zakládající vražda | René Girard, *Obětní beránek* (1982) | Mýty vyprávějí o kolektivním násilí z pohledu pronásledovatelů. Oběť je napřed vinná krizí, po smrti uctívaná jako zachránce, a z toho dvojího přenosu vzniká posvátno. |
 | Portálová, ponořená, vpádová a prahová fantasy | Farah Mendlesohn, *Rhetorics of Fantasy* (2008) | Fantasy se liší tím, jak do příběhu vstupuje fantastično a kde přitom stojí čtenář: přichází zvenčí, je doma, svět je přepaden, nebo zázrak stojí na prahu. |
+| Věčný návrat, hrůza z dějin | Mircea Eliade, *Mýtus o věčném návratu* (1949) | Tradiční člověk považuje za skutečné jen to, co opakuje vzor z počátku času. Opakováním ruší dějiny a kolektivní paměť z událostí dělá mýty. |
 
 K tomu klasické pojmy, které esej používá: Aristotelova peripetie a anagnórize z *Poetiky*, Eliotův objektivní korelativ (1919) a Bachtinova polyfonie z knihy o Dostojevském (1929).
 
@@ -402,6 +403,12 @@ Farah Mendlesohn v knize *Rhetorics of Fantasy* (2008) netřídí fantasy podle 
 
 Mendlesohn sama poznamenává, že portálové fantasy se podobají počítačovým hrám, které z nich vzešly. Většina herních světů opravdu začíná příchodem zvenčí: vězeň připluje do Morrowindu, Lovec dorazí do Yharnamu. Zajímavé je, co s tím dědictvím dělají nejsilnější světy atlasu. Dark Souls a Bloodborne zachovají příchod cizince, ale odepřou mu průvodce. Nikdo jim svět nevykládá, pravda leží v popiscích předmětů a v postavách, které si odporují, takže portálová stavba dostane rétoriku ponořeného světa. Half-Life a Resident Evil jsou čisté vpády se stupňováním. Úřad v Control zase mluví o nadpřirozenu tónem úředního oběžníku a blíží se tak klidu prahové fantasy. Mendlesohn přidává ještě postřeh, který sedí na třetí pilíř: v ponořeném světě se nevypráví o jeho objevování, ale o jeho ztrátě. Kdo je ve světě doma, může vyprávět jen o tom, jak mizí.
 
+### Eliade: věčný návrat
+
+Religionista Mircea Eliade v knize *Mýtus o věčném návratu* (1949) popsal, jak tradiční společnosti prožívaly čas. Skutečné je pro ně jen to, co opakuje vzor z počátku času: oběť opakuje první oběť, stavba chrámu opakuje stvoření světa. Babylóňané každý rok o Novém roce dvanáct dní recitovali epos o stvoření a znovu předváděli souboj Marduka s Tiamat, aby se svět obnovil. Indická tradice zná čtyři věky, které jsou čím dál kratší a temnější, až svět zanikne a začne znovu. Dějiny, tedy nevratné a nepředvídatelné události, archaický člověk snášel jen s obtížemi a pravidelně je rušil.
+
+Pro herní světy jsou nejcennější dvě věci. První je cyklus: Dark Souls staví celý svět na obřadu obnovy, rozdmýchání ohně, který místo obnovy jen prodlužuje úpadek, zatímco Outer Wilds nechává svět každou smyčkou znovu vzniknout. Druhá je mýtizace dějin. Eliade ukazuje, že lidová paměť si nepamatuje události, ale vzory: srbský hrdina Marko Kraljević, skutečný muž ze čtrnáctého století, má v baladách za matku vílu a zabíjí tříhlavého draka. V jedné rumunské vesnici stačilo necelých čtyřicet let, aby se z ženicha, který uklouzl na skále, stala oběť žárlivé horské víly, a vesnice nevěřila ani nevěstě, která to pamatovala jinak. Přesně tak vznikají legendy uvnitř herních světů. Z císaře Tibera Septima se v Elder Scrolls po smrti stal bůh Talos a Pentiment ukazuje, jak městečko přepisuje vlastní minulost do příběhů, které unese.
+
 ### Z dílny tvůrců
 
 Historik her Jimmy Maher rozebral vznik Planescape: Torment z původních dokumentů. Slavná otázka „Co může změnit povahu člověka?“ v prvním vizním dokumentu není. Hra je tam popsaná jako „zjizvený nesmrtelný s amnézií hledá svou identitu“. Otázka se vykrystalizovala až během vývoje z předpokladu, který byl hotový od začátku: nesmrtelnost, amnézie a smrtelnost jako protivník. Ústřední otázku tedy svět nemusí mít jako první, ale jeho předpoklad musí být dost bohatý, aby ji unesl.
@@ -447,3 +454,4 @@ Historik her Jimmy Maher rozebral vznik Planescape: Torment z původních dokume
 - Jaroslav Švelch: *Player vs. Monster: The Making and Breaking of Video Game Monstrosity*, MIT Press 2023.
 - René Girard: *Obětní beránek* (Le Bouc émissaire, 1982), Nakladatelství Lidové noviny 1997; anglicky *The Scapegoat*, Johns Hopkins University Press 1986.
 - Farah Mendlesohn: *Rhetorics of Fantasy*, Wesleyan University Press 2008.
+- Mircea Eliade: *Mýtus o věčném návratu (Archetypy a opakování)* (Le Mythe de l'éternel retour, 1949), Praha 1993; anglicky *The Myth of the Eternal Return*, Princeton University Press 1954.

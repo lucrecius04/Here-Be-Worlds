@@ -15,10 +15,10 @@ Prameny, které eseje citují krátce. Nečetli jsme je jako celé knihy, ale p�
 ## Mircea Eliade: deus otiosus
 
 - **Pojem:** *deus otiosus*, „bůh na odpočinku“. Stvořitel, který se po stvoření stáhne do nebes a o svět se přestane starat. Lidé ho znají jménem, ale obracejí se k bližším mocnostem.
-- **Původ:** Eliade, *Pojednání o dějinách náboženství* (Traité d'histoire des religions, 1949; anglicky *Patterns in Comparative Religion*). Český název vydání jsme neověřili.
+- **Původ:** Eliade, *Pojednání o dějinách náboženství* (Traité d'histoire des religions, 1949; anglicky *Patterns in Comparative Religion*). Český název *Pojednání o dějinách náboženství* potvrzuje česká religionistická literatura (ověřeno 2026-11-19).
 - **Zdroj:** [Encyclopedia of Religion: Deus otiosus](https://www.encyclopedia.com/environment/encyclopedias-almanacs-transcripts-and-maps/deus-otiosus), Wikipedia (deus otiosus).
 - **Použito:** *Na mrtvole boha*: úvodní kapitola, Pathfinder (Aroden jako *deus otiosus* v nejostřejší podobě), Tři způsoby (prázdné místo).
-- **Hodí se dál:** bohové, kteří odešli (Dark Souls, Elder Scrolls: Lorkhan jako „chybějící bůh“). Eliadeho *Mýtus o věčném návratu* čeká na dodání pro stezku Uvězněni v kruhu.
+- **Hodí se dál:** bohové, kteří odešli (Dark Souls, Elder Scrolls: Lorkhan jako „chybějící bůh“). *Mýtus o věčném návratu* má vlastní výtah: [eliade-mytus-o-vecnem-navratu.md](eliade-mytus-o-vecnem-navratu.md).
 
 ## Friedrich Nietzsche: Radostná věda (1882)
 

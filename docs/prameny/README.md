@@ -22,6 +22,7 @@ Pravidla:
 | Jaroslav Švelch: *Player vs. Monster* (2023) | [svelch-player-vs-monster.md](svelch-player-vs-monster.md) | čteno (úvod, kap. 1 a 4, závěr, části kap. 2 a 3) | vznešená a zkrocená monstrozita, ontologie nepřítele, daemoni, hráč proti prostředí, selhání odstupu a střetu |
 | René Girard: *Obětní beránek* (1982) | [girard-obetni-beranek.md](girard-obetni-beranek.md) | čteno (kap. 2, 3, 5, 6, části 7 a 10) | stereotypy pronásledování, mýtus jako text pronásledovatelů, dvojí přenos, Teotihuacan, skrývání kolektivní vraždy |
 | Farah Mendlesohn: *Rhetorics of Fantasy* (2008) | [mendlesohn-rhetorics-of-fantasy.md](mendlesohn-rhetorics-of-fantasy.md) | čteno (úvod, epilog, teze kap. 1–4) | portálová, ponořená, vpádová a prahová fantasy, klubové vyprávění, ponoření = řídnutí, eskalace a latence |
+| Mircea Eliade: *Mýtus o věčném návratu* (1949) | [eliade-mytus-o-vecnem-navratu.md](eliade-mytus-o-vecnem-navratu.md) | čteno (kap. 1, hlavní oddíly kap. 2–4) | archetyp a opakování, symbolika středu, obnova času (akitu), mýtizace dějin, kosmické cykly (jugy), hrůza z dějin |
 | Drobné prameny: mýty o stvoření z těla boha, Eliade, Nietzsche, prameny Anatomie | [drobne-prameny.md](drobne-prameny.md) | přes sekundární zdroje | Ymir, Tiamat, Puruša, deus otiosus, Bůh je mrtev, Iser, Jenkins, Aarseth, Tolkien, Suvin |
 
 ## Prameny podle stezek
@@ -30,25 +31,24 @@ Opačný pohled k tabulce výše (16 stezek): co číst před psaním eseje ke s
 
 | Stezka | Esej | Prameny | Čeká na dodání |
 |---|---|---|---|
-| Na mrtvole boha | [na-mrtvole-boha.md](../../content/trails/na-mrtvole-boha.md), čeká na kontrolu majitele | mýty o stvoření, Eliade (deus otiosus), Nietzsche, Otto, Clute (řídnutí), Doležel (mytologický svět), Fisher (tísnivé), Švelch (Ebrietas), Girard (Teotihuacan, dvojí přenos), Wolf | |
+| Na mrtvole boha | [na-mrtvole-boha.md](../../content/trails/na-mrtvole-boha.md), čeká na kontrolu majitele | mýty o stvoření, Eliade (deus otiosus), Nietzsche, Otto, Clute (řídnutí), Doležel (mytologický svět), Fisher (tísnivé), Švelch (Ebrietas), Girard (Teotihuacan, dvojí přenos), Eliade (akitu), Wolf | |
 | Bohové jako břemeno | | Otto, Clute (řídnutí), Eliade (deus otiosus), Nietzsche, Girard (dvojí přenos, bohové bez viny) | |
-| Prokleté dědictví | | Clute (řídnutí, porucha), Doležel (přepisy), Girard (zakládající vražda), Mendlesohn (ponořená fantasy vypráví ztrátu) | Assmann (paměť, zakládající mýty) |
+| Prokleté dědictví | | Clute (řídnutí, porucha), Doležel (přepisy), Girard (zakládající vražda), Mendlesohn (ponořená fantasy vypráví ztrátu), Eliade (mýtizace dějin) | Assmann (paměť, zakládající mýty) |
 | Křehká hranice svobodné vůle | | Bogost (co hra nedovolí), Juul, vizní dokument Planescape (hráč se definuje činy) | |
-| Uvězněni v kruhu | | Juul (smrt a návrat jako téma), Clute (řídnutí), vizní dokument Planescape (cyklus jako trest) | Eliade, *Mýtus o věčném návratu* |
+| Uvězněni v kruhu | | Juul (smrt a návrat jako téma), Clute (řídnutí), vizní dokument Planescape (cyklus jako trest), Eliade (věčný návrat, obnova času, jugy) | |
 | Hra ví, že ji hraješ | | Juul (vědomý nesoulad), Švelch (útěk ze stroje: Flowey), Bogost | |
 | Kdo se to probudil? | | vizní dokument Planescape (amnézie jako synchronizace vědění), Wolf (narativní rozlišení), Mendlesohn (amnézie jako portál převlečený za ponoření) | |
 | Netvor v zrcadle | | Švelch (selhání odstupu, sympatie s monstrem, lebečné krysy), vizní dokument Planescape (minulé inkarnace), Nietzsche, Girard (monstrum z rozpadu rozdílů, Silent Hill) | |
 | Ráj, který se nepovedl | | Clute (parodie země), Bogost, Girard (reformátor si vymyslí ztracený ráj) | |
 | Logo nad troskami | | Fisher (tísnivé jako neviditelná moc), Švelch (korporace jako neviditelná monstrozita podle Weinstocka) | |
-| Mluví už jen mrtví | | Fisher (archeologie, tísnivé), Doležel (mezera), Wolf (katalyzátory spekulace) | Assmann |
+| Mluví už jen mrtví | | Fisher (archeologie, tísnivé), Doležel (mezera), Wolf (katalyzátory spekulace), Eliade (kolektivní paměť je nehistorická) | Assmann |
 | Smích nad propastí | | Švelch (parodie a humor v Undertale), Mendlesohn (prahový tón: klid a ironie, Control) | |
-| Město, které dýchá | | Wolf (infrastruktury), Doležel (fikční encyklopedie), Mendlesohn (ponořená fantasy, kompetentní obyvatelé) | |
-| Válka, kterou nikdo nevyhraje | | Švelch (ontologie nepřítele, spotřební nepřátelé), Clute (řídnutí), Girard (obětní krize, Kaifášova logika) | |
+| Město, které dýchá | | Wolf (infrastruktury), Doležel (fikční encyklopedie), Mendlesohn (ponořená fantasy, kompetentní obyvatelé), Eliade (symbolika středu) | |
+| Válka, kterou nikdo nevyhraje | | Švelch (ontologie nepřítele, spotřební nepřátelé), Clute (řídnutí), Girard (obětní krize, Kaifášova logika), Eliade (hrůza z dějin) | |
 | Pod lhostejnými hvězdami | | Otto, Fisher (podivné), Švelch (selhání střetu, Astrální bodec, lhostejná monstra), Clute, Mendlesohn (ponoření = řídnutí) | |
-| Kdo za to může? | | Girard (stereotypy pronásledování, dvojí přenos, Kaifášova logika). V eseji zmínit výhradu: Girard je redukcionista, používat ho jako nástroj vedle jiných pramenů | |
+| Kdo za to může? | | Girard (stereotypy pronásledování, dvojí přenos, Kaifášova logika), Eliade (normálnost utrpení: neštěstí musí mít původce). V eseji zmínit výhradu: Girard je redukcionista, používat ho jako nástroj vedle jiných pramenů | |
 
 ## Čeká na dodání (od majitele)
 
 - Farah Mendlesohn, Edward James: *A Short History of Fantasy* (2009). Majitel ji má, zatím nevyžádána: přehled dějin žánru, hodí se, až budeme psát o kořenech herní fantasy (Tolkien, D&D, sword and sorcery).
 - Jan Assmann: *Kultura a paměť* (zakládající mýty, přepisování dějin)
-- Mircea Eliade: *Mýtus o věčném návratu* (cyklický čas)

@@ -23,7 +23,7 @@ Na první pohled jde o pět různých žánrů: kosmický horor, japonské sci-f
 
 ## Nejstarší obraz světa
 
-Severská *Edda* vypráví, jak bohové Ódin, Vili a Vé zabili praobra Ymiho a z jeho těla vystavěli svět: z masa zemi, z kostí hory, z krve moře, z lebky nebeskou klenbu. Babylonský epos *Enuma eliš* líčí, jak bůh Marduk rozťal bohyni pravodstva Tiamat a z polovin jejího těla stvořil nebe a zemi. Indický hymnus z Rgvédy (X, 90) popisuje, jak bohové obětovali prvotního člověka Purušu a z jeho údů vznikly světové strany, živly i lidské stavy. A čínská tradice zná obra Pchan-ku, jehož dech se po smrti stal větrem a tělo horami a řekami.
+Severská *Edda* vypráví, jak bohové Ódin, Vili a Vé zabili praobra Ymiho a z jeho těla vystavěli svět: z masa zemi, z kostí hory, z krve moře, z lebky nebeskou klenbu. Babylonský epos *Enuma eliš* líčí, jak bůh Marduk rozťal bohyni pravodstva Tiamat a z polovin jejího těla stvořil nebe a zemi. Babylóňané ten příběh navíc každý rok o Novém roce recitovali a souboj znovu předváděli, protože podle religionisty Mircei Eliadeho věřili, že tím stvoření opakují a svět obnovují. Indický hymnus z Rgvédy (X, 90) popisuje, jak bohové obětovali prvotního člověka Purušu a z jeho údů vznikly světové strany, živly i lidské stavy. A čínská tradice zná obra Pchan-ku, jehož dech se po smrti stal větrem a tělo horami a řekami.
 
 Indolog Michael Witzel ukázal, že mýtus o prvotním obrovi rozsekaném na svět se táhne od Islandu až po jižní Čínu. Pro všechny verze platí totéž: smrt boha tu není tragédie, ale stavební materiál. Svět je uspořádaný, protože vznikl rozdělením jednoho těla. Každá jeho část má své místo, protože byla kdysi údem.
 
@@ -148,6 +148,7 @@ Nietzsche se ptal, jestli se nemusíme sami stát bohy, abychom se ukázali hodn
 - *Rgvéda* X, 90, hymnus o Purušovi.
 - [Michael Witzel: Ymir in India, China—and Beyond (Center for Hellenic Studies, Harvard)](https://chs.harvard.edu/chapter/michael-witzel-ymir-in-india-china-and-beyond/)
 - Mircea Eliade: *Pojednání o dějinách náboženství* (Traité d'histoire des religions, 1949), pojem *deus otiosus*.
+- Mircea Eliade: *Mýtus o věčném návratu (Archetypy a opakování)* (Le Mythe de l'éternel retour, 1949), Praha 1993.
 - [Encyclopedia of Religion: Deus otiosus (Encyclopedia.com)](https://www.encyclopedia.com/environment/encyclopedias-almanacs-transcripts-and-maps/deus-otiosus)
 - René Girard: *Obětní beránek* (Le Bouc émissaire, 1982), Nakladatelství Lidové noviny 1997; anglicky *The Scapegoat*, Johns Hopkins University Press 1986.
 - Rudolf Otto: *Posvátno. Iracionalita v ideji božství a její poměr k racionalitě* (Das Heilige, 1917), Vyšehrad 1998.
