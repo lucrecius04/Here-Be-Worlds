@@ -348,6 +348,7 @@ Pojmy z rozboru mají oporu ve čtyřech tradicích: v teorii fantastiky a liter
 | Věčný návrat, hrůza z dějin | Mircea Eliade, *Mýtus o věčném návratu* (1949) | Tradiční člověk považuje za skutečné jen to, co opakuje vzor z počátku času. Opakováním ruší dějiny a kolektivní paměť z událostí dělá mýty. |
 | Funkční a úložná paměť, místa traumatu | Aleida Assmannová, *Cultural Memory and Western Civilization* (1999) | Kultura si pamatuje dvojím způsobem: výběrovou pamětí, která vytváří identitu, a archivem toho, co se už nepoužívá. Místo traumatu nese příběh, který nejde vyprávět. |
 | Obnovující a reflektující nostalgie | Svetlana Boym, *The Future of Nostalgia* (2001) | Obnovující nostalgie chce ztracený domov znovu postavit a považuje se za pravdu. Reflektující prodlévá u ruin, patiny a touhy samotné a pravdu zpochybňuje. |
+| Umělecká hrůza, nečistota, zápletka přesahovače | Noël Carroll, *The Philosophy of Horror* (1990) | Monstrum hororu je ohrožující a nečisté, protože se nevejde do kategorií. Hrůzu snášíme jako cenu za poznání nemožného. |
 
 K tomu klasické pojmy, které esej používá: Aristotelova peripetie a anagnórize z *Poetiky*, Eliotův objektivní korelativ (1919) a Bachtinova polyfonie z knihy o Dostojevském (1929).
 
@@ -423,6 +424,12 @@ Svetlana Boym, literární vědkyně, která emigrovala z Leningradu, v knize *T
 
 Herní světy znají obojí. Obnovující nostalgie bývá ideologií jejich mocných: Gwyn v Dark Souls propojuje oheň, aby za každou cenu udržel Věk ohně, Rapture a Columbia v BioShocku jsou ráje postavené na návratu k počátkům. Fallout je Boymina nostalgie po budoucnosti, která nepřišla, celý svět uvízlý v optimismu padesátých let. A Disco Elysium z toho udělalo kosmologii: Šeď se rozrůstá úměrně tomu, kolik dějin a nostalgie civilizace vyprodukuje a jak neumí zapomínat. Hráč sám je přitom skoro vždy nostalgik reflektující. Prochází ruiny, čte popisky předmětů a skládá svět z detailů, a řízená mezera tu chrání patinu před restaurováním.
 
+### Carroll: monstrum a zvědavost
+
+Filozof Noël Carroll v knize *The Philosophy of Horror* (1990) definuje horor emocí, kterou vyvolává: hrůzou z monstra, které je zároveň ohrožující a nečisté. Nečisté je podle něj to, co se nevejde do kategorií, jež máme pro svět: co je živé i mrtvé, člověk i zvíře, nebo nemá tvar. Zombie spojuje protiklady v jednom těle, vlkodlak je střídá v čase. Carroll pak řeší paradox hororu, totiž proč lidé vyhledávají, co je odpuzuje. Většina hororu je podle něj drama odhalování. Monstrum je nemožná bytost, a tím přirozený předmět zvědavosti: chceme vědět, odkud je, co chce a jak ho porazit. Hnus je cena, kterou platíme za poznání nemožného.
+
+Bloodborne z toho udělal mechaniku. Vhled je poznání, které svět činí děsivějším: bytosti na katedrálách visely od začátku, jen je hráč neviděl, a odměnou za vědění je hrůza. Carroll popisuje i zápletku **přesahovače**, šíleného vědce nebo nekromanta, jehož experiment se vymkne, s poučením, že některé vědění je lépe nechat bohům. Je to nejčastější podoba [prvotního hříchu](#prvotni-hrich) v atlasu: učenci z Byrgenwerthu s krví Velikých, Kagrenac u Lorkhanova srdce, vzorek vložený do paprsku v Black Mesa nebo Umbrella v Resident Evil.
+
 ### Z dílny tvůrců
 
 Historik her Jimmy Maher rozebral vznik Planescape: Torment z původních dokumentů. Slavná otázka „Co může změnit povahu člověka?“ v prvním vizním dokumentu není. Hra je tam popsaná jako „zjizvený nesmrtelný s amnézií hledá svou identitu“. Otázka se vykrystalizovala až během vývoje z předpokladu, který byl hotový od začátku: nesmrtelnost, amnézie a smrtelnost jako protivník. Ústřední otázku tedy svět nemusí mít jako první, ale jeho předpoklad musí být dost bohatý, aby ji unesl.
@@ -471,3 +478,4 @@ Historik her Jimmy Maher rozebral vznik Planescape: Torment z původních dokume
 - Mircea Eliade: *Mýtus o věčném návratu (Archetypy a opakování)* (Le Mythe de l'éternel retour, 1949), Praha 1993; anglicky *The Myth of the Eternal Return*, Princeton University Press 1954.
 - Aleida Assmann: *Cultural Memory and Western Civilization: Functions, Media, Archives* (Erinnerungsräume, 1999), Cambridge University Press 2011.
 - Svetlana Boym: *The Future of Nostalgia*, Basic Books 2001.
+- Noël Carroll: *The Philosophy of Horror, or Paradoxes of the Heart*, Routledge 1990.
