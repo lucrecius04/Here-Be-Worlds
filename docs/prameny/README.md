@@ -19,7 +19,7 @@ Pravidla:
 | Jesper Juul: *Half-Real* (2005) | [juul-half-real.md](juul-half-real.md) | čteno 2026-11-18, výtah zpětně | poloreálnost, nesoudržný svět, test převyprávění |
 | Ian Bogost: *Persuasive Games* (2007) | [bogost-persuasive-games.md](bogost-persuasive-games.md) | čteno 2026-11-18, výtah zpětně | procedurální rétorika, entyméma, co hra nedovolí |
 | Planescape: *Last Rites Product Review Pack* (1997) | [planescape-last-rites.md](planescape-last-rites.md) | čteno 2026-11-18, výtah zpětně | high concept, „proč“ ke každému nástroji, zásady týmu |
-| Drobné prameny: mýty o stvoření z těla boha, Eliade, Nietzsche, prameny Anatomie | [drobne-prameny.md](drobne-prameny.md) | přes sekundární zdroje | Ymir, Tiamat, Puruša, deus otiosus, Bůh je mrtev, Wolf, Iser, Jenkins, Juul, Bogost |
+| Drobné prameny: mýty o stvoření z těla boha, Eliade, Nietzsche, prameny Anatomie | [drobne-prameny.md](drobne-prameny.md) | přes sekundární zdroje | Ymir, Tiamat, Puruša, deus otiosus, Bůh je mrtev, Iser, Jenkins, Aarseth, Tolkien, Suvin |
 
 ## Čeká na dodání (od majitele)
 
