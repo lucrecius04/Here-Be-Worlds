@@ -189,12 +189,6 @@ html[data-theme='dark'] .theme-switch__btn[data-theme-pick='dark'] {
   color: #fff;
 }
 
-@media (max-width: 720px) {
-  .site-nav {
-    gap: 0.4rem 1.1rem;
-    font-size: 0.875rem;
-  }
-}
 
 .site-main {
   --frame-pad-x: var(--gutter);
@@ -458,25 +452,147 @@ body:has(.world-card--page) .site-footer {
   font-size: 1.35rem;
 }
 
-/* Úzký displej: značka a přepínače na jednom řádku, navigace pod nimi; hlavička se neposouvá s obsahem. */
+/* Desktop: menu je jen řádek odkazů a jazyků, tlačítko menu se neukazuje. */
+.site-menu {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.5rem;
+}
+
+.site-header__menu-btn {
+  display: none;
+}
+
+/* Telefon: jeden řádek se znakem, přepínačem motivu (jen ten neaktivní) a tlačítkem menu.
+   Odkazy a jazyk jsou v panelu, který se rozbalí pod hlavičkou. */
 @media (max-width: 720px) {
   .site-header {
     position: relative;
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto auto;
-    align-items: center;
-    gap: 0.6rem 0.75rem;
-    padding-top: 0.8rem;
-    padding-bottom: 0.8rem;
+    flex-wrap: nowrap;
+    gap: 0.5rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
   }
 
   .site-header__end {
-    display: contents;
+    flex-wrap: nowrap;
+    gap: 0.25rem;
   }
 
-  .site-nav {
-    grid-column: 1 / -1;
-    grid-row: 2;
+  html[data-theme='light'] .theme-switch__btn[data-theme-pick='light'],
+  html:not([data-theme]) .theme-switch__btn[data-theme-pick='light'],
+  html[data-theme='dark'] .theme-switch__btn[data-theme-pick='dark'] {
+    display: none;
+  }
+
+  .theme-switch__btn {
+    padding: 0.55rem;
+  }
+
+  .site-header__menu-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-right: -0.5rem;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--color-night-ink);
+    cursor: pointer;
+  }
+
+  /* Tři čárky; po otevření se z krajních stane křížek. */
+  .site-header__menu-btn span,
+  .site-header__menu-btn span::before,
+  .site-header__menu-btn span::after {
+    display: block;
+    width: 1.25rem;
+    height: 2px;
+    background: currentColor;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .site-header__menu-btn span {
+    position: relative;
+  }
+
+  .site-header__menu-btn span::before,
+  .site-header__menu-btn span::after {
+    content: '';
+    position: absolute;
+    left: 0;
+  }
+
+  .site-header__menu-btn span::before {
+    top: -6px;
+  }
+
+  .site-header__menu-btn span::after {
+    top: 6px;
+  }
+
+  .is-menu-open .site-header__menu-btn span {
+    background: transparent;
+  }
+
+  .is-menu-open .site-header__menu-btn span::before {
+    transform: translateY(6px) rotate(45deg);
+  }
+
+  .is-menu-open .site-header__menu-btn span::after {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  .site-header__menu-btn:focus-visible {
+    outline: 2px solid var(--color-night-kicker);
+    outline-offset: 2px;
+  }
+
+  .site-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 41;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 0.25rem var(--gutter) 1.25rem;
+    border-bottom: 1px solid var(--color-night-line);
+    background: var(--color-night);
+  }
+
+  .is-menu-open .site-menu {
+    display: flex;
+  }
+
+  .site-menu .site-nav {
+    flex-direction: column;
+    gap: 0;
+    font-size: 1.125rem;
+  }
+
+  .site-menu .site-nav a {
+    padding: 0.875rem 0;
+    border-top: 1px solid var(--color-night-line);
+  }
+
+  .site-menu .site-nav a:first-child {
+    border-top: 0;
+  }
+
+  .site-menu .lang-switch {
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-night-line);
+    font-size: 0.875rem;
+  }
+
+  .site-menu .lang-switch__btn {
+    padding: 0.4rem 0.6rem;
   }
 }
 

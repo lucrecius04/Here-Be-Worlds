@@ -20,6 +20,8 @@ export const ui: Record<Locale, UiTree> = {
       compare: 'Srovnání',
       map: 'Mapa souřadnic',
       essay: 'Esej',
+      menuOpen: 'Otevřít menu',
+      menuClose: 'Zavřít menu',
     },
     atlasPage: {
       title: 'Atlas světů',
@@ -414,6 +416,8 @@ Berte prosím tento atlas jako skromnou poctu všem scenáristům, designérům 
       compare: 'Compare',
       map: 'Coordinate map',
       essay: 'Essay',
+      menuOpen: 'Open menu',
+      menuClose: 'Close menu',
     },
     atlasPage: {
       title: 'Atlas of worlds',

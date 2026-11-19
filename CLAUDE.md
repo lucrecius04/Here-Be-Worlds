@@ -77,6 +77,8 @@ Kroniky a eseje **nejsou** v `data/`.
 
 Jednoduché stránky (O projektu, Vysvětlivky, Kontakt) sdílejí v `layout.css` třídy `doc`, `doc-head`, `doc-kicker`, `doc-title`, `doc-lead`, `doc-h2`, `doc-prose`, `doc-side`: hlavička jako na atlasu, zarovnání vlevo, bez ozdob (žádné ✦), bez rámečků, text bez zarovnání do bloku.
 
+Hlavička (`SiteHeader`): na desktopu znak, odkazy, CZ|EN a přepínač motivu; na telefonu (≤ 720 px) jen znak, **jediná** ikona motivu (ta neaktivní; klik přepne) a tlačítko menu (tři čárky → křížek), které rozbalí panel s odkazy a CZ|EN (`#site-menu`, zavře Escape / klik mimo).
+
 Layout: `src/layouts/BaseLayout.astro` — header/footer (znak + nápis z `BrandMark.tsx`), meta Open Graph (`ogImage`), ikony, theme/lang FOUC, globální `CompareTray`.
 
 ### Karta světa vs záložky
