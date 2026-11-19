@@ -88,3 +88,76 @@
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+/* Téma zprávy: přepínače jako řádek štítků oddělených linkou, bez pilulek. */
+.contact-topics {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.contact-topics legend {
+  margin-bottom: 0.5rem;
+  padding: 0;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+.contact-topic {
+  position: relative;
+  cursor: pointer;
+}
+
+.contact-topic input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.contact-topic span {
+  display: inline-block;
+  padding: 0.5rem 0.875rem;
+  border: 1px solid var(--color-line);
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  color: var(--color-ink);
+  transition: border-color 0.15s ease;
+}
+
+.contact-topic:hover span {
+  border-color: var(--color-ink-muted);
+}
+
+.contact-topic input:checked + span {
+  border-color: var(--color-accent);
+  box-shadow: inset 0 0 0 1px var(--color-accent);
+  color: var(--color-accent);
+}
+
+.contact-topic input:focus-visible + span {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.contact-form__foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.5rem;
+}
+
+.contact-form__privacy {
+  flex: 1 1 18rem;
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--color-ink-muted);
+}

@@ -142,3 +142,40 @@
     margin-bottom: 3rem;
   }
 }
+
+.notes-section__intro {
+  margin-bottom: 1.5rem;
+}
+
+.notes-section__sub {
+  margin: 2rem 0 0.625rem;
+}
+
+.notes-section__foot {
+  margin-top: 1rem;
+}
+
+/* Stupeň příbuznosti: pět kosočtverců jako ve srovnání. */
+.notes-list__term--kin {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.notes-kin {
+  display: inline-flex;
+  gap: 4px;
+  flex: none;
+}
+
+.notes-kin i {
+  width: 7px;
+  height: 7px;
+  transform: rotate(45deg);
+  border: 1px solid var(--color-ink-muted);
+}
+
+.notes-kin i.is-on {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}

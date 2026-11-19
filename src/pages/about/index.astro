@@ -1,10 +1,45 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import AboutPage from '../../components/about/AboutPage';
+import { worlds, chapters } from '../../lib/worlds';
+import { chronicleStats } from '../../lib/chronicle-toc';
+import { mostRecentAdded } from '../../lib/atlas-news';
+import upcoming from '../../../data/meta/upcoming.json';
 
 const base = import.meta.env.BASE_URL;
+
+// Atlas v číslech: počítá se při sestavení z dat a kronik, takže se nikdy nerozejde se skutečností.
+const CHRONICLES = import.meta.glob('../../../content/chronicles/*.md', {
+  query: '?raw',
+  import: 'default',
+  eager: true,
+}) as Record<string, string>;
+
+const published = worlds.filter((world) => !world.draft);
+let chapterCount = 0;
+let minutes = 0;
+for (const world of published) {
+  const raw = CHRONICLES[`../../../content/chronicles/${world.chronicleSlug}.md`] ?? '';
+  const stats = chronicleStats(raw.replace(/^---\r?\n[\s\S]*?\r?\n---\s*/, ''));
+  chapterCount += stats.chapters;
+  minutes += stats.minutes;
+}
+const stats = {
+  worlds: published.length,
+  archetypes: chapters.filter((c) => published.some((w) => w.chapterId === c.id)).length,
+  chapters: chapterCount,
+  hours: Math.round(minutes / 60),
+  themes: new Set(published.flatMap((w) => w.themes)).size,
+};
+const latest = mostRecentAdded(published);
 ---
 
 <BaseLayout title="O projektu — Here Be Worlds">
-  <AboutPage client:load base={base} />
+  <AboutPage
+    client:load
+    base={base}
+    stats={stats}
+    latest={latest ? { id: latest.id, title: latest.gameTitle } : null}
+    upcoming={upcoming.worlds}
+  />
 </BaseLayout>

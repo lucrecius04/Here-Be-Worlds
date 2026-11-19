@@ -1,7 +1,16 @@
 import { t, uiT } from '../../lib/i18n';
 import { useLocale } from '../../lib/locale-store';
 import { withBase } from '../../lib/base-url';
-import { noteCanon, noteFields, noteScale } from '../../../data/meta/notes';
+import {
+  noteCanon,
+  noteCompass,
+  noteFields,
+  noteKinshipCurated,
+  noteKinshipIntro,
+  noteKinshipLevels,
+  noteKinshipPillars,
+  noteScale,
+} from '../../../data/meta/notes';
 import axesMeta from '../../../data/meta/axes.json';
 import '../../styles/notes.css';
 
@@ -14,6 +23,8 @@ export default function NotesPage({ base }: Props) {
     { id: 'charakter', label: uiT('notes.fieldsTitle', locale) },
     { id: 'stupnice', label: uiT('notes.profileTitle', locale) },
     { id: 'triada', label: uiT('notes.triadTitle', locale) },
+    { id: 'pribuznost', label: uiT('notes.kinshipTitle', locale) },
+    { id: 'kompas', label: uiT('notes.compassTitle', locale) },
     { id: 'kanon', label: uiT('notes.canonTitle', locale) },
   ];
 
@@ -104,6 +115,56 @@ export default function NotesPage({ base }: Props) {
             </div>
           ))}
         </dl>
+      </section>
+
+      <section className="notes-section" id="pribuznost">
+        <h2 className="doc-h2">{uiT('notes.kinshipTitle', locale)}</h2>
+        <div className="doc-prose notes-section__intro">
+          <p>{t(noteKinshipIntro, locale)}</p>
+        </div>
+        <h3 className="doc-kicker notes-section__sub">{uiT('notes.kinshipPillars', locale)}</h3>
+        <dl className="notes-list">
+          {noteKinshipPillars.map((pillar) => (
+            <div className="notes-list__row" key={pillar.term.cs}>
+              <dt className="notes-list__term">{t(pillar.term, locale)}</dt>
+              <dd className="notes-list__body">
+                <p className="notes-list__help">{t(pillar.help, locale)}</p>
+              </dd>
+            </div>
+          ))}
+        </dl>
+        <h3 className="doc-kicker notes-section__sub">{uiT('notes.kinshipLevels', locale)}</h3>
+        <dl className="notes-list">
+          {noteKinshipLevels.map(({ level, help }) => (
+            <div className="notes-list__row" key={level}>
+              <dt className="notes-list__term notes-list__term--kin">
+                <span className="notes-kin" aria-hidden="true">
+                  {[1, 2, 3, 4, 5].map((v) => (
+                    <i key={v} className={v <= level ? 'is-on' : undefined} />
+                  ))}
+                </span>
+                {uiT(`compare.kinLevel${level}`, locale)}
+              </dt>
+              <dd className="notes-list__body">
+                <p className="notes-list__help">{t(help, locale)}</p>
+              </dd>
+            </div>
+          ))}
+        </dl>
+        <p className="notes-list__values notes-section__foot">{t(noteKinshipCurated, locale)}</p>
+      </section>
+
+      <section className="notes-section" id="kompas">
+        <h2 className="doc-h2">{uiT('notes.compassTitle', locale)}</h2>
+        <div className="doc-prose">
+          {t(noteCompass, locale)
+            .split(/\n\s*\n/)
+            .map((para) => para.trim())
+            .filter(Boolean)
+            .map((para) => (
+              <p key={para.slice(0, 48)}>{para}</p>
+            ))}
+        </div>
       </section>
 
       <section className="notes-section" id="kanon">
