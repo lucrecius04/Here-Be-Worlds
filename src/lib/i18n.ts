@@ -27,7 +27,7 @@ export const ui: Record<Locale, UiTree> = {
     },
     home2: {
       kicker: '{n} · kroniky · anatomie vyprávění · faktografie',
-      title: 'Mapy světů, které |nikdy| neexistovaly',
+      title: 'Tajemství světů, které |nikdy| neexistovaly',
       lead: 'Průvodce herním lore od temné fantasy přes vesmírné opery po rozpadlé dystopie. U každého probádaného světa najdeš dějiny od prvotního hříchu, skrytou strukturu vyprávění i to, co různé vesmíry spojuje.',
       openAtlas: 'Otevřít atlas',
       random: 'Náhodný svět',
@@ -37,7 +37,7 @@ export const ui: Record<Locale, UiTree> = {
       indexAll: 'Celý atlas s filtry →',
       waysAria: 'Cesty atlasem',
       wayAtlas: 'Všech {n} s filtry podle archetypu, témat, nálady a způsobu vyprávění.',
-      wayCompare: 'Srovnej dva nebo tři světy a zjisti, jak blízcí jsou příbuzní – podle archetypu, profilu, charakteru i témat.',
+      wayCompare: 'Srovnej dva nebo tři světy a zjisti, jestli jsou sourozenci, nebo úplní cizinci.',
       wayMap: 'Hledej vztah mezi nadějí a realismem nebo třeba morálkou a poznáním napříč herními světy.',
       trailsMore: 'a dalších {n}',
       trailsMoreOne: 'a 1 další',
@@ -351,7 +351,7 @@ export const ui: Record<Locale, UiTree> = {
       spoilerShow: 'Zobrazit',
       spoilerHide: 'Skrýt',
       homeKicker: 'Esej o metodě',
-      homeLead: 'Proč některé herní světy žijí desítky let a jiné zůstanou jen kulisou? Zkoumáme, jak světy pracují s ústřední otázkou, prvotním hříchem, vrstvami pravdy a řízenou mezerou.',
+      homeLead: 'Proč některá herní univerza žijí desítky let a jiná zůstanou jen kulisou? Zkoumáme, jak světy pracují s ústřední otázkou, prvotním hříchem, vrstvami pravdy a řízenou mezerou.',
       homeCta: 'Číst esej',
     },
     about: {
@@ -395,7 +395,7 @@ Berte prosím tento atlas jako skromnou poctu všem scenáristům, designérům 
     },
     home2: {
       kicker: '{n} · chronicles · narrative anatomy · factography',
-      title: 'Maps of worlds that |never| existed',
+      title: 'Secrets of worlds that |never| existed',
       lead: 'A guide to game lore, from dark fantasy through space operas to crumbling dystopias. For every world we explore you’ll find its history from the original sin, the hidden structure of its storytelling and what connects it to other universes.',
       openAtlas: 'Open the atlas',
       random: 'Random world',
@@ -405,7 +405,7 @@ Berte prosím tento atlas jako skromnou poctu všem scenáristům, designérům 
       indexAll: 'Full atlas with filters →',
       waysAria: 'Ways through the atlas',
       wayAtlas: 'All {n} with filters by archetype, themes, mood and storytelling.',
-      wayCompare: 'Compare two or three worlds and find out how closely they are related – by archetype, profile, character and themes.',
+      wayCompare: 'Compare two or three worlds and find out whether they are siblings or complete strangers.',
       wayMap: 'Look for the link between hope and realism, or between morality and knowledge, across game worlds.',
       trailsMore: 'and {n} more',
       trailsMoreOne: 'and 1 more',
@@ -717,7 +717,7 @@ Berte prosím tento atlas jako skromnou poctu všem scenáristům, designérům 
       spoilerShow: 'Show',
       spoilerHide: 'Hide',
       homeKicker: 'An essay on method',
-      homeLead: 'Why do some game worlds live for decades while others stay mere backdrops? We look at how worlds work with the central question, the original sin, layers of truth and the managed gap.',
+      homeLead: 'Why do some game universes live for decades while others stay mere backdrops? We look at how worlds work with the central question, the original sin, layers of truth and the managed gap.',
       homeCta: 'Read the essay',
     },
     about: {
