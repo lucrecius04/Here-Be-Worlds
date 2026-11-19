@@ -1,0 +1,25 @@
+# Ian Bogost: Persuasive Games
+
+**Bibliografie:** Ian Bogost, *Persuasive Games: The Expressive Power of Videogames*, MIT Press 2007.
+**Studováno:** 2026-11-18 v plném znění (PDF dodal majitel v chatu „Diablo lore brožurka“), hlavně kap. 1 (procedurální rétorika). Výtah sepsán 2026-11-19 zpětně z poznámek a z textu *Anatomie herního lore*. Kniha v repozitáři není.
+
+## Pojmy
+
+- **Procedurální rétorika:** umění přesvědčovat pomocí pravidel a interakcí místo slov a obrazů. Hra tvrdí něco o světě tím, jak funguje.
+- **Procedurální entyméma:** entyméma je u Aristotela úvaha s vynechanou premisou, kterou si posluchač doplní. Hra je soustava takových úvah, které hráč dokončuje svou hrou.
+- **Co hra nedovolí:** hra vypovídá tím, co dovolí, a stejně tak tím, co nedovolí. V GTA III lze nasednout do auta, ale nelze promluvit s chodcem, a právě tento výběr je výpověď. Víc interaktivity nezaručí víc významu.
+
+## Co z toho plyne pro Here Be Worlds
+
+- **Návrhová otázka:** co hráč v daném světě nesmí umět, a co tím svět říká?
+  - Pathologic nedovolí zachránit všechny
+  - Planescape dovolí vyhnout se boji rozhovorem
+  - SOMA nedovolí vzít kopírování zpět
+  - Undertale nabídne možnost nikoho nezabít, a tím dělá z každého zásahu volbu
+- **Bloodborne:** léčení stejnou krví, která mění město v bestie, je procedurální rétorika (esej *Na mrtvole boha* to nazývá mechanikou jako významem).
+- Pro **Anatomii vyprávění** v kronikách: ptát se, jakou úvahu hra nechává hráče dokončit.
+
+## Kde už je použito
+
+- *Anatomie herního lore*: oddíl „Bogost: co hra nedovolí“, tabulka pojmů (Procedurální rétorika), Zdroje
+- *Na mrtvole boha*: Bloodborne (mechanika jako význam, implicitně)

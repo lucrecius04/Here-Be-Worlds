@@ -29,20 +29,14 @@ Prameny, které eseje citují krátce. Nečetli jsme je jako celé knihy, ale p�
 
 ## Prameny z Anatomie herního lore
 
-Citované v *Anatomii herního lore* dřív, než vznikla tato složka. Zdroje jsou uvedené v eseji. Vlastní výtahy zatím nemají:
+Citované v *Anatomii herního lore* dřív, než vznikla tato složka, a čtené jen přes sekundární zdroje uvedené v eseji:
 
-- **Mark J. P. Wolf:** *Building Imaginary Worlds* (2012)
-  - vynalézavost, úplnost, soudržnost
-  - čtyři úrovně vynálezu: jmenná, kulturní, přírodní, ontologická
-  - svět má dát dost informací pro více teorií, ne dost pro jejich důkaz
 - **Wolfgang Iser:** prázdná místa textu (estetika recepce). Doležel s ním polemizuje (viz [dolezel-heterocosmica.md](dolezel-heterocosmica.md)).
 - **Henry Jenkins:** *Game Design as Narrative Architecture* (2004). Herní svět jako paměťový palác, prostorové vyprávění.
-- **Jesper Juul:** *Half-Real* (2005). Poloreálnost a test převyprávění.
-- **Ian Bogost:** *Persuasive Games* (2007). Procedurální rétorika: hra vypovídá tím, co dovolí a co ne.
 - **Espen Aarseth:** *Cybertext* (1997). Ergodická literatura.
 - **J. R. R. Tolkien:** *O pohádkách* (1939). Druhotný svět, subkreace. K tomu dopis z roku 1954 o nevysvětlených věcech.
 - **Darko Suvin:** *Metamorphoses of Science Fiction* (1979). Novum.
 - **Clint Hocking:** ludonarativní nesoulad (2007).
 - **Harvey Smith a Matthias Worch:** prostorové vyprávění (GDC 2010).
 - **Brandon Sanderson:** první zákon magie (2007).
-- **Jimmy Maher:** rozbor vzniku Planescape: Torment.
+- **Jimmy Maher:** rozbor vzniku Planescape: Torment (Wolf, Juul, Bogost a vizní dokument Planescape mají vlastní výtahy).
