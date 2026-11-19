@@ -126,10 +126,10 @@ export const noteScale: { value: string; label: LocalizedString }[] = [
 export const noteCanon: LocalizedString = {
   cs: `Každý profil v tomto atlase stavíme na pevných základech – vycházíme z hlavního herního kánonu, přímo vyprávěných událostí a oficiálních doprovodných materiálů (knih, kodexů či průvodců světem). Tam, kde tvůrci záměrně nechávají v dějinách bílá místa, si nehrajeme na všeznalé kronikáře. Nejednoznačné momenty formulujeme opatrně jako možný výklad a divočejší fanouškovské hypotézy či nepotvrzené spekulace striktně oddělujeme – v kronikách mají své vlastní místo ve speciálních rámečcích „Jak se to vykládá“, aby bylo vždy jasné, kde končí fakta světa a začíná domýšlení.
 
-Zároveň si plně uvědomujeme, že živoucí fiktivní vesmíry nelze změřit pravítkem ani uzavřít do neprodyšných škatulek. Profily světů, zařazení do kategorií i hodnoty na pěti myšlenkových osách proto nelze brát jako exaktní vědu nebo definitivní verdikt. Jde o orientační, často pocitové a interpretační záchytné body, které mají sloužit především jako kompas. Pokud by někdo u některého světa vnímal míru jeho metafyzična, epičnosti nebo morální šedi o dílek jinak než my, je to naprosto v pořádku – cílem této metody není světy sešněrovat do tabulky, ale nabídnout společný jazyk, díky kterému o nich můžeme přemýšlet v souvislostech.`,
+Zároveň si plně uvědomujeme, že živoucí fiktivní vesmíry nelze změřit pravítkem ani uzavřít do neprodyšných škatulek. Profily světů, zařazení do kategorií i hodnoty pěti souřadnic proto nelze brát jako exaktní vědu nebo definitivní verdikt. Jde o orientační, často pocitové a interpretační záchytné body, které mají sloužit především jako kompas. Pokud by někdo u některého světa vnímal míru jeho metafyzična, epičnosti nebo morální šedi o dílek jinak než my, je to naprosto v pořádku – cílem této metody není světy sešněrovat do tabulky, ale nabídnout společný jazyk, díky kterému o nich můžeme přemýšlet v souvislostech.`,
   en: `Every profile in this atlas is built on firm ground – we start from the main game canon, directly told events, and official companion materials (books, codices, or world guides). Where the creators deliberately leave blank spaces in the history, we do not play at being all-knowing chroniclers. Ambiguous moments are worded carefully as a possible reading, and the wilder fan hypotheses or unconfirmed speculations we strictly separate – in the chronicles they have their own place in special “How it is read” boxes, so it is always clear where the facts of the world end and conjecture begins.
 
-At the same time we fully understand that living fictional universes cannot be measured with a ruler or sealed into airtight boxes. World profiles, category placements, and values on the five axes of thought should therefore not be taken as exact science or a definitive verdict. They are orienting, often felt and interpretive landmarks, meant first of all as a compass. If for a given world you feel the measure of its metaphysics, epic scale, or moral grey a notch differently than we do, that is entirely all right – the aim of this method is not to lace worlds into a table, but to offer a shared language through which we can think about them in context.`,
+At the same time we fully understand that living fictional universes cannot be measured with a ruler or sealed into airtight boxes. World profiles, category placements, and values of the five coordinates should therefore not be taken as exact science or a definitive verdict. They are orienting, often felt and interpretive landmarks, meant first of all as a compass. If for a given world you feel the measure of its metaphysics, epic scale, or moral grey a notch differently than we do, that is entirely all right – the aim of this method is not to lace worlds into a table, but to offer a shared language through which we can think about them in context.`,
 };
 
 /** Příbuznost světů: čtyři pilíře a pět stupňů (slovy, bez procent; počítá compare.ts). */
@@ -145,7 +145,7 @@ export const noteKinshipPillars: NoteField[] = [
   },
   {
     term: { cs: 'Profil světa', en: 'World profile' },
-    help: { cs: 'Jak blízko si světy leží na pěti osách.', en: 'How close the worlds sit on the five axes.' },
+    help: { cs: 'Jak blízko si světy leží v pěti souřadnicích.', en: 'How close the worlds lie in the five coordinates.' },
   },
   {
     term: { cs: 'Charakter světa', en: 'World character' },
@@ -168,12 +168,12 @@ export const noteKinshipLevels: { level: 1 | 2 | 3 | 4 | 5; help: LocalizedStrin
   { level: 1, help: { cs: 'Skoro nic společného.', en: 'Almost nothing in common.' } },
 ];
 
-/** Kompas a ladění na mapě: jen pět os, žádná příbuznost. */
+/** Kompas a ladění na Mapě souřadnic: jen pět souřadnic, žádná příbuznost. */
 export const noteCompass: LocalizedString = {
-  cs: `Kompas „Který svět je tvůj?“ na titulní straně a v atlasu i ladění „Kde leží tvůj svět?“ v Kartografii os pracují jen s pěti osami. Tvoje nastavení se změří proti profilu každého světa jako vzdálenost dvou bodů: nejblíž je svět, jehož profil se tvému ladění podobá nejvíc, a protinožec je ten nejvzdálenější.
+  cs: `Kompas „Který svět je tvůj?“ na titulní straně a v atlasu i ladění „Kde leží tvůj svět?“ v Mapě souřadnic pracují jen s pěti souřadnicemi. Tvoje nastavení se změří proti profilu každého světa jako vzdálenost dvou bodů: nejblíž je svět, jehož profil se tvému ladění podobá nejvíc, a protinožec je ten nejvzdálenější.
 
-Protože zadáváš jen osy, kompas příbuznost nepočítá. Archetyp, charakter světa ani témata do něj nevstupují, a proto se jeho výsledek může lišit od stupňů příbuznosti ve srovnání.`,
-  en: `The “Which world is yours?” compass on the home page and in the atlas, and the “Where does your world lie?” tuning in the Cartography of axes, work only with the five axes. Your setting is measured against each world's profile as the distance between two points: the closest world is the one whose profile resembles your tuning most, and the antipode is the farthest.
+Protože zadáváš jen souřadnice, kompas příbuznost nepočítá. Archetyp, charakter světa ani témata do něj nevstupují, a proto se jeho výsledek může lišit od stupňů příbuznosti ve srovnání.`,
+  en: `The “Which world is yours?” compass on the home page and in the atlas, and the “Where does your world lie?” tuning on the Coordinate map, work only with the five coordinates. Your setting is measured against each world's profile as the distance between two points: the closest world is the one whose profile resembles your tuning most, and the antipode is the farthest.
 
-Because you only enter axes, the compass does not calculate kinship. Archetype, world character and themes play no part in it, so its result can differ from the degrees of kinship in the comparison.`,
+Because you only enter coordinates, the compass does not calculate kinship. Archetype, world character and themes play no part in it, so its result can differ from the degrees of kinship in the comparison.`,
 };

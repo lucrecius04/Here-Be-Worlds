@@ -67,7 +67,7 @@ Kroniky a eseje **nejsou** v `data/`.
 | `/` | `src/pages/index.astro` | `HomeIntro` — noční pás s oblohou 43 hvězd (7 souhvězdí = archetypy; popsané světy se po stálých skupinkách (dvě až tři, v řadě nikdy dvě sousední hvězdy, `rotationSets`) střídají každých 6 s s pomalým prolnutím, souhvězdí po sobě jako vlna; první skupinka jsou nejznámější světy `ICONIC`; rotace běží pořád, stojí jen při kurzoru na názvu souhvězdí, na kartě v pozadí, při `prefers-reduced-motion` a na úzkém/dotykovém displeji; jména jsou vždy pod hvězdou; najetí na název souhvězdí rozsvítí jména všech jeho světů a ztlumí ostatní, klik skočí na `#rejstrik-<id>`; na úzkém/dotykovém displeji obloha bez jmen a pod ní řádek archetypů do rejstříku; dole jemné měřítko a „Nově zmapováno“). Hlavička na titulní straně splývá s nocí, po posunu ji oddělí linka (`is-scrolled` v `SiteHeader`). `ReaderDesk` (jen jeden řádek s rozečtenou kronikou), **Svět dne** (archetyp · profil archetypu, pruh os) + **Hádanka dne** (`DailyMystery`), Rejstřík světů (záložka „Archetyp · počet“ je odkaz na archetyp, `id=rejstrik-<id>`), kompas „Který svět je tvůj?“ (`WorldCompass alwaysOpen`), Tři cesty, esej + stezky. Svět dne i hádanka se skládají samy z dat (`calendar.ts`): promíchané pořadí po cyklech (`featuredWorldIndex`), hádanka je o půl cyklu posunutá (`mysteryWorldIndex`), takže se se Světem dne nepotká; jedna špatná odpověď je ze stejného archetypu. Po odpovědi: správná zelený rámeček a ✓, zvolená špatná červený rámeček, přeškrtnutí a ✗ (`--color-right` / `--color-wrong`), všechny tři možnosti jsou odkazy. Staré odkazy `/?theme=` a `/?trail=` přesměruje do `/atlas/`. |
 | `/atlas/` | `src/pages/atlas/index.astro` | `AtlasExplorer` (katalog, filtry, stezky, kompas); čte `?theme=` a `?trail=` |
 | `/compare/` | `src/pages/compare/index.astro` | `ComparePage` + `AxisOverlay` |
-| `/map/` | `src/pages/map/index.astro` | `AxisGridMap` — Kartografie os (mřížka 5 × 5, bez výpočtu příbuznosti) |
+| `/map/` | `src/pages/map/index.astro` | `AxisGridMap` — Mapa souřadnic (mřížka 5 × 5, bez výpočtu příbuznosti) |
 | `/chapters/[id]/` | `src/pages/chapters/[id].astro` | `ChapterPage` — URL zůstává `chapters`, UI = Archetyp |
 | `/worlds/[slug]/` | `src/pages/worlds/[slug].astro` | `WorldPageShell` |
 | `/about/` | `src/pages/about/index.astro` | `AboutPage` — nadpis „O atlasu“ (bez štítku), řada „Atlas v číslech“ (počítá se při sestavení z dat a kronik), autorský text vlevo, pod ním „Čím atlas nechce být“ a „Co se chystá“ (`data/meta/upcoming.json` + naposledy zmapovaný svět), vpravo poznámka o AI a „Dál v atlasu“ |
@@ -157,7 +157,9 @@ Eventy (stejné záložky): `hbw:theme`, `hbw:locale`, `hbw-compare`, `hbw-reade
 | Dlaždice | Perspektiva hráče | Player perspective | `card.protagonistPerspective` |
 | Dlaždice | Klíčoví aktéři | Key actors | `card.keyActors` |
 | Sekce | Témata | Themes | `card.themesHeading` |
-| 5 os (nadpis) | Profil světa | World profile | `card.profileWorld` |
+| 5 souřadnic (nadpis) | Profil světa | World profile | `card.profileWorld` |
+| Veličiny profilu | Souřadnice | Coordinates | `home.axesTitle`, `map.name*` |
+| Stránka `/map/` | Mapa souřadnic | Coordinate map | `nav.map`, `map.title` |
 | Triáda | Prvotní hřích | Original sin | `card.originalSin` |
 | Triáda | Ústřední dilema | Central dilemma | `card.centralDilemma` |
 | Triáda | Hlavní tajemství | Ultimate mystery | `card.ultimateMystery` |
@@ -166,17 +168,19 @@ Eventy (stejné záložky): `hbw:theme`, `hbw:locale`, `hbw-compare`, `hbw-reade
 
 Tři různé „Charakter“ neslučovat: záložka `Charakter světa` ≠ tabulka `Charakter` ≠ pilíř příbuznosti `Charakter světa`.
 
-### Pět os (`data/meta/axes.json`)
+### Pět souřadnic (`data/meta/axes.json`)
 
-| id | CS plné | EN plné |
-|---|---|---|
-| `hopeDespair` | Naděje ↔ Zoufalství | Hope ↔ Despair |
-| `knownUnknown` | Poznání ↔ Záhada | Known ↔ Unknown |
-| `intimateEpic` | Intimita ↔ Epičnost | Intimate ↔ Epic |
-| `moralClarityAmbiguity` | Morálně jednoznačné ↔ Morálně komplexní | Morally clear ↔ Morally ambiguous |
-| `realismMetaphysical` | Realismus ↔ Metafyzično | Realism ↔ Metaphysical |
+V UI se pět veličin profilu světa jmenuje **souřadnice** (EN *coordinates*), nikdy „osy“ (*axes*); slovo „osa“ v UI nepoužívat (výjimka: „časová osa“ = timeline). Interní identifikátory (`axes`, `AXIS_KEYS`, `AxisBars`, `AxisRange`, `FiveAxes`, `AxisGridMap`, `axes.json`, routa `/map/`) se nepřejmenovávají. Souřadnice nejsou příbuznost: ve srovnání jsou jen jedním ze čtyř pilířů (pilíř „Profil světa (5 souřadnic)“).
 
-Jednoslovné názvy os (filtr a atlas dvojic na mapě, `map.name*` v i18n): CS Naděje · Poznání · Měřítko · Morálka · Realismus, EN Hope · Knowledge · Scale · Morality · Realism.
+| id | Souřadnice | CS póly | EN póly |
+|---|---|---|---|
+| `hopeDespair` | Vyhlídka | Naděje ↔ Zoufalství | Hope ↔ Despair |
+| `knownUnknown` | Poznatelnost | Poznání ↔ Záhada | Known ↔ Unknown |
+| `intimateEpic` | Měřítko | Intimita ↔ Epičnost | Intimate ↔ Epic |
+| `moralClarityAmbiguity` | Morálka | Morálně jednoznačné ↔ Morálně komplexní | Morally clear ↔ Morally ambiguous |
+| `realismMetaphysical` | Realita | Realismus ↔ Metafyzično | Realism ↔ Metaphysical |
+
+Názvy souřadnic (`map.name*` v i18n; mapa, filtr, Vysvětlivky): CS **Vyhlídka · Poznatelnost · Měřítko · Morálka · Realita**, EN **Outlook · Knowability · Scale · Morality · Reality**. Jsou neutrální (nepojmenované podle jednoho pólu); póly zůstávají beze změny.
 
 Compact póly **jen** 4. osy přes `axisPoleLabel` v `MiniAxes.tsx` (`SHORT_POLES`; používají `AxisBars`, `AxisRange`, `WorldCompass`, mapa): CS `Jednoznačné` ↔ `Komplexní`, EN `Absolute` ↔ `Complex`. Plné názvy na kartě (`FiveAxes`) a v `axes.json` neměnit.
 
@@ -200,7 +204,7 @@ Další:
 - Úprava jedné stránky (např. `/compare/`) **nesmí** měnit strukturu/styl karty světa ani jiné hotové stránky.
 - `/compare/` = `src/pages/compare/index.astro` + `ComparePage.tsx` + `compare.ts` + `compare.css`.
 - Procenta příbuznosti se v UI **nezobrazují** (ani v metodice), jen stupně slovy a síla pilířů slovy.
-- Příbuznost světů počítá **jen** `compare.ts`. Žádný další výpočet podobnosti nezakládat; karta (`SimilarWorlds` záloha) i mapa (spis světa) berou `kinshipRanking`. Kartografie os ukazuje jen polohu na dvou osách, procenta nepočítá. Výjimka: „Nejblíž tvému ladění“ na mapě a kompas „Který svět je tvůj?“ / „Tvůj otisk světa“ (`imprint.ts`) řadí podle vzdálenosti pěti os, protože čtenář zadává jen osy; neukazují procenta ani slovo příbuznost (kompas: Nejblíž tvému ladění · Hned za ním · Tvůj protinožec).
+- Příbuznost světů počítá **jen** `compare.ts`. Žádný další výpočet podobnosti nezakládat; karta (`SimilarWorlds` záloha) i mapa (spis světa) berou `kinshipRanking`. Mapa souřadnic ukazuje jen polohu na dvou osách, procenta nepočítá. Výjimka: „Nejblíž tvému ladění“ na mapě a kompas „Který svět je tvůj?“ / „Tvůj otisk světa“ (`imprint.ts`) řadí podle vzdálenosti pěti os, protože čtenář zadává jen osy; neukazují procenta ani slovo příbuznost (kompas: Nejblíž tvému ladění · Hned za ním · Tvůj protinožec).
 - Nepřidávej vysvětlující věty a doslovné štítky tam, kde stačí barva, osa nebo pozice.
 - Filtry a vyhledávání katalogu nesahají na srovnávač a naopak.
 - Po každé úpravě: `npm run build`. UI změna: ověř v prohlížeči (ne jen screenshot).

@@ -18,6 +18,6 @@ const themes = themeTaxonomy
   .map((theme) => ({ slug: theme.slug, label: theme.label }));
 ---
 
-<BaseLayout title="Kartografie os — Here Be Worlds">
+<BaseLayout title="Mapa souřadnic — Here Be Worlds">
   <AxisGridMap client:load worlds={published} chapters={chapterCards} themes={themes} base={base.replace(/\/$/, '')} />
 </BaseLayout>

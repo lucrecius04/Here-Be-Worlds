@@ -66,7 +66,10 @@ export default function NotesPage({ base }: Props) {
           {axesMeta.axes.map((axis) => (
             <div className="notes-list__row" key={axis.id}>
               <dt className="notes-list__term">
-                {t(axis.left, locale)} ↔ {t(axis.right, locale)}
+                {uiT(`map.name${axis.id.charAt(0).toUpperCase()}${axis.id.slice(1)}`, locale)}
+                <span className="notes-list__poles">
+                  {t(axis.left, locale)} ↔ {t(axis.right, locale)}
+                </span>
               </dt>
               <dd className="notes-list__body">
                 <p className="notes-list__help">
