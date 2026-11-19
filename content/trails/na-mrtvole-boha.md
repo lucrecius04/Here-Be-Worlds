@@ -61,6 +61,8 @@ Bloodborne je ze všech pěti světů nejtemnější, protože v něm mrtvé bo�
 
 Nejhlubší kořen kletby leží až v rozšíření The Old Hunters. U Rybářské osady vyplavilo moře mrtvolu bohyně Kos, kterou místní uctívali. Učenci osadu zmasakrovali, tělo bohyně zohavili a z jejího lůna vyrvali nenarozené božské dítě. Z tohoto zločinu vzešla Lovcova noční můra, věčné vězení pro všechny lovce, kteří se opili krví.
 
+Teolog Rudolf Otto popsal v knize *Posvátno* (1917), co cítí člověk před božstvím, které nelze pochopit: *mysterium tremendum et fascinans*, tajemství, které děsí, a zároveň přitahuje. Byrgenwerth je přesně tohle. Heslo akademie zní „Obávej se Staré krve“, a přesto z ní Laurence udělá svátost. Velicí jsou pro učence „zcela jiní“, a právě proto se k nim nedokážou přestat vracet.
+
 Nietzsche napsal, že i bohové hnijí. Bloodborne ten obraz bere doslova: Yharnam je město, které se živí rozkladem boha a samo se v něm rozkládá. A hra do toho vtahuje i hráče. Lovec se uzdravuje stejnou krví, která město mění v bestie, takže každé napití je malou účastí na původním hříchu. Tohle je přesně to, čemu esej *Anatomie herního lore* říká mechanika jako význam.
 
 > **Spoiler · Lovec, který se stane bohem**
@@ -127,6 +129,8 @@ Ve světech, kde živí z ostatku **žijí**, vládne zoufalství. Yharnam se l�
 
 Pathfinder stojí uprostřed, protože jeho mrtvý bůh nezanechal tělo, ze kterého by se dalo žít. Zanechal jen prázdné místo a otázku, kdo ho zaplní. Jádro světa to v atlasu shrnuje jednou větou: smrtelníci si musí psát pravidla sami.
 
+John Clute má pro tenhle rozdíl v *Encyklopedii fantasy* přesné pojmy. Fantasy světy podle něj řídnou (*thinning*): ztrácejí sílu, kterou kdysi měly, a zdravá země se mění v parodii sebe sama. Šťastný konec pak bývá uzdravením (*healing*), obnovou toho, co se ztratilo dávno před začátkem příběhu. Smrt boha je ta nejradikálnější podoba řídnutí. Xenoblade a Elder Scrolls dovolí uzdravení. Bloodborne a Warhammer 40 000 řídnou dál, a Impérium je doslova parodií Císařova snu: z říše rozumu bez bohů se stala teokracie, která uctívá jeho mrtvolu.
+
 Odpověď na otázku z úvodu tedy zní takto. Mrtvý bůh je zkouška dědictví. To, jak bůh zemřel – jestli byl poražen, potrestán, nebo zmizel bez vysvětlení –, o světě ještě nic neprozradí. Rozhoduje teprve to, co s jeho tělem udělají ti, kdo zůstali. Světy, které se naučí mrtvého boha nechat odejít, dávají svým obyvatelům budoucnost. Světy, které z něj nepřestanou čerpat, se samy pomalu mění v mrtvolu.
 
 Nietzsche se ptal, jestli se nemusíme sami stát bohy, abychom se ukázali hodni jeho smrti. Herní světy na to odpovídají různě. Bloodborne říká, že ano, a ukazuje, co z člověka zbude. Xenoblade říká, že ne, že stačí žít bez nich. A Warhammer 40 000 varuje před nejhorší možností ze všech: postavit si z mrtvého boha trůn a zapomenout, že na něm nikdo nesedí.
@@ -141,6 +145,7 @@ Nietzsche se ptal, jestli se nemusíme sami stát bohy, abychom se ukázali hodn
 - [Michael Witzel: Ymir in India, China—and Beyond (Center for Hellenic Studies, Harvard)](https://chs.harvard.edu/chapter/michael-witzel-ymir-in-india-china-and-beyond/)
 - Mircea Eliade: *Pojednání o dějinách náboženství* (Traité d'histoire des religions, 1949), pojem *deus otiosus*.
 - [Encyclopedia of Religion: Deus otiosus (Encyclopedia.com)](https://www.encyclopedia.com/environment/encyclopedias-almanacs-transcripts-and-maps/deus-otiosus)
+- Rudolf Otto: *Posvátno. Iracionalita v ideji božství a její poměr k racionalitě* (Das Heilige, 1917), Vyšehrad 1998.
 
 **Filozofie**
 
@@ -149,6 +154,7 @@ Nietzsche se ptal, jestli se nemusíme sami stát bohy, abychom se ukázali hodn
 
 **Teorie světů a her**
 
+- [John Clute: Thinning (The Encyclopedia of Fantasy)](http://sf-encyclopedia.uk/fe.php?nm=thinning)
 - Mark J. P. Wolf: *Building Imaginary Worlds: The Theory and History of Subcreation*, Routledge 2012.
 - Wolfgang Iser: *Der Akt des Lesens* (1976), prázdná místa textu.
 - [Henry Jenkins: Game Design as Narrative Architecture](https://web.mit.edu/~21fms/People/henry3/games&narrative.html)

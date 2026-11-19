@@ -320,7 +320,7 @@ Dva postřehy z matice. Nejsilnější zvraty patří k typu identity a k typu s
 
 ## Na čem metoda stojí
 
-Pojmy z rozboru mají oporu ve třech tradicích: v teorii fantastiky a literatury, v herních studiích a v řemeslných textech tvůrců.
+Pojmy z rozboru mají oporu ve čtyřech tradicích: v teorii fantastiky a literatury, v dějinách náboženství, v herních studiích a v řemeslných textech tvůrců.
 
 | Pojem | Zdroj | Co tvrdí |
 |---|---|---|
@@ -336,6 +336,8 @@ Pojmy z rozboru mají oporu ve třech tradicích: v teorii fantastiky a literatu
 | Prázdná místa | Wolfgang Iser (1972, 1976) | Text obsahuje neurčitá místa, která čtenář vyplňuje představivostí. |
 | První zákon magie | Brandon Sanderson (2007) | Magie smí řešit zápletku jen tehdy, když jí čtenář rozumí. |
 | Imaginární světy | Mark J. P. Wolf, *Building Imaginary Worlds* (2012) | Svět není jen pozadí příběhu. Často přesahuje jeden příběh, médium i autora. |
+| Řídnutí a uzdravení | John Clute, *The Encyclopedia of Fantasy* (1997) | Svět ztrácí sílu, kterou kdysi měl, a zdravá země se mění v parodii sebe sama. Šťastný konec bývá obnovou toho, co se ztratilo dávno před začátkem příběhu. |
+| Mysterium tremendum et fascinans | Rudolf Otto, *Posvátno* (1917) | Posvátno děsí a zároveň přitahuje. Je „zcela jiné“, nepatří do řádu světa a rozumem se nedá uchopit. |
 
 K tomu klasické pojmy, které esej používá: Aristotelova peripetie a anagnórize z *Poetiky*, Eliotův objektivní korelativ (1919) a Bachtinova polyfonie z knihy o Dostojevském (1929).
 
@@ -351,6 +353,18 @@ Jesper Juul popisuje herní fikci jako „poloreálnou“: věta o postavě popi
 
 Podle Iana Bogosta hra vypovídá tím, co dovolí, a stejně tak tím, co nedovolí. Víc interaktivity nezaručí víc významu. Pathologic nedovolí zachránit všechny. Planescape dovolí vyhnout se boji rozhovorem. SOMA nedovolí vzít kopírování zpět. Undertale nabídne možnost nikoho nezabít, a tím dělá z každého zásahu volbu.
 
+### Clute: řídnutí a uzdravení
+
+*Encyklopedie fantasy*, kterou v roce 1997 vydali John Clute a John Grant, dala žánru slovník, s nímž dnes kritika běžně pracuje. Clute popisuje „plnou fantasy“ jako pohyb ve čtyřech fázích: porucha (*wrongness*), řídnutí (*thinning*), rozpoznání (*recognition*) a uzdravení (*healing*). Nejdůležitější je pro nás řídnutí. Svět ztrácí sílu, magii a smysl, kterými kdysi oplýval, a zdravá země se mění v parodii sebe sama. Většina fantasy je podle Cluta příběhem návratu: šťastný konec bývá obnovou něčeho, co se zmenšilo dávno předtím, než příběh začal.
+
+Pro herní světy je to přesný popis třetího pilíře. Dark Souls dělá z řídnutí mechaniku: oheň slábne, říše se rozpadají a hráč přichází do věku, kdy zbývá jen popel. Elden Ring, Pillars of Eternity i Warhammer 40 000 začínají dlouho po vrcholu svého světa. Rozdíl mezi světy pak neleží v tom, jestli řídnou, ale jestli dovolí uzdravení. Kde je uzdravení možné, má svět naději. Kde se řídnutí jen zpomaluje, převládne zoufalství. Tuhle hranici atlas zachycuje na souřadnici Vyhlídka.
+
+### Otto: hrůza a přitažlivost posvátna
+
+Teolog Rudolf Otto v knize *Posvátno* (1917) popsal, co cítí člověk před božstvím, které nelze pochopit. Nazval to *mysterium tremendum et fascinans*: tajemství, které děsí, a zároveň přitahuje. Hrůza tu není obyčejný strach, ale pocit vlastní nicotnosti před něčím „zcela jiným“, co nepatří do řádu světa a rozumem se nedá uchopit. A přesto se k tomu člověk nedokáže přestat vracet.
+
+Otto psal o náboženství, ale popsal tím jádro kosmického hororu i nejsilnějších herních bohů. Velicí v Bloodborne jsou zcela jiní: kdo je spatří, přestává být člověkem, a přesto po nich učenci Byrgenwerthu touží natolik, že pro poznání zmasakrují celou vesnici. Úřad v Control eviduje věci, které se nedají pochopit, a přitom se jimi nechává pohltit. Hrůza a přitažlivost tu nejsou dvě emoce, ale jedna. Proto tyto světy své bohy nevysvětlují: řízená mezera kolem nich není nedostatek informací, ale samotná podstata posvátna.
+
 ### Z dílny tvůrců
 
 Historik her Jimmy Maher rozebral vznik Planescape: Torment z původních dokumentů. Slavná otázka „Co může změnit povahu člověka?“ v prvním vizním dokumentu není. Hra je tam popsaná jako „zjizvený nesmrtelný s amnézií hledá svou identitu“. Otázka se vykrystalizovala až během vývoje z předpokladu, který byl hotový od začátku: nesmrtelnost, amnézie a smrtelnost jako protivník. Ústřední otázku tedy svět nemusí mít jako první, ale jeho předpoklad musí být dost bohatý, aby ji unesl.
@@ -363,6 +377,11 @@ Historik her Jimmy Maher rozebral vznik Planescape: Torment z původních dokume
 - [The Encyclopedia of Science Fiction: Novum (Darko Suvin)](https://sf-encyclopedia.com/entry/novum)
 - [Literariness: Wolfgang Iser as a Reader-Response Critic](https://literariness.org/2016/11/08/wolfgang-iser-as-a-reader-response-critic-a-brief-note/)
 - [Mark J. P. Wolf: Building Imaginary Worlds (Routledge)](https://www.routledge.com/Building-Imaginary-Worlds-The-Theory-and-History-of-Subcreation/Wolf/p/book/9780415631198)
+- [John Clute: Thinning (The Encyclopedia of Fantasy)](http://sf-encyclopedia.uk/fe.php?nm=thinning)
+
+**Dějiny náboženství**
+
+- Rudolf Otto: *Posvátno. Iracionalita v ideji božství a její poměr k racionalitě* (Das Heilige, 1917), Vyšehrad 1998.
 
 **Herní studia**
 
@@ -384,3 +403,5 @@ Historik her Jimmy Maher rozebral vznik Planescape: Torment z původních dokume
 - Mark J. P. Wolf: *Building Imaginary Worlds: The Theory and History of Subcreation*, Routledge 2012.
 - Jesper Juul: *Half-Real: Video Games between Real Rules and Fictional Worlds*, MIT Press 2005.
 - Ian Bogost: *Persuasive Games: The Expressive Power of Videogames*, MIT Press 2007.
+- John Clute, John Grant (eds.): *The Encyclopedia of Fantasy*, Orbit 1997 (online na sf-encyclopedia.com).
+- Rudolf Otto: *The Idea of the Holy*, přel. John W. Harvey, Oxford University Press 1923.
