@@ -21,7 +21,7 @@ Tento soubor je zdroj pravdy pro AI. Interní identifikátory v kódu se nepřek
 - **Osy mají dvě podoby:** hodnota **jednoho světa** = pětidílný pruh se zvýrazněným pólem, ke kterému se svět kloní (`FiveAxes` na spisu; jinde sdílená `AxisBars`: Svět dne, hádanka, karta katalogu `compact`, kompas jako tlačítka). Poloha **víc světů nebo průměr** = kosočtverce na stupnici 1–5 (srovnání `AxisOverlay`; stránka archetypu `AxisRange`: kosočtverec průměru + pás rozpětí od nejnižšího po nejvyšší svět). Nesvítí sousední dílky; záře jen tam, kde nese údaj (rozpětí). V hádance je pruh bez barvy archetypu (prozradil by odpověď).
 - **Tón:** web čtenáři **tyká** („Poznáš svět…“, „Nastav si…“). Výjimkou jsou autorské texty `/about/` a eseje.
 
-Příkazy: `npm run dev` · `npm run build` · `npm test` · `npm run import:chronicle` · `npm run import:atlas` · `npm run og` (karty pro sdílení).
+Příkazy: `npm run dev` · `npm run build` · `npm test` · `npm run import:chronicle` · `npm run import:atlas` · `npm run og` (karty pro sdílení) · `npm run bundle:trail -- <id>|--all|--base` (studijní balíčky pro autory, výstup `bundles/`, necommituje se).
 
 ---
 
@@ -43,6 +43,7 @@ Příkazy: `npm run dev` · `npm run build` · `npm test` · `npm run import:chr
 | `content/essays/*.md` | Esej Anatomie herního lore (`/anatomie-herniho-lore/`) a stránka Teoretické zázemí (`/teoreticke-zazemi/`). |
 | `content/trails/*.md` | Eseje ke stezkám (`/stezky/<soubor>/`); frontmatter `trail:` = id z `trails.ts`. Autorský text, fakta ověřená proti kronikám; po schválení majitelem se na esej odkáže ze stezky. |
 | `docs/prameny/*.md` | Studijní výtahy z odborných knih (Doležel, Fisher, Clute, Otto…): pojmy, převyprávění, co plyne pro atlas, kde je pramen použitý. Rozcestník `docs/prameny/README.md`. **Před psaním eseje nebo stezky projít; knihy se znovu nečtou.** |
+| `docs/pro-autory/` | Příručka pro autory esejí ke stezkám (i pro jiné modely, např. Gemini): stavba eseje, styl, formát, kontrolní seznam, co odevzdat (`README.md`), a zadání ke studiu dalších knih (`studium-knih.md`). Balíčky skládá `scripts/trail-bundle.mjs`. Odkaz z `AGENTS.md`. Esej od jiného autora vždy zkontrolovat proti kronikám, než se publikuje. |
 | `public/og/` | Karty pro sdílení (výstup `scripts/og-images.mjs`, commitují se). |
 
 Kroniky a eseje **nejsou** v `data/`.

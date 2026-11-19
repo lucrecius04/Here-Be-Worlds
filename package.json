@@ -15,6 +15,7 @@
     "import:atlas": "tsx scripts/import-atlas.ts",
     "import:all": "npm run import:chronicle && npm run import:atlas",
     "og": "node scripts/og-images.mjs",
+    "bundle:trail": "node scripts/trail-bundle.mjs",
     "test": "vitest run"
   },
   "dependencies": {

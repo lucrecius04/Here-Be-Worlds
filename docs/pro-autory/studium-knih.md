@@ -1,0 +1,103 @@
+# Zadání: studium dalších knih
+
+Pro toho, kdo pro atlas čte novou odbornou knihu (člověk nebo jazykový model). Cílem není shrnout knihu celou, ale vytáhnout z ní to, co pomůže číst herní světy a psát eseje ke stezkám. Výsledkem je **výtah** v `docs/prameny/<prijmeni-kratky-nazev>.md`, ze kterého se pak píše, aniž by bylo nutné knihu číst znovu.
+
+Než začnete, přečtěte si **základní balíček** (`npm run bundle:trail -- --base`), který obsahuje příručku pro autory, Anatomii herního lore, Teoretické zázemí, všechny dosavadní výtahy a výčet stezek a světů. Hotové výtahy jsou vzorem formy i hloubky, nejlépe `girard-obetni-beranek.md`, `mendlesohn-rhetorics-of-fantasy.md` a `svelch-player-vs-monster.md`.
+
+## Jak číst
+
+1. Projít obsah a úvod. Najít hlavní tezi a kapitoly, kde se definují pojmy.
+2. Číst celé kapitoly s pojmy a teorií. Kapitoly s rozbory jednotlivých děl stačí prolistovat a vzít z nich příklady, které se dají přenést na hry.
+3. Ke každému pojmu si položit otázku: **na který svět atlasu a na kterou stezku to sedí?** Ověřit to proti kronice daného světa. Spojení, které v kronice nemá oporu, nezapisovat jako fakt.
+4. Zapsat výtah podle vzoru níže. Poctivě uvést, co bylo přečteno a co vynecháno.
+5. Doplnit knihu do rozcestníku `docs/prameny/README.md` (tabulka pramenů a řádky stezek, ke kterým se hodí).
+
+Nevymýšlet citace, čísla stran ani tvrzení, která v knize nejsou. Kde si nejste jistí, napište to.
+
+## Vzor výtahu
+
+```markdown
+# Autor: Název
+
+**Bibliografie:** originál (rok, nakladatel); anglicky…; česky… (jen ověřené vydání).
+**Studováno:** datum, z jakého souboru. Přečteno: … Prolistováno: … Vynecháno: …
+**Upozornění:** známé slabiny autora nebo kritika (pokud jsou).
+
+## Hlavní teze
+Dva až čtyři odstavce vlastními slovy.
+
+## Pojmy
+- **Pojem (originální termín):** výklad, příklad z knihy, případně krátká citace (nejvýš pár slov).
+
+## Co z toho plyne pro Here Be Worlds
+- Konkrétní světy atlasu a stezky, ke kterým se pojem hodí, a proč (ověřeno proti kronice).
+
+## Kde už je použito
+- (prázdné, doplní se při použití v eseji)
+```
+
+## Knihy, které chceme nastudovat
+
+U každé knihy: co číst, na co se soustředit a ke kterým stezkám a světům se hodí.
+
+### Mary Douglasová: *Čistota a nebezpečí* (Purity and Danger, 1966)
+
+- **Číst:** úvod, kapitoly o nečistotě jako „věci na nepatřičném místě“, o anomáliích a o síle a nebezpečí na okrajích systému.
+- **Soustředit se:** nečistota jako porušení kategorií (základ Carrollovy teorie monster), rituály čištění, okraje a prahy, proč je anomálie zároveň nebezpečná a mocná.
+- **Stezky:** Netvor v zrcadle, Kdo za to může?, Pod lhostejnými hvězdami. **Světy:** Bloodborne (krev a nákaza), Silent Hill, Pathologic (mor a čistota), Zaklínač (mutanti), Warhammer 40 000 (čistota lidstva, mutanti).
+- **Navazuje na:** Carroll, Girard, Švelch.
+
+### Gaston Bachelard: *Poetika prostoru* (La Poétique de l'espace, 1957)
+
+- **Číst:** úvod a kapitoly o domě (sklep a půda), o šuplících, skříních a schránkách, o koutech, o miniatuře a nezměrnosti.
+- **Soustředit se:** dům jako obraz duše, vertikála sklep–půda (strach dole, jasnost nahoře), intimní prostor a nezměrnost, jak prostor nese paměť a snění.
+- **Stezky:** Město, které dýchá, Mluví už jen mrtví, Netvor v zrcadle. **Světy:** Control (Nejstarší dům), Silent Hill, Resident Evil (sídlo), BioShock (Rapture), Disco Elysium (Martinaise), Pathologic.
+- **Navazuje na:** Jenkins (narativní architektura), A. Assmannová (paměť míst), Eliade (symbolika středu).
+
+### Tzvetan Todorov: *Úvod do fantastické literatury* (Introduction à la littérature fantastique, 1970)
+
+- **Číst:** kapitoly s definicí fantastična, podivného a zázračného a s podmínkami fantastična.
+- **Soustředit se:** fantastično jako váhání mezi přirozeným a nadpřirozeným vysvětlením, rozdíl podivného (vysvětlitelného) a zázračného (přijatého), role čtenáře.
+- **Stezky:** Kdo se to probudil?, Mluví už jen mrtví, Smích nad propastí. **Světy:** Silent Hill, Pathologic, Disco Elysium, SOMA, Control.
+- **Navazuje na:** Mendlesohn (prahová fantasy), Fisher (podivné), Clute.
+
+### Janet Murrayová: *Hamlet on the Holodeck* (1997, rozšířené vydání 2017)
+
+- **Číst:** kapitoly o estetice digitálního vyprávění: ponoření (immersion), jednání (agency), proměna (transformation), a o procedurálním autorství.
+- **Soustředit se:** co znamená, že hráč ve světě jedná, rozdíl mezi volbou a jednáním, kaleidoskopické a opakované vyprávění.
+- **Stezky:** Křehká hranice svobodné vůle, Uvězněni v kruhu, Hra ví, že ji hraješ. **Světy:** BioShock, Undertale, Planescape: Torment, Disco Elysium, Outer Wilds, Hades.
+- **Navazuje na:** Juul, Bogost, Aarseth.
+
+### Jan Assmann: *Kultura a paměť* (Das kulturelle Gedächtnis, 1992)
+
+- **Číst:** teoretický úvod (komunikativní a kulturní paměť, vzpomínkové figury), kapitolu o kanonizaci a o zakládajících mýtech.
+- **Soustředit se:** rozdíl paměti tří generací a kulturní paměti, zakládající minulost, kanon, jak společnost vzpomínáním vytváří identitu.
+- **Stezky:** Prokleté dědictví, Mluví už jen mrtví, Bohové jako břemeno. **Světy:** Elder Scrolls, Dragon Age, Assassin's Creed, Warhammer 40 000, Horizon.
+- **Navazuje na:** Aleida Assmannová (pozor na záměnu), Eliade.
+
+### Henry Jenkins: *Convergence Culture* (2006)
+
+- **Číst:** kapitolu o transmediálním vyprávění (Matrix) a úvod.
+- **Soustředit se:** svět, který žije napříč médii, kánon a fanouškovská tvorba, vyprávění rozložené mezi hry, knihy a seriály.
+- **Stezky:** Válka, kterou nikdo nevyhraje, Logo nad troskami. **Světy:** Warhammer 40 000, Zaklínač, Fallout, Halo, Mass Effect. Hodí se i pro oddíl Kánon ve Vysvětlivkách.
+- **Navazuje na:** Wolf.
+
+### Mark J. P. Wolf (ed.): *Revisiting Imaginary Worlds* (2016)
+
+- **Číst:** Wolfův úvod a studie, které se týkají her nebo světů z atlasu.
+- **Soustředit se:** co nového Wolf přidává k *Building Imaginary Worlds*, případové studie.
+- **Navazuje na:** Wolf, *Building Imaginary Worlds* (výtah existuje).
+
+### Farah Mendlesohn, Edward James: *A Short History of Fantasy* (2009)
+
+- **Číst:** kapitoly o Tolkienovi a poválečné fantasy, o 70.–80. letech (sword and sorcery, D&D, komerční fantasy).
+- **Soustředit se:** odkud herní fantasy přebírá své vzorce (Tolkien, Howard, Moorcock, D&D), co je „fantasyland“.
+- **Stezky a světy:** kořeny klasické fantasy v atlasu (Baldur's Gate, Elder Scrolls, Dragon Age, Pillars of Eternity, Warcraft, Diablo).
+- **Navazuje na:** Mendlesohn, *Rhetorics of Fantasy*, Clute.
+
+### Doplnit plným čtením (zatím známe z druhé ruky)
+
+- **J. R. R. Tolkien: *O pohádkách*** (v souboru *Netvoři a kritikové a jiné eseje*): subkreace, druhotná víra, útěcha a eukatastrofa.
+- **Espen Aarseth: *Cybertext*** (1997): ergodická literatura, typologie textů.
+- **John Clute, John Grant: *The Encyclopedia of Fantasy*** (1997): další hesla kromě řídnutí (Wrongness, Recognition, Healing, Polder, Land, Parody).
+- **Rudolf Otto: *Posvátno*** celé (zatím jen klíčová kapitola).

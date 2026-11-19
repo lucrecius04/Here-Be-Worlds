@@ -30,3 +30,6 @@ source/
 
 # patche z Clauda se nekomitují
 *.patch
+
+# studijní balíčky pro autory (npm run bundle:trail)
+bundles/
