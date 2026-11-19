@@ -169,6 +169,7 @@ Nietzsche se ptal, jestli se nemusíme sami stát bohy, abychom se ukázali hodn
 - Wolfgang Iser: *Der Akt des Lesens* (1976), prázdná místa textu.
 - [Henry Jenkins: Game Design as Narrative Architecture](https://web.mit.edu/~21fms/People/henry3/games&narrative.html)
 - [Anatomie herního lore](/anatomie-herniho-lore/), esej o metodě atlasu.
+- [Teoretické zázemí](/teoreticke-zazemi/), přehled pramenů atlasu.
 
 **Kroniky atlasu**
 

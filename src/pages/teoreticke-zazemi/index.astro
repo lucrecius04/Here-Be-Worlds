@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import EssayPage from '../../components/essay/EssayPage';
+import raw from '../../../content/essays/teoreticke-zazemi.md?raw';
+import { worlds } from '../../lib/worlds';
+
+const base = import.meta.env.BASE_URL;
+
+const fm = raw.match(/^---\r?\n([\s\S]*?)\r?\n---\s*/);
+const meta = (key: string) =>
+  fm ? new RegExp(`^${key}:\\s*(.+?)\\s*$`, 'm').exec(fm[1])?.[1]?.trim() : undefined;
+const markdown = fm ? raw.slice(fm[0].length).trim() : raw.trim();
+
+const title = meta('title') ?? 'Teoretické zázemí';
+
+// Odkazy na světy v tabulkách se objeví samy, jakmile je svět publikovaný.
+const worldLinks = worlds
+  .filter((w) => !w.draft && !w.id.startsWith('vzorek-'))
+  .map((w) => ({
+    id: w.id,
+    titles: [w.gameTitle.cs, w.gameTitle.en].filter(Boolean) as string[],
+  }));
+---
+
+<BaseLayout title={`${title} — Here Be Worlds`} description={meta('description')}>
+  <EssayPage
+    client:load
+    base={base}
+    markdown={markdown}
+    title={title}
+    kicker={meta('kicker')}
+    tagline={meta('tagline')}
+    worlds={worldLinks}
+  />
+</BaseLayout>

@@ -40,7 +40,7 @@ Příkazy: `npm run dev` · `npm run build` · `npm test` · `npm run import:chr
 | `data/meta/notes.ts` | Texty Vysvětlivek. |
 | `data/meta/upcoming.json` | Svět, jehož kroniku právě píšeme (`next`; O atlasu → Co se chystá). |
 | `content/chronicles/*.md` | Kroniky. Načítá `src/lib/chronicles.ts` (lazy raw import). |
-| `content/essays/*.md` | Esej Anatomie herního lore (`/anatomie-herniho-lore/`). |
+| `content/essays/*.md` | Esej Anatomie herního lore (`/anatomie-herniho-lore/`) a stránka Teoretické zázemí (`/teoreticke-zazemi/`). |
 | `content/trails/*.md` | Eseje ke stezkám (`/stezky/<soubor>/`); frontmatter `trail:` = id z `trails.ts`. Autorský text, fakta ověřená proti kronikám; po schválení majitelem se na esej odkáže ze stezky. |
 | `docs/prameny/*.md` | Studijní výtahy z odborných knih (Doležel, Fisher, Clute, Otto…): pojmy, převyprávění, co plyne pro atlas, kde je pramen použitý. Rozcestník `docs/prameny/README.md`. **Před psaním eseje nebo stezky projít; knihy se znovu nečtou.** |
 | `public/og/` | Karty pro sdílení (výstup `scripts/og-images.mjs`, commitují se). |
@@ -75,6 +75,7 @@ Kroniky a eseje **nejsou** v `data/`.
 | `/about/` | `src/pages/about/index.astro` | `AboutPage` — nadpis „O atlasu“ (bez štítku), řada „Atlas v číslech“ (počítá se při sestavení z dat a kronik), autorský text vlevo, pod ním „Čím atlas nechce být“ a „Co se chystá“ („Právě píšeme kroniku …“ z `data/meta/upcoming.json` (`next`) + naposledy zmapovaný svět), vpravo poznámka o AI a „Dál v atlasu“ |
 | `/notes/` | `src/pages/notes/index.astro` | `NotesPage` — obsah oddílů, rejstříkový seznam pojmů (štítek vlevo, výklad vpravo), legenda 1–5 jako pruh os; oddíly Charakter světa · Profil světa · Triáda · Příbuznost světů (4 pilíře, 5 stupňů slovy, bez procent) · Kompas a ladění · Kánon (texty v `data/meta/notes.ts`) |
 | `/anatomie-herniho-lore/` | `src/pages/anatomie-herniho-lore/index.astro` | `EssayPage` (obsah `ReadingToc` vlevo, čtecí sloupec jako kronika, doba čtení pod podtitulem) |
+| `/teoreticke-zazemi/` | `src/pages/teoreticke-zazemi/index.astro` | `EssayPage` z `content/essays/teoreticke-zazemi.md`: prameny atlasu po oblastech (fikční světy, fantastika, herní studia, hrůza a posvátno, mýtus, paměť, dílna tvůrců), tabulka pojmů, výhrady k autorům, co by sem ještě patřilo, seznam literatury. Odkaz z Anatomie (oddíl Na čem metoda stojí) a z patičky. **Po zapracování nové knihy doplnit i sem.** |
 | `/stezky/[id]/` | `src/pages/stezky/[id].astro` | `EssayPage` s `trail`: pod hlavičkou `TrailCast` (sloupce světů s linkou v barvě archetypu, „Archetyp · podžánr“, název jako odkaz); před Zdroji vloží `TrailWorlds` (souřadnice všech světů stezky jako kosočtverce se jmény + seznam světů se štítkem archetypu). Pilotní esej `na-mrtvole-boha` zatím bez odkazu z webu. |
 | `/contact/` | `src/pages/contact/index.astro` | `ContactPage` — téma zprávy, věta o e-mailu; odesílání zatím **nezapojené** (`CONTACT_EMAIL` prázdné), plán: bezplatná služba pro formuláře (Web3Forms/Formspree) s klíčem majitele |
 

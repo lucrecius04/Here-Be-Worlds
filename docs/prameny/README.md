@@ -4,6 +4,7 @@ Výtahy z odborných knih a textů, o které se opírají eseje a stezky atlasu 
 
 Pravidla:
 - Před psaním eseje nebo stezky projít tento rozcestník a příslušné výtahy.
+- Veřejný přehled pramenů je na stránce `/teoreticke-zazemi/` (`content/essays/teoreticke-zazemi.md`). Novou knihu po přečtení doplnit i tam: oddíl s výkladem, řádek v tabulce pojmů a záznam ve Zdrojích.
 - Výtahy jsou převyprávění. Doslovné citace jen krátké (do 15 slov) a výjimečně, protože repozitář je veřejný.
 - Co výtah tvrdí o knize, musí vycházet z textu, který jsme četli. Nečtené části označit (oddíl „Dočíst“).
 - Po použití pramene v textu doplnit oddíl „Kde už je použito“.
