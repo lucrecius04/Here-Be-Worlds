@@ -5,9 +5,8 @@ import { t, uiT, worldCountLabel } from '../../lib/i18n';
 import { useLocale } from '../../lib/locale-store';
 import { withBase } from '../../lib/base-url';
 import { isMappedWorld } from '../../lib/atlas-news';
-import { axisExtremes, meanAxes } from '../../lib/chapter-portrait';
-import { chapterRoman } from './ChapterEmblem';
-import MiniAxes from './MiniAxes';
+import { axisExtremes, axisSpread } from '../../lib/chapter-portrait';
+import AxisRange from './AxisRange';
 import WorldTeaser from './WorldTeaser';
 
 type Props = {
@@ -28,8 +27,8 @@ export default function ChapterPage({ id, title, thesis, lead, accent, worlds, b
   } as CSSProperties;
   const home = withBase(base, '/atlas/');
   const mapped = worlds.filter(isMappedWorld);
-  const mean = mapped.length > 0 ? meanAxes(mapped) : null;
-  const extremes = mean ? axisExtremes(mapped, 3) : [];
+  const spread = axisSpread(mapped);
+  const extremes = spread ? axisExtremes(mapped, 3) : [];
   const thesisText = t(thesis, locale);
   const leadText = lead ? t(lead, locale) : '';
 
@@ -44,9 +43,6 @@ export default function ChapterPage({ id, title, thesis, lead, accent, worlds, b
         </div>
         <div className="chapter-hero__grid">
           <div className="chapter-hero__identity">
-            <p className="chapter-hero__roman" aria-hidden="true">
-              {chapterRoman(id)}
-            </p>
             <h1 className="chapter-hero__title display">
               <span className="chapter-hero__name">{t(title, locale)}</span>
             </h1>
@@ -56,10 +52,10 @@ export default function ChapterPage({ id, title, thesis, lead, accent, worlds, b
             ) : null}
             <p className="chapter-hero__count">{worldCountLabel(mapped.length, locale)}</p>
           </div>
-          {mean ? (
+          {spread ? (
             <aside className="chapter-portrait" aria-label={uiT('chapterPage.portrait', locale)}>
               <p className="chapter-portrait__kicker">{uiT('chapterPage.portrait', locale)}</p>
-              <MiniAxes values={mean} locale={locale} variant="dots" />
+              <AxisRange spread={spread} locale={locale} />
               {extremes.length > 0 ? (
                 <ul className="chapter-portrait__extremes">
                   {extremes.map((item) => (

@@ -17,7 +17,8 @@ Tento soubor je zdroj pravdy pro AI. Interní identifikátory v kódu se nepřek
 - **GitHub Pages:** `astro.config.mjs` `base` = `HBW_BASE` (default `/Here-Be-Worlds`). Interní odkazy **vždy** `withBase()` z `src/lib/base-url.ts`.
 - **Vizuál:** používej CSS proměnné v `src/styles/tokens.css` (`--color-accent`, `--color-paper`, `--color-line`, …). Do obecného UI nehardcoduj cizí hex. Slotové barvy srovnávače žijí jen ve `src/lib/compare.ts` / `compare.css`.
 - **Publikace:** v UI jen `!draft`. `MAX_COMPARE` = 3.
-- **Bez písmen a čísel:** písmena archetypů (A–G, pozůstatek kapitol Word atlasu) ani katalogová čísla světů (`№`) se nikde v UI ani na kartách pro sdílení nezobrazují. `number` slouží jen k řazení.
+- **Bez písmen a čísel:** písmena archetypů (A–G, pozůstatek kapitol Word atlasu), římské číslice archetypů ani katalogová čísla světů (`№`) se nikde v UI ani na kartách pro sdílení nezobrazují. `number` slouží jen k řazení.
+- **Osy mají dvě podoby:** hodnota **jednoho světa** = pětidílný pruh se zvýrazněným pólem, ke kterému se svět kloní (`FiveAxes` na spisu; jinde sdílená `AxisBars`: Svět dne, hádanka, karta katalogu `compact`, kompas jako tlačítka). Poloha **víc světů nebo průměr** = kosočtverce na stupnici 1–5 (srovnání `AxisOverlay`; stránka archetypu `AxisRange`: kosočtverec průměru + pás rozpětí od nejnižšího po nejvyšší svět). Nesvítí sousední dílky; záře jen tam, kde nese údaj (rozpětí). V hádance je pruh bez barvy archetypu (prozradil by odpověď).
 - **Tón:** web čtenáři **tyká** („Poznáš svět…“, „Nastav si…“). Výjimkou jsou autorské texty `/about/` a eseje.
 
 Příkazy: `npm run dev` · `npm run build` · `npm test` · `npm run import:chronicle` · `npm run import:atlas` · `npm run og` (karty pro sdílení).
@@ -62,7 +63,7 @@ Kroniky a eseje **nejsou** v `data/`.
 
 | Routa | Soubor | Hlavní komponenty |
 |---|---|---|
-| `/` | `src/pages/index.astro` | `HomeIntro` — noční pás s oblohou 43 hvězd (7 souhvězdí = archetypy; v každém trvale popsaná jedna nejznámější hvězda `ICONIC`, ostatní po najetí; najetí na název souhvězdí rozsvítí jména všech jeho světů a ztlumí ostatní, klik skočí na `#rejstrik-<id>`; na úzkém/dotykovém displeji obloha bez jmen a pod ní řádek archetypů do rejstříku; dole jemné měřítko a „Nově zmapováno“). Hlavička na titulní straně splývá s nocí, po posunu ji oddělí linka (`is-scrolled` v `SiteHeader`). Svět v popředí + `DailyMystery`, `ReaderDesk` (jen jeden řádek s rozečtenou kronikou), Rejstřík světů, Tři cesty, esej + stezky. Staré odkazy `/?theme=` a `/?trail=` přesměruje do `/atlas/`. |
+| `/` | `src/pages/index.astro` | `HomeIntro` — noční pás s oblohou 43 hvězd (7 souhvězdí = archetypy; v každém trvale popsaná jedna nejznámější hvězda `ICONIC`, ostatní po najetí; najetí na název souhvězdí rozsvítí jména všech jeho světů a ztlumí ostatní, klik skočí na `#rejstrik-<id>`; na úzkém/dotykovém displeji obloha bez jmen a pod ní řádek archetypů do rejstříku; dole jemné měřítko a „Nově zmapováno“). Hlavička na titulní straně splývá s nocí, po posunu ji oddělí linka (`is-scrolled` v `SiteHeader`). `ReaderDesk` (jen jeden řádek s rozečtenou kronikou), **Svět dne** (archetyp · profil archetypu, pruh os) + **Hádanka dne** (`DailyMystery`), Rejstřík světů (záložka „Archetyp · počet“ je odkaz na archetyp, `id=rejstrik-<id>`), kompas „Který svět je tvůj?“ (`WorldCompass alwaysOpen`), Tři cesty, esej + stezky. Svět dne i hádanka se skládají samy z dat (`calendar.ts`): promíchané pořadí po cyklech (`featuredWorldIndex`), hádanka je o půl cyklu posunutá (`mysteryWorldIndex`), takže se se Světem dne nepotká; jedna špatná odpověď je ze stejného archetypu. Po odpovědi: správná zelený rámeček a ✓, zvolená špatná červený rámeček, přeškrtnutí a ✗ (`--color-right` / `--color-wrong`), všechny tři možnosti jsou odkazy. Staré odkazy `/?theme=` a `/?trail=` přesměruje do `/atlas/`. |
 | `/atlas/` | `src/pages/atlas/index.astro` | `AtlasExplorer` (katalog, filtry, stezky, kompas); čte `?theme=` a `?trail=` |
 | `/compare/` | `src/pages/compare/index.astro` | `ComparePage` + `AxisOverlay` |
 | `/map/` | `src/pages/map/index.astro` | `AxisGridMap` — Kartografie os (mřížka 5 × 5, bez výpočtu příbuznosti) |
@@ -114,6 +115,7 @@ Styly: `src/styles/tokens.css`, `layout.css`, `typography.css`, `home-page.css` 
 | `hbw_lang` | `locale-store.ts` | `LanguageSwitcher`, FOUC v `BaseLayout` |
 | `hbw_compare` | `compare-tray.ts` | `CompareTray`, `CatalogWorldCard`, `WorldTeaser`, `AxisGridMap`, `WorldPageShell` |
 | `hbw_reader_desk` | `reader-desk.ts` | `ReaderDesk`, `WorldPageShell` (`touchRecent`), `ChronicleReader` |
+| `hbw_mystery` | `DailyMystery.tsx` | odpovědi hádanky za posledních 7 dní (den → id), hádat jde jednou |
 
 **`/compare/` `hbw_compare` nečte.** Stav slotů = URL `?w=id1,id2[,id3]` (alias čtení `?worlds=`, zápis vždy `w`). Tray na homepage a stránka srovnání jsou oddělené.
 
@@ -173,7 +175,7 @@ Tři různé „Charakter“ neslučovat: záložka `Charakter světa` ≠ tabul
 
 Jednoslovné názvy os (filtr a atlas dvojic na mapě, `map.name*` v i18n): CS Naděje · Poznání · Měřítko · Morálka · Realismus, EN Hope · Knowledge · Scale · Morality · Realism.
 
-Compact póly **jen** 4. osy v `MiniAxes` / `WorldCompass` (`SHORT_POLES`): CS `Jednoznačné` ↔ `Komplexní`, EN `Absolute` ↔ `Complex`. Plné názvy na kartě (`FiveAxes`) a v `axes.json` neměnit.
+Compact póly **jen** 4. osy přes `axisPoleLabel` v `MiniAxes.tsx` (`SHORT_POLES`; používají `AxisBars`, `AxisRange`, `WorldCompass`, mapa): CS `Jednoznačné` ↔ `Komplexní`, EN `Absolute` ↔ `Complex`. Plné názvy na kartě (`FiveAxes`) a v `axes.json` neměnit.
 
 EN UI nepřekládat ad hoc — brát z `i18n.ts`.
 

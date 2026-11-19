@@ -3,7 +3,7 @@ import type { LocalizedString, World } from '../../schemas/world';
 import { t, uiT, type Locale } from '../../lib/i18n';
 import { withBase } from '../../lib/base-url';
 import { toggleCompareTray, useCompareTray } from '../../lib/compare-tray';
-import MiniAxes from './MiniAxes';
+import AxisBars from './AxisBars';
 
 type Props = {
   world: World;
@@ -62,7 +62,7 @@ export default function CatalogWorldCard({
           {genre ? <span className="catalog-card__genre"> ({genre})</span> : null}
         </h3>
         <p className="catalog-card__core">{t(world.core, locale)}</p>
-        <MiniAxes world={world} locale={locale} variant="strips" />
+        <AxisBars world={world} locale={locale} compact />
       </a>
       {world.themes.length ? (
         <div className="catalog-card__themes">

@@ -73,14 +73,59 @@ export function dailyWorldIndex(count: number, offset = 0, date = new Date()): n
   return (dayOfYear(date) + offset) % count;
 }
 
-export function mysteryChoices<T extends { id: string }>(
+/** Pořadové číslo dne od 1. 1. 1970 podle místního kalendáře (nepřetéká přes Nový rok). */
+export function dayNumber(date = new Date()): number {
+  return Math.floor(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()) / 86_400_000);
+}
+
+/** Promíchané pořadí světů pro jeden cyklus (count dní); každý svět přijde v cyklu jednou. */
+function cycleOrder(count: number, cycle: number): number[] {
+  return shuffle(
+    Array.from({ length: count }, (_, i) => i),
+    mulberry32(cycle * 7919 + 101),
+  );
+}
+
+/** Svět dne: promíchané pořadí, takže se nestřídají archetypy po blocích jako v katalogu. */
+export function featuredWorldIndex(count: number, date = new Date()): number {
+  if (count <= 0) return 0;
+  const day = dayNumber(date);
+  return cycleOrder(count, Math.floor(day / count))[day % count];
+}
+
+/**
+ * Hádanka dne: stejné pořadí jako Svět dne, ale posunuté o půl cyklu. Odpověď tak nebyla
+ * Světem dne v posledních týdnech a nebude jím ani v nejbližších.
+ */
+export function mysteryWorldIndex(count: number, date = new Date()): number {
+  if (count <= 0) return 0;
+  const day = dayNumber(date);
+  const cycle = Math.floor(day / count);
+  return cycleOrder(count, cycle)[(day % count + Math.floor(count / 2)) % count];
+}
+
+/**
+ * Tři možnosti hádanky: správná odpověď, jeden svět ze stejného archetypu (aby nestačilo
+ * poznat žánr) a jeden odjinud. Stabilní pro daný den.
+ */
+export function mysteryChoices<T extends { id: string; chapterId?: string }>(
   items: T[],
   correct: T,
   date = new Date(),
   count = 3,
 ): T[] {
-  const others = items.filter((item) => item.id !== correct.id);
-  const rand = mulberry32(dayOfYear(date) * 9973 + 17);
-  const distractors = shuffle(others, rand).slice(0, Math.max(0, count - 1));
+  const rand = mulberry32(dayNumber(date) * 9973 + 17);
+  const others = shuffle(
+    items.filter((item) => item.id !== correct.id),
+    rand,
+  );
+  const sibling = correct.chapterId ? others.find((item) => item.chapterId === correct.chapterId) : undefined;
+  const rest = others.filter((item) => item !== sibling && (!correct.chapterId || item.chapterId !== correct.chapterId));
+  const pool = sibling ? [sibling, ...rest, ...others] : [...rest, ...others];
+  const distractors: T[] = [];
+  for (const item of pool) {
+    if (distractors.length >= Math.max(0, count - 1)) break;
+    if (!distractors.includes(item)) distractors.push(item);
+  }
   return shuffle([correct, ...distractors], rand);
 }

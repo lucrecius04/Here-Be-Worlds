@@ -1,15 +1,16 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import type { World } from '../../schemas/world';
 import { t, uiT, type Locale } from '../../lib/i18n';
 import { withBase } from '../../lib/base-url';
 import {
   addDays,
-  dailyWorldIndex,
+  dayNumber,
   formatMysteryKicker,
   mysteryChoices,
   mysteryMode,
+  mysteryWorldIndex,
 } from '../../lib/calendar';
-import MiniAxes from './MiniAxes';
+import AxisBars from './AxisBars';
 
 type Props = {
   catalog: World[];
@@ -17,6 +18,32 @@ type Props = {
   base: string;
   today: Date;
 };
+
+const STORAGE_KEY = 'hbw_mystery';
+
+/** Odpovědi posledních dní (den → id zvoleného světa), aby šlo hádat jen jednou. */
+function readAnswers(): Record<string, string> {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    const parsed = raw ? JSON.parse(raw) : {};
+    return parsed && typeof parsed === 'object' ? parsed : {};
+  } catch {
+    return {};
+  }
+}
+
+function saveAnswer(day: number, id: string) {
+  try {
+    const answers = { ...readAnswers(), [String(day)]: id };
+    const recent = Object.keys(answers)
+      .map(Number)
+      .filter((key) => key >= day - 7)
+      .reduce<Record<string, string>>((acc, key) => ({ ...acc, [String(key)]: answers[String(key)] }), {});
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(recent));
+  } catch {
+    /* bez úložiště se odpověď jen nezapamatuje */
+  }
+}
 
 function redactGameTitle(text: string, world: World): string {
   const names = [world.gameTitle.cs, world.gameTitle.en].filter(
@@ -58,14 +85,17 @@ export default function DailyMystery({ catalog, locale, base, today }: Props) {
   const [picked, setPicked] = useState<string | null>(null);
   const viewDate = offset === 0 ? today : addDays(today, offset);
   const mode = mysteryMode(viewDate);
+  const day = dayNumber(viewDate);
   const world =
-    catalog.length > 0
-      ? (catalog[dailyWorldIndex(catalog.length, 1, viewDate)] ?? catalog[0])
-      : undefined;
+    catalog.length > 0 ? (catalog[mysteryWorldIndex(catalog.length, viewDate)] ?? catalog[0]) : undefined;
   const choices = useMemo(
     () => (world ? mysteryChoices(catalog, world, viewDate) : []),
     [catalog, world, viewDate],
   );
+
+  useEffect(() => {
+    setPicked(readAnswers()[String(day)] ?? null);
+  }, [day]);
 
   if (!world) return null;
 
@@ -75,7 +105,11 @@ export default function DailyMystery({ catalog, locale, base, today }: Props) {
 
   const shift = (next: 0 | -1) => {
     setOffset(next);
-    setPicked(null);
+  };
+
+  const pick = (id: string) => {
+    setPicked(id);
+    saveAnswer(day, id);
   };
 
   return (
@@ -108,35 +142,44 @@ export default function DailyMystery({ catalog, locale, base, today }: Props) {
       <p className="hp-mystery__clue">
         <span className="visually-hidden">{clue.label}: </span>„{clue.body}“
       </p>
-      {mode === 3 ? <MiniAxes world={world} locale={locale} /> : null}
-      <div className="hp-mystery__choices">
+      {mode === 3 ? <AxisBars world={world} locale={locale} /> : null}
+      <div className="hp-mystery__choices" aria-live="polite">
         {choices.map((choice) => {
-          const state =
-            picked === null
-              ? ''
-              : choice.id === world.id
-                ? ' is-right'
-                : picked === choice.id
-                  ? ' is-wrong'
-                  : '';
+          const title = t(choice.gameTitle, locale);
+          if (!answered) {
+            return (
+              <button key={choice.id} type="button" className="hp-mystery__choice" onClick={() => pick(choice.id)}>
+                <span>{title}</span>
+              </button>
+            );
+          }
+          // Po odpovědi jsou všechny tři světy odkazy na své spisy.
+          const right = choice.id === world.id;
+          const wrong = !right && picked === choice.id;
           return (
-            <button
+            <a
               key={choice.id}
-              type="button"
-              className={`hp-mystery__choice${state}`}
-              disabled={answered}
-              onClick={() => setPicked(choice.id)}
+              className={`hp-mystery__choice is-open${right ? ' is-right' : ''}${wrong ? ' is-wrong' : ''}`}
+              href={withBase(base, `/worlds/${choice.id}/`)}
             >
-              <span>{t(choice.gameTitle, locale)}</span>
-            </button>
+              <span className="hp-mystery__title">{title}</span>
+              {right ? (
+                <span className="hp-mystery__mark" aria-label={uiT('home.mysteryRight', locale)}>
+                  ✓
+                </span>
+              ) : wrong ? (
+                <span className="hp-mystery__mark" aria-label={uiT('home.mysteryWrong', locale)}>
+                  ✗
+                </span>
+              ) : (
+                <span className="hp-mystery__mark hp-mystery__mark--go" aria-hidden="true">
+                  →
+                </span>
+              )}
+            </a>
           );
         })}
       </div>
-      {answered ? (
-        <a className="hp-link hp-mystery__link" href={withBase(base, `/worlds/${world.id}/`)}>
-          {uiT('home.mysteryLink', locale)}
-        </a>
-      ) : null}
     </section>
   );
 }

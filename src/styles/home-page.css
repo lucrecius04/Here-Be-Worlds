@@ -511,41 +511,9 @@
   line-height: 1.38;
 }
 
-.hp-axes {
-  display: grid;
-  gap: 0.5625rem;
+.hp-featured .axis-bars {
   max-width: 31.25rem;
   margin-bottom: 1.5rem;
-}
-
-.hp-axes__row {
-  display: grid;
-  grid-template-columns: 6.25rem minmax(0, 1fr) 6.25rem;
-  gap: 0.75rem;
-  align-items: center;
-  font-family: var(--font-sans);
-  font-size: 0.78rem;
-  color: var(--color-ink-muted);
-}
-
-.hp-axes__row > span:last-child {
-  text-align: right;
-}
-
-.hp-axes__cells {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 3px;
-}
-
-.hp-axes__cells i {
-  display: block;
-  height: 8px;
-  background: var(--color-bar);
-}
-
-.hp-axes__cells i.is-on {
-  background: var(--hue);
 }
 
 .hp-featured__links {
@@ -572,12 +540,6 @@
 @media (max-width: 560px) {
   .hp-featured {
     padding: 1.5rem 1.25rem 1.625rem;
-  }
-
-  .hp-axes__row {
-    grid-template-columns: 5.25rem minmax(0, 1fr) 5.25rem;
-    gap: 0.5rem;
-    font-size: 0.72rem;
   }
 
   .hp-featured__core {
@@ -640,7 +602,10 @@
   line-height: 1.45;
 }
 
-.hp-mystery .mini-axes {
+/* Osy v hádance bez barvy archetypu: barva by prozradila odpověď. */
+.hp-mystery .axis-bars {
+  --hue: var(--color-ink);
+  max-width: 26rem;
   margin: -0.5rem 0 1.25rem;
 }
 
@@ -665,29 +630,62 @@
   cursor: pointer;
 }
 
-.hp-mystery__choice:hover:not(:disabled),
+.hp-mystery__choice:hover,
 .hp-mystery__choice:focus-visible {
   border-color: var(--color-ink);
 }
 
-.hp-mystery__choice:disabled {
-  cursor: default;
+.hp-mystery__choice.is-open {
+  text-decoration: none;
 }
 
+.hp-mystery__choice.is-open .hp-mystery__title {
+  text-decoration: none;
+}
+
+.hp-mystery__choice.is-open:hover .hp-mystery__title,
+.hp-mystery__choice.is-open:focus-visible .hp-mystery__title {
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.hp-mystery__mark {
+  flex: none;
+  font-family: var(--font-sans);
+  font-size: 1.125rem;
+  line-height: 1;
+  font-weight: 700;
+}
+
+.hp-mystery__mark--go {
+  font-weight: 400;
+  color: var(--color-ink-muted);
+}
+
+/* Správná odpověď: zelený rámeček a fajfka. Špatná zvolená: červený rámeček, přeškrtnutí, křížek. */
 .hp-mystery__choice.is-right {
-  border-color: var(--color-accent);
-  box-shadow: inset 3px 0 0 var(--color-accent);
+  border-color: var(--color-right);
+  box-shadow: inset 0 0 0 1px var(--color-right);
   font-weight: 600;
 }
 
-.hp-mystery__choice.is-wrong {
-  color: var(--color-ink-muted);
-  text-decoration: line-through;
+.hp-mystery__choice.is-right .hp-mystery__mark {
+  color: var(--color-right);
 }
 
-.hp-mystery__link {
-  display: inline-block;
-  margin-top: 1rem;
+.hp-mystery__choice.is-wrong {
+  border-color: var(--color-wrong);
+  box-shadow: inset 0 0 0 1px var(--color-wrong);
+}
+
+.hp-mystery__choice.is-wrong .hp-mystery__title {
+  color: var(--color-ink-muted);
+  text-decoration: line-through;
+  text-decoration-color: var(--color-wrong);
+}
+
+.hp-mystery__choice.is-wrong .hp-mystery__mark {
+  color: var(--color-wrong);
 }
 
 /* ---------- Rejstřík světů ---------- */
@@ -725,41 +723,36 @@
   scroll-margin-top: calc(var(--site-header-height) + 2.5rem);
 }
 
-.hp-index__col:target .hp-index__name {
-  color: var(--hue);
-}
-
 .hp-tab {
   align-self: flex-start;
+  max-width: 100%;
   padding: 0.3rem 0.625rem 0.25rem;
   border-radius: 3px 3px 0 0;
   background: var(--hue);
   font-family: var(--font-mono);
   font-size: 0.6875rem;
   font-weight: 600;
+  letter-spacing: 0.06em;
   line-height: 1.3;
+  text-transform: uppercase;
+  white-space: nowrap;
   color: var(--color-paper);
+  text-decoration: none;
+}
+
+a.hp-tab:hover,
+a.hp-tab:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.hp-index__col:target .hp-index__body {
+  background: color-mix(in srgb, var(--hue) 9%, transparent);
 }
 
 .hp-index__body {
   border-top: 3px solid var(--hue);
   padding-top: 0.625rem;
-}
-
-.hp-index__name {
-  display: block;
-  margin: 0 0 0.5rem;
-  font-family: var(--font-display);
-  font-size: 1rem;
-  font-weight: 600;
-  line-height: 1.2;
-  color: var(--color-ink);
-  text-decoration: none;
-}
-
-.hp-index__name:hover,
-.hp-index__name:focus-visible {
-  color: var(--hue);
 }
 
 .hp-index__list {

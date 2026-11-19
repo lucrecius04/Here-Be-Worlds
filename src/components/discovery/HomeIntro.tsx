@@ -3,14 +3,13 @@ import { useLocale } from '../../lib/locale-store';
 import { t, uiCount, uiT, worldsCountLabel, type Locale } from '../../lib/i18n';
 import { withBase } from '../../lib/base-url';
 import type { LocalizedString, World } from '../../schemas/world';
-import { dailyWorldIndex } from '../../lib/calendar';
-import { AXIS_KEYS } from '../../lib/axes';
+import { featuredWorldIndex } from '../../lib/calendar';
 import { TRAILS } from '../../lib/trails';
 import { mostRecentAdded } from '../../lib/atlas-news';
-import axesMeta from '../../../data/meta/axes.json';
-import { axisPoleLabel } from './MiniAxes';
+import AxisBars from './AxisBars';
 import DailyMystery from './DailyMystery';
 import ReaderDesk from './ReaderDesk';
+import WorldCompass from './WorldCompass';
 
 export type ChapterCardData = {
   id: string;
@@ -120,7 +119,7 @@ export default function HomeIntro({ chapters, worlds = [], base }: Props) {
   const chapterById = useMemo(() => Object.fromEntries(chapters.map((c, i) => [c.id, { ...c, index: i }])), [chapters]);
   const sky = useMemo(() => buildSky(worlds, chapters), [worlds, chapters]);
   const latest = mostRecentAdded(worlds);
-  const featured = today && worlds.length > 0 ? worlds[dailyWorldIndex(worlds.length, 0, today)] : undefined;
+  const featured = today && worlds.length > 0 ? worlds[featuredWorldIndex(worlds.length, today)] : undefined;
   const featuredChapter = featured ? chapterById[featured.chapterId] : undefined;
 
   const openRandom = () => {
@@ -246,7 +245,9 @@ export default function HomeIntro({ chapters, worlds = [], base }: Props) {
               <p className="hp-featured__meta">
                 <span>{uiT('home.featured', locale)}</span>
                 <span className="hp-featured__arch">
-                  {featuredChapter ? t(featuredChapter.title, locale) : ''}
+                  {[featuredChapter ? t(featuredChapter.title, locale) : '', t(featured.metadata.genreProfile, locale)]
+                    .filter(Boolean)
+                    .join(' · ')}
                 </span>
               </p>
               <h2 className="hp-featured__title">
@@ -282,11 +283,10 @@ export default function HomeIntro({ chapters, worlds = [], base }: Props) {
               if (!items.length) return null;
               return (
                 <div key={chapter.id} id={`rejstrik-${chapter.id}`} className="hp-index__col" style={hueVars(chapter.accent)}>
-                  <span className="hp-tab">{items.length}</span>
+                  <a className="hp-tab" href={withBase(base, `/chapters/${chapter.id}/`)} title={t(chapter.title, locale)}>
+                    {uiT(SKY_NAME[chapter.id] ?? '', locale) || t(chapter.title, locale)} · {items.length}
+                  </a>
                   <div className="hp-index__body">
-                    <a className="hp-index__name" href={withBase(base, `/chapters/${chapter.id}/`)}>
-                      {t(chapter.title, locale)}
-                    </a>
                     <ul className="hp-index__list">
                       {items.map((w) => (
                         <li key={w.id}>
@@ -302,6 +302,8 @@ export default function HomeIntro({ chapters, worlds = [], base }: Props) {
             })}
           </div>
         </section>
+
+        <WorldCompass worlds={worlds} locale={locale} base={base} alwaysOpen />
 
         <nav className="hp-ways" aria-label={uiT('home2.waysAria', locale)}>
           <a className="hp-way" href={withBase(base, '/atlas/')}>
@@ -339,7 +341,7 @@ export default function HomeIntro({ chapters, worlds = [], base }: Props) {
                   <span className="hp-trail__name">{uiT(trail.nameKey, locale)}</span>
                   <span className="hp-trail__worlds">
                     {shown.join(' · ')}
-                    {rest > 0 ? ` · ${uiT('home2.trailsMore', locale).replace('{n}', String(rest))}` : ''}
+                    {rest > 0 ? ` · ${uiT(rest === 1 ? 'home2.trailsMoreOne' : rest < 5 ? 'home2.trailsMoreFew' : 'home2.trailsMore', locale).replace('{n}', String(rest))}` : ''}
                   </span>
                 </a>
               );
@@ -347,29 +349,6 @@ export default function HomeIntro({ chapters, worlds = [], base }: Props) {
           </div>
         </section>
       </div>
-    </div>
-  );
-}
-
-/** Profil světa jako pět řad po pěti dílcích (barva archetypu). */
-function AxisBars({ world, locale }: { world: World; locale: Locale }) {
-  return (
-    <div className="hp-axes" aria-label={uiT('card.profileWorld', locale)}>
-      {AXIS_KEYS.map((key) => {
-        const meta = axesMeta.axes.find((a) => a.id === key) ?? axesMeta.axes[0];
-        const value = world.axes[key].value;
-        return (
-          <div key={key} className="hp-axes__row">
-            <span>{axisPoleLabel(meta, 'left', locale)}</span>
-            <span className="hp-axes__cells" aria-label={`${value} / 5`}>
-              {[1, 2, 3, 4, 5].map((v) => (
-                <i key={v} className={v === value ? 'is-on' : undefined} />
-              ))}
-            </span>
-            <span>{axisPoleLabel(meta, 'right', locale)}</span>
-          </div>
-        );
-      })}
     </div>
   );
 }

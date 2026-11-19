@@ -54,18 +54,6 @@ html[data-theme='dark'] .chapter-page {
   border-top: 4px solid var(--hue);
 }
 
-.chapter-hero__roman {
-  display: inline-block;
-  margin: 0 0 0.875rem;
-  padding: 0.3rem 0.625rem 0.25rem;
-  background: var(--hue);
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  color: var(--color-paper);
-}
-
 .chapter-hero__title {
   margin: 0;
   min-width: 0;
@@ -179,5 +167,82 @@ html[data-theme='dark'] .chapter-page {
 @media (max-width: 900px) {
   .chapter-hero__grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Profil archetypu: kosočtverec průměru a pás rozpětí světů na stupnici 1–5. */
+.axis-range {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.axis-range__row {
+  display: grid;
+  grid-template-columns: 6rem minmax(0, 1fr) 6rem;
+  gap: 0.75rem;
+  align-items: center;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  line-height: 1.2;
+  color: var(--color-ink-muted);
+}
+
+.axis-range__pole--right {
+  text-align: right;
+}
+
+.axis-range__pole.is-lean {
+  color: var(--color-ink);
+  font-weight: 600;
+}
+
+.axis-range__track {
+  position: relative;
+  height: 14px;
+  margin: 0 7px;
+}
+
+.axis-range__track::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  background: var(--color-line);
+}
+
+.axis-range__tick {
+  position: absolute;
+  top: 50%;
+  width: 4px;
+  height: 4px;
+  margin: -2px 0 0 -2px;
+  border-radius: 50%;
+  background: var(--color-bar);
+}
+
+.axis-range__band {
+  position: absolute;
+  top: 50%;
+  height: 6px;
+  margin-top: -3px;
+  background: color-mix(in srgb, var(--chapter-hue) 30%, transparent);
+}
+
+.axis-range__mark {
+  position: absolute;
+  top: 50%;
+  width: 9px;
+  height: 9px;
+  margin: -4.5px 0 0 -4.5px;
+  background: var(--chapter-hue);
+  transform: rotate(45deg);
+}
+
+@media (max-width: 560px) {
+  .axis-range__row {
+    grid-template-columns: 5.25rem minmax(0, 1fr) 5.25rem;
+    gap: 0.5rem;
   }
 }

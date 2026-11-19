@@ -5,32 +5,19 @@ import { withBase } from '../../lib/base-url';
 import { AXIS_KEYS } from '../../lib/axes';
 import { DEFAULT_IMPRINT, imprintNeighbors, type AxisValues } from '../../lib/imprint';
 import axesMeta from '../../../data/meta/axes.json';
-
-const SHORT_POLES: Record<string, { left: { cs: string; en: string }; right: { cs: string; en: string } }> = {
-  moralClarityAmbiguity: {
-    left: { cs: 'Jednoznačné', en: 'Absolute' },
-    right: { cs: 'Komplexní', en: 'Complex' },
-  },
-};
+import { axisPoleLabel as poleLabel } from './MiniAxes';
 
 type Props = {
   worlds: World[];
   locale: Locale;
   base: string;
+  /** Na titulní straně je kompas otevřený rovnou, bez přepínače. */
+  alwaysOpen?: boolean;
 };
 
-function poleLabel(
-  axis: (typeof axesMeta.axes)[number],
-  side: 'left' | 'right',
-  locale: Locale,
-): string {
-  const compact = SHORT_POLES[axis.id];
-  if (compact) return compact[side][locale];
-  return t(axis[side], locale);
-}
-
-export default function WorldCompass({ worlds, locale, base }: Props) {
-  const [open, setOpen] = useState(false);
+export default function WorldCompass({ worlds, locale, base, alwaysOpen = false }: Props) {
+  const [toggled, setOpen] = useState(false);
+  const open = alwaysOpen || toggled;
   const [values, setValues] = useState<AxisValues>(DEFAULT_IMPRINT);
   const catalog = useMemo(() => worlds.filter((world) => !world.draft), [worlds]);
   const { nearest, antipode } = useMemo(
@@ -43,47 +30,48 @@ export default function WorldCompass({ worlds, locale, base }: Props) {
       : null;
 
   return (
-    <section className="compass" aria-label={uiT('home.compassTitle', locale)}>
-      <button
-        type="button"
-        className="compass__toggle"
-        aria-expanded={open}
-        onClick={() => setOpen((value) => !value)}
-      >
-        {uiT('home.compassToggle', locale)}
-      </button>
+    <section className={`compass${alwaysOpen ? ' compass--open' : ''}`} aria-label={uiT('home.compassTitle', locale)}>
+      {alwaysOpen ? null : (
+        <button
+          type="button"
+          className="compass__toggle"
+          aria-expanded={open}
+          onClick={() => setOpen((value) => !value)}
+        >
+          {uiT('home.compassToggle', locale)}
+        </button>
+      )}
       {open ? (
         <div className="compass__panel">
-          <h2 className="home-section-title">{uiT('home.compassTitle', locale)}</h2>
+          <h2 className={alwaysOpen ? 'hp-h2' : 'home-section-title'}>
+            {uiT(alwaysOpen ? 'home2.compassTitle' : 'home.compassTitle', locale)}
+          </h2>
           <p className="compass__lead">{uiT('home.compassLead', locale)}</p>
           <div className="compass__grid">
-            <div className="compass__axes" role="group" aria-label={uiT('card.axesAria', locale)}>
+            <div className="axis-bars compass__axes" role="group" aria-label={uiT('card.axesAria', locale)}>
               {axesMeta.axes.map((axis) => {
                 const key = axis.id as (typeof AXIS_KEYS)[number];
                 const value = values[key];
+                const left = poleLabel(axis, 'left', locale);
+                const right = poleLabel(axis, 'right', locale);
+                const lean = value < 3 ? 'left' : value > 3 ? 'right' : null;
                 return (
-                  <div key={axis.id} className="mini-axes__row compass__row">
-                    <span className="mini-axes__pole mini-axes__pole--left">
-                      {poleLabel(axis, 'left', locale)}
+                  <div key={axis.id} className="axis-bars__row" title={t(axis.help, locale)}>
+                    <span className={`axis-bars__pole${lean === 'left' ? ' is-lean' : ''}`}>{left}</span>
+                    <span className="axis-bars__cells compass__cells">
+                      {[1, 2, 3, 4, 5].map((tick) => (
+                        <button
+                          key={tick}
+                          type="button"
+                          className={`compass__cell${tick === value ? ' is-on' : ''}`}
+                          aria-label={`${t(axis.left, locale)} ↔ ${t(axis.right, locale)}: ${tick} / 5`}
+                          aria-pressed={tick === value}
+                          onClick={() => setValues((current) => ({ ...current, [key]: tick }))}
+                        />
+                      ))}
                     </span>
-                    <span className="mini-axes__track">
-                      {[1, 2, 3, 4, 5].map((tick) => {
-                        const dist = Math.abs(tick - value);
-                        const state = dist === 0 ? 'on' : dist === 1 ? 'near' : '';
-                        return (
-                          <button
-                            key={tick}
-                            type="button"
-                            className={`mini-axes__tick compass__tick${state ? ` mini-axes__tick--${state}` : ''}`}
-                            aria-label={`${poleLabel(axis, 'left', locale)} ${tick}/5`}
-                            aria-pressed={tick === value}
-                            onClick={() => setValues((current) => ({ ...current, [key]: tick }))}
-                          />
-                        );
-                      })}
-                    </span>
-                    <span className="mini-axes__pole mini-axes__pole--right">
-                      {poleLabel(axis, 'right', locale)}
+                    <span className={`axis-bars__pole axis-bars__pole--right${lean === 'right' ? ' is-lean' : ''}`}>
+                      {right}
                     </span>
                   </div>
                 );

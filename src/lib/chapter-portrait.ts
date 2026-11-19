@@ -67,3 +67,20 @@ export function axisExtremes(worlds: World[], limit = 3): AxisExtreme[] {
 
   return extremes;
 }
+
+export type AxisSpread = Record<(typeof AXIS_KEYS)[number], { mean: number; min: number; max: number }>;
+
+/** Průměr a rozpětí (nejnižší a nejvyšší svět) archetypu na každé ose, bez zaokrouhlení. */
+export function axisSpread(worlds: World[]): AxisSpread | null {
+  if (worlds.length === 0) return null;
+  const out = {} as AxisSpread;
+  for (const key of AXIS_KEYS) {
+    const values = worlds.map((world) => world.axes[key].value);
+    out[key] = {
+      mean: values.reduce((sum, v) => sum + v, 0) / values.length,
+      min: Math.min(...values),
+      max: Math.max(...values),
+    };
+  }
+  return out;
+}

@@ -15,6 +15,8 @@
   --color-chip: #e8e4dd;
   --color-chip-line: #cfc9bf;
   --color-desk: #f4f2ee;
+  --color-right: #2f7d52;
+  --color-wrong: #b5452f;
   --color-night: #0d1324;
   --color-night-ink: #ece8e0;
   --color-night-muted: #8e97ad;
@@ -67,6 +69,8 @@
   --color-chip: #1c2640;
   --color-chip-line: #34406a;
   --color-desk: #0d1324;
+  --color-right: #74c69a;
+  --color-wrong: #ee8a76;
   --color-night: #080c18;
   --color-night-ink: #ece8e0;
   --color-night-muted: #8e97ad;
