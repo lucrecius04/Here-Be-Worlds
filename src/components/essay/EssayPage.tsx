@@ -1,10 +1,11 @@
 import { useEffect, useMemo, useState, type ReactNode } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { uiT } from '../../lib/i18n';
+import { countWord, uiT } from '../../lib/i18n';
 import { useLocale } from '../../lib/locale-store';
 import { withBase } from '../../lib/base-url';
 import { slugifyChronicleHeading } from '../../lib/chronicle-toc';
+import ReadingToc, { type ReadingTocItem } from '../reading/ReadingToc';
 import '../../styles/essay.css';
 
 export type EssayWorldLink = { id: string; titles: string[] };
@@ -25,7 +26,8 @@ const ANCHOR_OVERRIDES: Record<string, string> = {
   'rizena-mezera': 'rizena-mezera',
 };
 
-const ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII', 'XIII', 'XIV', 'XV'];
+/** Kapitoly bez čísla: úvod a seznam zdrojů. */
+const UNNUMBERED = /^(úvodem|zdroje)$/i;
 
 function textOf(children: ReactNode): string {
   if (children == null || typeof children === 'boolean') return '';
@@ -42,11 +44,22 @@ function anchorFor(text: string): string {
   return ANCHOR_OVERRIDES[slug] ?? slug;
 }
 
-function extractToc(markdown: string) {
+function extractToc(markdown: string): ReadingTocItem[] {
+  let n = 0;
   return [...markdown.matchAll(/^## (.+)$/gm)].map((m) => {
     const title = m[1].trim();
-    return { id: anchorFor(title), title };
+    const kicker = UNNUMBERED.test(title) ? undefined : String(++n).padStart(2, '0');
+    return { id: anchorFor(title), title, kicker };
   });
+}
+
+/** Odhad doby čtení: 200 slov za minutu, stejně jako u kronik. */
+function readingMinutes(markdown: string): number {
+  const words = markdown
+    .replace(/[#>*_`|[\]()-]+/g, ' ')
+    .split(/\s+/)
+    .filter(Boolean).length;
+  return Math.max(1, Math.round(words / 200));
 }
 
 type MdNode = { children?: MdNode[]; tagName?: string; type?: string; value?: string };
@@ -62,6 +75,9 @@ function blockLabel(node: MdNode | undefined): string {
 export default function EssayPage({ base, markdown, title, kicker, tagline, worlds }: Props) {
   const locale = useLocale();
   const toc = useMemo(() => extractToc(markdown), [markdown]);
+  const minutes = useMemo(() => readingMinutes(markdown), [markdown]);
+  const chapterCount = toc.filter((h) => h.kicker).length;
+  const meta = `${countWord(chapterCount, ['kapitola', 'kapitoly', 'kapitol'], ['chapter', 'chapters'], locale)} · ${minutes} min`;
   const [active, setActive] = useState(toc[0]?.id ?? '');
 
   const worldHref = useMemo(() => {
@@ -98,32 +114,17 @@ export default function EssayPage({ base, markdown, title, kicker, tagline, worl
   }, [toc]);
 
   return (
-    <article className="essay-frame">
-      <p className="essay__back">
-        <a href={withBase(base, '/atlas/')}>{uiT('essay.back', locale)}</a>
-      </p>
-      <header className="essay__masthead">
+    <article className="essay">
+      <header className="essay__head">
         {kicker ? <p className="essay__kicker">{kicker}</p> : null}
-        <h1 className="essay__title display">{title}</h1>
-        <div className="essay__ornament" aria-hidden="true">
-          <span>✦</span>
-          <span>✦</span>
-          <span>✦</span>
-        </div>
+        <h1 className="essay__title">{title}</h1>
         {tagline ? <p className="essay__tagline">{tagline}</p> : null}
       </header>
 
       <div className="essay-layout">
-        <nav className="essay-toc" aria-label={uiT('essay.toc', locale)}>
-          <details className="essay-toc__mobile">
-            <summary>{uiT('essay.toc', locale)}</summary>
-            <TocList toc={toc} active={active} />
-          </details>
-          <div className="essay-toc__desktop">
-            <p className="essay-toc__label">{uiT('essay.toc', locale)}</p>
-            <TocList toc={toc} active={active} />
-          </div>
-        </nav>
+        <aside className="essay-toc">
+          <ReadingToc items={toc} active={active} label={uiT('essay.toc', locale)} meta={meta} />
+        </aside>
 
         <div className="essay-prose" lang="cs">
           <ReactMarkdown
@@ -132,11 +133,10 @@ export default function EssayPage({ base, markdown, title, kicker, tagline, worl
               h2: ({ children }) => {
                 const text = textOf(children);
                 const id = anchorFor(text);
-                const index = toc.findIndex((h) => h.id === id);
-                const isLast = /^Zdroje$/i.test(text);
+                const kickerNo = toc.find((h) => h.id === id)?.kicker;
                 return (
                   <h2 id={id} className="essay-chapter">
-                    {isLast || index < 0 ? null : <span className="essay-chapter__no">{ROMAN[index]}</span>}
+                    {kickerNo ? <span className="essay-chapter__no">{kickerNo}</span> : null}
                     {children}
                   </h2>
                 );
@@ -194,21 +194,6 @@ export default function EssayPage({ base, markdown, title, kicker, tagline, worl
         </div>
       </div>
     </article>
-  );
-}
-
-function TocList({ toc, active }: { toc: { id: string; title: string }[]; active: string }) {
-  return (
-    <ol className="essay-toc__list">
-      {toc.map((h, i) => (
-        <li key={h.id}>
-          <a href={`#${h.id}`} className={active === h.id ? 'is-active' : undefined}>
-            {/^Zdroje$/i.test(h.title) ? null : <span className="essay-toc__no">{ROMAN[i]}</span>}
-            <span>{h.title}</span>
-          </a>
-        </li>
-      ))}
-    </ol>
   );
 }
 
