@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState, type CSSProperties } from 'react';
 import type { World } from '../../schemas/world';
 import type { LocalizedString } from '../../schemas/world';
-import { createWorldIndex } from '../../lib/search';
+import { createWorldIndex, searchWorldIds } from '../../lib/search';
 import { useLocale } from '../../lib/locale-store';
 import { t, uiT, worldCountLabel, type Locale } from '../../lib/i18n';
 import {
@@ -128,8 +128,7 @@ export default function AtlasExplorer({
   const unscoped = useMemo(() => {
     let ids: Set<string> | null = null;
     if (query.trim()) {
-      const hits = index.search(query, { prefix: true, fuzzy: 0.15 });
-      ids = new Set(hits.map((h) => h.id));
+      ids = searchWorldIds(index, query);
     }
     const trail = trailById(activeTrail);
     return worlds.filter((w) => {
@@ -183,7 +182,6 @@ export default function AtlasExplorer({
   return (
     <>
     <header className="atlas-page__head">
-      <p className="atlas-page__kicker">{worldCountLabel(worlds.length, locale)}</p>
       <h1 className="atlas-page__title display">{uiT('atlasPage.title', locale)}</h1>
       <p className="atlas-page__lead">{uiT('atlasPage.lead', locale)}</p>
     </header>

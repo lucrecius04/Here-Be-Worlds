@@ -24,7 +24,7 @@ export default function CatalogWorldCard({
 }: Props) {
   const genre = t(world.metadata.genreProfile, locale);
   const universe = world.universe?.[0] ? t(world.universe[0], locale) : '';
-  const meta = [universe, genre].filter(Boolean).join(' · ');
+  const tag = [genre, universe].filter(Boolean).join(' · ');
   const href = withBase(base, `/worlds/${world.id}/`);
   const selected = useCompareTray().includes(world.id);
   const hueVars = accent
@@ -38,8 +38,8 @@ export default function CatalogWorldCard({
     <article className="catalog-card" style={hueVars}>
       <div className="catalog-card__top">
         <span className="catalog-card__meta">
+          {tag ? <span className="catalog-card__tag">{tag}</span> : null}
           {isNew ? <span className="catalog-card__new">{uiT('home.newEntry', locale)}</span> : null}
-          {meta}
         </span>
         <button
           type="button"

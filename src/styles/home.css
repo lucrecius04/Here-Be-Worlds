@@ -895,23 +895,38 @@ html[data-theme='dark'] .catalog-group {
 .catalog-card__top {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
   gap: 1rem;
 }
 
 .catalog-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.375rem 0.625rem;
   min-width: 0;
+}
+
+/* podžánr a místo děje: podbarvený štítek v barvě archetypu, hranatý */
+.catalog-card__tag {
+  padding: 0.25rem 0.5rem 0.1875rem;
+  background: color-mix(in srgb, var(--chapter-hue) 15%, transparent);
+  border-left: 2px solid var(--chapter-hue);
   font-family: var(--font-mono);
   font-size: 0.6875rem;
   font-weight: 500;
   letter-spacing: 0.06em;
-  line-height: 1.4;
+  line-height: 1.35;
   text-transform: uppercase;
-  color: var(--color-ink-muted);
+  color: var(--color-ink);
 }
 
 .catalog-card__new {
-  margin-right: 0.625rem;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   color: var(--color-accent);
 }
 

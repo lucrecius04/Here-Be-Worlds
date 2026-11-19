@@ -973,7 +973,7 @@ a.hp-tab:focus-visible {
 
 .atlas-page__head {
   margin: 0.5rem 0 2.5rem;
-  max-width: 48rem;
+  max-width: 64rem;
 }
 
 .atlas-page__kicker {
@@ -995,7 +995,7 @@ a.hp-tab:focus-visible {
 
 .atlas-page__lead {
   margin: 0;
-  max-width: 40ch;
+  text-wrap: pretty;
   font-family: var(--font-text);
   font-size: 1.25rem;
   line-height: 1.5;
