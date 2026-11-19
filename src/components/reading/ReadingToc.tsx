@@ -4,7 +4,7 @@ import '../../styles/reading-toc.css';
 export type ReadingTocItem = {
   id: string;
   title: string;
-  /** Drobný štítek nad názvem: „Kniha první“, „01“. Úvodem a Epilog ho nemají. */
+  /** Číslo před názvem („01“). Úvodem, Epilog a Zdroje ho nemají, názvy přesto lícují. */
   kicker?: string;
 };
 

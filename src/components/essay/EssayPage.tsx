@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState, type ReactNode } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { countWord, uiT } from '../../lib/i18n';
+import { uiT } from '../../lib/i18n';
 import { useLocale } from '../../lib/locale-store';
 import { withBase } from '../../lib/base-url';
 import { slugifyChronicleHeading } from '../../lib/chronicle-toc';
@@ -76,8 +76,7 @@ export default function EssayPage({ base, markdown, title, kicker, tagline, worl
   const locale = useLocale();
   const toc = useMemo(() => extractToc(markdown), [markdown]);
   const minutes = useMemo(() => readingMinutes(markdown), [markdown]);
-  const chapterCount = toc.filter((h) => h.kicker).length;
-  const meta = `${countWord(chapterCount, ['kapitola', 'kapitoly', 'kapitol'], ['chapter', 'chapters'], locale)} · ${minutes} min`;
+
   const [active, setActive] = useState(toc[0]?.id ?? '');
 
   const worldHref = useMemo(() => {
@@ -119,11 +118,12 @@ export default function EssayPage({ base, markdown, title, kicker, tagline, worl
         {kicker ? <p className="essay__kicker">{kicker}</p> : null}
         <h1 className="essay__title">{title}</h1>
         {tagline ? <p className="essay__tagline">{tagline}</p> : null}
+        <p className="essay__meta">{uiT('essay.readTime', locale).replace('{n}', String(minutes))}</p>
       </header>
 
       <div className="essay-layout">
         <aside className="essay-toc">
-          <ReadingToc items={toc} active={active} label={uiT('essay.toc', locale)} meta={meta} />
+          <ReadingToc items={toc} active={active} label={uiT('essay.toc', locale)} />
         </aside>
 
         <div className="essay-prose" lang="cs">
