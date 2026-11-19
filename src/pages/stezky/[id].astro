@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import EssayPage from '../../components/essay/EssayPage';
+import { worlds, chapters } from '../../lib/worlds';
+import { trailById } from '../../lib/trails';
+import { AXIS_KEYS } from '../../lib/axes';
+
+/** Eseje ke stezkám: content/trails/<slug>.md, ve frontmatteru `trail:` = id stezky z trails.ts. */
+const files = import.meta.glob('../../../content/trails/*.md', { query: '?raw', import: 'default', eager: true }) as Record<string, string>;
+
+function parse(raw: string) {
+  const fm = raw.match(/^---\r?\n([\s\S]*?)\r?\n---\s*/);
+  const meta = (key: string) =>
+    fm ? new RegExp(`^${key}:\\s*(.+?)\\s*$`, 'm').exec(fm[1])?.[1]?.trim() : undefined;
+  return { meta, markdown: fm ? raw.slice(fm[0].length).trim() : raw.trim() };
+}
+
+export function getStaticPaths() {
+  const all = import.meta.glob('../../../content/trails/*.md', { query: '?raw', import: 'default', eager: true }) as Record<string, string>;
+  return Object.keys(all).map((path) => ({ params: { id: path.split('/').pop()!.replace(/\.md$/, '') } }));
+}
+
+const { id } = Astro.params;
+const raw = Object.entries(files).find(([path]) => path.endsWith(`/${id}.md`))?.[1] ?? '';
+const { meta, markdown } = parse(raw);
+const trail = trailById(meta('trail'));
+const base = import.meta.env.BASE_URL;
+const title = meta('title') ?? id;
+
+const SHORT: Record<string, string> = {
+  fantasy: 'Fantasy',
+  'science-fiction': 'Sci-fi',
+  'post-apocalypse': 'Postapokalypsa',
+  horror: 'Horor',
+  historical: 'Historie',
+  dystopia: 'Dystopie',
+  metaphysical: 'Metafyzika',
+};
+
+const published = worlds.filter((w) => !w.draft);
+const trailWorlds = (trail?.members ?? [])
+  .map((wid) => published.find((w) => w.id === wid))
+  .filter((w): w is (typeof published)[number] => Boolean(w))
+  .map((w) => {
+    const chapter = chapters.find((c) => c.id === w.chapterId);
+    return {
+      id: w.id,
+      title: w.gameTitle.cs ?? w.gameTitle.en,
+      core: w.core.cs ?? w.core.en,
+      archetype: SHORT[w.chapterId] ?? chapter?.title.cs ?? '',
+      accent: chapter?.accent ?? { light: 'currentColor', dark: 'currentColor' },
+      axes: Object.fromEntries(AXIS_KEYS.map((key) => [key, w.axes[key].value])),
+    };
+  });
+
+// Odkazy na světy v tabulkách eseje (stejně jako u Anatomie herního lore).
+const worldLinks = published
+  .filter((w) => !w.id.startsWith('vzorek-'))
+  .map((w) => ({ id: w.id, titles: [w.gameTitle.cs, w.gameTitle.en].filter(Boolean) as string[] }));
+---
+
+<BaseLayout title={`${title} — Here Be Worlds`} description={meta('description')}>
+  <EssayPage
+    client:load
+    base={base}
+    markdown={markdown}
+    title={title}
+    kicker={meta('kicker')}
+    tagline={meta('tagline')}
+    worlds={worldLinks}
+    trail={{ worlds: trailWorlds }}
+  />
+</BaseLayout>

@@ -1,14 +1,25 @@
 import { useEffect, useMemo, useState, type ReactNode } from 'react';
-import ReactMarkdown from 'react-markdown';
+import ReactMarkdown, { type Components } from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { uiT } from '../../lib/i18n';
 import { useLocale } from '../../lib/locale-store';
 import { withBase } from '../../lib/base-url';
 import { slugifyChronicleHeading } from '../../lib/chronicle-toc';
 import ReadingToc, { type ReadingTocItem } from '../reading/ReadingToc';
+import TrailWorlds, { TRAIL_WORLDS_ID } from './TrailWorlds';
 import '../../styles/essay.css';
 
 export type EssayWorldLink = { id: string; titles: string[] };
+
+/** Svět stezky pro blok „Světy stezky“ pod esejem. */
+export type TrailWorldInfo = {
+  id: string;
+  title: string;
+  core: string;
+  archetype: string;
+  accent: { light: string; dark: string };
+  axes: Record<string, number>;
+};
 
 type Props = {
   base: string;
@@ -17,6 +28,8 @@ type Props = {
   kicker?: string;
   tagline?: string;
   worlds: EssayWorldLink[];
+  /** Esej ke stezce: pod textem (před Zdroji) se vloží Světy stezky. */
+  trail?: { worlds: TrailWorldInfo[] };
 };
 
 /** Stabilní kotvy, na které odkazuje triáda na kartě světa. */
@@ -27,7 +40,7 @@ const ANCHOR_OVERRIDES: Record<string, string> = {
 };
 
 /** Kapitoly bez čísla: úvod a seznam zdrojů. */
-const UNNUMBERED = /^(úvodem|zdroje)$/i;
+const UNNUMBERED = /^(úvodem|zdroje|světy stezky)$/i;
 
 function textOf(children: ReactNode): string {
   if (children == null || typeof children === 'boolean') return '';
@@ -72,9 +85,26 @@ function blockLabel(node: MdNode | undefined): string {
   return (strong.children ?? []).map((c) => c.value ?? '').join('');
 }
 
-export default function EssayPage({ base, markdown, title, kicker, tagline, worlds }: Props) {
+/** U stezky se Zdroje oddělí, aby mezi text a prameny mohly přijít Světy stezky. */
+function splitSources(markdown: string): [string, string] {
+  const at = markdown.search(/^## Zdroje\s*$/m);
+  return at < 0 ? [markdown, ''] : [markdown.slice(0, at), markdown.slice(at)];
+}
+
+export default function EssayPage({ base, markdown, title, kicker, tagline, worlds, trail }: Props) {
   const locale = useLocale();
-  const toc = useMemo(() => extractToc(markdown), [markdown]);
+  const [mainMd, sourcesMd] = useMemo(
+    () => (trail ? splitSources(markdown) : [markdown, '']),
+    [markdown, trail],
+  );
+  const toc = useMemo(() => {
+    const items = extractToc(mainMd);
+    if (trail) {
+      items.push({ id: TRAIL_WORLDS_ID, title: uiT('trails.worldsHeading', locale) });
+      items.push(...extractToc(sourcesMd));
+    }
+    return items;
+  }, [mainMd, sourcesMd, trail, locale]);
   const minutes = useMemo(() => readingMinutes(markdown), [markdown]);
 
   const [active, setActive] = useState(toc[0]?.id ?? '');
@@ -112,24 +142,7 @@ export default function EssayPage({ base, markdown, title, kicker, tagline, worl
     };
   }, [toc]);
 
-  return (
-    <article className="essay">
-      <header className="essay__head">
-        {kicker ? <p className="essay__kicker">{kicker}</p> : null}
-        <h1 className="essay__title">{title}</h1>
-        {tagline ? <p className="essay__tagline">{tagline}</p> : null}
-        <p className="essay__meta">{uiT('essay.readTime', locale).replace('{n}', String(minutes))}</p>
-      </header>
-
-      <div className="essay-layout">
-        <aside className="essay-toc">
-          <ReadingToc items={toc} active={active} label={uiT('essay.toc', locale)} />
-        </aside>
-
-        <div className="essay-prose" lang="cs">
-          <ReactMarkdown
-            remarkPlugins={[remarkGfm]}
-            components={{
+  const mdComponents: Components = {
               h2: ({ children }) => {
                 const text = textOf(children);
                 const id = anchorFor(text);
@@ -187,10 +200,34 @@ export default function EssayPage({ base, markdown, title, kicker, tagline, worl
                   </aside>
                 );
               },
-            }}
-          >
-            {markdown}
+            };
+
+  return (
+    <article className="essay">
+      <header className="essay__head">
+        {kicker ? <p className="essay__kicker">{kicker}</p> : null}
+        <h1 className="essay__title">{title}</h1>
+        {tagline ? <p className="essay__tagline">{tagline}</p> : null}
+        <p className="essay__meta">{uiT('essay.readTime', locale).replace('{n}', String(minutes))}</p>
+      </header>
+
+      <div className="essay-layout">
+        <aside className="essay-toc">
+          <ReadingToc items={toc} active={active} label={uiT('essay.toc', locale)} />
+        </aside>
+
+        <div className="essay-prose" lang="cs">
+          <ReactMarkdown remarkPlugins={[remarkGfm]} components={mdComponents}>
+            {mainMd}
           </ReactMarkdown>
+          {trail ? (
+            <>
+              <TrailWorlds worlds={trail.worlds} base={base} locale={locale} />
+              <ReactMarkdown remarkPlugins={[remarkGfm]} components={mdComponents}>
+                {sourcesMd}
+              </ReactMarkdown>
+            </>
+          ) : null}
         </div>
       </div>
     </article>
