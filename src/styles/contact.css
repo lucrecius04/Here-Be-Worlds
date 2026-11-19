@@ -1,121 +1,90 @@
-.site-main:has(.contact-page) {
-  display: flex;
-  flex-direction: column;
-}
-
-.contact-page {
-  max-width: 40rem;
-  width: 100%;
-  margin: 0 auto;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  min-height: 0;
-}
-
-.contact-page__title {
-  margin: 0;
-  font-size: 2.15rem;
-  line-height: 1.15;
-}
-
-.contact-page__lead {
-  margin: 0.55rem 0 0;
-  font-size: 1rem;
-  line-height: 1.5;
-  color: var(--color-ink-muted);
-}
-
+/* Kontakt: formulář v čtecí šíři, pole bez zaoblení a podkladu, jen linka; tlačítko jako na titulní straně. */
 .contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.05rem;
-  margin-top: 1.45rem;
-  flex: 1;
-  min-height: 0;
+  display: grid;
+  gap: 1.5rem;
+  max-width: 40rem;
 }
 
 .contact-form__row {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.05rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
 }
 
 .contact-field {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-  font-family: var(--font-sans);
-  font-size: 0.82rem;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.contact-field > span {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
   font-weight: 500;
-  color: var(--color-ink);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
 }
 
 .contact-field input,
 .contact-field textarea {
   width: 100%;
-  box-sizing: border-box;
   margin: 0;
-  padding: 0.72rem 0.9rem;
+  padding: 0.75rem 0.875rem;
   border: 1px solid var(--color-line);
-  border-radius: 8px;
-  background: var(--color-tile);
+  border-radius: 0;
+  background: transparent;
+  font-family: var(--font-text);
+  font-size: 1.0625rem;
+  line-height: 1.5;
   color: var(--color-ink);
-  font: inherit;
-  font-weight: 400;
-  font-size: 0.95rem;
-  line-height: 1.45;
-}
-
-.contact-field--message {
-  flex: 1;
-  min-height: 0;
+  transition: border-color 0.15s ease;
 }
 
 .contact-field textarea {
-  flex: 1;
+  min-height: 14rem;
   resize: vertical;
-  min-height: 16rem;
-  font-family: var(--font-sans);
 }
 
 .contact-field input::placeholder,
 .contact-field textarea::placeholder {
   color: var(--color-ink-muted);
-  opacity: 0.72;
+  opacity: 0.7;
+}
+
+.contact-field input:hover,
+.contact-field textarea:hover {
+  border-color: var(--color-ink-muted);
 }
 
 .contact-field input:focus,
 .contact-field textarea:focus {
   outline: none;
   border-color: var(--color-accent);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 22%, transparent);
+  box-shadow: inset 0 0 0 1px var(--color-accent);
 }
 
 .contact-form__submit {
-  align-self: flex-start;
-  margin-top: 0.2rem;
-  border: none;
-  border-radius: 8px;
-  padding: 0.72rem 1.35rem;
-  background: var(--color-accent);
-  color: #16110c;
+  justify-self: start;
+  padding: 0.875rem 1.375rem;
+  border: 1px solid var(--color-ink);
+  border-radius: var(--radius-sm);
+  background: var(--color-ink);
   font-family: var(--font-sans);
-  font-size: 0.95rem;
+  font-size: 0.9375rem;
   font-weight: 600;
+  line-height: 1.2;
+  color: var(--color-paper);
   cursor: pointer;
 }
 
-.contact-form__submit:hover {
-  filter: brightness(1.08);
-}
-
-html[data-theme='dark'] .contact-form__submit {
-  color: #16110c;
+.contact-form__submit:hover,
+.contact-form__submit:focus-visible {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
 }
 
 @media (max-width: 720px) {
   .contact-form__row {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }

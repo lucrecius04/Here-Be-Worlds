@@ -479,3 +479,131 @@ body:has(.world-card--page) .site-footer {
     grid-row: 2;
   }
 }
+
+/* ---------- Jednoduché stránky (O projektu, Vysvětlivky, Kontakt) ----------
+   Hlavička jako na atlasu: mono štítek, velký nadpis Fraunces, úvod v Source Serif.
+   Zarovnáno vlevo, bez ozdob a rámečků; oddíly dělí linky. */
+
+.doc {
+  width: 100%;
+}
+
+.doc-head {
+  margin: 0.5rem 0 3rem;
+  max-width: 48rem;
+}
+
+.doc-kicker {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+.doc-title {
+  margin: 0 0 0.875rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1;
+  letter-spacing: -0.025em;
+}
+
+.doc-lead {
+  margin: 0;
+  max-width: 44ch;
+  font-family: var(--font-text);
+  font-size: 1.25rem;
+  line-height: 1.5;
+  color: var(--color-ink-muted);
+}
+
+.doc-lead a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.doc-lead a:hover,
+.doc-lead a:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 0.16em;
+}
+
+.doc-h2 {
+  margin: 0 0 1.25rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.75rem, 2.8vw, 2.25rem);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+}
+
+.doc-prose {
+  max-width: 40rem;
+  font-family: var(--font-text);
+  font-size: 1.1875rem;
+  line-height: 1.65;
+}
+
+.doc-prose p {
+  margin: 0 0 1.25em;
+}
+
+.doc-side {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+}
+
+.doc-side__block {
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--color-line);
+}
+
+.doc-side__block:last-child {
+  border-bottom: 1px solid var(--color-line);
+}
+
+.doc-side__block .doc-kicker {
+  margin-bottom: 0.625rem;
+}
+
+.doc-links {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.375rem;
+}
+
+.doc-links a {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.125rem;
+  color: var(--color-ink);
+  text-decoration: none;
+}
+
+.doc-links a span {
+  color: var(--color-accent);
+  font-family: var(--font-sans);
+  font-weight: 400;
+}
+
+.doc-links a:hover,
+.doc-links a:focus-visible {
+  color: var(--color-accent);
+}
+
+@media (max-width: 720px) {
+  .doc-head {
+    margin-bottom: 2rem;
+  }
+
+  .doc-prose {
+    font-size: 1.0625rem;
+  }
+}

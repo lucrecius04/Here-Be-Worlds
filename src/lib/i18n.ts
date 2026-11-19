@@ -335,14 +335,15 @@ export const ui: Record<Locale, UiTree> = {
     },
     notes: {
       title: 'Vysvětlivky',
+      kicker: 'Metoda atlasu',
       back: 'Zpět na atlas',
-      fieldsTitle: 'Pole karty',
+      fieldsTitle: 'Charakter světa',
       profileTitle: 'Profil světa na stupnicích',
       profileLead: 'Relativní redakční zařazení povahy světa.',
       scaleTitle: 'Stupnice',
       canonTitle: 'Kánon, výklad a naše metoda',
       triadTitle: 'Triáda',
-      essayLink: 'Proč karty vypadají právě takto, vysvětluje esej Anatomie herního lore',
+      essayLink: 'Proč světy popisujeme právě takto, vysvětluje esej Anatomie herního lore',
     },
     essay: {
       title: 'Anatomie herního lore',
@@ -357,6 +358,8 @@ export const ui: Record<Locale, UiTree> = {
     about: {
       title: 'O projektu',
       lead: 'Proč mapujeme místa, která neexistují',
+      noteTitle: 'Poznámka k umělé inteligenci',
+      more: 'Dál v atlasu',
       body: `Tento projekt vznikl z docela obyčejné zvědavosti a celoživotní fascinace dějinami, mytologií a vyprávěním příběhů. Když procházíme skvělým herním světem, málokdy vnímáme jen samotné úkoly na obrazovce. Přitahuje nás i to, co leží v pozadí – polorozpadlé chrámy bohů, na jejichž jména už místní zapomněli, ozvěny dávných občanských válek, podivné zákony magie nebo politické napětí, které visí ve vzduchu onoho přístavního města. Ty nejlepší fiktivní vesmíry totiž nepůsobí jako kulisy postavené kolem hráče, ale spíš jako místa, která žila dávno před námi a budou žít i poté, co odložíme ovladač.
 
 Často se ale stává, že všechna tato krása zůstane roztroušená v desítkách vedlejších dialogů, prastarých svitcích, vybitých databankách nebo popiscích předmětů, na které uprostřed akce není dostatek klidu. Právě proto vzniklo Here Be Worlds. Chtěli jsme vytvořit tiché místo, kde odložíme meče, pulsní pušky, statistiky i herní mechaniky a podíváme se na fiktivní světy očima historika, kartografa a pozorného vypravěče. Nezajímá nás tu, jak porazit závěrečného bosse, ale co ten svět drží pohromadě, jaký prvotní hřích ho v minulosti nalomil a na jaké otázky v něm neexistuje snadná odpověď.
@@ -701,14 +704,15 @@ Berte prosím tento atlas jako skromnou poctu všem scenáristům, designérům 
     },
     notes: {
       title: 'Notes',
+      kicker: 'Method of the atlas',
       back: 'Back to the atlas',
-      fieldsTitle: 'Card fields',
+      fieldsTitle: 'World character',
       profileTitle: 'World profile on the scales',
       profileLead: 'A relative editorial placement of the world’s character.',
       scaleTitle: 'Scale',
       canonTitle: 'Canon, interpretation, and our method',
       triadTitle: 'Triad',
-      essayLink: 'Why the cards look the way they do is explained in the essay The anatomy of game lore',
+      essayLink: 'Why we describe worlds the way we do is explained in the essay The anatomy of game lore',
     },
     essay: {
       title: 'The anatomy of game lore',
@@ -723,6 +727,8 @@ Berte prosím tento atlas jako skromnou poctu všem scenáristům, designérům 
     about: {
       title: 'About the project',
       lead: 'Why we map places that do not exist',
+      noteTitle: 'A note on artificial intelligence',
+      more: 'Further in the atlas',
       body: `This project grew out of fairly ordinary curiosity and a lifelong fascination with history, mythology, and storytelling. When we move through a great game world, we rarely take in only the tasks on the screen. We are drawn to what lies in the background – half-ruined temples of gods whose names the locals have already forgotten, echoes of ancient civil wars, strange laws of magic, or the political tension hanging in the air of that harbour city. The best fictional universes do not feel like sets built around the player, but rather like places that lived long before us and will go on living after we put the controller down.
 
 Too often, though, all that beauty remains scattered across dozens of side dialogues, ancient scrolls, drained databanks, or item descriptions for which, in the middle of the action, there is not enough quiet. That is why Here Be Worlds came to be. We wanted a still place where we set aside swords, pulse rifles, statistics, and game mechanics, and look at fictional worlds through the eyes of a historian, a cartographer, and an attentive storyteller. We are not interested here in how to beat the final boss, but in what holds that world together, what original sin cracked it in the past, and which questions in it have no easy answer.

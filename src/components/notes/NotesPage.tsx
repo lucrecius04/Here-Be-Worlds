@@ -10,104 +10,114 @@ type Props = { base: string };
 export default function NotesPage({ base }: Props) {
   const locale = useLocale();
 
+  const sections = [
+    { id: 'charakter', label: uiT('notes.fieldsTitle', locale) },
+    { id: 'stupnice', label: uiT('notes.profileTitle', locale) },
+    { id: 'triada', label: uiT('notes.triadTitle', locale) },
+    { id: 'kanon', label: uiT('notes.canonTitle', locale) },
+  ];
+
   return (
-    <article className="notes-frame">
-      <p className="notes-page__back">
-        <a href={withBase(base, '/atlas/')}>{uiT('notes.back', locale)}</a>
-      </p>
-      <header className="notes-page__masthead">
-        <h1 className="notes-page__title display">{uiT('notes.title', locale)}</h1>
-        <div className="notes-page__ornament" aria-hidden="true">
-          <span>✦</span>
-          <span>✦</span>
-          <span>✦</span>
-        </div>
-        <p className="notes-page__essay">
+    <article className="doc notes-page">
+      <header className="doc-head">
+        <p className="doc-kicker">{uiT('notes.kicker', locale)}</p>
+        <h1 className="doc-title">{uiT('notes.title', locale)}</h1>
+        <p className="doc-lead">
           <a href={withBase(base, '/anatomie-herniho-lore/')}>{uiT('notes.essayLink', locale)} →</a>
         </p>
       </header>
 
-      <div className="notes-table">
-        {noteFields.map((field) => (
-          <section className="notes-table__row" key={field.term.cs}>
-            <h2 className="notes-table__term">{t(field.term, locale)}</h2>
-            <div className="notes-table__body">
-              <p className="notes-table__help">
-                <em>{t(field.help, locale)}</em>
-              </p>
-              {field.values ? <p className="notes-table__values">{t(field.values, locale)}</p> : null}
-            </div>
-          </section>
+      <nav className="notes-toc" aria-label={uiT('essay.toc', locale)}>
+        {sections.map((section) => (
+          <a key={section.id} href={`#${section.id}`}>
+            {section.label}
+          </a>
         ))}
-      </div>
+      </nav>
 
-      <h2 className="notes-page__section notes-page__section--center" id="stupnice">
-        {uiT('notes.profileTitle', locale)}
-      </h2>
-      <div className="notes-table">
-        {axesMeta.axes.map((axis) => (
-          <section className="notes-table__row" key={axis.id}>
-            <h3 className="notes-table__term">
-              {t(axis.left, locale)} ↔ {t(axis.right, locale)}
-            </h3>
-            <div className="notes-table__body">
-              <p className="notes-table__help">
-                <em>
+      <section className="notes-section" id="charakter">
+        <h2 className="doc-h2">{uiT('notes.fieldsTitle', locale)}</h2>
+        <dl className="notes-list">
+          {noteFields.map((field) => (
+            <div className="notes-list__row" key={field.term.cs}>
+              <dt className="notes-list__term">{t(field.term, locale)}</dt>
+              <dd className="notes-list__body">
+                <p className="notes-list__help">{t(field.help, locale)}</p>
+                {field.values ? <p className="notes-list__values">{t(field.values, locale)}</p> : null}
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+
+      <section className="notes-section" id="stupnice">
+        <h2 className="doc-h2">{uiT('notes.profileTitle', locale)}</h2>
+        <dl className="notes-list">
+          {axesMeta.axes.map((axis) => (
+            <div className="notes-list__row" key={axis.id}>
+              <dt className="notes-list__term">
+                {t(axis.left, locale)} ↔ {t(axis.right, locale)}
+              </dt>
+              <dd className="notes-list__body">
+                <p className="notes-list__help">
                   {t(axis.help, locale)}
                   {'notesExtra' in axis && axis.notesExtra ? ` ${t(axis.notesExtra, locale)}` : ''}
-                </em>
-              </p>
+                </p>
+              </dd>
             </div>
-          </section>
-        ))}
-      </div>
-
-      <div className="notes-scale">
-        {noteScale.map((step) => (
-          <p className="notes-scale__row" key={step.value}>
-            <span className={`notes-scale__value${step.value === '3' ? ' notes-scale__value--mid' : ''}`}>{step.value}</span>
-            {t(step.label, locale)}
-          </p>
-        ))}
-      </div>
-
-      <h2 className="notes-page__section notes-page__section--center" id="triada">
-        {uiT('notes.triadTitle', locale)}
-      </h2>
-      <div className="notes-table">
-        {(
-          [
-            ['card.originalSin', 'card.triadHelpOriginalSin', 'prvotni-hrich'],
-            ['card.centralDilemma', 'card.triadHelpCentralDilemma', 'ustredni-otazka'],
-            ['card.ultimateMystery', 'card.triadHelpUltimateMystery', 'rizena-mezera'],
-          ] as const
-        ).map(([term, help, anchor]) => (
-          <section className="notes-table__row" key={term}>
-            <h3 className="notes-table__term">{uiT(term, locale)}</h3>
-            <div className="notes-table__body">
-              <p className="notes-table__help">
-                <em>{uiT(help, locale)}</em>
-              </p>
-              <p className="notes-table__values">
-                <a href={withBase(base, `/anatomie-herniho-lore/#${anchor}`)}>{uiT('card.triadHelpMore', locale)} →</a>
-              </p>
-            </div>
-          </section>
-        ))}
-      </div>
-
-      <h2 className="notes-page__section notes-page__section--center" id="kanon">
-        {uiT('notes.canonTitle', locale)}
-      </h2>
-      <div className="notes-page__canon">
-        {t(noteCanon, locale)
-          .split(/\n\s*\n/)
-          .map((para) => para.trim())
-          .filter(Boolean)
-          .map((para) => (
-            <p key={para.slice(0, 48)}>{para}</p>
           ))}
-      </div>
+        </dl>
+        {/* Stupnice ve stejném jazyce jako osy na webu: pět dílků, svítí jeden. */}
+        <div className="notes-scale" role="list">
+          {noteScale.map((step) => (
+            <p className="notes-scale__row" role="listitem" key={step.value}>
+              <span className="notes-scale__cells" aria-hidden="true">
+                {[1, 2, 3, 4, 5].map((v) => (
+                  <i key={v} className={String(v) === step.value ? 'is-on' : undefined} />
+                ))}
+              </span>
+              <span className="notes-scale__value">{step.value}</span>
+              {t(step.label, locale)}
+            </p>
+          ))}
+        </div>
+      </section>
+
+      <section className="notes-section" id="triada">
+        <h2 className="doc-h2">{uiT('notes.triadTitle', locale)}</h2>
+        <dl className="notes-list">
+          {(
+            [
+              ['card.originalSin', 'card.triadHelpOriginalSin', 'prvotni-hrich'],
+              ['card.centralDilemma', 'card.triadHelpCentralDilemma', 'ustredni-otazka'],
+              ['card.ultimateMystery', 'card.triadHelpUltimateMystery', 'rizena-mezera'],
+            ] as const
+          ).map(([term, help, anchor]) => (
+            <div className="notes-list__row" key={term}>
+              <dt className="notes-list__term">{uiT(term, locale)}</dt>
+              <dd className="notes-list__body">
+                <p className="notes-list__help">{uiT(help, locale)}</p>
+                <p className="notes-list__more">
+                  <a href={withBase(base, `/anatomie-herniho-lore/#${anchor}`)}>{uiT('card.triadHelpMore', locale)} →</a>
+                </p>
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+
+      <section className="notes-section" id="kanon">
+        <h2 className="doc-h2">{uiT('notes.canonTitle', locale)}</h2>
+        <div className="doc-prose">
+          {t(noteCanon, locale)
+            .split(/\n\s*\n/)
+            .map((para) => para.trim())
+            .filter(Boolean)
+            .map((para) => (
+              <p key={para.slice(0, 48)}>{para}</p>
+            ))}
+        </div>
+      </section>
     </article>
   );
 }

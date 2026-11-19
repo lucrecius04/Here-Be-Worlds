@@ -12,6 +12,7 @@ function paragraphs(text: string): string[] {
     .filter(Boolean);
 }
 
+/** O projektu: autorský text vlevo (beze změny), vpravo poznámka o AI a cesty dál po atlasu. */
 export default function AboutPage({ base }: Props) {
   const locale = useLocale();
   const body = paragraphs(uiT('about.body', locale));
@@ -19,26 +20,50 @@ export default function AboutPage({ base }: Props) {
   const noteLink = uiT('about.noteLink', locale).trim();
 
   return (
-    <article className="about-page">
-      <h1 className="about-page__title display">{uiT('about.title', locale)}</h1>
-      <p className="about-page__lead">{uiT('about.lead', locale)}</p>
-      <div className="about-page__ornament" aria-hidden="true">
-        <span>✦</span>
-        <span>✦</span>
-        <span>✦</span>
+    <article className="doc about-page">
+      <header className="doc-head">
+        <p className="doc-kicker">{uiT('footer.about', locale)}</p>
+        <h1 className="doc-title">{uiT('about.title', locale)}</h1>
+        <p className="doc-lead">{uiT('about.lead', locale)}</p>
+      </header>
+      <div className="about-page__grid">
+        <div className="doc-prose about-page__body">
+          {body.map((para) => (
+            <p key={para.slice(0, 48)}>{para}</p>
+          ))}
+          <p className="about-page__signoff">{uiT('about.signoff', locale)}</p>
+        </div>
+        <aside className="doc-side about-page__side">
+          {note ? (
+            <section className="doc-side__block">
+              <h2 className="doc-kicker">{uiT('about.noteTitle', locale)}</h2>
+              <p className="about-page__note">
+                {note} <a href={withBase(base, '/contact/')}>{noteLink}</a>
+              </p>
+            </section>
+          ) : null}
+          <section className="doc-side__block">
+            <h2 className="doc-kicker">{uiT('about.more', locale)}</h2>
+            <ul className="doc-links">
+              <li>
+                <a href={withBase(base, '/notes/')}>
+                  {uiT('notes.title', locale)} <span aria-hidden="true">→</span>
+                </a>
+              </li>
+              <li>
+                <a href={withBase(base, '/anatomie-herniho-lore/')}>
+                  {uiT('footer.essay', locale)} <span aria-hidden="true">→</span>
+                </a>
+              </li>
+              <li>
+                <a href={withBase(base, '/contact/')}>
+                  {uiT('contact.title', locale)} <span aria-hidden="true">→</span>
+                </a>
+              </li>
+            </ul>
+          </section>
+        </aside>
       </div>
-      <div className="about-page__body">
-        {body.map((para) => (
-          <p key={para.slice(0, 48)}>{para}</p>
-        ))}
-      </div>
-      <p className="about-page__signoff">{uiT('about.signoff', locale)}</p>
-      {note ? (
-        <p className="about-page__note">
-          {note}{' '}
-          <a href={withBase(base, '/contact/')}>{noteLink}</a>
-        </p>
-      ) : null}
     </article>
   );
 }

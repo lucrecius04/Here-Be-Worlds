@@ -24,9 +24,12 @@ export default function ContactPage(_props: Props) {
   };
 
   return (
-    <article className="contact-page">
-      <h1 className="contact-page__title display">{uiT('contact.title', locale)}</h1>
-      <p className="contact-page__lead">{uiT('contact.lead', locale)}</p>
+    <article className="doc contact-page">
+      <header className="doc-head">
+        <p className="doc-kicker">{uiT('footer.contact', locale)}</p>
+        <h1 className="doc-title">{uiT('contact.title', locale)}</h1>
+        <p className="doc-lead">{uiT('contact.lead', locale)}</p>
+      </header>
       <form className="contact-form" onSubmit={onSubmit}>
         <div className="contact-form__row">
           <label className="contact-field">

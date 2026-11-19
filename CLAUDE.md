@@ -69,10 +69,12 @@ Kroniky a eseje **nejsou** v `data/`.
 | `/map/` | `src/pages/map/index.astro` | `AxisGridMap` — Kartografie os (mřížka 5 × 5, bez výpočtu příbuznosti) |
 | `/chapters/[id]/` | `src/pages/chapters/[id].astro` | `ChapterPage` — URL zůstává `chapters`, UI = Archetyp |
 | `/worlds/[slug]/` | `src/pages/worlds/[slug].astro` | `WorldPageShell` |
-| `/about/` | `src/pages/about/index.astro` | `AboutPage` |
-| `/notes/` | `src/pages/notes/index.astro` | `NotesPage` |
+| `/about/` | `src/pages/about/index.astro` | `AboutPage` — autorský text vlevo, vpravo poznámka o AI a „Dál v atlasu“ |
+| `/notes/` | `src/pages/notes/index.astro` | `NotesPage` — obsah oddílů, rejstříkový seznam pojmů (štítek vlevo, výklad vpravo), legenda 1–5 jako pruh os |
 | `/anatomie-herniho-lore/` | `src/pages/anatomie-herniho-lore/index.astro` | `EssayPage` |
 | `/contact/` | `src/pages/contact/index.astro` | `ContactPage` |
+
+Jednoduché stránky (O projektu, Vysvětlivky, Kontakt) sdílejí v `layout.css` třídy `doc`, `doc-head`, `doc-kicker`, `doc-title`, `doc-lead`, `doc-h2`, `doc-prose`, `doc-side`: hlavička jako na atlasu, zarovnání vlevo, bez ozdob (žádné ✦), bez rámečků, text bez zarovnání do bloku.
 
 Layout: `src/layouts/BaseLayout.astro` — header/footer (znak + nápis z `BrandMark.tsx`), meta Open Graph (`ogImage`), ikony, theme/lang FOUC, globální `CompareTray`.
 
