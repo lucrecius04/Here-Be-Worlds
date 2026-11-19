@@ -53,7 +53,7 @@ V kosmologii Elder Scrolls vymyslel smrtelný svět šibalský duch Lorkhan. Př
 
 Lorkhan se v knihách série nazývá „chybějící bůh“ a na jeho ostatcích se ukazuje, co mrtvý bůh dělá s lidmi, kteří k němu mají přístup. Trpasličí inženýr Kagrenac se pokusil ze srdce vysát božskou moc a celá jeho rasa beze stopy zmizela. Tři rádci krále Nerevara svého pána zavraždili, nástroje u srdce použili a prohlásili se za živoucí bohy. Celá tisíciletí pak vládli lidu, který kvůli jejich zradě nesl kletbu na vlastní kůži. Srdce mrtvého boha tu funguje jako ložisko: kdo ho těží, stane se bohem, ale jen vypůjčeným.
 
-Hrdina Morrowindu nakonec sestoupí do jícnu Rudé hory a zničí pouta, která srdce držela ve světě. Falešní bohové tím přijdou o nesmrtelnost. Elder Scrolls tak k mrtvému bohu přidávají vrstvu, kterou ostatní světy nemají: o jeho smrti si každý národ vypráví jinou pravdu. Elfové vidí Lorkhanův čin jako zradu, která je uvěznila ve smrtelnosti, lidé jako dar, a kroniky si navzájem odporují. Mrtvý bůh je tu i mrtvým svědkem, který už nikomu neřekne, jak to bylo.
+Hrdina Morrowindu nakonec sestoupí do jícnu Rudé hory a zničí pouta, která srdce držela ve světě. Falešní bohové tím přijdou o nesmrtelnost. Elder Scrolls tak k mrtvému bohu přidávají vrstvu, kterou ostatní světy nemají: o jeho smrti si každý národ vypráví jinou pravdu. Elfové vidí Lorkhanův čin jako zradu, která je uvěznila ve smrtelnosti, lidé jako dar, a kroniky si navzájem odporují. Mrtvý bůh je tu i mrtvým svědkem, který už nikomu neřekne, jak to bylo. Lubomír Doležel popisuje mytologický svět přesně takhle: nadpřirozená doména je pro lidi černá díra, kterou znají jen z protichůdných zpráv proroků a písařů, a mýtus se posiluje tím, jak se dál vypráví.
 
 ### Bloodborne: bohyně vyplavená na břeh
 
@@ -81,7 +81,7 @@ Tohle je Nietzscheho stín v jeskyni dotažený do důsledků. Bůh, který nech
 
 Pathfinder nabízí tu nejtišší variantu, a možná proto nejznepokojivější. Bůh lidstva Aroden byl kdysi smrtelník, který prošel zkouškou Hvězdného kamene a stal se bohem. Všechna proroctví světa se shodovala, že se v roce 4606 osobně vrátí a zahájí věk slávy. Lidé prodali majetky a čekali. V určenou hodinu se zvedly hurikány, na pobřeží vyrostlo věčné oko bouře a Aroden bez jediného slova zemřel.
 
-Žádná mrtvola tu není. Je tu jen díra po bohu, a ta se projeví doslova. Od té chvíle přestala ve světě platit všechna proroctví a začal Věk ztracených znamení. Atlas mapuje Golarion ve dvou hrách, Kingmakeru a Wrath of the Righteous, a ta druhá ukazuje, co z té díry vzešlo: badatelka Areelu Vorlesh využila otřesu po Arodenově smrti a sešila svět s Propastí, takže na severu se otevřela Světová rána, kterou proudí démoni. A sama Areelu destiluje mýtickou moc z Nahyndrijských krystalů, tedy ze zkrystalizované krve zavražděných démonických pánů – opět z ostatků mrtvých mocností.
+Žádná mrtvola tu není. Je tu jen díra po bohu, a ta se projeví doslova. Mark Fisher by to nazval tísnivým: tísnivé je podle něj nic tam, kde by mělo být něco, spojené s otázkou, kdo nebo co tu jednalo. Od té chvíle přestala ve světě platit všechna proroctví a začal Věk ztracených znamení. Atlas mapuje Golarion ve dvou hrách, Kingmakeru a Wrath of the Righteous, a ta druhá ukazuje, co z té díry vzešlo: badatelka Areelu Vorlesh využila otřesu po Arodenově smrti a sešila svět s Propastí, takže na severu se otevřela Světová rána, kterou proudí démoni. A sama Areelu destiluje mýtickou moc z Nahyndrijských krystalů, tedy ze zkrystalizované krve zavražděných démonických pánů – opět z ostatků mrtvých mocností.
 
 Příčinu Arodenovy smrti nezná ve světě ani jeden bůh a vydavatel Paizo slíbil, že ji nikdy neprozradí. Je to Eliadeho *deus otiosus* v nejostřejší podobě: bůh neodešel na odpočinek, odešel úplně, a svět se musí naučit žít bez plánu, který mu byl slíben.
 
@@ -156,6 +156,8 @@ Nietzsche se ptal, jestli se nemusíme sami stát bohy, abychom se ukázali hodn
 
 - [John Clute: Thinning (The Encyclopedia of Fantasy)](http://sf-encyclopedia.uk/fe.php?nm=thinning)
 - Mark J. P. Wolf: *Building Imaginary Worlds: The Theory and History of Subcreation*, Routledge 2012.
+- Lubomír Doležel: *Heterocosmica: Fiction and Possible Worlds*, Johns Hopkins University Press 1998; česky Karolinum 2003.
+- Mark Fisher: *The Weird and the Eerie*, Repeater Books 2016.
 - Wolfgang Iser: *Der Akt des Lesens* (1976), prázdná místa textu.
 - [Henry Jenkins: Game Design as Narrative Architecture](https://web.mit.edu/~21fms/People/henry3/games&narrative.html)
 - [Anatomie herního lore](/anatomie-herniho-lore/), esej o metodě atlasu.

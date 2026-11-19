@@ -42,6 +42,7 @@ Příkazy: `npm run dev` · `npm run build` · `npm test` · `npm run import:chr
 | `content/chronicles/*.md` | Kroniky. Načítá `src/lib/chronicles.ts` (lazy raw import). |
 | `content/essays/*.md` | Esej Anatomie herního lore (`/anatomie-herniho-lore/`). |
 | `content/trails/*.md` | Eseje ke stezkám (`/stezky/<soubor>/`); frontmatter `trail:` = id z `trails.ts`. Autorský text, fakta ověřená proti kronikám; po schválení majitelem se na esej odkáže ze stezky. |
+| `docs/prameny/*.md` | Studijní výtahy z odborných knih (Doležel, Fisher, Clute, Otto…): pojmy, převyprávění, co plyne pro atlas, kde je pramen použitý. Rozcestník `docs/prameny/README.md`. **Před psaním eseje nebo stezky projít; knihy se znovu nečtou.** |
 | `public/og/` | Karty pro sdílení (výstup `scripts/og-images.mjs`, commitují se). |
 
 Kroniky a eseje **nejsou** v `data/`.
@@ -222,4 +223,5 @@ Další:
 - Před každou prací stáhnout nejnovější `main`. Kdyby majitel mezitím pushnul z Cursoru, navázat na jeho commit, nikdy ho nepřepsat.
 - Repozitář je na GitHubu `lucrecius04/Here-Be-Worlds` (staré jméno malými písmeny přesměrovává).
 - Design (znak, ikony, karty) se zkouší na plátně Design v Claude; rozhodnutí o znaku a slepé uličky jsou v `docs/znacka.md`.
+- Odborné prameny k esejím a stezkám: výtahy v `docs/prameny/` (rozcestník `README.md`). Novou knihu od majitele přečíst, sepsat výtah podle vzoru, zapsat do rozcestníku a teprve pak použít v textu.
 - Plán postupného odkrývání světů (počet na startu, rytmus, technika) je v `docs/odkryvani.md`; otevřené otázky se rozhodnou ke konci.

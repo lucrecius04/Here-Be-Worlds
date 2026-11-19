@@ -80,7 +80,7 @@ Téměř každý rozebraný svět stojí na jednom dávném provinění proti ř
 
 Elden Ring dotahuje prvotní hřích do metafyziky: bohyně doslova vyjme smrt ze zákonů vesmíru a svět začne hnít. Pentiment ukazuje opačný pól: prvotním hříchem je tu historický podvod, přepsání pohanských kořenů na křesťanské světce, a ochrana té lži krví. Cyberpunk 2077 má hřích technologický, Resident Evil korporátní. Funguje to stejně: všechny tragédie příběhu z nich vycházejí.
 
-Ze světů, které běží desítky let, plyne jedno pravidlo. **Původcem viny má být někdo, kdo se rozhodl, ne další, ještě starší loutkovodič.** StarCraft II zpětně připsal stvoření Zergů padlému bohu Amonovi a Kerriganová přestala být aktérkou tragédie a stala se obětí. Warcraft udělal totéž, když Shadowlands připsaly pád Krále lichů dosud nezmíněnému Vězniteli. Resident Evil Requiem naopak Spencerovi vinu nebere, ale dává mu pokání, a jeho postavu tím prohlubuje.
+Ze světů, které běží desítky let, plyne jedno pravidlo. **Původcem viny má být někdo, kdo se rozhodl, ne další, ještě starší loutkovodič.** StarCraft II zpětně připsal stvoření Zergů padlému bohu Amonovi a Kerriganová přestala být aktérkou tragédie a stala se obětí. Warcraft udělal totéž, když Shadowlands připsaly pád Krále lichů dosud nezmíněnému Vězniteli. Resident Evil Requiem naopak Spencerovi vinu nebere, ale dává mu pokání, a jeho postavu tím prohlubuje. Doležel by řekl, že pokračování, které mělo svět rozšířit, ho ve skutečnosti přepsalo: z doplnění mezery (expanze) se stala jiná verze, která původní svět popírá (dislokace).
 
 > **Na kartě světa**
 >
@@ -185,6 +185,8 @@ Silent Hill a NieR vyprávějí z velké části zvukem: mlha, šum rádia, zpě
 ## Řízená mezera
 
 Nedořečenost je nástroj, ne náhoda. Wolfgang Iser ji v estetice recepce nazývá prázdná místa: text vyzve čtenáře, aby je vyplnil, a tím ho vtáhne. Herní komunity z těchto míst dělají celé žánry videoesejí a teorií.
+
+Český teoretik Lubomír Doležel v knize *Heterocosmica* (1998) Iserův pojem zpřesňuje a zároveň s ním polemizuje. Rozlišuje, co text řekne přímo, co nechá vyvodit ze stop (implicitní textura) a o čem mlčí docela (nulová textura). Jen to poslední je skutečná mezera: na otázku, kolik dětí měla lady Macbethová, odpověď neexistuje, protože ve světě není nic ke zjištění. Iser podle Doležela dovoluje čtenáři doplňovat mezery podle vlastní zkušenosti, a tím do fikce zadními dveřmi vrací skutečný svět. Pro herní lore z toho plyne užitečné rozlišení: silná mezera bývá implicitní, stopy ve hře k výkladu vedou a autor pravdu zná. Prázdné místo bez stop je jen pozvánka k libovůli.
 
 > **Na kartě světa**
 >
@@ -338,6 +340,8 @@ Pojmy z rozboru mají oporu ve čtyřech tradicích: v teorii fantastiky a liter
 | Imaginární světy | Mark J. P. Wolf, *Building Imaginary Worlds* (2012) | Svět není jen pozadí příběhu. Často přesahuje jeden příběh, médium i autora. |
 | Řídnutí a uzdravení | John Clute, *The Encyclopedia of Fantasy* (1997) | Svět ztrácí sílu, kterou kdysi měl, a zdravá země se mění v parodii sebe sama. Šťastný konec bývá obnovou toho, co se ztratilo dávno před začátkem příběhu. |
 | Mysterium tremendum et fascinans | Rudolf Otto, *Posvátno* (1917) | Posvátno děsí a zároveň přitahuje. Je „zcela jiné“, nepatří do řádu světa a rozumem se nedá uchopit. |
+| Autentizace, mezera, fikční encyklopedie | Lubomír Doležel, *Heterocosmica* (1998) | Fikční svět je možný svět, který text uvede do existence. Fakty jsou jen to, co svět autoritativně potvrdí; je neúplný a jeho vědění se liší od encyklopedie skutečného světa. |
+| Podivné a tísnivé | Mark Fisher, *The Weird and the Eerie* (2016) | Podivné je přítomnost něčeho, co nepatří. Tísnivé je něco tam, kde by nemělo být nic, nebo nic tam, kde by mělo být něco, a otázka, kdo tu jednal. |
 
 K tomu klasické pojmy, které esej používá: Aristotelova peripetie a anagnórize z *Poetiky*, Eliotův objektivní korelativ (1919) a Bachtinova polyfonie z knihy o Dostojevském (1929).
 
@@ -352,6 +356,18 @@ Jesper Juul popisuje herní fikci jako „poloreálnou“: věta o postavě popi
 ### Bogost: co hra nedovolí
 
 Podle Iana Bogosta hra vypovídá tím, co dovolí, a stejně tak tím, co nedovolí. Víc interaktivity nezaručí víc významu. Pathologic nedovolí zachránit všechny. Planescape dovolí vyhnout se boji rozhovorem. SOMA nedovolí vzít kopírování zpět. Undertale nabídne možnost nikoho nezabít, a tím dělá z každého zásahu volbu.
+
+### Doležel: fikční svět jako možný svět
+
+Lubomír Doležel, český literární teoretik působící v Torontu, v knize *Heterocosmica* (1998) odmítá představu, že fikce napodobuje skutečnost. Fikční svět je podle něj **možný svět**, který text uvede do existence, a má vlastní zákony. Proto podle Doležela není důvod mít jednu teorii pro realistický román a druhou pro fantasy. Pro atlas je to důležitá opora: herní světy nejsou méně literární jen proto, že jsou fantastické.
+
+Tři Doleželovy pojmy používáme v rozborech skoro denně. **Autentizace** určuje, co ve světě skutečně je: co ukáže vypravěč, je fakt, co tvrdí postavy, je jen jejich verze. Elder Scrolls stojí celé na neautentizovaných knihách ve hře, které si odporují, a proto v něm pravda existuje jen ve stupních. Rámeček **Jak se to vykládá** v kronikách je mapa právě téhle šedé zóny. **Fikční encyklopedie** je vědění o konkrétním světě, které se liší od toho našeho, a bez ní se ve světě nedá správně uvažovat. Tomu v kronikách slouží **Faktografie**. A **mytologický svět** popisuje Doležel jako dvě oddělené domény, kde lidé znají bohy jen z protichůdných zpráv proroků a písařů a mýtus se posiluje tím, jak se dál vypráví. To je přesný portrét Elder Scrolls, Dark Souls i Pathfinderu.
+
+### Fisher: podivné a tísnivé
+
+Kulturní teoretik Mark Fisher v knize *The Weird and the Eerie* (2016) rozlišuje dva módy cizího. **Podivné** (*weird*) je přítomnost něčeho, co sem nepatří, a co nás nutí uznat, že naše kategorie nestačí. Upír ani vlkodlak podle Fishera podivní nejsou: existuje k nim tradice a pravidla výkladu. Černá díra je podivnější, protože patří do přirozeného vesmíru, a přesto ho ukáže jako mnohem cizejší. Herní lore je podivné ve chvíli, kdy z tradice vystoupí. Bloodborne začíná jako žánrový horor s vlkodlaky a teprve pak odhalí kosmickou pravdu.
+
+**Tísnivé** (*eerie*) vzniká, když je něco tam, kde by nemělo být nic, nebo když tam není nic, kde by něco být mělo. V jádru je vždy otázka, kdo tu jednal a jaké byl povahy. Tísnivé mizí s poznáním: jakmile je záhada vyřešená, rozplyne se. Proto podle Fishera většina postapokalyptických příběhů tísnivá není, katastrofu známe. Tísnivá je archeologie, kde se neptáme, proč stavitelé zmizeli, ale jací vůbec byli. To je přesně role hráče v Outer Wilds (Nomajové), Assassin's Creed (Isu) nebo Bloodborne (Pthumeřané): číst stopy někoho, kdo už nikdy nebude přítomen.
 
 ### Clute: řídnutí a uzdravení
 
@@ -405,3 +421,5 @@ Historik her Jimmy Maher rozebral vznik Planescape: Torment z původních dokume
 - Ian Bogost: *Persuasive Games: The Expressive Power of Videogames*, MIT Press 2007.
 - John Clute, John Grant (eds.): *The Encyclopedia of Fantasy*, Orbit 1997 (online na sf-encyclopedia.com).
 - Rudolf Otto: *The Idea of the Holy*, přel. John W. Harvey, Oxford University Press 1923.
+- Lubomír Doležel: *Heterocosmica: Fiction and Possible Worlds*, Johns Hopkins University Press 1998; česky *Heterocosmica. Fikce a možné světy*, Karolinum 2003.
+- Mark Fisher: *The Weird and the Eerie*, Repeater Books 2016.
