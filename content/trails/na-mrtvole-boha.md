@@ -11,11 +11,11 @@ description: Bloodborne, Xenoblade, Elder Scrolls, Pathfinder a Warhammer 40 000
 *„Když je celým vaším světem mrtvé tělo boha, dříve či později se musíte zeptat, kdo mu tehdy zasadil ránu.“*
 *(Kronika Xenoblade)*
 
-Jeden z nejstarších obrazů, jaký si lidé o světě vyprávějí, zní takto: na počátku byl bůh, pak zemřel a z jeho těla vzniklo všechno ostatní. Hory jsou jeho kosti, moře jeho krev, nebe jeho lebka. Mýty ten obraz používaly, aby vysvětlily, proč je svět uspořádaný. Herní světy ho vytáhly znovu, ale používají ho opačně. Mrtvé tělo boha u nich nevysvětluje řád, nýbrž rozklad: proč svět hnije, proč se v něm stále válčí a proč je všechno, co mají jeho obyvatelé, vlastně kradené.
+Jeden z nejstarších obrazů, jaký si lidé o světě vyprávějí, zní takto: na počátku byl bůh, pak zemřel a z jeho těla vzniklo všechno ostatní. Hory jsou jeho kosti, moře jeho krev, nebe jeho lebka. Mýty ten obraz používaly, aby vysvětlily, proč je svět uspořádaný. Herní světy se k němu vracejí, ale používají ho opačně. Mrtvé tělo boha u nich nevysvětluje řád, nýbrž rozklad: proč svět hnije, proč se v něm stále válčí a proč je všechno, co mají jeho obyvatelé, vlastně kradené.
 
 Tahle stezka atlasu spojuje pět světů, které stojí doslova na ostatcích božstev. V **Xenoblade** se žije na tělech dvou mrtvých titánů. V **Elder Scrolls** leží pod sopkou vyrvané srdce boha, který svět vymyslel. V **Bloodborne** vyplavilo moře mrtvolu bohyně a učenci ji rozřezali. Ve **Warhammeru 40 000** sedí na zlatém trůnu deset tisíc let tlející tělo člověka, kterého lidstvo prohlásilo za boha. A v **Pathfinderu** bůh lidstva zemřel v hodině, kdy se měl vrátit, a po jeho smrti zůstala ve světě otevřená rána.
 
-Na první pohled jde o pět různých žánrů: kosmický horor, japonské sci-fi, gnostickou fantasy, válečnou space operu a klasické dobrodružství s kostkami. Spojuje je jedna otázka, kterou si každý z nich klade jinak: **Co si svět počne se svým mrtvým bohem?** Tahle esej tvrdí, že podle odpovědi na ni se dá poznat, jestli svět dává svým obyvatelům naději. Rozhoduje totiž to, co s tělem udělají živí, ne to, jak bůh zemřel.
+Na první pohled jde o pět různých žánrů: kosmický horor, japonské sci-fi, gnostickou fantasy, válečnou space operu a klasické dobrodružství s kostkami. Spojuje je jedna otázka, kterou si každý z nich klade jinak: **Co si svět počne se svým mrtvým bohem?** A právě podle odpovědi na ni se dá poznat, jestli svět dává svým obyvatelům naději. Rozhoduje totiž to, co s tělem udělají živí, ne to, jak bůh zemřel.
 
 > **Upozornění**
 >
@@ -23,7 +23,7 @@ Na první pohled jde o pět různých žánrů: kosmický horor, japonské sci-f
 
 ## Nejstarší obraz světa
 
-Severská *Edda* vypráví, jak bohové Ódin, Vili a Vé zabili praobra Ymiho a z jeho těla vystavěli svět: z masa zemi, z kostí hory, z krve moře, z lebky nebeskou klenbu. Babylonský epos *Enuma eliš* líčí, jak bůh Marduk rozťal bohyni pravodstva Tiamat a z polovin jejího těla udělal nebe a zemi. Indický hymnus z Rgvédy (X, 90) popisuje, jak bohové obětovali prvotního člověka Purušu a z jeho údů vznikly světové strany, živly i lidské stavy. A čínská tradice zná obra Pchan-ku, jehož dech se po smrti stal větrem a tělo horami a řekami.
+Severská *Edda* vypráví, jak bohové Ódin, Vili a Vé zabili praobra Ymiho a z jeho těla vystavěli svět: z masa zemi, z kostí hory, z krve moře, z lebky nebeskou klenbu. Babylonský epos *Enuma eliš* líčí, jak bůh Marduk rozťal bohyni pravodstva Tiamat a z polovin jejího těla stvořil nebe a zemi. Indický hymnus z Rgvédy (X, 90) popisuje, jak bohové obětovali prvotního člověka Purušu a z jeho údů vznikly světové strany, živly i lidské stavy. A čínská tradice zná obra Pchan-ku, jehož dech se po smrti stal větrem a tělo horami a řekami.
 
 Indolog Michael Witzel ukázal, že mýtus o prvotním obrovi rozsekaném na svět se táhne od Islandu až po jižní Čínu. Pro všechny verze platí totéž: smrt boha tu není tragédie, ale stavební materiál. Svět je uspořádaný, protože vznikl rozdělením jednoho těla. Každá jeho část má své místo, protože byla kdysi údem.
 
@@ -79,7 +79,7 @@ Tohle je Nietzscheho stín v jeskyni dotažený do důsledků. Bůh, který nech
 
 Pathfinder nabízí tu nejtišší variantu, a možná proto nejznepokojivější. Bůh lidstva Aroden byl kdysi smrtelník, který prošel zkouškou Hvězdného kamene a stal se bohem. Všechna proroctví světa se shodovala, že se v roce 4606 osobně vrátí a zahájí věk slávy. Lidé prodali majetky a čekali. V určenou hodinu se zvedly hurikány, na pobřeží vyrostlo věčné oko bouře a Aroden bez jediného slova zemřel.
 
-Žádná mrtvola tu není. Je tu jen díra po bohu, a ta se projeví doslova. Od té chvíle přestala ve světě platit všechna proroctví a začal Věk ztracených znamení. Atlas mapuje Golarion ve dvou hrách, Kingmakeru a Wrath of the Righteous, a ta druhá ukazuje, co z té díry vzešlo: vědkyně Areelu Vorlesh využila otřesu po Arodenově smrti a sešila svět s Propastí, takže na severu se otevřela Světová rána, kterou proudí démoni. A sama Areelu destiluje mýtickou moc z Nahyndrijských krystalů, tedy ze zkrystalizované krve zavražděných démonických pánů – opět z ostatků mrtvých mocností.
+Žádná mrtvola tu není. Je tu jen díra po bohu, a ta se projeví doslova. Od té chvíle přestala ve světě platit všechna proroctví a začal Věk ztracených znamení. Atlas mapuje Golarion ve dvou hrách, Kingmakeru a Wrath of the Righteous, a ta druhá ukazuje, co z té díry vzešlo: badatelka Areelu Vorlesh využila otřesu po Arodenově smrti a sešila svět s Propastí, takže na severu se otevřela Světová rána, kterou proudí démoni. A sama Areelu destiluje mýtickou moc z Nahyndrijských krystalů, tedy ze zkrystalizované krve zavražděných démonických pánů – opět z ostatků mrtvých mocností.
 
 Příčinu Arodenovy smrti nezná ve světě ani jeden bůh a vydavatel Paizo slíbil, že ji nikdy neprozradí. Je to Eliadeho *deus otiosus* v nejostřejší podobě: bůh neodešel na odpočinek, odešel úplně, a svět se musí naučit žít bez plánu, který mu byl slíben.
 
@@ -103,7 +103,7 @@ Když položíme pět světů vedle sebe, ukáže se, že mrtvé božstvo v nich
 
 > **Na kartě světa**
 >
-> Tři role mrtvého boha najdete i v triádě na kartě každého světa. **Prvotní hřích** říká, kdo ostatek zneužil. **Ústřední dilema** se ptá, co dál. A **Hlavní tajemství** často míří přímo na prázdné místo po bohu – u Pathfinderu doslova: kdo nebo co zabilo boha Arodena?
+> Tři role mrtvého boha najdete i na kartě každého světa. **Prvotní hřích** říká, kdo ostatek zneužil. **Ústřední dilema** se ptá, co dál. A **Hlavní tajemství** často míří přímo na prázdné místo po bohu – u Pathfinderu doslova: kdo nebo co zabilo boha Arodena?
 
 ## Proč to hry milují
 
@@ -111,13 +111,13 @@ Mrtvý bůh se v herních světech objevuje tak často, že to nemůže být ná
 
 Prvním je **hluboký čas**. Esej *Anatomie herního lore* mezi sedmi pilíři silných světů uvádí hluboký čas a ruiny: téměř každý svět je světem po katastrofě a hráč přichází pozdě, takže dějiny čte jako archeolog. Mrtvý bůh je největší možná ruina. Je to katastrofa, po které zůstal svět, a hráč se pohybuje po jejích troskách. Na lýtku Bionisu stojí kolonie, ve stínu Rudé hory se rodí proroctví, v Yharnamu se z božské krve vaří léky.
 
-Druhým je **prostor**. Henry Jenkins popsal herní design jako narativní architekturu: hry vyprávějí tím, že staví prostory, kterými hráč prochází. Mýtus mohl říct, že hory jsou kosti boha. Hra vás po těch kostech nechá vylézt. Esej *Anatomie herního lore* mluví o objektivním korelativu, který se dá projít: vnitřní stav světa je zhmotněný v krajině. Mrtvý bůh je toho nejčistší příklad. Nadvláda bohů nad lidmi v Xenoblade není jen téma, je to výška, kterou musíte vystoupat.
+Druhým je **prostor**. Henry Jenkins popsal herní design jako narativní architekturu: hry vyprávějí tím, že staví prostory, kterými hráč prochází. Mýtus mohl říct, že hory jsou kosti boha. Hra vás po těch kostech nechá vylézt. Esej *Anatomie herního lore* mluví o objektivním korelativu, který se dá projít: vnitřní stav světa je zhmotněný v krajině. Mrtvý bůh je toho nejčistším příkladem. Nadvláda bohů nad lidmi v Xenoblade není jen téma, je to výška, kterou musíte vystoupat.
 
 Třetím důvodem je **dědictví**. Hráč skoro vždy přichází jako dědic toho, co mrtvý bůh zanechal, a hra se ho ptá, co s dědictvím udělá. Shulk boha dobije. Hrdina Morrowindu zničí pouta srdce. Lovec v Bloodborne se může sám stát bohem. Velitel v Pathfinderu stojí před volbou, zda mýtickou moc přijme naplno, nebo se jí vzdá a zůstane smrtelníkem. Ve Warhammeru se nejsilnější hrdina galaxie ukloní před trůnem a zjistí, že otec v něm vidí jen nástroj. Mrtvý bůh tak hráči nabízí roli, kterou herní příběhy milují nejvíc: zaujmout uprázdněné místo, nebo ho nechat prázdné.
 
 ## Co si svět počne se svým mrtvým bohem
 
-Atlas zakresluje každý svět na pěti souřadnicích. Když se podíváme na všech pět světů této stezky, ukáže se jasný vzor. Všech pět leží na souřadnici Realita blízko pólu Metafyzično a na souřadnici Měřítko u Epičnosti – i Bloodborne, které se odehraje za jedinou noc v jediném městě, protože za oponou té noci stojí kosmos. To nikoho nepřekvapí: kde umírají bohové, jde o všechno. Zajímavá je ale souřadnice **Vyhlídka**, mezi Nadějí a Zoufalstvím. Tady se světy rozcházejí od jednoho okraje ke druhému.
+Atlas zakresluje každý svět na pěti souřadnicích. Když se podíváme na všech pět světů této stezky, ukáže se jasná zákonitost. Všech pět leží na souřadnici Realita blízko pólu Metafyzično a na souřadnici Měřítko u Epičnosti – i Bloodborne, které se odehraje za jedinou noc v jediném městě, protože za oponou té noci stojí kosmos. To nikoho nepřekvapí: kde umírají bohové, jde o všechno. Zajímavá je ale souřadnice **Vyhlídka**, mezi Nadějí a Zoufalstvím. Tady se světy rozcházejí od jednoho okraje ke druhému.
 
 Nejblíž Naději stojí Xenoblade a Elder Scrolls, nejblíž Zoufalství Bloodborne a Warhammer 40 000. Pathfinder leží uprostřed. A právě podle toho, co živí udělají s mrtvým bohem, se dá to rozložení vysvětlit.
 
@@ -127,7 +127,7 @@ Ve světech, kde živí z ostatku **žijí**, vládne zoufalství. Yharnam se l�
 
 Pathfinder stojí uprostřed, protože jeho mrtvý bůh nezanechal tělo, ze kterého by se dalo žít. Zanechal jen prázdné místo a otázku, kdo ho zaplní. Jádro světa to v atlasu shrnuje jednou větou: smrtelníci si musí psát pravidla sami.
 
-Odpověď na otázku z úvodu tedy zní takto. Mrtvý bůh je zkouška dědictví. Nic o světě neprozradí to, jak bůh zemřel – jestli byl poražen, potrestán, nebo zmizel bez vysvětlení. Prozradí to, co s jeho tělem udělají ti, kdo zůstali. Světy, které se naučí mrtvého boha nechat odejít, dávají svým obyvatelům budoucnost. Světy, které z něj nepřestanou čerpat, se samy pomalu mění v mrtvolu.
+Odpověď na otázku z úvodu tedy zní takto. Mrtvý bůh je zkouška dědictví. To, jak bůh zemřel – jestli byl poražen, potrestán, nebo zmizel bez vysvětlení –, o světě ještě nic neprozradí. Rozhoduje teprve to, co s jeho tělem udělají ti, kdo zůstali. Světy, které se naučí mrtvého boha nechat odejít, dávají svým obyvatelům budoucnost. Světy, které z něj nepřestanou čerpat, se samy pomalu mění v mrtvolu.
 
 Nietzsche se ptal, jestli se nemusíme sami stát bohy, abychom se ukázali hodni jeho smrti. Herní světy na to odpovídají různě. Bloodborne říká, že ano, a ukazuje, co z člověka zbude. Xenoblade říká, že ne, že stačí žít bez nich. A Warhammer 40 000 varuje před nejhorší možností ze všech: postavit si z mrtvého boha trůn a zapomenout, že na něm nikdo nesedí.
 
