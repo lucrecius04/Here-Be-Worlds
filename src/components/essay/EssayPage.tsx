@@ -6,7 +6,7 @@ import { useLocale } from '../../lib/locale-store';
 import { withBase } from '../../lib/base-url';
 import { slugifyChronicleHeading } from '../../lib/chronicle-toc';
 import ReadingToc, { type ReadingTocItem } from '../reading/ReadingToc';
-import TrailWorlds, { TRAIL_WORLDS_ID } from './TrailWorlds';
+import TrailWorlds, { TRAIL_WORLDS_ID, TrailCast } from './TrailWorlds';
 import '../../styles/essay.css';
 
 export type EssayWorldLink = { id: string; titles: string[] };
@@ -17,6 +17,8 @@ export type TrailWorldInfo = {
   title: string;
   core: string;
   archetype: string;
+  /** Podžánr (profil archetypu), např. „Kosmický horor“. */
+  genre: string;
   accent: { light: string; dark: string };
   axes: Record<string, number>;
 };
@@ -210,6 +212,8 @@ export default function EssayPage({ base, markdown, title, kicker, tagline, worl
         {tagline ? <p className="essay__tagline">{tagline}</p> : null}
         <p className="essay__meta">{uiT('essay.readTime', locale).replace('{n}', String(minutes))}</p>
       </header>
+
+      {trail ? <TrailCast worlds={trail.worlds} base={base} locale={locale} /> : null}
 
       <div className="essay-layout">
         <aside className="essay-toc">

@@ -48,6 +48,7 @@ const trailWorlds = (trail?.members ?? [])
       title: w.gameTitle.cs ?? w.gameTitle.en,
       core: w.core.cs ?? w.core.en,
       archetype: SHORT[w.chapterId] ?? chapter?.title.cs ?? '',
+      genre: w.metadata.genreProfile.cs ?? w.metadata.genreProfile.en ?? '',
       accent: chapter?.accent ?? { light: 'currentColor', dark: 'currentColor' },
       axes: Object.fromEntries(AXIS_KEYS.map((key) => [key, w.axes[key].value])),
     };

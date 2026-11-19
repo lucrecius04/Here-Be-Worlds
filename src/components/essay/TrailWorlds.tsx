@@ -91,3 +91,29 @@ export default function TrailWorlds({ worlds, base, locale }: Props) {
     </section>
   );
 }
+
+/**
+ * Světy stezky hned pod hlavičkou eseje: sloupce s linkou v barvě archetypu
+ * (jako Zmapované světy na titulní straně), archetyp · podžánr a název jako odkaz.
+ */
+export function TrailCast({ worlds, base, locale }: Props) {
+  return (
+    <ul className="trail-cast" aria-label={uiT('trails.worldsHeading', locale)}>
+      {worlds.map((w) => (
+        <li
+          key={w.id}
+          className="trail-cast__item"
+          style={{ '--tw-hue-l': w.accent.light, '--tw-hue-d': w.accent.dark } as CSSProperties}
+        >
+          <span className="trail-cast__kind">
+            {w.archetype}
+            {w.genre && w.genre !== w.archetype ? <span> · {w.genre}</span> : null}
+          </span>
+          <a className="trail-cast__title" href={withBase(base, `/worlds/${w.id}/`)}>
+            {w.title.replace(/(\d) (\d)/g, '$1\u00a0$2')}
+          </a>
+        </li>
+      ))}
+    </ul>
+  );
+}
