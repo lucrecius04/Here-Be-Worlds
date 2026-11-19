@@ -167,19 +167,19 @@ export default function HomeIntro({ chapters, worlds = [], base }: Props) {
   const [today, setToday] = useState<Date | null>(null);
   const [litGroup, setLitGroup] = useState<string | null>(null);
   const [phase, setPhase] = useState(0);
-  const [skyHover, setSkyHover] = useState(false);
 
-  // Popsané světy se po skupinkách střídají; stojí, když je myš nad oblohou, karta je na pozadí
-  // nebo čtenář nechce pohyb. Na úzkém a dotykovém displeji jména nejsou, takže se nestřídá.
+  // Popsané světy se po skupinkách střídají pořád; stojí jen při rozsvíceném souhvězdí (kurzor na
+  // názvu archetypu), na kartě v pozadí a u čtenáře, který nechce pohyb. Na úzkém a dotykovém
+  // displeji jména nejsou, takže se nestřídá.
   useEffect(() => {
-    if (skyHover || litGroup) return undefined;
+    if (litGroup) return undefined;
     const still = window.matchMedia('(prefers-reduced-motion: reduce), (hover: none), (max-width: 760px)');
     if (still.matches) return undefined;
     const timer = window.setInterval(() => {
       if (!document.hidden) setPhase((value) => value + 1);
     }, ROTATE_MS);
     return () => window.clearInterval(timer);
-  }, [skyHover, litGroup]);
+  }, [litGroup]);
 
   useEffect(() => {
     setToday(new Date());
@@ -230,8 +230,6 @@ export default function HomeIntro({ chapters, worlds = [], base }: Props) {
           <div className="hp-sky-scroll">
           <div
             className={`hp-sky${litGroup ? ' has-lit' : ''}`}
-            onMouseEnter={() => setSkyHover(true)}
-            onMouseLeave={() => setSkyHover(false)}
             role="group"
             aria-label={uiT('home2.skyAria', locale)}
             style={{
