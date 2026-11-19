@@ -15,6 +15,7 @@ Pravidla:
 | Mark Fisher: *The Weird and the Eerie* (2016) | [fisher-weird-eerie.md](fisher-weird-eerie.md) | čteno (úvod, Lovecraft, eerie) | podivné (weird), tísnivé (eerie), otázka původce, fascinace místo hrůzy, archeologie |
 | John Clute, John Grant: *The Encyclopedia of Fantasy* (1997) | [clute-encyclopedia-of-fantasy.md](clute-encyclopedia-of-fantasy.md) | heslo Thinning (online) | plná fantasy, řídnutí, uzdravení, parodie země, polder |
 | Rudolf Otto: *Posvátno* (1917) | [otto-posvatno.md](otto-posvatno.md) | čteno (kap. o mysterium tremendum) | numinózní, mysterium tremendum et fascinans, zcela jiné |
+| Drobné prameny: mýty o stvoření z těla boha, Eliade, Nietzsche, prameny Anatomie | [drobne-prameny.md](drobne-prameny.md) | přes sekundární zdroje | Ymir, Tiamat, Puruša, deus otiosus, Bůh je mrtev, Wolf, Iser, Jenkins, Juul, Bogost |
 
 ## Čeká na dodání (od majitele)
 
@@ -23,7 +24,3 @@ Pravidla:
 - Jaroslav Švelch: *Player vs. Monster* (monstra ve hrách)
 - René Girard: *Obětní beránek* (oběť a násilí)
 - Mircea Eliade: *Mýtus o věčném návratu* (cyklický čas)
-
-## Použito v esejích bez vlastního výtahu
-
-Prameny citované jen krátce, převzaté z webových zdrojů uvedených v eseji: Eliade (*deus otiosus*), Nietzsche (*Radostná věda* 108, 125), Witzel (mýtus o prvotním obrovi), Wolf, Iser, Jenkins, Juul, Bogost, Tolkien, Suvin.
