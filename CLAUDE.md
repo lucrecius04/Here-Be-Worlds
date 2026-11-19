@@ -220,3 +220,4 @@ Další:
 - Před každou prací stáhnout nejnovější `main`. Kdyby majitel mezitím pushnul z Cursoru, navázat na jeho commit, nikdy ho nepřepsat.
 - Repozitář je na GitHubu `lucrecius04/Here-Be-Worlds` (staré jméno malými písmeny přesměrovává).
 - Design (znak, ikony, karty) se zkouší na plátně Design v Claude; rozhodnutí o znaku a slepé uličky jsou v `docs/znacka.md`.
+- Plán postupného odkrývání světů (počet na startu, rytmus, technika) je v `docs/odkryvani.md`; otevřené otázky se rozhodnou ke konci.
