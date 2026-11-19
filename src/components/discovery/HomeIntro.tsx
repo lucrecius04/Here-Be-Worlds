@@ -61,6 +61,41 @@ function namedSlots(count: number, perRow: number, named: number): number[] {
   return slots;
 }
 
+/**
+ * Rozdělí hvězdy souhvězdí do stálých skupinek, které se na obloze střídají. První skupinka
+ * jsou známé světy (slots); další berou zbylé hvězdy tak, aby v jedné řadě nestály dvě
+ * sousední hvězdy (jména pod nimi by se překrývala). Vrací index skupinky pro každou pozici.
+ */
+function rotationSets(count: number, perRow: number, first: number[], size: number): number[] {
+  const setOf = new Array<number>(count).fill(-1);
+  first.forEach((k) => {
+    setOf[k] = 0;
+  });
+  const clash = (a: number, b: number) =>
+    Math.floor(a / perRow) === Math.floor(b / perRow) && Math.abs((a % perRow) - (b % perRow)) === 1;
+  // Zbylé pozice v rozházeném pořadí, aby po sobě nesvítily vždy stejné řady.
+  let rest = Array.from({ length: count }, (_, k) => k)
+    .filter((k) => setOf[k] < 0)
+    .sort((a, b) => ((a * 5) % count) - ((b * 5) % count));
+  let index = 1;
+  while (rest.length) {
+    const group: number[] = [];
+    for (const k of rest) {
+      if (group.length >= Math.max(1, size)) break;
+      if (group.every((g) => !clash(g, k))) group.push(k);
+    }
+    group.forEach((k) => {
+      setOf[k] = index;
+    });
+    rest = rest.filter((k) => !group.includes(k));
+    index += 1;
+  }
+  return setOf;
+}
+
+/** Jak často se na obloze vymění popsané světy (ms). */
+const ROTATE_MS = 6000;
+
 /*
  * Obloha v souřadnicích 1000 × H. Souhvězdí mají pevné počátky a 80jednotkový krok hvězd.
  * Jména popsaných hvězd stojí pod hvězdou, stejně jako při rozsvíceném souhvězdí.
@@ -78,9 +113,9 @@ const ORIGINS: Array<[number, number, number]> = [
 const STEP_X = 80;
 const STEP_Y = 44;
 
-type Star = { id: string; title: string; named: boolean; x: number; y: number; size: number; chapterId: string };
+type Star = { id: string; title: string; set: number; x: number; y: number; size: number; chapterId: string };
 type Line = { x: number; y: number; w: number; a: number; chapterId: string };
-type Group = { chapterId: string; x: number; y: number; count: number };
+type Group = { chapterId: string; x: number; y: number; count: number; sets: number; order: number };
 
 function buildSky(worlds: World[], chapters: ChapterCardData[]) {
   const stars: Star[] = [];
@@ -102,14 +137,14 @@ function buildSky(worlds: World[], chapters: ChapterCardData[]) {
       const slotIndex = slots.indexOf(k);
       items.push(slotIndex >= 0 ? iconic[slotIndex] : rest[r++]);
     }
-    groups.push({ chapterId: chapter.id, x: ox, y: oy - 44, count: all.length });
+    const setOf = rotationSets(all.length, perRow, slots, wanted.length || 2);
+    groups.push({ chapterId: chapter.id, x: ox, y: oy - 44, count: all.length, sets: Math.max(...setOf) + 1, order: gi });
     let prev: [number, number] | null = null;
     items.forEach((w, k) => {
       const seed = gi * 13 + k * 7;
       const x = ox + (k % perRow) * STEP_X + ((seed * 37) % 9) - 4;
       const y = oy + Math.floor(k / perRow) * STEP_Y + ((seed * 53) % 13) - 6;
-      const named = iconic.includes(w);
-      stars.push({ id: w.id, title: w.gameTitle.cs ?? w.gameTitle.en, named, x, y, size: named ? 10 : [4, 6, 7][(seed * 17) % 3], chapterId: chapter.id });
+      stars.push({ id: w.id, title: w.gameTitle.cs ?? w.gameTitle.en, set: setOf[k], x, y, size: [5, 6, 7, 8][(seed * 17) % 4], chapterId: chapter.id });
       if (prev) {
         const dx = x - prev[0];
         const dy = y - prev[1];
@@ -131,6 +166,20 @@ export default function HomeIntro({ chapters, worlds = [], base }: Props) {
   const locale = useLocale();
   const [today, setToday] = useState<Date | null>(null);
   const [litGroup, setLitGroup] = useState<string | null>(null);
+  const [phase, setPhase] = useState(0);
+  const [skyHover, setSkyHover] = useState(false);
+
+  // Popsané světy se po skupinkách střídají; stojí, když je myš nad oblohou, karta je na pozadí
+  // nebo čtenář nechce pohyb. Na úzkém a dotykovém displeji jména nejsou, takže se nestřídá.
+  useEffect(() => {
+    if (skyHover || litGroup) return undefined;
+    const still = window.matchMedia('(prefers-reduced-motion: reduce), (hover: none), (max-width: 760px)');
+    if (still.matches) return undefined;
+    const timer = window.setInterval(() => {
+      if (!document.hidden) setPhase((value) => value + 1);
+    }, ROTATE_MS);
+    return () => window.clearInterval(timer);
+  }, [skyHover, litGroup]);
 
   useEffect(() => {
     setToday(new Date());
@@ -138,6 +187,7 @@ export default function HomeIntro({ chapters, worlds = [], base }: Props) {
 
   const chapterById = useMemo(() => Object.fromEntries(chapters.map((c, i) => [c.id, { ...c, index: i }])), [chapters]);
   const sky = useMemo(() => buildSky(worlds, chapters), [worlds, chapters]);
+  const groupSets = useMemo(() => Object.fromEntries(sky.groups.map((g) => [g.chapterId, g])), [sky]);
   const latest = mostRecentAdded(worlds);
   const featured = today && worlds.length > 0 ? worlds[featuredWorldIndex(worlds.length, today)] : undefined;
   const featuredChapter = featured ? chapterById[featured.chapterId] : undefined;
@@ -180,6 +230,8 @@ export default function HomeIntro({ chapters, worlds = [], base }: Props) {
           <div className="hp-sky-scroll">
           <div
             className={`hp-sky${litGroup ? ' has-lit' : ''}`}
+            onMouseEnter={() => setSkyHover(true)}
+            onMouseLeave={() => setSkyHover(false)}
             role="group"
             aria-label={uiT('home2.skyAria', locale)}
             style={{
@@ -218,13 +270,14 @@ export default function HomeIntro({ chapters, worlds = [], base }: Props) {
               return (
                 <a
                   key={star.id}
-                  className={`hp-star${star.named ? ' is-named' : ''}${litGroup === star.chapterId ? ' is-lit' : ''}`}
+                  className={`hp-star${star.set === phase % (groupSets[star.chapterId]?.sets ?? 1) ? ' is-named' : ''}${litGroup === star.chapterId ? ' is-lit' : ''}`}
                   href={withBase(base, `/worlds/${star.id}/`)}
                   style={{
                     left: `${star.x / 10}%`,
                     top: `${(star.y / sky.height) * 100}%`,
                     ...hueVars(chapterById[star.chapterId]?.accent),
                     ['--s' as string]: `${star.size}px`,
+                    ['--wave' as string]: `${(groupSets[star.chapterId]?.order ?? 0) * 180}ms`,
                   }}
                 >
                   <i className="hp-star__dot" aria-hidden="true" />

@@ -266,22 +266,50 @@
   border-radius: 50%;
   background: var(--hue-d);
   box-shadow: 0 0 calc(var(--s) + 6px) var(--hue-d);
-  transition: transform 0.15s ease;
+  /* pomalé rozsvícení při střídání popsaných světů, souhvězdí po sobě jako vlna */
+  transition: transform 0.9s ease var(--wave, 0ms);
+}
+
+.hp-star.is-named .hp-star__dot {
+  transform: scale(1.4);
 }
 
 .hp-star__name {
+  /* jméno stojí vždy pod hvězdou: při střídání jen zhasne, neposkočí */
+  position: absolute;
+  top: calc(var(--s) + 0.35rem);
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: 8em;
+  padding: 0 0.2rem;
   font-family: var(--font-display);
   font-style: italic;
-  /* popisky rostou s oblohou, aby se nepřekrývaly se sousedním souhvězdím */
-  font-size: clamp(11px, 1.25cqw, 15px);
+  font-size: clamp(11px, 1.05cqw, 13.5px);
   line-height: 1.2;
-  white-space: nowrap;
+  white-space: normal;
+  text-align: center;
   color: #e4e7ee;
+  text-shadow: 0 0 6px var(--color-night), 0 0 2px var(--color-night);
   opacity: 0;
   pointer-events: none;
-  padding: 0.1rem 0.35rem 0.15rem 0;
-  background: var(--color-night);
-  transition: opacity 0.15s ease;
+  transition: opacity 0.9s ease var(--wave, 0ms);
+}
+
+.hp-star:hover .hp-star__dot,
+.hp-star:hover .hp-star__name,
+.hp-star:focus-visible .hp-star__name,
+.hp-star.is-lit .hp-star__name,
+.hp-sky.has-lit .hp-star__name {
+  transition-duration: 0.15s;
+  transition-delay: 0ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hp-star__dot,
+  .hp-star__name {
+    transition: none;
+  }
 }
 
 
@@ -299,7 +327,7 @@
 .hp-star:hover .hp-star__name,
 .hp-star:focus-visible .hp-star__name {
   opacity: 1;
-  background: var(--color-night);
+  z-index: 3;
 }
 
 .hp-star:focus-visible .hp-star__name {
@@ -307,22 +335,10 @@
   text-underline-offset: 0.2em;
 }
 
-/* Popsané hvězdy a rozsvícené souhvězdí: jména pod hvězdami, aby se nepřekrývala se sousedy. */
+/* Popsané hvězdy a rozsvícené souhvězdí: jméno svítí. */
 .hp-star.is-named .hp-star__name,
 .hp-star.is-lit .hp-star__name {
-  position: absolute;
-  top: calc(var(--s) + 0.35rem);
-  left: 50%;
-  transform: translateX(-50%);
-  width: max-content;
-  max-width: 8em;
-  padding: 0 0.2rem;
-  white-space: normal;
-  text-align: center;
-  font-size: clamp(11px, 1.05cqw, 13.5px);
   opacity: 1;
-  background: transparent;
-  text-shadow: 0 0 6px var(--color-night), 0 0 2px var(--color-night);
 }
 
 /* Jemné měřítko mapy na spodním okraji oblohy: dílek po 2 %, hlavní po 10 %. */
