@@ -342,6 +342,7 @@ Pojmy z rozboru mají oporu ve čtyřech tradicích: v teorii fantastiky a liter
 | Mysterium tremendum et fascinans | Rudolf Otto, *Posvátno* (1917) | Posvátno děsí a zároveň přitahuje. Je „zcela jiné“, nepatří do řádu světa a rozumem se nedá uchopit. |
 | Autentizace, mezera, fikční encyklopedie | Lubomír Doležel, *Heterocosmica* (1998) | Fikční svět je možný svět, který text uvede do existence. Fakty jsou jen to, co svět autoritativně potvrdí; je neúplný a jeho vědění se liší od encyklopedie skutečného světa. |
 | Podivné a tísnivé | Mark Fisher, *The Weird and the Eerie* (2016) | Podivné je přítomnost něčeho, co nepatří. Tísnivé je něco tam, kde by nemělo být nic, nebo nic tam, kde by mělo být něco, a otázka, kdo tu jednal. |
+| Vznešená a zkrocená monstrozita | Jaroslav Švelch, *Player vs. Monster* (2023) | Herní monstra jsou simulovaná a navržená, aby prohrála. Co se dá spočítat a porazit, ztrácí tajemství. |
 
 K tomu klasické pojmy, které esej používá: Aristotelova peripetie a anagnórize z *Poetiky*, Eliotův objektivní korelativ (1919) a Bachtinova polyfonie z knihy o Dostojevském (1929).
 
@@ -380,6 +381,12 @@ Pro herní světy je to přesný popis třetího pilíře. Dark Souls dělá z �
 Teolog Rudolf Otto v knize *Posvátno* (1917) popsal, co cítí člověk před božstvím, které nelze pochopit. Nazval to *mysterium tremendum et fascinans*: tajemství, které děsí, a zároveň přitahuje. Hrůza tu není obyčejný strach, ale pocit vlastní nicotnosti před něčím „zcela jiným“, co nepatří do řádu světa a rozumem se nedá uchopit. A přesto se k tomu člověk nedokáže přestat vracet.
 
 Otto psal o náboženství, ale popsal tím jádro kosmického hororu i nejsilnějších herních bohů. Velicí v Bloodborne jsou zcela jiní: kdo je spatří, přestává být člověkem, a přesto po nich učenci Byrgenwerthu touží natolik, že pro poznání zmasakrují celou vesnici. Úřad v Control eviduje věci, které se nedají pochopit, a přitom se jimi nechává pohltit. Hrůza a přitažlivost tu nejsou dvě emoce, ale jedna. Proto tyto světy své bohy nevysvětlují: řízená mezera kolem nich není nedostatek informací, ale samotná podstata posvátna.
+
+### Švelch: netvor, který má prohrát
+
+Český herní badatel Jaroslav Švelch v knize *Player vs. Monster* (2023) popisuje velký paradox herních monster: tváří se nebezpečně, ale jsou navržená tak, aby prohrála. Rozlišuje dvě podoby monstrozity. **Vznešená** přesahuje naše chápání, jako babylonský Marduk, jehož údy epos označuje za nepochopitelné, nebo Lovecraftovy bytosti, které nejdou popsat. **Zkrocená** je pojmenovaná, popsaná a zařazená, jako drak ve středověkém bestiáři. Hry se podle Švelche kloní silně ke zkrocené. Aby monstrum mohlo bojovat, musí mít přesně dané vlastnosti a chování, a co jde spočítat, jde i porazit. Simulovat monstrum znamená zkrotit ho.
+
+Pro stavbu světa z toho plyne, že hra musí tajemství chránit pečlivěji než kniha. Nejsilnější světy atlasu to dělají dvojím způsobem. Buď monstrum nedovolí porazit ani pochopit: Astrální bodec v Control se nedá zničit a byl navržen tak, aby mu hráč nerozuměl. Nebo zpochybní samotného zabíječe: Undertale dovolí každé monstrum ušetřit a nakonec prozradí, že zkušenostní body jsou body popravy. Švelch tyto cesty nazývá selháním střetu a selháním odstupu. A ukazuje, že nové monstrum často vzniká ubíráním: Grue ze Zorku děsí právě proto, že hra nemá žádnou grafiku.
 
 ### Z dílny tvůrců
 
@@ -423,3 +430,4 @@ Historik her Jimmy Maher rozebral vznik Planescape: Torment z původních dokume
 - Rudolf Otto: *The Idea of the Holy*, přel. John W. Harvey, Oxford University Press 1923.
 - Lubomír Doležel: *Heterocosmica: Fiction and Possible Worlds*, Johns Hopkins University Press 1998; česky *Heterocosmica. Fikce a možné světy*, Karolinum 2003.
 - Mark Fisher: *The Weird and the Eerie*, Repeater Books 2016.
+- Jaroslav Švelch: *Player vs. Monster: The Making and Breaking of Video Game Monstrosity*, MIT Press 2023.

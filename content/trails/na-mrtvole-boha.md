@@ -63,6 +63,8 @@ Nejhlubší kořen kletby leží až v rozšíření The Old Hunters. U Rybářs
 
 Teolog Rudolf Otto popsal v knize *Posvátno* (1917), co cítí člověk před božstvím, které nelze pochopit: *mysterium tremendum et fascinans*, tajemství, které děsí, a zároveň přitahuje. Byrgenwerth je přesně tohle. Heslo akademie zní „Obávej se Staré krve“, a přesto z ní Laurence udělá svátost. Velicí jsou pro učence „zcela jiní“, a právě proto se k nim nedokážou přestat vracet.
 
+Herní badatel Jaroslav Švelch v knize *Player vs. Monster* (2023) vzpomíná, jak v Bloodborne vstoupil do temné prostorné jeskyně, která vypadala jako aréna pro souboj. Nikdo na něj nezaútočil. Uprostřed spala obrovská bytost s chapadly a křídly, nádherná a zároveň příliš mocná. Byla to Ebrietas, Dcera kosmu, jedna z Velikých, kterou učenci kdysi našli v podzemí. Švelch na ni několik minut hleděl a pak odešel, aniž by s ní bojoval. Jméno se dozvěděl až později, protože hra ho ukáže teprve se začátkem boje. Každé vítězství nad monstrem podle něj zmenšuje jeho tajemství a dělá z něj poraženou položku databáze. Kdo Ebrietas nechá spát, zachová si to, co Otto nazval *tremendum*: bohyni, kterou nelze uchopit.
+
 Nietzsche napsal, že i bohové hnijí. Bloodborne ten obraz bere doslova: Yharnam je město, které se živí rozkladem boha a samo se v něm rozkládá. A hra do toho vtahuje i hráče. Lovec se uzdravuje stejnou krví, která město mění v bestie, takže každé napití je malou účastí na původním hříchu. Tohle je přesně to, čemu esej *Anatomie herního lore* říká mechanika jako význam.
 
 > **Spoiler · Lovec, který se stane bohem**
@@ -158,6 +160,7 @@ Nietzsche se ptal, jestli se nemusíme sami stát bohy, abychom se ukázali hodn
 - Mark J. P. Wolf: *Building Imaginary Worlds: The Theory and History of Subcreation*, Routledge 2012.
 - Lubomír Doležel: *Heterocosmica: Fiction and Possible Worlds*, Johns Hopkins University Press 1998; česky Karolinum 2003.
 - Mark Fisher: *The Weird and the Eerie*, Repeater Books 2016.
+- Jaroslav Švelch: *Player vs. Monster: The Making and Breaking of Video Game Monstrosity*, MIT Press 2023.
 - Wolfgang Iser: *Der Akt des Lesens* (1976), prázdná místa textu.
 - [Henry Jenkins: Game Design as Narrative Architecture](https://web.mit.edu/~21fms/People/henry3/games&narrative.html)
 - [Anatomie herního lore](/anatomie-herniho-lore/), esej o metodě atlasu.

@@ -19,12 +19,12 @@ Pravidla:
 | Jesper Juul: *Half-Real* (2005) | [juul-half-real.md](juul-half-real.md) | čteno 2026-11-18, výtah zpětně | poloreálnost, nesoudržný svět, test převyprávění |
 | Ian Bogost: *Persuasive Games* (2007) | [bogost-persuasive-games.md](bogost-persuasive-games.md) | čteno 2026-11-18, výtah zpětně | procedurální rétorika, entyméma, co hra nedovolí |
 | Planescape: *Last Rites Product Review Pack* (1997) | [planescape-last-rites.md](planescape-last-rites.md) | čteno 2026-11-18, výtah zpětně | high concept, „proč“ ke každému nástroji, zásady týmu |
+| Jaroslav Švelch: *Player vs. Monster* (2023) | [svelch-player-vs-monster.md](svelch-player-vs-monster.md) | čteno (úvod, kap. 1 a 4, závěr, části kap. 2 a 3) | vznešená a zkrocená monstrozita, ontologie nepřítele, daemoni, hráč proti prostředí, selhání odstupu a střetu |
 | Drobné prameny: mýty o stvoření z těla boha, Eliade, Nietzsche, prameny Anatomie | [drobne-prameny.md](drobne-prameny.md) | přes sekundární zdroje | Ymir, Tiamat, Puruša, deus otiosus, Bůh je mrtev, Iser, Jenkins, Aarseth, Tolkien, Suvin |
 
 ## Čeká na dodání (od majitele)
 
 - Jan Assmann: *Kultura a paměť* (zakládající mýty, přepisování dějin)
 - Farah Mendlesohn: *Rhetorics of Fantasy* (portálová, ponořená, vpádová, prahová fantasy)
-- Jaroslav Švelch: *Player vs. Monster* (monstra ve hrách)
 - René Girard: *Obětní beránek* (oběť a násilí)
 - Mircea Eliade: *Mýtus o věčném návratu* (cyklický čas)
