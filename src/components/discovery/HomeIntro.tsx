@@ -37,21 +37,33 @@ const SKY_NAME: Record<string, string> = {
   metaphysical: 'home2.skyMetaphysical',
 };
 
-/** Jedna trvale popsaná hvězda v každém souhvězdí. */
-const ICONIC: Record<string, string> = {
-  fantasy: 'dark-souls',
-  'science-fiction': 'mass-effect',
-  'post-apocalypse': 'fallout',
-  horror: 'silent-hill',
-  historical: 'disco-elysium',
-  dystopia: 'cyberpunk-2077',
-  metaphysical: 'outer-wilds',
+/**
+ * Trvale popsané hvězdy: světy, které čtenář pozná nejspíš (velká souhvězdí tři, malá dvě).
+ * Ostatní jména se ukážou po najetí na hvězdu nebo na název souhvězdí.
+ */
+const ICONIC: Record<string, string[]> = {
+  fantasy: ['the-witcher', 'dark-souls', 'elder-scrolls'],
+  'science-fiction': ['mass-effect', 'halo', 'starcraft'],
+  'post-apocalypse': ['fallout', 'metro'],
+  horror: ['silent-hill', 'resident-evil'],
+  historical: ['disco-elysium', 'assassins-creed'],
+  dystopia: ['cyberpunk-2077', 'bioshock'],
+  metaphysical: ['outer-wilds', 'control'],
 };
+
+/** Pozice popsaných hvězd v souhvězdí (cik-cak, aby jména pod hvězdami nesousedila). */
+function namedSlots(count: number, perRow: number, named: number): number[] {
+  const zigzag = [perRow - 1, perRow, 3 * perRow - 1, 2 * perRow + 1];
+  const slots = zigzag.filter((slot) => slot < count).slice(0, named);
+  if (slots.length < named && count > 0) {
+    for (let k = 0; k < count && slots.length < named; k += 2) if (!slots.includes(k)) slots.push(k);
+  }
+  return slots;
+}
 
 /*
  * Obloha v souřadnicích 1000 × H. Souhvězdí mají pevné počátky a 80jednotkový krok hvězd.
- * Popsaná hvězda stojí na konci první řady, vpravo od ní je volno až k dalšímu souhvězdí,
- * takže se popisky nepřekrývají. Ostatní názvy se ukážou po najetí myší nebo fokusu.
+ * Jména popsaných hvězd stojí pod hvězdou, stejně jako při rozsvíceném souhvězdí.
  * Při růstu atlasu: horní pás snese 4–5 řad (cca 15 světů v souhvězdí), pak upravit počátky.
  */
 const ORIGINS: Array<[number, number, number]> = [
@@ -77,18 +89,26 @@ function buildSky(worlds: World[], chapters: ChapterCardData[]) {
   let maxY = 0;
   chapters.forEach((chapter, gi) => {
     const [ox, oy, perRow] = ORIGINS[gi] ?? [20 + (gi % 3) * 330, 50 + Math.floor(gi / 3) * 240, 3];
-    let items = worlds.filter((w) => w.chapterId === chapter.id).sort((a, b) => a.number - b.number);
-    if (!items.length) return;
-    const iconic = items.find((w) => w.id === ICONIC[chapter.id]) ?? items[0];
-    items = items.filter((w) => w !== iconic);
-    items.splice(Math.min(perRow, items.length + 1) - 1, 0, iconic);
-    groups.push({ chapterId: chapter.id, x: ox, y: oy - 30, count: items.length });
+    const all = worlds.filter((w) => w.chapterId === chapter.id).sort((a, b) => a.number - b.number);
+    if (!all.length) return;
+    const wanted = (ICONIC[chapter.id] ?? [])
+      .map((id) => all.find((w) => w.id === id))
+      .filter((w): w is World => Boolean(w));
+    const slots = namedSlots(all.length, perRow, wanted.length);
+    const iconic = wanted.slice(0, slots.length);
+    const rest = all.filter((w) => !iconic.includes(w));
+    const items: World[] = [];
+    for (let k = 0, r = 0; k < all.length; k += 1) {
+      const slotIndex = slots.indexOf(k);
+      items.push(slotIndex >= 0 ? iconic[slotIndex] : rest[r++]);
+    }
+    groups.push({ chapterId: chapter.id, x: ox, y: oy - 44, count: all.length });
     let prev: [number, number] | null = null;
     items.forEach((w, k) => {
       const seed = gi * 13 + k * 7;
       const x = ox + (k % perRow) * STEP_X + ((seed * 37) % 9) - 4;
       const y = oy + Math.floor(k / perRow) * STEP_Y + ((seed * 53) % 13) - 6;
-      const named = w === iconic;
+      const named = iconic.includes(w);
       stars.push({ id: w.id, title: w.gameTitle.cs ?? w.gameTitle.en, named, x, y, size: named ? 10 : [4, 6, 7][(seed * 17) % 3], chapterId: chapter.id });
       if (prev) {
         const dx = x - prev[0];

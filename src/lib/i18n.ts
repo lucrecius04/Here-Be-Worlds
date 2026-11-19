@@ -27,8 +27,8 @@ export const ui: Record<Locale, UiTree> = {
     },
     home2: {
       kicker: '{n} · kroniky · anatomie vyprávění · faktografie',
-      title: 'Mapy světů, kam se |nedá| doletět',
-      lead: 'Průvodce herním lore pro ty, kterým nestačí „prostě fantasy“. Ke každému světu zmapované dějiny, rozbor vyprávění a profil, podle kterého ho porovnáš s kterýmkoli jiným.',
+      title: 'Mapy světů, které |nikdy| neexistovaly',
+      lead: 'Průvodce herním lore od temné fantasy přes vesmírné opery po rozpadlé dystopie. U každého probádaného světa najdeš dějiny od prvotního hříchu, skrytou strukturu vyprávění i to, co různé vesmíry spojuje.',
       openAtlas: 'Otevřít atlas',
       random: 'Náhodný svět',
       skyAria: 'Obloha světů: každá hvězda je jeden svět, souhvězdí jsou archetypy',
@@ -394,8 +394,8 @@ Berte prosím tento atlas jako skromnou poctu všem scenáristům, designérům 
     },
     home2: {
       kicker: '{n} · chronicles · narrative anatomy · factography',
-      title: 'Maps of worlds |beyond| reach',
-      lead: 'A guide to game lore for anyone who isn’t satisfied with “just fantasy”. For every world, a mapped history, a reading of how it tells its story and a profile to set it against any other.',
+      title: 'Maps of worlds that |never| existed',
+      lead: 'A guide to game lore, from dark fantasy through space operas to crumbling dystopias. For every world we explore you’ll find its history from the original sin, the hidden structure of its storytelling and what connects it to other universes.',
       openAtlas: 'Open the atlas',
       random: 'Random world',
       skyAria: 'Sky of worlds: every star is one world, constellations are archetypes',

@@ -75,12 +75,12 @@ function siteHtml() {
   return `<div class="card" style="background:#0D1324;color:#ECE8E0">${sky}
 <div style="position:absolute;left:80px;top:84px;width:640px">
 <div style="display:flex;align-items:center;gap:16px">${mark('#F4F1EA', '#E5BE7E', '#AEB3BE', 56)}<span class="word" style="font-size:44px;color:#F4F1EA">Here <em>Be</em> Worlds</span></div>
-<h1 style="margin:50px 0 0;font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:72px;line-height:.98;letter-spacing:-.025em;color:#F4F1EA">Mapy světů, kam se <em style="font-style:italic;font-weight:500">nedá</em> doletět</h1>
-<p style="margin:26px 0 0;font-family:'Source Serif 4',Georgia,serif;font-size:24px;line-height:1.45;color:#C9CEDA;max-width:520px">Atlas herních vesmírů: kroniky, povaha světů, příbuzní ve srovnání.</p>
+<h1 style="margin:50px 0 0;font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:72px;line-height:.98;letter-spacing:-.025em;color:#F4F1EA">Mapy světů, které <em style="font-style:italic;font-weight:500">nikdy</em> neexistovaly</h1>
+<p style="margin:26px 0 0;font-family:'Source Serif 4',Georgia,serif;font-size:24px;line-height:1.45;color:#C9CEDA;max-width:520px">Průvodce herním lore od temné fantasy přes vesmírné opery po rozpadlé dystopie.</p>
 </div>
 <div style="position:absolute;left:80px;right:80px;bottom:44px">
 <div style="height:9px;border-right:1px solid #3A4562;background-image:linear-gradient(to right,#3A4562 1px,transparent 1px),linear-gradient(to right,#26304A 1px,transparent 1px);background-size:10% 9px,2% 4px;background-position:0 100%,0 100%;background-repeat:repeat-x"></div>
-<p class="mono" style="margin:0;padding-top:12px;border-top:1px solid #1C2540;display:flex;justify-content:space-between;font-size:14px;color:#8E97AD"><span>${count} ${word} · 7 souhvězdí</span><span>Kroniky a faktografie</span></p>
+<p class="mono" style="margin:0;padding-top:12px;border-top:1px solid #1C2540;display:flex;justify-content:space-between;font-size:14px;color:#8E97AD"><span>${count} ${word}</span><span>Kroniky · anatomie vyprávění · faktografie</span></p>
 </div></div>`;
 }
 

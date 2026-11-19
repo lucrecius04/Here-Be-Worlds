@@ -13,18 +13,6 @@ const FOOTER_CHAPTER_COLUMNS = [
   ['historical', 'dystopia', 'metaphysical'],
 ] as const;
 
-function Placeholder({ children }: { children: string }) {
-  return (
-    <a
-      href="#footer"
-      className="site-footer__link site-footer__link--soon"
-      onClick={(e) => e.preventDefault()}
-    >
-      {children}
-    </a>
-  );
-}
-
 export default function SiteFooter({ base }: Props) {
   const locale = useLocale();
 
@@ -82,7 +70,6 @@ export default function SiteFooter({ base }: Props) {
           <a className="site-footer__link" href={withBase(base, '/anatomie-herniho-lore/')}>
             {uiT('footer.essay', locale)}
           </a>
-          <Placeholder>{uiT('footer.sources', locale)}</Placeholder>
           <a className="site-footer__link" href={withBase(base, '/contact/')}>
             {uiT('footer.contact', locale)}
           </a>

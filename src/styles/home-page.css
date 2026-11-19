@@ -200,7 +200,7 @@
   padding: 0.3rem 0.5rem 0.3rem 0;
   transform: translateY(-0.3rem);
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -284,10 +284,6 @@
   transition: opacity 0.15s ease;
 }
 
-.hp-star.is-named .hp-star__name {
-  opacity: 1;
-  background: transparent;
-}
 
 .hp-star:hover,
 .hp-star:focus-visible {
@@ -311,7 +307,8 @@
   text-underline-offset: 0.2em;
 }
 
-/* Rozsvícené souhvězdí: jména všech světů pod hvězdami, aby se nepřekrývala se sousedy. */
+/* Popsané hvězdy a rozsvícené souhvězdí: jména pod hvězdami, aby se nepřekrývala se sousedy. */
+.hp-star.is-named .hp-star__name,
 .hp-star.is-lit .hp-star__name {
   position: absolute;
   top: calc(var(--s) + 0.35rem);
