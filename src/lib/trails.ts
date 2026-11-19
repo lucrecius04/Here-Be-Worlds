@@ -32,6 +32,7 @@ export const TRAILS: TrailDef[] = [
   def('knows-you-play', 'meta', ['undertale', 'inscryption', 'nier-automata', 'bioshock', 'pathologic']),
   def('who-woke-up', 'woke', ['planescape-torment', 'disco-elysium', 'tides-of-numenera', 'soma', 'baldurs-gate']),
   def('monster-mirror', 'monster', ['silent-hill', 'undertale', 'planescape-torment', 'dishonored', 'nier-automata']),
+  def('scapegoat', 'scapegoat', ['pathologic', 'dishonored', 'pentiment', 'silent-hill', 'the-witcher', 'dragon-age']),
   def('failed-paradise', 'paradise', ['bioshock', 'fallout', 'disco-elysium', 'pathologic']),
   def('corporate', 'corporate', ['cyberpunk-2077', 'deus-ex', 'resident-evil', 'fallout', 'horizon']),
   def('dead-speak', 'dead', ['bioshock', 'soma', 'horizon', 'outer-wilds', 'resident-evil']),
@@ -45,7 +46,7 @@ export function trailById(id: TrailId | null | undefined): TrailDef | undefined 
   return TRAILS.find((trail) => trail.id === id);
 }
 
-/** Stezky dne na titulní straně: každý den jiná trojice, za pět dní se vystřídají všechny. */
+/** Stezky dne na titulní straně: každý den jiná trojice, za šest dní se vystřídají všechny. */
 export function dailyTrails(day: number, count = 3, trails: TrailDef[] = TRAILS): TrailDef[] {
   if (!trails.length) return [];
   const start = (((day * count) % trails.length) + trails.length) % trails.length;

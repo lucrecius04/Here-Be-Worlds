@@ -50,7 +50,7 @@ Kde se v textu sejdou aspoň dva až tři, můžeme tušit skutečné pronásled
   - **The Witcher:** Geralt probodnut vidlemi při pogromu v Rivii, Letho zabije krále Foltesta a vinu hodí na Geralta, Radovid upaluje čaroděje a nelidi. Zaklínači jsou mutanti, cizinci a zároveň potřební: prokletí a požehnaní.
   - **Bloodborne:** Velicí jsou zdrojem léku i nemoci. Krev boha léčí a mění v bestie (dvojí přenos v mechanice). Kos jako oběť, jejíž zohavení vyvolá kletbu.
 - **Monstrum jako rozpad rozdílů** se dobře doplňuje se Švelchem a Carrollem (fúze a fise): monstrum je člověk, který ztratil rozdíl.
-- **Nový návrh stezky „Kdo za to může?“** (obětní beránek): Pathologic, Dishonored, Pentiment, Silent Hill, The Witcher, Dragon Age, případně Warhammer 40 000. Čeká na rozhodnutí majitele.
+- **Stezka „Kdo za to může?“** (přidána 2026-11-19 na Girardův podnět): Pathologic, Dishonored, Pentiment, Silent Hill, The Witcher, Dragon Age. Girard je pro její esej hlavní pramen. Majitel chce výhradu k Girardovu redukcionismu v textu zmínit.
 
 ## Kde už je použito
 

@@ -25,7 +25,7 @@ Pravidla:
 
 ## Prameny podle stezek
 
-Opačný pohled k tabulce výše: co číst před psaním eseje ke stezce. Podrobnosti jsou ve výtazích v oddílu „Co z toho plyne pro Here Be Worlds“. Po použití pramene v eseji ho zapsat i do oddílu „Kde už je použito“ ve výtahu.
+Opačný pohled k tabulce výše (16 stezek): co číst před psaním eseje ke stezce. Podrobnosti jsou ve výtazích v oddílu „Co z toho plyne pro Here Be Worlds“. Po použití pramene v eseji ho zapsat i do oddílu „Kde už je použito“ ve výtahu.
 
 | Stezka | Esej | Prameny | Čeká na dodání |
 |---|---|---|---|
@@ -44,7 +44,7 @@ Opačný pohled k tabulce výše: co číst před psaním eseje ke stezce. Podro
 | Město, které dýchá | | Wolf (infrastruktury), Doležel (fikční encyklopedie) | Mendlesohn (ponořená fantasy) |
 | Válka, kterou nikdo nevyhraje | | Švelch (ontologie nepřítele, spotřební nepřátelé), Clute (řídnutí), Girard (obětní krize, Kaifášova logika) | |
 | Pod lhostejnými hvězdami | | Otto, Fisher (podivné), Švelch (selhání střetu, Astrální bodec, lhostejná monstra), Clute | |
-| *návrh:* Kdo za to může? | | Girard (stereotypy pronásledování: Pathologic, Dishonored, Pentiment, Silent Hill, The Witcher, Dragon Age) | |
+| Kdo za to může? | | Girard (stereotypy pronásledování, dvojí přenos, Kaifášova logika). V eseji zmínit výhradu: Girard je redukcionista, používat ho jako nástroj vedle jiných pramenů | |
 
 ## Čeká na dodání (od majitele)
 

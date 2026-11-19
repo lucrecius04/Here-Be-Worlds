@@ -18,7 +18,7 @@ describe('tematické stezky', () => {
     expect(new Set(TRAILS.map((t) => t.id)).size).toBe(TRAILS.length);
   });
 
-  it('stezky dne: tři různé a za pět dní se vystřídají všechny', () => {
+  it('stezky dne: tři různé a za pár dní se vystřídají všechny', () => {
     const seen = new Set<string>();
     for (let day = 0; day < Math.ceil(TRAILS.length / 3); day++) {
       const today = dailyTrails(day);
