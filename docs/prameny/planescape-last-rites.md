@@ -32,3 +32,4 @@ Vize hry, vize týmu, bible postav, „manažerské a marketingové reality“, 
 - *Anatomie herního lore*: oddíl „Z dílny tvůrců“, Zdroje (Jimmy Maher, Tom Jubert, vizní dokument)
 - Esej ke stezce Kdo se to probudil? (`content/trails/kdo-se-to-probudil.md`): Proč se hry probouzejí bez paměti (amnézie jako synchronizace vědění)
 - Esej ke stezce Netvor v zrcadle (`content/trails/netvor-v-zrcadle.md`): Planescape (zrod otázky z premisy, co hrdina zapomněl, ostatní pamatují)
+- Esej ke stezce Křehká hranice svobodné vůle (`content/trails/krehka-hranice-svobodne-vule.md`, čeká na schválení): Proč hry… (hra jako generátor postavy)

@@ -45,3 +45,4 @@ Pro člověka tradičních společností je skutečné jen to, co **opakuje vzor
 - Esej ke stezce Bohové jako břemeno (`content/trails/bohove-jako-bremeno.md`): kořeny (cykly, mýtizace dějin, výhrada), Dark Souls (převrácené akitu), Elder Scrolls (Talos)
 - Esej ke stezce Válka, kterou nikdo nevyhraje (`content/trails/valka-kterou-nikdo-nevyhraje.md`): kořeny (hrůza z dějin, kalijuga, výhrada k „archaickému člověku“)
 - Esej ke stezce Prokleté dědictví (`content/trails/proklete-dedictvi.md`): kořeny (mýtizace dějin, kalijuga, výhrada)
+- Esej ke stezce Křehká hranice svobodné vůle (`content/trails/krehka-hranice-svobodne-vule.md`, čeká na schválení): kořeny (útěk před otevřenými dějinami do jistoty vzoru, výhrada), Tři pouta (pouto ze strachu)
