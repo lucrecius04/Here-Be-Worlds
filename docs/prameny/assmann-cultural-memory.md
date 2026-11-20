@@ -45,3 +45,4 @@ Kulturní paměť si společnosti budují pomocí médií (písmo, obraz, tělo,
 - Esej ke stezce Netvor v zrcadle (`content/trails/netvor-v-zrcadle.md`): Silent Hill (místo traumatu), NieR (funkční a úložná paměť)
 - Esej ke stezce Mluví už jen mrtví (`content/trails/mluvi-uz-jen-mrtvi.md`): kořeny (funkční a úložná paměť, Pausanias, úcta a zvědavost), Horizon (smazaný APOLLO)
 - Esej ke stezce Prokleté dědictví (`content/trails/proklete-dedictvi.md`): kořeny (funkční a úložná paměť), Tři způsoby (NieR, Horizon, Thedas)
+- Esej ke stezce Logo nad troskami (`content/trails/logo-nad-troskami.md`, čeká na schválení): Horizon (Faro maže APOLLO: zničení úložné paměti), Proč hry (hráč jako auditor v rozbité úložné paměti)

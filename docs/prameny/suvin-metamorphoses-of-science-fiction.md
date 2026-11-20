@@ -56,6 +56,7 @@ Vědecká fantastika (Suvin píše SF) je **literatura kognitivního odcizení**
 - *Anatomie herního lore*: jen odkaz na heslo Novum v *Encyclopedia of Science Fiction* ve Zdrojích
 - Esej ke stezce Prokleté dědictví (`content/trails/proklete-dedictvi.md`): kořeny (mýtus jako konstanty, sci-fi jako proměnné; demystifikace bohů jako starší civilizace či technologie; výhrada k fantasy), Horizon, Assassin's Creed
 - Esej ke stezce Ráj, který se nepovedl (`content/trails/raj-ktery-se-nepovedl.md`, čeká na schválení): Architektura ráje a jeho stín (definice utopie, tři rysy, dokonalost jednoho je hrůzou druhého, otevřenost, analogie), výhrada u Pathologicu, Co zbude (uzavřený ostrov a údolí: Měřítko)
+- Esej ke stezce Logo nad troskami (`content/trails/logo-nad-troskami.md`, čeká na schválení): Neviditelné monstrum s rozpočtem (kognitivní odcizení, analogie k přítomnosti), výhrada u Resident Evil, Fallout (satira jako analogie)
 
 ## Dočíst
 

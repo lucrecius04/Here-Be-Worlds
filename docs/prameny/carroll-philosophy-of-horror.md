@@ -42,3 +42,4 @@ Horor je žánr definovaný emocí, kterou vyvolává: **uměleckou hrůzou** (*
 - *Anatomie herního lore*: oddíl „Carroll: monstrum a zvědavost“, tabulka pojmů, Zdroje
 - Esej ke stezce Netvor v zrcadle (`content/trails/netvor-v-zrcadle.md`): kořeny (fúze a fise, horor jako drama odhalování), Planescape (fise)
 - Esej ke stezce Prokleté dědictví (`content/trails/proklete-dedictvi.md`): kořeny (zápletka přesahovače), Proč hry… (Vhled jako drama odhalování)
+- Esej ke stezce Logo nad troskami (`content/trails/logo-nad-troskami.md`, čeká na schválení): Neviditelné monstrum s rozpočtem (zápletka přesahovače), Resident Evil (Spencer, Marcus, Birkin; fáze potvrzení: Irons umlčí přeživší)

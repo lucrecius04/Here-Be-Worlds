@@ -48,3 +48,4 @@ Podivné a tísnivé nejsou žánry, ale **módy**: způsoby vnímání a afekty
 - *Anatomie herního lore*: oddíl „Fisher: podivné a tísnivé“ (upír vs. černá díra, archeologie a hráč), tabulka pojmů, Zdroje
 - *Na mrtvole boha*: Pathfinder (Arodenova smrt jako tísnivé), Zdroje
 - Esej ke stezce Mluví už jen mrtví (`content/trails/mluvi-uz-jen-mrtvi.md`): kořeny (tísnivé, otázka původce, Stonehenge), závěr (tísnivé mizí s poznáním)
+- Esej ke stezce Logo nad troskami (`content/trails/logo-nad-troskami.md`, čeká na schválení): Neviditelné monstrum s rozpočtem (kapitál jako tísnivá entita, otázka původce), Cyberpunk (Peralezovi, výklad atlasu)
