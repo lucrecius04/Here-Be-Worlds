@@ -3,7 +3,9 @@
 //   npm run bundle:trail -- <id-stezky>   balíček jedné stezky (např. scapegoat)
 //   npm run bundle:trail -- --all         balíčky všech stezek
 //   npm run bundle:trail -- --base        základní balíček bez kronik (pro studium knih)
-// Výstup: bundles/*.md (necommituje se).
+//   npm run bundle:trail -- <id> --split  balíček stezky rozsekaný na menší soubory (pro Gemini,
+//                                          které dlouhé soubory při nahrání usekne); --limit=30000 znaků
+// Výstup: bundles/*.md, rozsekaný balíček v bundles/<id>/ (necommituje se).
 import { readFileSync, writeFileSync, mkdirSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 
@@ -146,6 +148,154 @@ function baseBundle() {
   return header('Základní balíček Here Be Worlds', 'Pro studium nových knih a pro seznámení s atlasem: zadání ke studiu, přehled stezek a světů, příručka pro autory, vzorová esej, metoda atlasu, teoretické zázemí a všechny výtahy z pramenů. Kroniky nejsou součástí (jsou v balíčcích jednotlivých stezek).') + toc + parts.join('');
 }
 
+// --- rozsekaný balíček pro modely s malým limitem nahrávání ---------------
+// Prameny jen ty, které rozcestník u stezky doporučuje (tabulka „Prameny podle stezek“).
+const PRAMEN_KEYS = [
+  [/Doležel/, 'dolezel-heterocosmica'], [/Fisher/, 'fisher-weird-eerie'], [/Todorov/, 'todorov-uvod-do-fantasticke-literatury'],
+  [/Clute/, 'clute-encyclopedia-of-fantasy'], [/Otto/, 'otto-posvatno'], [/Tolkien/, 'tolkien-o-pohadkach'],
+  [/Wolf(?! \(ed\.\))/, 'wolf-building-imaginary-worlds'], [/Wolf \(ed\.\)/, 'wolf-revisiting-imaginary-worlds'],
+  [/Murray/, 'murray-hamlet-on-the-holodeck'], [/Calleja/, 'calleja-in-game'], [/Ryan/, 'ryan-narrative-as-virtual-reality'],
+  [/Jenkins/, 'jenkins-convergence-culture'], [/Aarseth/, 'aarseth-cybertext'], [/Juul/, 'juul-half-real'], [/Bogost/, 'bogost-persuasive-games'],
+  [/vizní dokument|Last Rites/, 'planescape-last-rites'], [/Švelch/, 'svelch-player-vs-monster'], [/Girard/, 'girard-obetni-beranek'],
+  [/Turner/, 'turner-prubeh-ritualu'], [/Mendlesohn(?! a James)/, 'mendlesohn-rhetorics-of-fantasy'],
+  [/Mendlesohn a James/, 'mendlesohn-short-history-of-fantasy'], [/Eliade/, 'eliade-mytus-o-vecnem-navratu'],
+  [/Jan Assmann/, 'assmann-jan-kultura-a-pamet'], [/Assmannová/, 'assmann-cultural-memory'], [/Bachelard/, 'bachelard-poetika-prostoru'],
+  [/Boym/, 'boym-future-of-nostalgia'], [/Douglas/, 'douglas-cistota-a-nebezpeci'], [/Carroll/, 'carroll-philosophy-of-horror'],
+  [/Nietzsche|mýty o stvoření|deus otiosus|Iser|Suvin/, 'drobne-prameny'],
+];
+const trailRow = (name) => read('docs/prameny/README.md').split('\n').find((l) => l.startsWith(`| ${name} |`)) || '';
+const trailPrameny = (name) => {
+  const cell = trailRow(name).split('|')[3] || '';
+  return PRAMEN_KEYS.filter(([re]) => re.test(cell)).map(([, f]) => f).filter((f, i, a) => a.indexOf(f) === i);
+};
+
+const slugify = (x) => x.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 40);
+
+// Rozdělí text na části do limitu, přednostně na nadpisech, jinak na odstavcích.
+function splitText(text, limit) {
+  if (text.length <= limit) return [text];
+  const n = Math.ceil(text.length / limit);
+  const target = Math.ceil(text.length / n);
+  const blocks = text.split(/\n(?=#{1,3} )/).flatMap((b) => (b.length > target ? b.split(/\n\n/).map((p) => p + '\n') : [b + '\n']));
+  const parts = [];
+  let cur = '';
+  for (const b of blocks) {
+    if (cur && cur.length + b.length > target && cur.length > target * 0.4) { parts.push(cur); cur = ''; }
+    cur += (cur && !cur.endsWith('\n') ? '\n' : '') + b;
+  }
+  if (cur.trim()) parts.push(cur);
+  while (parts.length > n && parts[parts.length - 1].length + parts[parts.length - 2].length <= limit) {
+    const last = parts.pop();
+    parts[parts.length - 1] += last;
+  }
+  return parts.flatMap((p) => (p.length > limit ? splitText(p, limit) : [p]));
+}
+
+function splitBundle(t, limit) {
+  const { name, desc } = trailText(t.key);
+  const pr = trailPrameny(name);
+  const docs = [
+    { title: `Zadání a karty světů stezky „${name}“`, body: [
+      `Id stezky: \`${t.id}\` (do frontmatteru \`trail: ${t.id}\`)`,
+      `Název stezky: ${name}`,
+      `Popis stezky na webu: ${desc}`,
+      `Světy stezky v pořadí: ${t.members.map((id) => cs(byId[id].gameTitle)).join(', ')}`,
+      '',
+      'Prameny, které rozcestník k této stezce doporučuje (výtahy jsou v dalších souborech):',
+      '',
+      (trailRow(name).split('|')[3] || '').trim(),
+      '',
+      '---',
+      '',
+      t.members.map((id) => worldCard(byId[id])).join('\n\n---\n\n'),
+    ].join('\n') },
+    { title: 'Příručka pro autory esejí ke stezkám', body: read('docs/pro-autory/README.md') },
+    { title: 'Vzorová esej 1: Na mrtvole boha', body: read('content/trails/na-mrtvole-boha.md') },
+    ...(existsSync(join(root, 'content/trails/kdo-za-to-muze.md')) ? [{ title: 'Vzorová esej 2: Kdo za to může? (po opravách a zkrácení, 4 200 slov = horní mez)', body: read('content/trails/kdo-za-to-muze.md') }] : []),
+    { title: 'Metoda atlasu: Anatomie herního lore', body: read('content/essays/anatomie-herniho-lore.md') },
+    ...pr.map((f) => ({ title: `Výtah z pramene: ${f}`, body: read(`docs/prameny/${f}.md`) })),
+    ...t.members.map((id) => {
+      const w = byId[id];
+      const file = `content/chronicles/${w.chronicleSlug || w.id}.md`;
+      return { title: `Kronika: ${cs(w.gameTitle)}`, body: read(file) };
+    }),
+    { title: 'Teoretické zázemí (přehled všech pramenů atlasu, doplňkové)', body: read('content/essays/teoreticke-zazemi.md') },
+  ];
+  // části dokumentů
+  const room = limit - 400;
+  let chunks = docs.flatMap((d) => {
+    const ps = splitText(d.body.trim(), room);
+    return ps.map((p, i) => ({ titles: [ps.length > 1 ? `${d.title} (část ${i + 1}/${ps.length})` : d.title], body: p.trim() }));
+  });
+  // malé sousední části spojit do jednoho souboru
+  const merged = [];
+  for (const c of chunks) {
+    const last = merged[merged.length - 1];
+    if (last && last.body.length + c.body.length + 200 <= room) {
+      last.titles.push(...c.titles);
+      last.body += `\n\n${'='.repeat(60)}\n# ${c.titles[0]}\n${'='.repeat(60)}\n\n${c.body}`;
+    } else merged.push({ titles: [...c.titles], body: c.body });
+  }
+  const total = merged.length;
+  const nn = (i) => String(i).padStart(2, '0');
+  const files = merged.map((c, i) => {
+    const no = `${nn(i + 1)}/${nn(total)}`;
+    const text = `SOUBOR ${no} · Here Be Worlds · stezka „${name}“\nObsah: ${c.titles.join(' · ')}\n\n${'='.repeat(60)}\n# ${c.titles[0]}\n${'='.repeat(60)}\n\n${c.body}\n\nKONEC SOUBORU ${no}\n`;
+    return { name: `${nn(i + 1)}-${slugify(c.titles[0])}.md`, text, titles: c.titles };
+  });
+  const manifest = files.map((f) => `- ${f.name} – ${f.titles.join(' · ')}`).join('\n');
+  const start = startPrompt(t, name, desc, total, manifest);
+  return [{ name: '00-START-vloz-do-chatu.md', text: start }, ...files];
+}
+
+function startPrompt(t, name, desc, total, manifest) {
+  const worldsList = t.members.map((id) => cs(byId[id].gameTitle)).join(', ');
+  const batches = [];
+  for (let i = 1; i <= total; i += 10) batches.push(`${String(i).padStart(2, '0')}–${String(Math.min(i + 9, total)).padStart(2, '0')}`);
+  return `# Zadání: esej ke stezce „${name}“ pro atlas Here Be Worlds
+
+(Tento text vlož do chatu jako první zprávu. Soubory 01–${String(total).padStart(2, '0')} pak nahraj po dávkách: ${batches.join(', ')}.)
+
+Jsi autor odborných esejí pro český atlas herních světů Here Be Worlds. Napíšeš esej ke stezce **„${name}“**. Popis stezky na webu: ${desc} Světy stezky: ${worldsList}.
+
+## Materiály
+
+Dostaneš ${total} souborů. Každý začíná řádkem „SOUBOR NN/${String(total).padStart(2, '0')}“ a končí řádkem „KONEC SOUBORU NN/${String(total).padStart(2, '0')}“. Když koncový řádek chybí, soubor se při nahrání usekl.
+
+${manifest}
+
+Kroniky jsou **jediný zdroj faktů o světech**. Prameny používej jen v rozsahu výtahů. Příručka (soubor se zadáním a příručkou) platí celá; níže jsou body, které se u minulé eseje nedodržely.
+
+## Postup
+
+1. **Teď jen čti.** Po každé dávce odpověz jedním řádkem: „Načteno NN–NN, všechny soubory úplné“, nebo vypiš soubory bez koncového řádku. Nic jiného nepiš.
+2. Až napíšu **„Vše nahráno“**, odevzdej **krok 1** (krátce, bez textu eseje):
+   - otázku eseje (jedna věta s otazníkem),
+   - osnovu (nadpisy kapitol a u každé jedna věta),
+   - ke každému světu 3–6 faktů, na kterých oddíl postavíš, každý s místem v kronice (kapitola nebo oddíl Faktografie),
+   - které prameny použiješ a k čemu.
+   Pak počkej, až napíšu „ok“ nebo pošlu připomínky.
+3. **Krok 2: esej po částech**, aby se odpověď neusekla. Každá část v jednom bloku markdownu, na konci řádek „Konec části X/3“, pak počkej na „dál“:
+   - část A: frontmatter, Úvodem, kořeny tématu,
+   - část B: oddíly světů,
+   - část C: typologie, proč to hry milují, odpověď, Zdroje.
+4. **Krok 3:** seznam faktů s místy v kronikách, seznam míst k ověření (\`[OVĚŘIT: …]\`), případné návrhy k pramenům.
+
+## Na co si dát pozor (poučení z minulé eseje)
+
+- **Délka 3 000–3 800 slov, strop 4 000.** Minulá esej měla 5 700 slov a musela se krátit. Hutně a kratší je lepší než dlouze a řídce. Oddíl jednoho světa zhruba 350–500 slov.
+- **Nepřevyprávět děj.** U světa jen to, co nese otázku eseje. Čtenář si kroniku otevře sám.
+- **Jedna myšlenka jednou.** Typologie a závěr neopakují, co už zaznělo u světů.
+- **Jména přesně podle kroniky** (postavy, místa, frakce, letopočty, pořadí událostí). Když se karta světa a kronika liší, platí kronika.
+- **Nic nedomýšlet.** Žádné příčinné souvislosti, motivace postav ani detaily, které kronika neříká. Co víš odjinud, označ \`[OVĚŘIT: …]\`.
+- **Výklad označit jako výklad** („čteme to jako…“, „pro atlas je to…“), nevydávat ho za fakt hry.
+- **Souřadnice přesně z karty** (hodnota 1–5), slovo „osy“ nikdy, žádná procenta.
+- **Prameny:** žádné vymyšlené citace ani čísla stran; odborníka představit při prvním výskytu; u Girarda, Eliada a Mendlesohnové jednou zmínit výhradu (viz příručka).
+- **Úvodní citát doslova z kroniky**, zkopírovaný znak po znaku.
+- Esej: první osoba množného čísla a vykání čtenáři; česká typografie; velké zvraty do spoilerových bloků (formát v příručce, oddíl 6).
+`;
+}
+
 // --- spuštění ------------------------------------------------------------
 const args = process.argv.slice(2);
 if (!args.length) {
@@ -159,6 +309,8 @@ const write = (name, text) => {
   console.log(`bundles/${name}  ${text.split(/\s+/).length.toLocaleString('cs-CZ')} slov`);
 };
 if (args.includes('--base')) write('zakladni-balicek.md', baseBundle());
+const limitArg = args.find((a) => a.startsWith('--limit='));
+const limit = limitArg ? Number(limitArg.split('=')[1]) : 30000;
 const ids = args.includes('--all') ? trails.map((t) => t.id) : args.filter((a) => !a.startsWith('--'));
 for (const id of ids) {
   const t = trails.find((x) => x.id === id);
@@ -167,5 +319,13 @@ for (const id of ids) {
     process.exitCode = 1;
     continue;
   }
-  write(`stezka-${id}.md`, trailBundle(t));
+  if (args.includes('--split')) {
+    const dir = join(outDir, id);
+    mkdirSync(dir, { recursive: true });
+    for (const f of readdirSync(dir)) if (f.endsWith('.md')) writeFileSync(join(dir, f), ''), (await import('node:fs')).unlinkSync(join(dir, f));
+    for (const f of splitBundle(t, limit)) {
+      writeFileSync(join(dir, f.name), f.text);
+      console.log(`bundles/${id}/${f.name}  ${f.text.length.toLocaleString('cs-CZ')} znaků`);
+    }
+  } else write(`stezka-${id}.md`, trailBundle(t));
 }

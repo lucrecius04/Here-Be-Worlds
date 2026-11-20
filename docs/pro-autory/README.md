@@ -47,7 +47,7 @@ Dobrá esej:
 
 ## 4. Stavba eseje
 
-Rozsah 3 000–4 500 slov. Kapitoly jsou nadpisy `##`, světy a pododdíly `###`.
+Rozsah **3 000–3 800 slov, strop 4 000**. Hutně a kratší je lepší než dlouze a řídce: oddíl jednoho světa má zhruba 350–500 slov a nese jen to, co odpovídá na otázku eseje, ne převyprávění děje. Vzorem délky a hustoty je esej Kdo za to může? (4 200 slov po zkrácení, tedy horní mez). Kapitoly jsou nadpisy `##`, světy a pododdíly `###`.
 
 1. **Úvodem.** Úvodní citát z naší kroniky (kurzívou, pod ním „(Kronika …)“). Pak obraz nebo myšlenka, která téma otevře, představení všech světů stezky v jednom odstavci (každý tučně, každý jednou větou), a otázka eseje tučně. Na konci rámeček „Upozornění“ o spoilerech.
 2. **Kořeny tématu.** Odkud téma pochází: mýtus, náboženství, literatura, filozofie. Jeden až dva prameny, ne přehled všeho.
@@ -139,6 +139,17 @@ Kapitoly se číslují samy (kromě Úvodem a Zdroje). Obsah vlevo a doba čten�
 - [ ] Žádné „osy“, žádná procenta, žádné anglické názvy světů, kde má atlas český.
 - [ ] Velké zvraty jsou ve spoilerových blocích.
 - [ ] Česká typografie (uvozovky, pomlčky, mezery v číslech).
+- [ ] Délka do 4 000 slov; typologie a závěr neopakují, co zaznělo u světů.
+
+### Časté chyby (z kontroly první eseje od Gemini)
+
+Esej Kdo za to může? měla po kontrole 12 věcných oprav a musela se zkrátit z 5 700 na 4 200 slov. Nejčastější důvody:
+
+- **Jména z karty místo z kroniky.** Když se karta světa a kronika liší, platí kronika. Jména postav, míst, frakcí a řádů opisovat přesně, i s velkými písmeny.
+- **Domyšlené souvislosti.** Kdo co způsobil, proč to udělal, v jakém pořadí se to stalo: jen tak, jak to říká kronika. Co tam není, nepatří do textu, nebo dostane `[OVĚŘIT: …]`.
+- **Výklad vydávaný za fakt hry.** Vlastní čtení atlasu označit („čteme to jako…“, „pro atlas je to…“).
+- **Převyprávění děje a opakování.** Oddíl světa nemá shrnovat kroniku; závěr nemá znovu projít všechny světy.
+- **Souřadnice od oka.** Hodnoty brát přesně z karty světa (1–5).
 
 ## 8. Balíček stezky
 
@@ -152,7 +163,14 @@ npm run bundle:trail -- --base         # základní balíček (bez kronik) pro s
 
 Výstup je v `bundles/` (necommituje se). Balíček stezky obsahuje: tuto příručku, popis stezky a její světy, karty světů včetně souřadnic, vzorovou esej, Anatomii herního lore, Teoretické zázemí, rozcestník a všechny výtahy z pramenů a celé kroniky světů stezky. Základní balíček je totéž bez kronik a s výčtem všech stezek a světů.
 
-Model s dlouhým kontextem (Gemini) dostane balíček jako jeden nahraný soubor.
+Model, který dlouhé soubory při nahrání usekne (Gemini v aplikaci), dostane **rozsekaný balíček**:
+
+```bash
+npm run bundle:trail -- who-woke-up --split            # soubory do 30 000 znaků v bundles/<id>/
+npm run bundle:trail -- who-woke-up --split --limit=20000
+```
+
+Vznikne `00-START-vloz-do-chatu.md` (zadání a postup, vloží se do chatu jako první zpráva) a číslované soubory 01–NN. Každý začíná řádkem „SOUBOR NN/MM“ a končí „KONEC SOUBORU NN/MM“, takže model pozná, že se soubor usekl. Z pramenů jsou v rozsekaném balíčku jen ty, které rozcestník doporučuje k dané stezce. Model odevzdává po krocích: nejdřív otázku, osnovu a fakta, po schválení esej ve třech částech, nakonec seznam faktů a míst k ověření.
 
 ## 9. Co odevzdat
 

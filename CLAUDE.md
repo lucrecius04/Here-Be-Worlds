@@ -21,7 +21,7 @@ Tento soubor je zdroj pravdy pro AI. Interní identifikátory v kódu se nepřek
 - **Osy mají dvě podoby:** hodnota **jednoho světa** = pětidílný pruh se zvýrazněným pólem, ke kterému se svět kloní (`FiveAxes` na spisu; jinde sdílená `AxisBars`: Svět dne, hádanka, karta katalogu `compact`, kompas jako tlačítka). Poloha **víc světů nebo průměr** = kosočtverce na stupnici 1–5 (srovnání `AxisOverlay`; stránka archetypu `AxisRange`: kosočtverec průměru + pás rozpětí od nejnižšího po nejvyšší svět). Nesvítí sousední dílky; záře jen tam, kde nese údaj (rozpětí). V hádance je pruh bez barvy archetypu (prozradil by odpověď).
 - **Tón:** web čtenáři **tyká** („Poznáš svět…“, „Nastav si…“). Výjimkou jsou autorské texty `/about/` a eseje.
 
-Příkazy: `npm run dev` · `npm run build` · `npm test` · `npm run import:chronicle` · `npm run import:atlas` · `npm run og` (karty pro sdílení) · `npm run bundle:trail -- <id>|--all|--base` (studijní balíčky pro autory, výstup `bundles/`, necommituje se).
+Příkazy: `npm run dev` · `npm run build` · `npm test` · `npm run import:chronicle` · `npm run import:atlas` · `npm run og` (karty pro sdílení) · `npm run bundle:trail -- <id>|--all|--base` (studijní balíčky pro autory, výstup `bundles/`, necommituje se; `<id> --split` rozseká balíček stezky na soubory do 30 000 znaků pro Gemini).
 
 ---
 
