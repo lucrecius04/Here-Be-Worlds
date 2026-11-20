@@ -789,11 +789,11 @@
       "signatureBullets": [
         {
           "en": "Dějiny jako lež. Chantry, Tevinter i elfské legendy se ukážou jako zkreslené.",
-          "cs": "Dějiny jako lež. Chantry, Tevinter i elfské legendy se ukážou jako zkreslené."
+          "cs": "Dějiny jako lež. Oltář, Tevinter i elfské legendy se ukážou jako zkreslené."
         },
         {
           "en": "Mágové v kleci. Magie je dar i hrozba a mágové žijí pod dohledem templářů.",
-          "cs": "Mágové v kleci. Magie je dar i hrozba a mágové žijí pod dohledem templářů."
+          "cs": "Mágové v kleci. Magie je dar i hrozba a mágové žijí pod dohledem Templářů."
         },
         {
           "en": "Závoj mezi světy. Solas oddělil svět snů, Únik, a tím zničil vlastní lid.",
@@ -842,7 +842,7 @@
           "cs": "Zápasící říše a národy",
           "sub": {
             "en": "Orlais, Ferelden, Tevinter, and the power of the Chantry",
-            "cs": "Orlais, Ferelden, Tevinter a moc Chantry"
+            "cs": "Orlais, Ferelden, Tevinter a moc Oltáře"
           }
         },
         "sourceOfPower": {
@@ -863,7 +863,7 @@
         },
         "keyActors": {
           "en": "the Chantry and templars · the Grey Wardens and the Blight · the elven gods and Solas · the Tevinter Imperium · the Circles of Magi",
-          "cs": "Chantry a templáři · Šedí strážci a Nákaza · elfští bohové a Solas · Tevinterské impérium · kruhy mágů"
+          "cs": "Oltář a Templáři · Šedí strážci a Nákaza · elfští bohové a Solas · Tevinterské impérium · kruhy mágů"
         }
       },
       "themes": [
@@ -7482,7 +7482,7 @@
         },
         "keyActors": {
           "en": "the Empire and its regents · the Abbey of the Everyman · the Outsider and the Void · the Loyalist conspirators · Delilah and the witches",
-          "cs": "Impérium a jeho regenti · Opatství Dohližitelů · Cizinec a Prázdnota · spiklenci Věrných · Delilah a čarodějnice"
+          "cs": "Impérium a jeho regenti · Opatství Všedního dne · Cizinec a Prázdnota · spiklenci Věrných · Delilah a čarodějnice"
         }
       },
       "themes": [
@@ -8580,7 +8580,7 @@
         },
         "keyActors": {
           "en": "the Kains, the Olgimskys, and the Saburovs · the steppe and the Kin · the plague · the Polyhedron and the children of the Town",
-          "cs": "rody Kainů, Olgimských a Saburovů · step a kmen Kin · mor · Mnohostěn a děti Města"
+          "cs": "rody Kainů, Olgimských a Saburovů · step a Příbuzenstvo · mor · Mnohostěn a děti Města"
         }
       },
       "themes": [
