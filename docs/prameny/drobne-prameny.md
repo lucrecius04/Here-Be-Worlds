@@ -31,7 +31,7 @@ Prameny, které eseje citují krátce. Nečetli jsme je jako celé knihy, ale p�
 
 Citované v *Anatomii herního lore* dřív, než vznikla tato složka, a čtené jen přes sekundární zdroje uvedené v eseji:
 
-- **Wolfgang Iser:** prázdná místa textu (estetika recepce). Doležel s ním polemizuje (viz [dolezel-heterocosmica.md](dolezel-heterocosmica.md)).
+- **Wolfgang Iser:** prázdná místa textu (estetika recepce). Doležel s ním polemizuje (viz [dolezel-heterocosmica.md](dolezel-heterocosmica.md)). *Der implizite Leser* má od 2026-11-20 vlastní výtah: [iser-implizite-leser.md](iser-implizite-leser.md).
 - **Henry Jenkins:** *Game Design as Narrative Architecture* (2004). Herní svět jako paměťový palác, prostorové vyprávění.
 - **Espen Aarseth:** *Cybertext* (1997). Ergodická literatura. Od 2026-11-20 čteno z knihy, viz [aarseth-cybertext.md](aarseth-cybertext.md).
 - **J. R. R. Tolkien:** *O pohádkách* (1939). Druhotný svět, subkreace. K tomu dopis z roku 1954 o nevysvětlených věcech. Od 2026-11-20 čteno z textu, viz [tolkien-o-pohadkach.md](tolkien-o-pohadkach.md).

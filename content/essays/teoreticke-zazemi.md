@@ -27,7 +27,7 @@ Pojmy, se kterými pracujeme, nejsou naše. Přicházejí ze šesti oblastí: z 
 | Procedurální rétorika | Ian Bogost, *Persuasive Games* (2007) | Hry přesvědčují samotnými pravidly, nejen obrazem a slovem. |
 | Ludonarativní nesoulad | Clint Hocking (2007) | Když mechanika slibuje něco jiného než příběh, hráč se cítí zesměšněný. |
 | Pravidla a fikce | Jesper Juul, *Half-Real* (2005) | Hra spojuje skutečná pravidla s fiktivním světem, který může být i nesoudržný. |
-| Prázdná místa | Wolfgang Iser (1972, 1976) | Text obsahuje neurčitá místa, která čtenář vyplňuje představivostí. |
+| Prázdná místa, implicitní čtenář, archetyp jako prázdná forma | Wolfgang Iser, *Der implizite Leser* (1972) | Text vynechá, na čem záleží, a čtenář to podle jeho pokynů doplní představou. Archetyp známe jen z realizací, vždy se dá vyprávět jinak. |
 | První zákon magie | Brandon Sanderson (2007) | Magie smí řešit zápletku jen tehdy, když jí čtenář rozumí. |
 | Imaginární světy | Mark J. P. Wolf, *Building Imaginary Worlds* (2012) | Svět není jen pozadí příběhu. Často přesahuje jeden příběh, médium i autora. |
 | Přetékání, shlukování, virtuální hmatatelnost | Mark J. P. Wolf (ed.), *Revisiting Imaginary Worlds* (2017) | Velký svět má víc údajů, než pojme paměť, ale dá se číst, protože se skládá do celků. Ve hrách mu váhu dodává i to, že se věcí dá „dotknout“ (Kevin Schut). |
@@ -82,7 +82,9 @@ Literární teoretička Marie-Laure Ryanová v knize *Narrative as Virtual Reali
 
 ### Iser: prázdná místa
 
-Wolfgang Iser v knihách *Der implizite Leser* (1972) a *Der Akt des Lesens* (1976) ukázal, že každý text obsahuje neurčitá místa, která čtenář vyplňuje představivostí, a že právě tím se do textu zapojuje. Doležel s ním polemizuje: ne každá mezera je čtenářova práce, některá je záměrně nulová. Z obou vychází naše řízená mezera.
+Německý anglista Wolfgang Iser v knize *Der implizite Leser* (1972) ukázal na anglickém románu od Bunyana po Becketta, že smysl textu není hotový, ale **odehrává se ve čtenáři**. Román přebírá normy a vzory svého světa (Iser říká repertoár), ale popírá je, a tím čtenáře nutí hledat to podstatné jinde. Nejsilnějším nástrojem jsou **prázdná místa**: text vynechá, na čem záleží, třeba reakci postavy nebo motiv jejího jednání. Když Fielding v *Josephu Andrewsovi* nepopíše úžas lady Boobyové a nabídne jen řadu přirovnání, která prý nestačí, postava ožije ve čtenáři, protože si scénu domaluje sám. Prázdná místa přitom nejsou pozvánkou k libovůli: text dává pokyny a rámec a čtenář volí uvnitř něj. Tuto do textu vepsanou roli Iser nazývá **implicitní čtenář**.
+
+Pro atlas je cenná i jeho kapitola o Joyceově *Odysseovi*. Homérova *Odyssea* v ní není vzorem, který Bloom opakuje, ale jen jednou z realizací archetypu návratu. Archetyp sám je podle Isera **prázdná forma**: neznáme ho jinak než z jeho realizací a jeho podstatou je, že se dá vždy vyprávět jinak. Pro atlas z toho plyne, proč má smysl světy srovnávat: podobnost zviditelňuje rozdíl. Doležel s Iserem polemizuje, že ne každá mezera je čtenářova práce a některá je záměrně nulová. Z obou vychází naše řízená mezera. Iserovu systematickou knihu *Der Akt des Lesens* (1976) známe zatím z druhé ruky.
 
 ## Fantastika
 
@@ -258,7 +260,7 @@ Spisovatel Brandon Sanderson (2007): magie smí řešit zápletku jen tehdy, kdy
 
 ## Jak s prameny pracujeme
 
-Teorie je pro nás nástroj, ne dogma. Knihy, o které se opírá většina výkladu, jsme přečetli a sepsali si z nich výtahy: pojmy, příklady a to, co z nich plyne pro herní světy. Kde pramen známe jen zčásti nebo z druhé ruky (Suvin, Iser), opíráme se o encyklopedická hesla a výklady, které uvádíme ve zdrojích.
+Teorie je pro nás nástroj, ne dogma. Knihy, o které se opírá většina výkladu, jsme přečetli a sepsali si z nich výtahy: pojmy, příklady a to, co z nich plyne pro herní světy. Kde pramen známe jen zčásti nebo z druhé ruky (Suvin, Iserova pozdější kniha *Der Akt des Lesens*), opíráme se o encyklopedická hesla a výklady, které uvádíme ve zdrojích.
 
 Několik autorů má známé slabiny a v textech na ně upozorňujeme. René Girard vidí ve všem jedinou teorii obětního beránka, a proto ho používáme jako ostrý nástroj vedle ostatních, ne jako klíč ke všemu. Mircea Eliade zobecňuje „archaického člověka“ napříč kulturami a jeho závěr o víře je teologický, takže ho uvádíme jako jeho stanovisko. Farah Mendlesohn sama varuje, že její kategorie nejsou pravidla, a teorie, která tvrdí, že platí na všechno, podle ní nestojí za nic. To platí i pro náš atlas.
 
@@ -266,7 +268,7 @@ Několik autorů má známé slabiny a v textech na ně upozorňujeme. René Gir
 
 Knihy, které by metodu dál prohloubily a ke kterým se chceme dostat:
 
-- **Dočíst:** Ryanová, *Narrative as Virtual Reality* (kapitoly o interaktivitě); původní texty Suvina a Isera, které známe z druhé ruky.
+- **Dočíst:** Ryanová, *Narrative as Virtual Reality* (kapitoly o interaktivitě); původní text Suvina a Iserova kniha *Der Akt des Lesens* (1976), které známe z druhé ruky.
 
 ## Zdroje
 
@@ -325,7 +327,8 @@ Knihy, které by metodu dál prohloubily a ke kterým se chceme dostat:
 
 - J. R. R. Tolkien: „O pohádkách“ (On Fairy-Stories, 1939/1947), in: *Netvoři a kritikové a jiné eseje*, přel. Jan Čermák, Argo 2006.
 - Darko Suvin: *Metamorphoses of Science Fiction*, Yale University Press 1979.
-- Wolfgang Iser: *Der implizite Leser*, 1972; *Der Akt des Lesens*, 1976.
+- Wolfgang Iser: *Der implizite Leser. Kommunikationsformen des Romans von Bunyan bis Beckett*, Wilhelm Fink 1972; anglicky *The Implied Reader*, Johns Hopkins University Press 1974.
+- Wolfgang Iser: *Der Akt des Lesens*, 1976 (známe z druhé ruky).
 
 **Mýtus a filozofie**
 
