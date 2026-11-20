@@ -37,6 +37,7 @@ Pojmy, se kterými pracujeme, nejsou naše. Přicházejí ze šesti oblastí: z 
 | Podivné a tísnivé | Mark Fisher, *The Weird and the Eerie* (2016) | Podivné je přítomnost něčeho, co nepatří. Tísnivé je něco tam, kde by nemělo být nic, nebo nic tam, kde by mělo být něco, a otázka, kdo tu jednal. |
 | Vznešená a zkrocená monstrozita | Jaroslav Švelch, *Player vs. Monster* (2023) | Herní monstra jsou simulovaná a navržená, aby prohrála. Co se dá spočítat a porazit, ztrácí tajemství. |
 | Obětní beránek, zakládající vražda | René Girard, *Obětní beránek* (1982) | Mýty vyprávějí o kolektivním násilí z pohledu pronásledovatelů. Oběť je napřed vinná krizí, po smrti uctívaná jako zachránce, a z toho dvojího přenosu vzniká posvátno. |
+| Práh (liminalita), communitas | Victor Turner, *Průběh rituálu* (1969) | Kdo prochází přechodem, stojí mimo kategorie: bez jména, majetku a postavení. Na prahu vzniká pouto rovných, které struktura potřebuje i obává se ho. |
 | Portálová, ponořená, vpádová a prahová fantasy | Farah Mendlesohn, *Rhetorics of Fantasy* (2008) | Fantasy se liší tím, jak do příběhu vstupuje fantastično a kde přitom stojí čtenář: přichází zvenčí, je doma, svět je přepaden, nebo zázrak stojí na prahu. |
 | Meč a magie, výpravná fantasy, divadelní fantasy, Fantasyland™ | Farah Mendlesohn, Edward James, *A Short History of Fantasy* (2009) | Dějiny fantasy jako rozhovor autorů: jak se z Tolkiena, Howarda, Moorcocka, pulpových časopisů a D&D zrodily vzorce i klišé herních světů. |
 | Věčný návrat, hrůza z dějin | Mircea Eliade, *Mýtus o věčném návratu* (1949) | Tradiční člověk považuje za skutečné jen to, co opakuje vzor z počátku času. Opakováním ruší dějiny a kolektivní paměť z událostí dělá mýty. |
@@ -187,6 +188,12 @@ René Girard v knize *Obětní beránek* (1982) tvrdí, že mnohé mýty jsou te
 
 Pro herní světy z toho plynou dvě věci. Za [prvotním hříchem](/anatomie-herniho-lore/#prvotni-hrich) často stojí zakládající vražda, kterou si společenství vypráví tak, aby samo nebylo vinné: bohové Elder Scrolls společně vyrvou Lorkhanovi srdce a lidé ho pak uctívají jako stvořitele, z upálené Andraste vznikne v Dragon Age církev. A silné hry dávají hráči do ruky právě obětního beránka. V Pathologic přijíždí Haruspex do města, kde vypukl mor, a hned je obviněn z vraždy vlastního otce. V Dishonored dostane Corvo vinu za vraždu císařovny uprostřed krysího moru. V Pentimentu potřebuje opat rychle někoho oběsit a hra nikdy neřekne, kdo byl skutečný vrah. Mýtus vyprávěl z pohledu davu. Hra může postavit hráče do kruhu, kolem kterého dav stojí.
 
+### Turner: práh a communitas
+
+Antropolog Victor Turner v knize *Průběh rituálu* (1969) rozvinul postřeh Arnolda van Gennepa, že každý přechodový rituál má tři fáze: odloučení, práh a znovuzačlenění. Na prahu (*limen*) stojí člověk „ani tady, ani tam“. Nemá jméno, majetek ani postavení, často je nahý nebo přestrojený za netvora a jeho stav se přirovnává ke smrti, k lůnu nebo k divočině. Mezi lidmi na prahu vzniká **communitas**, pouto rovných, které neumí vzniknout uvnitř hierarchie. Společnost podle Turnera potřebuje obojí, strukturu i communitas, a střídá je. Proto ndembuský náčelník stráví noc před nástupem jako otrok, kterému smí spílat každý, komu kdy ukřivdil. Proto se i lidé trvale postavení mimo řád, šamani, proroci a šašci, smějí stát soudci mravů.
+
+Herní světy svého hrdinu velmi často posazují přesně na tenhle práh. Bezejmenný se v Planescape: Torment probouzí na stole v márnici, Harry v Disco Elysium neví, jak se jmenuje, a nemrtví v Dark Souls nesou cejch, který je drží mezi životem a smrtí. Zkouška trav ze Zaklínače je přechodový rituál dovedený do krajnosti, po kterém zaklínači zůstanou natrvalo mimo řád. Turnerův obraz toho, jak spontánní communitas stárne v instituce a utopie, zase sedí na Revacholskou komunu. Pozor jen na to, že Turner svou knihu staví na výzkumu jednoho afrického národa a pojem pro prahovost ve hře a volném čase moderní doby zavedl až později.
+
 ### Drobnější prameny k mýtu
 
 Eseje ke stezkám využívají i kratší prameny: mýty o stvoření světa z těla boha (Ymi, Tiamat, Puruša, Pchan-ku) a srovnávací studii Michaela Witzela, Eliadeho pojem *deus otiosus*, tedy boha, který po stvoření odešel, z *Pojednání o dějinách náboženství* (1949), a Nietzscheho aforismy 108 a 125 z *Radostné vědy* (1882) o mrtvém Bohu a jeho stínu.
@@ -246,7 +253,6 @@ Několik autorů má známé slabiny a v textech na ně upozorňujeme. René Gir
 Knihy, které by metodu dál prohloubily a ke kterým se chceme dostat:
 
 - **Celé čtení klasiků, které zatím známe z druhé ruky:** Tolkien, *O pohádkách*; Aarseth, *Cybertext*; Otto, *Posvátno*; Clute a Grant, *The Encyclopedia of Fantasy* (hesla nad rámec řídnutí a uzdravení).
-- **Victor Turner: *Průběh rituálu* (1969).** Prahovost a komunita v přechodu; navazuje na Van Gennepa a Douglasovou. Pro světy, kde hrdina stojí mezi dvěma stavy (Planescape: Torment, SOMA, Disco Elysium).
 - **Marie-Laure Ryanová: *Narrative as Virtual Reality* (2001).** Ponoření a interaktivita jako dva póly; most mezi teorií možných světů a hrami.
 - **Gordon Calleja: *In-Game* (2011).** Od ponoření k začlenění: jak hráč světem prostupuje a co ho v něm drží.
 
@@ -293,6 +299,7 @@ Knihy, které by metodu dál prohloubily a ke kterým se chceme dostat:
 - Mark Fisher: *The Weird and the Eerie*, Repeater Books 2016.
 - Jaroslav Švelch: *Player vs. Monster: The Making and Breaking of Video Game Monstrosity*, MIT Press 2023.
 - René Girard: *Obětní beránek* (Le Bouc émissaire, 1982), Nakladatelství Lidové noviny 1997; anglicky *The Scapegoat*, Johns Hopkins University Press 1986.
+- Victor Turner: *Průběh rituálu* (The Ritual Process: Structure and Anti-Structure, 1969), přel. Lucie Kučerová, Computer Press 2004.
 - Farah Mendlesohn: *Rhetorics of Fantasy*, Wesleyan University Press 2008.
 - Farah Mendlesohn, Edward James: *A Short History of Fantasy*, Middlesex University Press 2009; revidované a rozšířené vydání Libri Publishing 2012.
 - Mircea Eliade: *Mýtus o věčném návratu (Archetypy a opakování)* (Le Mythe de l'éternel retour, 1949), Praha 1993; anglicky *The Myth of the Eternal Return*, Princeton University Press 1954.
