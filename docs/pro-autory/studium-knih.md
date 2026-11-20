@@ -38,7 +38,7 @@ Dva až čtyři odstavce vlastními slovy.
 
 ## Knihy, které chceme nastudovat
 
-Hotové výtahy (už nečíst znovu): Mendlesohn a James, *A Short History of Fantasy* (2026-11-20); Murrayová, *Hamlet on the Holodeck* (2026-11-20); Bachelard, *Poetika prostoru* (2026-11-20).
+Hotové výtahy (už nečíst znovu): Mendlesohn a James, *A Short History of Fantasy* (2026-11-20); Murrayová, *Hamlet on the Holodeck* (2026-11-20); Bachelard, *Poetika prostoru* (2026-11-20); Jenkins, *Convergence Culture* (2026-11-20).
 
 U každé knihy: co číst, na co se soustředit a ke kterým stezkám a světům se hodí.
 
@@ -62,13 +62,6 @@ U každé knihy: co číst, na co se soustředit a ke kterým stezkám a světů
 - **Soustředit se:** rozdíl paměti tří generací a kulturní paměti, zakládající minulost, kanon, jak společnost vzpomínáním vytváří identitu.
 - **Stezky:** Prokleté dědictví, Mluví už jen mrtví, Bohové jako břemeno. **Světy:** Elder Scrolls, Dragon Age, Assassin's Creed, Warhammer 40 000, Horizon.
 - **Navazuje na:** Aleida Assmannová (pozor na záměnu), Eliade.
-
-### Henry Jenkins: *Convergence Culture* (2006)
-
-- **Číst:** kapitolu o transmediálním vyprávění (Matrix) a úvod.
-- **Soustředit se:** svět, který žije napříč médii, kánon a fanouškovská tvorba, vyprávění rozložené mezi hry, knihy a seriály.
-- **Stezky:** Válka, kterou nikdo nevyhraje, Logo nad troskami. **Světy:** Warhammer 40 000, Zaklínač, Fallout, Halo, Mass Effect. Hodí se i pro oddíl Kánon ve Vysvětlivkách.
-- **Navazuje na:** Wolf.
 
 ### Mark J. P. Wolf (ed.): *Revisiting Imaginary Worlds* (2016)
 

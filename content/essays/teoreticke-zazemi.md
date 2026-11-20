@@ -21,6 +21,7 @@ Pojmy, se kterými pracujeme, nejsou naše. Přicházejí ze šesti oblastí: z 
 | Ergodická literatura | Espen Aarseth, *Cybertext* (1997) | Text, jímž je třeba se netriviálně „prokousat“. Pravda je odměnou za úsilí. |
 | Ponoření, jednání, proměna, procedurální autorství | Janet H. Murrayová, *Hamlet on the Holodeck* (1997) | Digitální médium je procedurální, participativní, prostorové a encyklopedické. Aktivita ještě není jednání a autor tvoří pravidla a morální fyziku světa. |
 | Narativní architektura | Henry Jenkins (2004) | Herní svět jako „paměťový palác“ se čtyřmi typy prostorového vyprávění. |
+| Transmediální vyprávění, kolektivní inteligence, přidané porozumění | Henry Jenkins, *Convergence Culture* (2006) | Velký svět se rozkládá napříč médii tak, že každé přidává vlastní vrstvu. Celek už nepojme jednotlivec, ale komunita fanoušků. |
 | Prostorové vyprávění | Harvey Smith a Matthias Worch, GDC 2010 | Vyprávění podávané a vyhledávané. Anonymní detail je promarněná příležitost. |
 | Procedurální rétorika | Ian Bogost, *Persuasive Games* (2007) | Hry přesvědčují samotnými pravidly, nejen obrazem a slovem. |
 | Ludonarativní nesoulad | Clint Hocking (2007) | Když mechanika slibuje něco jiného než příběh, hráč se cítí zesměšněný. |
@@ -96,10 +97,12 @@ Pro čtení herních světů je zvlášť užitečný dvojí kontrast. První st
 
 Čím se herní svět liší od knižního: hráč ho nečte, ale prochází, a pravidla v něm samy něco tvrdí.
 
-### Jenkins: narativní architektura
+### Jenkins: narativní architektura a transmediální vyprávění
 
 Henry Jenkins v textu *Game Design as Narrative Architecture* (2004) popsal herní design jako stavbu prostorů, které vyprávějí: prostor může příběh evokovat, inscenovat, vložit do sebe stopy, nebo nechat příběh vzniknout z hraní. Herní svět je podle něj spíš paměťový palác než kniha. Odtud vychází náš pilíř prostorového vyprávění.
 
+
+V knize *Convergence Culture* (2006) Jenkins tento pohled rozšířil za hranice jedné hry. Pojmenoval **transmediální vyprávění**: velký svět (jeho vzorem je *Matrix*) se rozkládá napříč filmy, hrami, komiksy a animacemi tak, že každé médium přidá vlastní vrstvu a nikdo nemusí znát všechno. Detail dodaný jinde může zpětně proměnit význam hlavního díla; herní producent Neil Young tomu říká **přidané porozumění** podle origami jednorožce z režisérského sestřihu *Blade Runnera*. Protože takto rozrostlý svět jeden člověk neobsáhne, skládají ho dohromady komunity fanoušků jako **kolektivní inteligence** (pojem Pierra Lévyho). Jenkins také odlišil interaktivitu, kterou předem vymezí designér, od participace, kterou si řídí sami hráči: wiki, debaty, mody. Pro atlas je to klíč ke kánonu světů rozkročených mezi médii, jako je Warhammer 40 000, Zaklínač nebo Fallout, jehož seriál navazuje přímo na hry. A vysvětluje, proč mezery Dark Souls nebo Elder Scrolls drží komunity pohromadě roky po vydání. Jenkins se sám hlásí ke „kritickému utopismu“ a knihu psal jako fanoušek; moc korporací nad sdílenými světy proto spíš popisuje, než aby ji zpochybňoval.
 ### Aarseth: ergodický text
 
 Espen Aarseth v knize *Cybertext* (1997) nazval ergodickým text, kterým se čtenář musí netriviálně prokousat: musí volit, hledat, zkoušet. Pravda je tu odměnou za úsilí. To je výchozí bod pro všechny světy, které lore schovávají do popisků předmětů a nespolehlivých zdrojů.
@@ -221,7 +224,6 @@ Knihy, které by metodu dál prohloubily a ke kterým se chceme dostat:
 - **Tzvetan Todorov: *Úvod do fantastické literatury* (1970).** Klasická definice fantastična jako váhání mezi přirozeným a nadpřirozeným vysvětlením. Clute i Mendlesohn na ni reagují. Hodila by se pro Silent Hill, Pathologic a prahové světy.
 - **Mary Douglasová: *Čistota a nebezpečí* (1966).** Antropologie nečistoty, ze které vychází Carrollova teorie monster. Pro stezky Netvor v zrcadle a Kdo za to může?
 - **Jan Assmann: *Kultura a paměť* (1992).** Kulturní paměť a zakládající mýty starověkých civilizací. Doplněk k Aleidě Assmannové.
-- **Henry Jenkins: *Convergence Culture* (2006).** Transmediální vyprávění: světy, které žijí napříč hrami, knihami a seriály (Warhammer, Zaklínač, Fallout).
 - **Mark J. P. Wolf (ed.): *Revisiting Imaginary Worlds* (2016).** Pokračování Wolfovy monografie se studiemi jednotlivých světů.
 
 ## Zdroje
@@ -241,6 +243,7 @@ Knihy, které by metodu dál prohloubily a ke kterým se chceme dostat:
 **Herní studia**
 
 - [Henry Jenkins: Game Design as Narrative Architecture](https://web.mit.edu/~21fms/People/henry3/games&narrative.html)
+- Henry Jenkins: *Convergence Culture: Where Old and New Media Collide*, New York University Press 2006.
 - [Ergodic literature (Espen Aarseth, Cybertext)](https://en.wikipedia.org/wiki/Ergodic_literature)
 - [Jesper Juul: Half-Real](https://www.jesperjuul.net/ludologist/2005/11/28/half-real-the-book-is-here/)
 - [Rhizomes: recenze knihy Iana Bogosta Persuasive Games](https://rhizomes.net/issue19/reviews/zhang.html)
