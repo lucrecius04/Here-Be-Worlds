@@ -164,6 +164,8 @@ Teolog Rudolf Otto v knize *Posvátno* (1917) popsal, co cítí člověk před b
 
 Otto psal o náboženství, ale popsal tím jádro kosmického hororu i nejsilnějších herních bohů. Velicí v Bloodborne jsou zcela jiní: kdo je spatří, přestává být člověkem, a přesto po nich učenci Byrgenwerthu touží natolik, že pro poznání zmasakrují celou vesnici. Úřad v Control eviduje věci, které se nedají pochopit, a přitom se jimi nechává pohltit. Hrůza a přitažlivost tu nejsou dvě emoce, ale jedna. Proto tyto světy své bohy nevysvětlují: řízená mezera kolem nich není nedostatek informací, ale samotná podstata posvátna.
 
+V dalších kapitolách Otto ukazuje, čím umění numinózní vyjadřuje. Přímé prostředky jsou podle něj jen tři, a všechny negativní: **tma** (nejsilnější je šero, v němž dohasíná poslední světlo), **ticho** a **prázdnota**, kterou Otto nazývá vznešeným ve vodorovném směru: poušť nebo nekonečná step. Nejčistším výrazem tajemného je pro něj kniha Jób. Bůh tam Jóbovi neodpoví vysvětlením utrpení, ale ukáže mu nepochopitelné stvoření, až po behemota a leviatana, a Otto k tomu poznamenává, že monstrózní je jen tajemné v hrubé podobě. Otto byl luterský teolog a křesťanství pro něj stojí na vrcholu vývoje; z jeho knihy bereme popis zážitku, ne teologii.
+
 ### Douglasová: čistota, anomálie a okraje
 
 Britská antropoložka Mary Douglasová v knize *Čistota a nebezpečí* (1966) ukázala, že špína není vlastnost věcí, ale **věc na nepatřičném místě**: boty nejsou špinavé, dokud nestojí na jídelním stole. Kde je nečistota, tam je řád, který svět třídí a odmítá, co mate jeho kategorie. Zákazy v Leviticu proto nechrání hygienu, ale celistvost stvoření; nečistá jsou zvířata, která se vymykají své třídě. Každý řád plodí **anomálie** a společnost na ně odpovídá různě: přiřadí je k jedné kategorii, odstraní je, vyhýbá se jim, prohlásí je za nebezpečné, aby je postavila mimo diskusi, nebo je vezme do rituálu. Okraje, přechody a meziprostory přitom nejsou jen hrozba. Nesou nekontrolovanou moc, a proto se lidem bez pevného místa ve struktuře tak snadno připisuje čarodějnictví. Lelové v Kongu dokonce uctívají šupinatce, zvíře, které odporuje všem jejich kategoriím, jako zdroj plodnosti; Douglasová to přirovnává k plevelu, z něhož se stane kompost.
@@ -254,7 +256,7 @@ Spisovatel Brandon Sanderson (2007): magie smí řešit zápletku jen tehdy, kdy
 
 ## Jak s prameny pracujeme
 
-Teorie je pro nás nástroj, ne dogma. Knihy, o které se opírá většina výkladu, jsme přečetli a sepsali si z nich výtahy: pojmy, příklady a to, co z nich plyne pro herní světy. Kde pramen známe jen zčásti nebo z druhé ruky (Suvin, Iser, z Clutovy encyklopedie vybraná hesla, z Ottova *Posvátna* klíčová kapitola), opíráme se o encyklopedická hesla a výklady, které uvádíme ve zdrojích.
+Teorie je pro nás nástroj, ne dogma. Knihy, o které se opírá většina výkladu, jsme přečetli a sepsali si z nich výtahy: pojmy, příklady a to, co z nich plyne pro herní světy. Kde pramen známe jen zčásti nebo z druhé ruky (Suvin, Iser, z Clutovy encyklopedie vybraná hesla), opíráme se o encyklopedická hesla a výklady, které uvádíme ve zdrojích.
 
 Několik autorů má známé slabiny a v textech na ně upozorňujeme. René Girard vidí ve všem jedinou teorii obětního beránka, a proto ho používáme jako ostrý nástroj vedle ostatních, ne jako klíč ke všemu. Mircea Eliade zobecňuje „archaického člověka“ napříč kulturami a jeho závěr o víře je teologický, takže ho uvádíme jako jeho stanovisko. Farah Mendlesohn sama varuje, že její kategorie nejsou pravidla, a teorie, která tvrdí, že platí na všechno, podle ní nestojí za nic. To platí i pro náš atlas.
 
@@ -262,7 +264,7 @@ Několik autorů má známé slabiny a v textech na ně upozorňujeme. René Gir
 
 Knihy, které by metodu dál prohloubily a ke kterým se chceme dostat:
 
-- **Celé čtení klasiků, které zatím známe z druhé ruky:** Otto, *Posvátno*; Clute a Grant, *The Encyclopedia of Fantasy* (hesla nad rámec řídnutí a uzdravení); Ryanová, *Narrative as Virtual Reality* (kapitoly o interaktivitě).
+- **Celé čtení klasiků, které zatím známe z druhé ruky:** Clute a Grant, *The Encyclopedia of Fantasy* (hesla nad rámec řídnutí a uzdravení); Ryanová, *Narrative as Virtual Reality* (kapitoly o interaktivitě).
 
 ## Zdroje
 

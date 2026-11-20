@@ -1,7 +1,8 @@
 # Rudolf Otto: Posvátno
 
 **Bibliografie:** Rudolf Otto, *Das Heilige* (1917). Česky *Posvátno. Iracionalita v ideji božství a její poměr k racionalitě*, Vyšehrad 1998. Anglicky *The Idea of the Holy*, přel. John W. Harvey, Oxford University Press 1923 (volné dílo, archive.org).
-**Studováno:** 2026-11-19 z výňatku Harveyova překladu: úvodní oddíly o numinózním a *mysterium tremendum*, číslované kapitoly 1–5. Zbytek knihy (vývoj posvátna v dějinách, křesťanství) nečten.
+**Studováno:** 2026-11-19 z výňatku Harveyova překladu (kap. I–VI); 2026-11-20 doplněno z celé knihy dodané majitelem. Přečteno pozorně: kap. VII (analogie), IX (výrazové prostředky), X (Starý zákon, Jób), XIII (dva procesy vývoje), XV–XVI (nejranější projevy). Prolistováno: XI–XII (Nový zákon, Luther), XIV a XVII (posvátno jako kategorie a priori), XVIII–XXI (divinace).
+**Upozornění:** Otto je luterský teolog: křesťanství pro něj stojí na vrcholu vývoje a jeho rámec („primitivní“ náboženství, „hrubší“ fáze) je dobový evolucionismus. Posvátno chápe jako kategorii a priori, danou lidské mysli předem; to je filozofické a teologické tvrzení, které atlas nepřebírá. Používáme jeho fenomenologii, tedy popis zážitku, ne jeho teologii.
 
 ## Pojmy
 
@@ -22,7 +23,24 @@
 - **Nemravný boží hněv:** bohové, kteří soudí krutě a nevypočitatelně (Pathfinder: Nyrissa a Areelu, Elder Scrolls: Daedra, Hades: Olympané).
 - **Pocit stvořenosti:** hráč jako prach před titány (Xenoblade, Shadow of the Colossus jako mimoatlasový příklad).
 
+## Doplněno z celé knihy (2026-11-20)
+
+- **Ungeheuer, weird (kap. VI):** Žádný jazyk nemá jedno slovo pro celkový numinózní dojem; nejblíž je německé *ungeheuer*, původně to, co není „geheuer“, tedy tísnivě nedomácké, a anglické *weird*. Sofoklovo „mnoho je podivného, ale nic podivnějšího než člověk“. Goethův Faust: „Posvátná hrůza je to nejlepší v člověku.“ Ottovo numinózní tak sahá až k tomu, čemu Fisher říká podivné a znepokojivé.
+- **Analogie a schematizace (kap. VII):** Numinózní se v dějinách spojuje s příbuznými city, hlavně se **vznešeným**, které podobně děsí i přitahuje. Iracionální jádro se „schematizuje“ racionálními pojmy: posvátné začne znamenat mravně dobré.
+- **Výrazové prostředky numinózního (kap. IX):** Nepřímo ho umění vyjadřuje hrozivým, vznešeným a „magickým“ (gotika podle Worringera; věž ulmského dómu není magická, ale numinózní). Přímé prostředky má západní umění jen dva, a oba negativní: **tmu** (nejsilnější je šero, v němž dohasíná poslední světlo, pod klenbami nebo v lese) a **ticho** („Hospodin je ve svém svatém chrámu, ztiš se před ním, celá země“). Východní umění zná třetí: **prázdnotu a prázdné dálky**, „vznešené ve vodorovném směru“: poušť, nekonečnou jednotvárnost stepi, prázdná nádvoří hrobek dynastie Ming.
+- **Jób (kap. X):** Kapitola 38 knihy Jób je pro Otta nejčistším výrazem tajemného. Bůh Jóbovi neodpoví rozumovým vysvětlením utrpení, ale ukáže mu podivuhodnost stvoření: orla, jehož mláďata sají krev, pštrosa, který zapomíná na vlastní vejce, a nakonec behemota a leviatana. Nejsou to důkazy účelnosti, ale opak: „monstrózní je jen tajemné v hrubé podobě“. Jób je přesto přesvědčen, ne umlčen silou. Teodicea bez rozumového argumentu.
+- **Dva procesy vývoje (kap. XIII):** Iracionální jádro se vyvíjí samo („démonická bázeň“ se mění v bázeň před bohy a nakonec v posvátnou úctu) a souběžně se **racionalizuje a moralizuje**, naplňuje rozumem, účelem a mravností. „Svaté“ v plném smyslu je numinózní prostoupené mravním; bez numinózního ale náboženství zchudne.
+- **Nejranější projevy (kap. XV–XVI):** Představy čistého a nečistého, kult mrtvých, víra v duchy, magie, pohádka a mýtus, uctívání přírodních věcí, „síla“ (*mana*, *orenda*), fetišismus a totemismus. Všechny mají společný numinózní prvek, který z nich teprve dělá předsíň náboženství. Strach z duchů je karikatura numinózního, ale stejného rodu.
+
+## Doplněno pro Here Be Worlds (2026-11-20)
+
+- **Tma, ticho, prázdnota:** Ottovy tři přímé prostředky numinózního jsou herní estetika metafyzických světů: šero a mlha Silent Hillu, ticho a prázdno vesmíru v Outer Wilds, nekonečná step v Pathologicu, kterou Otto sám uvádí jako vznešenost ve vodorovném směru (výklad atlasu).
+- **Jób a bohové jako břemeno:** Bůh, který na otázku po smyslu utrpení odpoví zjevením nepochopitelné moci, ne vysvětlením. Pro stezku Bohové jako břemeno a pro světy, kde bohové neodpovídají.
+- **Monstrum jako hrubé tajemno:** Ottova věta o behemotovi a leviatanovi spojuje posvátno s hororem: monstrum je tajemné v nejhrubší podobě. Doplňuje Carrolla (monstrum jako porušení kategorií) a Douglasovou (anomálie).
+- **Racionalizace bohů:** Ottův dvojí vývoj (moralizace numinózního) je měřítko pro světy, kde bohové zůstali čistě numinózní a nemravní (Velicí v Bloodborne, Daedra v Elder Scrolls) proti světům, kde byli zmoralizováni v dobré a zlé.
+- **Čisté a nečisté u kořene náboženství:** most k Douglasové, která tutéž oblast vykládá společensky.
+
 ## Kde už je použito
 
-- *Anatomie herního lore*: oddíl „Otto: hrůza a přitažlivost posvátna“, tabulka pojmů, Zdroje
+- *Anatomie herního lore* a Teoretické zázemí: oddíl „Otto: hrůza a přitažlivost posvátna“, tabulka pojmů, Zdroje
 - *Na mrtvole boha*: Bloodborne a Byrgenwerth („Obávej se Staré krve“), Zdroje
