@@ -1,5 +1,6 @@
 ---
 title: Křehká hranice svobodné vůle
+approved: true
 trail: free-will
 kicker: Stezka atlasu
 tagline: Co zbude ze svobodné vůle ve chvíli, kdy člověk zjistí, že jeho rozhodnutí řídil cizí příkaz, parazit nebo předem napsaný osud?

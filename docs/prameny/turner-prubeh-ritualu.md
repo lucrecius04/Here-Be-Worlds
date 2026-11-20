@@ -48,3 +48,4 @@ Prahovost, okrajovost a strukturální podřízenost jsou místa, kde vznikají 
 - Teoretické zázemí: oddíl „Turner: práh a communitas“, tabulka pojmů, Zdroje
 - Esej ke stezce Kdo se to probudil? (`content/trails/kdo-se-to-probudil.md`): oddíl Novic na prahu a zrcadlo paměti, závěr (nedokončený práh)
 - Esej ke stezce Netvor v zrcadle (`content/trails/netvor-v-zrcadle.md`): Planescape (jedna věta o prahu)
+- Esej ke stezce Uvězněni v kruhu (`content/trails/uvezneni-v-kruhu.md`): kořeny (práh, který se nezavře), Dark Souls (Temné znamení)

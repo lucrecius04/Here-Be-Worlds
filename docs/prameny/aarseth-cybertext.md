@@ -41,4 +41,5 @@ Literární teoretici podle Aarsetha zaměňují **proměnlivý výraz** kyberte
 - Teoretické zázemí: oddíl „Aarseth: ergodický text“, tabulka pojmů, Zdroje
 - Anatomie herního lore: odkaz přes Teoretické zázemí (pravda jako odměna za úsilí)
 - Esej ke stezce Mluví už jen mrtví (`content/trails/mluvi-uz-jen-mrtvi.md`): Proč mrtví mluví… (ergodické úsilí, aporie a epifanie)
-- Esej ke stezce Křehká hranice svobodné vůle (`content/trails/krehka-hranice-svobodne-vule.md`, čeká na schválení): kořeny (čtenář jako cestující ve vlaku, ergodický text, ideologie vlivu), Proč hry… (ergodická intrika)
+- Esej ke stezce Křehká hranice svobodné vůle (`content/trails/krehka-hranice-svobodne-vule.md`): kořeny (čtenář jako cestující ve vlaku, ergodický text, ideologie vlivu), Proč hry… (ergodická intrika)
+- Esej ke stezce Uvězněni v kruhu (`content/trails/uvezneni-v-kruhu.md`): Proč hry žijí z návratů (trojí pozice při smrti, aporie a epifanie)

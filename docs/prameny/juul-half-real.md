@@ -29,4 +29,5 @@
 - Esej ke stezce Netvor v zrcadle (`content/trails/netvor-v-zrcadle.md`): Proč hry… (test převyprávění)
 - Esej ke stezce Bohové jako břemeno (`content/trails/bohove-jako-bremeno.md`): Proč hry… (test převyprávění)
 - Esej ke stezce Prokleté dědictví (`content/trails/proklete-dedictvi.md`): Proč hry dělají z hrdiny dlužníka (test převyprávění)
-- Esej ke stezce Křehká hranice svobodné vůle (`content/trails/krehka-hranice-svobodne-vule.md`, čeká na schválení): Proč hry… (test převyprávění: Monado, kostka v Baldur's Gate 3)
+- Esej ke stezce Křehká hranice svobodné vůle (`content/trails/krehka-hranice-svobodne-vule.md`): Proč hry… (test převyprávění: Monado, kostka v Baldur's Gate 3)
+- Esej ke stezce Uvězněni v kruhu (`content/trails/uvezneni-v-kruhu.md`): Proč hry žijí z návratů (test převyprávění: Styx, Temné znamení, ATP, Odhodlání)

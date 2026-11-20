@@ -41,3 +41,4 @@ Pohádky nabízejí čtyři věci, které dnes mnozí považují za škodlivé: 
 - Teoretické zázemí: oddíl „Tolkien: druhotný svět“, tabulka pojmů, Zdroje
 - Anatomie herního lore: přes Teoretické zázemí (druhotný svět, soudržnost)
 - Esej ke stezce Bohové jako břemeno (`content/trails/bohove-jako-bremeno.md`): Dark Souls (tíha nekonečného sériového života)
+- Esej ke stezce Uvězněni v kruhu (`content/trails/uvezneni-v-kruhu.md`): kořeny (únik z nesmrtelnosti, tíha nekonečného sériového života), Dark Souls

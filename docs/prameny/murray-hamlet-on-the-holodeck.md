@@ -42,4 +42,5 @@ Díky své proměnlivosti a schopnosti opakování má digitální médium přir
 - Teoretické zázemí: oddíl „Murrayová: ponoření, jednání a procedurální autorství“, tabulka pojmů, Zdroje
 - *Kdo za to může?* (esej ke stezce): Proč hry rozbíjejí pohled davu (kaleidoskopické vyprávění: tři kampaně Pathologicu), Zdroje
 - Esej ke stezce Prokleté dědictví (`content/trails/proklete-dedictvi.md`): Proč hry dělají z hrdiny dlužníka (morální fyzika)
-- Esej ke stezce Křehká hranice svobodné vůle (`content/trails/krehka-hranice-svobodne-vule.md`, čeká na schválení): Proč hry… (aktivita a dramatické jednání, procedurální autor a morální fyzika; BioShock jako náš výklad)
+- Esej ke stezce Křehká hranice svobodné vůle (`content/trails/krehka-hranice-svobodne-vule.md`): Proč hry… (aktivita a dramatické jednání, procedurální autor a morální fyzika; BioShock jako náš výklad)
+- Esej ke stezce Uvězněni v kruhu (`content/trails/uvezneni-v-kruhu.md`): Proč hry žijí z návratů (odmítnuté uzavření, nasycení u Floweyho, tragický proces)
