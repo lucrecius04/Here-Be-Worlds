@@ -1,0 +1,46 @@
+# Gaston Bachelard: Poetika prostoru
+
+**Bibliografie:** Gaston Bachelard, *La Poétique de l'espace*, Presses Universitaires de France, Paříž 1957 (copyright 1958); anglicky *The Poetics of Space*, přel. Maria Jolas, The Orion Press 1964 (studováno z vydání Penguin Classics 2014 s předmluvou Marka Z. Danielewského a úvodem Richarda Kearneyho, ISBN 978-0-698-17043-8); česky *Poetika prostoru*, přel. Josef Hrdlička, Malvern, Praha 2009.
+**Studováno:** 2026-11-20 z kompletního anglického textu vydání Penguin Classics 2014 dodaného majitelem. Výtah připravil Gemini, Claude ho ověřil proti knize (citace a příklady) a proti kronikám (světy) a opravil. Přečteno celé: předmluvy (Danielewski, Kearney), Bachelardův Úvod, kap. 1–10 (Dům od sklepa po půdu, Dům a vesmír, Šuplíky, truhly a skříně, Hnízda, Ulity, Kouty, Miniatura, Intimní nezměrnost, Dialektika vně a uvnitř, Fenomenologie oblosti).
+**Upozornění:** Bachelard se programově soustředí na „šťastný prostor“ (*topofilii*) – prostor bezpečí, intimity a snění – a nepřátelský prostor nenávisti či boje ponechává stranou (s výjimkou pasáží o sklepě a několika básní úzkosti). Pro herní horor a dystopie proto jeho pojmy často fungují v převrácené podobě: jako narušení nebo zvrácení původního útočiště. Metoda je navíc záměrně poeticko-fenomenologická, nikoli analyticko-strukturalistická (odmítá kauzální výklad obrazů).
+
+## Hlavní teze
+
+Obývaný prostor přesahuje geometrický prostor. Dům není netečná krabice z rozměrů a stěn, ale první vesmír člověka, obraz jeho duše a hlavní nástroj integrace paměti, myšlenek a snění (*rêverie*). Ještě dříve, než je člověk „vržen do světa“, je uložen do kolébky domu.
+
+Paměť podle Bachelarda neuchovává minulost na časové ose, ale v **místech**: prostor v sobě stlačuje čas. Proto navrhuje **topoanalýzu** – systematické psychologické zkoumání míst našeho intimního života. Rodný dům se do nás zapisuje i tělesně (svalová paměť prvního schodiště či kliky) a přežívá jako „onirický dům“, v němž se prolíná vzpomínka se sněním.
+
+Lidská představivost přitom nepracuje s pevnou geometrií, ale s hodnotami a dialektikou. Stejnou hloubku jako celý dům mají kouty, skříně, zavřené truhličky, miniatury i prahy dveří – a na vrcholu snění se nejintimnější vnitřní prostor potkává s nezměrností vesmíru.
+
+## Pojmy
+
+- **Topofilie a topoanalýza (Úvod, kap. 1):** *Topofilie* zkoumá lidskou hodnotu milovaných, chráněných prostorů. *Topoanalýza* je studium míst intimního života: „v nesčetných buňkách prostoru je stlačený čas“ – vzpomínky jsou tím pevnější, čím přesněji jsou ukotveny v prostoru.
+- **Dům jako obraz duše a onirický dům (Úvod, kap. 1):** „Naše duše je příbytkem.“ Rodný dům (*onirický dům*) chrání snění a dává člověku pocit stability. Bachelard cituje Jungův obraz psychiky jako domu, jehož horní patro pochází z 19. století, přízemí z 16. století, sklep stojí na římských základech a pod ním leží pravěká jeskyně.
+- **Vertikála domu: půda a sklep (kap. 1):** Dům stojí na dvou osách – vertikále a centralitě (chýše, svítící lampa v okně jako „oko domu“). **Střecha a půda** patří racionalitě, jasnosti myšlenek a viditelné konstrukci; noční strachy na půdě lze za dne snadno vysvětlit. **Sklep** je temná, iracionální hlubina domu napojená na podzemní síly – tma v něm trvá i ve dne a strach nelze nikdy úplně racionalizovat (Jungův příklad muže, který slyší hluk ve sklepě, ale hledá zloděje na půdě; Poeův *Černý kocour* a *Sud amontilladského* jako „pohřbené šílenství“; Boscovy „ultrasklepy“ s podzemní vodou). Moderní městský byt (naskládané krabice bez sklepa a s výtahem místo schodů) tuto vertikálu i kosmičnost ztrácí.
+- **Dům a vesmír (kap. 2):** Zima, sníh a bouře zesilují intimitu domu. V bouři (Henri Bosco, *Malicroix*) dům přestává být věcí a stává se živým, mateřským odporem proti nepřátelskému kosmu.
+- **Šuplíky, truhly a skříně (kap. 3):** „Orgány tajného psychologického života“ a modely intimity. Skříň je středem řádu a rodinné paměti; **zámek je psychologický práh**. Truhlička (*casket*) stlačuje minulost, přítomnost i budoucnost („paměť nepamětného“; Bachelardovu větu cituje Kearney v úvodu). V zavřené schránce je vždy víc věcí než v otevřené – ověřit obraz znamená zabít jeho imaginativní bohatství.
+- **Hnízda a ulity (kap. 4–5):** Prvotní obrazy útočiště a návratu. Ulita (zvlášť prázdná) a bytost, která z ní vystupuje (napůl venku, napůl uvězněná v kamenné formě), rozehrávají dialektiku skrytého a zjevného i údivu a strachu.
+- **Kouty (kap. 6):** Zárodek pokoje a domu, útočiště ticha a nehybnosti („Jsem prostor, kde jsem“, Noël Arnaud). Kout je „polokrabice“ – napůl stěny, napůl dveře –, která popírá vnější vesmír a soustředí bytí do sebe.
+- **Miniatura (kap. 7):** Miniatura není pouhé geometrické zmenšení, ale „útočiště velikosti“ – malé obsahuje velké. Zvětšovací sklo a pozornost k drobnému detailu otevírají nový svět, který můžeme klidně ovládnout bez ohrožení vnější rozlehlostí.
+- **Intimní nezměrnost (*intimate immensity*, kap. 8):** Nezměrnost není jen vnější krajina (les, moře, poušť), ale vnitřní kategorie snění – „pohyb nehybného člověka“. Hloubka nitra a rozlehlost světa se vzájemně zvětšují (Baudelairovo slovo *vast* a „korespondence“ mezi velkým a intimním).
+- **Dialektika vně a uvnitř a pootevřené dveře (kap. 9):** Ostré geometrické dělení na „uvnitř“ a „venku“ v představivosti selhává: oba prostory si mohou vyměnit svou závrať a nepřátelství (klaustrofobie a agorafobie v Michauxově „strašném prostoru uvnitř-venku“ či Superviellově vězení uprostřed nekonečné pampy). Člověk je „pootevřená bytost“ a **dveře** jsou kosmem pootevřeného – místem váhání, pokušení a zakázaného tajemství (Modrovousova komnata).
+- **Fenomenologie oblosti (kap. 10):** „Bytí je oblé“ (Jaspers, Van Gogh, Rilke) – obraz soustředění bytí v jeho středu bez rozptýlení.
+
+## Co z toho plyne pro Here Be Worlds
+
+- **Silent Hill** (ověřeno proti kronice): Doslovná, zvrácená topoanalýza. Město proměňuje potlačenou paměť a vinu v konkrétní prostory (hotel Lakeview, nemocnice Brookhaven). Sklepení nemocnice Alchemilla, kde byla sedm let udržována popálená Alessa, je čistý Bachelardův sklep „pohřbeného šílenství“. Ještě silnější je **Pokoj 302** ze *Silent Hill 4*: Walter Sullivan si jej ztotožnil se svou živoucí matkou (převrácený Bachelardův motiv domu jako matky a kolébky), zatímco pro uvězněného Henryho Townshenda zhmotňuje Michauxův „strašný prostor uvnitř-venku“, když se v koupelně otevře díra do cizích nočních můr.
+- **Pathologic** (ověřeno proti kronice): Město na Gorchonu staví svůj ústřední konflikt na Bachelardově **vertikále**: na západním břehu se tyčí Mnohostěn, pevnost snů pro děti, kde neplatí čas ani smrt, zaražená jediným nosníkem hluboko do země, tedy do těla matky Bodcho. Pod stepí tečou žíly zkamenělé krve prabýka; z útrob země prýští mor a z „živé krve Země“ se připravuje skutečný všelék. Na východním konci stojí Jatky, chrám, kde se prolévá býčí krev. Iracionální hlubina, která nemoc rodí i léčí.
+- **Pentiment** (ověřeno proti kronice): Doslovně naplňuje Jungův a Bachelardův obraz domu jako vrstev paměti: starý kostel nestojí na hrobce mučedníka, jak tvrdily legendy, ale na zachovalé římské svatyni boha Mithry v katakombách, kde se skrývá pohanská pravda o městě. Andreasův vnitřní **Palác paměti** (který se z renesančního dvora změní ve spálený labyrint deprese) je přímou ilustrací věty „naše duše je příbytkem“.
+- **Control** (ověřeno proti kronice): Nejstarší dům je uvnitř nekonečně větší než zvenčí, neplatí v něm euklidovská geometrie a chodby se samy přestavují. Bachelardova dialektika vně a uvnitř se tu stává fyzikálním zákonem budovy.
+- **Resident Evil** (sídlo a laboratoře podle kroniky): Sídlo a podzemní laboratoře staví klasickou gotickou vertikálu – nahoře řád a zdání, ve sklepě tajemství korporátního hříchu.
+- **BioShock**: Rapture pod hladinou oceánu spojuje klaustrofobickou „ulitu“ s nezměrností moře; Bachelardův dům, který vzdoruje bouři, se tu převrací v město obklopené vodou, které se rozpadá (výklad atlasu).
+- **Disco Elysium** (ověřeno proti kronice: svět postavený na troskách poražených revolucí jako zrcadlo hrdinova rozkladu): Rozpadlá čtvrť Martinaise a Revachol nesou ve svých zdech paměť prohrané revoluce i rozpadlou osobnost hrdiny – přesná ukázka toho, jak prostor stlačuje čas.
+- **Prostorové vyprávění a „zamčené schránky“ ve hrách:** Bachelardův postřeh o šuplících, truhlách a dveřích (*v zavřené schránce je vždy víc než v otevřené*) se výborně potkává s naším pilířem **řízené mezery** a s Jenkinsovou narativní architekturou i Assmannové pamětí míst.
+- **Stezky:**
+  - **Město, které dýchá:** dům/město jako tělo a obraz duše, vertikála sklep–půda, prostor stlačující čas (*Pathologic*, *Silent Hill*, *BioShock*, *Disco Elysium*, *Dishonored*).
+  - **Mluví už jen mrtví:** topoanalýza, skříně a schránky jako orgány paměti, prázdná ulita a stopy minulých obyvatel (*BioShock*, *Resident Evil*, *SOMA*, *Outer Wilds*).
+  - **Netvor v zrcadle:** zvrácení bezpečí domova, sklep jako pohřbená vina, dialektika vně a uvnitř (*Silent Hill*, *Dishonored*).
+
+## Kde už je použito
+
+- Teoretické zázemí: oddíl „Bachelard: dům, sklep a paměť prostoru“, tabulka pojmů, Zdroje

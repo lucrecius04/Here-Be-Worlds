@@ -38,6 +38,7 @@ Pojmy, se kterými pracujeme, nejsou naše. Přicházejí ze šesti oblastí: z 
 | Meč a magie, výpravná fantasy, divadelní fantasy, Fantasyland™ | Farah Mendlesohn, Edward James, *A Short History of Fantasy* (2009) | Dějiny fantasy jako rozhovor autorů: jak se z Tolkiena, Howarda, Moorcocka, pulpových časopisů a D&D zrodily vzorce i klišé herních světů. |
 | Věčný návrat, hrůza z dějin | Mircea Eliade, *Mýtus o věčném návratu* (1949) | Tradiční člověk považuje za skutečné jen to, co opakuje vzor z počátku času. Opakováním ruší dějiny a kolektivní paměť z událostí dělá mýty. |
 | Funkční a úložná paměť, místa traumatu | Aleida Assmannová, *Cultural Memory and Western Civilization* (1999) | Kultura si pamatuje dvojím způsobem: výběrovou pamětí, která vytváří identitu, a archivem toho, co se už nepoužívá. Místo traumatu nese příběh, který nejde vyprávět. |
+| Topoanalýza, vertikála sklep–půda, intimní nezměrnost | Gaston Bachelard, *Poetika prostoru* (1957) | Obývaný prostor přesahuje geometrii: dům je obraz duše a v jeho buňkách je stlačený čas. Půda patří jasnosti, sklep iracionální hlubině. |
 | Obnovující a reflektující nostalgie | Svetlana Boym, *The Future of Nostalgia* (2001) | Obnovující nostalgie chce ztracený domov znovu postavit a považuje se za pravdu. Reflektující prodlévá u ruin, patiny a touhy samotné a pravdu zpochybňuje. |
 | Umělecká hrůza, nečistota, zápletka přesahovače | Noël Carroll, *The Philosophy of Horror* (1990) | Monstrum hororu je ohrožující a nečisté, protože se nevejde do kategorií. Hrůzu snášíme jako cenu za poznání nemožného. |
 
@@ -171,13 +172,19 @@ Eseje ke stezkám využívají i kratší prameny: mýty o stvoření světa z t
 
 ## Paměť a nostalgie
 
-Herní lore je paměť světa. Tyto knihy pomáhají rozlišit, co si svět pamatuje, co zapomněl a po čem se mu stýská.
+Herní lore je paměť světa. Tyto knihy pomáhají rozlišit, co si svět pamatuje, kde to uchovává, co zapomněl a po čem se mu stýská.
 
 ### Assmannová: funkční a úložná paměť
 
 Literární vědkyně Aleida Assmannová v knize *Cultural Memory and Western Civilization* (německy 1999) rozlišuje dva způsoby, jak si kultura pamatuje. **Funkční paměť** je výběrová a slouží skupině: vytváří identitu, ospravedlňuje moc a dává smysl. Moc podle Assmannové potřebuje původ, a proto si píše genealogie a staví pomníky. Poražení zase pěstují protipaměť, protože na rozdíl od vítězů zapomenout nemohou. **Úložná paměť** je všechno ostatní: archivy, zapomenuté texty a nevyužité možnosti. Sama identitu netvoří, ale je zásobárnou, ze které může budoucnost čerpat, a měřítkem, podle kterého lze oficiální paměť opravit.
 
 Pro herní světy je to přesný popis lore. Popisky předmětů, kodexy a nahrávky jsou úložnou pamětí světa, kterou už nikdo uvnitř nepoužívá, a hráč ji znovu zapojuje do smyslu. Assmannová připomíná řeckého cestovatele Pausania, který ve druhém století procházel zpustlá místa řecké kultury, zapisoval stopy a legendy a udělal ze zaniklého světa krajinu paměti. Přesně to dělá hráč v Outer Wilds nebo v Dark Souls. Nejsilnější světy pak střet obou pamětí rovnou inscenují: Ted Faro v Horizonu smaže knihovnu se vším věděním lidstva, aby se nikdo nedozvěděl o jeho vině, úřad v Control archivuje i začerňuje, a církev ve Warhammeru 40 000 vyznává knihu, kterou napsal zrádce. Assmannová popisuje i **místa traumatu**, jejichž příběh nejde vyprávět, a přesto k nim člověka neodolatelně táhne. Silent Hill 2, kde se James vrací do města kvůli dopisu od mrtvé ženy, je hra přesně o takovém místě.
+
+### Bachelard: dům, sklep a paměť prostoru
+
+Francouzský filozof Gaston Bachelard v knize *Poetika prostoru* (1957) ukázal, že obývaný prostor přesahuje geometrii. Dům není součet stěn, ale první vesmír člověka a obraz jeho duše. Paměť podle Bachelarda drží minulost pevněji v místech než na časové ose: v nesčetných buňkách prostoru je stlačený čas. Studium těchto míst nazývá **topoanalýzou**. Klíčová je pro něj vertikála domu. **Půda** patří jasnosti, noční strachy se tam za dne snadno vysvětlí. **Sklep** je temná, iracionální hlubina, kde tma trvá i ve dne a strach se nikdy nedá úplně rozumově odbýt. Podobnou váhu mají skříně a truhly (v zavřené schránce je podle něj vždy víc věcí než v otevřené), kouty, pootevřené dveře i **intimní nezměrnost**, v níž se hloubka nitra potkává s rozlehlostí světa.
+
+Bachelard se věnuje hlavně „šťastnému prostoru“, prostoru bezpečí a snění. Herní světy jeho obrazy s oblibou převracejí. V Silent Hillu bylo zohavené tělo Alessy sedm let ukryté ve sklepení nemocnice Alchemilla a Walterovi namluvila sekta, že byt 302 je jeho živoucí matka. Pathologic staví spor města na vertikále mezi Mnohostěnem, pevností snů zaraženou do těla matky země, a podzemím, kde tečou žíly krve prabýka a odkud prýští mor. Pentiment pod kostelem nachází římskou svatyni boha Mithry a s ní pravdu o městě. A Nejstarší dům v Control, uvnitř nekonečně větší než zvenčí, ruší hranici mezi vnitřkem a vnějškem doslova.
 
 ### Boym: obnovující a reflektující nostalgie
 
@@ -213,7 +220,6 @@ Knihy, které by metodu dál prohloubily a ke kterým se chceme dostat:
 
 - **Tzvetan Todorov: *Úvod do fantastické literatury* (1970).** Klasická definice fantastična jako váhání mezi přirozeným a nadpřirozeným vysvětlením. Clute i Mendlesohn na ni reagují. Hodila by se pro Silent Hill, Pathologic a prahové světy.
 - **Mary Douglasová: *Čistota a nebezpečí* (1966).** Antropologie nečistoty, ze které vychází Carrollova teorie monster. Pro stezky Netvor v zrcadle a Kdo za to může?
-- **Gaston Bachelard: *Poetika prostoru* (1957).** Dům, sklep, půda a kout jako obrazy intimity a strachu. Pro stezku Město, které dýchá a pro světy, jejichž hlavní postavou je místo.
 - **Jan Assmann: *Kultura a paměť* (1992).** Kulturní paměť a zakládající mýty starověkých civilizací. Doplněk k Aleidě Assmannové.
 - **Henry Jenkins: *Convergence Culture* (2006).** Transmediální vyprávění: světy, které žijí napříč hrami, knihami a seriály (Warhammer, Zaklínač, Fallout).
 - **Mark J. P. Wolf (ed.): *Revisiting Imaginary Worlds* (2016).** Pokračování Wolfovy monografie se studiemi jednotlivých světů.
@@ -262,6 +268,7 @@ Knihy, které by metodu dál prohloubily a ke kterým se chceme dostat:
 - Farah Mendlesohn, Edward James: *A Short History of Fantasy*, Middlesex University Press 2009; revidované a rozšířené vydání Libri Publishing 2012.
 - Mircea Eliade: *Mýtus o věčném návratu (Archetypy a opakování)* (Le Mythe de l'éternel retour, 1949), Praha 1993; anglicky *The Myth of the Eternal Return*, Princeton University Press 1954.
 - Aleida Assmann: *Cultural Memory and Western Civilization: Functions, Media, Archives* (Erinnerungsräume, 1999), Cambridge University Press 2011.
+- Gaston Bachelard: *Poetika prostoru* (La Poétique de l'espace, 1957), přel. Josef Hrdlička, Malvern 2009; anglicky *The Poetics of Space*, Penguin Classics 2014.
 - Svetlana Boym: *The Future of Nostalgia*, Basic Books 2001.
 - Noël Carroll: *The Philosophy of Horror, or Paradoxes of the Heart*, Routledge 1990.
 

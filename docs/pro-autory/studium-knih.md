@@ -38,7 +38,7 @@ Dva až čtyři odstavce vlastními slovy.
 
 ## Knihy, které chceme nastudovat
 
-Hotové výtahy (už nečíst znovu): Mendlesohn a James, *A Short History of Fantasy* (2026-11-20); Murrayová, *Hamlet on the Holodeck* (2026-11-20).
+Hotové výtahy (už nečíst znovu): Mendlesohn a James, *A Short History of Fantasy* (2026-11-20); Murrayová, *Hamlet on the Holodeck* (2026-11-20); Bachelard, *Poetika prostoru* (2026-11-20).
 
 U každé knihy: co číst, na co se soustředit a ke kterým stezkám a světům se hodí.
 
@@ -48,13 +48,6 @@ U každé knihy: co číst, na co se soustředit a ke kterým stezkám a světů
 - **Soustředit se:** nečistota jako porušení kategorií (základ Carrollovy teorie monster), rituály čištění, okraje a prahy, proč je anomálie zároveň nebezpečná a mocná.
 - **Stezky:** Netvor v zrcadle, Kdo za to může?, Pod lhostejnými hvězdami. **Světy:** Bloodborne (krev a nákaza), Silent Hill, Pathologic (mor a čistota), Zaklínač (mutanti), Warhammer 40 000 (čistota lidstva, mutanti).
 - **Navazuje na:** Carroll, Girard, Švelch.
-
-### Gaston Bachelard: *Poetika prostoru* (La Poétique de l'espace, 1957)
-
-- **Číst:** úvod a kapitoly o domě (sklep a půda), o šuplících, skříních a schránkách, o koutech, o miniatuře a nezměrnosti.
-- **Soustředit se:** dům jako obraz duše, vertikála sklep–půda (strach dole, jasnost nahoře), intimní prostor a nezměrnost, jak prostor nese paměť a snění.
-- **Stezky:** Město, které dýchá, Mluví už jen mrtví, Netvor v zrcadle. **Světy:** Control (Nejstarší dům), Silent Hill, Resident Evil (sídlo), BioShock (Rapture), Disco Elysium (Martinaise), Pathologic.
-- **Navazuje na:** Jenkins (narativní architektura), A. Assmannová (paměť míst), Eliade (symbolika středu).
 
 ### Tzvetan Todorov: *Úvod do fantastické literatury* (Introduction à la littérature fantastique, 1970)
 
