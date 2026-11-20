@@ -20,6 +20,7 @@ Pojmy, se kterými pracujeme, nejsou naše. Přicházejí ze šesti oblastí: z 
 | Fabule a syžet | Ruský formalismus (Šklovskij, Tomaševskij) | Události v chronologickém pořadí a pořadí, v němž se je dozvídáme. |
 | Ergodická literatura | Espen Aarseth, *Cybertext* (1997) | Text, jímž je třeba se netriviálně „prokousat“. Pravda je odměnou za úsilí. |
 | Ponoření, jednání, proměna, procedurální autorství | Janet H. Murrayová, *Hamlet on the Holodeck* (1997) | Digitální médium je procedurální, participativní, prostorové a encyklopedické. Aktivita ještě není jednání a autor tvoří pravidla a morální fyziku světa. |
+| Zapojení, alterbiografie, tažený příběh, začlenění | Gordon Calleja, *In-Game* (2011) | Hráč se do světa „neponoří“, ale přisvojí si ho do vědomí a zároveň je do něj začleněn přes avatara. Vedle napsaného příběhu vzniká příběh hraním. |
 | Narativní architektura | Henry Jenkins (2004) | Herní svět jako „paměťový palác“ se čtyřmi typy prostorového vyprávění. |
 | Transmediální vyprávění, kolektivní inteligence, přidané porozumění | Henry Jenkins, *Convergence Culture* (2006) | Velký svět se rozkládá napříč médii tak, že každé přidává vlastní vrstvu. Celek už nepojme jednotlivec, ale komunita fanoušků. |
 | Prostorové vyprávění | Harvey Smith a Matthias Worch, GDC 2010 | Vyprávění podávané a vyhledávané. Anonymní detail je promarněná příležitost. |
@@ -125,6 +126,10 @@ Espen Aarseth v knize *Cybertext* (1997) nazval ergodickým text, kterým se čt
 Teoretička digitálních médií Janet H. Murrayová v knize *Hamlet on the Holodeck* (1997, aktualizované vydání 2016 a 2017) vymezila čtyři vlastnosti počítače jako vyprávěcího média: je **procedurální, participativní, prostorový a encyklopedický**. Z nich vyrůstají tři požitky digitálního vyprávění. **Ponoření** (*immersion*) nevzniká jen pasivním „potlačením nedůvěry“: víru ve svět aktivně vytváříme tím, že používáme jeho předměty a role. **Jednání** (*agency*) je uspokojivá moc podniknout smysluplný čin a vidět jeho následky. A **proměna** (*transformation*) dovoluje měnit perspektivy a přehrávat varianty téže události v *kaleidoskopickém* a *multiformním* vyprávění. Murrayová ostře odlišuje pouhou aktivitu, tedy klikání nebo volbu, která nic nemění, od skutečného jednání. A připomíná, že hráč autorem díla není: tím zůstává **procedurální autor**, který píše pravidla světa i jeho **morální fyziku**, tedy jaké následky mají činy, kdo je odměněn a jak těžkou ztrátu smějí postavy utrpět.
 
 Pro atlas je Murrayová klíčová tam, kde se láme svoboda hráče a struktura času. Pomáhá vysvětlit, proč v BioShocku tolik bolí zjištění, že naše zdánlivé jednání byla poslušnost, proč Pathologic se třemi hrdiny v týchž dvanácti dnech naplňuje její představu kaleidoskopického vyprávění a proč hry postavené na smyčkách (Outer Wilds, Hades, Undertale) narážejí na napětí, které sama popsala: možnost „zkusit to znovu“ popírá smrtelnost a táhne ke komedii, zatímco zralé vyprávění má umět zachytit tragický proces nevratné ztráty.
+
+### Calleja: zapojení a začlenění
+
+Herní teoretik Gordon Calleja v knize *In-Game* (2011) odmítl zmatená slova „ponoření“ a „přítomnost“, která předpokládají, že hráč do světa skočí a vnější svět přestane existovat. Navrhl místo nich **model hráčova zapojení** o šesti rozměrech: pohyb a ovládání, prostor, ostatní bytosti, příběh, city a volby s následky. Každý rozměr má dvě fáze: zapojení chvíli po chvíli během hraní a makrozapojení, tedy všechno, co se s hrou děje, když nehrajeme, od přemýšlení ve vlaku po debaty v komunitě. Vrcholem je **začlenění**: hráč si svět přisvojí do vědomí jako své okolí a zároveň je přes avatara začleněn do jediného místa v něm. Pro atlas jsou nejcennější dva pojmy z kapitoly o příběhu. Vedle **napsaného příběhu**, který vkládají tvůrci, vzniká **alterbiografie**, příběh, který si hráč vytvoří tím, jak ve světě jedná. A podle Kena Levina, autora BioShocku, lze příběh k hráči buď tlačit filmovými předěly, nebo ho rozmístit ve světě a nechat hráče, aby si ho **přitáhl** sám, jako magnetofonové záznamy v Rapture nebo knihy v Elder Scrolls. Tažený příběh je teoretický základ toho, čemu v atlasu říkáme prostorové vyprávění a řízená mezera. Calleja staví na rozhovorech s hráči dvou on-line her pro mnoho hráčů, světy pro jednoho hráče tedy pokrývá jen zčásti.
 
 ### Juul: test převyprávění
 
@@ -254,7 +259,6 @@ Knihy, které by metodu dál prohloubily a ke kterým se chceme dostat:
 
 - **Celé čtení klasiků, které zatím známe z druhé ruky:** Tolkien, *O pohádkách*; Aarseth, *Cybertext*; Otto, *Posvátno*; Clute a Grant, *The Encyclopedia of Fantasy* (hesla nad rámec řídnutí a uzdravení).
 - **Marie-Laure Ryanová: *Narrative as Virtual Reality* (2001).** Ponoření a interaktivita jako dva póly; most mezi teorií možných světů a hrami.
-- **Gordon Calleja: *In-Game* (2011).** Od ponoření k začlenění: jak hráč světem prostupuje a co ho v něm drží.
 
 ## Zdroje
 
@@ -328,6 +332,7 @@ Knihy, které by metodu dál prohloubily a ke kterým se chceme dostat:
 
 - Espen Aarseth: *Cybertext: Perspectives on Ergodic Literature*, Johns Hopkins University Press 1997.
 - Janet H. Murray: *Hamlet on the Holodeck: The Future of Narrative in Cyberspace*, The Free Press 1997; aktualizované vydání Free Press 2016 a MIT Press 2017.
+- Gordon Calleja: *In-Game: From Immersion to Incorporation*, MIT Press 2011.
 
 **Řemeslo (doplněk)**
 
