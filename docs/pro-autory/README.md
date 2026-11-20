@@ -47,7 +47,7 @@ Dobrá esej:
 
 ## 4. Stavba eseje
 
-Rozsah **3 000–3 800 slov, strop 4 000**. Hutně a kratší je lepší než dlouze a řídce: oddíl jednoho světa má zhruba 350–500 slov a nese jen to, co odpovídá na otázku eseje, ne převyprávění děje. Vzorem délky a hustoty je esej Kdo za to může? (4 200 slov po zkrácení, tedy horní mez). Kapitoly jsou nadpisy `##`, světy a pododdíly `###`.
+Rozsah **3 000–4 000 slov, nikdy přes 4 500**. Hutně a kratší je lepší než dlouze a řídce: oddíl jednoho světa má zhruba 350–500 slov a nese jen to, co odpovídá na otázku eseje, ne převyprávění děje. Vzorem délky a hustoty je esej Kdo za to může? (4 200 slov po zkrácení). Kapitoly jsou nadpisy `##`, světy a pododdíly `###`.
 
 1. **Úvodem.** Úvodní citát z naší kroniky (kurzívou, pod ním „(Kronika …)“). Pak obraz nebo myšlenka, která téma otevře, představení všech světů stezky v jednom odstavci (každý tučně, každý jednou větou), a otázka eseje tučně. Na konci rámeček „Upozornění“ o spoilerech.
 2. **Kořeny tématu.** Odkud téma pochází: mýtus, náboženství, literatura, filozofie. Jeden až dva prameny, ne přehled všeho.
@@ -139,7 +139,7 @@ Kapitoly se číslují samy (kromě Úvodem a Zdroje). Obsah vlevo a doba čten�
 - [ ] Žádné „osy“, žádná procenta, žádné anglické názvy světů, kde má atlas český.
 - [ ] Velké zvraty jsou ve spoilerových blocích.
 - [ ] Česká typografie (uvozovky, pomlčky, mezery v číslech).
-- [ ] Délka do 4 000 slov; typologie a závěr neopakují, co zaznělo u světů.
+- [ ] Délka nejvýš 4 500 slov; typologie a závěr neopakují, co zaznělo u světů.
 
 ### Časté chyby (z kontroly první eseje od Gemini)
 
@@ -170,7 +170,7 @@ npm run bundle:trail -- who-woke-up --split            # soubory do 30 000 znak�
 npm run bundle:trail -- who-woke-up --split --limit=20000
 ```
 
-Vznikne `00-START-vloz-do-chatu.md` (zadání a postup, vloží se do chatu jako první zpráva) a číslované soubory 01–NN. Každý začíná řádkem „SOUBOR NN/MM“ a končí „KONEC SOUBORU NN/MM“, takže model pozná, že se soubor usekl. Z pramenů jsou v rozsekaném balíčku jen ty, které rozcestník doporučuje k dané stezce. Model odevzdává po krocích: nejdřív otázku, osnovu a fakta, po schválení esej ve třech částech, nakonec seznam faktů a míst k ověření.
+Vznikne `00-START-vloz-do-chatu.md` (zadání a postup, vloží se do chatu jako první zpráva) a číslované soubory 01–NN. Každý začíná řádkem „SOUBOR NN/MM“ a končí „KONEC SOUBORU NN/MM“, takže model pozná, že se soubor usekl. Z pramenů jsou v rozsekaném balíčku jen ty, které rozcestník doporučuje k dané stezce. Model odevzdává po krocích: nejdřív otázku, osnovu a fakta, po schválení celou esej najednou, nakonec seznam faktů a míst k ověření.
 
 ## 9. Co odevzdat
 

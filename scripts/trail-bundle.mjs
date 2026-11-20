@@ -228,7 +228,7 @@ function splitBundle(t, limit) {
     ].join('\n') },
     { title: 'Příručka pro autory esejí ke stezkám', body: read('docs/pro-autory/README.md') },
     { title: 'Vzorová esej 1: Na mrtvole boha', body: read('content/trails/na-mrtvole-boha.md') },
-    ...(existsSync(join(root, 'content/trails/kdo-za-to-muze.md')) ? [{ title: 'Vzorová esej 2: Kdo za to může? (po opravách a zkrácení, 4 200 slov = horní mez)', body: read('content/trails/kdo-za-to-muze.md') }] : []),
+    ...(existsSync(join(root, 'content/trails/kdo-za-to-muze.md')) ? [{ title: 'Vzorová esej 2: Kdo za to může? (po opravách a zkrácení, 4 200 slov)', body: read('content/trails/kdo-za-to-muze.md') }] : []),
     { title: 'Metoda atlasu: Anatomie herního lore', body: read('content/essays/anatomie-herniho-lore.md') },
     ...pr.map((f) => ({ title: `Výtah z pramene: ${f}`, body: read(`docs/prameny/${f}.md`) })),
     ...t.members.map((id) => {
@@ -266,6 +266,26 @@ function splitBundle(t, limit) {
   return [{ name: '00-START-vloz-do-chatu.md', text: start }, ...files];
 }
 
+// Světy stezky, které už mají esej k jiné stezce: autor má zvolit jiný úhel.
+function overlapNote(t) {
+  const dir = join(root, 'content/trails');
+  if (!existsSync(dir)) return '';
+  const lines = [];
+  for (const f of readdirSync(dir).filter((x) => x.endsWith('.md'))) {
+    const src = readFileSync(join(dir, f), 'utf8');
+    const trail = (src.match(/^trail:\s*(\S+)/m) || [])[1];
+    const title = (src.match(/^title:\s*(.+)$/m) || [])[1];
+    if (!trail || trail === t.id) continue;
+    const other = trails.find((x) => x.id === trail);
+    if (!other) continue;
+    const shared = t.members.filter((id) => other.members.includes(id)).map((id) => cs(byId[id].gameTitle));
+    if (shared.length) lines.push(`${shared.join(', ')} (esej „${title}“)`);
+  }
+  return lines.length
+    ? `\n- **Neopakuj úhel minulých esejí.** Tyto světy už jsou rozebrané jinde: ${lines.join('; ')}. U nich vyber to, co nese otázku této stezky, ne to, co už zaznělo tam.`
+    : '';
+}
+
 function startPrompt(t, name, desc, total, manifest) {
   const worldsList = t.members.map((id) => cs(byId[id].gameTitle)).join(', ');
   const batches = [];
@@ -293,15 +313,12 @@ Kroniky jsou **jediný zdroj faktů o světech**. Prameny používej jen v rozsa
    - ke každému světu 3–6 faktů, na kterých oddíl postavíš, každý s místem v kronice (kapitola nebo oddíl Faktografie),
    - které prameny použiješ a k čemu.
    Pak počkej, až napíšu „ok“ nebo pošlu připomínky.
-3. **Krok 2: esej po částech**, aby se odpověď neusekla. Každá část v jednom bloku markdownu, na konci řádek „Konec části X/3“, pak počkej na „dál“:
-   - část A: frontmatter, Úvodem, kořeny tématu,
-   - část B: oddíly světů,
-   - část C: typologie, proč to hry milují, odpověď, Zdroje.
+3. **Krok 2: celá esej najednou** v jednom bloku markdownu (frontmatter, Úvodem, kořeny, světy, typologie, proč to hry milují, odpověď, Zdroje). Kdyby se nevešla do jedné odpovědi, skonči celým odstavcem, napiš řádek „POKRAČOVÁNÍ NÁSLEDUJE“ a po mém „dál“ navaž přesně tam.
 4. **Krok 3:** seznam faktů s místy v kronikách, seznam míst k ověření (\`[OVĚŘIT: …]\`), případné návrhy k pramenům.
 
 ## Na co si dát pozor (poučení z minulé eseje)
 
-- **Délka 3 000–3 800 slov, strop 4 000.** Minulá esej měla 5 700 slov a musela se krátit. Hutně a kratší je lepší než dlouze a řídce. Oddíl jednoho světa zhruba 350–500 slov.
+- **Délka 3 000–4 000 slov, nikdy přes 4 500.** Jedna z minulých esejí měla 5 700 slov a musela se krátit. Hutně a kratší je lepší než dlouze a řídce. Oddíl jednoho světa zhruba 350–500 slov.${overlapNote(t)}
 - **Nepřevyprávět děj.** U světa jen to, co nese otázku eseje. Čtenář si kroniku otevře sám.
 - **Jedna myšlenka jednou.** Typologie a závěr neopakují, co už zaznělo u světů.
 - **Jména přesně podle kroniky** (postavy, místa, frakce, letopočty, pořadí událostí). Když se karta světa a kronika liší, platí kronika.
