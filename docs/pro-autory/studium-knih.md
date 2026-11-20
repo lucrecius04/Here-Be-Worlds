@@ -38,7 +38,7 @@ Dva až čtyři odstavce vlastními slovy.
 
 ## Knihy, které chceme nastudovat
 
-Hotové výtahy (už nečíst znovu): Mendlesohn a James, *A Short History of Fantasy* (2026-11-20); Murrayová, *Hamlet on the Holodeck* (2026-11-20); Bachelard, *Poetika prostoru* (2026-11-20); Jenkins, *Convergence Culture* (2026-11-20); Wolf (ed.), *Revisiting Imaginary Worlds* (2026-11-20).
+Hotové výtahy (už nečíst znovu): Mendlesohn a James, *A Short History of Fantasy* (2026-11-20); Murrayová, *Hamlet on the Holodeck* (2026-11-20); Bachelard, *Poetika prostoru* (2026-11-20); Jenkins, *Convergence Culture* (2026-11-20); Wolf (ed.), *Revisiting Imaginary Worlds* (2026-11-20); Jan Assmann, *Kultura a paměť* (2026-11-20).
 
 U každé knihy: co číst, na co se soustředit a ke kterým stezkám a světům se hodí.
 
@@ -55,13 +55,6 @@ U každé knihy: co číst, na co se soustředit a ke kterým stezkám a světů
 - **Soustředit se:** fantastično jako váhání mezi přirozeným a nadpřirozeným vysvětlením, rozdíl podivného (vysvětlitelného) a zázračného (přijatého), role čtenáře.
 - **Stezky:** Kdo se to probudil?, Mluví už jen mrtví, Smích nad propastí. **Světy:** Silent Hill, Pathologic, Disco Elysium, SOMA, Control.
 - **Navazuje na:** Mendlesohn (prahová fantasy), Fisher (podivné), Clute.
-
-### Jan Assmann: *Kultura a paměť* (Das kulturelle Gedächtnis, 1992)
-
-- **Číst:** teoretický úvod (komunikativní a kulturní paměť, vzpomínkové figury), kapitolu o kanonizaci a o zakládajících mýtech.
-- **Soustředit se:** rozdíl paměti tří generací a kulturní paměti, zakládající minulost, kanon, jak společnost vzpomínáním vytváří identitu.
-- **Stezky:** Prokleté dědictví, Mluví už jen mrtví, Bohové jako břemeno. **Světy:** Elder Scrolls, Dragon Age, Assassin's Creed, Warhammer 40 000, Horizon.
-- **Navazuje na:** Aleida Assmannová (pozor na záměnu), Eliade.
 
 ### Doplnit plným čtením (zatím známe z druhé ruky)
 

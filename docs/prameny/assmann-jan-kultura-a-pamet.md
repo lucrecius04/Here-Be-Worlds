@@ -1,0 +1,48 @@
+# Jan Assmann: Kultura a paměť
+
+**Bibliografie:** Jan Assmann, *Das kulturelle Gedächtnis: Schrift, Erinnerung und politische Identität in frühen Hochkulturen*, C. H. Beck, Mnichov 1992 (dotisk 2002); česky *Kultura a paměť: Písmo, vzpomínka a politická identita v rozvinutých kulturách starověku*, přel. Martin Pokorný, Prostor, Praha 2001.
+**Studováno:** 2026-11-20 z kompletního bosenského překladu *Kulturno pamćenje: Pismo, sjećanje i politički identitet u ranim visokim kulturama*, přel. Vahidin Preljević, Vrijeme, Zenica 2005 (sken; Claude ho pro kontrolu převedl OCR). Výtah připravil Gemini, Claude ho ověřil proti knize (pojmy, jména, příklady) a proti kronikám (světy) a opravil. Přečteno celé: Předmluva, Úvod, První díl (*Teoretické základy*, kap. 1–3), Druhý díl (*Případové studie*, kap. 4–7: Egypt, Izrael, právo a dějiny, Řecko) a Závěrečné shrnutí.
+**Upozornění:** Nezaměňovat s **Aleidou Assmannovou** (*Cultural Memory and Western Civilization*, 1999) – oba manželé vypracovali teorii kulturní paměti společně, ale Jan se zde soustředí na rané vysoké kultury starověku, přechod od rituálu k písmu, kanonizaci a zrod dějin, zatímco Aleida rozvíjí téma do novověku (funkční a úložná paměť, paměť míst). Janova kniha je silně ukotvena v egiptologii a biblistice; její pojmy jsou pro herní světy mimořádně nosné jako analytické nástroje, ale nelze je mechanicky ztotožňovat s moderní mediální kulturou.
+
+## Hlavní teze
+
+Každá kultura si vytváří svou **konektivní strukturu**, která spojuje lidi v sociální dimenzi (sdílenými normami – „co máme činit“) a v časové dimenzi (sdílenými příběhy o minulosti – „kdo jsme“), takže jednotlivec dokáže říct „my“. Minulost přitom nevzniká samovolně plynutím času, ale až vědomým vztahem přes prožitek **zlomu**, jehož prascénou je smrt a vzpomínka na mrtvé.
+
+Na základě Maurice Halbwachse a Jana Vansiny rozlišuje Assmann **komunikativní paměť** (živá paměť svědků sahající 80–100 let zpět) a **kulturní paměť** (institucionalizovaná, slavnostní paměť počátků nesená rituály, krajinou a specialisty), oddělené „plovoucí propastí“ (*floating gap*).
+
+Přechod k písmu a **kanonizaci** proměňuje konektivní strukturu ve čtyřech různých civilizačních směrech, které Assmann rozebírá v druhém díle:
+1. **Egypt** rozvíjí *monumentální diskurs* a v pozdní době kanonizuje samotnou architekturu a rituál (**chrám jako vystavěná paměť**), aniž by vytvořil kulturu textového komentáře.
+2. **Izrael** vynalézá **náboženství jako odpor** a **přenosnou vlast** (*portativní domovinu* v Tóře), jež odděluje identitu od území a v **Deuteronomiu** buduje propracovanou kulturní mnemotehniku proti „šoku zapomnění“.
+3. **Mezopotámie, Chetitové a Izrael** rodí dějepisectví z **ducha práva** (*iustitia connectiva*) a **genealogie viny** – teprve utrpení, mor a porušená smlouva činí lineární dějiny čitelnými.
+4. **Řecko** vedle klasiky (Homér) rozvíjí **hypolepsi** – disciplinované, kritické navazování na předchozí texty, z něhož vyrůstá filozofie a věda.
+
+## Pojmy
+
+- **Konektivní struktura (Úvod):** Pojivová kostra kultury s *normativní* (moudrost, právo) a *formativní* (mýty, dějiny, genealogie) složkou.
+- **Vzpomínkové figury (*Erinnerungsfiguren*) a mnemotop (kap. 1.I–II):** Minulost se v paměti sráží do konkrétních postav, událostí a míst (*mnemotop*: krajina povýšená na znak, Assmannův příklad je Svatá země podle Halbwachse; jinde zmiňuje australské churingy a songlines); paměť je vždy **rekonstruktivní** podle rámců přítomnosti.
+- **Komunikativní vs. kulturní paměť a *floating gap* (kap. 1.II):** Živá paměť 3–4 generací (80–100 let, kritický práh po **40 letech**, kdy pamětníci odcházejí) vs. slavnostní paměť mýtického pravěku spravovaná specialisty; mezi nimi leží pohyblivá propast (*floating gap*).
+- **Vzpomínka na mrtvé (kap. 1.II.4):** *Retrospektivní* (pieta držící mrtvé ve společenství) a *prospektivní* (sláva, hrobky, monumenty); kult relikvií jako legitimace moci.
+- **Chladná a horká paměť, aliance vlády s pamětí i zapomněním (kap. 1.III):** Dvě mnemopolitické volby: *chladná* zmrazuje změnu, *horká* činí dějiny motorem proměny. Moc se opírá o paměť (genealogie), ale stejně často uzavírá **alianci se zapomněním** (cenzura, Orwellovo *1984*).
+- **Mýtomotorika: zakládající, kontraprezentní a revoluční (kap. 1.III.7):** Mýtus je zakládající příběh (fiktivní i skutečný) s normativní silou. *Zakládající* ospravedlňuje současný řád; *kontraprezentní* (G. Theißen) staví proti bídě přítomnosti obraz ztraceného věku či *protidějiny* poražených; pod útlakem se mění v *revoluční/mesiášskou*.
+- **Rituální vs. textová koherence a kanonizace (kap. 2):** Přechod od přesného opakování (rituál) k výkladu (hermeneutika). **Kanonizace** uzavírá tekoucí „proud tradice“ formulí „nic nepřidat, nic neubrat“, odděluje pravověrnost od hereze a rodí nezávislou třídu vykladačů.
+- **Integrace, distinkce, limitická struktura a protiidentita (kap. 3):** Velké říše se stabilizují integrací a kolosální architekturou; menšiny a ohrožené skupiny se brání *distinkcí*, *limitickou strukturou* (tabu, vnější znaky hranice) a **protiidentitou** (*counter-identity*, E. H. Spicer). Zánik etnik nebývá fyzickým vyhlazením, ale kolektivním zapomněním.
+- **Monumentální diskurs a chrám jako vystavěná paměť (kap. 4):** V Egyptě vládne princip, který Jacob Burckhardt nazval *hieratickým znehybněním* (forma umění se drží přes tisíciletí; egyptské monumenty jsou podle Burckhardta „knihy dějin psané obřím písmem“) – pozdní chrám je trojrozměrná, do kamene přepsaná kniha a pevnost ortopraxe (*nomos chrámu*) chránící posvátno před profanací.
+- **Náboženství jako odpor, přenosná vlast a šok zapomnění (kap. 5):** V Izraeli se náboženství poprvé odděluje od vlastní kultury a státu; Tóra vytváří **přenosnou vlast** (H. Heine) nezávislou na území. *Deuteronomium* reaguje na 40letý práh odchodu svědků (konec putování pouští) a na **šok zapomnění**, který hrozí po vstupu do nové země, osmi „formulemi kolektivní mnemotechniky“; rozhodující je osmá, kanonizace.
+- **Konektivní spravedlnost (*iustitia connectiva*) a genealogie viny (kap. 6):** Rané kultury nečtou svět přes mechanickou kauzalitu, ale přes *odplatu* (vazba činu a následku). Právě **utrpení a vina** (chetitské *Modlitby o moru* Muršiliše II., pád Izraele) fungují jako motor lineárních dějin: ve znamení viny se události *semiotizují* a dějiny se stávají čitelnou zpovědí.
+- **Hypolepsa (*hypolepsis*, kap. 7):** Řecký princip kontrolované variace a kritického navazování na předchozí texty (na rozdíl od *kánonu*, jenž rozpor nepřipouští, a *mýtu*, jenž jej přehlíží); zakládá vědu a filozofii.
+
+## Co z toho plyne pro Here Be Worlds
+
+- **Stezka Kdo za to může? (*Pathologic*, *Pentiment*, *Dragon Age*, *Dishonored*, *Silent Hill*, *Zaklínač*):**
+  - **Genealogie viny a *iustitia connectiva* (kap. 6):** Přímý teoretický protějšek Girardova obětního beránka a Eliadeho normálnosti utrpení. Muršilišovo pátrání po tom, *jaká porušená smlouva přivolala dvacetiletý mor*, má paralelu v *Pathologicu* (výklad atlasu; podle kroniky každá rána zasazená do půdy vyvolá hněv matky země, která odpoví Písečným morem): mor se tu čte jako trest a pátrání po viníkovi je pátrání po porušeném vztahu.
+  - **Pentiment:** Ukázka **aliance moci a zapomnění**: farář otec Thomas se stane strůjcem vražd, aby ochránil uklidňující mýtus o městě před pravdou, že kostel stojí na pohanské svatyni. Obrácená Jošijášova reforma z kap. 5: tam nalezená kniha probudí zapomenutou identitu, tady se nalezená pravda znovu zakopává.
+  - **Dragon Age:** **Kanonizace** (Oltář a Píseň světla, nauka o Zlatém městě zčernalém lidským hříchem) a **protiidentita** dalishských elfů, kočovných kmenů, které se snaží obnovit starou kulturu. Assmannova rekonstruktivní paměť tu dostává krutý obrat: kronika uvádí, že tetování *vallaslin*, které Dalishové nosí jako znak své identity, byla původně otrokářské cejchy jejich „bohů“.
+  - **Pathologic:** Střet **rituální koherence** stepní tradice (prabýk, matka Bodcho, Linie, obřady) s racionalismem západní vědy, jak ho nese Bakalář (výklad atlasu; Assmannův pojem textové koherence míří na výklad kanonických textů, srovnání je tedy volnější).
+  - **Dishonored:** Obří *floating gap* mezi obětováním patnáctiletého chlapce v kamenné svatyni před zhruba 4 000 lety a současností Dunwallu; Opatství Všedního dne jako státní instituce ortopraxe proti „herezi“ Cizince.
+  - **Silent Hill:** Město a jezero Toluca jako *mnemotop* vrstvené viny (na březích věznice proslulá popravami, nemocnice Brookhaven), do nějž si každý poutník promítá vlastní vzpomínkové figury; Řád jako izolovaná sekta s vlastním věroučným světem (výklad atlasu).
+  - **Zaklínač:** *Floating gap* mezi Konjunkcí sfér a přítomností a *protiidentita* i *kontraprezentní vzpomínání* elfů Aen Seidhe, kteří kdysi připluli na bílých lodích, a komand Scoia'tael (výklad atlasu).
+- **Další stezky (Prokleté dědictví, Mluví už jen mrtví, Bohové jako břemeno):** *Elder Scrolls* (řecká *hypolepsa* a „kultura rozporu“ v protichůdných kronikách vs. kanonické texty), *Warhammer 40 000* (chladná paměť Impéria, monumentální diskurs integrace, kanonická polarizace ortodoxie a hereze), *Horizon* (doslovný *floating gap* po kolapsu civilizace; k vymazání APOLLA viz Aleidu Assmannovou). Vše výklad atlasu: kronika Elder Scrolls výslovně mluví o doktríně nespolehlivého vypravěče, kronika Warhammeru o tom, že všechny texty jsou rámované jako imperiální dokumenty.
+
+## Kde už je použito
+
+- Teoretické zázemí: oddíl „Jan Assmann: kulturní paměť, propast času a kánon“, tabulka pojmů, Zdroje

@@ -39,6 +39,7 @@ Pojmy, se kterými pracujeme, nejsou naše. Přicházejí ze šesti oblastí: z 
 | Portálová, ponořená, vpádová a prahová fantasy | Farah Mendlesohn, *Rhetorics of Fantasy* (2008) | Fantasy se liší tím, jak do příběhu vstupuje fantastično a kde přitom stojí čtenář: přichází zvenčí, je doma, svět je přepaden, nebo zázrak stojí na prahu. |
 | Meč a magie, výpravná fantasy, divadelní fantasy, Fantasyland™ | Farah Mendlesohn, Edward James, *A Short History of Fantasy* (2009) | Dějiny fantasy jako rozhovor autorů: jak se z Tolkiena, Howarda, Moorcocka, pulpových časopisů a D&D zrodily vzorce i klišé herních světů. |
 | Věčný návrat, hrůza z dějin | Mircea Eliade, *Mýtus o věčném návratu* (1949) | Tradiční člověk považuje za skutečné jen to, co opakuje vzor z počátku času. Opakováním ruší dějiny a kolektivní paměť z událostí dělá mýty. |
+| Komunikativní a kulturní paměť, plovoucí mezera, kanonizace | Jan Assmann, *Kultura a paměť* (1992) | Živou paměť svědků (asi 80–100 let) dělí od zakládajících mýtů mezera. Kanonizace uzavře tradici, oddělí pravověrnost od hereze a vyžádá si vykladače. |
 | Funkční a úložná paměť, místa traumatu | Aleida Assmannová, *Cultural Memory and Western Civilization* (1999) | Kultura si pamatuje dvojím způsobem: výběrovou pamětí, která vytváří identitu, a archivem toho, co se už nepoužívá. Místo traumatu nese příběh, který nejde vyprávět. |
 | Topoanalýza, vertikála sklep–půda, intimní nezměrnost | Gaston Bachelard, *Poetika prostoru* (1957) | Obývaný prostor přesahuje geometrii: dům je obraz duše a v jeho buňkách je stlačený čas. Půda patří jasnosti, sklep iracionální hlubině. |
 | Obnovující a reflektující nostalgie | Svetlana Boym, *The Future of Nostalgia* (2001) | Obnovující nostalgie chce ztracený domov znovu postavit a považuje se za pravdu. Reflektující prodlévá u ruin, patiny a touhy samotné a pravdu zpochybňuje. |
@@ -180,7 +181,13 @@ Eseje ke stezkám využívají i kratší prameny: mýty o stvoření světa z t
 
 Herní lore je paměť světa. Tyto knihy pomáhají rozlišit, co si svět pamatuje, kde to uchovává, co zapomněl a po čem se mu stýská.
 
-### Assmannová: funkční a úložná paměť
+### Jan Assmann: kulturní paměť, plovoucí mezera a kánon
+
+Egyptolog Jan Assmann v knize *Kultura a paměť* (1992) popsal, jak společnost drží pohromadě sdílené normy a zakládající příběhy; s Aleidou Assmannovou, jeho ženou, teorii kulturní paměti vypracovali společně, on ji ale rozvádí na starověkém Egyptě, Izraeli a Řecku. Rozlišuje **komunikativní paměť**, živou paměť tří až čtyř generací, která sahá asi 80 až 100 let zpět, a **kulturní paměť**, slavnostní paměť počátků, kterou nesou rituály, specialisté a krajina povýšená na znak (**mnemotop**). Mezi nimi leží podle etnologa Jana Vansiny **plovoucí mezera** (*floating gap*): o nedávné minulosti a o mýtických počátcích se ví hodně, o době mezi nimi skoro nic. Herní světy s hlubokým časem tuhle mezeru stavějí doslova, ať jde o propast mezi obětováním chlapce v Dishonored a současností Dunwallu, nebo mezi Konjunkcí sfér a světem Zaklínače.
+
+Pro atlas jsou nosné ještě tři Assmannovy postřehy. Moc se opírá o paměť, ale stejně často uzavírá **alianci se zapomněním**: v Pentimentu se farář stane strůjcem vražd, aby ochránil uklidňující mýtus o městě. **Kanonizace** uzavře tekoucí tradici formulí „nic nepřidat, nic neubrat“, oddělí pravověrnost od hereze a zrodí třídu vykladačů, jako je Oltář s Písní světla v Dragon Age. A dějiny se podle Assmanna poprvé stávají čitelnými ve znamení viny: chetitský král Muršiliš II. pátrá, jaké porušení smlouvy přivolalo dvacetiletý mor. Tentýž pohyb od neštěstí k pátrání po vině nese morové město v Pathologicu.
+
+### Aleida Assmannová: funkční a úložná paměť
 
 Literární vědkyně Aleida Assmannová v knize *Cultural Memory and Western Civilization* (německy 1999) rozlišuje dva způsoby, jak si kultura pamatuje. **Funkční paměť** je výběrová a slouží skupině: vytváří identitu, ospravedlňuje moc a dává smysl. Moc podle Assmannové potřebuje původ, a proto si píše genealogie a staví pomníky. Poražení zase pěstují protipaměť, protože na rozdíl od vítězů zapomenout nemohou. **Úložná paměť** je všechno ostatní: archivy, zapomenuté texty a nevyužité možnosti. Sama identitu netvoří, ale je zásobárnou, ze které může budoucnost čerpat, a měřítkem, podle kterého lze oficiální paměť opravit.
 
@@ -226,7 +233,6 @@ Knihy, které by metodu dál prohloubily a ke kterým se chceme dostat:
 
 - **Tzvetan Todorov: *Úvod do fantastické literatury* (1970).** Klasická definice fantastična jako váhání mezi přirozeným a nadpřirozeným vysvětlením. Clute i Mendlesohn na ni reagují. Hodila by se pro Silent Hill, Pathologic a prahové světy.
 - **Mary Douglasová: *Čistota a nebezpečí* (1966).** Antropologie nečistoty, ze které vychází Carrollova teorie monster. Pro stezky Netvor v zrcadle a Kdo za to může?
-- **Jan Assmann: *Kultura a paměť* (1992).** Kulturní paměť a zakládající mýty starověkých civilizací. Doplněk k Aleidě Assmannové.
 
 ## Zdroje
 
@@ -273,6 +279,7 @@ Knihy, které by metodu dál prohloubily a ke kterým se chceme dostat:
 - Farah Mendlesohn: *Rhetorics of Fantasy*, Wesleyan University Press 2008.
 - Farah Mendlesohn, Edward James: *A Short History of Fantasy*, Middlesex University Press 2009; revidované a rozšířené vydání Libri Publishing 2012.
 - Mircea Eliade: *Mýtus o věčném návratu (Archetypy a opakování)* (Le Mythe de l'éternel retour, 1949), Praha 1993; anglicky *The Myth of the Eternal Return*, Princeton University Press 1954.
+- Jan Assmann: *Kultura a paměť: Písmo, vzpomínka a politická identita v rozvinutých kulturách starověku* (Das kulturelle Gedächtnis, 1992), přel. Martin Pokorný, Prostor 2001.
 - Aleida Assmann: *Cultural Memory and Western Civilization: Functions, Media, Archives* (Erinnerungsräume, 1999), Cambridge University Press 2011.
 - Gaston Bachelard: *Poetika prostoru* (La Poétique de l'espace, 1957), přel. Josef Hrdlička, Malvern 2009; anglicky *The Poetics of Space*, Penguin Classics 2014.
 - Svetlana Boym: *The Future of Nostalgia*, Basic Books 2001.
