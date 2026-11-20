@@ -32,6 +32,8 @@ type Props = {
   worlds: EssayWorldLink[];
   /** Esej ke stezce: pod textem (před Zdroji) se vloží Světy stezky. */
   trail?: { worlds: TrailWorldInfo[] };
+  /** Stránka stezky bez schválené eseje: bez doby čtení. */
+  pending?: boolean;
 };
 
 /** Stabilní kotvy, na které odkazuje triáda na kartě světa. */
@@ -42,7 +44,7 @@ const ANCHOR_OVERRIDES: Record<string, string> = {
 };
 
 /** Kapitoly bez čísla: úvod a seznam zdrojů. */
-const UNNUMBERED = /^(úvodem|zdroje|světy stezky)$/i;
+const UNNUMBERED = /^(úvodem|zdroje|světy stezky|na čem stezka stojí)$/i;
 
 function textOf(children: ReactNode): string {
   if (children == null || typeof children === 'boolean') return '';
@@ -89,11 +91,11 @@ function blockLabel(node: MdNode | undefined): string {
 
 /** U stezky se Zdroje oddělí, aby mezi text a prameny mohly přijít Světy stezky. */
 function splitSources(markdown: string): [string, string] {
-  const at = markdown.search(/^## Zdroje\s*$/m);
+  const at = markdown.search(/^## (Zdroje|Na čem stezka stojí)\s*$/m);
   return at < 0 ? [markdown, ''] : [markdown.slice(0, at), markdown.slice(at)];
 }
 
-export default function EssayPage({ base, markdown, title, kicker, tagline, worlds, trail }: Props) {
+export default function EssayPage({ base, markdown, title, kicker, tagline, worlds, trail, pending }: Props) {
   const locale = useLocale();
   const [mainMd, sourcesMd] = useMemo(
     () => (trail ? splitSources(markdown) : [markdown, '']),
@@ -210,7 +212,9 @@ export default function EssayPage({ base, markdown, title, kicker, tagline, worl
         {kicker ? <p className="essay__kicker">{kicker}</p> : null}
         <h1 className="essay__title">{title}</h1>
         {tagline ? <p className="essay__tagline">{tagline}</p> : null}
-        <p className="essay__meta">{uiT('essay.readTime', locale).replace('{n}', String(minutes))}</p>
+        {pending ? null : (
+          <p className="essay__meta">{uiT('essay.readTime', locale).replace('{n}', String(minutes))}</p>
+        )}
       </header>
 
       {trail ? <TrailCast worlds={trail.worlds} base={base} locale={locale} /> : null}

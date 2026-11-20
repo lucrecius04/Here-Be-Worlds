@@ -180,3 +180,7 @@ Vznikne `00-START-vloz-do-chatu.md` (zadání a postup, vloží se do chatu jako
 4. **Návrh úprav pramenů:** pokud autor použil pramen jinak, než je ve výtahu, nebo našel nový.
 
 Esej pak projde kontrolou proti kronikám a majitel ji schválí. Teprve potom se na ni odkáže ze stezky.
+
+## Po schválení
+
+Esej se na webu ukáže až po schválení majitelem: do frontmatteru přibude `approved: true`. Do té doby je jen náhled na `/stezky/navrh/<slug>/` a stránka stezky ukazuje světy a prameny s poznámkou, že esej připravujeme. Soubor eseje se jmenuje podle české adresy stezky (`TRAIL_SLUGS` v `src/lib/trails.ts`), test to hlídá.

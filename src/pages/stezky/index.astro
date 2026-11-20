@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TrailsIndex from '../../components/trails/TrailsIndex';
+import { TRAILS, trailSlug } from '../../lib/trails';
+import { worlds, chapters } from '../../lib/worlds';
+import { publishedEssayFor } from '../../lib/trail-pages';
+
+const base = import.meta.env.BASE_URL;
+const onTrails = new Set(TRAILS.flatMap((tr) => tr.members));
+
+const trails = TRAILS.map((tr) => ({
+  id: tr.id,
+  slug: trailSlug(tr.id),
+  nameKey: tr.nameKey,
+  descKey: tr.descKey,
+  members: tr.members,
+  essayMinutes: publishedEssayFor(tr.id)?.minutes ?? null,
+}));
+
+const trailWorlds = worlds
+  .filter((w) => !w.draft && onTrails.has(w.id))
+  .map((w) => ({
+    id: w.id,
+    title: w.gameTitle,
+    chapterId: w.chapterId,
+    accent: chapters.find((c) => c.id === w.chapterId)?.accent ?? { light: 'currentColor', dark: 'currentColor' },
+  }));
+---
+
+<BaseLayout
+  title="Stezky atlasu · Here Be Worlds"
+  description={`${TRAILS.length} tematických stezek napříč herními světy atlasu Here Be Worlds: výběry světů, které spojuje jedna otázka, a eseje k nim.`}
+>
+  <TrailsIndex client:load base={base} trails={trails} worlds={trailWorlds} />
+</BaseLayout>

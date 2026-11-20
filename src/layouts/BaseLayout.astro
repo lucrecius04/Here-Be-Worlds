@@ -19,6 +19,7 @@ const {
   title = 'Here Be Worlds',
   description = 'Here Be Worlds – atlas herních vesmírů a jejich lore. Kroniky, časové osy, mapy a srovnání herních světů.',
   jsonLd,
+  noindex = false,
   ogImage = '/og/site.jpg',
   ogImageAlt = 'Here Be Worlds – mapy světů, kam se nedá doletět',
 } = Astro.props;
@@ -38,6 +39,7 @@ const published = worlds
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    {noindex ? <meta name="robots" content="noindex" /> : null}
     <meta property="og:site_name" content="Here Be Worlds" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />

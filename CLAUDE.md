@@ -77,12 +77,13 @@ Kroniky a eseje **nejsou** v `data/`.
 | `/notes/` | `src/pages/notes/index.astro` | `NotesPage` — obsah oddílů, rejstříkový seznam pojmů (štítek vlevo, výklad vpravo), legenda 1–5 jako pruh os; oddíly Charakter světa · Profil světa · Triáda · Příbuznost světů (4 pilíře, 5 stupňů slovy, bez procent) · Kompas a ladění · Kánon (texty v `data/meta/notes.ts`) |
 | `/anatomie-herniho-lore/` | `src/pages/anatomie-herniho-lore/index.astro` | `EssayPage` (obsah `ReadingToc` vlevo, čtecí sloupec jako kronika, doba čtení pod podtitulem) |
 | `/teoreticke-zazemi/` | `src/pages/teoreticke-zazemi/index.astro` | `EssayPage` z `content/essays/teoreticke-zazemi.md`: prameny atlasu po oblastech (fikční světy, fantastika, herní studia, hrůza a posvátno, mýtus, paměť, dílna tvůrců), tabulka pojmů, výhrady k autorům, co by sem ještě patřilo, seznam literatury. Odkaz z Anatomie (oddíl Na čem metoda stojí) a z patičky. **Po zapracování nové knihy doplnit i sem.** |
-| `/stezky/[id]/` | `src/pages/stezky/[id].astro` | `EssayPage` s `trail`: pod hlavičkou `TrailCast` (sloupce světů s linkou v barvě archetypu, „Archetyp · podžánr“, název jako odkaz); před Zdroji vloží `TrailWorlds` (souřadnice všech světů stezky jako kosočtverce se jmény + seznam světů se štítkem archetypu). Eseje `na-mrtvole-boha`, `kdo-za-to-muze`, `kdo-se-to-probudil`, `netvor-v-zrcadle` a `mluvi-uz-jen-mrtvi` zatím bez odkazu z webu (čekají na schválení majitelem). |
+| `/stezky/` | `src/pages/stezky/index.astro` | `TrailsIndex` (`src/components/trails/`, styly `trails.css`): hlavička jako atlas, filtr **Svět** (rozsvítí stezky, kterými svět prochází, ostatní ztlumí; `?svet=<id>`; klik na jméno světa v řádku dělá totéž), „Jen s esejí“ (jen když nějaká esej je schválená); rejstřík 16 stezek (název, popis, **složení** = pruh dílků v barvě archetypu, jeden za svět, světy, vpravo „Esej · N min“ / „Esej připravujeme“); oddíl **Kde se stezky kříží** (mřížka stezky × světy na 2+ stezkách, tečka v barvě archetypu, na telefonu seznam). V hlavičce webu odkaz Stezky hned za Atlasem; Stezky dne na titulní straně vedou na stránky stezek. Obrázky ke stezkám jsou v plánu (jediné místo na webu s obrázky), styl se teprve bude ladit. |
+| `/stezky/[id]/` | `src/pages/stezky/[id].astro` | Stránka každé stezky, adresa = český slug z `TRAIL_SLUGS` (`trails.ts`), stejný jako soubor eseje v `content/trails/`. `EssayPage` s `trail`: pod hlavičkou `TrailCast`, před Zdroji `TrailWorlds`. **Esej se ukáže jen s `approved: true` ve frontmatteru** (schvaluje majitel); jinak stránka ukáže rámeček „Esej připravujeme“, Světy stezky a oddíl „Na čem stezka stojí“ (jména pramenů z tabulky Prameny podle stezek v `docs/prameny/README.md`, `trailSources` v `src/lib/trail-pages.ts`). Neschválené eseje mají náhled `/stezky/navrh/<slug>/` (`noindex`, z webu na něj nic nevede). Zatím čekají na schválení: `na-mrtvole-boha`, `kdo-za-to-muze`, `kdo-se-to-probudil`, `netvor-v-zrcadle`, `mluvi-uz-jen-mrtvi`. |
 | `/contact/` | `src/pages/contact/index.astro` | `ContactPage` — téma zprávy, věta o e-mailu; odesílání zatím **nezapojené** (`CONTACT_EMAIL` prázdné), plán: bezplatná služba pro formuláře (Web3Forms/Formspree) s klíčem majitele |
 
 Jednoduché stránky (O projektu, Vysvětlivky, Kontakt) sdílejí v `layout.css` třídy `doc`, `doc-head`, `doc-kicker`, `doc-title`, `doc-lead`, `doc-h2`, `doc-prose`, `doc-side`: hlavička jako na atlasu, zarovnání vlevo, bez ozdob (žádné ✦), bez rámečků, text bez zarovnání do bloku.
 
-Hlavička (`SiteHeader`): na desktopu znak, odkazy, CZ|EN a přepínač motivu; na telefonu (≤ 720 px) jen znak, **jediná** ikona motivu (ta neaktivní; klik přepne) a tlačítko menu (tři čárky → křížek), které rozbalí panel s odkazy a CZ|EN (`#site-menu`, zavře Escape / klik mimo).
+Hlavička (`SiteHeader`): na desktopu znak, odkazy (Atlas · Stezky · Srovnání · Mapa souřadnic · Esej), CZ|EN a přepínač motivu; na telefonu (≤ 720 px) jen znak, **jediná** ikona motivu (ta neaktivní; klik přepne) a tlačítko menu (tři čárky → křížek), které rozbalí panel s odkazy a CZ|EN (`#site-menu`, zavře Escape / klik mimo).
 
 Layout: `src/layouts/BaseLayout.astro` — header/footer (znak + nápis z `BrandMark.tsx`), meta Open Graph (`ogImage`), ikony, theme/lang FOUC, globální `CompareTray`.
 
@@ -107,13 +108,13 @@ Layout: `src/layouts/BaseLayout.astro` — header/footer (znak + nápis z `Brand
 | `src/lib/search.ts` | MiniSearch pro katalog. Filtry: `AtlasExplorer` + `field-options.ts`. |
 | `src/lib/compare-tray.ts` | `hbw_compare` — zásobník na atlasu, mapě a spisu světa. **Ne** stav stránky `/compare/`. |
 | `src/lib/reader-desk.ts` | `hbw_reader_desk` — poslední spisy + resume kroniky. |
-| `src/lib/trails.ts` | Tematické stezky: 16 ručně sestavených výběrů po 4–7 světech (`members`), členy ověřené proti kronikám; `dailyTrails` pro titulní stranu. Texty v `i18n` `trails.*`. Test hlídá, že členové existují a počet sedí. |
+| `src/lib/trails.ts` | Tematické stezky: 16 ručně sestavených výběrů po 4–7 světech (`members`), členy ověřené proti kronikám; české adresy `TRAIL_SLUGS`; `dailyTrails` pro titulní stranu. Podklady stránek (eseje, schválení, prameny) v `trail-pages.ts`. Texty v `i18n` `trails.*`. Test hlídá, že členové existují a počet sedí. |
 | `src/lib/imprint.ts` | Otisk os pro `WorldCompass`. |
 | `src/lib/chronicles.ts` | Lazy load markdown. |
 | `src/lib/chronicle-toc.ts` | Části/kapitoly kroniky; regex `Kapitola I` v **těle kroniky** je správně. |
 | `src/lib/theme-store.ts` / `locale-store.ts` | `hbw_theme` / `hbw_lang`. |
 
-Styly: `src/styles/tokens.css`, `layout.css`, `typography.css`, `home-page.css` (titulní strana + hlavička `/atlas/`), `home.css` (katalog, stezky, kompas, zásobník), `world-card.css` (spis světa), `compare.css`, `chronicle.css`, `map.css`, `chapter.css`, `about.css`, `notes.css`, `contact.css`, `essay.css`.
+Styly: `src/styles/tokens.css`, `layout.css`, `typography.css`, `home-page.css` (titulní strana + hlavička `/atlas/`), `home.css` (katalog, stezky, kompas, zásobník), `world-card.css` (spis světa), `compare.css`, `chronicle.css`, `map.css`, `chapter.css`, `about.css`, `notes.css`, `contact.css`, `essay.css`, `trails.css`.
 
 ---
 

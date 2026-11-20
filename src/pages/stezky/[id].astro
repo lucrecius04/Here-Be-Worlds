@@ -1,74 +1,60 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import EssayPage from '../../components/essay/EssayPage';
-import { worlds, chapters } from '../../lib/worlds';
-import { trailById } from '../../lib/trails';
-import { AXIS_KEYS } from '../../lib/axes';
+import { trailBySlug } from '../../lib/trails';
+import { uiT } from '../../lib/i18n';
+import {
+  trailPages,
+  publishedEssayFor,
+  trailWorldsInfo,
+  trailSources,
+  worldLinks,
+} from '../../lib/trail-pages';
 
-/** Eseje ke stezkám: content/trails/<slug>.md, ve frontmatteru `trail:` = id stezky z trails.ts. */
-const files = import.meta.glob('../../../content/trails/*.md', { query: '?raw', import: 'default', eager: true }) as Record<string, string>;
-
-function parse(raw: string) {
-  const fm = raw.match(/^---\r?\n([\s\S]*?)\r?\n---\s*/);
-  const meta = (key: string) =>
-    fm ? new RegExp(`^${key}:\\s*(.+?)\\s*$`, 'm').exec(fm[1])?.[1]?.trim() : undefined;
-  return { meta, markdown: fm ? raw.slice(fm[0].length).trim() : raw.trim() };
-}
-
+/**
+ * Stránka každé stezky (/stezky/<slug>/). Se schválenou esejí ukazuje esej,
+ * jinak hlavičku, světy stezky, jejich souřadnice a prameny, o které se esej opře.
+ */
 export function getStaticPaths() {
-  const all = import.meta.glob('../../../content/trails/*.md', { query: '?raw', import: 'default', eager: true }) as Record<string, string>;
-  return Object.keys(all).map((path) => ({ params: { id: path.split('/').pop()!.replace(/\.md$/, '') } }));
+  return trailPages.map(({ slug }) => ({ params: { id: slug } }));
 }
 
 const { id } = Astro.params;
-const raw = Object.entries(files).find(([path]) => path.endsWith(`/${id}.md`))?.[1] ?? '';
-const { meta, markdown } = parse(raw);
-const trail = trailById(meta('trail'));
+const trail = trailBySlug(id)!;
+const essay = publishedEssayFor(trail.id);
 const base = import.meta.env.BASE_URL;
-const title = meta('title') ?? id;
+const name = uiT(trail.nameKey, 'cs');
+const desc = uiT(trail.descKey, 'cs');
+const sources = trailSources(trail);
 
-const SHORT: Record<string, string> = {
-  fantasy: 'Fantasy',
-  'science-fiction': 'Sci-fi',
-  'post-apocalypse': 'Postapokalypsa',
-  horror: 'Horor',
-  historical: 'Historie',
-  dystopia: 'Dystopie',
-  metaphysical: 'Metafyzika',
-};
-
-const published = worlds.filter((w) => !w.draft);
-const trailWorlds = (trail?.members ?? [])
-  .map((wid) => published.find((w) => w.id === wid))
-  .filter((w): w is (typeof published)[number] => Boolean(w))
-  .map((w) => {
-    const chapter = chapters.find((c) => c.id === w.chapterId);
-    return {
-      id: w.id,
-      title: w.gameTitle.cs ?? w.gameTitle.en,
-      core: w.core.cs ?? w.core.en,
-      archetype: SHORT[w.chapterId] ?? chapter?.title.cs ?? '',
-      genre: w.metadata.genreProfile.cs ?? w.metadata.genreProfile.en ?? '',
-      accent: chapter?.accent ?? { light: 'currentColor', dark: 'currentColor' },
-      axes: Object.fromEntries(AXIS_KEYS.map((key) => [key, w.axes[key].value])),
-    };
-  });
-
-// Odkazy na světy v tabulkách eseje (stejně jako u Anatomie herního lore).
-const worldLinks = published
-  .filter((w) => !w.id.startsWith('vzorek-'))
-  .map((w) => ({ id: w.id, titles: [w.gameTitle.cs, w.gameTitle.en].filter(Boolean) as string[] }));
+const pendingMarkdown = [
+  '> **Esej připravujeme**',
+  '>',
+  '> Ke stezce píšeme esej. Zatím si projdi světy, které na ní leží, a jejich polohu na pěti souřadnicích.',
+  '',
+  ...(sources.length
+    ? [
+        '## Na čem stezka stojí',
+        '',
+        `Esej se opře o tyto prameny: ${sources.join(', ')}. Kdo jsou a co z nich atlas bere, popisuje [Teoretické zázemí](/teoreticke-zazemi/).`,
+      ]
+    : []),
+].join('\n');
 ---
 
-<BaseLayout title={`${title} — Here Be Worlds`} description={meta('description')}>
+<BaseLayout
+  title={`${essay?.title ?? name} — Here Be Worlds`}
+  description={essay?.description ?? desc}
+>
   <EssayPage
     client:load
     base={base}
-    markdown={markdown}
-    title={title}
-    kicker={meta('kicker')}
-    tagline={meta('tagline')}
+    markdown={essay?.markdown ?? pendingMarkdown}
+    title={essay?.title ?? name}
+    kicker={essay?.kicker ?? uiT('trails.essayKicker', 'cs')}
+    tagline={essay?.tagline ?? desc}
     worlds={worldLinks}
-    trail={{ worlds: trailWorlds }}
+    trail={{ worlds: trailWorldsInfo(trail) }}
+    pending={!essay}
   />
 </BaseLayout>

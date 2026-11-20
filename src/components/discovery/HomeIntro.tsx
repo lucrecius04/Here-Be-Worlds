@@ -4,7 +4,7 @@ import { t, uiCount, uiT, worldsCountLabel, type Locale } from '../../lib/i18n';
 import { withBase } from '../../lib/base-url';
 import type { LocalizedString, World } from '../../schemas/world';
 import { dayNumber, featuredWorldIndex } from '../../lib/calendar';
-import { TRAILS, dailyTrails } from '../../lib/trails';
+import { TRAILS, dailyTrails, trailSlug } from '../../lib/trails';
 import { mostRecentAdded } from '../../lib/atlas-news';
 import AxisBars from './AxisBars';
 import DailyMystery from './DailyMystery';
@@ -376,7 +376,7 @@ export default function HomeIntro({ chapters, worlds = [], base }: Props) {
                 </div>
               );
             })}
-            <a className="hp-link hp-trails__all" href={withBase(base, '/atlas/?stezky=1')}>
+            <a className="hp-link hp-trails__all" href={withBase(base, '/stezky/')}>
               {uiT('trails.all', locale).replace('{n}', String(TRAILS.length))}
             </a>
           </div>
@@ -424,7 +424,7 @@ export default function HomeIntro({ chapters, worlds = [], base }: Props) {
               const shown = members.slice(0, 7).map((w) => keep(t(w.gameTitle, locale)));
               const rest = members.length - shown.length;
               return (
-                <a key={trail.id} className="hp-trail" href={withBase(base, `/atlas/?trail=${trail.id}`)}>
+                <a key={trail.id} className="hp-trail" href={withBase(base, `/stezky/${trailSlug(trail.id)}/`)}>
                   <span className="hp-trail__name">{uiT(trail.nameKey, locale)}</span>
                   <span className="hp-trail__worlds">
                     {shown.join('\u00a0· ')}
@@ -435,7 +435,7 @@ export default function HomeIntro({ chapters, worlds = [], base }: Props) {
                 </a>
               );
             })}
-            <a className="hp-link hp-trails__all" href={withBase(base, '/atlas/?stezky=1')}>
+            <a className="hp-link hp-trails__all" href={withBase(base, '/stezky/')}>
               {uiT('trails.all', locale).replace('{n}', String(TRAILS.length))}
             </a>
           </div>

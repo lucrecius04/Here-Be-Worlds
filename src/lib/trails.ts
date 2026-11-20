@@ -42,6 +42,34 @@ export const TRAILS: TrailDef[] = [
   def('indifferent-stars', 'stars', ['bloodborne', 'soma', 'warhammer-40k', 'control', 'mass-effect', 'outer-wilds']),
 ];
 
+/** České adresy stránek stezek (/stezky/<slug>/); stejný slug má soubor eseje v content/trails. */
+export const TRAIL_SLUGS: Record<string, string> = {
+  'gods-burden': 'bohove-jako-bremeno',
+  'cursed-legacy': 'proklete-dedictvi',
+  'free-will': 'krehka-hranice-svobodne-vule',
+  'god-corpse': 'na-mrtvole-boha',
+  loops: 'uvezneni-v-kruhu',
+  'knows-you-play': 'hra-vi-ze-ji-hrajes',
+  'who-woke-up': 'kdo-se-to-probudil',
+  'monster-mirror': 'netvor-v-zrcadle',
+  scapegoat: 'kdo-za-to-muze',
+  'failed-paradise': 'raj-ktery-se-nepovedl',
+  corporate: 'logo-nad-troskami',
+  'dead-speak': 'mluvi-uz-jen-mrtvi',
+  laughter: 'smich-nad-propasti',
+  'living-city': 'mesto-ktere-dycha',
+  'endless-war': 'valka-kterou-nikdo-nevyhraje',
+  'indifferent-stars': 'pod-lhostejnymi-hvezdami',
+};
+
+export function trailSlug(id: TrailId): string {
+  return TRAIL_SLUGS[id] ?? id;
+}
+
+export function trailBySlug(slug: string | undefined): TrailDef | undefined {
+  return TRAILS.find((trail) => trailSlug(trail.id) === slug);
+}
+
 export function trailById(id: TrailId | null | undefined): TrailDef | undefined {
   return TRAILS.find((trail) => trail.id === id);
 }
