@@ -44,6 +44,7 @@ Pojmy, se kterými pracujeme, nejsou naše. Přicházejí ze šesti oblastí: z 
 | Funkční a úložná paměť, místa traumatu | Aleida Assmannová, *Cultural Memory and Western Civilization* (1999) | Kultura si pamatuje dvojím způsobem: výběrovou pamětí, která vytváří identitu, a archivem toho, co se už nepoužívá. Místo traumatu nese příběh, který nejde vyprávět. |
 | Topoanalýza, vertikála sklep–půda, intimní nezměrnost | Gaston Bachelard, *Poetika prostoru* (1957) | Obývaný prostor přesahuje geometrii: dům je obraz duše a v jeho buňkách je stlačený čas. Půda patří jasnosti, sklep iracionální hlubině. |
 | Obnovující a reflektující nostalgie | Svetlana Boym, *The Future of Nostalgia* (2001) | Obnovující nostalgie chce ztracený domov znovu postavit a považuje se za pravdu. Reflektující prodlévá u ruin, patiny a touhy samotné a pravdu zpochybňuje. |
+| Nečistota jako věc na nepatřičném místě, anomálie, okraje | Mary Douglasová, *Čistota a nebezpečí* (1966) | Nečisté je to, co porušuje třídění světa. Anomálie a prahy jsou v kultuře zdrojem nebezpečí i moci. |
 | Umělecká hrůza, nečistota, zápletka přesahovače | Noël Carroll, *The Philosophy of Horror* (1990) | Monstrum hororu je ohrožující a nečisté, protože se nevejde do kategorií. Hrůzu snášíme jako cenu za poznání nemožného. |
 
 K tomu klasické pojmy, které esej používá: Aristotelova peripetie a anagnórize z *Poetiky*, Eliotův objektivní korelativ (1919) a Bachtinova polyfonie z knihy o Dostojevském (1929).
@@ -152,6 +153,12 @@ Teolog Rudolf Otto v knize *Posvátno* (1917) popsal, co cítí člověk před b
 
 Otto psal o náboženství, ale popsal tím jádro kosmického hororu i nejsilnějších herních bohů. Velicí v Bloodborne jsou zcela jiní: kdo je spatří, přestává být člověkem, a přesto po nich učenci Byrgenwerthu touží natolik, že pro poznání zmasakrují celou vesnici. Úřad v Control eviduje věci, které se nedají pochopit, a přitom se jimi nechává pohltit. Hrůza a přitažlivost tu nejsou dvě emoce, ale jedna. Proto tyto světy své bohy nevysvětlují: řízená mezera kolem nich není nedostatek informací, ale samotná podstata posvátna.
 
+### Douglasová: čistota, anomálie a okraje
+
+Britská antropoložka Mary Douglasová v knize *Čistota a nebezpečí* (1966) ukázala, že špína není vlastnost věcí, ale **věc na nepatřičném místě**: boty nejsou špinavé, dokud nestojí na jídelním stole. Kde je nečistota, tam je řád, který svět třídí a odmítá, co mate jeho kategorie. Zákazy v Leviticu proto nechrání hygienu, ale celistvost stvoření; nečistá jsou zvířata, která se vymykají své třídě. Každý řád plodí **anomálie** a společnost na ně odpovídá různě: přiřadí je k jedné kategorii, odstraní je, vyhýbá se jim, prohlásí je za nebezpečné, aby je postavila mimo diskusi, nebo je vezme do rituálu. Okraje, přechody a meziprostory přitom nejsou jen hrozba. Nesou nekontrolovanou moc, a proto se lidem bez pevného místa ve struktuře tak snadno připisuje čarodějnictví. Lelové v Kongu dokonce uctívají šupinatce, zvíře, které odporuje všem jejich kategoriím, jako zdroj plodnosti; Douglasová to přirovnává k plevelu, z něhož se stane kompost.
+
+Na Douglasové přímo staví Carrollova teorie hororových monster, pro atlas je ale stejně cenná při čtení společenských krizí. Zaklínači stojí v meziprostoru mezi člověkem a bestií, a proto je společnost potřebuje i nenávidí. Stará krev v Bloodborne je tělesná tekutina, která překračuje hranice těl i druhů: svátost, lék i zvířecí nákaza. V Pathologicu se v čerstvém hrobě probudí dívka, která jedním dotekem bere život i vrací dech, a podle stepní víry každá rána do země vyvolá mor. A Impérium ve Warhammeru zkrotí nejnebezpečnější anomálii tím, že psykery spaluje jako palivo pro světlo, které drží řád.
+
 ### Carroll: monstrum a zvědavost
 
 Filozof Noël Carroll v knize *The Philosophy of Horror* (1990) definuje horor emocí, kterou vyvolává: hrůzou z monstra, které je zároveň ohrožující a nečisté. Nečisté je podle něj to, co se nevejde do kategorií, jež máme pro svět: co je živé i mrtvé, člověk i zvíře, nebo nemá tvar. Zombie spojuje protiklady v jednom těle, vlkodlak je střídá v čase. Carroll pak řeší paradox hororu, totiž proč lidé vyhledávají, co je odpuzuje. Většina hororu je podle něj drama odhalování. Monstrum je nemožná bytost, a tím přirozený předmět zvědavosti: chceme vědět, odkud je, co chce a jak ho porazit. Hnus je cena, kterou platíme za poznání nemožného.
@@ -238,7 +245,10 @@ Několik autorů má známé slabiny a v textech na ně upozorňujeme. René Gir
 
 Knihy, které by metodu dál prohloubily a ke kterým se chceme dostat:
 
-- **Mary Douglasová: *Čistota a nebezpečí* (1966).** Antropologie nečistoty, ze které vychází Carrollova teorie monster. Pro stezky Netvor v zrcadle a Kdo za to může?
+- **Celé čtení klasiků, které zatím známe z druhé ruky:** Tolkien, *O pohádkách*; Aarseth, *Cybertext*; Otto, *Posvátno*; Clute a Grant, *The Encyclopedia of Fantasy* (hesla nad rámec řídnutí a uzdravení).
+- **Victor Turner: *Průběh rituálu* (1969).** Prahovost a komunita v přechodu; navazuje na Van Gennepa a Douglasovou. Pro světy, kde hrdina stojí mezi dvěma stavy (Planescape: Torment, SOMA, Disco Elysium).
+- **Marie-Laure Ryanová: *Narrative as Virtual Reality* (2001).** Ponoření a interaktivita jako dva póly; most mezi teorií možných světů a hrami.
+- **Gordon Calleja: *In-Game* (2011).** Od ponoření k začlenění: jak hráč světem prostupuje a co ho v něm drží.
 
 ## Zdroje
 
@@ -290,6 +300,7 @@ Knihy, které by metodu dál prohloubily a ke kterým se chceme dostat:
 - Aleida Assmann: *Cultural Memory and Western Civilization: Functions, Media, Archives* (Erinnerungsräume, 1999), Cambridge University Press 2011.
 - Gaston Bachelard: *Poetika prostoru* (La Poétique de l'espace, 1957), přel. Josef Hrdlička, Malvern 2009; anglicky *The Poetics of Space*, Penguin Classics 2014.
 - Svetlana Boym: *The Future of Nostalgia*, Basic Books 2001.
+- Mary Douglas: *Purity and Danger* (1966); česky *Čistota a nebezpečí: Analýza konceptu znečištění a tabu*, přel. Marta Mills Fialová a Michaela Konopíková, Malvern 2014.
 - Noël Carroll: *The Philosophy of Horror, or Paradoxes of the Heart*, Routledge 1990.
 
 **Fikční světy a fantastika (doplněk)**
