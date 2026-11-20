@@ -48,3 +48,4 @@ Beztvarost, okraje a přechody systém ohrožují, ale zároveň v nich leží n
 - Teoretické zázemí: oddíl „Douglasová: čistota, anomálie a okraje“, tabulka pojmů, Zdroje
 - *Kdo za to může?* (esej ke stezce): Anatomie podezření (věc na nepatřičném místě, meziprostory, Mandariové, Jana z Arku, Azandové a sýpka), Pathologic (Mnohostěn, Klára), Dishonored (Plačky, Opatství Všedního dne), Zaklínač (meziprostorová skupina), Dragon Age (mágové jako nebezpečná anomálie), Zdroje
 - Esej ke stezce Netvor v zrcadle (`content/trails/netvor-v-zrcadle.md`): oddíl Když se zlomí odstup (nečistota jako věc na nepatřičném místě)
+- Esej ke stezce Bohové jako břemeno (`content/trails/bohove-jako-bremeno.md`, čeká na schválení): Diablo (Nephalem jako nečistá anomálie)

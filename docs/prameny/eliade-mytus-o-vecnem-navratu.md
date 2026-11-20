@@ -42,3 +42,4 @@ Pro člověka tradičních společností je skutečné jen to, co **opakuje vzor
 - *Na mrtvole boha*: Nejstarší obraz světa (akitu, každoroční opakování stvoření), Zdroje
 - *Kdo za to může?* (esej ke stezce): Anatomie podezření (normálnost utrpení, rumunská balada o víle, výhrada k zobecňování a teologickému závěru), Zdroje
 - Esej ke stezce Mluví už jen mrtví (`content/trails/mluvi-uz-jen-mrtvi.md`): Horizon (nehistorická kolektivní paměť, s výhradou)
+- Esej ke stezce Bohové jako břemeno (`content/trails/bohove-jako-bremeno.md`, čeká na schválení): kořeny (cykly, mýtizace dějin, výhrada), Dark Souls (převrácené akitu), Elder Scrolls (Talos)

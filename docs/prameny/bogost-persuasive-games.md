@@ -25,3 +25,4 @@
 - *Na mrtvole boha*: Bloodborne (mechanika jako význam, implicitně)
 - *Kdo za to může?* (esej ke stezce): Proč hry rozbíjejí pohled davu (co hra nedovolí: čas v Pathologicu a klášterní hodinky v Pentimentu), Zdroje
 - Esej ke stezce Netvor v zrcadle (`content/trails/netvor-v-zrcadle.md`): Proč hry… (procedurální rétorika)
+- Esej ke stezce Bohové jako břemeno (`content/trails/bohove-jako-bremeno.md`, čeká na schválení): Proč hry… (procedurální rétorika: Eothase nelze porazit silou)

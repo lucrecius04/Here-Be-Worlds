@@ -59,3 +59,4 @@ Bloodborne (Ebrietas, Klerikova bestie, Mijazakiho „smutná“ monstra), Dark 
 - *Anatomie herního lore*: oddíl „Švelch: netvor, který má prohrát“, tabulka pojmů, Zdroje
 - *Na mrtvole boha*: Bloodborne (Ebrietas, vznešená a zkrocená monstrozita), Zdroje
 - Esej ke stezce Netvor v zrcadle (`content/trails/netvor-v-zrcadle.md`): páteř eseje (spotřební nepřítel, ontologie nepřítele, selhání odstupu, sympatie s monstrem, Mnoho-jako-jeden)
+- Esej ke stezce Bohové jako břemeno (`content/trails/bohove-jako-bremeno.md`, čeká na schválení): Proč hry… (porazitelný bůh)

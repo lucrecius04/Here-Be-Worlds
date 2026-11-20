@@ -51,6 +51,7 @@ Ve 20. století se žánr z rozptýlených proudů (gotika, dětská literatura,
 ## Kde už je použito
 
 - Teoretické zázemí: oddíl „Mendlesohn a James: dějiny fantasy a fantasyland“, tabulka pojmů, Zdroje
+- Esej ke stezce Bohové jako břemeno (`content/trails/bohove-jako-bremeno.md`, čeká na schválení): kořeny (Tolkien a Moorcock, D&D, výhrada), Pillars (racionalizovaná fantasy)
 
 ## Dočíst
 

@@ -41,3 +41,4 @@ Nostalgie (z řeckého *nostos*, návrat domů, a *algia*, bolest) není jen tou
 
 - *Anatomie herního lore*: oddíl „Boym: obnovující a reflektující nostalgie“, tabulka pojmů, Zdroje
 - *Kdo za to může?* (esej ke stezce): Anatomie podezření (obnovující nostalgie a spiknutí, Protokoly sionských mudrců), Zaklínač (Řád planoucí růže a obnovující nostalgie v obležení), Zdroje
+- Esej ke stezce Bohové jako břemeno (`content/trails/bohove-jako-bremeno.md`, čeká na schválení): Dark Souls (Gwyn), Elden Ring (Zlatý řád bez patiny)

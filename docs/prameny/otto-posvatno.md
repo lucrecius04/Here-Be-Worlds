@@ -45,3 +45,4 @@
 - *Anatomie herního lore* a Teoretické zázemí: oddíl „Otto: hrůza a přitažlivost posvátna“, tabulka pojmů, Zdroje
 - *Na mrtvole boha*: Bloodborne a Byrgenwerth („Obávej se Staré krve“), Zdroje
 - Esej ke stezce Netvor v zrcadle (`content/trails/netvor-v-zrcadle.md`): kořeny (tremendum et fascinans, monstrum jako tajemné v hrubé podobě)
+- Esej ke stezce Bohové jako břemeno (`content/trails/bohove-jako-bremeno.md`, čeká na schválení): kořeny (numinózní před mravním dobrem, Jób)
