@@ -121,6 +121,27 @@ export default function AtlasExplorer({
     setActiveTrail(null);
   };
 
+  // Souřadnice a stezky se rozbalují pod sebou; otevřené obě by kompas odsunuly z dohledu.
+  const toggleCompass = () => {
+    const next = !compassOpen;
+    setCompassOpen(next);
+    if (next) setTrailsOpen(false);
+  };
+
+  const toggleTrails = () => {
+    const next = !trailsOpen;
+    setTrailsOpen(next);
+    if (next) setCompassOpen(false);
+  };
+
+  const openTrailsFromLead = () => {
+    setCompassOpen(false);
+    setTrailsOpen(true);
+    requestAnimationFrame(() =>
+      document.getElementById('catalog-trails')?.scrollIntoView({ behavior: 'smooth', block: 'start' }),
+    );
+  };
+
   const selectTrail = (id: TrailId | null) => {
     setActiveTrail(id);
     if (id) {
@@ -191,7 +212,13 @@ export default function AtlasExplorer({
     <>
     <header className="atlas-page__head">
       <h1 className="atlas-page__title display">{uiT('atlasPage.title', locale)}</h1>
-      <p className="atlas-page__lead">{uiT('atlasPage.lead', locale)}</p>
+      <p className="atlas-page__lead">
+        {uiT('atlasPage.lead', locale)}
+        <button type="button" className="atlas-page__lead-link" aria-expanded={trailsOpen} onClick={openTrailsFromLead}>
+          {uiT('atlasPage.leadTrails', locale).replace('{n}', String(TRAILS.length))}
+        </button>
+        {uiT('atlasPage.leadEnd', locale)}
+      </p>
     </header>
     <section className="catalog" id="catalog-results" aria-label={uiT('home.catalog', locale)}>
       <div className="atlas-tabs" role="group" aria-label={uiT('filter.chapter', locale)}>
@@ -292,7 +319,7 @@ export default function AtlasExplorer({
             type="button"
             className="catalog-toolbar__toggle"
             aria-expanded={compassOpen}
-            onClick={() => setCompassOpen((open) => !open)}
+            onClick={toggleCompass}
           >
             {uiT('home.compassToggle', locale)}
             <span aria-hidden="true">{compassOpen ? ' −' : ' +'}</span>
@@ -301,7 +328,7 @@ export default function AtlasExplorer({
             type="button"
             className="catalog-toolbar__toggle"
             aria-expanded={trailsOpen}
-            onClick={() => setTrailsOpen((open) => !open)}
+            onClick={toggleTrails}
           >
             {uiT('trails.toggle', locale)}
             {activeTrailDef ? `: ${uiT(activeTrailDef.nameKey, locale)}` : ''}
@@ -374,7 +401,7 @@ export default function AtlasExplorer({
       </div>
 
       {trailsOpen ? (
-        <div className="catalog-trails" role="group" aria-label={uiT('home.trailsTitle', locale)}>
+        <div className="catalog-trails" id="catalog-trails" role="group" aria-label={uiT('home.trailsTitle', locale)}>
           {TRAILS.map((trail) => {
             const on = activeTrail === trail.id;
             return (

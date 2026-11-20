@@ -601,13 +601,32 @@ html[data-theme='dark'] .atlas-tab {
   font-weight: 400;
 }
 
+/* Barva archetypu: čtvereček před jménem a tenká linka pod záložkou (záložka Všechny ji nemá) */
+.atlas-tab[style] {
+  border-bottom-color: color-mix(in srgb, var(--chapter-hue) 28%, transparent);
+}
+
+.atlas-tab[style]::before {
+  content: '';
+  flex: none;
+  align-self: center;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: var(--chapter-hue);
+}
+
+.atlas-tab[style] .atlas-tab__count {
+  color: var(--chapter-hue);
+}
+
 .atlas-tab:hover,
 .atlas-tab:focus-visible {
   color: var(--color-ink);
-  border-bottom-color: color-mix(in srgb, var(--chapter-hue) 35%, transparent);
+  border-bottom-color: color-mix(in srgb, var(--chapter-hue) 70%, transparent);
 }
 
-.atlas-tab.is-on {
+.atlas-tab.is-on,
+.atlas-tab[style].is-on {
   color: var(--color-ink);
   font-weight: 650;
   border-bottom-color: var(--chapter-hue);
@@ -738,6 +757,7 @@ html[data-theme='dark'] .atlas-tab {
 /* Stezky: rozbalený seznam všech stezek, tři sloupce oddělené linkami */
 
 .catalog-trails {
+  scroll-margin-top: calc(var(--site-header-height) + 1rem);
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   column-gap: 2.5rem;
@@ -939,8 +959,8 @@ html[data-theme='dark'] .catalog-group {
 /* podžánr a místo děje: podbarvený štítek v barvě archetypu, hranatý */
 .catalog-card__tag {
   padding: 0.25rem 0.5rem 0.1875rem;
-  background: color-mix(in srgb, var(--chapter-hue) 15%, transparent);
-  border-left: 2px solid var(--chapter-hue);
+  background: color-mix(in srgb, var(--chapter-hue) 26%, transparent);
+  border-left: 3px solid var(--chapter-hue);
   font-family: var(--font-mono);
   font-size: 0.6875rem;
   font-weight: 500;

@@ -1006,3 +1006,23 @@ a.hp-tab:focus-visible {
   line-height: 1.5;
   color: var(--color-ink-muted);
 }
+
+/* „16 stezek“ v podnadpisu rozbalí seznam stezek */
+.atlas-page__lead-link {
+  appearance: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  cursor: pointer;
+}
+
+.atlas-page__lead-link:hover,
+.atlas-page__lead-link:focus-visible {
+  text-decoration-thickness: 2px;
+}

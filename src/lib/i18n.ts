@@ -26,7 +26,9 @@ export const ui: Record<Locale, UiTree> = {
     },
     atlasPage: {
       title: 'Atlas světů',
-      lead: 'Všechny zmapované herní vesmíry. Hledej podle archetypu, témat, nálady i způsobu vyprávění.',
+      lead: 'Všechny zmapované herní vesmíry. Hledej podle archetypu, témat, nálady i způsobu vyprávění, nebo se vydej po jedné z\u00a0',
+      leadTrails: '{n} stezek',
+      leadEnd: ', na nichž světy spojuje jedna otázka.',
       allTab: 'Všechny',
       trails: 'Stezky',
       found: 'Nalezeno',
@@ -473,7 +475,9 @@ Berte prosím tento atlas jako skromnou poctu všem scenáristům, designérům 
     },
     atlasPage: {
       title: 'Atlas of worlds',
-      lead: 'Every mapped game universe. Search by archetype, themes, mood and the way a world tells its story.',
+      lead: 'Every mapped game universe. Search by archetype, themes, mood and the way a world tells its story, or follow one of ',
+      leadTrails: '{n} trails',
+      leadEnd: ' where a single question links the worlds.',
       allTab: 'All',
       trails: 'Trails',
       found: 'Found',
