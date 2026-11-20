@@ -191,6 +191,19 @@ function splitText(text, limit) {
   return parts.flatMap((p) => (p.length > limit ? splitText(p, limit) : [p]));
 }
 
+// Souřadnice světů stezky v jedné tabulce, aby autor nepočítal z karet ručně.
+function coordTable(ids) {
+  const head = `| Svět | ${AXES.map(([, n]) => n).join(' | ')} |\n|---|${AXES.map(() => '---').join('|')}|`;
+  const rows = ids.map((id) => `| ${cs(byId[id].gameTitle)} | ${AXES.map(([k]) => byId[id].axes?.[k]?.value ?? '?').join(' | ')} |`);
+  const stat = AXES.map(([k, n, lo, hi]) => {
+    const v = ids.map((id) => byId[id].axes?.[k]?.value).filter((x) => x != null);
+    const avg = (v.reduce((a, b) => a + b, 0) / v.length).toFixed(1).replace('.', ',');
+    return `- ${n} (${lo} 1 ↔ ${hi} 5): od ${Math.min(...v)} do ${Math.max(...v)}, průměr ${avg}`;
+  });
+  return ['## Souřadnice světů stezky (z karet, přesné hodnoty)', '', head, ...rows, '', 'Rozpětí a průměr:', '', ...stat,
+    '', 'V eseji hodnoty uvádějte přesně podle této tabulky; průměr nejvýš jako opora, žádná procenta.'].join('\n');
+}
+
 function splitBundle(t, limit) {
   const { name, desc } = trailText(t.key);
   const pr = trailPrameny(name);
@@ -204,6 +217,10 @@ function splitBundle(t, limit) {
       'Prameny, které rozcestník k této stezce doporučuje (výtahy jsou v dalších souborech):',
       '',
       (trailRow(name).split('|')[3] || '').trim(),
+      '',
+      '---',
+      '',
+      coordTable(t.members),
       '',
       '---',
       '',
