@@ -59,3 +59,4 @@ Kde se v textu sejdou aspoň dva až tři, můžeme tušit skutečné pronásled
 - *Kdo za to může?* (esej ke stezce): Anatomie podezření (čtyři stereotypy, Oidipus a vesnice s vidlemi, kulturní schizofrenie, dvojí přenos, Kaifášova logika, výhrada k redukcionismu), všech šest světů, Zdroje
 - Esej ke stezce Netvor v zrcadle (`content/trails/netvor-v-zrcadle.md`): kořeny (monstrum z rozpadu rozdílů, výhrada), Dishonored (dvojí přenos u Cizince)
 - Esej ke stezce Bohové jako břemeno (`content/trails/bohove-jako-bremeno.md`, čeká na schválení): kořeny (zločiny bohů, Teotihuacan, výhrada), Pillars (Kolo jako oběť)
+- Esej ke stezce Válka, kterou nikdo nevyhraje (`content/trails/valka-kterou-nikdo-nevyhraje.md`, čeká na schválení): kořeny (ztráta rozdílů, nepřátelští bratři, Kaifášova logika, výhrada k redukcionismu), Tři motory (NieR a Metro: moc vyrábí nepřítele)

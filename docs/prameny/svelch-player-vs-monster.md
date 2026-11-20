@@ -60,3 +60,4 @@ Bloodborne (Ebrietas, Klerikova bestie, Mijazakiho „smutná“ monstra), Dark 
 - *Na mrtvole boha*: Bloodborne (Ebrietas, vznešená a zkrocená monstrozita), Zdroje
 - Esej ke stezce Netvor v zrcadle (`content/trails/netvor-v-zrcadle.md`): páteř eseje (spotřební nepřítel, ontologie nepřítele, selhání odstupu, sympatie s monstrem, Mnoho-jako-jeden)
 - Esej ke stezce Bohové jako břemeno (`content/trails/bohove-jako-bremeno.md`, čeká na schválení): Proč hry… (porazitelný bůh)
+- Esej ke stezce Válka, kterou nikdo nevyhraje (`content/trails/valka-kterou-nikdo-nevyhraje.md`, čeká na schválení): Proč hry neumějí uzavřít mír (ontologie nepřítele, spotřební nepřátelé, selhání odstupu u NieR)

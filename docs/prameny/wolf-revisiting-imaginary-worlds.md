@@ -48,3 +48,4 @@ Z hlediska teorie světů a her přináší svazek pět zásadních prohloubení
 - Teoretické zázemí: oddíl Wolf (druhý odstavec), tabulka pojmů, Zdroje
 - *Kdo za to může?* (esej ke stezce): Pentiment (Fimi: minulost jako druhotný svět), Proč hry rozbíjejí pohled davu (Schut: mlha v Silent Hillu), Zdroje
 - Esej ke stezce Bohové jako břemeno (`content/trails/bohove-jako-bremeno.md`, čeká na schválení): Proč hry rády svrhávají nebesa (Castronova: bohové jako placebo)
+- Esej ke stezce Válka, kterou nikdo nevyhraje (`content/trails/valka-kterou-nikdo-nevyhraje.md`, čeká na schválení): Proč hry neumějí uzavřít mír (Jenkins: overdesign; Proctor a Freeman: fanagement a fan-tagonism, retcony Warcraftu a StarCraftu)

@@ -47,3 +47,4 @@ Současně se v digitálním prostoru vrací logika **lidové kultury** (*folk c
 ## Kde už je použito
 
 - Teoretické zázemí: oddíl „Jenkins: narativní architektura a transmediální vyprávění“, tabulka pojmů, Zdroje
+- Esej ke stezce Válka, kterou nikdo nevyhraje (`content/trails/valka-kterou-nikdo-nevyhraje.md`, čeká na schválení): Proč hry neumějí uzavřít mír (prodává se svět, ne příběh; Warhammer 40 000)
