@@ -45,3 +45,4 @@ Lidská představivost přitom nepracuje s pevnou geometrií, ale s hodnotami a 
 
 - Teoretické zázemí: oddíl „Bachelard: dům, sklep a paměť prostoru“, tabulka pojmů, Zdroje
 - Esej ke stezce Netvor v zrcadle (`content/trails/netvor-v-zrcadle.md`, čeká na schválení): Silent Hill (sklep, Pokoj 302, dialektika vně a uvnitř)
+- Esej ke stezce Mluví už jen mrtví (`content/trails/mluvi-uz-jen-mrtvi.md`, čeká na schválení): kořeny (šuplíky a schránky, sklep, prázdná ulita), BioShock, Resident Evil

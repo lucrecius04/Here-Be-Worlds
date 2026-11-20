@@ -28,3 +28,4 @@
 - *Anatomie herního lore*: oddíl „Wolf: vynalézavost, úplnost, soudržnost“, tabulka pojmů (Imaginární světy), Řízená mezera (citát o teoriích), Zdroje
 - *Na mrtvole boha*: Tři způsoby (ontologický vynález, Xenoblade)
 - Esej ke stezce Kdo se to probudil? (`content/trails/kdo-se-to-probudil.md`, čeká na schválení): typologie (narativní rozlišení, katalyzátory spekulace)
+- Esej ke stezce Mluví už jen mrtví (`content/trails/mluvi-uz-jen-mrtvi.md`, čeká na schválení): typologie (narativní rozlišení, katalyzátory spekulace)

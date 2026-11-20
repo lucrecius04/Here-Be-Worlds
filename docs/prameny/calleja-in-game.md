@@ -37,3 +37,4 @@ Místo toho Calleja navrhuje **model hráčova zapojení** (*player involvement 
 ## Kde už je použito
 
 - Teoretické zázemí: oddíl „Calleja: zapojení a začlenění“, tabulka pojmů, Zdroje
+- Esej ke stezce Mluví už jen mrtví (`content/trails/mluvi-uz-jen-mrtvi.md`, čeká na schválení): Proč mrtví mluví… (tažený příběh, kognitivní mapa)

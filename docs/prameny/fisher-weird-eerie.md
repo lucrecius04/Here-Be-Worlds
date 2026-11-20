@@ -47,3 +47,4 @@ Podivné a tísnivé nejsou žánry, ale **módy**: způsoby vnímání a afekty
 
 - *Anatomie herního lore*: oddíl „Fisher: podivné a tísnivé“ (upír vs. černá díra, archeologie a hráč), tabulka pojmů, Zdroje
 - *Na mrtvole boha*: Pathfinder (Arodenova smrt jako tísnivé), Zdroje
+- Esej ke stezce Mluví už jen mrtví (`content/trails/mluvi-uz-jen-mrtvi.md`, čeká na schválení): kořeny (tísnivé, otázka původce, Stonehenge), závěr (tísnivé mizí s poznáním)

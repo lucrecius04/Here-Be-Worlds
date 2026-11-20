@@ -47,3 +47,4 @@ Přechod k písmu a **kanonizaci** proměňuje konektivní strukturu ve čtyřec
 
 - Teoretické zázemí: oddíl „Jan Assmann: kulturní paměť, propast času a kánon“, tabulka pojmů, Zdroje
 - *Kdo za to může?* (esej ke stezce, čeká na schválení): Anatomie podezření (Muršilišovy Modlitby o moru, aliance moci a zapomnění), Pathologic (genealogie viny), Dishonored (plovoucí mezera), Pentiment (aliance moci a zapomnění, obrácená Jošijášova reforma), Dragon Age (kanonizace Písně světla), Zdroje
+- Esej ke stezce Mluví už jen mrtví (`content/trails/mluvi-uz-jen-mrtvi.md`, čeká na schválení): kořeny (komunikativní paměť, plovoucí propast, aliance se zapomněním, vzpomínka na mrtvé), Horizon

@@ -41,3 +41,4 @@ Pro člověka tradičních společností je skutečné jen to, co **opakuje vzor
 - *Anatomie herního lore*: oddíl „Eliade: věčný návrat“, věta v oddílu Opakování jako význam, tabulka pojmů, Zdroje
 - *Na mrtvole boha*: Nejstarší obraz světa (akitu, každoroční opakování stvoření), Zdroje
 - *Kdo za to může?* (esej ke stezce, čeká na schválení): Anatomie podezření (normálnost utrpení, rumunská balada o víle, výhrada k zobecňování a teologickému závěru), Zdroje
+- Esej ke stezce Mluví už jen mrtví (`content/trails/mluvi-uz-jen-mrtvi.md`, čeká na schválení): Horizon (nehistorická kolektivní paměť, s výhradou)
