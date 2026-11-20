@@ -26,4 +26,4 @@
 - *Kdo za to může?* (esej ke stezce): Proč hry rozbíjejí pohled davu (co hra nedovolí: čas v Pathologicu a klášterní hodinky v Pentimentu), Zdroje
 - Esej ke stezce Netvor v zrcadle (`content/trails/netvor-v-zrcadle.md`): Proč hry… (procedurální rétorika)
 - Esej ke stezce Bohové jako břemeno (`content/trails/bohove-jako-bremeno.md`): Proč hry… (procedurální rétorika: Eothase nelze porazit silou)
-- Esej ke stezce Prokleté dědictví (`content/trails/proklete-dedictvi.md`, čeká na schválení): Proč hry dělají z hrdiny dlužníka (procedurální rétorika)
+- Esej ke stezce Prokleté dědictví (`content/trails/proklete-dedictvi.md`): Proč hry dělají z hrdiny dlužníka (procedurální rétorika)

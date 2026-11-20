@@ -54,7 +54,7 @@ Vědecká fantastika (Suvin píše SF) je **literatura kognitivního odcizení**
 
 - Teoretické zázemí: oddíl „Suvin: novum“ (přepsán podle výtahu 2026-11-20), tabulka pojmů, výhrady k autorům, Zdroje
 - *Anatomie herního lore*: jen odkaz na heslo Novum v *Encyclopedia of Science Fiction* ve Zdrojích
-- Esej ke stezce Prokleté dědictví (`content/trails/proklete-dedictvi.md`, čeká na schválení): kořeny (mýtus jako konstanty, sci-fi jako proměnné; demystifikace bohů jako starší civilizace či technologie; výhrada k fantasy), Horizon, Assassin's Creed
+- Esej ke stezce Prokleté dědictví (`content/trails/proklete-dedictvi.md`): kořeny (mýtus jako konstanty, sci-fi jako proměnné; demystifikace bohů jako starší civilizace či technologie; výhrada k fantasy), Horizon, Assassin's Creed
 
 ## Dočíst
 

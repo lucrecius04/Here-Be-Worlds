@@ -49,7 +49,7 @@
 - Esej ke stezce Mluví už jen mrtví (`content/trails/mluvi-uz-jen-mrtvi.md`): typologie (instaurační fantasy: Horizon, Outer Wilds)
 - Esej ke stezce Bohové jako břemeno (`content/trails/bohove-jako-bremeno.md`): typologie (spoutání, řídnutí, rozpoznání, uzdravení)
 - Esej ke stezce Válka, kterou nikdo nevyhraje (`content/trails/valka-kterou-nikdo-nevyhraje.md`): kořeny (řídnutí, polder, uzdravení), Warhammer 40 000 jako parodie sebe sama, Metro jako betonový polder, závěr
-- Esej ke stezce Prokleté dědictví (`content/trails/proklete-dedictvi.md`, čeká na schválení): kořeny (spoutání, porucha, řídnutí, rozpoznání bez uzdravení), Bloodborne (zhoubný spáč), závěr
+- Esej ke stezce Prokleté dědictví (`content/trails/proklete-dedictvi.md`): kořeny (spoutání, porucha, řídnutí, rozpoznání bez uzdravení), Bloodborne (zhoubný spáč), závěr
 
 ## Dočíst (podle potřeby)
 

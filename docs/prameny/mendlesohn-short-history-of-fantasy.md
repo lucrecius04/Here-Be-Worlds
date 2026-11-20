@@ -53,7 +53,7 @@ Ve 20. století se žánr z rozptýlených proudů (gotika, dětská literatura,
 - Teoretické zázemí: oddíl „Mendlesohn a James: dějiny fantasy a fantasyland“, tabulka pojmů, Zdroje
 - Esej ke stezce Bohové jako břemeno (`content/trails/bohove-jako-bremeno.md`): kořeny (Tolkien a Moorcock, D&D, výhrada), Pillars (racionalizovaná fantasy)
 - Esej ke stezce Válka, kterou nikdo nevyhraje (`content/trails/valka-kterou-nikdo-nevyhraje.md`): kořeny (výpravná fantasy vs. meč a magie, divadelní fantasy, výhrada k angloamerické tradici), Proč hry neumějí uzavřít mír (World of Warcraft jako meč a magie)
-- Esej ke stezce Prokleté dědictví (`content/trails/proklete-dedictvi.md`, čeká na schválení): Proč hry dělají z hrdiny dlužníka (uzavřený oblouk výpravné fantasy, Fantasyland™)
+- Esej ke stezce Prokleté dědictví (`content/trails/proklete-dedictvi.md`): Proč hry dělají z hrdiny dlužníka (uzavřený oblouk výpravné fantasy, Fantasyland™)
 
 ## Dočíst
 

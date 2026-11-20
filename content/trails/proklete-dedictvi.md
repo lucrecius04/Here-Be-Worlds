@@ -1,5 +1,6 @@
 ---
 title: Prokleté dědictví
+approved: true
 trail: cursed-legacy
 kicker: Stezka atlasu
 tagline: Kdy se dá dávný hřích předků vůbec splatit – a kdy každá záchrana světa dluh jen prohloubí?
