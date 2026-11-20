@@ -49,3 +49,4 @@ Fantasy se dá třídit podle toho, **jak do vyprávěného světa vstupuje fant
 ## Kde už je použito
 
 - *Anatomie herního lore*: oddíl „Mendlesohn: kudy do světa vstupuje fantastično“, věta v oddílu Amnézie jako synchronizace vědění, tabulka pojmů, Zdroje
+- Esej ke stezce Kdo se to probudil? (`content/trails/kdo-se-to-probudil.md`, čeká na schválení): Proč se hry probouzejí bez paměti (portál převlečený za ponořenou, nespolehliví průvodci)
