@@ -49,4 +49,4 @@ Prahovost, okrajovost a strukturální podřízenost jsou místa, kde vznikají 
 - Esej ke stezce Kdo se to probudil? (`content/trails/kdo-se-to-probudil.md`): oddíl Novic na prahu a zrcadlo paměti, závěr (nedokončený práh)
 - Esej ke stezce Netvor v zrcadle (`content/trails/netvor-v-zrcadle.md`): Planescape (jedna věta o prahu)
 - Esej ke stezce Uvězněni v kruhu (`content/trails/uvezneni-v-kruhu.md`): kořeny (práh, který se nezavře), Dark Souls (Temné znamení)
-- Esej ke stezce Ráj, který se nepovedl (`content/trails/raj-ktery-se-nepovedl.md`, čeká na schválení): Architektura ráje (úpadek spontánní communitas v normativní a ideologickou), Disco Elysium (rozdrcená Komuna), Pathologic (Mnohostěn jako prahový prostor dětí, výklad atlasu)
+- Esej ke stezce Ráj, který se nepovedl (`content/trails/raj-ktery-se-nepovedl.md`): Architektura ráje (úpadek spontánní communitas v normativní a ideologickou), Disco Elysium (rozdrcená Komuna), Pathologic (Mnohostěn jako prahový prostor dětí, výklad atlasu)

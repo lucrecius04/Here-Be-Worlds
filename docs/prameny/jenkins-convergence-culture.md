@@ -48,4 +48,4 @@ Současně se v digitálním prostoru vrací logika **lidové kultury** (*folk c
 
 - Teoretické zázemí: oddíl „Jenkins: narativní architektura a transmediální vyprávění“, tabulka pojmů, Zdroje
 - Esej ke stezce Válka, kterou nikdo nevyhraje (`content/trails/valka-kterou-nikdo-nevyhraje.md`): Proč hry neumějí uzavřít mír (prodává se svět, ne příběh; Warhammer 40 000)
-- Esej ke stezce Logo nad troskami (`content/trails/logo-nad-troskami.md`, čeká na schválení): Proč hry umějí číst firemní složky (ironie kritiky korporací uvnitř korporátních franšíz: Edgerunners, seriál Fallout, film Horizon)
+- Esej ke stezce Logo nad troskami (`content/trails/logo-nad-troskami.md`): Proč hry umějí číst firemní složky (ironie kritiky korporací uvnitř korporátních franšíz: Edgerunners, seriál Fallout, film Horizon)

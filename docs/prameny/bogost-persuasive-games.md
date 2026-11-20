@@ -29,5 +29,5 @@
 - Esej ke stezce Prokleté dědictví (`content/trails/proklete-dedictvi.md`): Proč hry dělají z hrdiny dlužníka (procedurální rétorika)
 - Esej ke stezce Křehká hranice svobodné vůle (`content/trails/krehka-hranice-svobodne-vule.md`): Proč hry… (co hra nedovolí: BioShock, Half-Life, Zaklínač)
 - Esej ke stezce Hra ví, že ji hraješ (`content/trails/hra-vi-ze-ji-hrajes.md`): Proč si hry vidí do karet (procedurální rétorika a entyméma; co hra nedovolí: zašedlá Nová hra, odebrané ovládání, rozbité Slitování, nehratelné titulky)
-- Esej ke stezce Ráj, který se nepovedl (`content/trails/raj-ktery-se-nepovedl.md`, čeká na schválení): Proč hry dokážou ráj usvědčit (co hra nedovolí: Pathologic, Myšlenkový kabinet v Disco Elysium)
-- Esej ke stezce Logo nad troskami (`content/trails/logo-nad-troskami.md`, čeká na schválení): Proč hry umějí číst firemní složky (co hra nedovolí: konec Věž v Cyberpunku)
+- Esej ke stezce Ráj, který se nepovedl (`content/trails/raj-ktery-se-nepovedl.md`): Proč hry dokážou ráj usvědčit (co hra nedovolí: Pathologic, Myšlenkový kabinet v Disco Elysium)
+- Esej ke stezce Logo nad troskami (`content/trails/logo-nad-troskami.md`): Proč hry umějí číst firemní složky (co hra nedovolí: konec Věž v Cyberpunku)

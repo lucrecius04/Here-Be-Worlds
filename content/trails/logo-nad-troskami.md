@@ -1,5 +1,6 @@
 ---
 title: Logo nad troskami
+approved: true
 trail: corporate
 kicker: Stezka atlasu
 tagline: Co zbude z člověka a ze světa, když korporace přeroste stát a promění tělo, smrt i vlastní katastrofu v obchodní model?

@@ -1,5 +1,6 @@
 ---
 title: Ráj, který se nepovedl
+approved: true
 trail: failed-paradise
 kicker: Stezka atlasu
 tagline: Proč se sen o dokonalé společnosti v herních světech obrací proti lidem, které měl zachránit – a co ze světa zbude, když jeho zdi prasknou?
