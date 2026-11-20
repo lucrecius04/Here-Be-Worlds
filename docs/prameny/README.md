@@ -17,6 +17,7 @@ Pravidla:
 | John Clute, John Grant: *The Encyclopedia of Fantasy* (1997) | [clute-encyclopedia-of-fantasy.md](clute-encyclopedia-of-fantasy.md) | heslo Thinning (online) | plná fantasy, řídnutí, uzdravení, parodie země, polder |
 | Rudolf Otto: *Posvátno* (1917) | [otto-posvatno.md](otto-posvatno.md) | čteno (kap. o mysterium tremendum) | numinózní, mysterium tremendum et fascinans, zcela jiné |
 | Mark J. P. Wolf: *Building Imaginary Worlds* (2012) | [wolf-building-imaginary-worlds.md](wolf-building-imaginary-worlds.md) | čteno 2026-11-18, výtah zpětně | vynalézavost, úplnost, soudržnost, úrovně vynálezu, katalyzátory spekulace, infrastruktury |
+| Janet H. Murrayová: *Hamlet on the Holodeck* (1997, rozš. 2016/2017) | [murray-hamlet-on-the-holodeck.md](murray-hamlet-on-the-holodeck.md) | čteno celé (výtah Gemini, ověřil Claude) | čtyři vlastnosti digitálního média, ponoření a aktivní vytváření víry, jednání vs. aktivita, proměna, kaleidoskopické a multiformní vyprávění, procedurální autorství, morální fyzika, tragický proces |
 | Jesper Juul: *Half-Real* (2005) | [juul-half-real.md](juul-half-real.md) | čteno 2026-11-18, výtah zpětně | poloreálnost, nesoudržný svět, test převyprávění |
 | Ian Bogost: *Persuasive Games* (2007) | [bogost-persuasive-games.md](bogost-persuasive-games.md) | čteno 2026-11-18, výtah zpětně | procedurální rétorika, entyméma, co hra nedovolí |
 | Planescape: *Last Rites Product Review Pack* (1997) | [planescape-last-rites.md](planescape-last-rites.md) | čteno 2026-11-18, výtah zpětně | high concept, „proč“ ke každému nástroji, zásady týmu |
@@ -39,19 +40,19 @@ Opačný pohled k tabulce výše (16 stezek): co číst před psaním eseje ke s
 | Na mrtvole boha | [na-mrtvole-boha.md](../../content/trails/na-mrtvole-boha.md), čeká na kontrolu majitele | mýty o stvoření, Eliade (deus otiosus), Nietzsche, Otto, Clute (řídnutí), Doležel (mytologický svět), Fisher (tísnivé), Švelch (Ebrietas), Girard (Teotihuacan, dvojí přenos), Eliade (akitu), Carroll (přesahovač: Byrgenwerth, Kagrenac), Wolf | |
 | Bohové jako břemeno | | Otto, Clute (řídnutí), Eliade (deus otiosus), Nietzsche, Girard (dvojí přenos, bohové bez viny), Boym (Gwyn a obnovující nostalgie), Mendlesohn a James (Tolkien a odmítnutí moci vs. Moorcock a služba Chaosu) | |
 | Prokleté dědictví | | Clute (řídnutí, porucha), Doležel (přepisy), Girard (zakládající vražda), Mendlesohn (ponořená fantasy vypráví ztrátu), Eliade (mýtizace dějin), A. Assmannová (oficiální paměť a protipaměť), Carroll (přesahovač jako prvotní hřích), Mendlesohn a James (výpravná fantasy a uzdravení země, proroctví a Fantasyland™) | |
-| Křehká hranice svobodné vůle | | Bogost (co hra nedovolí), Juul, vizní dokument Planescape (hráč se definuje činy) | |
-| Uvězněni v kruhu | | Juul (smrt a návrat jako téma), Clute (řídnutí), vizní dokument Planescape (cyklus jako trest), Eliade (věčný návrat, obnova času, jugy) | |
-| Hra ví, že ji hraješ | | Juul (vědomý nesoulad), Švelch (útěk ze stroje: Flowey), Bogost | |
+| Křehká hranice svobodné vůle | | Bogost (co hra nedovolí), Juul, vizní dokument Planescape (hráč se definuje činy), Murrayová (jednání vs. aktivita, procedurální autorství, morální fyzika) | |
+| Uvězněni v kruhu | | Juul (smrt a návrat jako téma), Clute (řídnutí), vizní dokument Planescape (cyklus jako trest), Eliade (věčný návrat, obnova času, jugy), Murrayová (multiformní vyprávění, odmítnuté uzavření a popření smrtelnosti, tragický proces) | |
+| Hra ví, že ji hraješ | | Juul (vědomý nesoulad), Švelch (útěk ze stroje: Flowey), Bogost, Murrayová (prahové objekty a čtvrtá stěna, hranice ponoření) | |
 | Kdo se to probudil? | | vizní dokument Planescape (amnézie jako synchronizace vědění), Wolf (narativní rozlišení), Mendlesohn (amnézie jako portál převlečený za ponoření) | |
 | Netvor v zrcadle | | Švelch (selhání odstupu, sympatie s monstrem, lebečné krysy), vizní dokument Planescape (minulé inkarnace), Nietzsche, Girard (monstrum z rozpadu rozdílů, Silent Hill), A. Assmannová (místo traumatu: Silent Hill 2), Carroll (fúze a fise: dvojník, Klerikova bestie) | |
 | Ráj, který se nepovedl | | Clute (parodie země), Bogost, Girard (reformátor si vymyslí ztracený ráj), Boym (obnovující nostalgie, Fallout jako nostalgie po budoucnosti, Šeď v Disco Elysium) | |
 | Logo nad troskami | | Fisher (tísnivé jako neviditelná moc), Švelch (korporace jako neviditelná monstrozita podle Weinstocka), A. Assmannová (Faro maže APOLLO: zničená úložná paměť), Carroll (přesahovač: Umbrella, Faro) | |
-| Mluví už jen mrtví | | Fisher (archeologie, tísnivé), Doležel (mezera), Wolf (katalyzátory spekulace), Eliade (kolektivní paměť je nehistorická), A. Assmannová (úložná paměť, Pausanias, místa traumatu) | |
+| Mluví už jen mrtví | | Fisher (archeologie, tísnivé), Doležel (mezera), Wolf (katalyzátory spekulace), Eliade (kolektivní paměť je nehistorická), A. Assmannová (úložná paměť, Pausanias, místa traumatu), Murrayová (prostorová navigace, encyklopedické očekávání) | |
 | Smích nad propastí | | Švelch (parodie a humor v Undertale), Mendlesohn (prahový tón: klid a ironie, Control), Mendlesohn a James (Fantasyland™, Pratchett a parodie meče a magie) | |
 | Město, které dýchá | | Wolf (infrastruktury), Doležel (fikční encyklopedie), Mendlesohn (ponořená fantasy, kompetentní obyvatelé), Eliade (symbolika středu) | |
 | Válka, kterou nikdo nevyhraje | | Švelch (ontologie nepřítele, spotřební nepřátelé), Clute (řídnutí), Girard (obětní krize, Kaifášova logika), Eliade (hrůza z dějin), Mendlesohn a James (divadelní fantasy, sdílené a licencované světy, nekonečné série) | |
 | Pod lhostejnými hvězdami | | Otto, Fisher (podivné), Švelch (selhání střetu, Astrální bodec, lhostejná monstra), Clute, Mendlesohn (ponoření = řídnutí), Carroll (zvědavost a nemožné, Vhled), Mendlesohn a James (New Weird, Lovecraft) | |
-| Kdo za to může? | | Girard (stereotypy pronásledování, dvojí přenos, Kaifášova logika), Eliade (normálnost utrpení: neštěstí musí mít původce), Boym (spiknutí jako zápletka obnovující nostalgie). V eseji zmínit výhradu: Girard je redukcionista, používat ho jako nástroj vedle jiných pramenů | |
+| Kdo za to může? | | Girard (stereotypy pronásledování, dvojí přenos, Kaifášova logika), Eliade (normálnost utrpení: neštěstí musí mít původce), Boym (spiknutí jako zápletka obnovující nostalgie). V eseji zmínit výhradu: Girard je redukcionista, používat ho jako nástroj vedle jiných pramenů, Murrayová (morální fyzika, kaleidoskopické vyprávění v Pathologic) | |
 
 ## Čeká na dodání (od majitele)
 

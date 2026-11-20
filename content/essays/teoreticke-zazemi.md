@@ -19,6 +19,7 @@ Pojmy, se kterými pracujeme, nejsou naše. Přicházejí ze šesti oblastí: z 
 | Novum | Darko Suvin, *Metamorphoses of Science Fiction* (1979) | Sci-fi stojí na jedné novince, která naruší známou skutečnost. Teoretické jméno pro pravidlo jednoho zázraku. |
 | Fabule a syžet | Ruský formalismus (Šklovskij, Tomaševskij) | Události v chronologickém pořadí a pořadí, v němž se je dozvídáme. |
 | Ergodická literatura | Espen Aarseth, *Cybertext* (1997) | Text, jímž je třeba se netriviálně „prokousat“. Pravda je odměnou za úsilí. |
+| Ponoření, jednání, proměna, procedurální autorství | Janet H. Murrayová, *Hamlet on the Holodeck* (1997) | Digitální médium je procedurální, participativní, prostorové a encyklopedické. Aktivita ještě není jednání a autor tvoří pravidla a morální fyziku světa. |
 | Narativní architektura | Henry Jenkins (2004) | Herní svět jako „paměťový palác“ se čtyřmi typy prostorového vyprávění. |
 | Prostorové vyprávění | Harvey Smith a Matthias Worch, GDC 2010 | Vyprávění podávané a vyhledávané. Anonymní detail je promarněná příležitost. |
 | Procedurální rétorika | Ian Bogost, *Persuasive Games* (2007) | Hry přesvědčují samotnými pravidly, nejen obrazem a slovem. |
@@ -101,6 +102,12 @@ Henry Jenkins v textu *Game Design as Narrative Architecture* (2004) popsal hern
 ### Aarseth: ergodický text
 
 Espen Aarseth v knize *Cybertext* (1997) nazval ergodickým text, kterým se čtenář musí netriviálně prokousat: musí volit, hledat, zkoušet. Pravda je tu odměnou za úsilí. To je výchozí bod pro všechny světy, které lore schovávají do popisků předmětů a nespolehlivých zdrojů.
+
+### Murrayová: ponoření, jednání a procedurální autorství
+
+Teoretička digitálních médií Janet H. Murrayová v knize *Hamlet on the Holodeck* (1997, aktualizované vydání 2016 a 2017) vymezila čtyři vlastnosti počítače jako vyprávěcího média: je **procedurální, participativní, prostorový a encyklopedický**. Z nich vyrůstají tři požitky digitálního vyprávění. **Ponoření** (*immersion*) nevzniká jen pasivním „potlačením nedůvěry“: víru ve svět aktivně vytváříme tím, že používáme jeho předměty a role. **Jednání** (*agency*) je uspokojivá moc podniknout smysluplný čin a vidět jeho následky. A **proměna** (*transformation*) dovoluje měnit perspektivy a přehrávat varianty téže události v *kaleidoskopickém* a *multiformním* vyprávění. Murrayová ostře odlišuje pouhou aktivitu, tedy klikání nebo volbu, která nic nemění, od skutečného jednání. A připomíná, že hráč autorem díla není: tím zůstává **procedurální autor**, který píše pravidla světa i jeho **morální fyziku**, tedy jaké následky mají činy, kdo je odměněn a jak těžkou ztrátu smějí postavy utrpět.
+
+Pro atlas je Murrayová klíčová tam, kde se láme svoboda hráče a struktura času. Pomáhá vysvětlit, proč v BioShocku tolik bolí zjištění, že naše zdánlivé jednání byla poslušnost, proč Pathologic se třemi hrdiny v týchž dvanácti dnech naplňuje její představu kaleidoskopického vyprávění a proč hry postavené na smyčkách (Outer Wilds, Hades, Undertale) narážejí na napětí, které sama popsala: možnost „zkusit to znovu“ popírá smrtelnost a táhne ke komedii, zatímco zralé vyprávění má umět zachytit tragický proces nevratné ztráty.
 
 ### Juul: test převyprávění
 
@@ -206,7 +213,6 @@ Knihy, které by metodu dál prohloubily a ke kterým se chceme dostat:
 
 - **Tzvetan Todorov: *Úvod do fantastické literatury* (1970).** Klasická definice fantastična jako váhání mezi přirozeným a nadpřirozeným vysvětlením. Clute i Mendlesohn na ni reagují. Hodila by se pro Silent Hill, Pathologic a prahové světy.
 - **Mary Douglasová: *Čistota a nebezpečí* (1966).** Antropologie nečistoty, ze které vychází Carrollova teorie monster. Pro stezky Netvor v zrcadle a Kdo za to může?
-- **Janet Murrayová: *Hamlet on the Holodeck* (1997).** Ponoření, jednání a procedurální autorství v digitálním vyprávění. Chybějící klasika herních studií.
 - **Gaston Bachelard: *Poetika prostoru* (1957).** Dům, sklep, půda a kout jako obrazy intimity a strachu. Pro stezku Město, které dýchá a pro světy, jejichž hlavní postavou je místo.
 - **Jan Assmann: *Kultura a paměť* (1992).** Kulturní paměť a zakládající mýty starověkých civilizací. Doplněk k Aleidě Assmannové.
 - **Henry Jenkins: *Convergence Culture* (2006).** Transmediální vyprávění: světy, které žijí napříč hrami, knihami a seriály (Warhammer, Zaklínač, Fallout).
@@ -276,6 +282,7 @@ Knihy, které by metodu dál prohloubily a ke kterým se chceme dostat:
 **Herní studia (doplněk)**
 
 - Espen Aarseth: *Cybertext: Perspectives on Ergodic Literature*, Johns Hopkins University Press 1997.
+- Janet H. Murray: *Hamlet on the Holodeck: The Future of Narrative in Cyberspace*, The Free Press 1997; aktualizované vydání Free Press 2016 a MIT Press 2017.
 
 **Řemeslo (doplněk)**
 

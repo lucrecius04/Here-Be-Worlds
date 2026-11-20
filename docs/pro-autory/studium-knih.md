@@ -38,7 +38,7 @@ Dva až čtyři odstavce vlastními slovy.
 
 ## Knihy, které chceme nastudovat
 
-Hotové výtahy (už nečíst znovu): Mendlesohn a James, *A Short History of Fantasy* (2026-11-20).
+Hotové výtahy (už nečíst znovu): Mendlesohn a James, *A Short History of Fantasy* (2026-11-20); Murrayová, *Hamlet on the Holodeck* (2026-11-20).
 
 U každé knihy: co číst, na co se soustředit a ke kterým stezkám a světům se hodí.
 
@@ -62,13 +62,6 @@ U každé knihy: co číst, na co se soustředit a ke kterým stezkám a světů
 - **Soustředit se:** fantastično jako váhání mezi přirozeným a nadpřirozeným vysvětlením, rozdíl podivného (vysvětlitelného) a zázračného (přijatého), role čtenáře.
 - **Stezky:** Kdo se to probudil?, Mluví už jen mrtví, Smích nad propastí. **Světy:** Silent Hill, Pathologic, Disco Elysium, SOMA, Control.
 - **Navazuje na:** Mendlesohn (prahová fantasy), Fisher (podivné), Clute.
-
-### Janet Murrayová: *Hamlet on the Holodeck* (1997, rozšířené vydání 2017)
-
-- **Číst:** kapitoly o estetice digitálního vyprávění: ponoření (immersion), jednání (agency), proměna (transformation), a o procedurálním autorství.
-- **Soustředit se:** co znamená, že hráč ve světě jedná, rozdíl mezi volbou a jednáním, kaleidoskopické a opakované vyprávění.
-- **Stezky:** Křehká hranice svobodné vůle, Uvězněni v kruhu, Hra ví, že ji hraješ. **Světy:** BioShock, Undertale, Planescape: Torment, Disco Elysium, Outer Wilds, Hades.
-- **Navazuje na:** Juul, Bogost, Aarseth.
 
 ### Jan Assmann: *Kultura a paměť* (Das kulturelle Gedächtnis, 1992)
 
