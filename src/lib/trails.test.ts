@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { worlds } from './worlds';
 import { TRAILS, TRAIL_SLUGS, dailyTrails, trailSlug } from './trails';
 import { readdirSync, readFileSync } from 'node:fs';
+import themeTaxonomy from '../../data/meta/theme-taxonomy.json';
 
 const published = new Set(worlds.filter((w) => !w.draft).map((w) => w.id));
 
@@ -12,6 +13,16 @@ describe('tematické stezky', () => {
       expect(new Set(trail.members).size).toBe(trail.members.length);
       expect(trail.members.length).toBeGreaterThanOrEqual(4);
       expect(trail.members.length).toBeLessThanOrEqual(7);
+    }
+  });
+
+  it('témata stezek jsou z taxonomie, dvě až čtyři na stezku', () => {
+    const list = Array.isArray(themeTaxonomy) ? themeTaxonomy : (themeTaxonomy as { themes: { slug: string }[] }).themes;
+    const slugs = new Set(list.map((t: { slug: string }) => t.slug));
+    for (const trail of TRAILS) {
+      for (const slug of trail.themes) expect(slugs.has(slug), `${trail.id}: ${slug}`).toBe(true);
+      expect(trail.themes.length).toBeGreaterThanOrEqual(2);
+      expect(trail.themes.length).toBeLessThanOrEqual(4);
     }
   });
 

@@ -10,36 +10,39 @@ export type TrailDef = {
   nameKey: string;
   descKey: string;
   members: string[];
+  /** Témata, kterých se esej stezky dotýká (slugy z data/meta/theme-taxonomy.json), nejdůležitější první. */
+  themes: string[];
   match: (world: World) => boolean;
 };
 
 export type TrailId = string;
 
-const def = (id: string, key: string, members: string[]): TrailDef => ({
+const def = (id: string, key: string, members: string[], themes: string[]): TrailDef => ({
   id,
   nameKey: `trails.${key}`,
   descKey: `trails.${key}Desc`,
   members,
+  themes,
   match: (world) => members.includes(world.id),
 });
 
 export const TRAILS: TrailDef[] = [
-  def('gods-burden', 'gods', ['baldurs-gate', 'diablo', 'dark-souls', 'elden-ring', 'pillars-of-eternity', 'hades', 'elder-scrolls']),
-  def('cursed-legacy', 'curse', ['bloodborne', 'dragon-age', 'horizon', 'assassins-creed', 'path-of-exile', 'nier-automata']),
-  def('free-will', 'will', ['bioshock', 'baldurs-gate', 'the-witcher', 'xenoblade', 'half-life', 'deus-ex']),
-  def('god-corpse', 'corpse', ['bloodborne', 'xenoblade', 'elder-scrolls', 'pathfinder', 'warhammer-40k']),
-  def('loops', 'loops', ['outer-wilds', 'hades', 'undertale', 'dark-souls', 'nier-automata', 'xenoblade', 'mass-effect']),
-  def('knows-you-play', 'meta', ['undertale', 'inscryption', 'nier-automata', 'bioshock', 'pathologic']),
-  def('who-woke-up', 'woke', ['planescape-torment', 'disco-elysium', 'tides-of-numenera', 'soma', 'baldurs-gate']),
-  def('monster-mirror', 'monster', ['silent-hill', 'undertale', 'planescape-torment', 'dishonored', 'nier-automata']),
-  def('scapegoat', 'scapegoat', ['pathologic', 'dishonored', 'pentiment', 'silent-hill', 'the-witcher', 'dragon-age']),
-  def('failed-paradise', 'paradise', ['bioshock', 'fallout', 'disco-elysium', 'pathologic']),
-  def('corporate', 'corporate', ['cyberpunk-2077', 'deus-ex', 'resident-evil', 'fallout', 'horizon']),
-  def('dead-speak', 'dead', ['bioshock', 'soma', 'horizon', 'outer-wilds', 'resident-evil']),
-  def('laughter', 'laughter', ['hades', 'disco-elysium', 'control', 'inscryption', 'undertale', 'fallout', 'doom']),
-  def('living-city', 'city', ['disco-elysium', 'cyberpunk-2077', 'dishonored', 'pathologic', 'silent-hill', 'bioshock', 'planescape-torment']),
-  def('endless-war', 'war', ['warhammer-40k', 'nier-automata', 'warcraft', 'the-witcher', 'metro', 'starcraft']),
-  def('indifferent-stars', 'stars', ['bloodborne', 'soma', 'warhammer-40k', 'control', 'mass-effect', 'outer-wilds']),
+  def('gods-burden', 'gods', ['baldurs-gate', 'diablo', 'dark-souls', 'elden-ring', 'pillars-of-eternity', 'hades', 'elder-scrolls'], ['gods', 'faith', 'power-and-dominion', 'free-will-and-fate']),
+  def('cursed-legacy', 'curse', ['bloodborne', 'dragon-age', 'horizon', 'assassins-creed', 'path-of-exile', 'nier-automata'], ['guilt-and-redemption', 'uncovering-the-past', 'civilizational-collapse']),
+  def('free-will', 'will', ['bioshock', 'baldurs-gate', 'the-witcher', 'xenoblade', 'half-life', 'deus-ex'], ['free-will-and-fate', 'identity-and-existence', 'conspiracy', 'power-and-dominion']),
+  def('god-corpse', 'corpse', ['bloodborne', 'xenoblade', 'elder-scrolls', 'pathfinder', 'warhammer-40k'], ['gods', 'faith', 'death-and-immortality']),
+  def('loops', 'loops', ['outer-wilds', 'hades', 'undertale', 'dark-souls', 'nier-automata', 'xenoblade', 'mass-effect'], ['cyclical-history', 'death-and-immortality', 'free-will-and-fate']),
+  def('knows-you-play', 'meta', ['undertale', 'inscryption', 'nier-automata', 'bioshock', 'pathologic'], ['identity-and-existence', 'free-will-and-fate', 'guilt-and-redemption']),
+  def('who-woke-up', 'woke', ['planescape-torment', 'disco-elysium', 'tides-of-numenera', 'soma', 'baldurs-gate'], ['identity-and-existence', 'uncovering-the-past', 'guilt-and-redemption']),
+  def('monster-mirror', 'monster', ['silent-hill', 'undertale', 'planescape-torment', 'dishonored', 'nier-automata'], ['guilt-and-redemption', 'identity-and-existence', 'revenge']),
+  def('scapegoat', 'scapegoat', ['pathologic', 'dishonored', 'pentiment', 'silent-hill', 'the-witcher', 'dragon-age'], ['guilt-and-redemption', 'faith', 'politics-and-intrigue']),
+  def('failed-paradise', 'paradise', ['bioshock', 'fallout', 'disco-elysium', 'pathologic'], ['progress-and-its-costs', 'power-and-dominion', 'civilizational-collapse']),
+  def('corporate', 'corporate', ['cyberpunk-2077', 'deus-ex', 'resident-evil', 'fallout', 'horizon'], ['power-and-dominion', 'progress-and-its-costs', 'conspiracy']),
+  def('dead-speak', 'dead', ['bioshock', 'soma', 'horizon', 'outer-wilds', 'resident-evil'], ['uncovering-the-past', 'death-and-immortality', 'civilizational-collapse']),
+  def('laughter', 'laughter', ['hades', 'disco-elysium', 'control', 'inscryption', 'undertale', 'fallout', 'doom'], ['humor-irony-exaggeration', 'friendship-and-fellowship', 'death-and-immortality']),
+  def('living-city', 'city', ['disco-elysium', 'cyberpunk-2077', 'dishonored', 'pathologic', 'silent-hill', 'bioshock', 'planescape-torment'], ['politics-and-intrigue', 'survival', 'identity-and-existence']),
+  def('endless-war', 'war', ['warhammer-40k', 'nier-automata', 'warcraft', 'the-witcher', 'metro', 'starcraft'], ['war', 'power-and-dominion', 'faith']),
+  def('indifferent-stars', 'stars', ['bloodborne', 'soma', 'warhammer-40k', 'control', 'mass-effect', 'outer-wilds'], ['discovery', 'identity-and-existence', 'death-and-immortality']),
 ];
 
 /** České adresy stránek stezek (/stezky/<slug>/); stejný slug má soubor eseje v content/trails. */

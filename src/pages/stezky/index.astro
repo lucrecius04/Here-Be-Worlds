@@ -2,7 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import TrailsIndex from '../../components/trails/TrailsIndex';
 import { TRAILS, trailSlug } from '../../lib/trails';
-import { worlds, chapters } from '../../lib/worlds';
+import { worlds, chapters, themeTaxonomy } from '../../lib/worlds';
 import { publishedEssayFor } from '../../lib/trail-pages';
 
 const base = import.meta.env.BASE_URL;
@@ -14,8 +14,11 @@ const trails = TRAILS.map((tr) => ({
   nameKey: tr.nameKey,
   descKey: tr.descKey,
   members: tr.members,
+  themes: tr.themes,
   essayMinutes: publishedEssayFor(tr.id)?.minutes ?? null,
 }));
+
+const themeLabels = Object.fromEntries(themeTaxonomy.map((t) => [t.slug, t.label]));
 
 const trailWorlds = worlds
   .filter((w) => !w.draft && onTrails.has(w.id))
@@ -31,5 +34,5 @@ const trailWorlds = worlds
   title="Stezky atlasu · Here Be Worlds"
   description={`${TRAILS.length} tematických stezek napříč herními světy atlasu Here Be Worlds: výběry světů, které spojuje jedna otázka, a eseje k nim.`}
 >
-  <TrailsIndex client:load base={base} trails={trails} worlds={trailWorlds} />
+  <TrailsIndex client:load base={base} trails={trails} worlds={trailWorlds} themeLabels={themeLabels} />
 </BaseLayout>

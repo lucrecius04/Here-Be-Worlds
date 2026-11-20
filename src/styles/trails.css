@@ -4,12 +4,12 @@
   padding-bottom: 3rem;
 }
 
-.trails-row__seg,
+.trails-row__world,
 .trails-cross__dot {
   --tr-hue: var(--tr-hue-l);
 }
 
-html[data-theme='dark'] .trails-row__seg,
+html[data-theme='dark'] .trails-row__world,
 html[data-theme='dark'] .trails-cross__dot {
   --tr-hue: var(--tr-hue-d);
 }
@@ -79,7 +79,6 @@ html[data-theme='dark'] .trails-cross__dot {
   padding-bottom: calc(0.5rem - 1px);
 }
 
-.trails-toggle,
 .trails-clear {
   appearance: none;
   padding: 0.5rem 0;
@@ -90,21 +89,10 @@ html[data-theme='dark'] .trails-cross__dot {
   cursor: pointer;
 }
 
-.trails-toggle {
-  border-bottom: 1px solid var(--color-line);
-  color: var(--color-ink-muted);
-}
-
-.trails-toggle[aria-pressed='true'] {
-  border-bottom-color: var(--color-accent);
-  color: var(--color-ink);
-}
-
 .trails-clear {
   color: var(--color-accent);
 }
 
-.trails-toggle:hover,
 .trails-clear:hover {
   color: var(--color-accent);
 }
@@ -161,43 +149,61 @@ html[data-theme='dark'] .trails-cross__dot {
   color: var(--color-ink-muted);
 }
 
-/* Složení stezky: jeden dílek za jeden svět v barvě jeho archetypu. */
-.trails-row__strip {
-  display: flex;
-  gap: 3px;
-  max-width: 15rem;
-  height: 8px;
-  align-items: flex-end;
-  margin: 0 0 0.625rem;
-}
-
-.trails-row__seg {
-  flex: 1;
-  height: 4px;
-  background: var(--tr-hue);
-  transition: height 0.2s ease;
-}
-
-.trails-row__seg.is-pick {
-  height: 8px;
-}
-
+/* Světy stezky: nad každým linka v barvě jeho archetypu. */
 .trails-row__worlds {
-  margin: 0;
-  font-family: var(--font-sans);
-  font-size: 0.875rem;
-  line-height: 1.6;
-  color: var(--color-ink-muted);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem 1.125rem;
+  margin: 0 0 0.75rem;
+  padding: 0;
+  list-style: none;
 }
 
 .trails-row__world {
+  appearance: none;
+  padding: 0.3125rem 0 0;
+  border: 0;
+  border-top: 3px solid var(--tr-hue);
+  background: none;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  line-height: 1.4;
+  color: var(--color-ink);
+  cursor: pointer;
+  transition: border-top-width 0.15s ease, padding-top 0.15s ease;
+}
+
+/* Témata eseje: drobným písmem pod světy, klik zúží stezky na téma. */
+.trails-row__themes {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.06em;
+  line-height: 1.7;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+.trails-row__theme {
   appearance: none;
   padding: 0;
   border: 0;
   background: none;
   font: inherit;
-  color: var(--color-ink);
+  letter-spacing: inherit;
+  text-transform: inherit;
+  color: var(--color-ink-muted);
   cursor: pointer;
+}
+
+.trails-row__theme:hover,
+.trails-row__theme:focus-visible {
+  color: var(--color-accent);
+}
+
+.trails-row__theme.is-pick {
+  color: var(--color-accent);
+  font-weight: 600;
 }
 
 .trails-row__world:hover,
@@ -206,6 +212,8 @@ html[data-theme='dark'] .trails-cross__dot {
 }
 
 .trails-row__world.is-pick {
+  padding-top: 0.125rem;
+  border-top-width: 6px;
   font-weight: 600;
   color: var(--color-accent);
 }
@@ -262,6 +270,12 @@ html[data-theme='dark'] .trails-cross__dot {
   font-weight: 400;
 }
 
+.trails-cross__trail--foot {
+  height: auto;
+  padding: 0.625rem 0 0;
+  vertical-align: top;
+}
+
 .trails-cross__trail a {
   display: inline-block;
   writing-mode: vertical-rl;
@@ -314,8 +328,18 @@ html[data-theme='dark'] .trails-cross__dot {
   border-top: 1px solid var(--color-line);
 }
 
-.trails-cross__cell.is-hover {
+.trails-cross__cell.is-hover,
+.trails-cross__table tbody tr.is-hover .trails-cross__cell {
   background: color-mix(in srgb, var(--color-accent) 8%, transparent);
+}
+
+/* Průsečík řádku a sloupce pod kurzorem o stupeň silněji */
+.trails-cross__table tbody tr.is-hover .trails-cross__cell.is-hover {
+  background: color-mix(in srgb, var(--color-accent) 16%, transparent);
+}
+
+.trails-cross__table tbody tr.is-hover .trails-cross__world button {
+  color: var(--color-accent);
 }
 
 .trails-cross__dot {
@@ -393,7 +417,7 @@ html[data-theme='dark'] .trails-cross__dot {
 
 @media (prefers-reduced-motion: reduce) {
   .trails-row,
-  .trails-row__seg {
+  .trails-row__world {
     transition: none;
   }
 }

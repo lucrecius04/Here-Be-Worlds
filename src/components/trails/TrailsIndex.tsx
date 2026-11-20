@@ -17,6 +17,8 @@ export type TrailsIndexTrail = {
   nameKey: string;
   descKey: string;
   members: string[];
+  /** Slugy témat, kterých se esej dotýká. */
+  themes: string[];
   /** Doba čtení schválené eseje v minutách; null = esej se teprve píše. */
   essayMinutes: number | null;
 };
@@ -25,6 +27,7 @@ type Props = {
   base: string;
   trails: TrailsIndexTrail[];
   worlds: TrailsIndexWorld[];
+  themeLabels: Record<string, { en: string; cs?: string }>;
 };
 
 const hue = (accent: { light: string; dark: string }) =>
@@ -35,14 +38,15 @@ function trailsCount(n: number, locale: Locale) {
 }
 
 /**
- * Stránka /stezky/: rejstřík šestnácti stezek (název, popis, složení v barvách archetypů,
- * světy, stav eseje), filtr „od světa ke stezkám“ a mřížka, kde se stezky kříží.
+ * Stránka /stezky/: rejstřík šestnácti stezek (název, popis, světy s linkou v barvě archetypu,
+ * témata eseje, doba čtení), filtr podle světa a tématu a mřížka, kde se stezky kříží.
  */
-export default function TrailsIndex({ base, trails, worlds }: Props) {
+export default function TrailsIndex({ base, trails, worlds, themeLabels }: Props) {
   const locale = useLocale();
   const [world, setWorld] = useState('');
-  const [essaysOnly, setEssaysOnly] = useState(false);
+  const [theme, setTheme] = useState('');
   const [hoverTrail, setHoverTrail] = useState('');
+  const [hoverWorld, setHoverWorld] = useState('');
 
   const byId = useMemo(() => new Map(worlds.map((w) => [w.id, w])), [worlds]);
   const counts = useMemo(() => {
@@ -74,22 +78,53 @@ export default function TrailsIndex({ base, trails, worlds }: Props) {
     [counts, locale, byId],
   );
 
-  const anyEssay = trails.some((tr) => tr.essayMinutes !== null);
+  const themeName = (slug: string) => (themeLabels[slug] ? t(themeLabels[slug], locale) : slug);
 
-  // Výběr světa jde sdílet odkazem: /stezky/?svet=<id>.
+  // Témata ve výběru: jen ta, kterých se nějaká stezka dotýká, podle abecedy.
+  const themeOptions = useMemo(
+    () => [...new Set(trails.flatMap((tr) => tr.themes))].sort((a, b) => themeName(a).localeCompare(themeName(b), locale)),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [trails, locale, themeLabels],
+  );
+
+  // Výběr jde sdílet odkazem: /stezky/?svet=<id>&tema=<slug>.
   useEffect(() => {
-    const fromUrl = new URLSearchParams(window.location.search).get('svet') ?? '';
+    const params = new URLSearchParams(window.location.search);
+    const fromUrl = params.get('svet') ?? '';
     if (fromUrl && counts.has(fromUrl)) setWorld(fromUrl);
-  }, [counts]);
+    const themeFromUrl = params.get('tema') ?? '';
+    if (themeFromUrl && trails.some((tr) => tr.themes.includes(themeFromUrl))) setTheme(themeFromUrl);
+  }, [counts, trails]);
+
+  const syncUrl = (key: string, value: string) => {
+    const url = new URL(window.location.href);
+    if (value) url.searchParams.set(key, value);
+    else url.searchParams.delete(key);
+    window.history.replaceState(null, '', url);
+  };
 
   const pick = (id: string) => {
     const next = id === world ? '' : id;
     setWorld(next);
-    const url = new URL(window.location.href);
-    if (next) url.searchParams.set('svet', next);
-    else url.searchParams.delete('svet');
-    window.history.replaceState(null, '', url);
+    syncUrl('svet', next);
   };
+
+  const pickTheme = (slug: string) => {
+    const next = slug === theme ? '' : slug;
+    setTheme(next);
+    syncUrl('tema', next);
+  };
+
+  const clearAll = () => {
+    setWorld('');
+    setTheme('');
+    syncUrl('svet', '');
+    syncUrl('tema', '');
+  };
+
+  const filtering = Boolean(world || theme);
+  const matches = (tr: TrailsIndexTrail) =>
+    (!world || tr.members.includes(world)) && (!theme || tr.themes.includes(theme));
 
   // Výběr z křižovatek leží pod rejstříkem: po kliknutí se vrátíme nahoru ke stezkám.
   const pickAndShow = (id: string) => {
@@ -98,10 +133,9 @@ export default function TrailsIndex({ base, trails, worlds }: Props) {
     document.querySelector('.trails-toolbar')?.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
   };
 
-  // Při výběru světa jdou jeho stezky nahoru, ostatní zůstanou ztlumené pod nimi.
+  // Při výběru jdou odpovídající stezky nahoru, ostatní zůstanou ztlumené pod nimi.
   const visible = trails
-    .filter((tr) => !essaysOnly || tr.essayMinutes !== null)
-    .map((tr, i) => ({ tr, i, on: world ? tr.members.includes(world) : false }))
+    .map((tr, i) => ({ tr, i, on: filtering && matches(tr) }))
     .sort((a, b) => Number(b.on) - Number(a.on) || a.i - b.i)
     .map(({ tr }) => tr);
 
@@ -126,26 +160,29 @@ export default function TrailsIndex({ base, trails, worlds }: Props) {
             ))}
           </select>
         </div>
-        {anyEssay ? (
-          <button
-            type="button"
-            className="trails-toggle"
-            aria-pressed={essaysOnly}
-            onClick={() => setEssaysOnly((v) => !v)}
-          >
-            {uiT('trailsPage.essaysOnly', locale)}
-          </button>
-        ) : null}
-        {world ? (
-          <button type="button" className="trails-clear" onClick={() => pick('')}>
+        <div className="trails-toolbar__field">
+          <label className="field-label" htmlFor="trails-theme">
+            {uiT('filter.theme', locale)}
+          </label>
+          <select id="trails-theme" className="field-input" value={theme} onChange={(e) => pickTheme(e.target.value)}>
+            <option value="">{uiT('filter.allThemes', locale)}</option>
+            {themeOptions.map((slug) => (
+              <option key={slug} value={slug}>
+                {themeName(slug)}
+              </option>
+            ))}
+          </select>
+        </div>
+        {filtering ? (
+          <button type="button" className="trails-clear" onClick={clearAll}>
             {uiT('trailsPage.clear', locale)}
           </button>
         ) : null}
       </div>
 
-      <ol className={`trails-index${world ? ' has-pick' : ''}`}>
+      <ol className={`trails-index${filtering ? ' has-pick' : ''}`}>
         {visible.map((tr) => {
-          const on = world ? tr.members.includes(world) : false;
+          const on = filtering && matches(tr);
           return (
             <li key={tr.id} id={`stezka-${tr.slug}`} className={`trails-row${on ? ' is-on' : ''}`}>
               <div className="trails-row__main">
@@ -153,30 +190,37 @@ export default function TrailsIndex({ base, trails, worlds }: Props) {
                   <a href={withBase(base, `/stezky/${tr.slug}/`)}>{uiT(tr.nameKey, locale)}</a>
                 </h2>
                 <p className="trails-row__desc">{uiT(tr.descKey, locale)}</p>
-                <div className="trails-row__strip" aria-hidden="true">
+                <ul className="trails-row__worlds">
                   {tr.members.map((id) => {
                     const w = byId.get(id);
                     return (
-                      <span
-                        key={id}
-                        className={`trails-row__seg${id === world ? ' is-pick' : ''}`}
-                        style={w ? hue(w.accent) : undefined}
-                      />
+                      <li key={id}>
+                        <button
+                          type="button"
+                          className={`trails-row__world${id === world ? ' is-pick' : ''}`}
+                          style={w ? hue(w.accent) : undefined}
+                          title={uiT('trailsPage.pickWorld', locale)}
+                          aria-pressed={id === world}
+                          onClick={() => pick(id)}
+                        >
+                          {title(id).replace(/(\d) (\d)/g, '$1\u00a0$2')}
+                        </button>
+                      </li>
                     );
                   })}
-                </div>
-                <p className="trails-row__worlds">
-                  {tr.members.map((id, i) => (
-                    <span key={id}>
-                      {i > 0 ? <span className="trails-row__sep"> · </span> : null}
+                </ul>
+                <p className="trails-row__themes" aria-label={uiT('card.themesHeading', locale)}>
+                  {tr.themes.map((slug, i) => (
+                    <span key={slug}>
+                      {i > 0 ? <span className="trails-row__sep" aria-hidden="true"> · </span> : null}
                       <button
                         type="button"
-                        className={`trails-row__world${id === world ? ' is-pick' : ''}`}
-                        title={uiT('trailsPage.pickWorld', locale)}
-                        aria-pressed={id === world}
-                        onClick={() => pick(id)}
+                        className={`trails-row__theme${slug === theme ? ' is-pick' : ''}`}
+                        title={uiT('trailsPage.pickTheme', locale)}
+                        aria-pressed={slug === theme}
+                        onClick={() => pickTheme(slug)}
                       >
-                        {title(id).replace(/(\d) (\d)/g, '$1 $2')}
+                        {themeName(slug)}
                       </button>
                     </span>
                   ))}
@@ -202,9 +246,15 @@ export default function TrailsIndex({ base, trails, worlds }: Props) {
         </h2>
 
         <div className="trails-cross__wrap">
-          <table className="trails-cross__table" onMouseLeave={() => setHoverTrail('')}>
+          <table
+            className="trails-cross__table"
+            onMouseLeave={() => {
+              setHoverTrail('');
+              setHoverWorld('');
+            }}
+          >
             <thead>
-              <tr>
+              <tr onMouseEnter={() => setHoverWorld('')}>
                 <td />
                 {trails.map((tr) => (
                   <th
@@ -225,7 +275,11 @@ export default function TrailsIndex({ base, trails, worlds }: Props) {
               {crossWorlds.map((id) => {
                 const w = byId.get(id);
                 return (
-                  <tr key={id} className={id === world ? 'is-pick' : undefined}>
+                  <tr
+                    key={id}
+                    className={[id === world ? 'is-pick' : '', hoverWorld === id ? 'is-hover' : ''].filter(Boolean).join(' ') || undefined}
+                    onMouseEnter={() => setHoverWorld(id)}
+                  >
                     <th scope="row" className="trails-cross__world">
                       <button
                         type="button"
@@ -259,6 +313,25 @@ export default function TrailsIndex({ base, trails, worlds }: Props) {
                 );
               })}
             </tbody>
+            {/* Názvy stezek i pod mřížkou: s přibývajícími světy se horní řádek vzdaluje. */}
+            <tfoot>
+              <tr onMouseEnter={() => setHoverWorld('')}>
+                <td />
+                {trails.map((tr) => (
+                  <th
+                    key={tr.id}
+                    scope="col"
+                    className={`trails-cross__trail trails-cross__trail--foot${hoverTrail === tr.id ? ' is-hover' : ''}`}
+                    onMouseEnter={() => setHoverTrail(tr.id)}
+                  >
+                    <a href={withBase(base, `/stezky/${tr.slug}/`)} tabIndex={-1} aria-hidden="true">
+                      <span>{uiT(tr.nameKey, locale)}</span>
+                    </a>
+                  </th>
+                ))}
+                <td />
+              </tr>
+            </tfoot>
           </table>
         </div>
 
