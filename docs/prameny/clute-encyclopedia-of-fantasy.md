@@ -51,6 +51,7 @@
 - Esej ke stezce Válka, kterou nikdo nevyhraje (`content/trails/valka-kterou-nikdo-nevyhraje.md`): kořeny (řídnutí, polder, uzdravení), Warhammer 40 000 jako parodie sebe sama, Metro jako betonový polder, závěr
 - Esej ke stezce Prokleté dědictví (`content/trails/proklete-dedictvi.md`): kořeny (spoutání, porucha, řídnutí, rozpoznání bez uzdravení), Bloodborne (zhoubný spáč), závěr
 - Esej ke stezce Uvězněni v kruhu (`content/trails/uvezneni-v-kruhu.md`): kořeny (řídnutí, amnézie, polder), Tři podoby (polder jako útočiště před ztrátou)
+- Esej ke stezce Ráj, který se nepovedl (`content/trails/raj-ktery-se-nepovedl.md`, čeká na schválení): Architektura ráje (polder, řídnutí, parodie), Čtyři podoby klece (polder, který hnije zevnitř; Revachol rozdrcený zvenčí), Pathologic (země jako živá bytost), závěr (uzdravení)
 
 ## Dočíst (podle potřeby)
 

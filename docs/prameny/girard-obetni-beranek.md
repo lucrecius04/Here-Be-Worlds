@@ -61,3 +61,4 @@ Kde se v textu sejdou aspoň dva až tři, můžeme tušit skutečné pronásled
 - Esej ke stezce Bohové jako břemeno (`content/trails/bohove-jako-bremeno.md`): kořeny (zločiny bohů, Teotihuacan, výhrada), Pillars (Kolo jako oběť)
 - Esej ke stezce Válka, kterou nikdo nevyhraje (`content/trails/valka-kterou-nikdo-nevyhraje.md`): kořeny (ztráta rozdílů, nepřátelští bratři, Kaifášova logika, výhrada k redukcionismu), Tři motory (NieR a Metro: moc vyrábí nepřítele)
 - Esej ke stezce Prokleté dědictví (`content/trails/proklete-dedictvi.md`): kořeny (mýty přepsané tak, aby skryly původní násilí; výhrada k redukcionismu)
+- Esej ke stezce Ráj, který se nepovedl (`content/trails/raj-ktery-se-nepovedl.md`, čeká na schválení): Architektura ráje (reformátor si vymyslí původ, Kaifášova logika, výhrada k redukcionismu), BioShock (Columbia a Wounded Knee)
