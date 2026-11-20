@@ -49,3 +49,4 @@ Ve 20. století se podle Todorova tento klasický model obrací naruby. U Franze
 - Teoretické zázemí: oddíl „Todorov: fantastično jako váhání“, tabulka pojmů, Zdroje
 - *Kdo za to může?* (esej ke stezce, čeká na schválení): Proč hry rozbíjejí pohled davu (detektivka vedoucí k jedinému řešení proti Pentimentu), Zdroje
 - Esej ke stezce Kdo se to probudil? (`content/trails/kdo-se-to-probudil.md`, čeká na schválení): kořeny (váhání, témata já), Disco Elysium, SOMA (vědecké zázračné), první osoba a metačtení
+- Esej ke stezce Netvor v zrcadle (`content/trails/netvor-v-zrcadle.md`, čeká na schválení): Silent Hill (témata já a ty), Proč hry… (metačtení)

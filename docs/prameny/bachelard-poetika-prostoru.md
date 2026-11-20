@@ -44,3 +44,4 @@ Lidská představivost přitom nepracuje s pevnou geometrií, ale s hodnotami a 
 ## Kde už je použito
 
 - Teoretické zázemí: oddíl „Bachelard: dům, sklep a paměť prostoru“, tabulka pojmů, Zdroje
+- Esej ke stezce Netvor v zrcadle (`content/trails/netvor-v-zrcadle.md`, čeká na schválení): Silent Hill (sklep, Pokoj 302, dialektika vně a uvnitř)

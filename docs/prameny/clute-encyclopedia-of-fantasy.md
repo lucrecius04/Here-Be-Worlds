@@ -45,6 +45,7 @@
 - *Anatomie herního lore* a Teoretické zázemí: oddíl „Clute: řídnutí a uzdravení“, tabulka pojmů, Zdroje
 - *Na mrtvole boha*: závěr (uzdravení vs. řídnutí, Impérium jako parodie), Zdroje
 - Esej ke stezce Kdo se to probudil? (`content/trails/kdo-se-to-probudil.md`, čeká na schválení): kořeny (amnézie jako řídnutí, rozpoznání), typologie (rozpoznání proti pojmovému průlomu)
+- Esej ke stezce Netvor v zrcadle (`content/trails/netvor-v-zrcadle.md`, čeká na schválení): závěr (řídnutí, rozpoznání, uzdravení; Undertale proti ostatním)
 
 ## Dočíst (podle potřeby)
 
