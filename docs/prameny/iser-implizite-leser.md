@@ -54,6 +54,7 @@ Smysl románu není v textu hotový, **odehrává se ve čtenáři**. Román př
 - Rozcestník, Prameny podle stezek: Uvězněni v kruhu, Hra ví, že ji hraješ, Křehká hranice svobodné vůle
 - Esej ke stezce Křehká hranice svobodné vůle (`content/trails/krehka-hranice-svobodne-vule.md`): kořeny (role čtenáře jako rámec voleb, implicitní čtenář)
 - Esej ke stezce Uvězněni v kruhu (`content/trails/uvezneni-v-kruhu.md`): Tři podoby (Kermodovy fikce souladu)
+- Esej ke stezce Hra ví, že ji hraješ (`content/trails/hra-vi-ze-ji-hrajes.md`, čeká na schválení): Skleněná stěna mezi iluzí a hrou (divák jako jediná skutečná osoba hry: Beckett)
 
 ## Dočíst
 
