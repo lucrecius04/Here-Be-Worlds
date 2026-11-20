@@ -35,6 +35,7 @@ Pojmy, se kterými pracujeme, nejsou naše. Přicházejí ze šesti oblastí: z 
 | Řídnutí a uzdravení | John Clute, *The Encyclopedia of Fantasy* (1997) | Svět ztrácí sílu, kterou kdysi měl, a zdravá země se mění v parodii sebe sama. Šťastný konec bývá obnovou toho, co se ztratilo dávno před začátkem příběhu. |
 | Mysterium tremendum et fascinans | Rudolf Otto, *Posvátno* (1917) | Posvátno děsí a zároveň přitahuje. Je „zcela jiné“, nepatří do řádu světa a rozumem se nedá uchopit. |
 | Autentizace, mezera, fikční encyklopedie | Lubomír Doležel, *Heterocosmica* (1998) | Fikční svět je možný svět, který text uvede do existence. Fakty jsou jen to, co svět autoritativně potvrdí; je neúplný a jeho vědění se liší od encyklopedie skutečného světa. |
+| Ponoření a interaktivita, přecentrování | Marie-Laure Ryanová, *Narrative as Virtual Reality* (2001) | Fikce nás pohltí, když svět získá přítomnost samostatné skutečnosti. Interaktivita dělá z textu hru; obojí se těžko slučuje. |
 | Podivné a tísnivé | Mark Fisher, *The Weird and the Eerie* (2016) | Podivné je přítomnost něčeho, co nepatří. Tísnivé je něco tam, kde by nemělo být nic, nebo nic tam, kde by mělo být něco, a otázka, kdo tu jednal. |
 | Vznešená a zkrocená monstrozita | Jaroslav Švelch, *Player vs. Monster* (2023) | Herní monstra jsou simulovaná a navržená, aby prohrála. Co se dá spočítat a porazit, ztrácí tajemství. |
 | Obětní beránek, zakládající vražda | René Girard, *Obětní beránek* (1982) | Mýty vyprávějí o kolektivním násilí z pohledu pronásledovatelů. Oběť je napřed vinná krizí, po smrti uctívaná jako zachránce, a z toho dvojího přenosu vzniká posvátno. |
@@ -74,6 +75,10 @@ Na monografii navazuje antologie *Revisiting Imaginary Worlds* (2017), kterou Wo
 Lubomír Doležel, český literární teoretik působící v Torontu, v knize *Heterocosmica* (1998) odmítá představu, že fikce napodobuje skutečnost. Fikční svět je podle něj **možný svět**, který text uvede do existence, a má vlastní zákony. Proto podle Doležela není důvod mít jednu teorii pro realistický román a druhou pro fantasy. Pro atlas je to důležitá opora: herní světy nejsou méně literární jen proto, že jsou fantastické.
 
 Tři Doleželovy pojmy používáme v rozborech skoro denně. **Autentizace** určuje, co ve světě skutečně je: co ukáže vypravěč, je fakt, co tvrdí postavy, je jen jejich verze. Elder Scrolls stojí celé na neautentizovaných knihách ve hře, které si odporují, a proto v něm pravda existuje jen ve stupních. Rámeček **Jak se to vykládá** v kronikách je mapa právě téhle šedé zóny. **Fikční encyklopedie** je vědění o konkrétním světě, které se liší od toho našeho, a bez ní se ve světě nedá správně uvažovat. Tomu v kronikách slouží **Faktografie**. A **mytologický svět** popisuje Doležel jako dvě oddělené domény, kde lidé znají bohy jen z protichůdných zpráv proroků a písařů a mýtus se posiluje tím, jak se dál vypráví. To je přesný portrét Elder Scrolls, Dark Souls i Pathfinderu.
+
+### Ryanová: ponoření a interaktivita
+
+Literární teoretička Marie-Laure Ryanová v knize *Narrative as Virtual Reality* (2001) navázala na teorii možných světů a položila proti sobě dva ideály. **Ponoření** nastává, když fikční svět získá přítomnost samostatné skutečnosti, kterou obývají živé bytosti; čtenář při tom podle teorie možných světů „přecentruje“ svůj vesmír možností kolem nového aktuálního světa. **Interaktivita** chápe text jako hru a čtenáře jako hráče. Ponoření přitom není pasivní: svět si v hlavě stavíme sami, v prostoru, v čase a s postavami, a proto Ryanová rozlišuje ponoření prostorové, časové a citové. Pro atlas je cenná zejména její úvaha o prostoru. Jazyk odhaluje zeměpis světa jen postupně, a nejrychleji ho do mysli přivolají vlastní jména míst; jediné jméno, Sigil nebo Rapture, nás přenese do krajiny dřív, než ji popíšeme. A užitečné je i její rozlišení mezi aktuálním světem textu a světy, které si stavějí postavy ve svých snech a přesvědčeních: na tom stojí světy s nespolehlivým vypravěčem. Ryanová nakonec doporučuje ponoření a interaktivitu spíš střídat než slučovat. Kapitoly, v nichž rozebírá interaktivitu ve hrách, jsme zatím neměli k dispozici.
 
 ### Iser: prázdná místa
 
@@ -257,8 +262,7 @@ Několik autorů má známé slabiny a v textech na ně upozorňujeme. René Gir
 
 Knihy, které by metodu dál prohloubily a ke kterým se chceme dostat:
 
-- **Celé čtení klasiků, které zatím známe z druhé ruky:** Tolkien, *O pohádkách*; Aarseth, *Cybertext*; Otto, *Posvátno*; Clute a Grant, *The Encyclopedia of Fantasy* (hesla nad rámec řídnutí a uzdravení).
-- **Marie-Laure Ryanová: *Narrative as Virtual Reality* (2001).** Ponoření a interaktivita jako dva póly; most mezi teorií možných světů a hrami.
+- **Celé čtení klasiků, které zatím známe z druhé ruky:** Tolkien, *O pohádkách*; Aarseth, *Cybertext*; Otto, *Posvátno*; Clute a Grant, *The Encyclopedia of Fantasy* (hesla nad rámec řídnutí a uzdravení); Ryanová, *Narrative as Virtual Reality* (kapitoly o interaktivitě).
 
 ## Zdroje
 
@@ -300,6 +304,7 @@ Knihy, které by metodu dál prohloubily a ke kterým se chceme dostat:
 - John Clute, John Grant (eds.): *The Encyclopedia of Fantasy*, Orbit 1997 (online na sf-encyclopedia.com).
 - Rudolf Otto: *The Idea of the Holy*, přel. John W. Harvey, Oxford University Press 1923.
 - Lubomír Doležel: *Heterocosmica: Fiction and Possible Worlds*, Johns Hopkins University Press 1998; česky *Heterocosmica. Fikce a možné světy*, Karolinum 2003.
+- Marie-Laure Ryan: *Narrative as Virtual Reality: Immersion and Interactivity in Literature and Electronic Media*, Johns Hopkins University Press 2001.
 - Mark Fisher: *The Weird and the Eerie*, Repeater Books 2016.
 - Jaroslav Švelch: *Player vs. Monster: The Making and Breaking of Video Game Monstrosity*, MIT Press 2023.
 - René Girard: *Obětní beránek* (Le Bouc émissaire, 1982), Nakladatelství Lidové noviny 1997; anglicky *The Scapegoat*, Johns Hopkins University Press 1986.
