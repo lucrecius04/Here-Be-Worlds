@@ -46,3 +46,4 @@ Beztvarost, okraje a přechody systém ohrožují, ale zároveň v nich leží n
 ## Kde už je použito
 
 - Teoretické zázemí: oddíl „Douglasová: čistota, anomálie a okraje“, tabulka pojmů, Zdroje
+- *Kdo za to může?* (esej ke stezce, čeká na schválení): Anatomie podezření (věc na nepatřičném místě, meziprostory, Mandariové, Jana z Arku, Azandové a sýpka), Pathologic (Mnohostěn, Klára), Dishonored (Plačky, Opatství Všedního dne), Zaklínač (meziprostorová skupina), Dragon Age (mágové jako nebezpečná anomálie), Zdroje

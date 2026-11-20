@@ -46,3 +46,4 @@ Z hlediska teorie světů a her přináší svazek pět zásadních prohloubení
 ## Kde už je použito
 
 - Teoretické zázemí: oddíl Wolf (druhý odstavec), tabulka pojmů, Zdroje
+- *Kdo za to může?* (esej ke stezce, čeká na schválení): Pentiment (Fimi: minulost jako druhotný svět), Proč hry rozbíjejí pohled davu (Schut: mlha v Silent Hillu), Zdroje

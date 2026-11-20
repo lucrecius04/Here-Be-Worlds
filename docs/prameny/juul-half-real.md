@@ -25,3 +25,4 @@
 ## Kde už je použito
 
 - *Anatomie herního lore*: oddíl „Juul: test převyprávění“, tabulka pojmů (Pravidla a fikce), Zdroje
+- *Kdo za to může?* (esej ke stezce, čeká na schválení): Proč hry rozbíjejí pohled davu (test převyprávění, Systém Chaosu v Dishonored), Zdroje

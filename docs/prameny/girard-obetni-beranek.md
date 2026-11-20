@@ -45,14 +45,15 @@ Kde se v textu sejdou aspoň dva až tři, můžeme tušit skutečné pronásled
   - **Warhammer 40 000:** Teotihuacan. Bůh-Císař potřebuje každý den tisíc psykerů, jinak maják zhasne. Inkvizice a hony na mutanty a psykery = stereotypy pronásledování (deformace a „nečistota“ jako znamení oběti).
 - **Hry vyprávějí z pohledu oběti.** Girard tvrdí, že moderní texty mechanismus odhalují. Silné herní světy dávají hráči do ruky právě obětního beránka:
   - **Pathologic:** mor, Haruspex přijíždí vlakem a hned je obviněn z otcovraždy a prchá před lynčem. Je to Oidipus beze změny (cizinec i syn, krize, otcovražda, dav). Na konci se staré město obětuje, aby přežila věž.
-  - **Dishonored:** krysí mor, císařovna zavražděna a vinu dostane Corvo (zločin proti panovníkovi). Opatství loví čarodějnice.
+  - **Dishonored:** krysí mor, císařovna zavražděna a vinu dostane Corvo (zločin proti panovníkovi). Opatství Všedního dne stojí proti čarodějnictví a vlivu Cizince.
   - **Pentiment:** mnich Piero obviněn z vraždy barona, opat potřebuje rychlého obětního beránka, hra nikdy neřekne, kdo byl vrah.
-  - **The Witcher:** Geralt probodnut vidlemi při pogromu v Rivii, Letho zabije krále Foltesta a vinu hodí na Geralta, Radovid upaluje čaroděje a nelidi. Zaklínači jsou mutanti, cizinci a zároveň potřební: prokletí a požehnaní.
+  - **Zaklínač:** Geralt probodnut vidlemi při pogromu v Rivii, Letho zabije krále Foltesta a vinu hodí na Geralta, Radovid upaluje čaroděje a nelidi. Zaklínači jsou mutanti, cizinci a zároveň potřební: prokletí a požehnaní.
   - **Bloodborne:** Velicí jsou zdrojem léku i nemoci. Krev boha léčí a mění v bestie (dvojí přenos v mechanice). Kos jako oběť, jejíž zohavení vyvolá kletbu.
 - **Monstrum jako rozpad rozdílů** se dobře doplňuje se Švelchem a Carrollem (fúze a fise): monstrum je člověk, který ztratil rozdíl.
-- **Stezka „Kdo za to může?“** (přidána 2026-11-19 na Girardův podnět): Pathologic, Dishonored, Pentiment, Silent Hill, The Witcher, Dragon Age. Girard je pro její esej hlavní pramen. Majitel chce výhradu k Girardovu redukcionismu v textu zmínit.
+- **Stezka „Kdo za to může?“** (přidána 2026-11-19 na Girardův podnět): Pathologic, Dishonored, Pentiment, Silent Hill, Zaklínač, Dragon Age. Girard je pro její esej hlavní pramen. Majitel chce výhradu k Girardovu redukcionismu v textu zmínit.
 
 ## Kde už je použito
 
 - *Na mrtvole boha*: Nejstarší obraz světa (Teotihuacan, mýty o roztrhaném bohu jako zakládající vražda), Elder Scrolls (dvojí přenos), Warhammer 40 000 (bůh, který potřebuje oběti), Zdroje
 - *Anatomie herního lore*: oddíl „Girard: zakládající vražda“, tabulka pojmů, Zdroje
+- *Kdo za to může?* (esej ke stezce, čeká na schválení): Anatomie podezření (čtyři stereotypy, Oidipus a vesnice s vidlemi, kulturní schizofrenie, dvojí přenos, Kaifášova logika, výhrada k redukcionismu), všech šest světů, Zdroje

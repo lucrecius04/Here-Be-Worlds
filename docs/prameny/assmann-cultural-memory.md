@@ -1,7 +1,7 @@
 # Aleida Assmann: Cultural Memory and Western Civilization
 
 **Bibliografie:** Aleida Assmann, *Erinnerungsräume: Formen und Wandlungen des kulturellen Gedächtnisses*, C. H. Beck 1999; anglicky *Cultural Memory and Western Civilization: Functions, Media, Archives*, Cambridge University Press 2011. Česky nevyšlo (ověřit, pokud budeme citovat český název).
-**Pozor na záměnu:** nejde o *Kulturu a paměť* (*Das kulturelle Gedächtnis*, 1992, česky Prostor 2001) jejího manžela Jana Assmanna, který zavedl pojmy komunikativní a kulturní paměť. Tu jsme nečetli. Aleida na Jana navazuje a obě knihy se doplňují.
+**Pozor na záměnu:** nejde o *Kulturu a paměť* (*Das kulturelle Gedächtnis*, 1992, česky Prostor 2001) jejího manžela Jana Assmanna, který zavedl pojmy komunikativní a kulturní paměť; její výtah je v [assmann-jan-kultura-a-pamet.md](assmann-jan-kultura-a-pamet.md). Aleida na Jana navazuje a obě knihy se doplňují.
 **Studováno:** 2026-11-19 z anglického PDF dodaného majitelem (OCR místy poškozené). Přečteno: úvodní oddíl o paměti jako *ars* a *vis*, kapitola Funkční a úložná paměť (celá, včetně úkolů obou pamětí), z části o médiích kapitola Místa (Paměť míst, Generační místa, Pausanias, Genius loci: ruiny a nekromancie, Místa traumatu), závěr. Vynechané pasáže: Shakespearovy historické hry a národní paměť, metafory paměti, písmo a obraz jako média, tělo, archiv a umělecké instalace (Kiefer, Boltanski, Sigurdsson) jsou jen prolistované.
 
 ## Hlavní teze
@@ -41,3 +41,4 @@ Kulturní paměť si společnosti budují pomocí médií (písmo, obraz, tělo,
 
 - *Anatomie herního lore*: oddíl „Assmannová: funkční a úložná paměť“, tabulka pojmů, Zdroje
 - *Na mrtvole boha*: Warhammer 40 000 (oficiální paměť a kniha zrádce), Zdroje
+- *Kdo za to může?* (esej ke stezce, čeká na schválení): Silent Hill (místo traumatu), Tři role kolem obětního kruhu (funkční a úložná paměť), Zdroje

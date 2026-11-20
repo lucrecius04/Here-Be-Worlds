@@ -47,3 +47,4 @@ Ve 20. století se podle Todorova tento klasický model obrací naruby. U Franze
 ## Kde už je použito
 
 - Teoretické zázemí: oddíl „Todorov: fantastično jako váhání“, tabulka pojmů, Zdroje
+- *Kdo za to může?* (esej ke stezce, čeká na schválení): Proč hry rozbíjejí pohled davu (detektivka vedoucí k jedinému řešení proti Pentimentu), Zdroje
