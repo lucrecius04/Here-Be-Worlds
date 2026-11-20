@@ -38,10 +38,11 @@ Dva až čtyři odstavce vlastními slovy.
 
 ## Knihy, které chceme nastudovat
 
-Hotové výtahy (už nečíst znovu): Mendlesohn a James, *A Short History of Fantasy* (2026-11-20); Murrayová, *Hamlet on the Holodeck* (2026-11-20); Bachelard, *Poetika prostoru* (2026-11-20); Jenkins, *Convergence Culture* (2026-11-20); Wolf (ed.), *Revisiting Imaginary Worlds* (2026-11-20); Jan Assmann, *Kultura a paměť* (2026-11-20); Todorov, *Úvod do fantastické literatury* (2026-11-20); Douglasová, *Čistota a nebezpečí* (2026-11-20); Turner, *Průběh rituálu* (2026-11-20); Calleja, *In-Game* (2026-11-20); Ryanová, *Narrative as Virtual Reality* (2026-11-20, jen kap. 3–4; kap. 5–10 dočíst); Aarseth, *Cybertext* (2026-11-20); Tolkien, *O pohádkách* (2026-11-20); Otto, *Posvátno* celé (2026-11-20).
+Hotové výtahy (už nečíst znovu): Mendlesohn a James, *A Short History of Fantasy* (2026-11-20); Murrayová, *Hamlet on the Holodeck* (2026-11-20); Bachelard, *Poetika prostoru* (2026-11-20); Jenkins, *Convergence Culture* (2026-11-20); Wolf (ed.), *Revisiting Imaginary Worlds* (2026-11-20); Jan Assmann, *Kultura a paměť* (2026-11-20); Todorov, *Úvod do fantastické literatury* (2026-11-20); Douglasová, *Čistota a nebezpečí* (2026-11-20); Turner, *Průběh rituálu* (2026-11-20); Calleja, *In-Game* (2026-11-20); Ryanová, *Narrative as Virtual Reality* (2026-11-20, jen kap. 3–4; kap. 5–10 dočíst); Aarseth, *Cybertext* (2026-11-20); Tolkien, *O pohádkách* (2026-11-20); Otto, *Posvátno* celé (2026-11-20); Clute a Grant, hesla Clutovy gramatiky fantasy (2026-11-20).
 
 U každé knihy: co číst, na co se soustředit a ke kterým stezkám a světům se hodí.
 
 ### Doplnit plným čtením (zatím známe z druhé ruky)
 
-- **John Clute, John Grant: *The Encyclopedia of Fantasy*** (1997): další hesla kromě řídnutí (Wrongness, Recognition, Healing, Polder, Land, Parody).
+- Marie-Laure Ryanová: *Narrative as Virtual Reality*, kap. 5–10 (interaktivita); Tolkien, Aarseth, Otto a Clute jsou od 2026-11-20 čteni z knih.
+

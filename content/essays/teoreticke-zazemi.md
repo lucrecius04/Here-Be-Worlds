@@ -32,7 +32,7 @@ Pojmy, se kterými pracujeme, nejsou naše. Přicházejí ze šesti oblastí: z 
 | Imaginární světy | Mark J. P. Wolf, *Building Imaginary Worlds* (2012) | Svět není jen pozadí příběhu. Často přesahuje jeden příběh, médium i autora. |
 | Přetékání, shlukování, virtuální hmatatelnost | Mark J. P. Wolf (ed.), *Revisiting Imaginary Worlds* (2017) | Velký svět má víc údajů, než pojme paměť, ale dá se číst, protože se skládá do celků. Ve hrách mu váhu dodává i to, že se věcí dá „dotknout“ (Kevin Schut). |
 | Fantastično jako váhání, podivné a zázračné | Tzvetan Todorov, *Úvod do fantastické literatury* (1970) | Fantastično trvá, dokud čtenář váhá mezi přirozeným a nadpřirozeným výkladem. Jakmile rozhodne, dílo přejde do podivného, nebo do zázračného. |
-| Řídnutí a uzdravení | John Clute, *The Encyclopedia of Fantasy* (1997) | Svět ztrácí sílu, kterou kdysi měl, a zdravá země se mění v parodii sebe sama. Šťastný konec bývá obnovou toho, co se ztratilo dávno před začátkem příběhu. |
+| Spoutání, porucha, řídnutí, rozpoznání, uzdravení, polder | John Clute, *The Encyclopedia of Fantasy* (1997) | Svět ztrácí sílu, kterou kdysi měl, a zdravá země se mění v parodii sebe sama. Šťastný konec bývá obnovou toho, co se ztratilo dávno před začátkem příběhu. |
 | Mysterium tremendum et fascinans | Rudolf Otto, *Posvátno* (1917) | Posvátno děsí a zároveň přitahuje. Je „zcela jiné“, nepatří do řádu světa a rozumem se nedá uchopit. |
 | Autentizace, mezera, fikční encyklopedie | Lubomír Doležel, *Heterocosmica* (1998) | Fikční svět je možný svět, který text uvede do existence. Fakty jsou jen to, co svět autoritativně potvrdí; je neúplný a jeho vědění se liší od encyklopedie skutečného světa. |
 | Ponoření a interaktivita, přecentrování | Marie-Laure Ryanová, *Narrative as Virtual Reality* (2001) | Fikce nás pohltí, když svět získá přítomnost samostatné skutečnosti. Interaktivita dělá z textu hru; obojí se těžko slučuje. |
@@ -99,6 +99,8 @@ Todorovova definice je úzká a pozdější teoretici fantasy ji rozšířili. P
 *Encyklopedie fantasy*, kterou v roce 1997 vydali John Clute a John Grant, dala žánru slovník, s nímž dnes kritika běžně pracuje. Clute popisuje „plnou fantasy“ jako pohyb ve čtyřech fázích: porucha (*wrongness*), řídnutí (*thinning*), rozpoznání (*recognition*) a uzdravení (*healing*). Nejdůležitější je pro nás řídnutí. Svět ztrácí sílu, magii a smysl, kterými kdysi oplýval, a zdravá země se mění v parodii sebe sama. Většina fantasy je podle Cluta příběhem návratu: šťastný konec bývá obnovou něčeho, co se zmenšilo dávno předtím, než příběh začal.
 
 Pro herní světy je to přesný popis třetího pilíře. Dark Souls dělá z řídnutí mechaniku: oheň slábne, říše se rozpadají a hráč přichází do věku, kdy zbývá jen popel. Elden Ring, Pillars of Eternity i Warhammer 40 000 začínají dlouho po vrcholu svého světa. Rozdíl mezi světy pak neleží v tom, jestli řídnou, ale jestli dovolí uzdravení. Kde je uzdravení možné, má svět naději. Kde se řídnutí jen zpomaluje, převládne zoufalství. Tuhle hranici atlas zachycuje na souřadnici Vyhlídka.
+
+Přesněji Clute popisuje fantasy jako zasloužený přechod ze **spoutání** přes **rozpoznání** do **uzdravení**. Porucha a řídnutí jsou znamení výchozího spoutání: svět se vychýlil a mizí z něj bytí. Ve chvíli rozpoznání hrdina pochopí, že je v Příběhu a že ho „Příběh vyprávěl“. A Clute tím vymezuje i sousední žánry: nadpřirozená fikce se soustředí na poruchu, která přichází zvenčí a dá se vyhnat, horor na řídnutí, kdy se tělo i svět rozkládají až k zoufalství, často bez rozuzlení. Pro atlas jsou užitečné ještě dva pojmy. **Polder** je enkláva zesílené reality, jejíž hranice někdo vědomě udržuje proti okolnímu úpadku; „poldery se mění, jen když jsou požírány zvenčí“, jako Vaulty ve Falloutu nebo Ohnivá svatyně v Dark Souls. A **země** je místo, jehož osud je ústředním tématem děje a které je v nějakém smyslu živé, jako step v Pathologicu, živé tělo matky Bodcho.
 
 ### Mendlesohn: kudy do světa vstupuje fantastično
 
@@ -256,7 +258,7 @@ Spisovatel Brandon Sanderson (2007): magie smí řešit zápletku jen tehdy, kdy
 
 ## Jak s prameny pracujeme
 
-Teorie je pro nás nástroj, ne dogma. Knihy, o které se opírá většina výkladu, jsme přečetli a sepsali si z nich výtahy: pojmy, příklady a to, co z nich plyne pro herní světy. Kde pramen známe jen zčásti nebo z druhé ruky (Suvin, Iser, z Clutovy encyklopedie vybraná hesla), opíráme se o encyklopedická hesla a výklady, které uvádíme ve zdrojích.
+Teorie je pro nás nástroj, ne dogma. Knihy, o které se opírá většina výkladu, jsme přečetli a sepsali si z nich výtahy: pojmy, příklady a to, co z nich plyne pro herní světy. Kde pramen známe jen zčásti nebo z druhé ruky (Suvin, Iser), opíráme se o encyklopedická hesla a výklady, které uvádíme ve zdrojích.
 
 Několik autorů má známé slabiny a v textech na ně upozorňujeme. René Girard vidí ve všem jedinou teorii obětního beránka, a proto ho používáme jako ostrý nástroj vedle ostatních, ne jako klíč ke všemu. Mircea Eliade zobecňuje „archaického člověka“ napříč kulturami a jeho závěr o víře je teologický, takže ho uvádíme jako jeho stanovisko. Farah Mendlesohn sama varuje, že její kategorie nejsou pravidla, a teorie, která tvrdí, že platí na všechno, podle ní nestojí za nic. To platí i pro náš atlas.
 
@@ -264,7 +266,7 @@ Několik autorů má známé slabiny a v textech na ně upozorňujeme. René Gir
 
 Knihy, které by metodu dál prohloubily a ke kterým se chceme dostat:
 
-- **Celé čtení klasiků, které zatím známe z druhé ruky:** Clute a Grant, *The Encyclopedia of Fantasy* (hesla nad rámec řídnutí a uzdravení); Ryanová, *Narrative as Virtual Reality* (kapitoly o interaktivitě).
+- **Dočíst:** Ryanová, *Narrative as Virtual Reality* (kapitoly o interaktivitě); původní texty Suvina a Isera, které známe z druhé ruky.
 
 ## Zdroje
 
