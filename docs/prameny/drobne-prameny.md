@@ -33,7 +33,7 @@ Citované v *Anatomii herního lore* dřív, než vznikla tato složka, a čten�
 
 - **Wolfgang Iser:** prázdná místa textu (estetika recepce). Doležel s ním polemizuje (viz [dolezel-heterocosmica.md](dolezel-heterocosmica.md)).
 - **Henry Jenkins:** *Game Design as Narrative Architecture* (2004). Herní svět jako paměťový palác, prostorové vyprávění.
-- **Espen Aarseth:** *Cybertext* (1997). Ergodická literatura.
+- **Espen Aarseth:** *Cybertext* (1997). Ergodická literatura. Od 2026-11-20 čteno z knihy, viz [aarseth-cybertext.md](aarseth-cybertext.md).
 - **J. R. R. Tolkien:** *O pohádkách* (1939). Druhotný svět, subkreace. K tomu dopis z roku 1954 o nevysvětlených věcech.
 - **Darko Suvin:** *Metamorphoses of Science Fiction* (1979). Novum.
 - **Clint Hocking:** ludonarativní nesoulad (2007).

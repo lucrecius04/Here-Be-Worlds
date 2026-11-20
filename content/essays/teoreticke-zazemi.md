@@ -18,7 +18,7 @@ Pojmy, se kterými pracujeme, nejsou naše. Přicházejí ze šesti oblastí: z 
 | Subkreace, druhotný svět | J. R. R. Tolkien, *O pohádkách* (1939) | Autor tvoří druhotný svět, jehož události jsou pravdivé podle vlastních zákonů. Konzistence je důležitější než realismus. |
 | Novum | Darko Suvin, *Metamorphoses of Science Fiction* (1979) | Sci-fi stojí na jedné novince, která naruší známou skutečnost. Teoretické jméno pro pravidlo jednoho zázraku. |
 | Fabule a syžet | Ruský formalismus (Šklovskij, Tomaševskij) | Události v chronologickém pořadí a pořadí, v němž se je dozvídáme. |
-| Ergodická literatura | Espen Aarseth, *Cybertext* (1997) | Text, jímž je třeba se netriviálně „prokousat“. Pravda je odměnou za úsilí. |
+| Ergodická literatura, aporie a epifanie | Espen Aarseth, *Cybertext* (1997) | Text, jímž je třeba se netriviálně „prokousat“: slepé uličky a naplánovaná odhalení. Pravda je odměnou za úsilí. |
 | Ponoření, jednání, proměna, procedurální autorství | Janet H. Murrayová, *Hamlet on the Holodeck* (1997) | Digitální médium je procedurální, participativní, prostorové a encyklopedické. Aktivita ještě není jednání a autor tvoří pravidla a morální fyziku světa. |
 | Zapojení, alterbiografie, tažený příběh, začlenění | Gordon Calleja, *In-Game* (2011) | Hráč se do světa „neponoří“, ale přisvojí si ho do vědomí a zároveň je do něj začleněn přes avatara. Vedle napsaného příběhu vzniká příběh hraním. |
 | Narativní architektura | Henry Jenkins (2004) | Herní svět jako „paměťový palác“ se čtyřmi typy prostorového vyprávění. |
@@ -124,7 +124,7 @@ Henry Jenkins v textu *Game Design as Narrative Architecture* (2004) popsal hern
 V knize *Convergence Culture* (2006) Jenkins tento pohled rozšířil za hranice jedné hry. Pojmenoval **transmediální vyprávění**: velký svět (jeho vzorem je *Matrix*) se rozkládá napříč filmy, hrami, komiksy a animacemi tak, že každé médium přidá vlastní vrstvu a nikdo nemusí znát všechno. Detail dodaný jinde může zpětně proměnit význam hlavního díla; herní producent Neil Young tomu říká **přidané porozumění** podle origami jednorožce z režisérského sestřihu *Blade Runnera*. Protože takto rozrostlý svět jeden člověk neobsáhne, skládají ho dohromady komunity fanoušků jako **kolektivní inteligence** (pojem Pierra Lévyho). Jenkins také odlišil interaktivitu, kterou předem vymezí designér, od participace, kterou si řídí sami hráči: wiki, debaty, mody. Pro atlas je to klíč ke kánonu světů rozkročených mezi médii, jako je Warhammer 40 000, Zaklínač nebo Fallout, jehož seriál navazuje přímo na hry. A vysvětluje, proč mezery Dark Souls nebo Elder Scrolls drží komunity pohromadě roky po vydání. Jenkins se sám hlásí ke „kritickému utopismu“ a knihu psal jako fanoušek; moc korporací nad sdílenými světy proto spíš popisuje, než aby ji zpochybňoval.
 ### Aarseth: ergodický text
 
-Espen Aarseth v knize *Cybertext* (1997) nazval ergodickým text, kterým se čtenář musí netriviálně prokousat: musí volit, hledat, zkoušet. Pravda je tu odměnou za úsilí. To je výchozí bod pro všechny světy, které lore schovávají do popisků předmětů a nespolehlivých zdrojů.
+Norský teoretik Espen Aarseth v knize *Cybertext* (1997) nazval **ergodickým** text, jehož průchod vyžaduje netriviální úsilí: román stačí číst očima a obracet stránky, ergodický text musíte volit, hledat a zkoušet. Čtenář románu je podle něj jako cestující ve vlaku, který může krajinu vykládat, ale koleje nepřeloží; hráč nese riziko, že ho text odmítne, a výklad se u něj mění v zásah. Literární teoretici prý zaměňují proměnlivý výraz hry za víceznačnost románu: každá volba něco zpřístupní a něco uzavře a hráč často neví, o co přišel. Základní dvojici ergodického textu Aarseth nazývá **aporie a epifanie**: slepá ulička, odkud nevede cesta, a naplánovaný detail, který náhle otevře cestu ven. To je přesný popis světů, které lore schovávají do popisků předmětů a nespolehlivých zdrojů. Úspěšné ergodické dílo ale podle Aarsetha musí zároveň nabízet cestu k objevu, jinak hráč vzdá; proto v atlasu trváme na tom, že stopy musí ležet v díle. Aarseth patří k zakladatelům proudu, který odmítá číst hry jako vyprávění, a jeho příklady jsou textové adventury a hypertexty devadesátých let; používáme ho jako protiváhu k narativním teoriím.
 
 ### Murrayová: ponoření, jednání a procedurální autorství
 
@@ -254,7 +254,7 @@ Spisovatel Brandon Sanderson (2007): magie smí řešit zápletku jen tehdy, kdy
 
 ## Jak s prameny pracujeme
 
-Teorie je pro nás nástroj, ne dogma. Knihy, o které se opírá většina výkladu, jsme přečetli a sepsali si z nich výtahy: pojmy, příklady a to, co z nich plyne pro herní světy. Kde pramen známe jen zčásti nebo z druhé ruky (Tolkien, Suvin, Iser, Aarseth, z Clutovy encyklopedie vybraná hesla, z Ottova *Posvátna* klíčová kapitola), opíráme se o encyklopedická hesla a výklady, které uvádíme ve zdrojích.
+Teorie je pro nás nástroj, ne dogma. Knihy, o které se opírá většina výkladu, jsme přečetli a sepsali si z nich výtahy: pojmy, příklady a to, co z nich plyne pro herní světy. Kde pramen známe jen zčásti nebo z druhé ruky (Tolkien, Suvin, Iser, z Clutovy encyklopedie vybraná hesla, z Ottova *Posvátna* klíčová kapitola), opíráme se o encyklopedická hesla a výklady, které uvádíme ve zdrojích.
 
 Několik autorů má známé slabiny a v textech na ně upozorňujeme. René Girard vidí ve všem jedinou teorii obětního beránka, a proto ho používáme jako ostrý nástroj vedle ostatních, ne jako klíč ke všemu. Mircea Eliade zobecňuje „archaického člověka“ napříč kulturami a jeho závěr o víře je teologický, takže ho uvádíme jako jeho stanovisko. Farah Mendlesohn sama varuje, že její kategorie nejsou pravidla, a teorie, která tvrdí, že platí na všechno, podle ní nestojí za nic. To platí i pro náš atlas.
 
@@ -262,7 +262,7 @@ Několik autorů má známé slabiny a v textech na ně upozorňujeme. René Gir
 
 Knihy, které by metodu dál prohloubily a ke kterým se chceme dostat:
 
-- **Celé čtení klasiků, které zatím známe z druhé ruky:** Tolkien, *O pohádkách*; Aarseth, *Cybertext*; Otto, *Posvátno*; Clute a Grant, *The Encyclopedia of Fantasy* (hesla nad rámec řídnutí a uzdravení); Ryanová, *Narrative as Virtual Reality* (kapitoly o interaktivitě).
+- **Celé čtení klasiků, které zatím známe z druhé ruky:** Tolkien, *O pohádkách*; Otto, *Posvátno*; Clute a Grant, *The Encyclopedia of Fantasy* (hesla nad rámec řídnutí a uzdravení); Ryanová, *Narrative as Virtual Reality* (kapitoly o interaktivitě).
 
 ## Zdroje
 
@@ -284,7 +284,6 @@ Knihy, které by metodu dál prohloubily a ke kterým se chceme dostat:
 
 - [Henry Jenkins: Game Design as Narrative Architecture](https://web.mit.edu/~21fms/People/henry3/games&narrative.html)
 - Henry Jenkins: *Convergence Culture: Where Old and New Media Collide*, New York University Press 2006.
-- [Ergodic literature (Espen Aarseth, Cybertext)](https://en.wikipedia.org/wiki/Ergodic_literature)
 - [Jesper Juul: Half-Real](https://www.jesperjuul.net/ludologist/2005/11/28/half-real-the-book-is-here/)
 - [Rhizomes: recenze knihy Iana Bogosta Persuasive Games](https://rhizomes.net/issue19/reviews/zhang.html)
 - [Clint Hocking: Ludonarrative Dissonance in Bioshock](https://clicknothing.com/2007/10/07/ludonarrative-d)
