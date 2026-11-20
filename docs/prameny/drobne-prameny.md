@@ -35,7 +35,7 @@ Citované v *Anatomii herního lore* dřív, než vznikla tato složka, a čten�
 - **Henry Jenkins:** *Game Design as Narrative Architecture* (2004). Herní svět jako paměťový palác, prostorové vyprávění.
 - **Espen Aarseth:** *Cybertext* (1997). Ergodická literatura. Od 2026-11-20 čteno z knihy, viz [aarseth-cybertext.md](aarseth-cybertext.md).
 - **J. R. R. Tolkien:** *O pohádkách* (1939). Druhotný svět, subkreace. K tomu dopis z roku 1954 o nevysvětlených věcech. Od 2026-11-20 čteno z textu, viz [tolkien-o-pohadkach.md](tolkien-o-pohadkach.md).
-- **Darko Suvin:** *Metamorphoses of Science Fiction* (1979). Novum.
+- **Darko Suvin:** *Metamorphoses of Science Fiction* (1979). Novum. Od 2026-11-20 vlastní výtah: [suvin-metamorphoses-of-science-fiction.md](suvin-metamorphoses-of-science-fiction.md).
 - **Clint Hocking:** ludonarativní nesoulad (2007).
 - **Harvey Smith a Matthias Worch:** prostorové vyprávění (GDC 2010).
 - **Brandon Sanderson:** první zákon magie (2007).

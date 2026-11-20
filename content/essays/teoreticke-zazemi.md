@@ -16,7 +16,7 @@ Pojmy, se kterými pracujeme, nejsou naše. Přicházejí ze šesti oblastí: z 
 | Pojem | Zdroj | Co tvrdí |
 |---|---|---|
 | Subtvorba, druhotný svět a druhotná víra, eukatastrofa | J. R. R. Tolkien, *O pohádkách* (1939) | Autor tvoří druhotný svět, jehož události jsou pravdivé podle vlastních zákonů. Konzistence je důležitější než realismus. |
-| Novum | Darko Suvin, *Metamorphoses of Science Fiction* (1979) | Sci-fi stojí na jedné novince, která naruší známou skutečnost. Teoretické jméno pro pravidlo jednoho zázraku. |
+| Kognitivní odcizení, novum | Darko Suvin, *Metamorphoses of Science Fiction* (1979) | Sci-fi ukáže známý svět cizíma očima a novinka, která ovládne celé vyprávění, musí obstát před rozumem. |
 | Fabule a syžet | Ruský formalismus (Šklovskij, Tomaševskij) | Události v chronologickém pořadí a pořadí, v němž se je dozvídáme. |
 | Ergodická literatura, aporie a epifanie | Espen Aarseth, *Cybertext* (1997) | Text, jímž je třeba se netriviálně „prokousat“: slepé uličky a naplánovaná odhalení. Pravda je odměnou za úsilí. |
 | Ponoření, jednání, proměna, procedurální autorství | Janet H. Murrayová, *Hamlet on the Holodeck* (1997) | Digitální médium je procedurální, participativní, prostorové a encyklopedické. Aktivita ještě není jednání a autor tvoří pravidla a morální fyziku světa. |
@@ -60,9 +60,9 @@ Jak se dá mluvit o světě, který neexistuje, a přesto má svá pravidla a sv
 
 J. R. R. Tolkien v eseji *O pohádkách* (přednáška 1939, tiskem 1947) nazval vypravěče, který uspěje, **subtvůrcem**. Ten vytvoří **druhotný svět**, do něhož může čtenářova mysl vstoupit; uvnitř je pravdivé to, co odpovídá zákonům toho světa, a čtenář tomu věří, dokud je uvnitř. Tolkien proto odmítl známou formuli o „ochotném potlačení nedůvěry“: kdo nedůvěru potlačuje, je už venku a dívá se na nepovedený svět zvenčí. Skutečná **druhotná víra** nic potlačovat nemusí. Říct „zelené slunce“ dokáže každý, ale vytvořit svět, v němž bude zelené slunce uvěřitelné, vyžaduje práci a řemeslo; čím cizejší svět, tím těžší je dosáhnout jeho **vnitřní soudržnosti**. Pro atlas z toho plyne základní měřítko: soudržnost je důležitější než realismus. Tolkien také obhajuje únik: kritici podle něj pletou útěk vězně, který se snaží dostat domů, s útěkem dezertéra. A nejvyšší formou pohádky je pro něj **eukatastrofa**, náhlý radostný obrat, který nepopírá smutek ani selhání, jen konečnou porážku. Závěr eseje, v němž je eukatastrofa zábleskem evangelia, je Tolkienovo křesťanské stanovisko. A pozor: Tolkien věřil, že fantasy patří slovům a v obraze a na jevišti se snadno zvrhne, takže na hry by se díval s nedůvěrou.
 
-### Suvin: novum
+### Suvin: kognitivní odcizení a novum
 
-Teoretik sci-fi Darko Suvin v knize *Metamorphoses of Science Fiction* (1979) tvrdí, že vědecká fantastika stojí na jedné novince, *novu*, která naruší známou skutečnost a zbytek světa z ní logicky vyplývá. V atlasu je to teoretické jméno pro pravidlo jednoho zázraku.
+Chorvatsko-kanadský teoretik Darko Suvin v knize *Metamorphoses of Science Fiction* (1979) definoval vědeckou fantastiku jako **literaturu kognitivního odcizení**. Odcizení (pojem ruských formalistů a Brechta) znamená, že nám text ukáže známý svět cizíma očima. Kognice, tedy poznání, znamená, že nový rámec musí obstát před rozumem, ne před vírou. Jádrem příběhu je **novum**: novinka, která může být jediný vynález i celý nový svět, ale vždy ovládá logiku celého vyprávění. Kdo vymění paprskomety za kolty a příběh se nezmění, nemá novum, jen kulisu. Suvin rozlišuje i žánry podle toho, jak se k hrdinovi chová svět: v mýtu, pohádce a fantasy se řídí etikou a je hrdinovi nakloněn, nebo nepřátelský, ve sci-fi a v realismu je neutrální. Mýtus podle něj pracuje s konstantami, sci-fi s proměnnými, a každé významné sci-fi je analogií k autorově přítomnosti, ne předpovědí budoucnosti. Naše pravidlo jednoho zázraku je novu příbuzné, ale není totéž: je užší a platí i pro fantasy, kterou Suvin z vědecké fantastiky přísně vylučuje.
 
 ### Wolf: vynalézavost, úplnost, soudržnost
 
@@ -260,15 +260,15 @@ Spisovatel Brandon Sanderson (2007): magie smí řešit zápletku jen tehdy, kdy
 
 ## Jak s prameny pracujeme
 
-Teorie je pro nás nástroj, ne dogma. Knihy, o které se opírá většina výkladu, jsme přečetli a sepsali si z nich výtahy: pojmy, příklady a to, co z nich plyne pro herní světy. Kde pramen známe jen zčásti nebo z druhé ruky (Suvin, Iserova pozdější kniha *Der Akt des Lesens*), opíráme se o encyklopedická hesla a výklady, které uvádíme ve zdrojích.
+Teorie je pro nás nástroj, ne dogma. Knihy, o které se opírá většina výkladu, jsme přečetli a sepsali si z nich výtahy: pojmy, příklady a to, co z nich plyne pro herní světy. Kde pramen známe jen zčásti nebo z druhé ruky (Iserova pozdější kniha *Der Akt des Lesens*), opíráme se o encyklopedická hesla a výklady, které uvádíme ve zdrojích.
 
-Několik autorů má známé slabiny a v textech na ně upozorňujeme. René Girard vidí ve všem jedinou teorii obětního beránka, a proto ho používáme jako ostrý nástroj vedle ostatních, ne jako klíč ke všemu. Mircea Eliade zobecňuje „archaického člověka“ napříč kulturami a jeho závěr o víře je teologický, takže ho uvádíme jako jeho stanovisko. Farah Mendlesohn sama varuje, že její kategorie nejsou pravidla, a teorie, která tvrdí, že platí na všechno, podle ní nestojí za nic. To platí i pro náš atlas.
+Několik autorů má známé slabiny a v textech na ně upozorňujeme. René Girard vidí ve všem jedinou teorii obětního beránka, a proto ho používáme jako ostrý nástroj vedle ostatních, ne jako klíč ke všemu. Mircea Eliade zobecňuje „archaického člověka“ napříč kulturami a jeho závěr o víře je teologický, takže ho uvádíme jako jeho stanovisko. Darko Suvin soudí fantasy, horor a vesmírnou operu jako únik a regresi; jeho rozlišení přebíráme, jeho hodnocení ne. Farah Mendlesohn sama varuje, že její kategorie nejsou pravidla, a teorie, která tvrdí, že platí na všechno, podle ní nestojí za nic. To platí i pro náš atlas.
 
 ## Co by sem ještě patřilo
 
 Knihy, které by metodu dál prohloubily a ke kterým se chceme dostat:
 
-- **Dočíst:** Ryanová, *Narrative as Virtual Reality* (kapitoly o interaktivitě); původní text Suvina a Iserova kniha *Der Akt des Lesens* (1976), které známe z druhé ruky.
+- **Dočíst:** Ryanová, *Narrative as Virtual Reality* (kapitoly o interaktivitě); Iserova kniha *Der Akt des Lesens* (1976), kterou známe z druhé ruky; historická část Suvinovy knihy (od antických utopií po Wellse).
 
 ## Zdroje
 
@@ -326,7 +326,7 @@ Knihy, které by metodu dál prohloubily a ke kterým se chceme dostat:
 **Fikční světy a fantastika (doplněk)**
 
 - J. R. R. Tolkien: „O pohádkách“ (On Fairy-Stories, 1939/1947), in: *Netvoři a kritikové a jiné eseje*, přel. Jan Čermák, Argo 2006.
-- Darko Suvin: *Metamorphoses of Science Fiction*, Yale University Press 1979.
+- Darko Suvin: *Metamorphoses of Science Fiction: On the Poetics and History of a Literary Genre*, Yale University Press 1979.
 - Wolfgang Iser: *Der implizite Leser. Kommunikationsformen des Romans von Bunyan bis Beckett*, Wilhelm Fink 1972; anglicky *The Implied Reader*, Johns Hopkins University Press 1974.
 - Wolfgang Iser: *Der Akt des Lesens*, 1976 (známe z druhé ruky).
 

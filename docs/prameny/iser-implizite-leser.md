@@ -49,7 +49,7 @@ Smysl románu není v textu hotový, **odehrává se ve čtenáři**. Román př
 
 ## Kde už je použito
 
-- *Anatomie herního lore*: oddíl Řízená mezera (Iserova prázdná místa a Doleželova polemika; psáno ještě z druhé ruky, výtah potvrzuje, že prázdné místo čtenáře vtáhne)
+- *Anatomie herního lore*: oddíl Řízená mezera (Iserova prázdná místa a Doleželova polemika; 2026-11-20 doplněna věta, že u Isera prázdná místa řídí pokyny textu)
 - Teoretické zázemí: oddíl „Iser: prázdná místa“ (přepsán podle výtahu 2026-11-20: repertoár a negace, lady Boobyová, řízená prázdná místa, implicitní čtenář, archetyp jako prázdná forma), tabulka pojmů, Zdroje
 - Rozcestník, Prameny podle stezek: Uvězněni v kruhu, Hra ví, že ji hraješ, Křehká hranice svobodné vůle
 
