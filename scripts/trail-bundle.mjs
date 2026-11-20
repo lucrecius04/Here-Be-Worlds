@@ -161,7 +161,8 @@ const PRAMEN_KEYS = [
   [/Mendlesohn a James/, 'mendlesohn-short-history-of-fantasy'], [/Eliade/, 'eliade-mytus-o-vecnem-navratu'],
   [/Jan Assmann/, 'assmann-jan-kultura-a-pamet'], [/Assmannová/, 'assmann-cultural-memory'], [/Bachelard/, 'bachelard-poetika-prostoru'],
   [/Boym/, 'boym-future-of-nostalgia'], [/Douglas/, 'douglas-cistota-a-nebezpeci'], [/Carroll/, 'carroll-philosophy-of-horror'],
-  [/Nietzsche|mýty o stvoření|deus otiosus|Iser|Suvin/, 'drobne-prameny'],
+  [/Iser/, 'iser-implizite-leser'], [/Suvin/, 'suvin-metamorphoses-of-science-fiction'],
+  [/Nietzsche|mýty o stvoření|deus otiosus/, 'drobne-prameny'],
 ];
 const trailRow = (name) => read('docs/prameny/README.md').split('\n').find((l) => l.startsWith(`| ${name} |`)) || '';
 const trailPrameny = (name) => {
