@@ -238,7 +238,7 @@ Největší filozofickou mezerou, kolem níž komunita vede spory už deset let,
 
 ### Jak se to vykládá
 
-**Rozbor mýtu o „Hodu mincí“:** Vědkyně Catherine Chunová uklidňuje Simona metaforou, že při každém zkopírování mozku existuje padesátiprocentní šance („hod mincí“), že se vaše vědomí ocitne v novém těle, a padesátiprocentní šance, že zůstane ve starém. Filozofický rozbor hry však ukazuje, že žádný hod mincí neexistuje – je to jen milosrdná lež Catherine, aby přiměla Simona spolupracovat! Původní vědomí zůstane ze sta procent vždy uvězněno ve starém těle na křesle; v novém těle (nebo na Arše) vznikne zcela nový jedinec, který má jen falešný pocit nepřerušené kontinuity, protože zdědil vzpomínky na sednutí si do křesla.
+**Rozbor mýtu o „Hodu mincí“:** Vědkyně Catherine Chun uklidňuje Simona metaforou, že při každém zkopírování mozku existuje padesátiprocentní šance („hod mincí“), že se vaše vědomí ocitne v novém těle, a padesátiprocentní šance, že zůstane ve starém. Filozofický rozbor hry však ukazuje, že žádný hod mincí neexistuje – je to jen milosrdná lež Catherine, aby přiměla Simona spolupracovat! Původní vědomí zůstane ze sta procent vždy uvězněno ve starém těle na křesle; v novém těle (nebo na Arše) vznikne zcela nový jedinec, který má jen falešný pocit nepřerušené kontinuity, protože zdědil vzpomínky na sednutí si do křesla.
 
 ### Jak se to vykládá
 
