@@ -1,5 +1,6 @@
 ---
 title: Válka, kterou nikdo nevyhraje
+approved: true
 trail: endless-war
 kicker: Stezka atlasu
 tagline: Co pohání válku, která přežila své důvody, a za jakou cenu se z ní dá vystoupit?

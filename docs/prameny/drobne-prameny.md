@@ -43,4 +43,4 @@ Citované v *Anatomii herního lore* dřív, než vznikla tato složka, a čten�
 
 ## Kde už je použito
 
-- Esej ke stezce Bohové jako břemeno (`content/trails/bohove-jako-bremeno.md`, čeká na schválení): kořeny a Elden Ring (Eliade: deus otiosus)
+- Esej ke stezce Bohové jako břemeno (`content/trails/bohove-jako-bremeno.md`): kořeny a Elden Ring (Eliade: deus otiosus)

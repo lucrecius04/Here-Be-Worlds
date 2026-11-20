@@ -47,8 +47,8 @@
 - Esej ke stezce Kdo se to probudil? (`content/trails/kdo-se-to-probudil.md`): kořeny (amnézie jako řídnutí, rozpoznání), typologie (rozpoznání proti pojmovému průlomu)
 - Esej ke stezce Netvor v zrcadle (`content/trails/netvor-v-zrcadle.md`): závěr (řídnutí, rozpoznání, uzdravení; Undertale proti ostatním)
 - Esej ke stezce Mluví už jen mrtví (`content/trails/mluvi-uz-jen-mrtvi.md`): typologie (instaurační fantasy: Horizon, Outer Wilds)
-- Esej ke stezce Bohové jako břemeno (`content/trails/bohove-jako-bremeno.md`, čeká na schválení): typologie (spoutání, řídnutí, rozpoznání, uzdravení)
-- Esej ke stezce Válka, kterou nikdo nevyhraje (`content/trails/valka-kterou-nikdo-nevyhraje.md`, čeká na schválení): kořeny (řídnutí, polder, uzdravení), Warhammer 40 000 jako parodie sebe sama, Metro jako betonový polder, závěr
+- Esej ke stezce Bohové jako břemeno (`content/trails/bohove-jako-bremeno.md`): typologie (spoutání, řídnutí, rozpoznání, uzdravení)
+- Esej ke stezce Válka, kterou nikdo nevyhraje (`content/trails/valka-kterou-nikdo-nevyhraje.md`): kořeny (řídnutí, polder, uzdravení), Warhammer 40 000 jako parodie sebe sama, Metro jako betonový polder, závěr
 
 ## Dočíst (podle potřeby)
 

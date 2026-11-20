@@ -1,5 +1,6 @@
 ---
 title: Bohové jako břemeno
+approved: true
 trail: gods-burden
 kicker: Stezka atlasu
 tagline: Co se musí stát s bohy, aby smrtelníci přestali být jejich pěšáky?

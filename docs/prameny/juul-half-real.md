@@ -27,4 +27,4 @@
 - *Anatomie herního lore*: oddíl „Juul: test převyprávění“, tabulka pojmů (Pravidla a fikce), Zdroje
 - *Kdo za to může?* (esej ke stezce): Proč hry rozbíjejí pohled davu (test převyprávění, Systém Chaosu v Dishonored), Zdroje
 - Esej ke stezce Netvor v zrcadle (`content/trails/netvor-v-zrcadle.md`): Proč hry… (test převyprávění)
-- Esej ke stezce Bohové jako břemeno (`content/trails/bohove-jako-bremeno.md`, čeká na schválení): Proč hry… (test převyprávění)
+- Esej ke stezce Bohové jako břemeno (`content/trails/bohove-jako-bremeno.md`): Proč hry… (test převyprávění)
