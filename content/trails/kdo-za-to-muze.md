@@ -1,5 +1,6 @@
 ---
 title: Kdo za to může?
+approved: true
 trail: scapegoat
 kicker: Stezka atlasu
 tagline: Co se stane s pravdou a s člověkem, když společnost v krizi potřebuje viníka víc než řešení?

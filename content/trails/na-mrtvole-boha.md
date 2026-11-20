@@ -1,5 +1,6 @@
 ---
 title: Na mrtvole boha
+approved: true
 trail: god-corpse
 kicker: Stezka atlasu
 tagline: Co si svět počne se svým mrtvým bohem?

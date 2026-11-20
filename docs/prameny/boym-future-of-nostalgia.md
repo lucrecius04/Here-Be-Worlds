@@ -40,4 +40,4 @@ Nostalgie (z řeckého *nostos*, návrat domů, a *algia*, bolest) není jen tou
 ## Kde už je použito
 
 - *Anatomie herního lore*: oddíl „Boym: obnovující a reflektující nostalgie“, tabulka pojmů, Zdroje
-- *Kdo za to může?* (esej ke stezce, čeká na schválení): Anatomie podezření (obnovující nostalgie a spiknutí, Protokoly sionských mudrců), Zaklínač (Řád planoucí růže a obnovující nostalgie v obležení), Zdroje
+- *Kdo za to může?* (esej ke stezce): Anatomie podezření (obnovující nostalgie a spiknutí, Protokoly sionských mudrců), Zaklínač (Řád planoucí růže a obnovující nostalgie v obležení), Zdroje

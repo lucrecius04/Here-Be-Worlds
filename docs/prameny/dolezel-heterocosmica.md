@@ -72,4 +72,4 @@ Fikční svět není nápodoba skutečného světa (mimesis), ale **možný svě
 
 - *Anatomie herního lore*: Řízená mezera (implicitní vs. nulová textura, polemika s Iserem), Prvotní hřích (expanze vs. dislokace u retconů), oddíl „Doležel: fikční svět jako možný svět“ (autentizace, fikční encyklopedie, mytologický svět), tabulka pojmů, Zdroje
 - *Na mrtvole boha*: Elder Scrolls (mytologický svět, protichůdné zprávy), Zdroje
-- Esej ke stezce Mluví už jen mrtví (`content/trails/mluvi-uz-jen-mrtvi.md`, čeká na schválení): typologie (autentizace a virtuální doména u BioShocku, implicitní textura)
+- Esej ke stezce Mluví už jen mrtví (`content/trails/mluvi-uz-jen-mrtvi.md`): typologie (autentizace a virtuální doména u BioShocku, implicitní textura)

@@ -40,4 +40,4 @@ Díky své proměnlivosti a schopnosti opakování má digitální médium přir
 ## Kde už je použito
 
 - Teoretické zázemí: oddíl „Murrayová: ponoření, jednání a procedurální autorství“, tabulka pojmů, Zdroje
-- *Kdo za to může?* (esej ke stezce, čeká na schválení): Proč hry rozbíjejí pohled davu (kaleidoskopické vyprávění: tři kampaně Pathologicu), Zdroje
+- *Kdo za to může?* (esej ke stezce): Proč hry rozbíjejí pohled davu (kaleidoskopické vyprávění: tři kampaně Pathologicu), Zdroje

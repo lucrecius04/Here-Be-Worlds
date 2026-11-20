@@ -40,4 +40,4 @@ Literární teoretici podle Aarsetha zaměňují **proměnlivý výraz** kyberte
 
 - Teoretické zázemí: oddíl „Aarseth: ergodický text“, tabulka pojmů, Zdroje
 - Anatomie herního lore: odkaz přes Teoretické zázemí (pravda jako odměna za úsilí)
-- Esej ke stezce Mluví už jen mrtví (`content/trails/mluvi-uz-jen-mrtvi.md`, čeká na schválení): Proč mrtví mluví… (ergodické úsilí, aporie a epifanie)
+- Esej ke stezce Mluví už jen mrtví (`content/trails/mluvi-uz-jen-mrtvi.md`): Proč mrtví mluví… (ergodické úsilí, aporie a epifanie)

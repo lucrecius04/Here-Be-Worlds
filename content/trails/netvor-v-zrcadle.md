@@ -1,5 +1,6 @@
 ---
 title: Netvor v zrcadle
+approved: true
 trail: monster-mirror
 kicker: Stezka atlasu
 tagline: Co se stane s hrdinstvím a vinou, když se netvor na konci cesty ukáže být naším vlastním odrazem?

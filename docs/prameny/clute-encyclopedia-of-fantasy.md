@@ -44,9 +44,9 @@
 
 - *Anatomie herního lore* a Teoretické zázemí: oddíl „Clute: řídnutí a uzdravení“, tabulka pojmů, Zdroje
 - *Na mrtvole boha*: závěr (uzdravení vs. řídnutí, Impérium jako parodie), Zdroje
-- Esej ke stezce Kdo se to probudil? (`content/trails/kdo-se-to-probudil.md`, čeká na schválení): kořeny (amnézie jako řídnutí, rozpoznání), typologie (rozpoznání proti pojmovému průlomu)
-- Esej ke stezce Netvor v zrcadle (`content/trails/netvor-v-zrcadle.md`, čeká na schválení): závěr (řídnutí, rozpoznání, uzdravení; Undertale proti ostatním)
-- Esej ke stezce Mluví už jen mrtví (`content/trails/mluvi-uz-jen-mrtvi.md`, čeká na schválení): typologie (instaurační fantasy: Horizon, Outer Wilds)
+- Esej ke stezce Kdo se to probudil? (`content/trails/kdo-se-to-probudil.md`): kořeny (amnézie jako řídnutí, rozpoznání), typologie (rozpoznání proti pojmovému průlomu)
+- Esej ke stezce Netvor v zrcadle (`content/trails/netvor-v-zrcadle.md`): závěr (řídnutí, rozpoznání, uzdravení; Undertale proti ostatním)
+- Esej ke stezce Mluví už jen mrtví (`content/trails/mluvi-uz-jen-mrtvi.md`): typologie (instaurační fantasy: Horizon, Outer Wilds)
 
 ## Dočíst (podle potřeby)
 

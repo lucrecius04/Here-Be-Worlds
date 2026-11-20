@@ -1,5 +1,6 @@
 ---
 title: Kdo se to probudil?
+approved: true
 trail: who-woke-up
 kicker: Stezka atlasu
 tagline: Kým je ten, kdo se probudí bez paměti, v cizím těle nebo uprostřed cizího příběhu?

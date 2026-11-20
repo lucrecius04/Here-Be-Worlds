@@ -46,5 +46,5 @@ Prahovost, okrajovost a strukturální podřízenost jsou místa, kde vznikají 
 ## Kde už je použito
 
 - Teoretické zázemí: oddíl „Turner: práh a communitas“, tabulka pojmů, Zdroje
-- Esej ke stezce Kdo se to probudil? (`content/trails/kdo-se-to-probudil.md`, čeká na schválení): oddíl Novic na prahu a zrcadlo paměti, závěr (nedokončený práh)
-- Esej ke stezce Netvor v zrcadle (`content/trails/netvor-v-zrcadle.md`, čeká na schválení): Planescape (jedna věta o prahu)
+- Esej ke stezce Kdo se to probudil? (`content/trails/kdo-se-to-probudil.md`): oddíl Novic na prahu a zrcadlo paměti, závěr (nedokončený práh)
+- Esej ke stezce Netvor v zrcadle (`content/trails/netvor-v-zrcadle.md`): Planescape (jedna věta o prahu)

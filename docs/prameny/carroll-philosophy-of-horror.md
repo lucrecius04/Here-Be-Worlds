@@ -40,4 +40,4 @@ Horor je žánr definovaný emocí, kterou vyvolává: **uměleckou hrůzou** (*
 ## Kde už je použito
 
 - *Anatomie herního lore*: oddíl „Carroll: monstrum a zvědavost“, tabulka pojmů, Zdroje
-- Esej ke stezce Netvor v zrcadle (`content/trails/netvor-v-zrcadle.md`, čeká na schválení): kořeny (fúze a fise, horor jako drama odhalování), Planescape (fise)
+- Esej ke stezce Netvor v zrcadle (`content/trails/netvor-v-zrcadle.md`): kořeny (fúze a fise, horor jako drama odhalování), Planescape (fise)

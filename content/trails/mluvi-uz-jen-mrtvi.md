@@ -1,5 +1,6 @@
 ---
 title: Mluví už jen mrtví
+approved: true
 trail: dead-speak
 kicker: Stezka atlasu
 tagline: K čemu je živým pravda, kterou museli složit ze záznamů a hlasů mrtvých?

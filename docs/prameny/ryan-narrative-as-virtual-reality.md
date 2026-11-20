@@ -40,4 +40,4 @@ V závěru Ryanová navrhuje, že ideálem pro literaturu nemusí být splynutí
 ## Kde už je použito
 
 - Teoretické zázemí: oddíl „Ryanová: ponoření a interaktivita“, tabulka pojmů, Zdroje
-- Esej ke stezce Kdo se to probudil? (`content/trails/kdo-se-to-probudil.md`, čeká na schválení): typologie (textový aktuální svět a světy postav)
+- Esej ke stezce Kdo se to probudil? (`content/trails/kdo-se-to-probudil.md`): typologie (textový aktuální svět a světy postav)

@@ -23,5 +23,5 @@
 
 - *Anatomie herního lore*: oddíl „Bogost: co hra nedovolí“, tabulka pojmů (Procedurální rétorika), Zdroje
 - *Na mrtvole boha*: Bloodborne (mechanika jako význam, implicitně)
-- *Kdo za to může?* (esej ke stezce, čeká na schválení): Proč hry rozbíjejí pohled davu (co hra nedovolí: čas v Pathologicu a klášterní hodinky v Pentimentu), Zdroje
-- Esej ke stezce Netvor v zrcadle (`content/trails/netvor-v-zrcadle.md`, čeká na schválení): Proč hry… (procedurální rétorika)
+- *Kdo za to může?* (esej ke stezce): Proč hry rozbíjejí pohled davu (co hra nedovolí: čas v Pathologicu a klášterní hodinky v Pentimentu), Zdroje
+- Esej ke stezce Netvor v zrcadle (`content/trails/netvor-v-zrcadle.md`): Proč hry… (procedurální rétorika)
