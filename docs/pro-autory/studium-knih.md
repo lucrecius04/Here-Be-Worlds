@@ -38,7 +38,7 @@ Dva až čtyři odstavce vlastními slovy.
 
 ## Knihy, které chceme nastudovat
 
-Hotové výtahy (už nečíst znovu): Mendlesohn a James, *A Short History of Fantasy* (2026-11-20); Murrayová, *Hamlet on the Holodeck* (2026-11-20); Bachelard, *Poetika prostoru* (2026-11-20); Jenkins, *Convergence Culture* (2026-11-20); Wolf (ed.), *Revisiting Imaginary Worlds* (2026-11-20); Jan Assmann, *Kultura a paměť* (2026-11-20).
+Hotové výtahy (už nečíst znovu): Mendlesohn a James, *A Short History of Fantasy* (2026-11-20); Murrayová, *Hamlet on the Holodeck* (2026-11-20); Bachelard, *Poetika prostoru* (2026-11-20); Jenkins, *Convergence Culture* (2026-11-20); Wolf (ed.), *Revisiting Imaginary Worlds* (2026-11-20); Jan Assmann, *Kultura a paměť* (2026-11-20); Todorov, *Úvod do fantastické literatury* (2026-11-20).
 
 U každé knihy: co číst, na co se soustředit a ke kterým stezkám a světům se hodí.
 
@@ -48,13 +48,6 @@ U každé knihy: co číst, na co se soustředit a ke kterým stezkám a světů
 - **Soustředit se:** nečistota jako porušení kategorií (základ Carrollovy teorie monster), rituály čištění, okraje a prahy, proč je anomálie zároveň nebezpečná a mocná.
 - **Stezky:** Netvor v zrcadle, Kdo za to může?, Pod lhostejnými hvězdami. **Světy:** Bloodborne (krev a nákaza), Silent Hill, Pathologic (mor a čistota), Zaklínač (mutanti), Warhammer 40 000 (čistota lidstva, mutanti).
 - **Navazuje na:** Carroll, Girard, Švelch.
-
-### Tzvetan Todorov: *Úvod do fantastické literatury* (Introduction à la littérature fantastique, 1970)
-
-- **Číst:** kapitoly s definicí fantastična, podivného a zázračného a s podmínkami fantastična.
-- **Soustředit se:** fantastično jako váhání mezi přirozeným a nadpřirozeným vysvětlením, rozdíl podivného (vysvětlitelného) a zázračného (přijatého), role čtenáře.
-- **Stezky:** Kdo se to probudil?, Mluví už jen mrtví, Smích nad propastí. **Světy:** Silent Hill, Pathologic, Disco Elysium, SOMA, Control.
-- **Navazuje na:** Mendlesohn (prahová fantasy), Fisher (podivné), Clute.
 
 ### Doplnit plným čtením (zatím známe z druhé ruky)
 

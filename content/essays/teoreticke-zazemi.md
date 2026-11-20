@@ -30,6 +30,7 @@ Pojmy, se kterými pracujeme, nejsou naše. Přicházejí ze šesti oblastí: z 
 | První zákon magie | Brandon Sanderson (2007) | Magie smí řešit zápletku jen tehdy, když jí čtenář rozumí. |
 | Imaginární světy | Mark J. P. Wolf, *Building Imaginary Worlds* (2012) | Svět není jen pozadí příběhu. Často přesahuje jeden příběh, médium i autora. |
 | Přetékání, shlukování, virtuální hmatatelnost | Mark J. P. Wolf (ed.), *Revisiting Imaginary Worlds* (2017) | Velký svět má víc údajů, než pojme paměť, ale dá se číst, protože se skládá do celků. Ve hrách mu váhu dodává i to, že se věcí dá „dotknout“ (Kevin Schut). |
+| Fantastično jako váhání, podivné a zázračné | Tzvetan Todorov, *Úvod do fantastické literatury* (1970) | Fantastično trvá, dokud čtenář váhá mezi přirozeným a nadpřirozeným výkladem. Jakmile rozhodne, dílo přejde do podivného, nebo do zázračného. |
 | Řídnutí a uzdravení | John Clute, *The Encyclopedia of Fantasy* (1997) | Svět ztrácí sílu, kterou kdysi měl, a zdravá země se mění v parodii sebe sama. Šťastný konec bývá obnovou toho, co se ztratilo dávno před začátkem příběhu. |
 | Mysterium tremendum et fascinans | Rudolf Otto, *Posvátno* (1917) | Posvátno děsí a zároveň přitahuje. Je „zcela jiné“, nepatří do řádu světa a rozumem se nedá uchopit. |
 | Autentizace, mezera, fikční encyklopedie | Lubomír Doležel, *Heterocosmica* (1998) | Fikční svět je možný svět, který text uvede do existence. Fakty jsou jen to, co svět autoritativně potvrdí; je neúplný a jeho vědění se liší od encyklopedie skutečného světa. |
@@ -78,6 +79,12 @@ Wolfgang Iser v knihách *Der implizite Leser* (1972) a *Der Akt des Lesens* (19
 ## Fantastika
 
 Jak je fantasy postavená: co se v ní ztrácí, co se obnovuje a odkud do ní vstupuje zázrak.
+
+### Todorov: fantastično jako váhání
+
+Literární teoretik Tzvetan Todorov v knize *Úvod do fantastické literatury* (1970) nevymezil fantastično soupisem příšer a kouzel, ale nejistotou. Do známého světa vstoupí událost, která porušuje přírodní zákony, a čtenář, často spolu s hrdinou, váhá: je to klam smyslů, sen nebo šílenství, anebo se to opravdu stalo a svět řídí zákony, které neznáme? Jakmile dílo rozhodne pro první výklad, přejde do **podivného** (*l'étrange*; nezaměňovat s Fisherovým podivným, *the weird*). Když přijme druhý, vstoupí do **zázračného** (*le merveilleux*). Fantastično navíc vyžaduje doslovné čtení: kdo text čte jako alegorii nebo báseň, ten neváhá. Ve dvacátém století podle Todorova model obrátil Kafka. Místo váhání přichází **adaptace**: nemožné stojí hned v první větě *Proměny* a svět se mu prostě přizpůsobí.
+
+Todorovova definice je úzká a pozdější teoretici fantasy ji rozšířili. Pro část herních světů je ale nečekaně přesná. Pathologic udržuje čisté váhání tím, že tytéž dny ukáže očima vědce, léčitele ze stepi a dívky, která ztělesňuje víru a zázrak, a nikdy nerozhodne, kdo má pravdu. Silent Hill 2 nechává hráče váhat, zda je město skutečné, nebo jde o vinu promítnutou do hmoty; jen osmiletá Laura v něm nevidí žádná monstra. Úřad v Control je naopak čistá kafkovská adaptace: nemožné tu dostane razítko a číslo spisu. A Todorovův postřeh, že znalost konce účinek fantastična nevratně zničí, vysvětluje, proč se druhý průchod hrou postavenou na tajemství mění v „metačtení“ stop a postupů.
 
 ### Clute: řídnutí a uzdravení
 
@@ -231,7 +238,6 @@ Několik autorů má známé slabiny a v textech na ně upozorňujeme. René Gir
 
 Knihy, které by metodu dál prohloubily a ke kterým se chceme dostat:
 
-- **Tzvetan Todorov: *Úvod do fantastické literatury* (1970).** Klasická definice fantastična jako váhání mezi přirozeným a nadpřirozeným vysvětlením. Clute i Mendlesohn na ni reagují. Hodila by se pro Silent Hill, Pathologic a prahové světy.
 - **Mary Douglasová: *Čistota a nebezpečí* (1966).** Antropologie nečistoty, ze které vychází Carrollova teorie monster. Pro stezky Netvor v zrcadle a Kdo za to může?
 
 ## Zdroje
@@ -243,6 +249,7 @@ Knihy, které by metodu dál prohloubily a ke kterým se chceme dostat:
 - [Literariness: Wolfgang Iser as a Reader-Response Critic](https://literariness.org/2016/11/08/wolfgang-iser-as-a-reader-response-critic-a-brief-note/)
 - [Mark J. P. Wolf: Building Imaginary Worlds (Routledge)](https://www.routledge.com/Building-Imaginary-Worlds-The-Theory-and-History-of-Subcreation/Wolf/p/book/9780415631198)
 - Mark J. P. Wolf (ed.): *Revisiting Imaginary Worlds: A Subcreation Studies Anthology*, Routledge 2017.
+- Tzvetan Todorov: *Úvod do fantastické literatury* (Introduction à la littérature fantastique, 1970), přel. Vladimír a Jiří Fialovi, Karolinum 2010; anglicky *The Fantastic*, 1973.
 - [John Clute: Thinning (The Encyclopedia of Fantasy)](http://sf-encyclopedia.uk/fe.php?nm=thinning)
 
 **Dějiny náboženství**
