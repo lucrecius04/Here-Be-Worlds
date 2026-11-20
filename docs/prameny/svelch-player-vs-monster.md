@@ -61,4 +61,4 @@ Bloodborne (Ebrietas, Klerikova bestie, Mijazakiho „smutná“ monstra), Dark 
 - Esej ke stezce Netvor v zrcadle (`content/trails/netvor-v-zrcadle.md`): páteř eseje (spotřební nepřítel, ontologie nepřítele, selhání odstupu, sympatie s monstrem, Mnoho-jako-jeden)
 - Esej ke stezce Bohové jako břemeno (`content/trails/bohove-jako-bremeno.md`): Proč hry… (porazitelný bůh)
 - Esej ke stezce Válka, kterou nikdo nevyhraje (`content/trails/valka-kterou-nikdo-nevyhraje.md`): Proč hry neumějí uzavřít mír (ontologie nepřítele, spotřební nepřátelé, selhání odstupu u NieR)
-- Esej ke stezce Hra ví, že ji hraješ (`content/trails/hra-vi-ze-ji-hrajes.md`, čeká na schválení): Proč si hry vidí do karet (útěk ze stroje: Flowey a Psycho Mantis, výklad atlasu u P03; vznešeno z narušení flow)
+- Esej ke stezce Hra ví, že ji hraješ (`content/trails/hra-vi-ze-ji-hrajes.md`): Proč si hry vidí do karet (útěk ze stroje: Flowey a Psycho Mantis, výklad atlasu u P03; vznešeno z narušení flow)

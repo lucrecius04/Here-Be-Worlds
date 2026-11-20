@@ -28,4 +28,4 @@
 - Esej ke stezce Bohové jako břemeno (`content/trails/bohove-jako-bremeno.md`): Proč hry… (procedurální rétorika: Eothase nelze porazit silou)
 - Esej ke stezce Prokleté dědictví (`content/trails/proklete-dedictvi.md`): Proč hry dělají z hrdiny dlužníka (procedurální rétorika)
 - Esej ke stezce Křehká hranice svobodné vůle (`content/trails/krehka-hranice-svobodne-vule.md`): Proč hry… (co hra nedovolí: BioShock, Half-Life, Zaklínač)
-- Esej ke stezce Hra ví, že ji hraješ (`content/trails/hra-vi-ze-ji-hrajes.md`, čeká na schválení): Proč si hry vidí do karet (procedurální rétorika a entyméma; co hra nedovolí: zašedlá Nová hra, odebrané ovládání, rozbité Slitování, nehratelné titulky)
+- Esej ke stezce Hra ví, že ji hraješ (`content/trails/hra-vi-ze-ji-hrajes.md`): Proč si hry vidí do karet (procedurální rétorika a entyméma; co hra nedovolí: zašedlá Nová hra, odebrané ovládání, rozbité Slitování, nehratelné titulky)

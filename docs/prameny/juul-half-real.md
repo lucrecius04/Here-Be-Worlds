@@ -31,4 +31,4 @@
 - Esej ke stezce Prokleté dědictví (`content/trails/proklete-dedictvi.md`): Proč hry dělají z hrdiny dlužníka (test převyprávění)
 - Esej ke stezce Křehká hranice svobodné vůle (`content/trails/krehka-hranice-svobodne-vule.md`): Proč hry… (test převyprávění: Monado, kostka v Baldur's Gate 3)
 - Esej ke stezce Uvězněni v kruhu (`content/trails/uvezneni-v-kruhu.md`): Proč hry žijí z návratů (test převyprávění: Styx, Temné znamení, ATP, Odhodlání)
-- Esej ke stezce Hra ví, že ji hraješ (`content/trails/hra-vi-ze-ji-hrajes.md`, čeká na schválení): Proč si hry vidí do karet (poloreálnost, test převyprávění, vědomý nesoulad: Sans, titulky NieRu)
+- Esej ke stezce Hra ví, že ji hraješ (`content/trails/hra-vi-ze-ji-hrajes.md`): Proč si hry vidí do karet (poloreálnost, test převyprávění, vědomý nesoulad: Sans, titulky NieRu)

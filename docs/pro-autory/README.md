@@ -47,7 +47,7 @@ Dobrá esej:
 
 ## 4. Stavba eseje
 
-Rozsah **3 000–4 000 slov, nikdy přes 4 500**. Hutně a kratší je lepší než dlouze a řídce: oddíl jednoho světa má zhruba 350–500 slov a nese jen to, co odpovídá na otázku eseje, ne převyprávění děje. Vzorem délky a hustoty je esej Kdo za to může? (4 200 slov po zkrácení). Kapitoly jsou nadpisy `##`, světy a pododdíly `###`.
+Rozsah **3 500–4 500 slov, nikdy přes 5 000**. Hutně a kratší je lepší než dlouze a řídce: oddíl jednoho světa má zhruba 350–500 slov a nese jen to, co odpovídá na otázku eseje, ne převyprávění děje. Vzorem délky a hustoty je esej Kdo za to může? (4 200 slov po zkrácení). Kapitoly jsou nadpisy `##`, světy a pododdíly `###`.
 
 1. **Úvodem.** Úvodní citát z naší kroniky (kurzívou, pod ním „(Kronika …)“). Pak obraz nebo myšlenka, která téma otevře, představení všech světů stezky v jednom odstavci (každý tučně, každý jednou větou), a otázka eseje tučně. Na konci rámeček „Upozornění“ o spoilerech.
 2. **Kořeny tématu.** Odkud téma pochází: mýtus, náboženství, literatura, filozofie. Jeden až dva prameny, ne přehled všeho.
@@ -139,7 +139,7 @@ Kapitoly se číslují samy (kromě Úvodem a Zdroje). Obsah vlevo a doba čten�
 - [ ] Žádné „osy“, žádná procenta, žádné anglické názvy světů, kde má atlas český.
 - [ ] Velké zvraty jsou ve spoilerových blocích.
 - [ ] Česká typografie (uvozovky, pomlčky, mezery v číslech).
-- [ ] Délka nejvýš 4 500 slov; typologie a závěr neopakují, co zaznělo u světů.
+- [ ] Délka nejvýš 5 000 slov; typologie a závěr neopakují, co zaznělo u světů.
 
 ### Časté chyby (z kontroly první eseje od Gemini)
 
