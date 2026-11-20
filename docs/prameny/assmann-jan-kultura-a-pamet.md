@@ -49,3 +49,4 @@ Přechod k písmu a **kanonizaci** proměňuje konektivní strukturu ve čtyřec
 - *Kdo za to může?* (esej ke stezce): Anatomie podezření (Muršilišovy Modlitby o moru, aliance moci a zapomnění), Pathologic (genealogie viny), Dishonored (plovoucí mezera), Pentiment (aliance moci a zapomnění, obrácená Jošijášova reforma), Dragon Age (kanonizace Písně světla), Zdroje
 - Esej ke stezce Mluví už jen mrtví (`content/trails/mluvi-uz-jen-mrtvi.md`): kořeny (komunikativní paměť, plovoucí propast, aliance se zapomněním, vzpomínka na mrtvé), Horizon
 - Esej ke stezce Bohové jako břemeno (`content/trails/bohove-jako-bremeno.md`): Pillars (aliance moci se zapomněním, třída strážců)
+- Esej ke stezce Prokleté dědictví (`content/trails/proklete-dedictvi.md`, čeká na schválení): kořeny (komunikativní a kulturní paměť, plovoucí propast, aliance moci se zapomněním), Tři způsoby (přepsaná paměť)

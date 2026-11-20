@@ -41,3 +41,4 @@ Díky své proměnlivosti a schopnosti opakování má digitální médium přir
 
 - Teoretické zázemí: oddíl „Murrayová: ponoření, jednání a procedurální autorství“, tabulka pojmů, Zdroje
 - *Kdo za to může?* (esej ke stezce): Proč hry rozbíjejí pohled davu (kaleidoskopické vyprávění: tři kampaně Pathologicu), Zdroje
+- Esej ke stezce Prokleté dědictví (`content/trails/proklete-dedictvi.md`, čeká na schválení): Proč hry dělají z hrdiny dlužníka (morální fyzika)

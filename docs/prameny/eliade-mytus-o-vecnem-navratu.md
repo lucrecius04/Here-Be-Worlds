@@ -44,3 +44,4 @@ Pro člověka tradičních společností je skutečné jen to, co **opakuje vzor
 - Esej ke stezce Mluví už jen mrtví (`content/trails/mluvi-uz-jen-mrtvi.md`): Horizon (nehistorická kolektivní paměť, s výhradou)
 - Esej ke stezce Bohové jako břemeno (`content/trails/bohove-jako-bremeno.md`): kořeny (cykly, mýtizace dějin, výhrada), Dark Souls (převrácené akitu), Elder Scrolls (Talos)
 - Esej ke stezce Válka, kterou nikdo nevyhraje (`content/trails/valka-kterou-nikdo-nevyhraje.md`): kořeny (hrůza z dějin, kalijuga, výhrada k „archaickému člověku“)
+- Esej ke stezce Prokleté dědictví (`content/trails/proklete-dedictvi.md`, čeká na schválení): kořeny (mýtizace dějin, kalijuga, výhrada)
