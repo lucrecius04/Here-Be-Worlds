@@ -38,6 +38,8 @@ Dva až čtyři odstavce vlastními slovy.
 
 ## Knihy, které chceme nastudovat
 
+Hotové výtahy (už nečíst znovu): Mendlesohn a James, *A Short History of Fantasy* (2026-11-20).
+
 U každé knihy: co číst, na co se soustředit a ke kterým stezkám a světům se hodí.
 
 ### Mary Douglasová: *Čistota a nebezpečí* (Purity and Danger, 1966)
@@ -87,13 +89,6 @@ U každé knihy: co číst, na co se soustředit a ke kterým stezkám a světů
 - **Číst:** Wolfův úvod a studie, které se týkají her nebo světů z atlasu.
 - **Soustředit se:** co nového Wolf přidává k *Building Imaginary Worlds*, případové studie.
 - **Navazuje na:** Wolf, *Building Imaginary Worlds* (výtah existuje).
-
-### Farah Mendlesohn, Edward James: *A Short History of Fantasy* (2009)
-
-- **Číst:** kapitoly o Tolkienovi a poválečné fantasy, o 70.–80. letech (sword and sorcery, D&D, komerční fantasy).
-- **Soustředit se:** odkud herní fantasy přebírá své vzorce (Tolkien, Howard, Moorcock, D&D), co je „fantasyland“.
-- **Stezky a světy:** kořeny klasické fantasy v atlasu (Baldur's Gate, Elder Scrolls, Dragon Age, Pillars of Eternity, Warcraft, Diablo).
-- **Navazuje na:** Mendlesohn, *Rhetorics of Fantasy*, Clute.
 
 ### Doplnit plným čtením (zatím známe z druhé ruky)
 

@@ -23,6 +23,7 @@ Pravidla:
 | Jaroslav Švelch: *Player vs. Monster* (2023) | [svelch-player-vs-monster.md](svelch-player-vs-monster.md) | čteno (úvod, kap. 1 a 4, závěr, části kap. 2 a 3) | vznešená a zkrocená monstrozita, ontologie nepřítele, daemoni, hráč proti prostředí, selhání odstupu a střetu |
 | René Girard: *Obětní beránek* (1982) | [girard-obetni-beranek.md](girard-obetni-beranek.md) | čteno (kap. 2, 3, 5, 6, části 7 a 10) | stereotypy pronásledování, mýtus jako text pronásledovatelů, dvojí přenos, Teotihuacan, skrývání kolektivní vraždy |
 | Farah Mendlesohn: *Rhetorics of Fantasy* (2008) | [mendlesohn-rhetorics-of-fantasy.md](mendlesohn-rhetorics-of-fantasy.md) | čteno (úvod, epilog, teze kap. 1–4) | portálová, ponořená, vpádová a prahová fantasy, klubové vyprávění, ponoření = řídnutí, eskalace a latence |
+| Farah Mendlesohn, Edward James: *A Short History of Fantasy* (2009, rev. 2012) | [mendlesohn-short-history-of-fantasy.md](mendlesohn-short-history-of-fantasy.md) | čteno (kap. 1–11; výtah Gemini, ověřil a doplnil Claude) | kořenové texty, plný fantasy svět, meč a magie vs. výpravná fantasy, racionalizovaná fantasy, speciace, divadelní fantasy, sdílený a licencovaný svět, D&D, Tolkienisté, Fantasyland™, temná fantasy, New Weird |
 | Mircea Eliade: *Mýtus o věčném návratu* (1949) | [eliade-mytus-o-vecnem-navratu.md](eliade-mytus-o-vecnem-navratu.md) | čteno (kap. 1, hlavní oddíly kap. 2–4) | archetyp a opakování, symbolika středu, obnova času (akitu), mýtizace dějin, kosmické cykly (jugy), hrůza z dějin |
 | Aleida Assmann: *Cultural Memory and Western Civilization* (1999) | [assmann-cultural-memory.md](assmann-cultural-memory.md) | čteno (ars a vis, funkční a úložná paměť, místa, závěr) | funkční a úložná paměť, legitimace a protipaměť, Pausanias, úcta a zvědavost k ruinám, místa traumatu |
 | Svetlana Boym: *The Future of Nostalgia* (2001) | [boym-future-of-nostalgia.md](boym-future-of-nostalgia.md) | čteno (úvod, kap. 3–5, závěr) | obnovující a reflektující nostalgie, spiknutí a návrat k počátkům, patina, syndrom Jurského parku, nostalgie po budoucnosti |
@@ -36,8 +37,8 @@ Opačný pohled k tabulce výše (16 stezek): co číst před psaním eseje ke s
 | Stezka | Esej | Prameny | Čeká na dodání |
 |---|---|---|---|
 | Na mrtvole boha | [na-mrtvole-boha.md](../../content/trails/na-mrtvole-boha.md), čeká na kontrolu majitele | mýty o stvoření, Eliade (deus otiosus), Nietzsche, Otto, Clute (řídnutí), Doležel (mytologický svět), Fisher (tísnivé), Švelch (Ebrietas), Girard (Teotihuacan, dvojí přenos), Eliade (akitu), Carroll (přesahovač: Byrgenwerth, Kagrenac), Wolf | |
-| Bohové jako břemeno | | Otto, Clute (řídnutí), Eliade (deus otiosus), Nietzsche, Girard (dvojí přenos, bohové bez viny), Boym (Gwyn a obnovující nostalgie) | |
-| Prokleté dědictví | | Clute (řídnutí, porucha), Doležel (přepisy), Girard (zakládající vražda), Mendlesohn (ponořená fantasy vypráví ztrátu), Eliade (mýtizace dějin), A. Assmannová (oficiální paměť a protipaměť), Carroll (přesahovač jako prvotní hřích) | |
+| Bohové jako břemeno | | Otto, Clute (řídnutí), Eliade (deus otiosus), Nietzsche, Girard (dvojí přenos, bohové bez viny), Boym (Gwyn a obnovující nostalgie), Mendlesohn a James (Tolkien a odmítnutí moci vs. Moorcock a služba Chaosu) | |
+| Prokleté dědictví | | Clute (řídnutí, porucha), Doležel (přepisy), Girard (zakládající vražda), Mendlesohn (ponořená fantasy vypráví ztrátu), Eliade (mýtizace dějin), A. Assmannová (oficiální paměť a protipaměť), Carroll (přesahovač jako prvotní hřích), Mendlesohn a James (výpravná fantasy a uzdravení země, proroctví a Fantasyland™) | |
 | Křehká hranice svobodné vůle | | Bogost (co hra nedovolí), Juul, vizní dokument Planescape (hráč se definuje činy) | |
 | Uvězněni v kruhu | | Juul (smrt a návrat jako téma), Clute (řídnutí), vizní dokument Planescape (cyklus jako trest), Eliade (věčný návrat, obnova času, jugy) | |
 | Hra ví, že ji hraješ | | Juul (vědomý nesoulad), Švelch (útěk ze stroje: Flowey), Bogost | |
@@ -46,13 +47,12 @@ Opačný pohled k tabulce výše (16 stezek): co číst před psaním eseje ke s
 | Ráj, který se nepovedl | | Clute (parodie země), Bogost, Girard (reformátor si vymyslí ztracený ráj), Boym (obnovující nostalgie, Fallout jako nostalgie po budoucnosti, Šeď v Disco Elysium) | |
 | Logo nad troskami | | Fisher (tísnivé jako neviditelná moc), Švelch (korporace jako neviditelná monstrozita podle Weinstocka), A. Assmannová (Faro maže APOLLO: zničená úložná paměť), Carroll (přesahovač: Umbrella, Faro) | |
 | Mluví už jen mrtví | | Fisher (archeologie, tísnivé), Doležel (mezera), Wolf (katalyzátory spekulace), Eliade (kolektivní paměť je nehistorická), A. Assmannová (úložná paměť, Pausanias, místa traumatu) | |
-| Smích nad propastí | | Švelch (parodie a humor v Undertale), Mendlesohn (prahový tón: klid a ironie, Control) | |
+| Smích nad propastí | | Švelch (parodie a humor v Undertale), Mendlesohn (prahový tón: klid a ironie, Control), Mendlesohn a James (Fantasyland™, Pratchett a parodie meče a magie) | |
 | Město, které dýchá | | Wolf (infrastruktury), Doležel (fikční encyklopedie), Mendlesohn (ponořená fantasy, kompetentní obyvatelé), Eliade (symbolika středu) | |
-| Válka, kterou nikdo nevyhraje | | Švelch (ontologie nepřítele, spotřební nepřátelé), Clute (řídnutí), Girard (obětní krize, Kaifášova logika), Eliade (hrůza z dějin) | |
-| Pod lhostejnými hvězdami | | Otto, Fisher (podivné), Švelch (selhání střetu, Astrální bodec, lhostejná monstra), Clute, Mendlesohn (ponoření = řídnutí), Carroll (zvědavost a nemožné, Vhled) | |
+| Válka, kterou nikdo nevyhraje | | Švelch (ontologie nepřítele, spotřební nepřátelé), Clute (řídnutí), Girard (obětní krize, Kaifášova logika), Eliade (hrůza z dějin), Mendlesohn a James (divadelní fantasy, sdílené a licencované světy, nekonečné série) | |
+| Pod lhostejnými hvězdami | | Otto, Fisher (podivné), Švelch (selhání střetu, Astrální bodec, lhostejná monstra), Clute, Mendlesohn (ponoření = řídnutí), Carroll (zvědavost a nemožné, Vhled), Mendlesohn a James (New Weird, Lovecraft) | |
 | Kdo za to může? | | Girard (stereotypy pronásledování, dvojí přenos, Kaifášova logika), Eliade (normálnost utrpení: neštěstí musí mít původce), Boym (spiknutí jako zápletka obnovující nostalgie). V eseji zmínit výhradu: Girard je redukcionista, používat ho jako nástroj vedle jiných pramenů | |
 
 ## Čeká na dodání (od majitele)
 
-- Farah Mendlesohn, Edward James: *A Short History of Fantasy* (2009). Majitel ji má, zatím nevyžádána: přehled dějin žánru, hodí se, až budeme psát o kořenech herní fantasy (Tolkien, D&D, sword and sorcery).
 - Jan Assmann: *Kultura a paměť* (1992, česky Prostor 2001): komunikativní a kulturní paměť, zakládající mýty. Majitel dodal knihu Aleidy Assmannové, která velkou část pokrývá. Janovu knihu jen pokud budeme psát přímo o zakládajících mýtech.

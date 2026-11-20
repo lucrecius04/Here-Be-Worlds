@@ -34,6 +34,7 @@ Pojmy, se kterými pracujeme, nejsou naše. Přicházejí ze šesti oblastí: z 
 | Vznešená a zkrocená monstrozita | Jaroslav Švelch, *Player vs. Monster* (2023) | Herní monstra jsou simulovaná a navržená, aby prohrála. Co se dá spočítat a porazit, ztrácí tajemství. |
 | Obětní beránek, zakládající vražda | René Girard, *Obětní beránek* (1982) | Mýty vyprávějí o kolektivním násilí z pohledu pronásledovatelů. Oběť je napřed vinná krizí, po smrti uctívaná jako zachránce, a z toho dvojího přenosu vzniká posvátno. |
 | Portálová, ponořená, vpádová a prahová fantasy | Farah Mendlesohn, *Rhetorics of Fantasy* (2008) | Fantasy se liší tím, jak do příběhu vstupuje fantastično a kde přitom stojí čtenář: přichází zvenčí, je doma, svět je přepaden, nebo zázrak stojí na prahu. |
+| Meč a magie, výpravná fantasy, divadelní fantasy, Fantasyland™ | Farah Mendlesohn, Edward James, *A Short History of Fantasy* (2009) | Dějiny fantasy jako rozhovor autorů: jak se z Tolkiena, Howarda, Moorcocka, pulpových časopisů a D&D zrodily vzorce i klišé herních světů. |
 | Věčný návrat, hrůza z dějin | Mircea Eliade, *Mýtus o věčném návratu* (1949) | Tradiční člověk považuje za skutečné jen to, co opakuje vzor z počátku času. Opakováním ruší dějiny a kolektivní paměť z událostí dělá mýty. |
 | Funkční a úložná paměť, místa traumatu | Aleida Assmannová, *Cultural Memory and Western Civilization* (1999) | Kultura si pamatuje dvojím způsobem: výběrovou pamětí, která vytváří identitu, a archivem toho, co se už nepoužívá. Místo traumatu nese příběh, který nejde vyprávět. |
 | Obnovující a reflektující nostalgie | Svetlana Boym, *The Future of Nostalgia* (2001) | Obnovující nostalgie chce ztracený domov znovu postavit a považuje se za pravdu. Reflektující prodlévá u ruin, patiny a touhy samotné a pravdu zpochybňuje. |
@@ -82,6 +83,12 @@ Pro herní světy je to přesný popis třetího pilíře. Dark Souls dělá z �
 Farah Mendlesohn v knize *Rhetorics of Fantasy* (2008) netřídí fantasy podle obsahu, ale podle toho, jak do příběhu vstupuje fantastično a kde přitom stojí čtenář. Rozlišuje čtyři způsoby. V **portálové** fantasy přichází hrdina zvenčí a svět se mu postupně vysvětluje; čtenář jede s ním a věří průvodcům, kteří mu svět vykládají. V **ponořené** fantasy je hrdina doma a nic se nevysvětluje, čtenář musí svět pochopit z toho, čeho si postavy všímají a čeho ne. Ve **vpádové** fantasy vtrhne nadpřirozeno do běžného světa a příběh žije ze stupňování, protože si na ně nikdo nesmí zvyknout. A v **prahové** fantasy stojí zázrak na okraji zorného pole a postavy ho přijímají s klidem, který čtenáře znejistí.
 
 Mendlesohn sama poznamenává, že portálové fantasy se podobají počítačovým hrám, které z nich vzešly. Většina herních světů opravdu začíná příchodem zvenčí: vězeň připluje do Morrowindu, Lovec dorazí do Yharnamu. Zajímavé je, co s tím dědictvím dělají nejsilnější světy atlasu. Dark Souls a Bloodborne zachovají příchod cizince, ale odepřou mu průvodce. Nikdo jim svět nevykládá, pravda leží v popiscích předmětů a v postavách, které si odporují, takže portálová stavba dostane rétoriku ponořeného světa. Half-Life a Resident Evil jsou čisté vpády se stupňováním. Úřad v Control zase mluví o nadpřirozenu tónem úředního oběžníku a blíží se tak klidu prahové fantasy. Mendlesohn přidává ještě postřeh, který sedí na třetí pilíř: v ponořeném světě se nevypráví o jeho objevování, ale o jeho ztrátě. Kdo je ve světě doma, může vyprávět jen o tom, jak mizí.
+
+### Mendlesohn a James: dějiny fantasy a Fantasyland
+
+Farah Mendlesohn a historik Edward James v knize *A Short History of Fantasy* (2009, rozšířené vydání 2012) ukazují, že fantasy není seznam kulis, ale dlouhý rozhovor mezi autory a čtenáři, v němž nová díla odpovídají starším. Jako vědomý žánr se podle kritiků, na které autoři navazují, zrodila až v reakci na osvícenství a realismus. Starší mýty a romance jsou jejími „kořenovými texty“. Pro atlas kniha rozplétá nitě, ze kterých se spředla herní fantasy. Ta nestojí jen na Tolkienovi, který spojil výpravu s eposem, učinil z krajiny obraz mravnosti vládce a postavil příběh na odmítnutí moci. Stojí i na amerických časopisech: *Weird Tales* s epizodickým mečem a magií Roberta E. Howarda a *Unknown* s magií, která se řídí zákony jako fyzika. Dál na Moorcockově Elricovi, albínovi, který slouží Pánům Chaosu, aby nasytil meč požírající duše. A nakonec na zlomu sedmdesátých let, kdy přišla hra *Dungeons & Dragons* (1974), sdílené světy, do nichž píše víc autorů, a po roce 1977 vlna komerčních trilogií. Autoři výslovně píší, že herní větvi počítačového průmyslu vládnou fantasy hry s pravidly odvozenými z D&D.
+
+Pro čtení herních světů je zvlášť užitečný dvojí kontrast. První stojí mezi **výpravnou fantasy**, která má osudovou nevyhnutelnost a uzavřený oblouk a končí uzdravením země, a **mečem a magií**, jehož epizodická dobrodružství nechávají vždy místo pro další a jehož hrdina cizí velké příběhy spíš boří. Druhý připomíná pojem **Fantasyland™**, jímž Diana Wynne Jonesová parodovala jednotný svět komerční fantasy zařízený pro „turisty“: koně, kteří cválají bez únavy, proroctví, která vždy vyjdou, a chrámy, ale nikdy záchody. Nejsilnější fantasy světy atlasu se tomuto vzorci vzpírají: Elder Scrolls rozporuplnými kronikami, Zaklínač odstupem od velkých dějin, Pillars of Eternity bohy, kteří se ukážou jako vězení.
 
 ## Herní studia
 
@@ -204,7 +211,6 @@ Knihy, které by metodu dál prohloubily a ke kterým se chceme dostat:
 - **Jan Assmann: *Kultura a paměť* (1992).** Kulturní paměť a zakládající mýty starověkých civilizací. Doplněk k Aleidě Assmannové.
 - **Henry Jenkins: *Convergence Culture* (2006).** Transmediální vyprávění: světy, které žijí napříč hrami, knihami a seriály (Warhammer, Zaklínač, Fallout).
 - **Mark J. P. Wolf (ed.): *Revisiting Imaginary Worlds* (2016).** Pokračování Wolfovy monografie se studiemi jednotlivých světů.
-- **Farah Mendlesohn, Edward James: *A Short History of Fantasy* (2009).** Dějiny žánru, až budeme psát o kořenech herní fantasy v Tolkienovi a D&D.
 
 ## Zdroje
 
@@ -247,6 +253,7 @@ Knihy, které by metodu dál prohloubily a ke kterým se chceme dostat:
 - Jaroslav Švelch: *Player vs. Monster: The Making and Breaking of Video Game Monstrosity*, MIT Press 2023.
 - René Girard: *Obětní beránek* (Le Bouc émissaire, 1982), Nakladatelství Lidové noviny 1997; anglicky *The Scapegoat*, Johns Hopkins University Press 1986.
 - Farah Mendlesohn: *Rhetorics of Fantasy*, Wesleyan University Press 2008.
+- Farah Mendlesohn, Edward James: *A Short History of Fantasy*, Middlesex University Press 2009; revidované a rozšířené vydání Libri Publishing 2012.
 - Mircea Eliade: *Mýtus o věčném návratu (Archetypy a opakování)* (Le Mythe de l'éternel retour, 1949), Praha 1993; anglicky *The Myth of the Eternal Return*, Princeton University Press 1954.
 - Aleida Assmann: *Cultural Memory and Western Civilization: Functions, Media, Archives* (Erinnerungsräume, 1999), Cambridge University Press 2011.
 - Svetlana Boym: *The Future of Nostalgia*, Basic Books 2001.
