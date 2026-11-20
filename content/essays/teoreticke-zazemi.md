@@ -29,6 +29,7 @@ Pojmy, se kterými pracujeme, nejsou naše. Přicházejí ze šesti oblastí: z 
 | Prázdná místa | Wolfgang Iser (1972, 1976) | Text obsahuje neurčitá místa, která čtenář vyplňuje představivostí. |
 | První zákon magie | Brandon Sanderson (2007) | Magie smí řešit zápletku jen tehdy, když jí čtenář rozumí. |
 | Imaginární světy | Mark J. P. Wolf, *Building Imaginary Worlds* (2012) | Svět není jen pozadí příběhu. Často přesahuje jeden příběh, médium i autora. |
+| Přetékání, shlukování, virtuální hmatatelnost | Mark J. P. Wolf (ed.), *Revisiting Imaginary Worlds* (2017) | Velký svět má víc údajů, než pojme paměť, ale dá se číst, protože se skládá do celků. Ve hrách mu váhu dodává i to, že se věcí dá „dotknout“ (Kevin Schut). |
 | Řídnutí a uzdravení | John Clute, *The Encyclopedia of Fantasy* (1997) | Svět ztrácí sílu, kterou kdysi měl, a zdravá země se mění v parodii sebe sama. Šťastný konec bývá obnovou toho, co se ztratilo dávno před začátkem příběhu. |
 | Mysterium tremendum et fascinans | Rudolf Otto, *Posvátno* (1917) | Posvátno děsí a zároveň přitahuje. Je „zcela jiné“, nepatří do řádu světa a rozumem se nedá uchopit. |
 | Autentizace, mezera, fikční encyklopedie | Lubomír Doležel, *Heterocosmica* (1998) | Fikční svět je možný svět, který text uvede do existence. Fakty jsou jen to, co svět autoritativně potvrdí; je neúplný a jeho vědění se liší od encyklopedie skutečného světa. |
@@ -61,6 +62,8 @@ Teoretik sci-fi Darko Suvin v knize *Metamorphoses of Science Fiction* (1979) tv
 
 Kniha *Building Imaginary Worlds* je nejbližším teoretickým příbuzným naší metody. Svět podle Wolfa potřebuje tři vlastnosti, které jdou proti sobě: vynalézavost, úplnost a soudržnost. Čím úplnější svět, tím těžší je udržet soudržnost. Vynález přitom může mít čtyři úrovně: jmennou, kulturní, přírodní a ontologickou. Nejsilnější rozebrané světy (Sigil, SOMA, Numenera) mají jeden ontologický zázrak a všechno ostatní nechávají srozumitelné. Úplnost přitom není množství lore: divák jen nesmí narazit na otázku, na kterou svět nemá odpověď. Nesoudržnost bolí podle hloubky. Nejvíc škodí v hlavní dějové linii, nejméně v pozadí.
 
+
+Na monografii navazuje antologie *Revisiting Imaginary Worlds* (2017), kterou Wolf sestavil z devatenácti studií různých autorů. Sám v ní popisuje souhru **přetékání** a **shlukování**. Velký svět nabízí víc údajů, než pojme pracovní paměť, takže pocit, že ho známe celý, nikdy nenastane. Čitelný zůstává proto, že údaje skládáme do celků: třináct trpaslíků si nepamatujeme jménem, ale jako Thorinovu družinu. Kdo svět staví, může shlukování usnadnit, ale může ho i záměrně ztížit, a tím udržet uzavřený svět naživu a lákat čtenáře k návratům. Kevin Schut v téže knize popisuje **virtuální hmatatelnost** herních světů: věci v nich mají pevnost, protože do nich narážíme a zkoumáme je. Hra tím ale ztrácí část slovní nejednoznačnosti a tajemství; Schut uvádí Silent Hill jako hru, která tajemství chrání tím, že svět zahalí mlhou. Erica Hurwitz Andrusová ukazuje, že náboženství dodá světu hloubku, jen když má rituály, instituce a jazyk, ne jen nauku. Edward Castronova se ptá, proč jsou bohové ve hrách všudypřítomní i v sekulární době. A William Proctor s Matthewem Freemanem na zrušení rozšířeného univerza Star Wars ukazují, jak se kánon velkých franšíz láme mezi správou studia a pamětí fanoušků.
 ### Doležel: fikční svět jako možný svět
 
 Lubomír Doležel, český literární teoretik působící v Torontu, v knize *Heterocosmica* (1998) odmítá představu, že fikce napodobuje skutečnost. Fikční svět je podle něj **možný svět**, který text uvede do existence, a má vlastní zákony. Proto podle Doležela není důvod mít jednu teorii pro realistický román a druhou pro fantasy. Pro atlas je to důležitá opora: herní světy nejsou méně literární jen proto, že jsou fantastické.
@@ -224,7 +227,6 @@ Knihy, které by metodu dál prohloubily a ke kterým se chceme dostat:
 - **Tzvetan Todorov: *Úvod do fantastické literatury* (1970).** Klasická definice fantastična jako váhání mezi přirozeným a nadpřirozeným vysvětlením. Clute i Mendlesohn na ni reagují. Hodila by se pro Silent Hill, Pathologic a prahové světy.
 - **Mary Douglasová: *Čistota a nebezpečí* (1966).** Antropologie nečistoty, ze které vychází Carrollova teorie monster. Pro stezky Netvor v zrcadle a Kdo za to může?
 - **Jan Assmann: *Kultura a paměť* (1992).** Kulturní paměť a zakládající mýty starověkých civilizací. Doplněk k Aleidě Assmannové.
-- **Mark J. P. Wolf (ed.): *Revisiting Imaginary Worlds* (2016).** Pokračování Wolfovy monografie se studiemi jednotlivých světů.
 
 ## Zdroje
 
@@ -234,6 +236,7 @@ Knihy, které by metodu dál prohloubily a ke kterým se chceme dostat:
 - [The Encyclopedia of Science Fiction: Novum (Darko Suvin)](https://sf-encyclopedia.com/entry/novum)
 - [Literariness: Wolfgang Iser as a Reader-Response Critic](https://literariness.org/2016/11/08/wolfgang-iser-as-a-reader-response-critic-a-brief-note/)
 - [Mark J. P. Wolf: Building Imaginary Worlds (Routledge)](https://www.routledge.com/Building-Imaginary-Worlds-The-Theory-and-History-of-Subcreation/Wolf/p/book/9780415631198)
+- Mark J. P. Wolf (ed.): *Revisiting Imaginary Worlds: A Subcreation Studies Anthology*, Routledge 2017.
 - [John Clute: Thinning (The Encyclopedia of Fantasy)](http://sf-encyclopedia.uk/fe.php?nm=thinning)
 
 **Dějiny náboženství**
