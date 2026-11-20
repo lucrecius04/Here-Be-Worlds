@@ -258,7 +258,7 @@ function splitBundle(t, limit) {
   const files = merged.map((c, i) => {
     const no = `${nn(i + 1)}/${nn(total)}`;
     const text = `SOUBOR ${no} · Here Be Worlds · stezka „${name}“\nObsah: ${c.titles.join(' · ')}\n\n${'='.repeat(60)}\n# ${c.titles[0]}\n${'='.repeat(60)}\n\n${c.body}\n\nKONEC SOUBORU ${no}\n`;
-    const base = c.titles.length > 1 && c.titles.every((x) => x.startsWith('Výtah z pramene')) ? 'vytahy-z-pramenu' : slugify(c.titles[0]);
+    const base = c.titles.length > 1 && c.titles.every((x) => x.startsWith('Výtah z pramene')) ? 'vytahy-z-pramenu' : c.titles.length > 1 ? `${slugify(c.titles[0]).slice(0, 28)}-a-dalsi` : slugify(c.titles[0]);
     return { name: `${nn(i + 1)}-${base}.md`, text, titles: c.titles };
   });
   const manifest = files.map((f) => `- ${f.name} – ${f.titles.join(' · ')}`).join('\n');
