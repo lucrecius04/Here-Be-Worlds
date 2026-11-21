@@ -33,3 +33,4 @@
 - Esej ke stezce Uvězněni v kruhu (`content/trails/uvezneni-v-kruhu.md`): Proč hry žijí z návratů (test převyprávění: Styx, Temné znamení, ATP, Odhodlání)
 - Esej ke stezce Hra ví, že ji hraješ (`content/trails/hra-vi-ze-ji-hrajes.md`): Proč si hry vidí do karet (poloreálnost, test převyprávění, vědomý nesoulad: Sans, titulky NieRu)
 - Esej ke stezce Logo nad troskami (`content/trails/logo-nad-troskami.md`): Proč hry umějí číst firemní složky (test převyprávění: Ethanova přišitá ruka jako fakt plísňového těla)
+- Esej ke stezce Smích nad propastí (`content/trails/smich-nad-propasti.md`, čeká na schválení): Proč hry umějí rozesmát i zranit (test převyprávění: Styx v Hades)

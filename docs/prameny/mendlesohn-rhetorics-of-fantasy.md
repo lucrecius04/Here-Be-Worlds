@@ -51,3 +51,4 @@ Fantasy se dá třídit podle toho, **jak do vyprávěného světa vstupuje fant
 - *Anatomie herního lore*: oddíl „Mendlesohn: kudy do světa vstupuje fantastično“, věta v oddílu Amnézie jako synchronizace vědění, tabulka pojmů, Zdroje
 - Esej ke stezce Kdo se to probudil? (`content/trails/kdo-se-to-probudil.md`): Proč se hry probouzejí bez paměti (portál převlečený za ponořenou, nespolehliví průvodci)
 - Esej ke stezce Prokleté dědictví (`content/trails/proklete-dedictvi.md`): kořeny (ponořená fantasy vypráví ztrátu, výhrada)
+- Esej ke stezce Smích nad propastí (`content/trails/smich-nad-propasti.md`, čeká na schválení): Šašek, úřad a obrácený svět (prahová fantasy: klidné postavy, odcizený čtenář; výhrada „nestojí za nic“), Control (výklad atlasu)
