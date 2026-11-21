@@ -230,3 +230,4 @@ Další:
 - Design (znak, ikony, karty) se zkouší na plátně Design v Claude; rozhodnutí o znaku a slepé uličky jsou v `docs/znacka.md`.
 - Odborné prameny k esejím a stezkám: výtahy v `docs/prameny/` (rozcestník `README.md`). Novou knihu od majitele přečíst, sepsat výtah podle vzoru, zapsat do rozcestníku a teprve pak použít v textu.
 - Plán postupného odkrývání světů (počet na startu, rytmus, technika) je v `docs/odkryvani.md`; otevřené otázky se rozhodnou ke konci.
+- Zásobník dalších putování (pořadí, navržené světy, odložená témata) a knihy, které majitel shání, je v `docs/putovani-plan.md`. Nejdřív knihy a výtahy, pak balíčky.
