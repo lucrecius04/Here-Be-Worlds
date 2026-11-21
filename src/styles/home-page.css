@@ -1180,14 +1180,6 @@ a.hp-tab:focus-visible {
   border-color: var(--color-accent);
 }
 
-.hp-journey__meta {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--color-ink-muted);
-}
-
 .hp-journeys__more {
   display: flex;
   flex-direction: column;

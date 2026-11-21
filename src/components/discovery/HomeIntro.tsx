@@ -61,63 +61,46 @@ const ICONIC: Record<string, string[]> = {
 };
 
 /**
- * Souhvězdí mají tvar, který k archetypu patří (jako figury ve starých hvězdných atlasech).
- * Body tvaru jsou v pořadí, v jakém se souhvězdí dokresluje: k-tý svět archetypu (podle čísla)
- * dostane k-tý bod. Hrana se kreslí, až když jsou obě hvězdy na obloze (a je-li uveden min,
- * teprve od tolika světů), takže souhvězdí roste spolu s atlasem a v každé fázi drží pohromadě.
- * Souřadnice jsou v jednotkách oblohy (šířka 1000) od počátku souhvězdí.
+ * Souhvězdí bez předepsaného tvaru: hvězdy leží v ploše souhvězdí na náhodných, ale pevných místech
+ * (generátor se semínkem podle archetypu, takže se obloha mezi návštěvami nemění) a každá další
+ * hvězda se připojí k nejbližší dřívější. Vznikne nahodilý strom jako u skutečných souhvězdí.
+ * k-tý svět archetypu (podle čísla) dostane k-té místo, takže se souhvězdí při postupném
+ * odkrývání jen dokresluje a starší spojnice zůstávají.
  */
-type Shape = {
-  points: Array<[number, number]>;
-  edges: Array<[number, number, number?]>;
-  /** Body pro trvale popsané (známé) světy: dost daleko od sebe, aby se jména nepřekrývala. */
-  named: number[];
-};
+function seededRandom(seedText: string) {
+  let seed = 2166136261;
+  for (const ch of seedText) seed = Math.imul(seed ^ ch.charCodeAt(0), 16777619);
+  return () => {
+    seed = (seed + 0x6d2b79f5) | 0;
+    let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
 
-const SHAPES: Record<string, Shape> = {
-  // Hrad se třemi věžemi; brána přibude, až bude světů víc.
-  fantasy: {
-    points: [[10, 150], [10, 45], [55, 45], [55, 95], [110, 95], [110, 10], [170, 10], [170, 95], [225, 95], [225, 45], [270, 45], [270, 150], [120, 150], [140, 118], [160, 150]],
-    edges: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [6, 7], [7, 8], [8, 9], [9, 10], [10, 11], [11, 0, 12], [11, 12], [12, 13], [13, 14]],
-    named: [1, 6, 11],
-  },
-  // Raketa: špička, trup, stabilizátory a okénko.
-  'science-fiction': {
-    points: [[110, 0], [70, 50], [150, 50], [70, 110], [150, 110], [25, 145], [195, 145], [110, 74]],
-    edges: [[0, 1], [0, 2], [1, 3], [2, 4], [3, 4], [3, 5], [4, 6]],
-    named: [0, 5, 6],
-  },
-  // Hřib výbuchu nad krajinou.
-  'post-apocalypse': {
-    points: [[120, 0], [30, 45], [210, 45], [120, 70], [120, 148], [60, 148], [180, 148]],
-    edges: [[0, 1], [0, 2], [1, 3], [2, 3], [3, 4], [4, 5], [4, 6]],
-    named: [0, 4],
-  },
-  // Srpek měsíce.
-  horror: {
-    points: [[115, 0], [20, 62], [115, 125], [68, 62]],
-    edges: [[0, 1], [1, 2], [2, 3], [3, 0]],
-    named: [0, 1],
-  },
-  // Oko, které hlídá; zornice bez spojnic.
-  dystopia: {
-    points: [[10, 45], [115, 0], [220, 45], [115, 92], [115, 46]],
-    edges: [[0, 1], [1, 2], [2, 3], [3, 0]],
-    named: [0, 2],
-  },
-  // Přesýpací hodiny; tři světy se zatím spojí jen napřímo.
-  historical: {
-    points: [[20, 0], [150, 0], [85, 65], [20, 130], [150, 130]],
-    edges: [[0, 1], [1, 2], [0, 2, 5], [2, 3], [3, 4], [2, 4]],
-    named: [0, 2],
-  },
-  // Nekonečno: smyčka, která se vrací.
-  metaphysical: {
-    points: [[115, 50], [58, 8], [0, 50], [58, 92], [172, 8], [230, 50], [172, 92]],
-    edges: [[0, 1], [1, 2], [2, 3], [3, 0], [0, 4], [4, 5], [5, 6], [6, 0]],
-    named: [2, 5],
-  },
-};
+/** Místa hvězd v ploše w × h: dost daleko od sebe, aby se jména pod nimi co nejméně překrývala. */
+function scatter(id: string, count: number, w: number, h: number): Array<[number, number]> {
+  const rand = seededRandom(id);
+  const pts: Array<[number, number]> = [];
+  for (let k = 0; k < count; k += 1) {
+    // Okraj 40 jednotek, aby se jména u krajních hvězd nevešla mimo oblohu.
+    const pad = 40;
+    const pick = (): [number, number] => [Math.round(pad + rand() * (w - 2 * pad)), Math.round(rand() * h)];
+    let best: [number, number] = pick();
+    let bestScore = -1;
+    // Z několika kandidátů vezme ten nejvzdálenější od už rozmístěných (rovnoměrnější, ale nahodilé).
+    for (let tries = 0; tries < 24; tries += 1) {
+      const c = pick();
+      const score = pts.length ? Math.min(...pts.map((p) => Math.hypot((p[0] - c[0]) / 1.6, p[1] - c[1]))) : 1;
+      if (score > bestScore) {
+        best = c;
+        bestScore = score;
+      }
+    }
+    pts.push(best);
+  }
+  return pts;
+}
 
 /** Dvě hvězdy se „srazí“, když by se jejich jména pod nimi překrývala. */
 function clash(a: [number, number], b: [number, number]): boolean {
@@ -173,14 +156,14 @@ const ROTATE_MS = 5000;
  * Obloha v souřadnicích 1000 × H. Souhvězdí mají pevné počátky (horní a dolní pás).
  * Jména popsaných hvězd stojí pod hvězdou, stejně jako při rozsvíceném souhvězdí.
  */
-const ORIGINS: Array<[number, number]> = [
-  [20, 50],
-  [340, 50],
-  [660, 50],
-  [15, 290],
-  [215, 290],
-  [480, 290],
-  [740, 290],
+const AREAS: Array<[number, number, number, number]> = [
+  [0, 50, 320, 150],
+  [330, 50, 310, 150],
+  [660, 50, 320, 150],
+  [0, 290, 200, 125],
+  [215, 290, 230, 125],
+  [480, 290, 230, 125],
+  [740, 290, 250, 125],
 ];
 
 type Star = { id: string; title: string; set: number; x: number; y: number; size: number; chapterId: string; isNew: boolean };
@@ -196,24 +179,23 @@ function buildSky(worlds: World[], chapters: ChapterCardData[], newIds: Set<stri
     lines.push({ x1: a[0], y1: a[1], x2: b[0], y2: b[1], chapterId });
   };
   chapters.forEach((chapter, gi) => {
-    const [ox, oy] = ORIGINS[gi] ?? [20 + (gi % 3) * 330, 50 + Math.floor(gi / 3) * 240];
+    const [ox, oy, aw, ah] = AREAS[gi] ?? [20 + (gi % 3) * 330, 50 + Math.floor(gi / 3) * 240, 260, 130];
     const items = worlds.filter((w) => w.chapterId === chapter.id).sort((a, b) => a.number - b.number);
     if (!items.length) return;
-    const shape = SHAPES[chapter.id] ?? { points: [], edges: [], named: [] };
     const n = items.length;
-    // Body tvaru; kdyby světů bylo víc než bodů, další hvězdy pokračují řadou pod tvarem.
-    const height = Math.max(0, ...shape.points.map((pt) => pt[1]));
-    const coords: Array<[number, number]> = items.map((_, k) => {
-      const pt = shape.points[k];
-      if (pt) return [ox + pt[0], oy + pt[1]];
-      const j = k - shape.points.length;
-      return [ox + 10 + j * 80, oy + height + 44];
-    });
+    // Místa se generují pro celé souhvězdí naráz (i do zásoby), aby se při odkrytí dalšího světa
+    // už rozmístěné hvězdy nepohnuly.
+    const coords: Array<[number, number]> = scatter(chapter.id, Math.max(n, 16), aw, ah)
+      .slice(0, n)
+      .map(([x, y]) => [ox + x, oy + y]);
+    // Body pro trvale popsané (známé) světy: první místa, která se jmény nepřekrývají.
+    const named: number[] = [];
+    for (let k = 0; k < n; k += 1) if (named.every((j) => !clash(coords[j], coords[k]))) named.push(k);
     // Známé světy na body určené pro jména, ostatní podle čísla do zbylých bodů.
     const wanted = (ICONIC[chapter.id] ?? [])
       .map((id) => items.find((w) => w.id === id))
       .filter((w): w is World => Boolean(w));
-    const slots = shape.named.filter((k) => k < n).slice(0, wanted.length);
+    const slots = named.slice(0, wanted.length);
     const iconic = wanted.slice(0, slots.length);
     const rest = items.filter((w) => !iconic.includes(w));
     const placed: World[] = [];
@@ -223,17 +205,21 @@ function buildSky(worlds: World[], chapters: ChapterCardData[], newIds: Set<stri
     }
     const always = placed.map((w, k) => (newIds.has(w.id) ? k : -1)).filter((k) => k >= 0);
     const setOf = rotationSets(coords, slots, always, wanted.length || 2);
-    groups.push({ chapterId: chapter.id, x: ox, y: oy - 44, count: n, sets: Math.max(1, ...setOf.map((v) => v + 1)), order: gi });
+    groups.push({ chapterId: chapter.id, x: ox + 20, y: oy - 44, count: n, sets: Math.max(1, ...setOf.map((v) => v + 1)), order: gi });
     placed.forEach((w, k) => {
       const seed = gi * 13 + k * 7;
       const [x, y] = coords[k];
       stars.push({ id: w.id, title: w.gameTitle.cs ?? w.gameTitle.en, set: setOf[k], x, y, size: [5, 6, 7, 8][(seed * 17) % 4], chapterId: chapter.id, isNew: newIds.has(w.id) });
       maxY = Math.max(maxY, y);
     });
-    shape.edges.forEach(([a, b, min]) => {
-      if (a < n && b < n && n >= (min ?? 0)) line(coords[a], coords[b], chapter.id);
-    });
-    for (let k = Math.max(1, shape.points.length); k < n; k += 1) line(coords[k - 1], coords[k], chapter.id);
+    // Každá další hvězda se připojí k nejbližší dřívější.
+    for (let k = 1; k < n; k += 1) {
+      let nearest = 0;
+      for (let j = 1; j < k; j += 1) {
+        if (Math.hypot(coords[j][0] - coords[k][0], coords[j][1] - coords[k][1]) < Math.hypot(coords[nearest][0] - coords[k][0], coords[nearest][1] - coords[k][1])) nearest = j;
+      }
+      line(coords[nearest], coords[k], chapter.id);
+    }
   });
   return { stars, lines, groups, height: Math.max(430, Math.ceil(maxY + 40)) };
 }
@@ -473,14 +459,6 @@ export default function HomeIntro({ chapters, worlds = [], journeys = [], base }
                   <a className="hp-btn hp-btn--tab" href={withBase(base, `/putovani/${trailSlug(featuredTrail.trail.id)}/`)}>
                     {uiT('home2.journeyGo', locale)} →
                   </a>
-                  <span className="hp-journey__meta">
-                    {[
-                      featuredTrail.info?.minutes ? uiT('home2.journeyEssay', locale).replace('{m}', String(featuredTrail.info.minutes)) : '',
-                      worldsCountLabel(featuredTrail.members.length, locale),
-                    ]
-                      .filter(Boolean)
-                      .join(' · ')}
-                  </span>
                 </p>
               </article>
               <div className="hp-journeys__more">
