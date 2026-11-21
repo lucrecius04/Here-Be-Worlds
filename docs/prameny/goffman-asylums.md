@@ -70,3 +70,4 @@ Kniha má i druhou, nadějnější polovinu. Chovanci se ústavu nikdy celí nev
 
 - Teoretické zázemí: oddíl „Goffman: totální instituce“, tabulka pojmů, Zdroje.
 - Esej ke stezce Práce, která nikdy nekončí (`content/trails/prace-ktera-nikdy-nekonci.md`): Dělník bohů a rozvrh dílny (totální instituce a placená práce, mrtvý čas, výhrada), Death Stranding 2 (kolonizace, APAS), Half-Life (Nova Prospekt jako pokus s já); doplnil Claude
+- Esej ke stezce Jméno jako klíč i kletba (`content/trails/jmeno-jako-klic-i-kletba.md`): Slovo, které je věcí (přijímací procedury, číslo místo jména, já v puklinách), Dragon Age (Qun maže osobní jméno), Elder Scrolls, Control (Kandidáti P6 a P7), Čtyři moci jména (Polaris proti Hedronu)

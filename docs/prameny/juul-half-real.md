@@ -38,3 +38,4 @@
 - Esej ke stezce Kopie bez originálu (`content/trails/kopie-bez-originalu.md`): Proč kopie bolí (konvence jako fikční pravda: pohled první osoby a Johnny v Cyberpunku)
 - Esej ke stezce Dům, ze kterého nejde odejít (`content/trails/dum-ze-ktereho-nejde-odejit.md`): Proč vězení patří právě hrám (test převyprávění)
 - Esej ke stezce Práce, která nikdy nekončí (`content/trails/prace-ktera-nikdy-nekonci.md`): Proč hry potřebují naši dřinu (test převyprávění: Dark Souls, Death Stranding)
+- Esej ke stezce Nákaza s vlastní vůlí (`content/trails/nakaza-s-vlastni-vuli.md`): Proč hry dělají z nákazy pravidlo (pravidla a fikce: Potopa a prstenec v Halo)

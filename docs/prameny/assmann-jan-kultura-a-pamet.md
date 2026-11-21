@@ -51,3 +51,4 @@ Přechod k písmu a **kanonizaci** proměňuje konektivní strukturu ve čtyřec
 - Esej ke stezce Bohové jako břemeno (`content/trails/bohove-jako-bremeno.md`): Pillars (aliance moci se zapomněním, třída strážců)
 - Esej ke stezce Prokleté dědictví (`content/trails/proklete-dedictvi.md`): kořeny (komunikativní a kulturní paměť, plovoucí propast, aliance moci se zapomněním), Tři způsoby (přepsaná paměť)
 - Esej ke stezce Kdo drží kroniku (`content/trails/kdo-drzi-kroniku.md`): kořeny (plovoucí propast, kanonizace „nic nepřidat, nic neubrat“, aliance moci se zapomněním, hypolepsa), Elder Scrolls (hypolepsa), Warhammer (chladná paměť)
+- Esej ke stezce Jméno jako klíč i kletba (`content/trails/jmeno-jako-klic-i-kletba.md`): Čtyři moci jména (aliance moci a zapomnění)

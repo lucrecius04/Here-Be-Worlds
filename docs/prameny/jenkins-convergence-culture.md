@@ -50,3 +50,4 @@ Současně se v digitálním prostoru vrací logika **lidové kultury** (*folk c
 - Esej ke stezce Válka, kterou nikdo nevyhraje (`content/trails/valka-kterou-nikdo-nevyhraje.md`): Proč hry neumějí uzavřít mír (prodává se svět, ne příběh; Warhammer 40 000)
 - Esej ke stezce Logo nad troskami (`content/trails/logo-nad-troskami.md`): Proč hry umějí číst firemní složky (ironie kritiky korporací uvnitř korporátních franšíz: Edgerunners, seriál Fallout, film Horizon)
 - Esej ke stezce Dům, ze kterého nejde odejít (`content/trails/dum-ze-ktereho-nejde-odejit.md`): Proč vězení patří právě hrám (narativní architektura)
+- Esej ke stezce Nákaza s vlastní vůlí (`content/trails/nakaza-s-vlastni-vuli.md`): Proč hry dělají z nákazy pravidlo (prostorové vyprávění: Caelid, Mrtvá brázda, sestup do Pekla)

@@ -66,3 +66,5 @@ Z toho plynou tři závěry. Za prvé, naše identita **nemusí být vždy urči
 
 - Teoretické zázemí: oddíl „Parfit: kopie, větvení a na čem záleží“, tabulka pojmů, Zdroje.
 - Esej ke stezce Kopie bez originálu (`content/trails/kopie-bez-originalu.md`): kořeny (teleportér, vedlejší kolej, kvalitativní a numerická totožnost, redukcionismus, prázdná otázka, vztah R, kvazivzpomínka, námitky Williamse a Nagela), Mass Effect (Projekt Lazarus, Kontrola), Halo (klony dětí, Zbraň bez vztahu R), Horizon (Aloy a Beta, Tilda a Williamsova Mary Smithová, Nemesis jako splynutí), Deus Ex (splynutí s Heliem, tělo v trezoru a kvazivzpomínky), Cyberpunk (Duševrah jako skener bez Marsu, Alt, konce jako odpovědi na to, na čem záleží)
+- Esej ke stezce Jméno jako klíč i kletba (`content/trails/jmeno-jako-klic-i-kletba.md`): Čtyři moci jména (bezejmennost, vztah R, prázdná otázka, výhrada; Tides of Numenera)
+- Esej ke stezce Nákaza s vlastní vůlí (`content/trails/nakaza-s-vlastni-vuli.md`): Anatomie cizí vůle (vztah R, kvazivzpomínky, splynutí, prázdná otázka, výhrada), Halo (Keyes), Warcraft (Arthas a Ner’zhul), Pathfinder (Velitel jako dítě, nebo cizinec)

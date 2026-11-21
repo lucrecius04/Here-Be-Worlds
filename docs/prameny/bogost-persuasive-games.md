@@ -37,3 +37,5 @@
 - Esej ke stezce Kopie bez originálu (`content/trails/kopie-bez-originalu.md`): Proč kopie bolí (co hra nedovolí: žádný konec Cyberpunku bez ztráty)
 - Esej ke stezce Dům, ze kterého nejde odejít (`content/trails/dum-ze-ktereho-nejde-odejit.md`): Proč vězení patří právě hrám (procedurální rétorika)
 - Esej ke stezce Práce, která nikdy nekončí (`content/trails/prace-ktera-nikdy-nekonci.md`): Proč hry potřebují naši dřinu (procedurální rétorika a entyméma: Death Stranding, Pentiment, Half-Life)
+- Esej ke stezce Jméno jako klíč i kletba (`content/trails/jmeno-jako-klic-i-kletba.md`): Proč hry umějí pojmenovat (procedurální rétorika)
+- Esej ke stezce Nákaza s vlastní vůlí (`content/trails/nakaza-s-vlastni-vuli.md`): Proč hry dělají z nákazy pravidlo (spoluvina skrze pravidla: Stratholme, Mýtické cesty, Temný poutník)

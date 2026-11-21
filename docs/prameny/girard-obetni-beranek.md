@@ -64,3 +64,4 @@ Kde se v textu sejdou aspoň dva až tři, můžeme tušit skutečné pronásled
 - Esej ke stezce Ráj, který se nepovedl (`content/trails/raj-ktery-se-nepovedl.md`): Architektura ráje (reformátor si vymyslí původ, Kaifášova logika, výhrada k redukcionismu), BioShock (Columbia a Wounded Knee)
 - Esej ke stezce Kdo drží kroniku (`content/trails/kdo-drzi-kroniku.md`): kořeny (mýty přepsané, aby bohové zůstali bez viny; výhrada k redukcionismu), DOOM (Maykrové)
 - Esej ke stezce Kopie bez originálu (`content/trails/kopie-bez-originalu.md`): kořeny (krize jako ztráta rozdílů, výhrada k redukcionismu), Fallout (paranoia Commonwealthu)
+- Esej ke stezce Nákaza s vlastní vůlí (`content/trails/nakaza-s-vlastni-vuli.md`): Anatomie cizí vůle (mor jako ztráta rozdílů, Kaifášova logika, výhrada k redukcionismu), Halo (Potopa, obrácená Kaifášova logika prstenců), Tři podoby nákazy (kolektivní pohlcení)

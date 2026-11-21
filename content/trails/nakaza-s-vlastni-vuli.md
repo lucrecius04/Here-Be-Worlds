@@ -1,6 +1,6 @@
 ---
 title: Nákaza s vlastní vůlí
-approved: false
+approved: true
 trail: contagion
 kicker: Putování atlasem
 tagline: Co z člověka a ze světa zbude, když nákaza nebere jen těla, ale i paměť a vůli – a za jakou cenu se dá zastavit?

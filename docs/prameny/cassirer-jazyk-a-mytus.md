@@ -50,3 +50,4 @@ Mýtické myšlení se od teoretického liší směrem. Teoretické (diskurzivn�
 ## Kde už je použito
 
 - Teoretické zázemí: oddíl „Cassirer: jméno, které je věcí“, tabulka pojmů, Zdroje.
+- Esej ke stezce Jméno jako klíč i kletba (`content/trails/jmeno-jako-klic-i-kletba.md`): Slovo, které je věcí (symbolické formy, magie slova, Usenerova typologie, výhrada), Dishonored (pravé jméno, Isis a Ra), Elder Scrolls (Thu’um), Control (začerněné slovo jako tabu), Proč hry umějí pojmenovat

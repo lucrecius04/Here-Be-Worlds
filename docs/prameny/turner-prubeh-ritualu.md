@@ -52,3 +52,4 @@ Prahovost, okrajovost a strukturální podřízenost jsou místa, kde vznikají 
 - Esej ke stezce Ráj, který se nepovedl (`content/trails/raj-ktery-se-nepovedl.md`): Architektura ráje (úpadek spontánní communitas v normativní a ideologickou), Disco Elysium (rozdrcená Komuna), Pathologic (Mnohostěn jako prahový prostor dětí, výklad atlasu)
 - Esej ke stezce Smích nad propastí (`content/trails/smich-nad-propasti.md`): Šašek, úřad a obrácený svět (rituály převrácení jako komedie, šašek jako privilegovaný soudce mravů, communitas), Hades (communitas vyvrhelů), Undertale (Sans jako šašek)
 - Esej ke stezce Práce, která nikdy nekončí (`content/trails/prace-ktera-nikdy-nekonci.md`): Tři tváře nekonečné práce (communitas: Death Stranding, Disco Elysium)
+- Esej ke stezce Jméno jako klíč i kletba (`content/trails/jmeno-jako-klic-i-kletba.md`): Slovo, které je věcí (práh, novic bez jména, systém jmen proti anonymitě), Elder Scrolls (vězeň bez minulosti)
