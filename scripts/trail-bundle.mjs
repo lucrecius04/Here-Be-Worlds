@@ -219,6 +219,7 @@ function splitBundle(t, limit) {
       `Název stezky: ${name}`,
       `Popis stezky na webu: ${desc}`,
       `Světy stezky v pořadí: ${t.members.map((id) => cs(byId[id].gameTitle)).join(', ')}`,
+      ...(t.themes.length ? [`Témata, která web u putování uvádí (esej by se jich měla dotknout): ${t.themes.map((s) => themeLabel[s] ?? s).join(', ')}`] : []),
       '',
       'Prameny, které rozcestník k této stezce doporučuje (výtahy jsou v dalších souborech):',
       '',
