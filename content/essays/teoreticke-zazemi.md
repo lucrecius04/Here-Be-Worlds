@@ -9,7 +9,7 @@ description: Odborné prameny atlasu Here Be Worlds – teorie fikčních svět�
 
 Atlas Here Be Worlds čte herní světy jako literatura čte romány: ptá se, co je drží pohromadě, proč některé žijí desítky let a jiné zůstanou kulisou. Metodu, kterou k tomu používáme, popisuje esej [Anatomie herního lore](/anatomie-herniho-lore/). Tahle stránka ukazuje, o co se opírá.
 
-Pojmy, se kterými pracujeme, nejsou naše. Přicházejí ze sedmi oblastí: z teorie fikčních světů, z kritiky fantastiky, z herních studií, z myšlení o hrůze a posvátnu, z dějin náboženství a mýtu, z výzkumu paměti a z filozofie osobní identity. Ke každé knize uvádíme, co v ní je a k čemu ji v atlasu potřebujeme. Na konci jsou knihy, které by sem ještě patřily, a úplný seznam literatury.
+Pojmy, se kterými pracujeme, nejsou naše. Přicházejí z osmi oblastí: z teorie fikčních světů, z kritiky fantastiky, z herních studií, z myšlení o hrůze a posvátnu, z dějin náboženství a mýtu, z výzkumu paměti, z filozofie osobní identity a z dějin moci a dohledu. Ke každé knize uvádíme, co v ní je a k čemu ji v atlasu potřebujeme. Na konci jsou knihy, které by sem ještě patřily, a úplný seznam literatury.
 
 ## Pojmy v kostce
 
@@ -50,6 +50,7 @@ Pojmy, se kterými pracujeme, nejsou naše. Přicházejí ze sedmi oblastí: z t
 | Nečistota jako věc na nepatřičném místě, anomálie, okraje | Mary Douglasová, *Čistota a nebezpečí* (1966) | Nečisté je to, co porušuje třídění světa. Anomálie a prahy jsou v kultuře zdrojem nebezpečí i moci. |
 | Umělecká hrůza, nečistota, zápletka přesahovače | Noël Carroll, *The Philosophy of Horror* (1990) | Monstrum hororu je ohrožující a nečisté, protože se nevejde do kategorií. Hrůzu snášíme jako cenu za poznání nemožného. |
 | Replika, větvení, vztah R, prázdná otázka, kvazivzpomínka | Derek Parfit, *Reasons and Persons* (1984) | Osoba není nic navíc vedle mozku, těla a propojených prožitků. Kopie může být přesně jako já, a přesto jiná osoba; záleží ale na psychické propojenosti a návaznosti, ne na totožnosti. |
+| Disciplína, Panoptikon, moc normy, zkouška a spis, moc-vědění | Michel Foucault, *Dohlížet a trestat* (1975) | Moderní moc netrestá okázale, ale pozoruje, třídí, měří a zapisuje. Kdo ví, že může být kdykoli viděn, hlídá se sám. |
 
 K tomu klasické pojmy, které esej používá: Aristotelova peripetie a anagnórize z *Poetiky*, Eliotův objektivní korelativ (1919) a Bachtinova polyfonie z knihy o Dostojevském (1929).
 
@@ -255,6 +256,18 @@ Jeho závěr je, že osoba není nic navíc vedle mozku, těla a řetězce propo
 
 Žádný pramen atlasu není tak blízko herní fikci. Kronika Hlubin uvádí Parfitovu knihu jako přímou inspiraci SOMY a Simon, který zůstane sedět ve starém těle, zatímco jeho kopie odchází, je Parfitův vypravěč na vedlejší koleji. Duševrah v Cyberpunku je teleportér bez Marsu, Animus v Assassin's Creed stroj na kvazivzpomínky, Klaus v Xenoblade se doslova rozdělí na dvě poloviny a Bezejmenný v Planescape: Torment žije mezi svými vzdálenými minulými já. Parfitův závěr je přitom silná a sporná teze; jeho oponenti Bernard Williams a Thomas Nagel v knize vystupují s opačnými intuicemi, které spojují osobu s tělem nebo mozkem, a Parfit sám přiznává, že se mu jeho pravdě věří velmi těžko.
 
+## Moc a dohled
+
+Jak se z útočiště stává vězení a z pozorování moc.
+
+### Foucault: dohled, disciplína a Panoptikon
+
+Francouzský filozof a historik Michel Foucault začíná knihu *Dohlížet a trestat* (1975) dvěma dokumenty. Roku 1757 je kralovrah Damiens na pařížském náměstí veřejně mučen a rozčtvrcen; o osmdesát let později sepíše Léon Faucher řád pro dům mladistvých vězňů, kde se vstává při prvním úderu bubnu a každá hodina má svou činnost. Mezi nimi podle Foucaulta nezvítězila lidskost, ale nová technika moci, **disciplína**. Ta netrestá okázale a občas, ale nepřetržitě pozoruje, rozděluje prostor a čas, měří podle **normy** a o každém vede **spis**, z něhož se stává **případ**. Vyrábí poslušná těla, užitečná tím víc, čím víc poslouchají. A protože při tom vzniká vědění o lidech, které pozoruje, nelze podle Foucaulta moc a vědění oddělit.
+
+Nejslavnějším obrazem knihy je **Panoptikon** Jeremyho Benthama: prstenec cel a uprostřed věž, do níž není vidět. Vězeň neví, zda se na něj někdo dívá, a proto se chová, jako by se díval pořád; stává se principem vlastního podrobení. Foucault k tomu staví řád pro město zasažené morem, které se uzavře, rozdělí na ulice pod dozorem a lidi denně vyvolává jménem k oknům, jako „utopii dokonale spravovaného města“, a ukazuje, jak se disciplína z kasáren, škol a nemocnic rozšířila do celé společnosti, kterou nazývá společností dohledu, ne podívané.
+
+Pro atlas je Foucault klíčem k uzavřeným světům. Sektor, v němž Úřad v Controlu drží nebezpečné předměty, se doslova jmenuje Panoptikum a desetiletý Dylan v něm skončil jako pokusný případ. Dunwall za krysího moru a Město na Gorchonu jsou Foucaultova morová města s karanténami, věžemi a přídělovým systémem. Vaulty ve Falloutu, z nichž většina skrývala tajný pokus na obyvatelích, jsou Panoptikon jako laboratoř. Foucault ovšem píše historii francouzského vězeňství a jeho „disciplinární společnost“ je velkorysé zobecnění, které historici kritizovali; moc u něj nemá jednoho původce, a proto ho nečteme jako heslo „všechno je vězení“.
+
 ## Z dílny tvůrců
 
 Vedle teorie se opíráme o texty a přednášky lidí, kteří herní světy sami staví.
@@ -336,6 +349,7 @@ Knihy, které by metodu dál prohloubily a ke kterým se chceme dostat:
 - Mary Douglas: *Purity and Danger* (1966); česky *Čistota a nebezpečí: Analýza konceptu znečištění a tabu*, přel. Marta Mills Fialová a Michaela Konopíková, Malvern 2014.
 - Noël Carroll: *The Philosophy of Horror, or Paradoxes of the Heart*, Routledge 1990.
 - Derek Parfit: *Reasons and Persons*, Oxford University Press 1984 (s opravami 1987).
+- Michel Foucault: *Dohlížet a trestat. Kniha o zrodu vězení* (Surveiller et punir, 1975), přel. Čestmír Pelikán, Dauphin 2000; anglicky *Discipline and Punish*, přel. Alan Sheridan, Vintage 1995.
 
 **Fikční světy a fantastika (doplněk)**
 
