@@ -371,3 +371,35 @@ export function valueFrequencies(values: string[]): number[] {
   for (const value of values) counts.set(value, (counts.get(value) ?? 0) + 1);
   return values.map((value) => counts.get(value) ?? 0);
 }
+
+export type DiscoveryPair = { a: World; b: World; level: KinshipLevel };
+
+/**
+ * Náměty na prázdné srovnání (stejný index jako všude jinde):
+ * nečekaní příbuzní = nejbližší dvojice z různých archetypů, protinožci = nejvzdálenější dvojice.
+ * Každý svět se v jednom seznamu objeví nejvýš jednou, ať náměty nejsou o tomtéž.
+ */
+export function discoveryPairs(all: World[], count = 3): { unexpected: DiscoveryPair[]; opposites: DiscoveryPair[] } {
+  const pool = all.filter((w) => !w.draft);
+  const scored: Array<{ a: World; b: World; percent: number }> = [];
+  for (let i = 0; i < pool.length; i++)
+    for (let j = i + 1; j < pool.length; j++)
+      scored.push({ a: pool[i], b: pool[j], percent: affinityPercent(pool[i], pool[j]) });
+  scored.sort((x, y) => y.percent - x.percent || x.a.id.localeCompare(y.a.id) || x.b.id.localeCompare(y.b.id));
+  const pick = (list: typeof scored) => {
+    const used = new Set<string>();
+    const out: DiscoveryPair[] = [];
+    for (const item of list) {
+      if (used.has(item.a.id) || used.has(item.b.id)) continue;
+      used.add(item.a.id);
+      used.add(item.b.id);
+      out.push({ a: item.a, b: item.b, level: kinshipLevel(item.a, item.b, pool) });
+      if (out.length >= count) break;
+    }
+    return out;
+  };
+  return {
+    unexpected: pick(scored.filter((item) => item.a.chapterId !== item.b.chapterId)),
+    opposites: pick([...scored].reverse()),
+  };
+}

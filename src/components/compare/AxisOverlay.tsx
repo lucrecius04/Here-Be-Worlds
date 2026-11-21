@@ -1,8 +1,8 @@
 import type { CSSProperties } from 'react';
 import type { LocalizedString, World } from '../../schemas/world';
 import { t, uiT, type Locale } from '../../lib/i18n';
-import { withBase } from '../../lib/base-url';
 import { AXIS_KEYS } from '../../lib/axes';
+import { farthestAxis } from '../../lib/compare';
 
 type AxisMeta = {
   id: string;
@@ -16,34 +16,18 @@ type Props = {
   hues: string[];
   axes: AxisMeta[];
   locale: Locale;
-  base: string;
 };
 
-export default function AxisOverlay({ worlds, hues, axes, locale, base }: Props) {
+/** Poloha víc světů na stupnici 1–5: kosočtverce v barvách srovnání, mezi krajními světy tenký pás rozpětí. */
+export default function AxisOverlay({ worlds, hues, axes, locale }: Props) {
+  const widest = farthestAxis(worlds);
   return (
-    <section className="compare-axes" aria-label={uiT('card.axesAria', locale)}>
-      <div className="compare-axes__head">
-        <a className="compare-axes__notes" href={withBase(base, '/notes/#stupnice')}>
-          {uiT('world.howJudged', locale)}
-        </a>
-        <ul className="compare-legend">
-          {worlds.map((world, index) => (
-            <li key={world.id} className="compare-legend__item">
-              <span
-                className="compare-legend__mark"
-                style={{ '--mark-hue': hues[index] } as CSSProperties}
-                aria-hidden="true"
-              />
-              <span>{t(world.gameTitle, locale)}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
+    <div className="cmp-rows cmp-axes" aria-label={uiT('card.axesAria', locale)}>
       {axes.map((axis) => {
         const key = axis.id as (typeof AXIS_KEYS)[number];
+        const name = uiT(`map.name${key.charAt(0).toUpperCase()}${key.slice(1)}`, locale);
         const left = t(axis.left, locale);
         const right = t(axis.right, locale);
-        const note = t(axis.help, locale);
         const marks = worlds.map((world, index) => ({
           id: world.id,
           value: world.axes[key].value,
@@ -53,60 +37,53 @@ export default function AxisOverlay({ worlds, hues, axes, locale, base }: Props)
         const values = marks.map((mark) => mark.value);
         const min = Math.min(...values);
         const max = Math.max(...values);
-        const minHue = marks.find((mark) => mark.value === min)?.hue ?? hues[0];
-        const maxHue = marks.find((mark) => mark.value === max)?.hue ?? hues[hues.length - 1];
+        const isWidest = Boolean(widest && widest.key === key && widest.spread >= 2);
+        const pos = (value: number) => `${((value - 1) / 4) * 100}%`;
         return (
-          <div className="overlay-axis" key={axis.id}>
+          <div key={axis.id} className={`cmp-grid cmp-row cmp-axis${isWidest ? ' is-widest' : ''}`} title={t(axis.help, locale)}>
+            <div className="cmp-grid__label">
+              {name}
+              {isWidest ? <span className="cmp-axis__tag">{uiT('compare.biggestGap', locale)}</span> : null}
+            </div>
             <div
-              className="overlay-axis__row"
+              className="cmp-axis__body"
               role="img"
-              aria-label={`${left} — ${marks.map((mark) => `${mark.title} ${mark.value}/5`).join(', ')} — ${right}`}
+              aria-label={`${name}: ${left} — ${marks.map((mark) => `${mark.title} ${mark.value}/5`).join(', ')} — ${right}`}
             >
-              <span className="overlay-axis__pole overlay-axis__pole--left">{left}</span>
-              <div className="overlay-axis__track" aria-hidden="true">
+              <span className={`cmp-axis__pole${min <= 2 ? ' is-near' : ''}`}>{left}</span>
+              <span className="cmp-axis__track" aria-hidden="true">
+                {[1, 2, 3, 4, 5].map((tick) => (
+                  <i key={tick} className="cmp-axis__tick" style={{ left: pos(tick) }} />
+                ))}
                 {max > min ? (
-                  <span
-                    className="overlay-axis__delta"
-                    style={
-                      {
-                        left: `${((min - 0.5) / 5) * 100}%`,
-                        width: `${((max - min) / 5) * 100}%`,
-                        '--delta-from': minHue,
-                        '--delta-to': maxHue,
-                      } as CSSProperties
-                    }
-                  />
+                  <span className="cmp-axis__span" style={{ left: pos(min), width: `${((max - min) / 4) * 100}%` }} />
                 ) : null}
-                {[1, 2, 3, 4, 5].map((tick) => {
-                  const here = marks.filter((mark) => mark.value === tick);
+                {marks.map((mark, index) => {
+                  const same = marks.filter((other) => other.value === mark.value);
+                  const order = same.findIndex((other) => other.id === mark.id);
+                  const shift = (order - (same.length - 1) / 2) * 0.85;
                   return (
-                    <div key={tick} className="overlay-axis__cell">
-                      <span
-                        className={`overlay-axis__cluster${here.length > 1 ? ' overlay-axis__cluster--tied' : ''}`}
-                      >
-                        {here.length === 0 ? <span className="overlay-axis__tick" /> : null}
-                        {here.map((mark) => (
-                          <span
-                            key={mark.id}
-                            className="overlay-axis__mark"
-                            style={{ '--mark-hue': mark.hue } as CSSProperties}
-                            title={`${mark.title}: ${mark.value}/5`}
-                          />
-                        ))}
-                      </span>
-                      <span className="overlay-axis__num">{tick}</span>
-                    </div>
+                    <span
+                      key={mark.id}
+                      className="cmp-axis__mark"
+                      style={
+                        {
+                          left: pos(mark.value),
+                          '--slot-hue': mark.hue,
+                          '--shift': `${shift}rem`,
+                          zIndex: 3 + index,
+                        } as CSSProperties
+                      }
+                      title={`${mark.title}: ${mark.value}/5`}
+                    />
                   );
                 })}
-              </div>
-              <span className="overlay-axis__pole overlay-axis__pole--right">{right}</span>
+              </span>
+              <span className={`cmp-axis__pole cmp-axis__pole--right${max >= 4 ? ' is-near' : ''}`}>{right}</span>
             </div>
-            <p className="overlay-axis__comment">
-              <em>{note}</em>
-            </p>
           </div>
         );
       })}
-    </section>
+    </div>
   );
 }
