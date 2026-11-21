@@ -404,6 +404,8 @@ export const ui: Record<Locale, UiTree> = {
       starsDesc: 'Vesmír tak velký a starý, že v něm člověk nic neznamená – a přesto se ptá proč.',
       keepers: 'Kdo drží kroniku',
       keepersDesc: 'Minulost patří tomu, kdo ji zapíše – a o pero se v těchto světech bojuje stejně tvrdě jako o trůn.',
+      copies: 'Kopie bez originálu',
+      copiesDesc: 'Klon, záloha, syntetik, digitální otisk – kde začíná duše bytosti, kterou někdo vyrobil?',
     },
     essay: {
       title: 'Anatomie herního lore',
@@ -853,6 +855,8 @@ Berte prosím tento atlas jako skromnou poctu všem scenáristům, designérům 
       starsDesc: 'A universe so vast and old that a human means nothing in it – and still asks why.',
       keepers: 'Who Keeps the Chronicle',
       keepersDesc: 'The past belongs to whoever writes it down – and in these worlds the pen is fought over as fiercely as the throne.',
+      copies: 'Copies Without an Original',
+      copiesDesc: 'A clone, a backup, a synth, a digital imprint – where does the soul of a made being begin?',
     },
     essay: {
       title: 'The anatomy of game lore',

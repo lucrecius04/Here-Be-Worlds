@@ -44,6 +44,7 @@ export const TRAILS: TrailDef[] = [
   def('endless-war', 'war', ['warhammer-40k', 'nier-automata', 'warcraft', 'the-witcher', 'metro', 'starcraft'], ['war', 'power-and-dominion', 'faith']),
   def('indifferent-stars', 'stars', ['bloodborne', 'soma', 'warhammer-40k', 'control', 'mass-effect', 'outer-wilds'], ['discovery', 'identity-and-existence', 'death-and-immortality']),
   def('chronicle-keepers', 'keepers', ['pentiment', 'elder-scrolls', 'dragon-age', 'warhammer-40k', 'doom', 'pillars-of-eternity'], ['uncovering-the-past', 'power-and-dominion', 'faith']),
+  def('copies', 'copies', ['mass-effect', 'halo', 'fallout', 'horizon', 'deus-ex', 'cyberpunk-2077'], ['identity-and-existence', 'progress-and-its-costs', 'death-and-immortality']),
 ];
 
 /** České adresy stránek stezek (/putovani/<slug>/); stejný slug má soubor eseje v content/trails. */
@@ -65,6 +66,7 @@ export const TRAIL_SLUGS: Record<string, string> = {
   'endless-war': 'valka-kterou-nikdo-nevyhraje',
   'indifferent-stars': 'pod-lhostejnymi-hvezdami',
   'chronicle-keepers': 'kdo-drzi-kroniku',
+  copies: 'kopie-bez-originalu',
 };
 
 export function trailSlug(id: TrailId): string {
