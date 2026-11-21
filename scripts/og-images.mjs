@@ -108,7 +108,7 @@ function worldHtml(w) {
 }
 
 /** Barvy srovnání (stejné jako SLOT_COLORS v src/lib/compare.ts). */
-const SLOT = ['#B74A9D', '#1A9389', '#5F9205'];
+const SLOT = ['#1A9389', '#B74A9D', '#5F9205'];
 
 function compareHtml() {
   // pět stupnic jako na stránce srovnání: tři světy, mezi krajními pás rozpětí

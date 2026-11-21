@@ -172,8 +172,8 @@ describe('compare kinship', () => {
   });
 
   it('keeps slot colors in gold / teal / amethyst order', () => {
-    expect(slotHue(0)).toBe('#B74A9D');
-    expect(slotHue(1)).toBe('#1A9389');
+    expect(slotHue(0)).toBe('#1A9389');
+    expect(slotHue(1)).toBe('#B74A9D');
     expect(slotHue(2)).toBe('#5F9205');
   });
 });
@@ -255,11 +255,12 @@ describe('kinship levels', () => {
     expect(levelFromPercent(10, cut)).toBe(1);
   });
 
-  it('lifts curated pairs to at least close kin', () => {
+  it('does not lift curated pairs: the grade comes from the index alone', () => {
     const a = { ...minimal('a', [], 1, 1), relatedWorlds: [{ id: 'b', title: { en: 'b' }, note: { en: 'n' } }] } as World;
+    const plain = minimal('a', [], 1, 1);
     const b = minimal('b', ['x'], 5, 5);
     const fillers = ['c', 'd', 'e', 'f', 'g'].map((id) => minimal(id, ['x'], 5, 5));
-    expect(kinshipLevel(a, b, [a, b, ...fillers])).toBeGreaterThanOrEqual(4);
+    expect(kinshipLevel(a, b, [a, b, ...fillers])).toBe(kinshipLevel(plain, b, [plain, b, ...fillers]));
   });
 
   it('describes pillar strength in words', () => {

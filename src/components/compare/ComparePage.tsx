@@ -5,7 +5,6 @@ import { useLocale } from '../../lib/locale-store';
 import { withBase } from '../../lib/base-url';
 import {
   MAX_COMPARE,
-  curatedNote,
   curatedPairs,
   discoveryPairs,
   kinshipCutoffs,
@@ -300,8 +299,6 @@ export default function ComparePage({ worlds, chapters, themeLabels, axes, base,
       ? pairLevel(selected[0], selected[1])
       : levelFromPercent(kinshipPercent(selected), cutoffs)
     : null;
-  const notePair = activePair ? [selected[activePair.left], selected[activePair.right]] : null;
-  const verdictNote = notePair ? curatedNote(notePair[0], notePair[1]) : undefined;
 
   const factRows: FactRow[] = ready
     ? [
@@ -535,11 +532,6 @@ export default function ComparePage({ worlds, chapters, themeLabels, axes, base,
               </ul>
               </>
             )}
-            {verdictNote ? (
-              <p className="cmp-note">
-                <span className="cmp-note__label">{uiT('compare.curatedLabel', locale)}</span> {t(verdictNote, locale)}
-              </p>
-            ) : null}
             {activePair ? <Pillars score={activePair.breakdown} locale={locale} /> : null}
           </Section>
 
@@ -593,7 +585,6 @@ export default function ComparePage({ worlds, chapters, themeLabels, axes, base,
                     <p className="cmp-trails__desc">{uiT(trail.descKey, locale)}</p>
                     <p className="cmp-trails__meta">
                       <span className="cmp-trails__who">
-                        {inside.length < filled.length ? `${uiT('compare.trailsSome', locale)} ` : ''}
                         {inside.map((item) => (
                           <span key={item.world.id} className="cmp-trails__world">
                             <Mark hue={slotHue(item.index)} />

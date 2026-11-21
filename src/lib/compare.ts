@@ -4,14 +4,14 @@ import overridesData from '../../data/meta/kinship-overrides.json';
 
 export const MAX_COMPARE = 3;
 
-/* Barvy srovnání (2026-11-21): purpurová, mořská zeleň a trávová zeleň. Leží v mezerách mezi
+/* Barvy srovnání (2026-11-21): mořská zeleň, purpurová a trávová zeleň (zelené nestojí vedle sebe). Leží v mezerách mezi
  * barvami archetypů i akcentem (ΔE2000 ≥ 15 vůči světlým i tmavým barvám archetypů, mezi sebou ≥ 27)
  * a mají kontrast ≥ 3,3 na papíře i na noci, takže stačí jedna sada pro oba motivy.
  * Podbarvení (wash) míchá compare.css z barvy a pozadí (color-mix), tady je jen pro úplnost. */
-export const SLOT_COLORS = ['#B74A9D', '#1A9389', '#5F9205'] as const;
+export const SLOT_COLORS = ['#1A9389', '#B74A9D', '#5F9205'] as const;
 export const SLOT_WASH = [
-  'rgba(183, 74, 157, 0.16)',
   'rgba(26, 147, 137, 0.16)',
+  'rgba(183, 74, 157, 0.16)',
   'rgba(95, 146, 5, 0.16)',
 ] as const;
 
@@ -215,12 +215,10 @@ export function affinityPercent(a: World, b: World): number {
  * Všechny dvojice publikovaných světů seřadíme podle indexu a rozdělíme podle podílu:
  * nejbližší 3 % = Sourozenci, dalších 9 % = Blízcí příbuzní, dalších 23 % = Spříznění,
  * dalších 30 % = Vzdálení příbuzní, zbytek = Cizí. Při úpravě výpočtu se stupně jen přeskupí.
- * Kurátorské vazby z atlasu (relatedWorlds) mají vždy aspoň stupeň Blízcí příbuzní.
  * Ruční výjimky: data/meta/kinship-overrides.json.
  */
 export type KinshipLevel = 1 | 2 | 3 | 4 | 5;
 export const KINSHIP_SHARES = [0.03, 0.12, 0.35, 0.65] as const;
-export const CURATED_FLOOR: KinshipLevel = 4;
 
 type Override = { a: string; b: string; level: number };
 const OVERRIDES = new Map<string, KinshipLevel>(
@@ -268,7 +266,7 @@ export function kinshipLevel(a: World, b: World, all: World[]): KinshipLevel {
   const manual = OVERRIDES.get(pairId(a.id, b.id));
   if (manual) return manual;
   const computed = levelFromPercent(affinityPercent(a, b), kinshipCutoffs(all));
-  return isCuratedPair(a, b) ? (Math.max(computed, CURATED_FLOOR) as KinshipLevel) : computed;
+  return computed;
 }
 
 /** Nejpříbuznější světy (jediný index na webu: srovnání, karta i mapa), řazeno podle stupně a indexu. */
