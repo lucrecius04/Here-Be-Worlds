@@ -517,6 +517,11 @@ export default function HomeIntro({ chapters, worlds = [], journeys = [], base }
                         </span>
                       ))}
                     </span>
+                    {info?.minutes ? (
+                      <span className="hp-journey__meta hp-journey-small__meta">
+                        {uiT('home2.journeyEssay', locale).replace('{m}', String(info.minutes))}
+                      </span>
+                    ) : null}
                   </a>
                 ))}
               </div>

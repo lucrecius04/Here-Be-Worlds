@@ -334,7 +334,8 @@
   color: var(--color-accent);
 }
 
-@media (max-width: 900px) {
+/* úzké okno i telefon otočený na šířku: obsah sbalený do lišty nahoře */
+@media (max-width: 900px), (max-height: 540px) and (pointer: coarse) {
   .essay {
     padding-bottom: 3rem;
   }

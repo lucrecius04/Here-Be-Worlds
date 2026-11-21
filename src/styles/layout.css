@@ -468,6 +468,11 @@ body:has(.world-card--page) .site-footer {
    Odkazy a jazyk jsou v panelu, který se rozbalí pod hlavičkou. Stejně i na telefonu otočeném
    na šířku (nízké okno s dotykovým ovládáním). */
 @media (max-width: 720px), (max-height: 540px) and (pointer: coarse) {
+  /* hlavička tu nestojí, takže lepivé prvky (obsah eseje, srovnání) drží úplně nahoře */
+  :root {
+    --site-header-height: 0px;
+  }
+
   .site-header {
     position: relative;
     flex-wrap: nowrap;

@@ -1225,6 +1225,10 @@ a.hp-tab:focus-visible {
   color: var(--color-ink-muted);
 }
 
+.hp-journey-small__meta {
+  margin-top: 0.25rem;
+}
+
 .hp-journey-small:hover .hp-journey-small__title,
 .hp-journey-small:focus-visible .hp-journey-small__title {
   color: var(--color-accent);

@@ -94,7 +94,7 @@
 }
 
 /* Úzký displej: sbalený řádek „Obsah · kde právě jsem · +“ */
-@media (max-width: 900px) {
+@media (max-width: 900px), (max-height: 540px) and (pointer: coarse) {
   .rtoc__head {
     display: none;
   }
