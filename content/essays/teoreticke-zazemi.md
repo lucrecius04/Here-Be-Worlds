@@ -43,6 +43,7 @@ Pojmy, se kterými pracujeme, nejsou naše. Přicházejí z osmi oblastí: z teo
 | Obětní beránek, zakládající vražda | René Girard, *Obětní beránek* (1982) | Mýty vyprávějí o kolektivním násilí z pohledu pronásledovatelů. Oběť je napřed vinná krizí, po smrti uctívaná jako zachránce, a z toho dvojího přenosu vzniká posvátno. |
 | Práh (liminalita), communitas | Victor Turner, *Průběh rituálu* (1969) | Kdo prochází přechodem, stojí mimo kategorie: bez jména, majetku a postavení. Na prahu vzniká pouto rovných, které struktura potřebuje i obává se ho. |
 | Absurdno, revolta, Sisyfos | Albert Camus, *Mýtus o Sisyfovi* (1942) | Absurdno vzniká ze střetu lidské touhy po smyslu s mlčením světa. Neutíkat před ním do naděje, ale žít s ním vědomě: Sisyfa si musíme představit šťastného. |
+| Magie slova, symbolické formy | Ernst Cassirer, *Jazyk a mýtus* (1925) | Pro mýtické myšlení jméno nic nezastupuje, ale je podstatou věci: kdo zná jméno, má moc; kdo ho ztratí, ztrácí sebe; vyslovené jméno přivolává, zamlčené chrání. |
 | Portálová, ponořená, vpádová a prahová fantasy | Farah Mendlesohn, *Rhetorics of Fantasy* (2008) | Fantasy se liší tím, jak do příběhu vstupuje fantastično a kde přitom stojí čtenář: přichází zvenčí, je doma, svět je přepaden, nebo zázrak stojí na prahu. |
 | Meč a magie, výpravná fantasy, divadelní fantasy, Fantasyland™ | Farah Mendlesohn, Edward James, *A Short History of Fantasy* (2009) | Dějiny fantasy jako rozhovor autorů: jak se z Tolkiena, Howarda, Moorcocka, pulpových časopisů a D&D zrodily vzorce i klišé herních světů. |
 | Věčný návrat, hrůza z dějin | Mircea Eliade, *Mýtus o věčném návratu* (1949) | Tradiční člověk považuje za skutečné jen to, co opakuje vzor z počátku času. Opakováním ruší dějiny a kolektivní paměť z událostí dělá mýty. |
@@ -233,6 +234,12 @@ Albert Camus v eseji *Mýtus o Sisyfovi* (1942) začíná otázkou, zda život s
 
 Pro herní světy je Camus slovníkem opakování, které hrdina zná a přijímá. V Hades sedí Sisyfos se svým balvanem doslova v Tartaru a Zagreus se z podsvětí prodírá znovu a znovu; Dark Souls staví celý svět na nekonečném cyklu propojování ohně; Nováček v Outer Wilds nakonec vlastníma rukama vytáhne warpové jádro a vzdá se smyčky, která ho chránila. Kronika Disco Elysium mluví o vzdorovitém, téměř absurdním optimismu, který se rodí na dně porážky. Camus sám odmítal, že by byl existencialista, a o hrách nepíše; spojení se světy jsou výklad atlasu.
 
+### Cassirer: jméno, které je věcí
+
+Ernst Cassirer v krátké studii *Jazyk a mýtus* (1925) ukazuje, že jazyk i mýtus nejsou kopie hotového světa, ale **symbolické formy**: síly, které teprve rozhodují, co se ze záplavy dojmů vyjeví a dostane tvar. Oba mají společný kořen v metaforickém myšlení, které nerozšiřuje jako logika, ale soustřeďuje: jediný silný dojem zaplní vědomí a vybije se v bohu nebo ve slově. Odtud **magie slova**. Pro mýtické myšlení jméno nic nezastupuje, ale *je* podstatou svého nositele. Isis získá moc nad bohem Ra, když z něj vyláká jeho tajné jméno; mrtví v Egyptě musí znát jména strážců bran podsvětí; římský otrok neměl právní jméno, protože nebyl osobou; nemocnému se jméno mění, aby ho smrt nenašla, a jméno mrtvého se nevyslovuje, aby ho nepřivolalo. Cassirer s Hermannem Usenerem sleduje cestu od bezejmenné moci (mana) přes „okamžikové bohy“ a bohy jediné činnosti k bohům s tisícem jmen a nakonec k bohu, kterého pojmenovat nelze vůbec. Chaos je v babylonském mýtu doba, kdy nebesa „nebyla pojmenována“, a svět začíná tím, že stvořitel vysloví vlastní jméno.
+
+Pro herní světy je Cassirer slovníkem moci jména. V Dishonored zlomí čtyřtisícileté prokletí Cizince jeho zapomenuté lidské jméno, které mu Billie Lurková pošeptá do ucha; Bezejmenný v Planescape: Torment po první smrti zapomene své jméno i vinu, kterou chtěl napravit; Thu'um v Elder Scrolls je křik slov dračího jazyka, který přímo mění skutečnost; v BioShocku zbavují tři slova „Byl bys tak laskav?“ hrdinu vůle. Cassirerův vývojový slovník („primitivní národy“) a Usenerovo schéma dějin bohů nepřebíráme; bereme z něj typologii toho, jak jméno funguje, a spojení se světy jsou výklad atlasu.
+
 ### Drobnější prameny k mýtu
 
 Eseje k putováním využívají i kratší prameny: mýty o stvoření světa z těla boha (Ymi, Tiamat, Puruša, Pchan-ku) a srovnávací studii Michaela Witzela, Eliadeho pojem *deus otiosus*, tedy boha, který po stvoření odešel, z *Pojednání o dějinách náboženství* (1949), a Nietzscheho aforismy 108 a 125 z *Radostné vědy* (1882) o mrtvém Bohu a jeho stínu.
@@ -374,6 +381,7 @@ Knihy, které by metodu dál prohloubily a ke kterým se chceme dostat:
 - Sigmund Freud: „Das Unheimliche“, *Imago* 5, 1919; anglicky „The Uncanny“, in: *The Uncanny*, přel. David McLintock, Penguin Classics 2003.
 - H. P. Lovecraft: „Supernatural Horror in Literature“ (1927, přepracováno 1933–1935), elektronický text Project Gutenberg of Australia 2006.
 - Albert Camus: *Mýtus o Sisyfovi* (Le Mythe de Sisyphe, 1942), přel. Dagmar Steinová, Nakladatelství Svoboda 1995; anglicky *The Myth of Sisyphus and Other Essays*, přel. Justin O'Brien, Knopf 1955.
+- Ernst Cassirer: *Sprache und Mythos. Ein Beitrag zum Problem der Götternamen* (Studien der Bibliothek Warburg VI, Teubner 1925); anglicky *Language and Myth*, přel. Susanne K. Langerová, Harper 1946, Dover 1953.
 
 **Fikční světy a fantastika (doplněk)**
 
