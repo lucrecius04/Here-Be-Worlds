@@ -351,7 +351,7 @@ export const ui: Record<Locale, UiTree> = {
     },
     trailsPage: {
       title: 'Putování světy',
-      lead: 'Světy, které o sobě nikdy neslyšely, si kladou stejné otázky. Putování vede od jednoho k druhému napříč archetypy a na jeho konci čeká esej.',
+      lead: 'Světy, které o sobě nikdy neslyšely, si kladou stejné otázky. Putování vede od jednoho k druhému napříč archetypy a hledá, co je pod povrchem spojuje a co naopak rozděluje.',
       world: 'Svět',
       allWorlds: 'Všechny světy',
       essay: 'Esej · {n} min',
@@ -798,7 +798,7 @@ Berte prosím tento atlas jako skromnou poctu všem scenáristům, designérům 
     },
     trailsPage: {
       title: 'Journeys across worlds',
-      lead: 'Worlds that have never heard of each other keep asking the same questions. A journey leads from one to the next across archetypes, and an essay waits at its end.',
+      lead: 'Worlds that have never heard of each other keep asking the same questions. A journey leads from one to the next across archetypes, looking for what binds them beneath the surface and what sets them apart.',
       world: 'World',
       allWorlds: 'All worlds',
       essay: 'Essay · {n} min',
