@@ -170,6 +170,7 @@ const PRAMEN_KEYS = [
   [/Nietzsche|mýty o stvoření|deus otiosus/, 'drobne-prameny'],
   [/Parfit/, 'parfit-reasons-and-persons'], [/Foucault/, 'foucault-dohlizet-a-trestat'], [/Freud/, 'freud-tisnive-povedome'],
   [/Lovecraft/, 'lovecraft-nadprirozena-hruza'], [/Camus/, 'camus-mytus-o-sisyfovi'], [/Cassirer/, 'cassirer-jazyk-a-mytus'],
+  [/Goffman/, 'goffman-asylums'],
 ];
 const trailRow = (name) => read('docs/prameny/README.md').split('\n').find((l) => l.startsWith(`| ${name} |`)) || '';
 const trailPrameny = (name) => {

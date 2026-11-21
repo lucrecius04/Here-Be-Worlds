@@ -52,7 +52,7 @@ Klíčový obraz je **Panoptikon** Jeremyho Benthama: prstencová budova s celam
 
 - Kapitoly Podívaná šibenice, Zobecněný trest a Mírná cesta trestu (trestající město reformátorů, divadla trestů) pozorně.
 - Z Poslušných těl oddíly o umění rozmístění, řízení činnosti, organizaci vývoje a skládání sil.
-- Esej *O jiných prostorech* (heterotopie, 1967) a Goffmanovy *Asylums* jako doplněk pro putování Dům, ze kterého nejde odejít.
+- Esej *O jiných prostorech* (heterotopie, 1967) jako doplněk pro putování Dům, ze kterého nejde odejít. Goffmanovy *Asylums* už máme (`goffman-asylums.md`).
 
 ## Kde už je použito
 

@@ -55,6 +55,7 @@ Pojmy, se kterými pracujeme, nejsou naše. Přicházejí z osmi oblastí: z teo
 | Umělecká hrůza, nečistota, zápletka přesahovače | Noël Carroll, *The Philosophy of Horror* (1990) | Monstrum hororu je ohrožující a nečisté, protože se nevejde do kategorií. Hrůzu snášíme jako cenu za poznání nemožného. |
 | Replika, větvení, vztah R, prázdná otázka, kvazivzpomínka | Derek Parfit, *Reasons and Persons* (1984) | Osoba není nic navíc vedle mozku, těla a propojených prožitků. Kopie může být přesně jako já, a přesto jiná osoba; záleží ale na psychické propojenosti a návaznosti, ne na totožnosti. |
 | Disciplína, Panoptikon, moc normy, zkouška a spis, moc-vědění | Michel Foucault, *Dohlížet a trestat* (1975) | Moderní moc netrestá okázale, ale pozoruje, třídí, měří a zapisuje. Kdo ví, že může být kdykoli viděn, hlídá se sám. |
+| Totální instituce, umrtvování já, systém privilegií, podzemní život | Erving Goffman, *Asylums* (1961) | Ústav, kde se spí, pracuje i odpočívá pod jednou autoritou, bere nováčkovi opory starého já a staví nové z drobných odměn. Člověk si přesto drží odstup ve skrýších a puklinách. |
 
 K tomu klasické pojmy, které esej používá: Aristotelova peripetie a anagnórize z *Poetiky*, Eliotův objektivní korelativ (1919) a Bachtinova polyfonie z knihy o Dostojevském (1929).
 
@@ -296,6 +297,14 @@ Nejslavnějším obrazem knihy je **Panoptikon** Jeremyho Benthama: prstenec cel
 
 Pro atlas je Foucault klíčem k uzavřeným světům. Sektor, v němž Úřad v Controlu drží nebezpečné předměty, se doslova jmenuje Panoptikum a desetiletý Dylan v něm skončil jako pokusný případ. Dunwall za krysího moru a Město na Gorchonu jsou Foucaultova morová města s karanténami, věžemi a přídělovým systémem. Vaulty ve Falloutu, z nichž většina skrývala tajný pokus na obyvatelích, jsou Panoptikon jako laboratoř. Foucault ovšem píše historii francouzského vězeňství a jeho „disciplinární společnost“ je velkorysé zobecnění, které historici kritizovali; moc u něj nemá jednoho původce, a proto ho nečteme jako heslo „všechno je vězení“.
 
+### Goffman: totální instituce
+
+Americký sociolog Erving Goffman strávil rok v léčebně St. Elizabeths ve Washingtonu a z toho vznikla kniha *Asylums* (1961). Pojmenoval v ní **totální instituce**: léčebny, věznice, kasárna, lodě, internáty i kláštery, kde člověk spí, pracuje a tráví volný čas na jednom místě, pod jednou autoritou, ve skupině stejně zacházených lidí a podle jediného rozvrhu. Uvnitř žije velká skupina **chovanců**, nad nimi malý **personál**, který večer odchází domů, a oba světy se míjejí přes nepřátelské stereotypy. Goffman popisuje, jak ústav nováčkovi standardně, často bez zlého úmyslu, odebírá opory starého já: jméno nahradí číslo, vlastní šaty ústavní oděv, minulost spis. Na troskách pak staví nové já ze **systému privilegií**, drobných odměn za poslušnost. Chovanci odpovídají různě: stáhnou se do sebe, vzdorují, v ústavu se zabydlí („našli domov“), nebo převezmou pohled personálu.
+
+Druhá polovina knihy je o tom, co člověk udělá s ústavem. Goffman sleduje **podzemní život** instituce: skrýše, směnný obchod, místa, kam personál nechodí, a drobné triky, jimiž si chovanci drží odstup od role, kterou jim ústav přisoudil. Knihu uzavírá myšlenkou, že náš status stojí na pevných budovách světa, ale pocit vlastní identity často přebývá v jejich puklinách.
+
+Pro atlas je Goffman přesnější než Foucault všude, kde jde o život uvnitř uzavřeného světa. Spartani z Halo, unesení v šesti letech a zbavení příjmení, prošli přijímací procedurou v nejčistší podobě; opatství Kiersau v Pentimentu patří do skupiny klášterů, kterou Goffman dokládá řeholí svatého Benedikta; Vault 101 ve Falloutu je ústav, v němž se chovanci rodí. Goffman ovšem popisuje americkou léčebnu 50. let a sám svůj model nazývá ideálním typem; uzavřená komunita bez dělení na chovance a personál totální institucí není.
+
 ## Z dílny tvůrců
 
 Vedle teorie se opíráme o texty a přednášky lidí, kteří herní světy sami staví.
@@ -378,6 +387,7 @@ Knihy, které by metodu dál prohloubily a ke kterým se chceme dostat:
 - Noël Carroll: *The Philosophy of Horror, or Paradoxes of the Heart*, Routledge 1990.
 - Derek Parfit: *Reasons and Persons*, Oxford University Press 1984 (s opravami 1987).
 - Michel Foucault: *Dohlížet a trestat. Kniha o zrodu vězení* (Surveiller et punir, 1975), přel. Čestmír Pelikán, Dauphin 2000; anglicky *Discipline and Punish*, přel. Alan Sheridan, Vintage 1995.
+- Erving Goffman: *Asylums. Essays on the Social Situation of Mental Patients and Other Inmates*, Anchor Books 1961; italsky *Asylums. Le istituzioni totali*, přel. Franca Basaglia, Einaudi 1968 (vyd. 2003).
 - Sigmund Freud: „Das Unheimliche“, *Imago* 5, 1919; anglicky „The Uncanny“, in: *The Uncanny*, přel. David McLintock, Penguin Classics 2003.
 - H. P. Lovecraft: „Supernatural Horror in Literature“ (1927, přepracováno 1933–1935), elektronický text Project Gutenberg of Australia 2006.
 - Albert Camus: *Mýtus o Sisyfovi* (Le Mythe de Sisyphe, 1942), přel. Dagmar Steinová, Nakladatelství Svoboda 1995; anglicky *The Myth of Sisyphus and Other Essays*, přel. Justin O'Brien, Knopf 1955.
