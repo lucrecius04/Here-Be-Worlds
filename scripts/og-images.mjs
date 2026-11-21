@@ -3,8 +3,10 @@
  * Karty pro sdílení (Open Graph, 1200 × 630):
  *   public/og/site.jpg            obecná karta webu (noční modř, obloha, znak)
  *   public/og/worlds/<id>.jpg     karta každého publikovaného světa (papír, barva archetypu)
+ *   public/og/compare.jpg         karta stránky Srovnání (noční, stupnice s kosočtverci v barvách srovnání)
  *
- * Spuštění: `npm run og` (po přidání nebo úpravě světa).
+ * Spuštění: `npm run og` (po přidání nebo úpravě světa). Jen vybrané karty:
+ * `npm run og -- compare`, `npm run og -- site`, `npm run og -- <id světa>`.
  * Potřebuje Playwright s Chromiem: `npx playwright install chromium` (jednou).
  * Písma bere z Google Fonts; bez sítě lze podstrčit vlastní CSS přes HBW_OG_FONT_CSS
  * (soubor s @font-face, url() jako cesty k souborům na disku).
@@ -105,6 +107,56 @@ function worldHtml(w) {
 </div>`;
 }
 
+/** Barvy srovnání (stejné jako SLOT_COLORS v src/lib/compare.ts). */
+const SLOT = ['#B74A9D', '#1A9389', '#5F9205'];
+
+function compareHtml() {
+  // pět stupnic jako na stránce srovnání: tři světy, mezi krajními pás rozpětí
+  const rows = [
+    [4, 4, 5],
+    [5, 5, 4],
+    [4, 5, 4],
+    [2, 4, 5],
+    [5, 4, 3],
+  ];
+  const W = 420;
+  const x = (v) => 14 + ((v - 1) / 4) * (W - 40);
+  const tracks = rows
+    .map((vals, r) => {
+      const y = 40 + r * 64;
+      const ticks = [1, 2, 3, 4, 5].map((t) => `<line x1="${x(t)}" y1="${y - 6}" x2="${x(t)}" y2="${y + 6}" stroke="#3A4562" stroke-width="1.5"/>`).join('');
+      const lo = Math.min(...vals);
+      const hi = Math.max(...vals);
+      const span = hi > lo ? `<line x1="${x(lo)}" y1="${y}" x2="${x(hi)}" y2="${y}" stroke="#ECE8E0" stroke-opacity=".28" stroke-width="5"/>` : '';
+      const marks = vals
+        .map((v, i) => {
+          const same = vals.filter((o) => o === v).length;
+          const order = vals.slice(0, i).filter((o) => o === v).length;
+          const cx = x(v) + (order - (same - 1) / 2) * 15;
+          return `<rect x="${cx - 8}" y="${y - 8}" width="16" height="16" fill="${SLOT[i]}" stroke="#0D1324" stroke-width="3" transform="rotate(45 ${cx} ${y})"/>`;
+        })
+        .join('');
+      return `<line x1="0" y1="${y}" x2="${W}" y2="${y}" stroke="#26304A" stroke-width="1.5"/>${ticks}${span}${marks}`;
+    })
+    .join('');
+  const columns = SLOT.map(
+    (c, i) =>
+      `<div style="flex:1;height:118px;padding:20px 16px 0;border-top:5px solid ${c};background:color-mix(in srgb, ${c} 24%, #0D1324)${i ? ';border-left:1px solid #1C2540' : ''}"><div style="width:${[72, 58, 66][i]}%;height:12px;background:#ECE8E0;opacity:.85"></div><div style="width:88%;height:5px;margin-top:16px;background:#ECE8E0;opacity:.28"></div><div style="width:${[64, 76, 52][i]}%;height:5px;margin-top:8px;background:#ECE8E0;opacity:.28"></div></div>`,
+  ).join('');
+  return `<div class="card" style="background:#0D1324;color:#ECE8E0">
+<div style="position:absolute;left:80px;top:64px;display:flex;align-items:center;gap:16px">${mark('#F4F1EA', '#E5BE7E', '#AEB3BE', 46)}<span class="word" style="font-size:34px;color:#F4F1EA">Here <em>Be</em> Worlds</span></div>
+<div style="position:absolute;left:80px;top:170px;width:560px">
+<h1 style="margin:0;font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:92px;line-height:.95;letter-spacing:-.025em;color:#F4F1EA">Srovnání světů</h1>
+<p style="margin:26px 0 0;font-family:'Source Serif 4',Georgia,serif;font-size:27px;line-height:1.4;color:#C9CEDA">Jak blízko mají k sobě světy, které o sobě <em>nikdy</em> neslyšely.</p>
+</div>
+<div style="position:absolute;right:80px;top:64px;width:${W}px">
+<div style="display:flex">${columns}</div>
+<svg width="${W}" height="330" viewBox="0 0 ${W} 330" style="display:block;margin-top:14px">${tracks}</svg>
+</div>
+<p class="mono" style="position:absolute;left:80px;right:80px;bottom:44px;margin:0;padding-top:14px;border-top:1px solid #1C2540;display:flex;justify-content:space-between;font-size:14px;color:#8E97AD"><span>Příbuznost · Pět souřadnic · Témata · Charakter</span><span>Atlas herních světů</span></p>
+</div>`;
+}
+
 /** Název na jeden řádek (zmenšit do 64 px), jádro nanejvýš na tři řádky. */
 function fitText() {
   const t = document.getElementById('t');
@@ -136,10 +188,24 @@ async function main() {
     await page.screenshot({ path: file, type: 'jpeg', quality: 86, clip: { x: 0, y: 0, width: 1200, height: 630 } });
   };
 
-  await render(siteHtml(), join(outDir, 'site.jpg'));
-  for (const w of worlds) await render(worldHtml(w), join(outDir, 'worlds', `${w.id}.jpg`));
+  const only = process.argv.slice(2);
+  const want = (name) => only.length === 0 || only.includes(name);
+  let done = 0;
+  if (want('site')) {
+    await render(siteHtml(), join(outDir, 'site.jpg'));
+    done++;
+  }
+  if (want('compare')) {
+    await render(compareHtml(), join(outDir, 'compare.jpg'));
+    done++;
+  }
+  for (const w of worlds) {
+    if (!want(w.id)) continue;
+    await render(worldHtml(w), join(outDir, 'worlds', `${w.id}.jpg`));
+    done++;
+  }
   await browser.close();
-  console.log(`Hotovo: site.jpg + ${worlds.length} karet světů v public/og/`);
+  console.log(`Hotovo: ${done} karet v public/og/`);
 }
 
 main().catch((err) => {

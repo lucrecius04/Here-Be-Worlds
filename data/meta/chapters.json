@@ -74,6 +74,7 @@
       "id": "historical",
       "order": 6,
       "title": { "en": "Historical & Alternate", "cs": "Historické a alternativní světy" },
+      "short": { "en": "Historical", "cs": "Historické světy" },
       "accent": { "light": "#8C3414", "dark": "#E58A5C" },
       "thesis": {
         "en": "Real history and its echoes—who writes the past, and who owns it.",
@@ -88,6 +89,7 @@
       "id": "metaphysical",
       "order": 7,
       "title": { "en": "Metaphysical & Experimental", "cs": "Metafyzické a experimentální světy" },
+      "short": { "en": "Metaphysical", "cs": "Metafyzické světy" },
       "accent": { "light": "#7B2E9E", "dark": "#CFA0F2" },
       "thesis": {
         "en": "Reality bends; narrative, belief, and consciousness reshape the map.",

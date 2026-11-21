@@ -4,11 +4,15 @@ import overridesData from '../../data/meta/kinship-overrides.json';
 
 export const MAX_COMPARE = 3;
 
-export const SLOT_COLORS = ['#D4AF37', '#4EA8B4', '#9B7EDE'] as const;
+/* Barvy srovnání (2026-11-21): purpurová, mořská zeleň a trávová zeleň. Leží v mezerách mezi
+ * barvami archetypů i akcentem (ΔE2000 ≥ 15 vůči světlým i tmavým barvám archetypů, mezi sebou ≥ 27)
+ * a mají kontrast ≥ 3,3 na papíře i na noci, takže stačí jedna sada pro oba motivy.
+ * Podbarvení (wash) míchá compare.css z barvy a pozadí (color-mix), tady je jen pro úplnost. */
+export const SLOT_COLORS = ['#B74A9D', '#1A9389', '#5F9205'] as const;
 export const SLOT_WASH = [
-  'rgba(212, 175, 55, 0.28)',
-  'rgba(78, 168, 180, 0.28)',
-  'rgba(155, 126, 222, 0.32)',
+  'rgba(183, 74, 157, 0.16)',
+  'rgba(26, 147, 137, 0.16)',
+  'rgba(95, 146, 5, 0.16)',
 ] as const;
 
 export function slotHue(index: number): string {
@@ -378,8 +382,9 @@ export type DiscoveryPair = { a: World; b: World; level: KinshipLevel };
  * Náměty na prázdné srovnání (stejný index jako všude jinde):
  * nečekaní příbuzní = nejbližší dvojice z různých archetypů, protinožci = nejvzdálenější dvojice.
  * Každý svět se v jednom seznamu objeví nejvýš jednou, ať náměty nejsou o tomtéž.
+ * Vrací zásobník (výchozí 9 dvojic); stránka z něj při každé návštěvě vybere tři.
  */
-export function discoveryPairs(all: World[], count = 3): { unexpected: DiscoveryPair[]; opposites: DiscoveryPair[] } {
+export function discoveryPairs(all: World[], count = 9): { unexpected: DiscoveryPair[]; opposites: DiscoveryPair[] } {
   const pool = all.filter((w) => !w.draft);
   const scored: Array<{ a: World; b: World; percent: number }> = [];
   for (let i = 0; i < pool.length; i++)
@@ -402,4 +407,23 @@ export function discoveryPairs(all: World[], count = 3): { unexpected: Discovery
     unexpected: pick(scored.filter((item) => item.a.chapterId !== item.b.chapterId)),
     opposites: pick([...scored].reverse()),
   };
+}
+
+/** Dvojice, které atlas spojil ručně (relatedWorlds), každá jednou: zásobník oblíbených párů. */
+export function curatedPairs(all: World[]): DiscoveryPair[] {
+  const pool = all.filter((w) => !w.draft);
+  const byId = new Map(pool.map((w) => [w.id, w]));
+  const seen = new Set<string>();
+  const out: DiscoveryPair[] = [];
+  for (const a of pool) {
+    for (const rel of a.relatedWorlds ?? []) {
+      const b = rel.id ? byId.get(rel.id) : undefined;
+      if (!b) continue;
+      const key = pairId(a.id, b.id);
+      if (seen.has(key)) continue;
+      seen.add(key);
+      out.push({ a, b, level: kinshipLevel(a, b, pool) });
+    }
+  }
+  return out;
 }

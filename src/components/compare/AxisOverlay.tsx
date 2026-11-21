@@ -2,7 +2,6 @@ import type { CSSProperties } from 'react';
 import type { LocalizedString, World } from '../../schemas/world';
 import { t, uiT, type Locale } from '../../lib/i18n';
 import { AXIS_KEYS } from '../../lib/axes';
-import { farthestAxis } from '../../lib/compare';
 
 type AxisMeta = {
   id: string;
@@ -20,7 +19,6 @@ type Props = {
 
 /** Poloha víc světů na stupnici 1–5: kosočtverce v barvách srovnání, mezi krajními světy tenký pás rozpětí. */
 export default function AxisOverlay({ worlds, hues, axes, locale }: Props) {
-  const widest = farthestAxis(worlds);
   return (
     <div className="cmp-rows cmp-axes" aria-label={uiT('card.axesAria', locale)}>
       {axes.map((axis) => {
@@ -37,14 +35,10 @@ export default function AxisOverlay({ worlds, hues, axes, locale }: Props) {
         const values = marks.map((mark) => mark.value);
         const min = Math.min(...values);
         const max = Math.max(...values);
-        const isWidest = Boolean(widest && widest.key === key && widest.spread >= 2);
         const pos = (value: number) => `${((value - 1) / 4) * 100}%`;
         return (
-          <div key={axis.id} className={`cmp-grid cmp-row cmp-axis${isWidest ? ' is-widest' : ''}`} title={t(axis.help, locale)}>
-            <div className="cmp-grid__label">
-              {name}
-              {isWidest ? <span className="cmp-axis__tag">{uiT('compare.biggestGap', locale)}</span> : null}
-            </div>
+          <div key={axis.id} className="cmp-grid cmp-row cmp-axis" title={t(axis.help, locale)}>
+            <div className="cmp-grid__label">{name}</div>
             <div
               className="cmp-axis__body"
               role="img"

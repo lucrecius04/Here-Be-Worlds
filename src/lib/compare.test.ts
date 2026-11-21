@@ -172,9 +172,9 @@ describe('compare kinship', () => {
   });
 
   it('keeps slot colors in gold / teal / amethyst order', () => {
-    expect(slotHue(0)).toBe('#D4AF37');
-    expect(slotHue(1)).toBe('#4EA8B4');
-    expect(slotHue(2)).toBe('#9B7EDE');
+    expect(slotHue(0)).toBe('#B74A9D');
+    expect(slotHue(1)).toBe('#1A9389');
+    expect(slotHue(2)).toBe('#5F9205');
   });
 });
 

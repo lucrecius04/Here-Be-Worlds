@@ -5,8 +5,8 @@ import { useLocale } from '../../lib/locale-store';
 import { withBase } from '../../lib/base-url';
 import {
   MAX_COMPARE,
-  SUGGESTED_PAIRS,
   curatedNote,
+  curatedPairs,
   discoveryPairs,
   kinshipCutoffs,
   kinshipLevel,
@@ -16,6 +16,7 @@ import {
   levelFromPercent,
   pillarStrength,
   type AffinityBreakdown,
+  type DiscoveryPair,
   type KinshipLevel,
   parseCompareIds,
   slotHue,
@@ -29,6 +30,7 @@ import '../../styles/compare.css';
 type ChapterInfo = {
   id: string;
   title: LocalizedString;
+  short?: LocalizedString;
   accent: { light: string; dark: string };
 };
 
@@ -39,7 +41,17 @@ type AxisMeta = {
   help: LocalizedString;
 };
 
+type TrailInfo = {
+  id: string;
+  slug: string;
+  nameKey: string;
+  descKey: string;
+  members: string[];
+  minutes: number | null;
+};
+
 type Props = {
+  trails?: TrailInfo[];
   worlds: World[];
   chapters: ChapterInfo[];
   themeLabels: Record<string, LocalizedString>;
@@ -175,7 +187,7 @@ function Pillars({ score, locale }: { score: AffinityBreakdown; locale: Locale }
   );
 }
 
-export default function ComparePage({ worlds, chapters, themeLabels, axes, base }: Props) {
+export default function ComparePage({ worlds, chapters, themeLabels, axes, base, trails = [] }: Props) {
   const locale = useLocale();
   const catalog = useMemo(() => worlds.filter((world) => !world.draft), [worlds]);
   const validIds = useMemo(() => new Set(catalog.map((world) => world.id)), [catalog]);
@@ -192,6 +204,9 @@ export default function ComparePage({ worlds, chapters, themeLabels, axes, base 
   const [factFilter, setFactFilter] = useState<FactFilter>('all');
   const [activePairKey, setActivePairKey] = useState<string | null>(null);
   const [addingThird, setAddingThird] = useState(false);
+  /* náměty se při každé návštěvě (a po „Jiné náměty“) losují ze zásobníků; do načtení stránky pevné pořadí */
+  const [seed, setSeed] = useState(0);
+  useEffect(() => setSeed(Math.floor(Math.random() * 1e9)), []);
   const slotsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -266,6 +281,8 @@ export default function ComparePage({ worlds, chapters, themeLabels, axes, base 
 
   const cutoffs = useMemo(() => kinshipCutoffs(worlds), [worlds]);
   const discovery = useMemo(() => discoveryPairs(catalog), [catalog]);
+  const curated = useMemo(() => curatedPairs(catalog), [catalog]);
+  const draw = (pool: DiscoveryPair[], salt: number) => pickSome(pool, 3, seed ? seed + salt : 0);
   const pairLevel = (a: World, b: World) => kinshipLevel(a, b, worlds);
 
   const coverage = ready ? themeCoverage(selected) : [];
@@ -338,10 +355,13 @@ export default function ComparePage({ worlds, chapters, themeLabels, axes, base 
 
   const single = filled.length === 1 ? filled[0].world : null;
   const closest = single ? kinshipRanking(single, catalog, 4) : [];
-  const favorite = SUGGESTED_PAIRS.filter(([a, b]) => validIds.has(a) && validIds.has(b)).map(([a, b]) => ({
-    a: byId.get(a)!,
-    b: byId.get(b)!,
-  }));
+  /* Putování, kterými vybrané světy procházejí: nejdřív ta, kde jsou všechny, u tří světů i ta, kde jsou dva. */
+  const sharedTrails = ready
+    ? trails
+        .map((trail) => ({ trail, inside: filled.filter((item) => trail.members.includes(item.world.id)) }))
+        .filter((entry) => entry.inside.length >= 2)
+        .sort((a, b) => b.inside.length - a.inside.length)
+    : [];
 
   return (
     <div className="cmp">
@@ -360,7 +380,7 @@ export default function ComparePage({ worlds, chapters, themeLabels, axes, base 
         </p>
       </header>
 
-      <div className="cmp-grid cmp-slots" ref={slotsRef} style={slotGridStyle} data-cols={colCount}>
+      <div className={`cmp-grid cmp-slots${ready ? '' : ' is-loose'}`} ref={slotsRef} style={slotGridStyle} data-cols={colCount}>
         <div className="cmp-grid__label cmp-slots__side">
           {ready ? (
             <div className="cmp-actions">
@@ -396,7 +416,15 @@ export default function ComparePage({ worlds, chapters, themeLabels, axes, base 
       </div>
 
       {!ready ? (
-        <Section title={uiT('compare.start', locale)} className="cmp-start">
+        <Section
+          title={uiT('compare.start', locale)}
+          className="cmp-start"
+          tools={
+            <button type="button" className="cmp-textbtn" onClick={() => setSeed((value) => value + 7919)}>
+              ↻ {uiT('compare.shuffle', locale)}
+            </button>
+          }
+        >
           <div className="cmp-start__cols">
             {single ? (
               <PairList
@@ -412,10 +440,10 @@ export default function ComparePage({ worlds, chapters, themeLabels, axes, base 
             ) : (
               <PairList
                 title={uiT('compare.suggested', locale)}
-                items={favorite.map(({ a, b }) => ({
+                items={draw(curated, 1).map(({ a, b, level }) => ({
                   key: `${a.id}-${b.id}`,
                   label: `${worldName(a)} × ${worldName(b)}`,
-                  level: pairLevel(a, b),
+                  level,
                   onPick: () => commit([a.id, b.id]),
                 }))}
                 locale={locale}
@@ -423,7 +451,7 @@ export default function ComparePage({ worlds, chapters, themeLabels, axes, base 
             )}
             <PairList
               title={uiT('compare.unexpected', locale)}
-              items={discovery.unexpected.map(({ a, b, level }) => ({
+              items={draw(discovery.unexpected, 2).map(({ a, b, level }) => ({
                 key: `${a.id}-${b.id}`,
                 label: `${worldName(a)} × ${worldName(b)}`,
                 level,
@@ -433,7 +461,7 @@ export default function ComparePage({ worlds, chapters, themeLabels, axes, base 
             />
             <PairList
               title={uiT('compare.opposites', locale)}
-              items={discovery.opposites.map(({ a, b, level }) => ({
+              items={draw(discovery.opposites, 3).map(({ a, b, level }) => ({
                 key: `${a.id}-${b.id}`,
                 label: `${worldName(a)} × ${worldName(b)}`,
                 level,
@@ -474,6 +502,8 @@ export default function ComparePage({ worlds, chapters, themeLabels, axes, base 
                 <Ticks level={verdictLevel} />
               </div>
             ) : (
+              <>
+              <p className="cmp-kicker cmp-pairs__hint">{uiT('compare.pairsHint', locale)}</p>
               <ul className="cmp-pairs" aria-label={uiT('compare.pairsTitle', locale)}>
                 {pairScores.map((pair) => {
                   const key = pairKey(pair);
@@ -503,6 +533,7 @@ export default function ComparePage({ worlds, chapters, themeLabels, axes, base 
                   );
                 })}
               </ul>
+              </>
             )}
             {verdictNote ? (
               <p className="cmp-note">
@@ -516,7 +547,7 @@ export default function ComparePage({ worlds, chapters, themeLabels, axes, base 
             title={uiT('compare.axesTitle', locale)}
             tools={
               <a className="cmp-textlink" href={withBase(base, '/notes/#stupnice')}>
-                {uiT('world.howJudged', locale)}
+                {uiT('compare.axesWhat', locale)}
               </a>
             }
           >
@@ -550,6 +581,37 @@ export default function ComparePage({ worlds, chapters, themeLabels, axes, base 
               })}
             </div>
           </Section>
+
+          {sharedTrails.length ? (
+            <Section title={uiT('compare.trailsTitle', locale)} className="cmp-trails">
+              <ul className="cmp-trails__list">
+                {sharedTrails.map(({ trail, inside }) => (
+                  <li key={trail.id} className="cmp-trails__item">
+                    <a className="cmp-trails__name display" href={withBase(base, `/putovani/${trail.slug}/`)}>
+                      {uiT(trail.nameKey, locale)}
+                    </a>
+                    <p className="cmp-trails__desc">{uiT(trail.descKey, locale)}</p>
+                    <p className="cmp-trails__meta">
+                      <span className="cmp-trails__who">
+                        {inside.length < filled.length ? `${uiT('compare.trailsSome', locale)} ` : ''}
+                        {inside.map((item) => (
+                          <span key={item.world.id} className="cmp-trails__world">
+                            <Mark hue={slotHue(item.index)} />
+                            {worldName(item.world)}
+                          </span>
+                        ))}
+                      </span>
+                      {trail.minutes ? (
+                        <span className="cmp-trails__min">
+                          {uiT('compare.essayMin', locale).replace('{m}', String(trail.minutes))}
+                        </span>
+                      ) : null}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            </Section>
+          ) : null}
 
           <Section
             title={uiT('compare.factsTitle', locale)}
@@ -596,6 +658,16 @@ export default function ComparePage({ worlds, chapters, themeLabels, axes, base 
       ) : null}
     </div>
   );
+}
+
+/** Tři náměty ze zásobníku; seed 0 = pevné pořadí (před načtením stránky), jinak zamíchané. */
+function pickSome<T>(pool: T[], count: number, seed: number): T[] {
+  if (!seed) return pool.slice(0, count);
+  const order = pool.map((item, index) => ({ item, key: Math.sin(seed * 9301 + index * 49297) }));
+  return order
+    .sort((a, b) => a.key - b.key)
+    .slice(0, count)
+    .map((entry) => entry.item);
 }
 
 function PairList({
@@ -754,7 +826,14 @@ function WorldSlot({
   const options = catalog.filter((world) => {
     if (taken.has(world.id) && world.id !== selectedId) return false;
     if (!q) return true;
-    const hay = [t(world.gameTitle, locale), world.gameTitle.en, world.gameTitle.cs, ...(world.universe ?? []).map((u) => t(u, locale))]
+    const ch = chapterById.get(world.chapterId);
+    const hay = [
+      t(world.gameTitle, locale),
+      world.gameTitle.en,
+      world.gameTitle.cs,
+      ch ? t(ch.title, locale) : '',
+      ...(world.universe ?? []).map((u) => t(u, locale)),
+    ]
       .filter(Boolean)
       .join(' ')
       .toLowerCase()
@@ -810,7 +889,7 @@ function WorldSlot({
                 onClick={() => pick(world.id)}
               >
                 <span className="cmp-slot__option-title">{t(world.gameTitle, locale)}</span>
-                <span className="cmp-slot__option-meta">{ch ? t(ch.title, locale) : world.chapterId}</span>
+                <span className="cmp-slot__option-meta">{ch ? t(ch.short ?? ch.title, locale) : world.chapterId}</span>
               </button>
             </li>
           );

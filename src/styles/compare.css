@@ -6,7 +6,19 @@
 .cmp {
   --cmp-label-w: 11rem;
   --cmp-pad: 1.25rem;
+  --cmp-wash: 13%;
   padding-bottom: 4rem;
+}
+
+html[data-theme='dark'] .cmp {
+  --cmp-wash: 22%;
+}
+
+/* podbarvení světa: barva srovnání smíchaná s pozadím, v obou motivech čitelné */
+.cmp-slot.is-filled,
+.cmp-sticky__world,
+.cmp-links__world {
+  background: color-mix(in srgb, var(--slot-hue) var(--cmp-wash), var(--color-paper));
 }
 
 .cmp-head__crumbs {
@@ -123,7 +135,21 @@
 }
 
 .cmp-slot.is-empty {
-  border-top-color: color-mix(in srgb, var(--slot-hue) 40%, transparent);
+  background: color-mix(in srgb, var(--slot-hue) calc(var(--cmp-wash) / 2.5), var(--color-paper));
+  border-top-color: color-mix(in srgb, var(--slot-hue) 45%, var(--color-paper));
+}
+
+/* bez dvou světů nemá sloupec popisků co nést: spisy jdou od levého okraje */
+.cmp-slots.is-loose {
+  grid-template-columns: repeat(var(--cmp-cols, 2), minmax(0, 1fr));
+}
+
+.cmp-slots.is-loose .cmp-slots__side {
+  display: none;
+}
+
+.cmp-slots.is-loose .cmp-slots__side + .cmp-slot {
+  border-left: 0;
 }
 
 .cmp-slot__top {
@@ -274,8 +300,8 @@ html[data-theme='dark'] .cmp-slot__option {
 }
 
 .cmp-slot__option-meta {
-  flex: 0 1 45%;
-  text-align: right;
+  flex: none;
+  white-space: nowrap;
   font-family: var(--font-mono);
   font-size: 0.625rem;
   letter-spacing: 0.08em;
@@ -528,19 +554,57 @@ html[data-theme='dark'] .cmp-slot__option {
   list-style: none;
 }
 
+.cmp-pairs__hint {
+  margin-top: 1rem;
+}
+
+.cmp-pairs li + li {
+  margin-top: 0.35rem;
+}
+
+/* dvojice jako volby: rámec z jemné linky, po najetí podbarvení, vybraná tmavá linka vlevo a podklad */
 .cmp-pair {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto auto;
+  grid-template-columns: minmax(0, 1fr) auto auto auto;
   align-items: center;
   gap: 0.5rem 1.5rem;
   width: 100%;
-  padding: 0.75rem 0;
-  border: 0;
-  border-bottom: 1px solid var(--color-line);
+  padding: 0.7rem 1rem 0.7rem 1.1rem;
+  border: 1px solid var(--color-line);
+  border-left: 4px solid var(--color-line);
   background: none;
   text-align: left;
   color: var(--color-ink-muted);
   cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.cmp-pair::after {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  color: var(--color-ink-muted);
+  content: '→';
+}
+
+.cmp-pair:hover,
+.cmp-pair:focus-visible {
+  border-color: var(--color-ink-muted);
+  background: var(--color-band);
+  outline: none;
+}
+
+.cmp-pair.is-on {
+  border-color: var(--color-ink);
+  border-left-color: var(--color-accent);
+  background: color-mix(in srgb, var(--color-accent) 10%, var(--color-paper));
+}
+
+.cmp-pair.is-on::after {
+  color: var(--color-accent);
+  content: '●';
+  font-size: 0.6rem;
 }
 
 .cmp-pair__names {
@@ -568,6 +632,66 @@ html[data-theme='dark'] .cmp-slot__option {
 .cmp-pair:hover,
 .cmp-pair.is-on {
   color: var(--color-ink);
+}
+
+/* --- společná putování -------------------------------------------------------------- */
+
+.cmp-trails__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+  gap: 0 2rem;
+  margin: 0.75rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cmp-trails__item {
+  padding: 1rem 0 1.1rem;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.cmp-trails__name {
+  font-size: 1.3rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--color-ink);
+  text-decoration: none;
+}
+
+.cmp-trails__name:hover,
+.cmp-trails__name:focus-visible {
+  color: var(--color-accent);
+}
+
+.cmp-trails__desc {
+  margin: 0.4rem 0 0;
+  font-family: var(--font-text);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--color-ink-muted);
+}
+
+.cmp-trails__meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.35rem 1rem;
+  margin: 0.6rem 0 0;
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  color: var(--color-ink-muted);
+}
+
+.cmp-trails__world + .cmp-trails__world {
+  margin-left: 0.75rem;
+}
+
+.cmp-trails__min {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent);
 }
 
 .cmp-pair.is-on .cmp-pair__names {
@@ -738,13 +862,6 @@ html[data-theme='dark'] .cmp-slot__option {
   transform: translate(calc(-50% + var(--shift, 0rem)), -50%) rotate(45deg);
 }
 
-.cmp-axis__tag {
-  display: block;
-  margin-top: 0.2rem;
-  color: var(--color-accent);
-  letter-spacing: 0.06em;
-  text-transform: none;
-}
 
 /* --- témata jako mřížka --------------------------------------------------------------- */
 
@@ -817,6 +934,10 @@ html[data-theme='dark'] .cmp-slot__option {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
+}
+
+.cmp-cell.is-match {
+  background: color-mix(in srgb, var(--color-accent) 9%, transparent);
 }
 
 .cmp-cell.is-match .cmp-cell__value::before {
@@ -1042,7 +1163,8 @@ html[data-theme='dark'] .cmp-slot__option {
   }
 
   .cmp-pair {
-    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    padding: 0.6rem 0.75rem;
   }
 
   .cmp-pair .cmp-ticks {
@@ -1077,10 +1199,6 @@ html[data-theme='dark'] .cmp-slot__option {
     text-align: right;
   }
 
-  .cmp-axis__tag {
-    display: inline;
-    margin: 0 0 0 0.5rem;
-  }
 
   .cmp-themes .cmp-row {
     grid-template-columns: minmax(0, 1fr) repeat(var(--cmp-cols, 2), 2rem);
@@ -1139,7 +1257,10 @@ html[data-theme='dark'] .cmp-slot__option {
     font-size: 1rem;
   }
 
-  .cmp-links .cmp-links__world:first-of-type {
-    padding-left: 0;
+  /* podbarvené boxy potřebují vnitřní okraj i v prvním sloupci */
+  .cmp-slots > .cmp-slot,
+  .cmp-links > .cmp-links__world {
+    padding-left: var(--cmp-pad);
+    padding-right: var(--cmp-pad);
   }
 }
