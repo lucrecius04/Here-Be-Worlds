@@ -1,0 +1,60 @@
+# Sigmund Freud: Das Unheimliche (Tísnivě povědomé)
+
+**Bibliografie:** Sigmund Freud, „Das Unheimliche“, *Imago* 5 (1919), s. 297–324; anglicky „The Uncanny“, přel. David McLintock, in: Sigmund Freud, *The Uncanny*, úvod Hugh Haughton, Penguin Classics (The New Penguin Freud), London 2003. Svazek obsahuje i eseje *Screen Memories*, *The Creative Writer and Daydreaming* (1908), *Family Romances* a *Leonardo da Vinci*. České vydání jsme neověřili; v atlasu Freudův pojem překládáme jako **tísnivě povědomé**, aby se nepletl s Fisherovým **tísnivým** (*eerie*).
+**Studováno:** 2026-11-21 z e-knihy dodané majitelem. Esej *Das Unheimliche* celá (části I–III a poznámky); esej *Básník a fantazie* (*The Creative Writer and Daydreaming*) celá. Úvod Hugha Haughtona a ostatní eseje svazku jen prolistovány. Výtah připravil Claude přímo z textu.
+**Upozornění:** Freud vysvětluje tísnivě povědomé psychoanalyticky: kastračním komplexem, fantazií o životě v lůně, dětským narcismem a „animistickým“ myšlením „primitivních národů“. To jsou dobové a dnes silně sporné teze; v atlasu je nepřebíráme. Přebíráme jeho **popis zážitku** a **soupis motivů** (dvojník, oživlá loutka, opakování, oko, splnění přání, návrat mrtvých, dům, který straší) a hlavně jeho postřeh o fikci (část III). Slovník „primitivní“ v esejích nepoužívat. Freud nepíše o hrách; všechna propojení se světy níže jsou výklad atlasu.
+
+## Hlavní teze
+
+Tísnivě povědomé (*das Unheimliche*, doslova „nedomácké“) je zvláštní druh děsivého, který se vrací k **něčemu dávno známému a důvěrnému**. Německé slovo *heimlich* znamená domácký, útulný, ale také skrytý, tajný; ve druhém významu se slévá se svým opakem. Freud se opírá o Schellingovu definici: tísnivé je to, co mělo zůstat skryto, a vyšlo najevo. Podle něj jde o **návrat potlačeného** (dětských přání a strachů) nebo o zdánlivé **potvrzení překonaných přesvědčení** (že myšlenky mohou zabíjet, že se mrtví vracejí).
+
+Rozhodující je třetí část: ve **fikci** platí jiná pravidla. Pohádka, která od začátku přiznává zázraky, tísnivá není; duchové u Danta nebo v Hamletovi děsí, ale nejsou tísnivě povědomí, protože přijmeme pravidla světa. Tísnivé vzniká, když autor předstírá **všední skutečnost** a pak ji překročí. Spisovatel tak může tísnivé zesílit i úplně potlačit.
+
+## Pojmy
+
+- **Heimlich a unheimlich (část I):** Freud prochází slovníky (Sanders, Grimmové) a ukazuje, že *heimlich* má dva významy: domácký a útulný, a skrytý a tajný. Ve druhém se blíží *unheimlich*. Citát z Gutzkowa: rodina působí jako zasypaná studna nebo vyschlý rybník, nad kterým nelze přejít bez pocitu, že se voda může znovu objevit. „My tomu říkáme unheimlich, vy heimlich.“
+- **Proti Jentschovi:** Psychiatr Ernst Jentsch (1906) vysvětloval tísnivé **intelektuální nejistotou**, například zda je předmět živý, nebo neživý (voskové figuríny, důmyslné panenky a automaty). Freud to považuje za nedostatečné: ne všechno nové a neznámé je tísnivé.
+- **Pískař (část II):** Rozbor Hoffmannovy povídky *Pískař*. Student Nathanael si od dětství pamatuje Pískaře, který podle chůvy vyhazuje dětem oči z hlavy; ztotožní ho s advokátem Coppeliem, s nímž otec v noci experimentoval u ohniště, a otec při jednom takovém pokusu zahyne. Jako student potká optika Coppolu („mám i krásné oči“), koupí si od něj dalekohled a zamiluje se do Olimpie, která se ukáže jako automat. Nakonec skočí z věže, když zahlédne Coppelia. Freud tvrdí, že tísnivé tu nepochází z nejistoty, zda je Olimpia živá, ale z motivu **ztráty očí**. I když víme, že Coppola je opravdu Coppelius, tísnivost nezmizí.
+- **Oživlá loutka:** Děti s panenkami mluví jako s živými; jedna pacientka věřila, že její panenky ožijí, když se na ně podívá dost upřeně. Tísnivé tu pramení z dětského přání či víry, ne ze strachu.
+- **Dvojník (část II):** Podle Otto Ranka byl dvojník původně pojistkou proti zániku („energické popření moci smrti“), první dvojník těla byla nesmrtelná duše. Když tato fáze pomine, mění se dvojník v **tísnivého zvěstovatele smrti**. Dvojník může nést i hlas svědomí (sebepozorování) a „všechny možnosti, které jsme nenaplnili“. Patří sem i telepatie, ztotožnění s druhým, zdvojení, rozštěpení a výměna já. Dvojník se stal postrachem, jako se bohové stávají démony, když jejich kult padne (Heine, *Bohové ve vyhnanství*).
+- **Opakování téhož (část II):** Freud bloudí horkým odpolednem prázdnými uličkami italského městečka a třikrát se proti své vůli vrátí do téže ulice; podobně se člověk v mlze v lese vrací na stejné místo nebo ve tmě opakovaně narazí do téhož kusu nábytku. Když se týž den opakuje číslo 62 (šatna, kajuta, pokoj), začneme v něm hledat osud. Freud to spojuje s **nutkáním k opakování**, které rozvede v knize *Mimo princip slasti* (1920).
+- **Všemohoucnost myšlenek a zlé oko:** Pacient si přeje, aby starý pán, který mu obsadil pokoj, „padl mrtvý“, a za čtrnáct dní pána raní mrtvice. Hostitel, jemuž osud plní každé přání (Schillerův *Polykratův prsten*), je tísnivý. Zlé oko je promítnutá závist.
+- **Smrt, mrtví a strašidelný dům:** Pro mnoho lidí je vrcholem tísnivého všechno, co souvisí se smrtí, mrtvolami, navrátilci a duchy. Některé jazyky prý *ein unheimliches Haus* („tísnivý dům“) přeloží jen opisem „dům, kde straší“. V postoji ke smrti jsme se od dávných dob změnili nejméně.
+- **Hranice fantazie a skutečnosti:** Tísnivé často vzniká, když se setře hranice mezi představou a skutečností, když se symbol stane tím, co symbolizuje. Freudův příklad z časopisu *Strand*: mladý pár se nastěhuje do bytu se stolem vyřezaným do krokodýlů a večer cítí pach a ve tmě tuší něco, co klouže po schodech.
+- **Oddělené údy a pohřbení zaživa:** Uťatá ruka, která se pohybuje sama, a strach z pohřbení zaživa (Freud ho vykládá jako obrácenou fantazii o životě v lůně).
+- **Prožité a fikční tísnivé (část III):** V životě tísnivé vzniká buď oživením potlačených dětských komplexů, nebo zdánlivým potvrzením překonaných přesvědčení; kdo animistická přesvědčení zcela odložil, toho náhoda nevyleká. Ve fikci záleží na pravidlech světa. **Pohádka** od začátku přijímá zázraky, a proto v ní tísnivé není (Andersenův cínový vojáček, Sněhurka, která otevře oči). **Svět s nadpřirozenými bytostmi** (Dante, Hamlet, Homérovi bohové) také ne, pokud jeho pravidla přijmeme. Tísnivé nastupuje, když autor **předstírá obyčejnou skutečnost** a pak ji překročí; tehdy nás „zradí pověře“, kterou jsme měli za překonanou. Freud dodává, že takový podvod v něm zanechává i nespokojenost. Autor může také dlouho tajit pravidla svého světa. A tísnivé lze potlačit humorem nebo tím, že se čtenář ztotožní s někým, kdo se nebojí (Wildeův *Strašidlo cantervillské*, Nestroyova fraška s duchy z každého propadla).
+- **Ticho, samota a tma:** Freud je nakonec připouští jako zdroje tísnivého spojené s dětským strachem, který většina lidí nikdy úplně nepřekoná.
+
+### Básník a fantazie (1908)
+
+- **Hra a skutečnost:** Každé hrající si dítě se chová jako básník: vytváří vlastní svět, přesněji dává věcem svého světa nový řád, a bere ho velmi vážně. „Opakem hry není vážnost, ale skutečnost.“ Dítě přitom hru od skutečnosti dobře odlišuje.
+- **Denní snění:** Dospělý si přestane hrát, ale hry se nevzdá: nahradí ji fantazií, kterou se stydí ukázat. Fantazie spojuje přítomný podnět, vzpomínku na dětské splnění přání a představu budoucnosti „na niti jednoho přání“.
+- **Jeho Veličenstvo Já:** Hrdina populárního románu je nezranitelný: kapitola končí jeho krvácením, další začíná jeho uzdravováním. „Nic se ti nemůže stát“ je pocit hrdiny i čtenáře; všechny ženy ho milují a postavy se dělí na pomocníky a nepřátele, jako v denním snu.
+- **Předslast:** Básník své denní sny zjemní a podplatí nás formální, estetickou slastí; skutečný požitek z díla pochází z uvolnění napětí a z toho, že si můžeme užít vlastní fantazie bez studu.
+
+## Co z toho plyne pro Here Be Worlds
+
+- **Doplněk k Todorovovi a Fisherovi:** Freudova třetí část je teorie fikčních pravidel, která přesně sedí na atlas: svět, který od začátku přiznává zázraky (Planescape, Elder Scrolls), tísnivý být nemusí; svět, který začne jako všední skutečnost a pak ji prolomí (Silent Hill jako ospalé letovisko, Disco Elysium se Šedí v kostele, Control za fasádou úřadu), tísnivý je. Je to předchůdce Todorovova váhání; Fisher se proti Freudovi vymezuje (tísnivě povědomé je cizí uvnitř známého, podivné a tísnivé hledí zvenčí).
+- **Bloodborne** (ověřeno proti kronice): Panna v Lovcově snu je oživlá porcelánová loutka podle podoby Lady Marie, která se na konci stane Lovcovou „matkou“: Freudova Olimpia. A Willemova touha „vysadit oči na vnitřní stranu vlastního mozku“ spolu s Vhledem, který ukáže, co oko dřív nevidělo, staví do středu světa motiv oka, který Freud nachází v *Pískaři* (výklad atlasu).
+- **Silent Hill** (ověřeno proti kronice): Maria, která vypadá na vlas jako Jamesova mrtvá manželka, ale není člověk, je dvojník zrozený z potlačeného přání. Město samo je Freudův *unheimliches Haus*, kde se vrací, co mělo zůstat skryto; a v Pokoji 302 se Walter ztotožní s bytem jako s matkou a zlomí se „v nitru zhmotněného lůna pod bytem“ (výklad atlasu; Freudův psychoanalytický výklad lůna nepřebírat).
+- **SOMA** (ověřeno proti kronice): Posměváčci, roboti s nahranými lidskými mozky, které jejich mysl nedokáže přijmout pohled na vlastní kovová klepeta, jsou Jentschova nejistota mezi živým a neživým; Simon a jeho kopie dvojník, který se z pojistky proti smrti mění v jejího zvěstovatele (výklad atlasu; doplněk k Parfitovi).
+- **NieR: Automata** (ověřeno proti kronice): Stroje, které po nalezení lidských archivů slepě napodobují lidstvo (kolébají prázdné kolébky, předstírají manželské hádky), jsou tísnivé automaty, oživlé loutky bez porozumění (výklad atlasu).
+- **Inscryption** (ověřeno proti kronice): Leshy fotografuje zvěř magickým fotoaparátem a zachycuje její duši na celuloid; v předmětu žije duše, symbol se stává tím, co symbolizuje (výklad atlasu).
+- **Planescape: Torment** (ověřeno proti kronice): Adahn, který se zhmotní z opakované lži, je Freudova „všemohoucnost myšlenek“. Tísnivý ale není, protože svět Sigilu od začátku přiznává, že víra tvoří skutečnost; přesně Freudův rozdíl mezi pohádkou a světem všední skutečnosti (výklad atlasu).
+- **Smyčky** (Outer Wilds, Dark Souls, Hades): Freudův návrat do téže ulice a nutkání k opakování dávají jazyk pro tíseň z opakování; pozor, Freud ho nespojuje s hrou, ale s neurózou.
+- **Hra a fikce obecně:** Esej *Básník a fantazie* je raný text o hře jako vážně braném světě s vlastním řádem („opakem hry není vážnost, ale skutečnost“) a o nezranitelném hrdinovi, jemuž se „nic nemůže stát“. Hodí se k úvahám o respawnu, ukládání a hrdinovi, který vždy vstane (výklad atlasu).
+- **Stezky:**
+  - **Kopie bez originálu** (plánovaná): dvojník, oživlá loutka, Jentschova nejistota mezi živým a neživým; doplněk k Parfitovi.
+  - **Dům, ze kterého nejde odejít** (plánovaná): strašidelný dům, návrat potlačeného, domácké, které se obrátí v nedomácké; doplněk k Foucaultovi a Bachelardovi.
+  - **Hříchy otců** (odložená): otcovská postava rozštěpená na dobrou a zlou (Freudův výklad *Pískaře*); jen opatrně, bez psychoanalytických závěrů.
+  - **Uvězněni v kruhu** a **Netvor v zrcadle:** opakování a dvojník.
+- **Na co si dát pozor:** Nepřebírat kastrační výklad, fantazii o lůně ani hodnocení „primitivních“ kultur. Freuda citovat jako autora soupisu motivů a teorie fikčních pravidel. Česky jednotně: tísnivě povědomé (*das Unheimliche*), dvojník, oživlá loutka, nutkání k opakování, všemohoucnost myšlenek, návrat potlačeného, překonaná přesvědčení.
+
+## Dočíst
+
+- Ostatní eseje svazku (*Screen Memories*, *Family Romances*, *Leonardo*) a úvod Hugha Haughtona.
+- Otto Rank, *Der Doppelgänger* (1914), z něhož Freud bere výklad dvojníka; Ernst Jentsch, *Zur Psychologie des Unheimlichen* (1906).
+
+## Kde už je použito
+
+- Teoretické zázemí: oddíl „Freud: tísnivě povědomé“, tabulka pojmů, Zdroje.

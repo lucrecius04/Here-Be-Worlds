@@ -37,6 +37,7 @@ Pojmy, se kterými pracujeme, nejsou naše. Přicházejí z osmi oblastí: z teo
 | Autentizace, mezera, fikční encyklopedie | Lubomír Doležel, *Heterocosmica* (1998) | Fikční svět je možný svět, který text uvede do existence. Fakty jsou jen to, co svět autoritativně potvrdí; je neúplný a jeho vědění se liší od encyklopedie skutečného světa. |
 | Ponoření a interaktivita, přecentrování | Marie-Laure Ryanová, *Narrative as Virtual Reality* (2001) | Fikce nás pohltí, když svět získá přítomnost samostatné skutečnosti. Interaktivita dělá z textu hru; obojí se těžko slučuje. |
 | Podivné a tísnivé | Mark Fisher, *The Weird and the Eerie* (2016) | Podivné je přítomnost něčeho, co nepatří. Tísnivé je něco tam, kde by nemělo být nic, nebo nic tam, kde by mělo být něco, a otázka, kdo tu jednal. |
+| Tísnivě povědomé (das Unheimliche), dvojník, oživlá loutka | Sigmund Freud, „Das Unheimliche“ (1919) | Děsí to, co bylo kdysi důvěrně známé a vrací se. Ve fikci záleží na pravidlech světa: pohádka tísnivá není, příběh, který předstírá všední skutečnost a pak ji prolomí, ano. |
 | Vznešená a zkrocená monstrozita | Jaroslav Švelch, *Player vs. Monster* (2023) | Herní monstra jsou simulovaná a navržená, aby prohrála. Co se dá spočítat a porazit, ztrácí tajemství. |
 | Obětní beránek, zakládající vražda | René Girard, *Obětní beránek* (1982) | Mýty vyprávějí o kolektivním násilí z pohledu pronásledovatelů. Oběť je napřed vinná krizí, po smrti uctívaná jako zachránce, a z toho dvojího přenosu vzniká posvátno. |
 | Práh (liminalita), communitas | Victor Turner, *Průběh rituálu* (1969) | Kdo prochází přechodem, stojí mimo kategorie: bez jména, majetku a postavení. Na prahu vzniká pouto rovných, které struktura potřebuje i obává se ho. |
@@ -183,6 +184,12 @@ Na Douglasové přímo staví Carrollova teorie hororových monster, pro atlas j
 Filozof Noël Carroll v knize *The Philosophy of Horror* (1990) definuje horor emocí, kterou vyvolává: hrůzou z monstra, které je zároveň ohrožující a nečisté. Nečisté je podle něj to, co se nevejde do kategorií, jež máme pro svět: co je živé i mrtvé, člověk i zvíře, nebo nemá tvar. Zombie spojuje protiklady v jednom těle, vlkodlak je střídá v čase. Carroll pak řeší paradox hororu, totiž proč lidé vyhledávají, co je odpuzuje. Většina hororu je podle něj drama odhalování. Monstrum je nemožná bytost, a tím přirozený předmět zvědavosti: chceme vědět, odkud je, co chce a jak ho porazit. Hnus je cena, kterou platíme za poznání nemožného.
 
 Bloodborne z toho udělal mechaniku. Vhled je poznání, které svět činí děsivějším: bytosti na katedrálách visely od začátku, jen je hráč neviděl, a odměnou za vědění je hrůza. Carroll popisuje i zápletku **přesahovače**, šíleného vědce nebo nekromanta, jehož experiment se vymkne, s poučením, že některé vědění je lépe nechat bohům. Je to nejčastější podoba [prvotního hříchu](/anatomie-herniho-lore/#prvotni-hrich) v atlasu: učenci z Byrgenwerthu s krví Velikých, Kagrenac u Lorkhanova srdce, vzorek vložený do paprsku v Black Mesa nebo Umbrella v Resident Evil.
+
+### Freud: tísnivě povědomé
+
+Sigmund Freud v eseji „Das Unheimliche“ (1919) hledá, čím se tísnivé liší od pouhého strachu. Německé *unheimlich* znamená doslova „nedomácké“, jenže slovo *heimlich* má dva významy, domácký i skrytý, a ve druhém se slévá se svým opakem. Freud z toho vyvozuje, že nás děsí to, co bylo kdysi **důvěrně známé** a vrátilo se, když mělo zůstat skryto. Sepisuje k tomu motivy, které dodnes nesou hororové světy: **dvojníka**, který byl původně pojistkou proti smrti a stal se jejím zvěstovatelem, **oživlou loutku** (Olimpia z Hoffmannova *Pískaře*), **opakování téhož** (Freud se proti své vůli potřetí vrátí do téže uličky italského městečka), ztrátu očí, splněná přání a návrat mrtvých. Jeho psychoanalytická vysvětlení (kastrační komplex, „primitivní“ animismus) jsou dobová a v atlasu je nepřebíráme.
+
+Cenná je poslední část eseje, kde Freud odlišuje skutečnost od fikce. Pohádka, která od začátku přiznává zázraky, tísnivá není, a duchové v Hamletovi také ne, protože jsme přijali pravidla jeho světa. Tísnivé nastupuje, když autor předstírá všední skutečnost a pak ji překročí. Proto je Silent Hill, ospalé letovisko, které se odloupne do rzi, tísnivější než Sigil, kde víra od začátku tvoří skutečnost a zhmotnělá lež nikoho nepřekvapí. Freudův dvojník a oživlá loutka se vracejí v Panně z Bloodborne, oživlé porcelánové loutce podle podoby Lady Marie, v Marii ze Silent Hillu 2, která vypadá na vlas jako Jamesova mrtvá žena, nebo ve strojích z NieR: Automata, které slepě napodobují lidské zvyky. Fisher na Freuda navazuje a zároveň se od něj odráží: tísnivě povědomé je cizí uvnitř známého, kdežto podivné a tísnivé hledí na náš svět zvenčí.
 
 ### Fisher: podivné a tísnivé
 
@@ -350,6 +357,7 @@ Knihy, které by metodu dál prohloubily a ke kterým se chceme dostat:
 - Noël Carroll: *The Philosophy of Horror, or Paradoxes of the Heart*, Routledge 1990.
 - Derek Parfit: *Reasons and Persons*, Oxford University Press 1984 (s opravami 1987).
 - Michel Foucault: *Dohlížet a trestat. Kniha o zrodu vězení* (Surveiller et punir, 1975), přel. Čestmír Pelikán, Dauphin 2000; anglicky *Discipline and Punish*, přel. Alan Sheridan, Vintage 1995.
+- Sigmund Freud: „Das Unheimliche“, *Imago* 5, 1919; anglicky „The Uncanny“, in: *The Uncanny*, přel. David McLintock, Penguin Classics 2003.
 
 **Fikční světy a fantastika (doplněk)**
 

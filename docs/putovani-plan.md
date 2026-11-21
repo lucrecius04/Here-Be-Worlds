@@ -16,7 +16,7 @@ Pracovní názvy jsou od Gemini. Členy, ani jejich tvrzení, nepovažovat za ho
 | # | Putování | Světy (návrh) | Otázka | Prameny | Stav |
 |---|---|---|---|---|---|
 | 1 | **Kdo drží kroniku** | Elder Scrolls, Pentiment, Dragon Age, DOOM, Warhammer 40 000, Pillars of Eternity | Komu patří pravda o minulosti a kdo ji smí přepsat | Assmannovi, Doležel, Eliade, Boymová (vše už máme); Foucault (moc a vědění) by text prohloubil | **Lze začít hned** |
-| 2 | **Kopie bez originálu** | SOMA, NieR: Automata, Fallout, Halo, Mass Effect, Tides of Numenera | Kde začíná duše vyrobené bytosti | **Parfit** (máme), Freud *Něco tísnivého* | Lze začít |
+| 2 | **Kopie bez originálu** | SOMA, NieR: Automata, Fallout, Halo, Mass Effect, Tides of Numenera | Kde začíná duše vyrobené bytosti | **Parfit** a Freud (máme) | Lze začít |
 | 3 | **Dům, ze kterého nejde odejít** | Control, Metro, Silent Hill, Inscryption, Fallout (Vaulty), případně SOMA | Kdy se útočiště změní ve vězení | Bachelard a Foucault (máme); Goffman jako doplněk | Lze začít |
 | 4 | **Jméno jako klíč i kletba** | Planescape: Torment, Dishonored, Control, Pentiment, Undertale, DOOM | Moc jména: kdo ho zná, kdo ho ztratil, kdo ho vyslovit nesmí | **Cassirer** *Jazyk a mýtus* | Čeká na knihu |
 | 5 | **Práce, která nikdy nekončí** | Death Stranding, Disco Elysium, Cyberpunk 2077, Half-Life a další, které teprve dohledat | Práce jako smysl i trest | **Camus** *Mýtus o Sisyfovi* | Čeká na knihu |
@@ -35,7 +35,7 @@ Světy zatím bez putování: **Halo, XCOM, Death Stranding**. Na jednom putová
 - **Umění nechat svět zemřít** (Outer Wilds, Dark Souls, Elden Ring, Planescape, Cyberpunk, Inscryption): totéž už rozebírají *Uvězněni v kruhu*, *Bohové jako břemeno* a *Na mrtvole boha*.
 - **Tělo na splátky** (Cyberpunk, Bloodborne, BioShock, Zaklínač, Resident Evil, XCOM, Deus Ex): překrývá se s *Logem nad troskami* a *Prokletým dědictvím*. Kdyby se psalo, má oporu v Mary Douglasové (už v pramenech).
 - **Cena většího dobra** (Warhammer, XCOM, Mass Effect, Pathologic, Dishonored, Pillars): překrývá se s *Kdo za to může?* a *Válkou, kterou nikdo nevyhraje*. Potřebovalo by Baumana (*Modernita a holocaust*).
-- **Hříchy otců** (Silent Hill, Hades, Fallout, Death Stranding, Zaklínač, Baldur's Gate, Undertale): stálo by na psychoanalýze typu Alice Millerové, kterou jako pramen atlasu nebereme. Šlo by to později, opřené o Freudovo *Něco tísnivého*.
+- **Hříchy otců** (Silent Hill, Hades, Fallout, Death Stranding, Zaklínač, Baldur's Gate, Undertale): stálo by na psychoanalýze typu Alice Millerové, kterou jako pramen atlasu nebereme. Šlo by to později, opřené o Freudovo *Das Unheimliche* (máme).
 
 ## Knihy, které majitel shání
 
@@ -46,7 +46,7 @@ Podle užitku:
 3. **Erving Goffman: Asylums**, stačí první esej o totálních institucích. Přesnější než Foucault přímo pro *Dům* (Vaulty, Metro, Nejstarší dům). Stačí jedna z dvojice Foucault / Goffman, obě spolu se ale doplňují.
 4. **Albert Camus: Mýtus o Sisyfovi** (česky vyšel, krátký). Pro *Práci, která nikdy nekončí*; přidá i ke smyčkám (Sisyfos je přímo v Hades).
 5. **Ernst Cassirer: Jazyk a mýtus** (krátký). Pro *Jméno jako klíč i kletba*.
-6. **Sigmund Freud: Něco tísnivého** (pár desítek stran). Kořen Todorova i Fishera; pro *Kopie*, *Dům*, Silent Hill.
+6. ~~Sigmund Freud: Das Unheimliche~~: **máme** (2026-11-21), výtah `docs/prameny/freud-tisnive-povedome.md` (v atlasu „tísnivě povědomé“, aby se nepletlo s Fisherovým „tísnivým“). Pro *Kopie* (dvojník, oživlá loutka), *Dům* (strašidelný dům) a případně *Hříchy otců*.
 
 Až budou potřeba (zatím nenutné): H. P. Lovecraft *Nadpřirozená hrůza v literatuře* (pojem kosmické lhostejnosti; tip od Gemini), Kevin Lynch *Obraz města* (čitelnost města a mentální mapy; tip od Gemini k eseji Město, které dýchá, hodí se ke každému putování o prostoru), Bauman *Modernita a holocaust*, Arendtová *Eichmann v Jeruzalémě*, Bachtin *Rabelais*, Kristevová *Powers of Horror*, Becker *The Denial of Death*, Graeber *The Utopia of Rules*, Caillois *Hry a lidé*, Ong *Technologizace slova*.
 
