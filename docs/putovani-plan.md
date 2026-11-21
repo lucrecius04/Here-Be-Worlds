@@ -19,7 +19,7 @@ Pracovní názvy jsou od Gemini. Členy, ani jejich tvrzení, nepovažovat za ho
 | 2 | **Kopie bez originálu** | SOMA, NieR: Automata, Fallout, Halo, Mass Effect, Tides of Numenera | Kde začíná duše vyrobené bytosti | **Parfit** a Freud (máme) | **Hotovo**, schváleno 2026-11-21: Mass Effect, Halo, Fallout, Horizon, Deus Ex, Cyberpunk 2077 |
 | 3 | **Dům, ze kterého nejde odejít** | Control, Metro, Silent Hill, Inscryption, Fallout (Vaulty), případně SOMA | Kdy se útočiště změní ve vězení | Bachelard a Foucault (máme); Goffman jako doplněk | **Balíček připraven** 2026-11-21 (`house`): Metro, Resident Evil, Inscryption, Control, Half-Life, XCOM. Silent Hill a Fallout vynechány (Pokoj 302 a Vaulty už rozebraly jiné eseje) |
 | 4 | **Jméno jako klíč i kletba** | Planescape: Torment, Dishonored, Control, Pentiment, Undertale, DOOM | Moc jména: kdo ho zná, kdo ho ztratil, kdo ho vyslovit nesmí | **Cassirer** *Jazyk a mýtus* | Čeká na knihu |
-| 5 | **Práce, která nikdy nekončí** | Death Stranding, Disco Elysium, Cyberpunk 2077, Half-Life a další, které teprve dohledat | Práce jako smysl i trest | **Camus** *Mýtus o Sisyfovi* (máme) | Lze začít |
+| 5 | **Práce, která nikdy nekončí** | Death Stranding, Disco Elysium, Cyberpunk 2077, Half-Life a další, které teprve dohledat | Práce jako smysl i trest | **Camus** *Mýtus o Sisyfovi* (máme) | **Balíček připraven** 2026-11-21 (`endless-work`): Death Stranding, Pentiment, Disco Elysium, Half-Life, Dark Souls. Cyberpunk vynechán (kronika o práci skoro nemluví) |
 
 Poznámky k výběru:
 

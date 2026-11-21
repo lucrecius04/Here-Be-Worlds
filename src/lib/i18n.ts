@@ -408,6 +408,8 @@ export const ui: Record<Locale, UiTree> = {
       copiesDesc: 'Klon, záloha, syntetik, digitální otisk – kde začíná duše bytosti, kterou někdo vyrobil?',
       house: 'Dům, ze kterého nejde odejít',
       houseDesc: 'Kryt, sídlo, chata, úřad, město – kdy se útočiště změní ve vězení a kdo drží klíče?',
+      work: 'Práce, která nikdy nekončí',
+      workDesc: 'Náklad na zádech, oheň, který je třeba znovu zapálit, stávka v přístavu – kdy je práce smyslem a kdy trestem?',
     },
     essay: {
       title: 'Anatomie herního lore',
@@ -861,6 +863,8 @@ Berte prosím tento atlas jako skromnou poctu všem scenáristům, designérům 
       copiesDesc: 'A clone, a backup, a synth, a digital imprint – where does the soul of a made being begin?',
       house: 'The House You Cannot Leave',
       houseDesc: 'A shelter, a mansion, a cabin, an agency, a city – when does a refuge become a prison, and who holds the keys?',
+      work: 'Work That Never Ends',
+      workDesc: 'Cargo on your back, a fire that must be lit again, a strike at the docks – when is work a meaning, and when a punishment?',
     },
     essay: {
       title: 'The anatomy of game lore',

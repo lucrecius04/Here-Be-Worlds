@@ -52,7 +52,7 @@ Pravidla:
 
 ## Prameny podle stezek
 
-Opačný pohled k tabulce výše (19 stezek): co číst před psaním eseje ke stezce. Podrobnosti jsou ve výtazích v oddílu „Co z toho plyne pro Here Be Worlds“. Po použití pramene v eseji ho zapsat i do oddílu „Kde už je použito“ ve výtahu.
+Opačný pohled k tabulce výše (20 stezek): co číst před psaním eseje ke stezce. Podrobnosti jsou ve výtazích v oddílu „Co z toho plyne pro Here Be Worlds“. Po použití pramene v eseji ho zapsat i do oddílu „Kde už je použito“ ve výtahu.
 
 | Stezka | Esej | Prameny | Čeká na dodání |
 |---|---|---|---|
@@ -75,6 +75,7 @@ Opačný pohled k tabulce výše (19 stezek): co číst před psaním eseje ke s
 | Kdo drží kroniku | [kdo-drzi-kroniku.md](../../content/trails/kdo-drzi-kroniku.md) | Jan Assmann (kulturní paměť, kánon a jeho strážci, aliance moci a zapomnění, damnatio memoriae), A. Assmannová (funkční a úložná paměť, archiv jako rezervoár i cenzura), Doležel (autentizace: komu svět dává autoritu tvrdit fakta, fikční encyklopedie), Eliade (mýtizace dějin: z dobyvatele bůh), Boym (obnovující nostalgie, která nepřipouští, že vymýšlí tradici), Foucault (moc-vědění, spis a zápis jako nástroj moci), Girard (mýtus jako text pronásledovatelů), Iser (prázdná místa, která čtenář doplní), Murrayová (kaleidoskopické vyprávění, více verzí téže události) | |
 | Kopie bez originálu | [kopie-bez-originalu.md](../../content/trails/kopie-bez-originalu.md) | Parfit (replika a teleportér, vedlejší kolej, kvalitativní a numerická totožnost, vztah R, kvazivzpomínka, rozdělení a splynutí, prázdná otázka, na čem záleží), Freud (dvojník, oživlá loutka a Jentschova nejistota, tísnivě povědomé), Douglasová (anomálie mezi kategoriemi, meziprostorové role), Carroll (mezilehlost a kategoriální nečistota), Girard (krize jako ztráta rozdílů, monstrum jako rozpad rozdílů, hledání viníka) | |
 | Dům, ze kterého nejde odejít | (esej se píše) | Bachelard (dům jako útočiště a obraz duše, vertikála sklepa a půdy, dialektika vně a uvnitř, pootevřené dveře, hnízdo a ulita), Foucault (disciplína, Panoptikon, morové město, úplné instituce, karcerální souostroví a karcerální město), Freud (heimlich a unheimlich: domácké, které se stane tísnivě povědomým; strašidelný dům), Fisher (tísnivé a otázka neviditelného původce) | |
+| Práce, která nikdy nekončí | (esej se píše) | Camus (absurdno, zhroucení kulis všedního dne, dělník bohů a hodina vědomí, revolta bez naděje, šťastný Sisyfos, absurdní tvorba), Foucault (poslušná těla, rozvrh a výcvik, disciplína dílny), Turner (communitas: pouto rovných mimo hierarchii), Eliade (cyklus a obnova, hrůza z dějin), Bogost (procedurální rétorika: co hra nechá dělat a co nedovolí) | |
 
 ## Čeká na dodání (od majitele)
 
