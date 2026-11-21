@@ -42,4 +42,4 @@ V závěru Ryanová navrhuje, že ideálem pro literaturu nemusí být splynutí
 - Teoretické zázemí: oddíl „Ryanová: ponoření a interaktivita“, tabulka pojmů, Zdroje
 - Esej ke stezce Kdo se to probudil? (`content/trails/kdo-se-to-probudil.md`): typologie (textový aktuální svět a světy postav)
 - Esej ke stezce Hra ví, že ji hraješ (`content/trails/hra-vi-ze-ji-hrajes.md`): Skleněná stěna mezi iluzí a hrou (ponoření proti interaktivitě, přecentrování, skleněný pavilon Dana Grahama), Tři směry prolomené stěny (útěk fikce ze stroje)
-- Esej ke stezce Město, které dýchá (`content/trails/mesto-ktere-dycha.md`, čeká na schválení): Proč hry dokážou město oživit (prostorové ponoření, vlastní jména míst jako kotviště: Rapture, Dunwall, Sigil).
+- Esej ke stezce Město, které dýchá (`content/trails/mesto-ktere-dycha.md`): Proč hry dokážou město oživit (prostorové ponoření, vlastní jména míst jako kotviště: Rapture, Dunwall, Sigil).
