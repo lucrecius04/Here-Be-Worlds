@@ -58,6 +58,11 @@ export const ui: Record<Locale, UiTree> = {
       skyHistorical: 'Historie',
       skyDystopia: 'Dystopie',
       skyMetaphysical: 'Metafyzika',
+      heroJourneys: 'Vydej se na putování',
+      skyRoutes: 'Trasy oblohou',
+      routeAria: 'Světy, kterými putování vede',
+      journeyGo: 'Vydej se na putování',
+      journeyEssay: 'esej na {m} min',
     },
     theme: {
       group: 'Vzhled',
@@ -517,6 +522,11 @@ Berte prosím tento atlas jako skromnou poctu všem scenáristům, designérům 
       skyHistorical: 'History',
       skyDystopia: 'Dystopia',
       skyMetaphysical: 'Metaphysics',
+      heroJourneys: 'Set out on a journey',
+      skyRoutes: 'Routes across the sky',
+      routeAria: 'Worlds this journey passes through',
+      journeyGo: 'Set out on the journey',
+      journeyEssay: '{m}-min essay',
     },
     theme: {
       group: 'Appearance',

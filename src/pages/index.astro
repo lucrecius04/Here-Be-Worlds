@@ -2,6 +2,8 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HomeIntro from '../components/discovery/HomeIntro';
 import { worlds, chapters } from '../lib/worlds';
+import { TRAILS } from '../lib/trails';
+import { essayFor } from '../lib/trail-pages';
 
 const base = import.meta.env.BASE_URL;
 
@@ -14,6 +16,26 @@ const chapterCards = chapters.map((c) => ({
 }));
 
 const published = worlds.filter((world) => !world.draft);
+
+// Podklady k putováním na titulní stranu: otázka eseje, úvodní citát a doba čtení (jen u schválených esejí).
+function epigraph(markdown: string) {
+  const intro = markdown.split(/^## Úvodem\s*$/m)[1] ?? '';
+  const quote = /^\*„(.+?)“\*\s*$/m.exec(intro);
+  const source = quote ? /^\*\((.+?)\)\*\s*$/m.exec(intro.slice(quote.index + quote[0].length, quote.index + quote[0].length + 200)) : null;
+  return quote ? { text: quote[1], source: source?.[1] } : undefined;
+}
+const journeys = TRAILS.map((trail) => {
+  const essay = essayFor(trail.id);
+  const approved = Boolean(essay?.approved);
+  const quote = approved && essay ? epigraph(essay.markdown) : undefined;
+  return {
+    id: trail.id,
+    tagline: approved ? essay?.tagline : undefined,
+    minutes: approved ? essay?.minutes : undefined,
+    quote: quote?.text,
+    quoteSource: quote?.source,
+  };
+});
 const atlasUrl = `${base.replace(/\/$/, '')}/atlas/`;
 ---
 
@@ -36,5 +58,5 @@ const atlasUrl = `${base.replace(/\/$/, '')}/atlas/`;
       if (/[?&](theme|trail)=/.test(q)) location.replace(atlasUrl + q + location.hash);
     })();
   </script>
-  <HomeIntro client:load chapters={chapterCards} worlds={published} base={base.replace(/\/$/, '')} />
+  <HomeIntro client:load chapters={chapterCards} worlds={published} journeys={journeys} base={base.replace(/\/$/, '')} />
 </BaseLayout>

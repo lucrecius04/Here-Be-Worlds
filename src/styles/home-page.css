@@ -1026,3 +1026,342 @@ a.hp-tab:focus-visible {
 .atlas-page__lead-link:focus-visible {
   text-decoration-thickness: 2px;
 }
+
+/* ---------- Putování dne (návrh) ----------
+   Jediný tónovaný pás titulní strany se přesunul sem, hned pod noc: putování je hlavní pozvánka. */
+
+/* Trasa putování přes oblohu: přerušovaná zlatá linka mezi hvězdami jeho světů. */
+.hp-sky__route {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.hp-sky__route polyline {
+  fill: none;
+  stroke: var(--mark-glow, #e5be7e);
+  stroke-width: 1.25;
+  stroke-dasharray: 5 6;
+  stroke-linejoin: round;
+  opacity: 0.3;
+  transition: opacity 0.2s ease;
+}
+
+.hp-sky.has-route .hp-sky__route polyline {
+  opacity: 0.95;
+}
+
+.hp-star.is-route .hp-star__dot {
+  transform: scale(1.5);
+}
+
+.hp-sky__caption {
+  justify-content: space-between;
+}
+
+.hp-sky__routes a.is-on {
+  color: var(--mark-glow, #e5be7e);
+}
+
+.hp-journeys {
+  padding: 4rem 0 4.5rem;
+  background: var(--color-band);
+  box-shadow: 0 0 0 100vmax var(--color-band);
+  clip-path: inset(0 -100vmax);
+}
+
+.hp-journeys__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.hp-journeys__head .hp-kicker {
+  margin: 0;
+}
+
+.hp-journeys__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+  gap: 3rem 4rem;
+}
+
+.hp-journey__title {
+  margin: 0 0 1rem;
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 4.6vw, 3.75rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.hp-journey__title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.hp-journey__title a:hover,
+.hp-journey__title a:focus-visible {
+  color: var(--color-accent);
+}
+
+.hp-journey__question {
+  margin: 0 0 1.75rem;
+  max-width: 34ch;
+  font-family: var(--font-text);
+  font-size: 1.375rem;
+  line-height: 1.45;
+}
+
+.hp-journey__quote {
+  margin: 0 0 2.25rem;
+  padding-left: 1.125rem;
+  border-left: 2px solid var(--color-line-strong, var(--color-line));
+  max-width: 46ch;
+}
+
+.hp-journey__quote p {
+  margin: 0 0 0.375rem;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.125rem;
+  line-height: 1.45;
+  color: var(--color-ink-muted);
+}
+
+.hp-journey__quote cite {
+  font-family: var(--font-mono);
+  font-style: normal;
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+/* Trasa: světy jako zastávky na jedné lince, tečka v barvě archetypu. */
+.hp-route {
+  position: relative;
+  display: flex;
+  margin: 0 0 2.25rem;
+  padding: 0;
+  list-style: none;
+}
+
+.hp-route::before {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  right: 6px;
+  border-top: 1px dashed var(--color-ink-muted);
+  opacity: 0.6;
+}
+
+.hp-route li {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.hp-route li a {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  padding-right: 0.5rem;
+  color: var(--color-ink);
+  text-decoration: none;
+}
+
+.hp-route i {
+  display: block;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--hue);
+  box-shadow: 0 0 0 4px var(--color-band);
+}
+
+.hp-route li span {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.hp-route li a:hover span,
+.hp-route li a:focus-visible span {
+  color: var(--color-accent);
+}
+
+.hp-journey__go {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.5rem;
+}
+
+.hp-btn--ink {
+  background: var(--color-ink);
+  color: var(--color-paper);
+  border: 1px solid var(--color-ink);
+}
+
+.hp-btn--ink:hover,
+.hp-btn--ink:focus-visible {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.hp-journey__meta {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+.hp-journeys__more {
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid var(--color-line);
+  padding-left: 2.5rem;
+}
+
+.hp-journey-small {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.25rem 0 1.75rem;
+  margin-bottom: 1.75rem;
+  border-bottom: 1px solid var(--color-line);
+  color: var(--color-ink);
+  text-decoration: none;
+}
+
+.hp-journey-small:last-child {
+  margin-bottom: 0;
+  border-bottom: 0;
+}
+
+.hp-journey-small__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.625rem;
+  line-height: 1.1;
+}
+
+.hp-journey-small__question {
+  font-family: var(--font-text);
+  font-size: 1.0625rem;
+  line-height: 1.45;
+  color: var(--color-ink-muted);
+}
+
+.hp-journey-small:hover .hp-journey-small__title,
+.hp-journey-small:focus-visible .hp-journey-small__title {
+  color: var(--color-accent);
+}
+
+.hp-route--small {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.875rem;
+  margin: 0.25rem 0 0;
+}
+
+.hp-route--small::before {
+  display: none;
+}
+
+.hp-route--small > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  color: var(--color-ink-muted);
+}
+
+.hp-route--small i {
+  width: 7px;
+  height: 7px;
+  box-shadow: none;
+}
+
+/* Esej o metodě už není v pásu: jen řádek na papíře. */
+.hp-essay-row {
+  background: none;
+  box-shadow: none;
+  clip-path: none;
+  padding-bottom: 4.5rem;
+}
+
+@media (max-width: 900px) {
+  .hp-journeys__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hp-journeys__more {
+    border-left: 0;
+    padding-left: 0;
+    border-top: 1px solid var(--color-line);
+    padding-top: 2rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .hp-journeys {
+    padding: 3rem 0 3.5rem;
+  }
+
+  /* Na telefonu trasa shora dolů: zastávky pod sebou na svislé lince. */
+  .hp-route:not(.hp-route--small) {
+    flex-direction: column;
+    gap: 0.875rem;
+  }
+
+  .hp-route:not(.hp-route--small)::before {
+    top: 6px;
+    bottom: 6px;
+    left: 6px;
+    right: auto;
+    border-top: 0;
+    border-left: 1px dashed var(--color-ink-muted);
+  }
+
+  .hp-route:not(.hp-route--small) li a {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.875rem;
+  }
+
+  .hp-sky__routes {
+    display: none;
+  }
+}
+
+/* Náhodný svět jako tichý odkaz pod dvěma tlačítky. */
+.hp-hero__random {
+  flex-basis: 100%;
+  margin-top: 0.25rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: var(--color-night-soft);
+  cursor: pointer;
+  text-align: left;
+}
+
+.hp-hero__random:hover,
+.hp-hero__random:focus-visible {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
