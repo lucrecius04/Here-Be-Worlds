@@ -410,6 +410,8 @@ export const ui: Record<Locale, UiTree> = {
       houseDesc: 'Kryt, sídlo, chata, úřad, město – kdy se útočiště změní ve vězení a kdo drží klíče?',
       work: 'Práce, která nikdy nekončí',
       workDesc: 'Náklad na zádech, oheň, který je třeba znovu zapálit, stávka v přístavu – kdy je práce smyslem a kdy trestem?',
+      names: 'Jméno jako klíč i kletba',
+      namesDesc: 'Pravé jméno, které zlomí kletbu, slovo, které mění svět, i hrdina, který žádné jméno nemá – kdo jméno zná, kdo ho ztratil a kdo ho vyslovit nesmí?',
     },
     essay: {
       title: 'Anatomie herního lore',
@@ -865,6 +867,8 @@ Berte prosím tento atlas jako skromnou poctu všem scenáristům, designérům 
       houseDesc: 'A shelter, a mansion, a cabin, an agency, a city – when does a refuge become a prison, and who holds the keys?',
       work: 'Work That Never Ends',
       workDesc: 'Cargo on your back, a fire that must be lit again, a strike at the docks – when is work a meaning, and when a punishment?',
+      names: 'The Name as Key and Curse',
+      namesDesc: 'A true name that breaks a curse, a word that reshapes the world, a hero who has no name at all – who knows the name, who has lost it, and who must never speak it?',
     },
     essay: {
       title: 'The anatomy of game lore',
