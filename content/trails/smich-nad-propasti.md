@@ -1,5 +1,6 @@
 ---
 title: Smích nad propastí
+approved: true
 trail: laughter
 kicker: Putování atlasem
 tagline: K čemu slouží smích v temném světě – a proč po jeho utichnutí bolí víc než čistá vážnost?

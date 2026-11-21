@@ -51,4 +51,4 @@ Ve 20. století se podle Todorova tento klasický model obrací naruby. U Franze
 - Esej ke stezce Kdo se to probudil? (`content/trails/kdo-se-to-probudil.md`): kořeny (váhání, témata já), Disco Elysium, SOMA (vědecké zázračné), první osoba a metačtení
 - Esej ke stezce Netvor v zrcadle (`content/trails/netvor-v-zrcadle.md`): Silent Hill (témata já a ty), Proč hry… (metačtení)
 - Esej ke stezce Mluví už jen mrtví (`content/trails/mluvi-uz-jen-mrtvi.md`): Proč mrtví mluví… (nevratný čas čtení, metačtení)
-- Esej ke stezce Smích nad propastí (`content/trails/smich-nad-propasti.md`, čeká na schválení): Šašek, úřad a obrácený svět (kafkovská adaptace, Gogolův Nos), Control (výklad atlasu)
+- Esej ke stezce Smích nad propastí (`content/trails/smich-nad-propasti.md`): Šašek, úřad a obrácený svět (kafkovská adaptace, Gogolův Nos), Control (výklad atlasu)

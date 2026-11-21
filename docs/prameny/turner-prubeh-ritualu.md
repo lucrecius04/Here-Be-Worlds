@@ -50,4 +50,4 @@ Prahovost, okrajovost a strukturální podřízenost jsou místa, kde vznikají 
 - Esej ke stezce Netvor v zrcadle (`content/trails/netvor-v-zrcadle.md`): Planescape (jedna věta o prahu)
 - Esej ke stezce Uvězněni v kruhu (`content/trails/uvezneni-v-kruhu.md`): kořeny (práh, který se nezavře), Dark Souls (Temné znamení)
 - Esej ke stezce Ráj, který se nepovedl (`content/trails/raj-ktery-se-nepovedl.md`): Architektura ráje (úpadek spontánní communitas v normativní a ideologickou), Disco Elysium (rozdrcená Komuna), Pathologic (Mnohostěn jako prahový prostor dětí, výklad atlasu)
-- Esej ke stezce Smích nad propastí (`content/trails/smich-nad-propasti.md`, čeká na schválení): Šašek, úřad a obrácený svět (rituály převrácení jako komedie, šašek jako privilegovaný soudce mravů, communitas), Hades (communitas vyvrhelů), Undertale (Sans jako šašek)
+- Esej ke stezce Smích nad propastí (`content/trails/smich-nad-propasti.md`): Šašek, úřad a obrácený svět (rituály převrácení jako komedie, šašek jako privilegovaný soudce mravů, communitas), Hades (communitas vyvrhelů), Undertale (Sans jako šašek)
