@@ -17,7 +17,7 @@ Pracovní názvy jsou od Gemini. Členy, ani jejich tvrzení, nepovažovat za ho
 |---|---|---|---|---|---|
 | 1 | **Kdo drží kroniku** | Elder Scrolls, Pentiment, Dragon Age, DOOM, Warhammer 40 000, Pillars of Eternity | Komu patří pravda o minulosti a kdo ji smí přepsat | Assmannovi, Doležel, Eliade, Boymová, Foucault (vše máme) | **Hotovo**, schváleno 2026-11-21 |
 | 2 | **Kopie bez originálu** | SOMA, NieR: Automata, Fallout, Halo, Mass Effect, Tides of Numenera | Kde začíná duše vyrobené bytosti | **Parfit** a Freud (máme) | **Hotovo**, schváleno 2026-11-21: Mass Effect, Halo, Fallout, Horizon, Deus Ex, Cyberpunk 2077 |
-| 3 | **Dům, ze kterého nejde odejít** | Control, Metro, Silent Hill, Inscryption, Fallout (Vaulty), případně SOMA | Kdy se útočiště změní ve vězení | Bachelard a Foucault (máme); Goffman jako doplněk | Lze začít |
+| 3 | **Dům, ze kterého nejde odejít** | Control, Metro, Silent Hill, Inscryption, Fallout (Vaulty), případně SOMA | Kdy se útočiště změní ve vězení | Bachelard a Foucault (máme); Goffman jako doplněk | **Balíček připraven** 2026-11-21 (`house`): Metro, Resident Evil, Inscryption, Control, Half-Life, XCOM. Silent Hill a Fallout vynechány (Pokoj 302 a Vaulty už rozebraly jiné eseje) |
 | 4 | **Jméno jako klíč i kletba** | Planescape: Torment, Dishonored, Control, Pentiment, Undertale, DOOM | Moc jména: kdo ho zná, kdo ho ztratil, kdo ho vyslovit nesmí | **Cassirer** *Jazyk a mýtus* | Čeká na knihu |
 | 5 | **Práce, která nikdy nekončí** | Death Stranding, Disco Elysium, Cyberpunk 2077, Half-Life a další, které teprve dohledat | Práce jako smysl i trest | **Camus** *Mýtus o Sisyfovi* (máme) | Lze začít |
 

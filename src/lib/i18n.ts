@@ -406,6 +406,8 @@ export const ui: Record<Locale, UiTree> = {
       keepersDesc: 'Minulost patří tomu, kdo ji zapíše – a o pero se v těchto světech bojuje stejně tvrdě jako o trůn.',
       copies: 'Kopie bez originálu',
       copiesDesc: 'Klon, záloha, syntetik, digitální otisk – kde začíná duše bytosti, kterou někdo vyrobil?',
+      house: 'Dům, ze kterého nejde odejít',
+      houseDesc: 'Kryt, sídlo, chata, úřad, město – kdy se útočiště změní ve vězení a kdo drží klíče?',
     },
     essay: {
       title: 'Anatomie herního lore',
@@ -857,6 +859,8 @@ Berte prosím tento atlas jako skromnou poctu všem scenáristům, designérům 
       keepersDesc: 'The past belongs to whoever writes it down – and in these worlds the pen is fought over as fiercely as the throne.',
       copies: 'Copies Without an Original',
       copiesDesc: 'A clone, a backup, a synth, a digital imprint – where does the soul of a made being begin?',
+      house: 'The House You Cannot Leave',
+      houseDesc: 'A shelter, a mansion, a cabin, an agency, a city – when does a refuge become a prison, and who holds the keys?',
     },
     essay: {
       title: 'The anatomy of game lore',
