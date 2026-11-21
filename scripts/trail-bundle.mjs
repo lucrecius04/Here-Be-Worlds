@@ -168,6 +168,8 @@ const PRAMEN_KEYS = [
   [/Boym/, 'boym-future-of-nostalgia'], [/Douglas/, 'douglas-cistota-a-nebezpeci'], [/Carroll/, 'carroll-philosophy-of-horror'],
   [/Iser/, 'iser-implizite-leser'], [/Suvin/, 'suvin-metamorphoses-of-science-fiction'],
   [/Nietzsche|mýty o stvoření|deus otiosus/, 'drobne-prameny'],
+  [/Parfit/, 'parfit-reasons-and-persons'], [/Foucault/, 'foucault-dohlizet-a-trestat'], [/Freud/, 'freud-tisnive-povedome'],
+  [/Lovecraft/, 'lovecraft-nadprirozena-hruza'], [/Camus/, 'camus-mytus-o-sisyfovi'],
 ];
 const trailRow = (name) => read('docs/prameny/README.md').split('\n').find((l) => l.startsWith(`| ${name} |`)) || '';
 const trailPrameny = (name) => {

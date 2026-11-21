@@ -43,6 +43,7 @@ export const TRAILS: TrailDef[] = [
   def('living-city', 'city', ['disco-elysium', 'cyberpunk-2077', 'dishonored', 'pathologic', 'silent-hill', 'bioshock', 'planescape-torment'], ['politics-and-intrigue', 'survival', 'identity-and-existence']),
   def('endless-war', 'war', ['warhammer-40k', 'nier-automata', 'warcraft', 'the-witcher', 'metro', 'starcraft'], ['war', 'power-and-dominion', 'faith']),
   def('indifferent-stars', 'stars', ['bloodborne', 'soma', 'warhammer-40k', 'control', 'mass-effect', 'outer-wilds'], ['discovery', 'identity-and-existence', 'death-and-immortality']),
+  def('chronicle-keepers', 'keepers', ['pentiment', 'elder-scrolls', 'dragon-age', 'warhammer-40k', 'doom', 'pillars-of-eternity'], ['uncovering-the-past', 'power-and-dominion', 'faith']),
 ];
 
 /** České adresy stránek stezek (/putovani/<slug>/); stejný slug má soubor eseje v content/trails. */
@@ -63,6 +64,7 @@ export const TRAIL_SLUGS: Record<string, string> = {
   'living-city': 'mesto-ktere-dycha',
   'endless-war': 'valka-kterou-nikdo-nevyhraje',
   'indifferent-stars': 'pod-lhostejnymi-hvezdami',
+  'chronicle-keepers': 'kdo-drzi-kroniku',
 };
 
 export function trailSlug(id: TrailId): string {

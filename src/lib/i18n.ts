@@ -402,6 +402,8 @@ export const ui: Record<Locale, UiTree> = {
       warDesc: 'Konflikty, které přežily své důvody a pokračují jen proto, že přestat by bylo horší.',
       stars: 'Pod lhostejnými hvězdami',
       starsDesc: 'Vesmír tak velký a starý, že v něm člověk nic neznamená – a přesto se ptá proč.',
+      keepers: 'Kdo drží kroniku',
+      keepersDesc: 'Minulost patří tomu, kdo ji zapíše – a o pero se v těchto světech bojuje stejně tvrdě jako o trůn.',
     },
     essay: {
       title: 'Anatomie herního lore',
@@ -849,6 +851,8 @@ Berte prosím tento atlas jako skromnou poctu všem scenáristům, designérům 
       scapegoatDesc: 'Worlds that answer a crisis by finding someone to blame – with the player standing inside the circle the crowd closes around them.',
       stars: 'Under Indifferent Stars',
       starsDesc: 'A universe so vast and old that a human means nothing in it – and still asks why.',
+      keepers: 'Who Keeps the Chronicle',
+      keepersDesc: 'The past belongs to whoever writes it down – and in these worlds the pen is fought over as fiercely as the throne.',
     },
     essay: {
       title: 'The anatomy of game lore',
