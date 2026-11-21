@@ -5,7 +5,7 @@ Zásobník nových putování a knih k nim. Výchozí podklad: návrhy Gemini (2
 ## Nejdřív dokončit
 
 1. ~~Město, které dýchá~~ (`living-city`): hotovo, schváleno 2026-11-21.
-2. **Pod lhostejnými hvězdami** (`indifferent-stars`): balíček odeslán 2026-11-21, čeká se na Geminiho krok 1.
+2. **Pod lhostejnými hvězdami** (`indifferent-stars`): esej hotová, čeká na schválení majitele.
 
 U obou po dodání eseje zkontrolovat témata v `trails.ts`, protože jsou zatím odhadnutá.
 
@@ -48,7 +48,7 @@ Podle užitku:
 5. **Ernst Cassirer: Jazyk a mýtus** (krátký). Pro *Jméno jako klíč i kletba*.
 6. **Sigmund Freud: Něco tísnivého** (pár desítek stran). Kořen Todorova i Fishera; pro *Kopie*, *Dům*, Silent Hill.
 
-Až budou potřeba (zatím nenutné): Kevin Lynch *Obraz města* (čitelnost města a mentální mapy; tip od Gemini k eseji Město, které dýchá, hodí se ke každému putování o prostoru), Bauman *Modernita a holocaust*, Arendtová *Eichmann v Jeruzalémě*, Bachtin *Rabelais*, Kristevová *Powers of Horror*, Becker *The Denial of Death*, Graeber *The Utopia of Rules*, Caillois *Hry a lidé*, Ong *Technologizace slova*.
+Až budou potřeba (zatím nenutné): H. P. Lovecraft *Nadpřirozená hrůza v literatuře* (pojem kosmické lhostejnosti; tip od Gemini), Kevin Lynch *Obraz města* (čitelnost města a mentální mapy; tip od Gemini k eseji Město, které dýchá, hodí se ke každému putování o prostoru), Bauman *Modernita a holocaust*, Arendtová *Eichmann v Jeruzalémě*, Bachtin *Rabelais*, Kristevová *Powers of Horror*, Becker *The Denial of Death*, Graeber *The Utopia of Rules*, Caillois *Hry a lidé*, Ong *Technologizace slova*.
 
 ## Co obnáší nové putování v kódu
 

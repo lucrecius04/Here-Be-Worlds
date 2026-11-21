@@ -43,3 +43,4 @@ Pohádky nabízejí čtyři věci, které dnes mnozí považují za škodlivé: 
 - Esej ke stezce Bohové jako břemeno (`content/trails/bohove-jako-bremeno.md`): Dark Souls (tíha nekonečného sériového života)
 - Esej ke stezce Uvězněni v kruhu (`content/trails/uvezneni-v-kruhu.md`): kořeny (únik z nesmrtelnosti, tíha nekonečného sériového života), Dark Souls
 - Esej ke stezce Ráj, který se nepovedl (`content/trails/raj-ktery-se-nepovedl.md`): Architektura ráje (okouzlení proti magii; stavitelé utopií jako mágové, výklad atlasu), BioShock (Rapture jako magie)
+- Esej ke stezce Pod lhostejnými hvězdami (`content/trails/pod-lhostejnymi-hvezdami.md`, čeká na schválení): závěr (eukatastrofa a dyskatastrofa: svět, kde je dyskatastrofa výchozím stavem; Tolkienovo křesťanské stanovisko a nedůvěra k vizuálním médiím).

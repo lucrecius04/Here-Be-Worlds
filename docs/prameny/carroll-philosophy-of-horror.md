@@ -43,3 +43,4 @@ Horor je žánr definovaný emocí, kterou vyvolává: **uměleckou hrůzou** (*
 - Esej ke stezce Netvor v zrcadle (`content/trails/netvor-v-zrcadle.md`): kořeny (fúze a fise, horor jako drama odhalování), Planescape (fise)
 - Esej ke stezce Prokleté dědictví (`content/trails/proklete-dedictvi.md`): kořeny (zápletka přesahovače), Proč hry… (Vhled jako drama odhalování)
 - Esej ke stezce Logo nad troskami (`content/trails/logo-nad-troskami.md`): Neviditelné monstrum s rozpočtem (zápletka přesahovače), Resident Evil (Spencer, Marcus, Birkin; fáze potvrzení: Irons umlčí přeživší)
+- Esej ke stezce Pod lhostejnými hvězdami (`content/trails/pod-lhostejnymi-hvezdami.md`, čeká na schválení): Ticho nad lidským měřítkem (zvědavost a drama odhalování, zápletka přesahovače), Bloodborne (Vhled jako cena poznání) a typologie (Byrgenwerth a Mensis jako přesahovači).
