@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState, type CSSProperties } from 'react';
+import { useEffect, useMemo, useRef, useState, type CSSProperties } from 'react';
 import type { LocalizedString, RelatedWorld, World } from '../../schemas/world';
 import { countWord, uiT, type Locale } from '../../lib/i18n';
 import { useLocale } from '../../lib/locale-store';
@@ -16,6 +16,7 @@ import SimilarWorlds, { type ChapterAccentMap } from './SimilarWorlds';
 import ChronicleReader from '../chronicle/ChronicleReader';
 import { touchRecent } from '../../lib/reader-desk';
 import { toggleCompareTray, useCompareTray } from '../../lib/compare-tray';
+import { usePageFlow } from '../../lib/page-flow';
 
 type ViewMode = 'card' | 'chronicle' | 'appendices' | 'analysis';
 
@@ -66,6 +67,13 @@ export default function WorldPageShell({
   const [analysisAnchor, setAnalysisAnchor] = useState<TriadAnchor | null>(null);
   const [resume, setResume] = useState(false);
   const [compact, setCompact] = useState(false);
+  const pageFlow = usePageFlow();
+  const mastheadRef = useRef<HTMLDivElement>(null);
+  const paneRef = useRef<HTMLDivElement>(null);
+  const progressRef = useRef<HTMLDivElement>(null);
+  const [floating, setFloating] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const [spacer, setSpacer] = useState(0);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -81,6 +89,67 @@ export default function WorldPageShell({
   }, [world.id, world.gameTitle]);
 
   const needsChronicle = mode !== 'card';
+
+  /* Telefon: posouvá se celá stránka. Jakmile plná hlavička světa odjede, vrátí se jako
+     stažený pruh (název a záložky), který při čtení dolů zajede a při posunu nahoru se ukáže.
+     Nahoře tenká linka přečteného. */
+  useEffect(() => {
+    if (!pageFlow) {
+      setFloating(false);
+      setHidden(false);
+      return;
+    }
+    let height = mastheadRef.current?.offsetHeight ?? 0;
+    let isFloating = false;
+    let isHidden = false;
+    let last = window.scrollY;
+    let frame = 0;
+
+    const update = () => {
+      frame = 0;
+      const y = window.scrollY;
+      if (!isFloating && mastheadRef.current) height = mastheadRef.current.offsetHeight;
+      const shouldFloat = y > height;
+      if (shouldFloat !== isFloating) {
+        isFloating = shouldFloat;
+        if (shouldFloat) setSpacer(height);
+        isHidden = shouldFloat;
+        setHidden(isHidden);
+        setFloating(shouldFloat);
+        last = y;
+      } else if (isFloating && Math.abs(y - last) > 8) {
+        const down = y > last;
+        if (down !== isHidden) {
+          isHidden = down;
+          setHidden(down);
+        }
+        last = y;
+      }
+      const bar = progressRef.current;
+      const pane = paneRef.current;
+      if (bar && pane) {
+        const rect = pane.getBoundingClientRect();
+        const total = rect.height - window.innerHeight;
+        const done = total <= 0 ? 0 : Math.min(1, Math.max(0, -rect.top / total));
+        bar.style.transform = `scaleX(${done})`;
+      }
+    };
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    // kronika se načítá později a mění délku stránky: linka přečteného se přepočítá
+    const resize = typeof ResizeObserver === 'undefined' ? null : new ResizeObserver(onScroll);
+    if (resize && paneRef.current) resize.observe(paneRef.current);
+    return () => {
+      if (frame) cancelAnimationFrame(frame);
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+      resize?.disconnect();
+    };
+  }, [pageFlow]);
 
   useEffect(() => {
     if (!needsChronicle) return;
@@ -128,11 +197,15 @@ export default function WorldPageShell({
 
   return (
     <article
-      className={`world-card world-card--page${compact ? ' is-compact' : ''}`}
+      className={`world-card world-card--page${compact || floating ? ' is-compact' : ''}${pageFlow ? ' is-page-flow' : ''}`}
       data-chapter={world.chapterId}
       style={chapterVars}
     >
-      <div className="world-page__masthead">
+      {pageFlow && mode !== 'card' ? <div ref={progressRef} className="wp-progress" aria-hidden="true" /> : null}
+      <div
+        ref={mastheadRef}
+        className={`world-page__masthead${floating ? ' is-floating' : ''}${floating && hidden ? ' is-hidden' : ''}`}
+      >
         <div className="world-page__wrap">
           <WorldPageMasthead base={base} world={world} chapterTitle={chapterTitle} />
           <nav className="wp-tabs" aria-label={uiT('world.tabsAria', locale)}>
@@ -151,6 +224,7 @@ export default function WorldPageShell({
                       setCompact(false);
                       if (tab.id !== 'card' && chronicle === null) setChronicleLoading(true);
                       setMode(tab.id);
+                      if (pageFlow) window.scrollTo({ top: 0 });
                     }}
                   >
                     <span className="wp-tab__label">{uiT(tab.labelKey, locale)}</span>
@@ -170,10 +244,13 @@ export default function WorldPageShell({
           </nav>
         </div>
       </div>
+      {floating ? <div className="world-page__masthead-spacer" style={{ height: spacer }} aria-hidden="true" /> : null}
 
       <div
+        ref={paneRef}
         className="world-page__pane"
         onScrollCapture={(e) => {
+          if (pageFlow) return;
           // Hlavička se při čtení stáhne; hystereze brání poskakování.
           const top = (e.target as HTMLElement).scrollTop ?? 0;
           if (!compact && top > 80) setCompact(true);

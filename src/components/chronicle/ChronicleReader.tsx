@@ -3,6 +3,7 @@ import '../../styles/chronicle.css';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { useLocale } from '../../lib/locale-store';
+import { usePageFlow } from '../../lib/page-flow';
 import { uiT } from '../../lib/i18n';
 import { withBase } from '../../lib/base-url';
 import type { LocalizedString } from '../../schemas/world';
@@ -55,16 +56,34 @@ function scrollHeadingIntoView(root: HTMLElement | null, id: string) {
   el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
-function scrollToPercent(root: HTMLElement | null, percent: number) {
+function scrollToPercent(root: HTMLElement | null, percent: number, pageFlow = false) {
   if (!root) return;
+  if (pageFlow) {
+    const rect = root.getBoundingClientRect();
+    const span = rect.height - window.innerHeight;
+    if (span <= 0) return;
+    window.scrollTo({ top: window.scrollY + rect.top + (percent / 100) * span, behavior: 'smooth' });
+    return;
+  }
   const max = root.scrollHeight - root.clientHeight;
   if (max <= 0) return;
   root.scrollTo({ top: (percent / 100) * max, behavior: 'smooth' });
 }
 
-function headingAtScroll(root: HTMLElement): { heading: string; headingId: string } {
+/** Procento přečtené části: ve vnitřním okénku podle jeho posunu, na telefonu podle polohy textu v okně. */
+function readPercent(root: HTMLElement, pageFlow: boolean): number {
+  if (pageFlow) {
+    const rect = root.getBoundingClientRect();
+    const span = rect.height - window.innerHeight;
+    return span <= 0 ? 0 : Math.min(100, Math.max(0, (-rect.top / span) * 100));
+  }
+  const max = root.scrollHeight - root.clientHeight;
+  return max <= 0 ? 0 : (root.scrollTop / max) * 100;
+}
+
+function headingAtScroll(root: HTMLElement, pageFlow = false): { heading: string; headingId: string } {
   const nodes = [...root.querySelectorAll('h2[id], h3[id], p.chronicle-book-label[id]')];
-  const top = root.getBoundingClientRect().top + 96;
+  const top = (pageFlow ? 0 : root.getBoundingClientRect().top) + 96;
   let current: Element | null = null;
   for (const node of nodes) {
     if (node.getBoundingClientRect().top <= top) current = node;
@@ -119,6 +138,7 @@ export default function ChronicleReader({
 }: Props) {
   const locale = useLocale();
   const desk = useReaderDesk();
+  const pageFlow = usePageFlow();
   const [active, setActive] = useState('');
   const scrollRef = useRef<HTMLDivElement>(null);
   const activeRef = useRef('');
@@ -148,14 +168,14 @@ export default function ChronicleReader({
           setActive(visible[0].target.id);
         }
       },
-      { root, rootMargin: '-10% 0px -70% 0px', threshold: [0, 0.25, 0.5] },
+      { root: pageFlow ? null : root, rootMargin: '-10% 0px -70% 0px', threshold: [0, 0.25, 0.5] },
     );
     toc.forEach((h) => {
       const el = document.getElementById(h.id);
       if (el) observe.observe(el);
     });
     return () => observe.disconnect();
-  }, [toc, formatted]);
+  }, [toc, formatted, pageFlow]);
 
   useEffect(() => {
     if (!scrollToId) return;
@@ -174,11 +194,11 @@ export default function ChronicleReader({
     let frame = requestAnimationFrame(() => {
       frame = requestAnimationFrame(() => {
         if (savedProgress.headingId) scrollHeadingIntoView(root, savedProgress.headingId);
-        else scrollToPercent(root, savedProgress.scrollPercent);
+        else scrollToPercent(root, savedProgress.scrollPercent, pageFlow);
       });
     });
     return () => cancelAnimationFrame(frame);
-  }, [resumeOnMount, trackProgress, worldId, formatted]);
+  }, [resumeOnMount, trackProgress, worldId, formatted, pageFlow]);
 
   useEffect(() => {
     if (!trackProgress || !worldId || !worldTitle) return;
@@ -186,9 +206,8 @@ export default function ChronicleReader({
     if (!root) return;
     let timer = 0;
     const persist = () => {
-      const max = root.scrollHeight - root.clientHeight;
-      const percent = max <= 0 ? 0 : (root.scrollTop / max) * 100;
-      const fromDom = headingAtScroll(root);
+      const percent = readPercent(root, pageFlow);
+      const fromDom = headingAtScroll(root, pageFlow);
       const currentId = activeRef.current || fromDom.headingId;
       const entry = toc.find((item) => item.id === currentId);
       const heading = entry?.title || entry?.label || fromDom.heading;
@@ -198,17 +217,18 @@ export default function ChronicleReader({
       window.clearTimeout(timer);
       timer = window.setTimeout(persist, 250);
     };
-    root.addEventListener('scroll', onScroll, { passive: true });
+    const target: HTMLElement | Window = pageFlow ? window : root;
+    target.addEventListener('scroll', onScroll, { passive: true });
     return () => {
       window.clearTimeout(timer);
-      root.removeEventListener('scroll', onScroll);
+      target.removeEventListener('scroll', onScroll);
     };
-  }, [trackProgress, worldId, worldTitle, toc, formatted]);
+  }, [trackProgress, worldId, worldTitle, toc, formatted, pageFlow]);
 
   const continueReading = () => {
     if (!saved) return;
     if (saved.headingId) scrollHeadingIntoView(scrollRef.current, saved.headingId);
-    else scrollToPercent(scrollRef.current, saved.scrollPercent);
+    else scrollToPercent(scrollRef.current, saved.scrollPercent, pageFlow);
   };
 
   const headingEl = (tag: 'h2' | 'h3', children: ReactNode) => {

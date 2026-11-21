@@ -90,6 +90,7 @@ Layout: `src/layouts/BaseLayout.astro` — header/footer (znak + nápis z `Brand
 ### Karta světa vs záložky
 
 - Hlavička spisu (`WorldPageMasthead`): drobečky Atlas / archetyp, záložka archetypu s profilem archetypu, velký název, název kroniky, údaje Studio · Roky · Vesmír · Rozsah kánonu. Při čtení se stáhne (`is-compact`).
+- **Telefon (≤ 720 px i otočený na šířku, `PAGE_FLOW_QUERY` v `src/lib/page-flow.ts`):** stránka světa se posouvá celá, ne ve vnitřním okénku, takže prohlížeč schová svou lištu a hlavička webu odjede s textem. Plná hlavička spisu odjede taky; pak se vrátí jako stažený pruh (název a záložky bez počtů), který při čtení dolů zajede a při posunu nahoru se ukáže (`is-floating` / `is-hidden`). V Kronice, Faktografii a Anatomii je nahoře tenká linka přečteného v barvě archetypu (`wp-progress`). Klik na záložku vrátí stránku nahoru. Na počítači zůstává pevný rám s vnitřním posunem.
 - Záložky jsou v **`WorldPageShell`**, ne ve `WorldCard`. Ukazují obsah („Kronika · 9 kapitol · 20 min“, „Faktografie · 5 oddílů“, „Anatomie vyprávění · 6 částí“); počty spočítá `chronicleStats` (`chronicle-toc.ts`) při sestavení v `src/pages/worlds/[slug].astro`. Vpravo `+ Srovnat` (zásobník).
 - Módy: `card` (default) · `chronicle` · `appendices` · `analysis` přes `?view=chronicle\|appendices\|analysis`. `?resume=1` pokračuje v kronice.
 - `appendices` / `analysis` skáčou do částí markdown kroniky (`chronicle-toc.ts`). Nejsou to samostatné JSON stránky.
