@@ -489,9 +489,6 @@ export default function HomeIntro({ chapters, worlds = [], journeys = [], base }
                 </div>
               );
             })}
-            <a className="hp-link hp-trails__all" href={withBase(base, '/putovani/')}>
-              {uiT('trails.all', locale).replace('{n}', String(TRAILS.length))}
-            </a>
           </div>
         </section>
 
