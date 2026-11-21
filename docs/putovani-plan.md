@@ -16,7 +16,7 @@ Pracovní názvy jsou od Gemini. Členy, ani jejich tvrzení, nepovažovat za ho
 | # | Putování | Světy (návrh) | Otázka | Prameny | Stav |
 |---|---|---|---|---|---|
 | 1 | **Kdo drží kroniku** | Elder Scrolls, Pentiment, Dragon Age, DOOM, Warhammer 40 000, Pillars of Eternity | Komu patří pravda o minulosti a kdo ji smí přepsat | Assmannovi, Doležel, Eliade, Boymová (vše už máme); Foucault (moc a vědění) by text prohloubil | **Lze začít hned** |
-| 2 | **Kopie bez originálu** | SOMA, NieR: Automata, Fallout, Halo, Mass Effect, Tides of Numenera | Kde začíná duše vyrobené bytosti | **Parfit** (nutný), Freud *Něco tísnivého* | Čeká na knihu |
+| 2 | **Kopie bez originálu** | SOMA, NieR: Automata, Fallout, Halo, Mass Effect, Tides of Numenera | Kde začíná duše vyrobené bytosti | **Parfit** (máme), Freud *Něco tísnivého* | Lze začít |
 | 3 | **Dům, ze kterého nejde odejít** | Control, Metro, Silent Hill, Inscryption, Fallout (Vaulty), případně SOMA | Kdy se útočiště změní ve vězení | Bachelard (máme); **Goffman** nebo **Foucault** | Čeká na knihu |
 | 4 | **Jméno jako klíč i kletba** | Planescape: Torment, Dishonored, Control, Pentiment, Undertale, DOOM | Moc jména: kdo ho zná, kdo ho ztratil, kdo ho vyslovit nesmí | **Cassirer** *Jazyk a mýtus* | Čeká na knihu |
 | 5 | **Práce, která nikdy nekončí** | Death Stranding, Disco Elysium, Cyberpunk 2077, Half-Life a další, které teprve dohledat | Práce jako smysl i trest | **Camus** *Mýtus o Sisyfovi* | Čeká na knihu |
@@ -24,7 +24,7 @@ Pracovní názvy jsou od Gemini. Členy, ani jejich tvrzení, nepovažovat za ho
 Poznámky k výběru:
 
 - **Kdo drží kroniku:** Horizon vyřazen, protože Farovo mazání APOLLA už rozebírají tři eseje. Ověřeno: farář Thomas v Pentimentu je Nitkař, který kryje pohanský původ světců (Mithrova svatyně pod kostelem); ve Warhammeru jsou dva vymazaní primarchové a Lectitio Divinitatus.
-- **Kopie bez originálu:** Halo zatím není na žádném putování. Ověřeno: Cortana, unesené děti, za které podstrčili klony umírající během měsíců. Od eseje *Kdo se to probudil?* se odlišit: nejde o ztrátu paměti, ale o to, co je vyrobená bytost.
+- **Kopie bez originálu:** Po přečtení Parfita se nabízejí i další světy (vše ověřené proti kronikám, viz výtah): rozdělený Klaus v Xenoblade, Odvržení v Tides of Numenera, Duševrah v Cyberpunku, kvazivzpomínky Animu v Assassin's Creed, klon Aloy v Horizonu, splynutí s Heliem v Deus Ex. Výběr 4–7 světů rozhodnout před balíčkem. Halo zatím není na žádném putování. Ověřeno: Cortana, unesené děti, za které podstrčili klony umírající během měsíců. Od eseje *Kdo se to probudil?* se odlišit: nejde o ztrátu paměti, ale o to, co je vyrobená bytost.
 - **Dům, ze kterého nejde odejít:** BioShock vyřazen (je už na pěti putováních). Ověřeno: Metro je dvacet let drženo v nevědomosti, že svět přežil (Hanza a Pozorovatelé, rušička). Věznice v Control se jmenuje Panoptikum.
 - **Práce, která nikdy nekončí:** Hlavně kvůli Death Stranding, které zatím nemá žádné putování. Control a Hades sem nedávat, protože byrokracii a kancelář podsvětí právě rozebral *Smích nad propastí*.
 
@@ -41,7 +41,7 @@ Světy zatím bez putování: **Halo, XCOM, Death Stranding**. Na jednom putová
 
 Podle užitku:
 
-1. **Derek Parfit: Reasons and Persons**, III. část (Personal Identity). Nutná pro *Kopie bez originálu*, poslouží i u SOMY a Cyberpunku. Česky nevyšla.
+1. ~~Derek Parfit: Reasons and Persons~~: **máme** (2026-11-21), výtah `docs/prameny/parfit-reasons-and-persons.md`. Nutná pro *Kopie bez originálu*.
 2. **Michel Foucault: Dohlížet a trestat** (česky vyšla) a esej *O jiných prostorech* (heterotopie). Pro *Dům*, k tomu moc a vědění pro *Kdo drží kroniku*.
 3. **Erving Goffman: Asylums**, stačí první esej o totálních institucích. Přesnější než Foucault přímo pro *Dům* (Vaulty, Metro, Nejstarší dům). Stačí jedna z dvojice Foucault / Goffman, obě spolu se ale doplňují.
 4. **Albert Camus: Mýtus o Sisyfovi** (česky vyšel, krátký). Pro *Práci, která nikdy nekončí*; přidá i ke smyčkám (Sisyfos je přímo v Hades).

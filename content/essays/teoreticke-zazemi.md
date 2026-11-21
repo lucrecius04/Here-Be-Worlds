@@ -9,7 +9,7 @@ description: Odborné prameny atlasu Here Be Worlds – teorie fikčních svět�
 
 Atlas Here Be Worlds čte herní světy jako literatura čte romány: ptá se, co je drží pohromadě, proč některé žijí desítky let a jiné zůstanou kulisou. Metodu, kterou k tomu používáme, popisuje esej [Anatomie herního lore](/anatomie-herniho-lore/). Tahle stránka ukazuje, o co se opírá.
 
-Pojmy, se kterými pracujeme, nejsou naše. Přicházejí ze šesti oblastí: z teorie fikčních světů, z kritiky fantastiky, z herních studií, z myšlení o hrůze a posvátnu, z dějin náboženství a mýtu a z výzkumu paměti. Ke každé knize uvádíme, co v ní je a k čemu ji v atlasu potřebujeme. Na konci jsou knihy, které by sem ještě patřily, a úplný seznam literatury.
+Pojmy, se kterými pracujeme, nejsou naše. Přicházejí ze sedmi oblastí: z teorie fikčních světů, z kritiky fantastiky, z herních studií, z myšlení o hrůze a posvátnu, z dějin náboženství a mýtu, z výzkumu paměti a z filozofie osobní identity. Ke každé knize uvádíme, co v ní je a k čemu ji v atlasu potřebujeme. Na konci jsou knihy, které by sem ještě patřily, a úplný seznam literatury.
 
 ## Pojmy v kostce
 
@@ -49,6 +49,7 @@ Pojmy, se kterými pracujeme, nejsou naše. Přicházejí ze šesti oblastí: z 
 | Obnovující a reflektující nostalgie | Svetlana Boym, *The Future of Nostalgia* (2001) | Obnovující nostalgie chce ztracený domov znovu postavit a považuje se za pravdu. Reflektující prodlévá u ruin, patiny a touhy samotné a pravdu zpochybňuje. |
 | Nečistota jako věc na nepatřičném místě, anomálie, okraje | Mary Douglasová, *Čistota a nebezpečí* (1966) | Nečisté je to, co porušuje třídění světa. Anomálie a prahy jsou v kultuře zdrojem nebezpečí i moci. |
 | Umělecká hrůza, nečistota, zápletka přesahovače | Noël Carroll, *The Philosophy of Horror* (1990) | Monstrum hororu je ohrožující a nečisté, protože se nevejde do kategorií. Hrůzu snášíme jako cenu za poznání nemožného. |
+| Replika, větvení, vztah R, prázdná otázka, kvazivzpomínka | Derek Parfit, *Reasons and Persons* (1984) | Osoba není nic navíc vedle mozku, těla a propojených prožitků. Kopie může být přesně jako já, a přesto jiná osoba; záleží ale na psychické propojenosti a návaznosti, ne na totožnosti. |
 
 K tomu klasické pojmy, které esej používá: Aristotelova peripetie a anagnórize z *Poetiky*, Eliotův objektivní korelativ (1919) a Bachtinova polyfonie z knihy o Dostojevském (1929).
 
@@ -242,6 +243,18 @@ Svetlana Boym, literární vědkyně, která emigrovala z Leningradu, v knize *T
 
 Herní světy znají obojí. Obnovující nostalgie bývá ideologií jejich mocných: Gwyn v Dark Souls propojuje oheň, aby za každou cenu udržel Věk ohně, Rapture a Columbia v BioShocku jsou ráje postavené na návratu k počátkům. Fallout je Boymina nostalgie po budoucnosti, která nepřišla, celý svět uvízlý v optimismu padesátých let. A Disco Elysium z toho udělalo kosmologii: Šeď se rozrůstá úměrně tomu, kolik dějin a nostalgie civilizace vyprodukuje a jak neumí zapomínat. Hráč sám je přitom skoro vždy nostalgik reflektující. Prochází ruiny, čte popisky předmětů a skládá svět z detailů, a řízená mezera tu chrání patinu před restaurováním.
 
+## Osoba a identita
+
+Co dělá postavu, která ztratila paměť, změnila tělo nebo byla zkopírována, stále toutéž bytostí.
+
+### Parfit: kopie, větvení a na čem záleží
+
+Britský filozof Derek Parfit otevírá třetí část knihy *Reasons and Persons* (1984) teleportérem: skener na Zemi zničí mozek a tělo, zaznamená stav všech buněk a na Marsu z nové hmoty vznikne přesná **replika**. Je to cesta, nebo smrt? Pak přijde nový skener, který originál nezničí, jen mu poškodí srdce, a vypravěč za pár dní umírá, zatímco s ním jeho replika z Marsu mluví přes obrazovku a slibuje, že dokončí jeho knihu. Parfit rozlišuje **kvalitativní totožnost** (být přesně stejný) a **numerickou** (být jedna a táž osoba) a ukazuje, že ani tělesné, ani psychologické kritérium neobstojí v případech, kdy se člověk **rozdělí**: když se každá polovina mozku přenese do jiného těla, obě výsledné osoby si pamatují můj život a žádná odpověď na otázku „kdo z nich jsem já“ nedává smysl.
+
+Jeho závěr je, že osoba není nic navíc vedle mozku, těla a řetězce propojených prožitků, podobně jako národ není nic navíc vedle svých občanů a území. Otázka „přežiju?“ proto může být **prázdná**: víme všechno, co se stalo, a odpověď přesto nemáme. A na osobní totožnosti nezáleží; záleží na **vztahu R**, psychické propojenosti a návaznosti vzpomínek, záměrů a povahy. Parfit k tomu přidává **kvazivzpomínky** (vzpomínky na cizí prožitky, které by šlo do mozku zkopírovat), **sériové osoby**, které se každý rok obnovují v replikátoru, **splynutí** dvou lidí v jednoho a slovník **postupných já**, v němž může být dávné já jen vzdáleným předkem. Pro sebe z toho vyvodil útěchu: dokud věřil, že jeho existence je hlubší fakt, žil jako ve skleněném tunelu s tmou na konci; když názor změnil, stěny zmizely a ostatní lidé se přiblížili.
+
+Žádný pramen atlasu není tak blízko herní fikci. Kronika Hlubin uvádí Parfitovu knihu jako přímou inspiraci SOMY a Simon, který zůstane sedět ve starém těle, zatímco jeho kopie odchází, je Parfitův vypravěč na vedlejší koleji. Duševrah v Cyberpunku je teleportér bez Marsu, Animus v Assassin's Creed stroj na kvazivzpomínky, Klaus v Xenoblade se doslova rozdělí na dvě poloviny a Bezejmenný v Planescape: Torment žije mezi svými vzdálenými minulými já. Parfitův závěr je přitom silná a sporná teze; jeho oponenti Bernard Williams a Thomas Nagel v knize vystupují s opačnými intuicemi, které spojují osobu s tělem nebo mozkem, a Parfit sám přiznává, že se mu jeho pravdě věří velmi těžko.
+
 ## Z dílny tvůrců
 
 Vedle teorie se opíráme o texty a přednášky lidí, kteří herní světy sami staví.
@@ -322,6 +335,7 @@ Knihy, které by metodu dál prohloubily a ke kterým se chceme dostat:
 - Svetlana Boym: *The Future of Nostalgia*, Basic Books 2001.
 - Mary Douglas: *Purity and Danger* (1966); česky *Čistota a nebezpečí: Analýza konceptu znečištění a tabu*, přel. Marta Mills Fialová a Michaela Konopíková, Malvern 2014.
 - Noël Carroll: *The Philosophy of Horror, or Paradoxes of the Heart*, Routledge 1990.
+- Derek Parfit: *Reasons and Persons*, Oxford University Press 1984 (s opravami 1987).
 
 **Fikční světy a fantastika (doplněk)**
 
