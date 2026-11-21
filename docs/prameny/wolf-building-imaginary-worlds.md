@@ -29,3 +29,4 @@
 - *Na mrtvole boha*: Tři způsoby (ontologický vynález, Xenoblade)
 - Esej ke stezce Kdo se to probudil? (`content/trails/kdo-se-to-probudil.md`): typologie (narativní rozlišení, katalyzátory spekulace)
 - Esej ke stezce Mluví už jen mrtví (`content/trails/mluvi-uz-jen-mrtvi.md`): typologie (narativní rozlišení, katalyzátory spekulace)
+- Esej ke stezce Město, které dýchá (`content/trails/mesto-ktere-dycha.md`, čeká na schválení): Paměť, nemoc a vůle (infrastruktury a iluze úplnosti: velrybí olej, kyslík z Arcadie, ADAM, Jatka; ontologický vynález: Silent Hill, Sigil, Stiltonův dům).

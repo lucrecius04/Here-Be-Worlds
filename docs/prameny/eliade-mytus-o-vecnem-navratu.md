@@ -47,3 +47,4 @@ Pro člověka tradičních společností je skutečné jen to, co **opakuje vzor
 - Esej ke stezce Prokleté dědictví (`content/trails/proklete-dedictvi.md`): kořeny (mýtizace dějin, kalijuga, výhrada)
 - Esej ke stezce Křehká hranice svobodné vůle (`content/trails/krehka-hranice-svobodne-vule.md`): kořeny (útěk před otevřenými dějinami do jistoty vzoru, výhrada), Tři pouta (pouto ze strachu)
 - Esej ke stezce Uvězněni v kruhu (`content/trails/uvezneni-v-kruhu.md`): kořeny (akitu, jugy, hrůza z dějin, výhrada), Tři podoby (jugy a řídnutí)
+- Esej ke stezce Město, které dýchá (`content/trails/mesto-ktere-dycha.md`, čeká na schválení): Tělo z kamene a paměti; Planescape: Torment (symbolika středu: Sigil na jehle, Mnohostěn a majáky BioShocku jako axis mundi, nebeský archetyp města).

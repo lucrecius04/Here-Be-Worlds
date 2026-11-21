@@ -52,3 +52,4 @@ Fantasy se dá třídit podle toho, **jak do vyprávěného světa vstupuje fant
 - Esej ke stezce Kdo se to probudil? (`content/trails/kdo-se-to-probudil.md`): Proč se hry probouzejí bez paměti (portál převlečený za ponořenou, nespolehliví průvodci)
 - Esej ke stezce Prokleté dědictví (`content/trails/proklete-dedictvi.md`): kořeny (ponořená fantasy vypráví ztrátu, výhrada)
 - Esej ke stezce Smích nad propastí (`content/trails/smich-nad-propasti.md`): Šašek, úřad a obrácený svět (prahová fantasy: klidné postavy, odcizený čtenář; výhrada „nestojí za nic“), Control (výklad atlasu)
+- Esej ke stezce Město, které dýchá (`content/trails/mesto-ktere-dycha.md`, čeká na schválení): Paměť, nemoc a vůle (ponořená rétorika, kompetentní obyvatelé, svět, který řídne: Revachol a Night City; Harryho amnézie jako vstup cizince).

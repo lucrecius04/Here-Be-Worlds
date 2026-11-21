@@ -40,3 +40,4 @@ Místo toho Calleja navrhuje **model hráčova zapojení** (*player involvement 
 - Esej ke stezce Mluví už jen mrtví (`content/trails/mluvi-uz-jen-mrtvi.md`): Proč mrtví mluví… (tažený příběh, kognitivní mapa)
 - Esej ke stezce Křehká hranice svobodné vůle (`content/trails/krehka-hranice-svobodne-vule.md`): Proč hry… (alterbiografie, volby bez následků ztrácejí smysl; Deus Ex)
 - Esej ke stezce Uvězněni v kruhu (`content/trails/uvezneni-v-kruhu.md`): Outer Wilds (kognitivní mapa), Proč hry žijí z návratů (alterbiografie)
+- Esej ke stezce Město, které dýchá (`content/trails/mesto-ktere-dycha.md`, čeká na schválení): Proč hry dokážou město oživit (prostorové zapojení, začlenění, kognitivní mapa, souvislý a rhizomatický prostor: pěší cesty Gorchonem).

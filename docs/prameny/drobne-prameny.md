@@ -47,3 +47,4 @@ Citované v *Anatomii herního lore* dřív, než vznikla tato složka, a čten�
 - Esej ke stezce Křehká hranice svobodné vůle (`content/trails/krehka-hranice-svobodne-vule.md`): Proč hry… (Hocking: ludonarativní nesoulad na BioShocku)
 - Esej ke stezce Ráj, který se nepovedl (`content/trails/raj-ktery-se-nepovedl.md`): Proč hry dokážou ráj usvědčit (Jenkins: prostorové vyprávění; Hocking: ludonarativní nesoulad na BioShocku)
 - Esej ke stezce Logo nad troskami (`content/trails/logo-nad-troskami.md`): Proč hry umějí číst firemní složky (Jenkins: paměťový palác, terminály a deníky)
+- Esej ke stezce Město, které dýchá (`content/trails/mesto-ktere-dycha.md`, čeká na schválení): Proč hry dokážou město oživit (Jenkins: narativní architektura; Smith a Worch: prostorové vyprávění v Rapture, Dunwallu a Night City).

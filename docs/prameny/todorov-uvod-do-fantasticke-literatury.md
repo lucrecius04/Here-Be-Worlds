@@ -52,3 +52,4 @@ Ve 20. století se podle Todorova tento klasický model obrací naruby. U Franze
 - Esej ke stezce Netvor v zrcadle (`content/trails/netvor-v-zrcadle.md`): Silent Hill (témata já a ty), Proč hry… (metačtení)
 - Esej ke stezce Mluví už jen mrtví (`content/trails/mluvi-uz-jen-mrtvi.md`): Proč mrtví mluví… (nevratný čas čtení, metačtení)
 - Esej ke stezce Smích nad propastí (`content/trails/smich-nad-propasti.md`): Šašek, úřad a obrácený svět (kafkovská adaptace, Gogolův Nos), Control (výklad atlasu)
+- Esej ke stezce Město, které dýchá (`content/trails/mesto-ktere-dycha.md`, čeká na schválení): Pathologic: anatomie města (váhání mezi podivným a zázračným ve třech čteních moru, pandeterminismus Linií a pískovišť).

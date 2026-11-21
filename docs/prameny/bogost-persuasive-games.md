@@ -32,3 +32,4 @@
 - Esej ke stezce Ráj, který se nepovedl (`content/trails/raj-ktery-se-nepovedl.md`): Proč hry dokážou ráj usvědčit (co hra nedovolí: Pathologic, Myšlenkový kabinet v Disco Elysium)
 - Esej ke stezce Logo nad troskami (`content/trails/logo-nad-troskami.md`): Proč hry umějí číst firemní složky (co hra nedovolí: konec Věž v Cyberpunku)
 - Esej ke stezce Smích nad propastí (`content/trails/smich-nad-propasti.md`): Proč hry umějí rozesmát i zranit (procedurální rétorika: kelímek vody, rozbité Slitování, odstrčený monitor v DOOMu)
+- Esej ke stezce Město, které dýchá (`content/trails/mesto-ktere-dycha.md`, čeká na schválení): Proč hry dokážou město oživit (co hra nedovolí: nemožnost být na dvou místech v Pathologic, Chaos v Dishonored).
