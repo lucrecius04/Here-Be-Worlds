@@ -39,6 +39,8 @@ Světy zatím bez putování: **Halo, XCOM, Death Stranding**. Na jednom putová
 
 ## Knihy, které majitel shání
 
+Dodatečně přečteno: H. P. Lovecraft, *Supernatural Horror in Literature* (2026-11-21, výtah `docs/prameny/lovecraft-nadprirozena-hruza.md`; tip od Gemini, hodí se k *Pod lhostejnými hvězdami* a *Domu*). Camus zatím jen jako francouzská studijní příručka, plnou knihu majitel shání.
+
 Podle užitku:
 
 1. ~~Derek Parfit: Reasons and Persons~~: **máme** (2026-11-21), výtah `docs/prameny/parfit-reasons-and-persons.md`. Nutná pro *Kopie bez originálu*.
@@ -48,7 +50,7 @@ Podle užitku:
 5. **Ernst Cassirer: Jazyk a mýtus** (krátký). Pro *Jméno jako klíč i kletba*.
 6. ~~Sigmund Freud: Das Unheimliche~~: **máme** (2026-11-21), výtah `docs/prameny/freud-tisnive-povedome.md` (v atlasu „tísnivě povědomé“, aby se nepletlo s Fisherovým „tísnivým“). Pro *Kopie* (dvojník, oživlá loutka), *Dům* (strašidelný dům) a případně *Hříchy otců*.
 
-Až budou potřeba (zatím nenutné): H. P. Lovecraft *Nadpřirozená hrůza v literatuře* (pojem kosmické lhostejnosti; tip od Gemini), Kevin Lynch *Obraz města* (čitelnost města a mentální mapy; tip od Gemini k eseji Město, které dýchá, hodí se ke každému putování o prostoru), Bauman *Modernita a holocaust*, Arendtová *Eichmann v Jeruzalémě*, Bachtin *Rabelais*, Kristevová *Powers of Horror*, Becker *The Denial of Death*, Graeber *The Utopia of Rules*, Caillois *Hry a lidé*, Ong *Technologizace slova*.
+Až budou potřeba (zatím nenutné): Kevin Lynch *Obraz města* (čitelnost města a mentální mapy; tip od Gemini k eseji Město, které dýchá, hodí se ke každému putování o prostoru), Bauman *Modernita a holocaust*, Arendtová *Eichmann v Jeruzalémě*, Bachtin *Rabelais*, Kristevová *Powers of Horror*, Becker *The Denial of Death*, Graeber *The Utopia of Rules*, Caillois *Hry a lidé*, Ong *Technologizace slova*.
 
 ## Co obnáší nové putování v kódu
 
