@@ -63,6 +63,7 @@ export const ui: Record<Locale, UiTree> = {
       skyRoutes: 'Trasy oblohou',
       routeAria: 'Světy, kterými putování vede',
       journeyGo: 'Vydat se na putování',
+      journeyEssay: 'esej na {m} min čtení',
       moreJourneys: 'Další putování',
     },
     theme: {
@@ -528,6 +529,7 @@ Berte prosím tento atlas jako skromnou poctu všem scenáristům, designérům 
       skyRoutes: 'Routes across the sky',
       routeAria: 'Worlds this journey passes through',
       journeyGo: 'Set out on the journey',
+      journeyEssay: '{m}-min read',
       moreJourneys: 'More journeys',
     },
     theme: {

@@ -459,6 +459,9 @@ export default function HomeIntro({ chapters, worlds = [], journeys = [], base }
                   <a className="hp-btn hp-btn--tab" href={withBase(base, `/putovani/${trailSlug(featuredTrail.trail.id)}/`)}>
                     {uiT('home2.journeyGo', locale)} →
                   </a>
+                  {featuredTrail.info?.minutes ? (
+                    <span className="hp-journey__meta">{uiT('home2.journeyEssay', locale).replace('{m}', String(featuredTrail.info.minutes))}</span>
+                  ) : null}
                 </p>
               </article>
               <div className="hp-journeys__more">
