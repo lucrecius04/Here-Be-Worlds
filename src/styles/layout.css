@@ -244,20 +244,19 @@ body:has(.world-card--page) .site-footer {
   display: none;
 }
 
-/* Telefon (i na šířku): stránka světa se posouvá celá, ne ve vnitřním okénku. Prohlížeč pak
-   schová svou lištu a hlavička webu odjede s textem (WorldPageShell, src/lib/page-flow.ts). */
-@media (max-width: 720px), (max-height: 540px) and (pointer: coarse) {
-  html:has(.world-card--page),
-  body:has(.world-card--page) {
-    height: auto;
-    overflow-x: clip;
-    overflow-y: visible;
-    overscroll-behavior: auto;
-  }
+/* Stránka světa se posouvá celá, ne ve vnitřním okénku (na telefonu od 2026-11-21, na počítači
+   od 2026-11-22): prohlížeč schová svou lištu a hlavička webu odjede s textem
+   (WorldPageShell, src/lib/page-flow.ts). */
+html:has(.world-card--page),
+body:has(.world-card--page) {
+  height: auto;
+  overflow-x: clip;
+  overflow-y: visible;
+  overscroll-behavior: auto;
+}
 
-  body:has(.world-card--page) .site-main {
-    overflow: clip;
-  }
+body:has(.world-card--page) .site-main {
+  overflow: clip;
 }
 
 .site-footer {

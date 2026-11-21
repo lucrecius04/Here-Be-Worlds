@@ -3,12 +3,14 @@ import '../../styles/chronicle.css';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { useLocale } from '../../lib/locale-store';
+import ReadingToc from '../reading/ReadingToc';
 import { usePageFlow } from '../../lib/page-flow';
 import { uiT } from '../../lib/i18n';
 import { withBase } from '../../lib/base-url';
 import type { LocalizedString } from '../../schemas/world';
 import {
   isChronicleInProgress,
+  SHOW_READING_PROGRESS,
   readReaderDesk,
   useReaderDesk,
   writeChronicleProgress,
@@ -52,8 +54,35 @@ type Props = {
 
 function scrollHeadingIntoView(root: HTMLElement | null, id: string) {
   if (!root || !id) return;
-  const el = root.querySelector(`#${CSS.escape(id)}`);
-  el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  const el = root.querySelector<HTMLElement>(`#${CSS.escape(id)}`);
+  if (!el) return;
+  el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  // Obrázky nad cílem se dočítají až během posunu a odsunou ho: chvíli po doběhnutí dorovnávat,
+  // dokud čtenář sám nezačne posouvat.
+  let tries = 0;
+  let stop = false;
+  const abort = () => {
+    stop = true;
+  };
+  window.addEventListener('wheel', abort, { once: true, passive: true });
+  window.addEventListener('touchstart', abort, { once: true, passive: true });
+  window.addEventListener('keydown', abort, { once: true });
+  const settle = () => {
+    if (stop) return;
+    const target = document.getElementById(id);
+    if (!target) return;
+    const margin = parseFloat(getComputedStyle(target).scrollMarginTop) || 0;
+    const off = target.getBoundingClientRect().top - margin;
+    if (Math.abs(off) > 8) target.scrollIntoView({ behavior: 'auto', block: 'start' });
+    tries += 1;
+    if (tries < 6) window.setTimeout(settle, 400);
+    else {
+      window.removeEventListener('wheel', abort);
+      window.removeEventListener('touchstart', abort);
+      window.removeEventListener('keydown', abort);
+    }
+  };
+  window.setTimeout(settle, 900);
 }
 
 function scrollToPercent(root: HTMLElement | null, percent: number, pageFlow = false) {
@@ -152,7 +181,11 @@ export default function ChronicleReader({
   );
   const trackProgress = variant === 'narrative' && Boolean(worldId && worldTitle);
   const saved =
-    trackProgress && desk.chronicle?.id === worldId && isChronicleInProgress(desk.chronicle.scrollPercent)
+    SHOW_READING_PROGRESS &&
+    trackProgress &&
+    desk.chronicle != null &&
+    desk.chronicle.id === worldId &&
+    isChronicleInProgress(desk.chronicle.scrollPercent)
       ? desk.chronicle
       : null;
 
@@ -267,6 +300,53 @@ export default function ChronicleReader({
     );
   };
 
+  /* Text kroniky se vykreslí jen při změně obsahu nebo jazyka. Dřív se při každé změně aktivní
+     kapitoly v obsahu celý článek znovu připojil (nové komponenty), obrázky se načítaly znovu
+     a odsouvaly text pod čtenářem. */
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const prose = useMemo(
+    () => (
+    <ReactMarkdown
+      remarkPlugins={[remarkGfm]}
+      components={{
+        p: ({ children, node }) => {
+          const text = nodesToText(children).trim();
+          const book = parseBookLabel(text);
+          if (book) {
+            return (
+              <p id={slugifyChronicleHeading(book)} className="chronicle-book-label">
+                {book}
+              </p>
+            );
+          }
+          if (isOnlyEmphasis(node)) {
+            const quoted = /[„“”"]/.test(text);
+            return (
+              <p className={quoted ? 'chronicle-epigraph' : 'chronicle-italic'}>{children}</p>
+            );
+          }
+          return <p>{children}</p>;
+        },
+        h2: ({ children }) => headingEl('h2', children),
+        h3: ({ children }) => headingEl('h3', children),
+        hr: () => <Ornament />,
+        strong: ({ children }) => <strong>{children}</strong>,
+        img: ({ src = '', alt = '' }) => (
+          <img
+            className="chronicle-figure"
+            src={typeof src === 'string' && src.startsWith('/') ? withBase(import.meta.env.BASE_URL, src) : src}
+            alt={alt}
+            loading="lazy"
+          />
+        ),
+      }}
+    >
+      {formatted}
+    </ReactMarkdown>
+    ),
+    [formatted, locale],
+  );
+
   return (
     <div
       className={`chronicle-layout chronicle-layout--${variant}${showToc ? '' : ' chronicle-layout--wide'}${saved ? ' chronicle-layout--resume' : ''}`}
@@ -282,38 +362,37 @@ export default function ChronicleReader({
         </p>
       ) : null}
       {showToc ? (
-        <nav className="chronicle-toc" aria-label={locale === 'cs' ? 'Obsah kroniky' : 'Chronicle contents'}>
+        <div className="chronicle-toc">
           {toc.length > 0 ? (
-            <ul>
-              {toc.map((h) => (
-                <li key={h.id} className="chronicle-toc__item">
-                  <a
-                    href={`#${h.id}`}
-                    className={active === h.id ? 'chronicle-toc__link--active' : undefined}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      activeRef.current = h.id;
-                      setActive(h.id);
-                      scrollHeadingIntoView(scrollRef.current, h.id);
-                    }}
-                  >
-                    <span className="chronicle-toc__book">{h.label}</span>
-                    {h.title ? <span className="chronicle-toc__chapter">{h.title}</span> : null}
-                  </a>
-                </li>
-              ))}
-            </ul>
+            <ReadingToc
+              stacked
+              items={toc.map((h) => ({ id: h.id, title: h.title || h.label, kicker: h.title ? h.label : undefined }))}
+              active={active}
+              label={uiT('essay.toc', locale)}
+              ariaLabel={locale === 'cs' ? 'Obsah kroniky' : 'Chronicle contents'}
+              onSelect={(id, e) => {
+                e.preventDefault();
+                activeRef.current = id;
+                setActive(id);
+                // na telefonu se obsah po kliknutí sbalí: posunout až po překreslení
+                requestAnimationFrame(() =>
+                  requestAnimationFrame(() => scrollHeadingIntoView(scrollRef.current, id)),
+                );
+              }}
+            />
           ) : null}
-        </nav>
+        </div>
       ) : null}
       <div className="chronicle-scroll" ref={scrollRef}>
         {showCover ? (
           cover || coverTagline ? (
             <header className="chronicle-cover">
-              {cover?.kicker ? <p className="chronicle-cover__kicker">{cover.kicker}</p> : null}
-              {cover?.name ? <h2 className="chronicle-cover__title display">{cover.name}</h2> : null}
-              <Ornament />
-              {coverTagline ? <p className="chronicle-cover__tagline">{coverTagline}</p> : null}
+              {/* název kroniky je už v hlavičce spisu; kronika začíná rovnou příběhem světa */}
+              {coverTagline ? (
+                <h2 className="chronicle-cover__title display">{coverTagline}</h2>
+              ) : cover?.name ? (
+                <h2 className="chronicle-cover__title display">{cover.name}</h2>
+              ) : null}
               {range ? <p className="chronicle-cover__range">{range}</p> : null}
               <p className="chronicle-cover__spoiler">{uiT('world.spoilerNotice', locale)}</p>
             </header>
@@ -325,43 +404,7 @@ export default function ChronicleReader({
           lang={locale}
           className={`chronicle-prose chronicle-prose--body chronicle-prose--${variant}${showToc ? '' : ' chronicle-prose--wide'}`}
         >
-          <ReactMarkdown
-            remarkPlugins={[remarkGfm]}
-            components={{
-              p: ({ children, node }) => {
-                const text = nodesToText(children).trim();
-                const book = parseBookLabel(text);
-                if (book) {
-                  return (
-                    <p id={slugifyChronicleHeading(book)} className="chronicle-book-label">
-                      {book}
-                    </p>
-                  );
-                }
-                if (isOnlyEmphasis(node)) {
-                  const quoted = /[„“”"]/.test(text);
-                  return (
-                    <p className={quoted ? 'chronicle-epigraph' : 'chronicle-italic'}>{children}</p>
-                  );
-                }
-                return <p>{children}</p>;
-              },
-              h2: ({ children }) => headingEl('h2', children),
-              h3: ({ children }) => headingEl('h3', children),
-              hr: () => <Ornament />,
-              strong: ({ children }) => <strong>{children}</strong>,
-              img: ({ src = '', alt = '' }) => (
-                <img
-                  className="chronicle-figure"
-                  src={typeof src === 'string' && src.startsWith('/') ? withBase(import.meta.env.BASE_URL, src) : src}
-                  alt={alt}
-                  loading="lazy"
-                />
-              ),
-            }}
-          >
-            {formatted}
-          </ReactMarkdown>
+          {prose}
         </article>
       </div>
     </div>

@@ -381,42 +381,35 @@ html[data-theme='dark'] .world-card--page {
   }
 }
 
-/* Telefon: posouvá se celá stránka. Plná hlavička odjede s textem; pak se vrátí jako stažený
-   pruh, který při čtení dolů zajede a při posunu nahoru se ukáže (WorldPageShell). */
-@media (max-width: 720px), (max-height: 540px) and (pointer: coarse) {
-  .world-card--page,
-  .world-page__pane,
-  .world-page__pane-scroll {
-    overflow: visible;
-  }
-
-  .world-page__pane-scroll {
-    flex: none;
-  }
-
-  .world-page__masthead.is-floating {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-  }
-
-  .world-page__masthead.is-floating.is-animated {
-    transition: transform 0.25s ease;
-  }
-
-  /* stažený pruh nese jen název a záložky, bez počtů kapitol (ty jsou vidět nahoře) */
-  .world-page__masthead.is-floating .wp-tab__meta {
-    display: none;
-  }
-
-  .world-page__masthead.is-floating.is-hidden {
-    transform: translateY(calc(-100% - 4px));
-  }
-
+/* Posouvá se celá stránka (telefon i počítač). Plná hlavička odjede s textem; pak se vrátí jako
+   stažený pruh. Na telefonu při čtení dolů zajede a při posunu nahoru se ukáže, na počítači
+   plynule sjede shora a zůstane (WorldPageShell). */
+.world-card--page,
+.world-page__pane,
+.world-page__pane-scroll {
+  overflow: visible;
 }
 
-@media (max-width: 720px) and (prefers-reduced-motion: reduce), (max-height: 540px) and (pointer: coarse) and (prefers-reduced-motion: reduce) {
+.world-page__pane-scroll {
+  flex: none;
+}
+
+.world-page__masthead.is-floating {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.world-page__masthead.is-floating.is-animated {
+  transition: transform 0.25s ease;
+}
+
+.world-page__masthead.is-floating.is-hidden {
+  transform: translateY(calc(-100% - 4px));
+}
+
+@media (prefers-reduced-motion: reduce) {
   .world-page__masthead.is-floating.is-animated {
     transition: none;
   }

@@ -17,6 +17,8 @@ type Props = {
   ariaLabel?: string;
   /** Vlastní posun (kronika se posouvá ve vlastním sloupci). Bez něj funguje obyčejná kotva. */
   onSelect?: (id: string, event: MouseEvent<HTMLAnchorElement>) => void;
+  /** Delší štítek (např. „Kniha první“) nad názvem místo krátkého čísla před ním (kronika). */
+  stacked?: boolean;
 };
 
 /**
@@ -24,7 +26,7 @@ type Props = {
  * se vybarví do aktuální kapitoly. Na úzkém displeji se sbalí do řádku,
  * který ukazuje, kde čtenář právě je.
  */
-export default function ReadingToc({ items, active, label, meta, ariaLabel, onSelect }: Props) {
+export default function ReadingToc({ items, active, label, meta, ariaLabel, onSelect, stacked = false }: Props) {
   const [open, setOpen] = useState(false);
   const activeIndex = items.findIndex((item) => item.id === active);
   const current = activeIndex >= 0 ? items[activeIndex] : undefined;
@@ -39,7 +41,7 @@ export default function ReadingToc({ items, active, label, meta, ariaLabel, onSe
   }, [open]);
 
   return (
-    <nav className={`rtoc${open ? ' is-open' : ''}`} aria-label={ariaLabel ?? label}>
+    <nav className={`rtoc${stacked ? ' rtoc--stacked' : ''}${open ? ' is-open' : ''}`} aria-label={ariaLabel ?? label}>
       <p className="rtoc__head">
         <span className="rtoc__label">{label}</span>
         {meta ? <span className="rtoc__meta">{meta}</span> : null}

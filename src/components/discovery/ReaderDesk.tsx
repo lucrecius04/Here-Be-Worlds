@@ -1,6 +1,6 @@
 import { t, uiT, type Locale } from '../../lib/i18n';
 import { withBase } from '../../lib/base-url';
-import { clearReaderDesk, isChronicleInProgress, useReaderDesk } from '../../lib/reader-desk';
+import { SHOW_READING_PROGRESS, clearReaderDesk, isChronicleInProgress, useReaderDesk } from '../../lib/reader-desk';
 
 type Props = {
   locale: Locale;
@@ -12,7 +12,7 @@ export default function ReaderDesk({ locale, base }: Props) {
   const desk = useReaderDesk();
   const chronicle =
     desk.chronicle && isChronicleInProgress(desk.chronicle.scrollPercent) ? desk.chronicle : null;
-  if (!chronicle) return null;
+  if (!chronicle || !SHOW_READING_PROGRESS) return null;
 
   const resumeHref = withBase(base, `/worlds/${chronicle.id}/?view=chronicle&resume=1`);
 

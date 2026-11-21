@@ -75,6 +75,17 @@
   color: var(--color-ink);
 }
 
+/* kronika: štítek knihy („Kniha první“) drobně nad názvem kapitoly */
+.rtoc--stacked .rtoc__item a {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.rtoc--stacked .rtoc__kicker {
+  font-size: 0.625rem;
+}
+
 /* přečteno: linka v tlumené barvě až k aktuální kapitole */
 .rtoc__item.is-read a {
   border-left-color: color-mix(in srgb, var(--rtoc-hue) 50%, transparent);

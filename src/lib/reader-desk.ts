@@ -4,6 +4,9 @@ import type { LocalizedString } from '../schemas/world';
 const KEY = 'hbw_reader_desk';
 const EVENT = 'hbw-reader-desk';
 const MAX_RECENT = 3;
+/** Rozečtenost kroniky (lišta v kronice, řádek na titulní straně) je zatím skrytá; pozice se dál ukládá. */
+export const SHOW_READING_PROGRESS = false;
+
 export const CHRONICLE_RESUME_MIN = 5;
 export const CHRONICLE_RESUME_MAX = 95;
 

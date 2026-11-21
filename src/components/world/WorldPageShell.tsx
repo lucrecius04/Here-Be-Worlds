@@ -12,7 +12,7 @@ import WorldJourneys, { type WorldJourney } from './WorldJourneys';
 import ChronicleReader from '../chronicle/ChronicleReader';
 import { touchRecent } from '../../lib/reader-desk';
 import { toggleCompareTray, useCompareTray } from '../../lib/compare-tray';
-import { usePageFlow } from '../../lib/page-flow';
+import { BAR_HIDES_QUERY, useMediaQuery, usePageFlow } from '../../lib/page-flow';
 
 type ViewMode = 'card' | 'chronicle' | 'appendices' | 'analysis' | 'journeys';
 
@@ -46,8 +46,8 @@ export default function WorldPageShell({
   const [chronicleLoading, setChronicleLoading] = useState(false);
   const [analysisAnchor, setAnalysisAnchor] = useState<TriadAnchor | null>(null);
   const [resume, setResume] = useState(false);
-  const [compact, setCompact] = useState(false);
   const pageFlow = usePageFlow();
+  const barHides = useMediaQuery(BAR_HIDES_QUERY);
   const mastheadRef = useRef<HTMLDivElement>(null);
   const [floating, setFloating] = useState(false);
   const [hidden, setHidden] = useState(false);
@@ -80,10 +80,11 @@ export default function WorldPageShell({
 
   const needsChronicle = mode === 'chronicle' || mode === 'appendices' || mode === 'analysis';
 
-  /* Telefon: posouvá se celá stránka. Jakmile plná hlavička světa odjede, vrátí se jako
-     stažený pruh (název a záložky), který při čtení dolů zajede a při posunu nahoru se ukáže.
-     Pruh nastupuje schovaný a bez animace, aby při prvním posunu dolů neproblikl; zpátky do
-     plné hlavičky se přepne, až by pod ním byla vidět víc než jeho vlastní výška. */
+  /* Posouvá se celá stránka. Jakmile plná hlavička světa odjede, vrátí se jako stažený pruh
+     (název a záložky). Na telefonu při čtení dolů zajede a při posunu nahoru se ukáže; nastupuje
+     schovaný a bez animace, aby při prvním posunu neproblikl. Na počítači plynule sjede shora a
+     zůstane. Zpátky do plné hlavičky se přepne, až by pod pruhem byla vidět víc než jeho výška.
+     Výšku pruhu dává do --wp-bar-h, aby se pod něj mohl přilepit obsah kroniky. */
   useEffect(() => {
     if (!pageFlow) {
       setFloating(false);
@@ -110,8 +111,12 @@ export default function WorldPageShell({
       const y = window.scrollY;
       const head = mastheadRef.current;
       if (head) {
-        if (isFloating) barHeight = head.offsetHeight;
-        else {
+        if (isFloating) {
+          if (head.offsetHeight !== barHeight) {
+            barHeight = head.offsetHeight;
+            document.documentElement.style.setProperty('--wp-bar-h', `${barHeight}px`);
+          }
+        } else {
           fullHeight = head.offsetHeight;
           fullBottom = measureBottom();
         }
@@ -125,7 +130,13 @@ export default function WorldPageShell({
         setFloating(true);
         cancelAnimationFrame(arm);
         arm = requestAnimationFrame(() => {
-          arm = requestAnimationFrame(() => setAnimated(true));
+          arm = requestAnimationFrame(() => {
+            setAnimated(true);
+            if (!barHides) {
+              isHidden = false;
+              setHidden(false);
+            }
+          });
         });
         last = y;
         return;
@@ -140,7 +151,7 @@ export default function WorldPageShell({
         last = y;
         return;
       }
-      if (isFloating && Math.abs(y - last) > 10) {
+      if (isFloating && barHides && Math.abs(y - last) > 10) {
         const down = y > last;
         if (down !== isHidden) {
           isHidden = down;
@@ -161,7 +172,7 @@ export default function WorldPageShell({
       window.removeEventListener('scroll', onScroll);
       window.removeEventListener('resize', onScroll);
     };
-  }, [pageFlow]);
+  }, [pageFlow, barHides]);
 
   useEffect(() => {
     if (!needsChronicle) return;
@@ -210,7 +221,7 @@ export default function WorldPageShell({
 
   return (
     <article
-      className={`world-card world-card--page${compact || floating ? ' is-compact' : ''}${pageFlow ? ' is-page-flow' : ''}`}
+      className={`world-card world-card--page${floating ? ' is-compact' : ''}${pageFlow ? ' is-page-flow' : ''}`}
       data-chapter={world.chapterId}
       style={chapterVars}
     >
@@ -232,7 +243,6 @@ export default function WorldPageShell({
                     className={`wp-tab${mode === tab.id ? ' is-active' : ''}`}
                     onClick={() => {
                       setAnalysisAnchor(null);
-                      setCompact(false);
                       if (tab.id !== 'card' && tab.id !== 'journeys' && chronicle === null) setChronicleLoading(true);
                       setMode(tab.id);
                       if (pageFlow) window.scrollTo({ top: 0 });
@@ -256,16 +266,7 @@ export default function WorldPageShell({
       </div>
       {floating ? <div className="world-page__masthead-spacer" style={{ height: spacer }} aria-hidden="true" /> : null}
 
-      <div
-        className="world-page__pane"
-        onScrollCapture={(e) => {
-          if (pageFlow) return;
-          // Hlavička se při čtení stáhne; hystereze brání poskakování.
-          const top = (e.target as HTMLElement).scrollTop ?? 0;
-          if (!compact && top > 80) setCompact(true);
-          else if (compact && top < 8) setCompact(false);
-        }}
-      >
+      <div className="world-page__pane">
         {mode === 'card' ? (
           <div className="world-page__pane-scroll">
             <WorldCard

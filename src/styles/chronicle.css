@@ -858,22 +858,78 @@
   }
 }
 
-/* Telefon: kronika se posouvá s celou stránkou (WorldPageShell, src/lib/page-flow.ts). */
-@media (max-width: 720px), (max-height: 540px) and (pointer: coarse) {
-  .chronicle-layout {
-    grid-template-rows: auto;
-    height: auto;
-    overflow: visible;
-  }
+/* Kronika se posouvá s celou stránkou (WorldPageShell, src/lib/page-flow.ts). Na počítači se
+   obsah vlevo přilepí pod stažený pruh světa (--wp-bar-h nastavuje WorldPageShell). */
+.chronicle-layout {
+  grid-template-rows: auto;
+  height: auto;
+  overflow: visible;
+}
 
-  .chronicle-scroll {
-    max-height: none;
-    overflow: visible;
-  }
+.chronicle-scroll {
+  max-height: none;
+  overflow: visible;
+}
 
-  .chronicle-prose h2[id],
-  .chronicle-prose h3[id],
-  .chronicle-prose .chronicle-book-label[id] {
-    scroll-margin-top: 6rem;
+.chronicle-prose h2[id],
+.chronicle-prose h3[id],
+.chronicle-prose .chronicle-book-label[id] {
+  scroll-margin-top: calc(var(--wp-bar-h, 7rem) + 1.25rem);
+}
+
+@media (min-width: 901px) and (not ((max-height: 540px) and (pointer: coarse))) {
+  .chronicle-toc {
+    position: sticky;
+    top: calc(var(--wp-bar-h, 7rem) + 1.5rem);
+    align-self: start;
+    max-height: calc(100vh - var(--wp-bar-h, 7rem) - 3rem);
+    overflow-y: auto;
   }
+}
+
+/* Obsah kroniky je sdílený ReadingToc (jako u esejí): nadpis Obsah, svislá linka, přečtená část
+   v barvě archetypu. Kontejner .chronicle-toc jen drží místo a na počítači se lepí. */
+.chronicle-toc {
+  padding: 2.5rem 1.5rem 1.5rem 0;
+  margin-right: 2.5rem;
+  border: 0;
+}
+
+@media (max-width: 900px), (max-height: 540px) and (pointer: coarse) {
+  .chronicle-toc {
+    display: block;
+    overflow: visible;
+    margin: 0;
+    padding: 1.25rem 0 0.25rem;
+    border: 0;
+  }
+}
+
+/* Obálka: název kroniky je už v hlavičce spisu, kronika začíná rovnou „Příběh světa …“ */
+.chronicle-cover {
+  margin: 0 0 3rem;
+}
+
+.chronicle-cover::before {
+  display: block;
+  width: 3rem;
+  height: 3px;
+  margin-bottom: 1.25rem;
+  background: var(--hue, var(--color-accent));
+  content: '';
+}
+
+.chronicle-cover__title {
+  font-size: clamp(2.1rem, 3.6vw, 3.25rem);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.chronicle-cover__range {
+  margin-top: 0.6rem;
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  font-style: italic;
+  color: var(--color-ink-muted);
 }
