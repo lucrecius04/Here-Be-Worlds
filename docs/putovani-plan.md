@@ -15,7 +15,7 @@ Pracovní názvy jsou od Gemini. Členy, ani jejich tvrzení, nepovažovat za ho
 
 | # | Putování | Světy (návrh) | Otázka | Prameny | Stav |
 |---|---|---|---|---|---|
-| 1 | **Kdo drží kroniku** | Elder Scrolls, Pentiment, Dragon Age, DOOM, Warhammer 40 000, Pillars of Eternity | Komu patří pravda o minulosti a kdo ji smí přepsat | Assmannovi, Doležel, Eliade, Boymová, Foucault (vše máme) | **Esej odevzdána** 2026-11-21, čeká na schválení (náhled `/putovani/navrh/kdo-drzi-kroniku/`) |
+| 1 | **Kdo drží kroniku** | Elder Scrolls, Pentiment, Dragon Age, DOOM, Warhammer 40 000, Pillars of Eternity | Komu patří pravda o minulosti a kdo ji smí přepsat | Assmannovi, Doležel, Eliade, Boymová, Foucault (vše máme) | **Hotovo**, schváleno 2026-11-21 |
 | 2 | **Kopie bez originálu** | SOMA, NieR: Automata, Fallout, Halo, Mass Effect, Tides of Numenera | Kde začíná duše vyrobené bytosti | **Parfit** a Freud (máme) | Lze začít |
 | 3 | **Dům, ze kterého nejde odejít** | Control, Metro, Silent Hill, Inscryption, Fallout (Vaulty), případně SOMA | Kdy se útočiště změní ve vězení | Bachelard a Foucault (máme); Goffman jako doplněk | Lze začít |
 | 4 | **Jméno jako klíč i kletba** | Planescape: Torment, Dishonored, Control, Pentiment, Undertale, DOOM | Moc jména: kdo ho zná, kdo ho ztratil, kdo ho vyslovit nesmí | **Cassirer** *Jazyk a mýtus* | Čeká na knihu |

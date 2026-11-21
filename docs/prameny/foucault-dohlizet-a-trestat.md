@@ -57,3 +57,4 @@ Klíčový obraz je **Panoptikon** Jeremyho Benthama: prstencová budova s celam
 ## Kde už je použito
 
 - Teoretické zázemí: oddíl „Foucault: dohled, disciplína a Panoptikon“, tabulka pojmů, Zdroje.
+- Esej ke stezce Kdo drží kroniku (`content/trails/kdo-drzi-kroniku.md`): kořeny (moc-vědění, zkouška, spis, „moc psaní“, výhrada k dobovému rámci), Dragon Age (Varricův výslech u Cassandry)

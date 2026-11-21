@@ -55,6 +55,7 @@ Smysl románu není v textu hotový, **odehrává se ve čtenáři**. Román př
 - Esej ke stezce Křehká hranice svobodné vůle (`content/trails/krehka-hranice-svobodne-vule.md`): kořeny (role čtenáře jako rámec voleb, implicitní čtenář)
 - Esej ke stezce Uvězněni v kruhu (`content/trails/uvezneni-v-kruhu.md`): Tři podoby (Kermodovy fikce souladu)
 - Esej ke stezce Hra ví, že ji hraješ (`content/trails/hra-vi-ze-ji-hrajes.md`): Skleněná stěna mezi iluzí a hrou (divák jako jediná skutečná osoba hry: Beckett)
+- Esej ke stezce Kdo drží kroniku (`content/trails/kdo-drzi-kroniku.md`): Proč hry (řízená prázdná místa, přeskakování perspektiv, čtenář jako soudce)
 
 ## Dočíst
 

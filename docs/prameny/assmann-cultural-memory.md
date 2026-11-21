@@ -46,3 +46,4 @@ Kulturní paměť si společnosti budují pomocí médií (písmo, obraz, tělo,
 - Esej ke stezce Mluví už jen mrtví (`content/trails/mluvi-uz-jen-mrtvi.md`): kořeny (funkční a úložná paměť, Pausanias, úcta a zvědavost), Horizon (smazaný APOLLO)
 - Esej ke stezce Prokleté dědictví (`content/trails/proklete-dedictvi.md`): kořeny (funkční a úložná paměť), Tři způsoby (NieR, Horizon, Thedas)
 - Esej ke stezce Logo nad troskami (`content/trails/logo-nad-troskami.md`): Horizon (Faro maže APOLLO: zničení úložné paměti), Proč hry (hráč jako auditor v rozbité úložné paměti)
+- Esej ke stezce Kdo drží kroniku (`content/trails/kdo-drzi-kroniku.md`): kořeny (funkční a úložná paměť, protipaměť), Dragon Age (úložná paměť kodexů), Warhammer (zničená úložná paměť), typologie (hráč jako Pausanias)

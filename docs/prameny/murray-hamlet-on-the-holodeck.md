@@ -46,3 +46,4 @@ Díky své proměnlivosti a schopnosti opakování má digitální médium přir
 - Esej ke stezce Uvězněni v kruhu (`content/trails/uvezneni-v-kruhu.md`): Proč hry žijí z návratů (odmítnuté uzavření, nasycení u Floweyho, tragický proces)
 - Esej ke stezce Hra ví, že ji hraješ (`content/trails/hra-vi-ze-ji-hrajes.md`): Skleněná stěna mezi iluzí a hrou (aktivní vytváření víry, digitální čtvrtá stěna, prahové objekty), oddíl Undertale (ukládání jako prahový objekt uvnitř fikce)
 - Esej ke stezce Smích nad propastí (`content/trails/smich-nad-propasti.md`): Proč hry umějí rozesmát i zranit (opakování táhne ke komedii, váha z nevratné ztráty)
+- Esej ke stezce Kdo drží kroniku (`content/trails/kdo-drzi-kroniku.md`): Proč hry (multiformní a kaleidoskopické vyprávění: Varric, Dračí zlom; dramatické jednání při volbě fresky v Pentimentu)

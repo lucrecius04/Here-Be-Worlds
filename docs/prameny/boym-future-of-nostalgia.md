@@ -43,3 +43,4 @@ Nostalgie (z řeckého *nostos*, návrat domů, a *algia*, bolest) není jen tou
 - *Kdo za to může?* (esej ke stezce): Anatomie podezření (obnovující nostalgie a spiknutí, Protokoly sionských mudrců), Zaklínač (Řád planoucí růže a obnovující nostalgie v obležení), Zdroje
 - Esej ke stezce Bohové jako břemeno (`content/trails/bohove-jako-bremeno.md`): Dark Souls (Gwyn), Elden Ring (Zlatý řád bez patiny)
 - Esej ke stezce Ráj, který se nepovedl (`content/trails/raj-ktery-se-nepovedl.md`): Architektura ráje (obnovující a reflektující nostalgie), Fallout (nostalgie po zastaralých vizích budoucnosti, futuristické ruiny), Columbia (obnovující nostalgie), Disco Elysium (dva druhy paměti), Proč hry (hráč jako reflektující nostalgik)
+- Esej ke stezce Kdo drží kroniku (`content/trails/kdo-drzi-kroniku.md`): kořeny (obnovující nostalgie bez patiny), DOOM (kosmogonie Maykrů)

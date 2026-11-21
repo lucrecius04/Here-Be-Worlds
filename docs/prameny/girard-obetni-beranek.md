@@ -62,3 +62,4 @@ Kde se v textu sejdou aspoň dva až tři, můžeme tušit skutečné pronásled
 - Esej ke stezce Válka, kterou nikdo nevyhraje (`content/trails/valka-kterou-nikdo-nevyhraje.md`): kořeny (ztráta rozdílů, nepřátelští bratři, Kaifášova logika, výhrada k redukcionismu), Tři motory (NieR a Metro: moc vyrábí nepřítele)
 - Esej ke stezce Prokleté dědictví (`content/trails/proklete-dedictvi.md`): kořeny (mýty přepsané tak, aby skryly původní násilí; výhrada k redukcionismu)
 - Esej ke stezce Ráj, který se nepovedl (`content/trails/raj-ktery-se-nepovedl.md`): Architektura ráje (reformátor si vymyslí původ, Kaifášova logika, výhrada k redukcionismu), BioShock (Columbia a Wounded Knee)
+- Esej ke stezce Kdo drží kroniku (`content/trails/kdo-drzi-kroniku.md`): kořeny (mýty přepsané, aby bohové zůstali bez viny; výhrada k redukcionismu), DOOM (Maykrové)
