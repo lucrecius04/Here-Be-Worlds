@@ -163,7 +163,7 @@ html[data-theme='dark'] .trails-cross__dot {
   appearance: none;
   padding: 0.3125rem 0 0;
   border: 0;
-  border-top: 3px solid var(--tr-hue);
+  border-top: 2px solid color-mix(in srgb, var(--tr-hue) 60%, transparent);
   background: none;
   font-family: var(--font-sans);
   font-size: 0.875rem;
@@ -213,7 +213,7 @@ html[data-theme='dark'] .trails-cross__dot {
 
 .trails-row__world.is-pick {
   padding-top: 0.125rem;
-  border-top-width: 6px;
+  border-top: 5px solid var(--tr-hue);
   font-weight: 600;
   color: var(--color-accent);
 }
