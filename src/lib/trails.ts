@@ -48,6 +48,7 @@ export const TRAILS: TrailDef[] = [
   def('house', 'house', ['metro', 'resident-evil', 'inscryption', 'control', 'half-life', 'xcom'], ['power-and-dominion', 'survival', 'conspiracy']),
   def('endless-work', 'work', ['death-stranding', 'pentiment', 'disco-elysium', 'half-life', 'dark-souls'], ['survival', 'friendship-and-fellowship', 'cyclical-history']),
   def('true-names', 'names', ['dishonored', 'undertale', 'dragon-age', 'elder-scrolls', 'control', 'tides-of-numenera'], ['identity-and-existence', 'power-and-dominion', 'gods']),
+  def('contagion', 'contagion', ['halo', 'starcraft', 'warcraft', 'diablo', 'elden-ring', 'pathfinder'], ['survival', 'identity-and-existence', 'civilizational-collapse']),
 ];
 
 /** České adresy stránek stezek (/putovani/<slug>/); stejný slug má soubor eseje v content/trails. */
@@ -73,6 +74,7 @@ export const TRAIL_SLUGS: Record<string, string> = {
   house: 'dum-ze-ktereho-nejde-odejit',
   'endless-work': 'prace-ktera-nikdy-nekonci',
   'true-names': 'jmeno-jako-klic-i-kletba',
+  'contagion': 'nakaza-s-vlastni-vuli',
 };
 
 export function trailSlug(id: TrailId): string {

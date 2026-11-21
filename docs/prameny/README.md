@@ -54,7 +54,7 @@ Pravidla:
 
 ## Prameny podle stezek
 
-Opačný pohled k tabulce výše (21 stezek): co číst před psaním eseje ke stezce. Podrobnosti jsou ve výtazích v oddílu „Co z toho plyne pro Here Be Worlds“. Po použití pramene v eseji ho zapsat i do oddílu „Kde už je použito“ ve výtahu.
+Opačný pohled k tabulce výše (22 stezek): co číst před psaním eseje ke stezce. Podrobnosti jsou ve výtazích v oddílu „Co z toho plyne pro Here Be Worlds“. Po použití pramene v eseji ho zapsat i do oddílu „Kde už je použito“ ve výtahu.
 
 | Stezka | Esej | Prameny | Čeká na dodání |
 |---|---|---|---|
@@ -79,6 +79,7 @@ Opačný pohled k tabulce výše (21 stezek): co číst před psaním eseje ke s
 | Dům, ze kterého nejde odejít | [dum-ze-ktereho-nejde-odejit.md](../../content/trails/dum-ze-ktereho-nejde-odejit.md) | Bachelard (dům jako útočiště a obraz duše, vertikála sklepa a půdy, dialektika vně a uvnitř, pootevřené dveře, hnízdo a ulita), Foucault (disciplína, Panoptikon, morové město, úplné instituce, karcerální souostroví a karcerální město), Freud (heimlich a unheimlich: domácké, které se stane tísnivě povědomým; strašidelný dům), Fisher (tísnivé a otázka neviditelného původce) | |
 | Práce, která nikdy nekončí | [prace-ktera-nikdy-nekonci.md](../../content/trails/prace-ktera-nikdy-nekonci.md) | Camus (absurdno, zhroucení kulis všedního dne, dělník bohů a hodina vědomí, revolta bez naděje, šťastný Sisyfos, absurdní tvorba), Foucault (poslušná těla, rozvrh a výcvik, disciplína dílny), Goffman (totální instituce a placená práce, mrtvý čas, kolonizace), Turner (communitas: pouto rovných mimo hierarchii), Eliade (cyklus a obnova, hrůza z dějin), Bogost (procedurální rétorika: co hra nechá dělat a co nedovolí), Juul (test převyprávění) | |
 | Jméno jako klíč i kletba | (esej se píše) | Cassirer (magie slova: jméno jako podstata věci a moc nad ní, tabu jména, skrytý bůh a mnohost jmen, správné oslovení, chaos jako svět beze jmen), Turner (novic na prahu bez jména a odznaků), Goffman (přijímací procedura: číslo místo jména, ztráta výbavy identity), Clute (příběh návratu: hledání pravého jména, amnézie), J. Assmann (damnatio memoriae: vymazané jméno), Parfit (kdo je tentýž, když jméno chybí), Bogost (procedurální rétorika: hra, která nechá hráče pojmenovat) | |
+| Nákaza s vlastní vůlí | (esej se píše) | Douglasová (nečistota jako věc na nepatřičném místě, nebezpečí na hranicích a okrajích, tělo jako model společnosti, nákaza jako trest i jako ochrana řádu), Carroll (nečistota a fúze kategorií: nakažený jako tvor mezi živým a mrtvým, já a cizí vůlí), Girard (krize jako ztráta rozdílů: mor, v němž se všichni stávají stejnými), Foucault (malomocný a morové město: vyloučení proti karanténě a třídění), Parfit (pohlcená paměť a otázka, kdo zůstane, když nákaza vezme vzpomínky), Clute (řídnutí světa a Temný pán) | |
 
 ## Čeká na dodání (od majitele)
 

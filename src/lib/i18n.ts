@@ -419,6 +419,8 @@ export const ui: Record<Locale, UiTree> = {
       workDesc: 'Náklad na zádech, oheň, který je třeba znovu zapálit, stávka v přístavu – kdy je práce smyslem a kdy trestem?',
       names: 'Jméno jako klíč i kletba',
       namesDesc: 'Pravé jméno, které zlomí kletbu, slovo, které mění svět, i hrdina, který žádné jméno nemá – kdo jméno zná, kdo ho ztratil a kdo ho vyslovit nesmí?',
+      contagion: 'Nákaza s vlastní vůlí',
+      contagionDesc: 'Potopa, Roj, Pohroma i šarlatová hniloba: nákaza, která nebere jen těla, ale i paměť a vůli – a boj proti ní, který si žádá nejvyšší cenu.',
     },
     essay: {
       title: 'Anatomie herního lore',
@@ -883,6 +885,8 @@ Berte prosím tento atlas jako skromnou poctu všem scenáristům, designérům 
       workDesc: 'Cargo on your back, a fire that must be lit again, a strike at the docks – when is work a meaning, and when a punishment?',
       names: 'The Name as Key and Curse',
       namesDesc: 'A true name that breaks a curse, a word that reshapes the world, a hero who has no name at all – who knows the name, who has lost it, and who must never speak it?',
+      contagion: 'A Plague with a Will of Its Own',
+      contagionDesc: 'The Flood, the Swarm, the Scourge and the scarlet rot: a contagion that takes not just bodies but memory and will – and a fight against it that demands the highest price.',
     },
     essay: {
       title: 'The anatomy of game lore',
