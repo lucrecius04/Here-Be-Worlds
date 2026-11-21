@@ -244,11 +244,11 @@ export default function HomeIntro({ chapters, worlds = [], journeys = [], base }
           <div className="hp-hero__side">
             <p className="hp-hero__lead">{uiT('home2.lead', locale)}</p>
             <p className="hp-hero__actions">
-              <a className="hp-btn hp-btn--light" href={withBase(base, '/atlas/')}>
-                {uiT('home2.openAtlas', locale)}
-              </a>
-              <a className="hp-btn hp-btn--ghost" href={withBase(base, '/putovani/')}>
+              <a className="hp-btn hp-btn--tab" href={withBase(base, '/putovani/')}>
                 {uiT('home2.heroJourneys', locale)}
+              </a>
+              <a className="hp-btn hp-btn--ghost" href={withBase(base, '/atlas/')}>
+                {uiT('home2.openAtlas', locale)}
               </a>
               <button type="button" className="hp-hero__random" onClick={openRandom}>
                 {uiT('home2.random', locale)} →
@@ -393,7 +393,7 @@ export default function HomeIntro({ chapters, worlds = [], journeys = [], base }
                   ))}
                 </ol>
                 <p className="hp-journey__go">
-                  <a className="hp-btn hp-btn--ink" href={withBase(base, `/putovani/${trailSlug(featuredTrail.trail.id)}/`)}>
+                  <a className="hp-btn hp-btn--tab" href={withBase(base, `/putovani/${trailSlug(featuredTrail.trail.id)}/`)}>
                     {uiT('home2.journeyGo', locale)} →
                   </a>
                   <span className="hp-journey__meta">
@@ -407,6 +407,7 @@ export default function HomeIntro({ chapters, worlds = [], journeys = [], base }
                 </p>
               </article>
               <div className="hp-journeys__more">
+                <p className="hp-kicker">{uiT('home2.moreJourneys', locale)}</p>
                 {otherTrails.map(({ trail, info, members }) => (
                   <a key={trail.id} className="hp-journey-small" href={withBase(base, `/putovani/${trailSlug(trail.id)}/`)}>
                     <span className="hp-journey-small__title">{uiT(trail.nameKey, locale)}</span>

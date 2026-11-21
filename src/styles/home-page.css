@@ -850,11 +850,13 @@ a.hp-tab:focus-visible {
 
 /* ---------- Esej o metodě ---------- */
 
-/* Řádek na papíře na konci stránky (tónovaný pás patří putování pod nocí). */
+/* Druhý tónovaný pás na konci stránky, nad patičkou (první patří Putování dne pod nocí). */
 .hp-essay-row {
   margin-top: 4.5rem;
-  padding: 4.5rem 0 4.5rem;
-  border-top: 1px solid var(--color-line);
+  padding: 4.5rem 0 5rem;
+  background: var(--color-band);
+  box-shadow: 0 0 0 100vmax var(--color-band);
+  clip-path: inset(0 -100vmax);
   display: flex;
   flex-wrap: wrap;
   gap: 2.5rem 3.5rem;
@@ -1311,4 +1313,72 @@ a.hp-tab:focus-visible {
   color: #fff;
   text-decoration: underline;
   text-underline-offset: 0.2em;
+}
+
+/* Hlavní tlačítko „Vydej se na putování“: zlatý štítek ze znaku atlasu (rozsvícená vrstva
+   s vykrojením vpravo). Barva i tvar odkazují na znak, ne na herní UI. */
+.hp-btn--tab {
+  position: relative;
+  padding-right: 2.125rem;
+  border: 0;
+  border-radius: 0;
+  background: var(--mark-glow, #e5be7e);
+  color: var(--color-night);
+  clip-path: polygon(0 0, 100% 0, calc(100% - 0.8rem) 50%, 100% 100%, 0 100%);
+  transition: background-color 0.15s ease;
+}
+
+.hp-btn--tab:hover,
+.hp-btn--tab:focus-visible {
+  background: color-mix(in srgb, var(--mark-glow, #e5be7e) 70%, #fff);
+}
+
+.hp-btn--tab:focus-visible {
+  outline: none;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.hp-journeys__more > .hp-kicker {
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 720px) {
+  /* Na telefonu dvě tlačítka vedle sebe. */
+  .hp-hero__actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.625rem;
+  }
+
+  .hp-hero__actions .hp-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 0.75rem;
+    font-size: 0.875rem;
+    text-align: center;
+  }
+
+  .hp-hero__actions .hp-btn--tab {
+    padding-right: 1.5rem;
+  }
+
+  .hp-hero__random {
+    grid-column: 1 / -1;
+  }
+
+  /* Bez tenkých linek: trasa po zastávkách bez spojnice. */
+  .hp-route:not(.hp-route--small)::before {
+    display: none;
+  }
+}
+
+/* Na telefonu a dotyku obloha bez trasy (řádek Trasy oblohou tam není) a bez tenkých spojnic
+   souhvězdí: bez jmen by byly jen změtí čar, hvězdy samy drží tvar souhvězdí. */
+@media (max-width: 760px), (hover: none) {
+  .hp-sky__route,
+  .hp-sky__line {
+    display: none;
+  }
 }

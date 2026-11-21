@@ -63,6 +63,7 @@ export const ui: Record<Locale, UiTree> = {
       routeAria: 'Světy, kterými putování vede',
       journeyGo: 'Vydej se na putování',
       journeyEssay: 'esej na {m} min',
+      moreJourneys: 'Další putování',
     },
     theme: {
       group: 'Vzhled',
@@ -527,6 +528,7 @@ Berte prosím tento atlas jako skromnou poctu všem scenáristům, designérům 
       routeAria: 'Worlds this journey passes through',
       journeyGo: 'Set out on the journey',
       journeyEssay: '{m}-min essay',
+      moreJourneys: 'More journeys',
     },
     theme: {
       group: 'Appearance',
