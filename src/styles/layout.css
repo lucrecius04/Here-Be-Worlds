@@ -74,8 +74,8 @@ body:has(.world-card--page) {
   }
 }
 
-/* Na telefonu se znak i nápis zmenší, aby se vešly na řádek s přepínači. */
-@media (max-width: 720px) {
+/* Na telefonu (i otočeném na šířku) se znak i nápis zmenší, aby se vešly na řádek s přepínači. */
+@media (max-width: 720px), (max-height: 540px) and (pointer: coarse) {
   .site-header__brand {
     gap: 0.5rem;
   }
@@ -465,8 +465,9 @@ body:has(.world-card--page) .site-footer {
 }
 
 /* Telefon: jeden řádek se znakem, přepínačem motivu (jen ten neaktivní) a tlačítkem menu.
-   Odkazy a jazyk jsou v panelu, který se rozbalí pod hlavičkou. */
-@media (max-width: 720px) {
+   Odkazy a jazyk jsou v panelu, který se rozbalí pod hlavičkou. Stejně i na telefonu otočeném
+   na šířku (nízké okno s dotykovým ovládáním). */
+@media (max-width: 720px), (max-height: 540px) and (pointer: coarse) {
   .site-header {
     position: relative;
     flex-wrap: nowrap;
@@ -559,9 +560,12 @@ body:has(.world-card--page) .site-footer {
     right: 0;
     z-index: 41;
     flex-direction: column;
+    flex-wrap: nowrap;
     align-items: stretch;
     gap: 0;
     padding: 0.25rem var(--gutter) 1.25rem;
+    max-height: calc(100dvh - 4rem);
+    overflow-y: auto;
     border-bottom: 1px solid var(--color-night-line);
     background: var(--color-night);
   }

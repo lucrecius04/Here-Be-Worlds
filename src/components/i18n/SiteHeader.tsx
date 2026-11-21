@@ -13,7 +13,7 @@ export default function SiteHeader({ base }: Props) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // Mobilní menu: zavře se Escapem, klikem mimo hlavičku a při rozšíření okna na desktop.
+  // Mobilní menu: zavře se Escapem, klikem mimo hlavičku a při přechodu na desktopovou hlavičku.
   useEffect(() => {
     if (!menuOpen) return undefined;
     const onKey = (event: KeyboardEvent) => {
@@ -22,15 +22,15 @@ export default function SiteHeader({ base }: Props) {
     const onClick = (event: MouseEvent) => {
       if (!(event.target as Element | null)?.closest('.site-header')) setMenuOpen(false);
     };
-    const wide = window.matchMedia('(min-width: 721px)');
-    const onWide = () => wide.matches && setMenuOpen(false);
+    const compact = window.matchMedia('(max-width: 720px), (max-height: 540px) and (pointer: coarse)');
+    const onWide = () => !compact.matches && setMenuOpen(false);
     document.addEventListener('keydown', onKey);
     document.addEventListener('click', onClick);
-    wide.addEventListener('change', onWide);
+    compact.addEventListener('change', onWide);
     return () => {
       document.removeEventListener('keydown', onKey);
       document.removeEventListener('click', onClick);
-      wide.removeEventListener('change', onWide);
+      compact.removeEventListener('change', onWide);
     };
   }, [menuOpen]);
 
