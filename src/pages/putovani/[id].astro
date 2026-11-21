@@ -8,6 +8,7 @@ import {
   publishedEssayFor,
   trailWorldsInfo,
   trailSources,
+  trailThemes,
   worldLinks,
 } from '../../lib/trail-pages';
 
@@ -54,7 +55,7 @@ const pendingMarkdown = [
     kicker={essay?.kicker ?? uiT('trails.essayKicker', 'cs')}
     tagline={essay?.tagline ?? desc}
     worlds={worldLinks}
-    trail={{ worlds: trailWorldsInfo(trail) }}
+    trail={{ worlds: trailWorldsInfo(trail), themes: trailThemes(trail.themes) }}
     pending={!essay}
   />
 </BaseLayout>

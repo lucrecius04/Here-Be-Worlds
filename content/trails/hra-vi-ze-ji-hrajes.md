@@ -2,7 +2,7 @@
 title: Hra ví, že ji hraješ
 approved: true
 trail: knows-you-play
-kicker: Putování atlasu
+kicker: Putování atlasem
 tagline: Co se stane se světem a s hráčem ve chvíli, kdy hra zboří čtvrtou stěnu a obrátí pohled k člověku za obrazovkou?
 description: Undertale, Inscryption, NieR: Automata, BioShock a Pathologic obracejí pohled k člověku za obrazovkou. Esej o tom, co se stane se světem a s hráčem, když padne čtvrtá stěna.
 ---

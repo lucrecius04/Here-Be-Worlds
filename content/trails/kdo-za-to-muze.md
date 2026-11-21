@@ -2,7 +2,7 @@
 title: Kdo za to může?
 approved: true
 trail: scapegoat
-kicker: Putování atlasu
+kicker: Putování atlasem
 tagline: Co se stane s pravdou a s člověkem, když společnost v krizi potřebuje viníka víc než řešení?
 description: Pathologic, Dishonored, Pentiment, Silent Hill, Zaklínač a Dragon Age ukazují, co se děje, když společenství v krizi hledá obětního beránka. Esej o vině, nečistotě, zapomnění a třech rolích, do nichž hry staví hráče.
 ---

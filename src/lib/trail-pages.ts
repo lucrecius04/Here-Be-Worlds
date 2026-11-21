@@ -3,7 +3,7 @@
  * Esej se na webu ukáže až s `approved: true` ve frontmatteru; do té doby je jen náhled /putovani/navrh/<slug>/.
  */
 import { TRAILS, trailSlug, type TrailDef } from './trails';
-import { worlds, chapters } from './worlds';
+import { worlds, chapters, themeTaxonomy } from './worlds';
 import { AXIS_KEYS } from './axes';
 import { uiT } from './i18n';
 import pramenyReadme from '../../docs/prameny/README.md?raw';
@@ -96,6 +96,14 @@ export function trailWorldsInfo(trail: TrailDef | undefined) {
         axes: Object.fromEntries(AXIS_KEYS.map((key) => [key, w.axes[key].value])),
       };
     });
+}
+
+/** Témata putování s českými názvy (slugy z taxonomie, pořadí podle trails.ts). */
+export function trailThemes(slugs: string[]) {
+  return slugs.map((slug) => {
+    const theme = themeTaxonomy.find((th) => th.slug === slug);
+    return { slug, label: theme?.label.cs ?? theme?.label.en ?? slug };
+  });
 }
 
 /** Odkazy na světy v tabulkách eseje (stejně jako u Anatomie herního lore). */

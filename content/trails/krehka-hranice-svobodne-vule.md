@@ -2,7 +2,7 @@
 title: Křehká hranice svobodné vůle
 approved: true
 trail: free-will
-kicker: Putování atlasu
+kicker: Putování atlasem
 tagline: Co zbude ze svobodné vůle ve chvíli, kdy člověk zjistí, že jeho rozhodnutí řídil cizí příkaz, parazit nebo předem napsaný osud?
 description: BioShock, Baldur's Gate, Zaklínač, Xenoblade, Half-Life a Deus Ex zkoumají, kde končí vlastní rozhodnutí a začíná cizí manipulace, parazit či předem napsaný osud. Esej o loutkářích, pravidlech her a o tom, co ze svobodné vůle zůstane, když se iluze rozpadne.
 ---

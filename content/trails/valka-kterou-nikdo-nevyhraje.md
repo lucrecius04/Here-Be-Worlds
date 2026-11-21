@@ -2,7 +2,7 @@
 title: Válka, kterou nikdo nevyhraje
 approved: true
 trail: endless-war
-kicker: Putování atlasu
+kicker: Putování atlasem
 tagline: Co pohání válku, která přežila své důvody, a za jakou cenu se z ní dá vystoupit?
 description: Warhammer 40 000, NieR: Automata, Warcraft, Zaklínač, Metro a StarCraft ukazují konflikty, které přežily své příčiny i pány. Esej o motorech nekonečné války, herní ontologii nepřítele a ceně za vystoupení z boje.
 ---

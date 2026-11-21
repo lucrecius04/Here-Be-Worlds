@@ -77,7 +77,10 @@ export default function TrailWorlds({ worlds, base, locale }: Props) {
             className="trail-world"
             style={{ '--tw-hue-l': w.accent.light, '--tw-hue-d': w.accent.dark } as CSSProperties}
           >
-            <span className="trail-world__tag">{w.archetype}</span>
+            <span className="trail-world__kind">
+              <span className="trail-world__tag">{w.archetype}</span>
+              {w.genre && w.genre !== w.archetype ? <span className="trail-world__genre">{w.genre}</span> : null}
+            </span>
             <a className="trail-world__title" href={withBase(base, `/worlds/${w.id}/`)}>
               {w.title}
             </a>
@@ -115,5 +118,31 @@ export function TrailCast({ worlds, base, locale }: Props) {
         </li>
       ))}
     </ul>
+  );
+}
+
+/**
+ * Témata putování pod světy v hlavičce: drobným písmem, každé vede na stránku
+ * všech putování zúženou na to téma (/putovani/?tema=<slug>).
+ */
+export function TrailThemes({
+  themes,
+  base,
+  locale,
+}: {
+  themes: { slug: string; label: string }[];
+  base: string;
+  locale: Locale;
+}) {
+  return (
+    <p className="trail-themes">
+      <span className="trail-themes__label">{uiT('card.themesHeading', locale)}</span>
+      {themes.map((th, i) => (
+        <span key={th.slug}>
+          {i > 0 ? <span className="trail-themes__sep" aria-hidden="true"> · </span> : null}
+          <a href={withBase(base, `/putovani/?tema=${encodeURIComponent(th.slug)}`)}>{th.label}</a>
+        </span>
+      ))}
+    </p>
   );
 }

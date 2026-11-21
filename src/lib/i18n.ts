@@ -366,7 +366,7 @@ export const ui: Record<Locale, UiTree> = {
     trails: {
       daily: 'Putování dne',
       worldsHeading: 'Světy putování',
-      essayKicker: 'Putování atlasu',
+      essayKicker: 'Putování atlasem',
       readEssay: 'Číst esej k putování →',
       all: 'Všech {n} putování →',
       toggle: 'Putování',
@@ -813,7 +813,7 @@ Berte prosím tento atlas jako skromnou poctu všem scenáristům, designérům 
     trails: {
       daily: 'Journeys of the day',
       worldsHeading: 'Worlds on this journey',
-      essayKicker: 'An atlas journey',
+      essayKicker: 'A journey through the atlas',
       readEssay: 'Read the journey essay →',
       all: 'All {n} journeys →',
       toggle: 'Journeys',

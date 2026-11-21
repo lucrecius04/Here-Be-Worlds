@@ -2,7 +2,7 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import EssayPage from '../../../components/essay/EssayPage';
 import { trailById } from '../../../lib/trails';
-import { trailEssays, trailWorldsInfo, worldLinks } from '../../../lib/trail-pages';
+import { trailEssays, trailThemes, trailWorldsInfo, worldLinks } from '../../../lib/trail-pages';
 
 /** Náhled eseje ke stezce před schválením (/putovani/navrh/<slug>/): z webu na něj nic nevede. */
 export function getStaticPaths() {
@@ -19,9 +19,9 @@ const base = import.meta.env.BASE_URL;
     base={base}
     markdown={essay.markdown}
     title={essay.title}
-    kicker={essay.approved ? essay.kicker : `${essay.kicker ?? 'Putování atlasu'} · náhled ke schválení`}
+    kicker={essay.approved ? essay.kicker : `${essay.kicker ?? 'Putování atlasem'} · náhled ke schválení`}
     tagline={essay.tagline}
     worlds={worldLinks}
-    trail={{ worlds: trailWorldsInfo(trailById(essay.trailId)) }}
+    trail={{ worlds: trailWorldsInfo(trailById(essay.trailId)), themes: trailThemes(trailById(essay.trailId)?.themes ?? []) }}
   />
 </BaseLayout>

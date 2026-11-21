@@ -2,7 +2,7 @@
 title: Na mrtvole boha
 approved: true
 trail: god-corpse
-kicker: Putování atlasu
+kicker: Putování atlasem
 tagline: Co si svět počne se svým mrtvým bohem?
 description: Bloodborne, Xenoblade, Elder Scrolls, Pathfinder a Warhammer 40 000 stojí na ostatcích božstev. Esej o tom, proč hry milují mrtvé bohy a co o světě prozradí, jak naloží s jejich tělem.
 ---

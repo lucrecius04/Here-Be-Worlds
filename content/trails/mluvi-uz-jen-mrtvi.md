@@ -2,7 +2,7 @@
 title: Mluví už jen mrtví
 approved: true
 trail: dead-speak
-kicker: Putování atlasu
+kicker: Putování atlasem
 tagline: K čemu je živým pravda, kterou museli složit ze záznamů a hlasů mrtvých?
 description: BioShock, SOMA, Horizon, Outer Wilds a Resident Evil staví vyprávění na nahrávkách, denících, hologramech a nápisech zaniklých světů. Esej o úložné paměti, posmrtném svědectví a o tom, kdy hlas mrtvých otevírá budoucnost a kdy živé jen zamyká do téže pasti.
 ---

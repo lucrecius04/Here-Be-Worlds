@@ -6,7 +6,7 @@ import { useLocale } from '../../lib/locale-store';
 import { withBase } from '../../lib/base-url';
 import { slugifyChronicleHeading } from '../../lib/chronicle-toc';
 import ReadingToc, { type ReadingTocItem } from '../reading/ReadingToc';
-import TrailWorlds, { TRAIL_WORLDS_ID, TrailCast } from './TrailWorlds';
+import TrailWorlds, { TRAIL_WORLDS_ID, TrailCast, TrailThemes } from './TrailWorlds';
 import '../../styles/essay.css';
 
 export type EssayWorldLink = { id: string; titles: string[] };
@@ -31,7 +31,7 @@ type Props = {
   tagline?: string;
   worlds: EssayWorldLink[];
   /** Esej ke stezce: pod textem (před Zdroji) se vloží Světy stezky. */
-  trail?: { worlds: TrailWorldInfo[] };
+  trail?: { worlds: TrailWorldInfo[]; themes?: { slug: string; label: string }[] };
   /** Stránka stezky bez schválené eseje: bez doby čtení. */
   pending?: boolean;
 };
@@ -218,6 +218,7 @@ export default function EssayPage({ base, markdown, title, kicker, tagline, worl
       </header>
 
       {trail ? <TrailCast worlds={trail.worlds} base={base} locale={locale} /> : null}
+      {trail?.themes?.length ? <TrailThemes themes={trail.themes} base={base} locale={locale} /> : null}
 
       <div className="essay-layout">
         <aside className="essay-toc">
