@@ -32,7 +32,7 @@ export default function SiteFooter({ base }: Props) {
           <a className="site-footer__link" href={withBase(base, '/atlas/')}>
             {uiT('nav.atlas', locale)}
           </a>
-          <a className="site-footer__link" href={withBase(base, '/stezky/')}>
+          <a className="site-footer__link" href={withBase(base, '/putovani/')}>
             {uiT('nav.trails', locale)}
           </a>
           <a className="site-footer__link" href={withBase(base, '/compare/')}>

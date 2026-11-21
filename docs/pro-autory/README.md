@@ -2,7 +2,9 @@
 
 Tahle příručka je pro každého, kdo píše odborný text pro atlas Here Be Worlds: pro člověka i pro jiný jazykový model (Gemini, ChatGPT…). Popisuje, co atlas je, jak se píše esej ke stezce, podle jakých pravidel a co odevzdat. Hotový text pak projde kontrolou faktů a teprve potom se publikuje.
 
-Vzorem je esej **Na mrtvole boha** (`content/trails/na-mrtvole-boha.md`, na webu `/stezky/na-mrtvole-boha/`). Kdo píše novou esej, má ji přečíst celou dřív, než začne.
+Na webu se stezky jmenují **Putování** (adresy `/putovani/…`). V textu eseje proto pro čtenáře piš „toto putování“, „světy tohoto putování“ (putování vede, prochází, vydáme se na něj), ne „stezka“; interní názvy souborů a pojmů v této příručce zůstávají.
+
+Vzorem je esej **Na mrtvole boha** (`content/trails/na-mrtvole-boha.md`, na webu `/putovani/na-mrtvole-boha/`). Kdo píše novou esej, má ji přečíst celou dřív, než začne.
 
 ## 1. Co je Here Be Worlds
 
@@ -183,4 +185,4 @@ Esej pak projde kontrolou proti kronikám a majitel ji schválí. Teprve potom s
 
 ## Po schválení
 
-Esej se na webu ukáže až po schválení majitelem: do frontmatteru přibude `approved: true`. Do té doby je jen náhled na `/stezky/navrh/<slug>/` a stránka stezky ukazuje světy a prameny s poznámkou, že esej připravujeme. Soubor eseje se jmenuje podle české adresy stezky (`TRAIL_SLUGS` v `src/lib/trails.ts`), test to hlídá.
+Esej se na webu ukáže až po schválení majitelem: do frontmatteru přibude `approved: true`. Do té doby je jen náhled na `/putovani/navrh/<slug>/` a stránka stezky ukazuje světy a prameny s poznámkou, že esej připravujeme. Soubor eseje se jmenuje podle české adresy stezky (`TRAIL_SLUGS` v `src/lib/trails.ts`), test to hlídá.

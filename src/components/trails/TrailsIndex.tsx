@@ -38,7 +38,7 @@ function trailsCount(n: number, locale: Locale) {
 }
 
 /**
- * Stránka /stezky/: rejstřík šestnácti stezek (název, popis, světy s linkou v barvě archetypu,
+ * Stránka /putovani/: rejstřík šestnácti stezek (název, popis, světy s linkou v barvě archetypu,
  * témata eseje, doba čtení), filtr podle světa a tématu a mřížka, kde se stezky kříží.
  */
 export default function TrailsIndex({ base, trails, worlds, themeLabels }: Props) {
@@ -87,7 +87,7 @@ export default function TrailsIndex({ base, trails, worlds, themeLabels }: Props
     [trails, locale, themeLabels],
   );
 
-  // Výběr jde sdílet odkazem: /stezky/?svet=<id>&tema=<slug>.
+  // Výběr jde sdílet odkazem: /putovani/?svet=<id>&tema=<slug>.
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const fromUrl = params.get('svet') ?? '';
@@ -187,7 +187,7 @@ export default function TrailsIndex({ base, trails, worlds, themeLabels }: Props
             <li key={tr.id} id={`stezka-${tr.slug}`} className={`trails-row${on ? ' is-on' : ''}`}>
               <div className="trails-row__main">
                 <h2 className="trails-row__name">
-                  <a href={withBase(base, `/stezky/${tr.slug}/`)}>{uiT(tr.nameKey, locale)}</a>
+                  <a href={withBase(base, `/putovani/${tr.slug}/`)}>{uiT(tr.nameKey, locale)}</a>
                 </h2>
                 <p className="trails-row__desc">{uiT(tr.descKey, locale)}</p>
                 <ul className="trails-row__worlds">
@@ -228,7 +228,7 @@ export default function TrailsIndex({ base, trails, worlds, themeLabels }: Props
               </div>
               <div className="trails-row__side">
                 {tr.essayMinutes !== null ? (
-                  <a className="trails-row__essay" href={withBase(base, `/stezky/${tr.slug}/`)}>
+                  <a className="trails-row__essay" href={withBase(base, `/putovani/${tr.slug}/`)}>
                     {uiT('trailsPage.essay', locale).replace('{n}', String(tr.essayMinutes))}
                   </a>
                 ) : (
@@ -263,7 +263,7 @@ export default function TrailsIndex({ base, trails, worlds, themeLabels }: Props
                     className={`trails-cross__trail${hoverTrail === tr.id ? ' is-hover' : ''}`}
                     onMouseEnter={() => setHoverTrail(tr.id)}
                   >
-                    <a href={withBase(base, `/stezky/${tr.slug}/`)}>
+                    <a href={withBase(base, `/putovani/${tr.slug}/`)}>
                       <span>{uiT(tr.nameKey, locale)}</span>
                     </a>
                   </th>
@@ -324,7 +324,7 @@ export default function TrailsIndex({ base, trails, worlds, themeLabels }: Props
                     className={`trails-cross__trail trails-cross__trail--foot${hoverTrail === tr.id ? ' is-hover' : ''}`}
                     onMouseEnter={() => setHoverTrail(tr.id)}
                   >
-                    <a href={withBase(base, `/stezky/${tr.slug}/`)} tabIndex={-1} aria-hidden="true">
+                    <a href={withBase(base, `/putovani/${tr.slug}/`)} tabIndex={-1} aria-hidden="true">
                       <span>{uiT(tr.nameKey, locale)}</span>
                     </a>
                   </th>

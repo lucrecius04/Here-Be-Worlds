@@ -2,7 +2,7 @@
 title: Kdo se to probudil?
 approved: true
 trail: who-woke-up
-kicker: Stezka atlasu
+kicker: Putování atlasu
 tagline: Kým je ten, kdo se probudí bez paměti, v cizím těle nebo uprostřed cizího příběhu?
 description: Planescape: Torment, Disco Elysium, Tides of Numenera, SOMA a Baldur's Gate začínají probuzením bez paměti nebo v cizí schránce. Esej o rituálu prahu, zrcadle minulosti a o tom, proč pravda o světě bývá pravdou o hrdinovi.
 ---

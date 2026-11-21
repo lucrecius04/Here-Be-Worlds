@@ -44,7 +44,7 @@ const ANCHOR_OVERRIDES: Record<string, string> = {
 };
 
 /** Kapitoly bez čísla: úvod a seznam zdrojů. */
-const UNNUMBERED = /^(úvodem|zdroje|světy stezky|na čem stezka stojí)$/i;
+const UNNUMBERED = /^(úvodem|zdroje|světy stezky|na čem stezka stojí|světy putování|na čem putování stojí)$/i;
 
 function textOf(children: ReactNode): string {
   if (children == null || typeof children === 'boolean') return '';
@@ -91,7 +91,7 @@ function blockLabel(node: MdNode | undefined): string {
 
 /** U stezky se Zdroje oddělí, aby mezi text a prameny mohly přijít Světy stezky. */
 function splitSources(markdown: string): [string, string] {
-  const at = markdown.search(/^## (Zdroje|Na čem stezka stojí)\s*$/m);
+  const at = markdown.search(/^## (Zdroje|Na čem stezka stojí|Na čem putování stojí)\s*$/m);
   return at < 0 ? [markdown, ''] : [markdown.slice(0, at), markdown.slice(at)];
 }
 

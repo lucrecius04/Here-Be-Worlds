@@ -45,7 +45,7 @@ export const TRAILS: TrailDef[] = [
   def('indifferent-stars', 'stars', ['bloodborne', 'soma', 'warhammer-40k', 'control', 'mass-effect', 'outer-wilds'], ['discovery', 'identity-and-existence', 'death-and-immortality']),
 ];
 
-/** České adresy stránek stezek (/stezky/<slug>/); stejný slug má soubor eseje v content/trails. */
+/** České adresy stránek stezek (/putovani/<slug>/); stejný slug má soubor eseje v content/trails. */
 export const TRAIL_SLUGS: Record<string, string> = {
   'gods-burden': 'bohove-jako-bremeno',
   'cursed-legacy': 'proklete-dedictvi',

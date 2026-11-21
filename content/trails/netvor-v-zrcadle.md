@@ -2,7 +2,7 @@
 title: Netvor v zrcadle
 approved: true
 trail: monster-mirror
-kicker: Stezka atlasu
+kicker: Putování atlasu
 tagline: Co se stane s hrdinstvím a vinou, když se netvor na konci cesty ukáže být naším vlastním odrazem?
 description: Silent Hill, Undertale, Planescape: Torment, Dishonored a NieR: Automata obracejí lov na příšery proti tomu, kdo drží zbraň. Esej o selhání odstupu, vině a zrcadlech, která hry nastavují hráči.
 ---

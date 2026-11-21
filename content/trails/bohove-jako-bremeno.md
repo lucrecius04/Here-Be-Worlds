@@ -2,7 +2,7 @@
 title: Bohové jako břemeno
 approved: true
 trail: gods-burden
-kicker: Stezka atlasu
+kicker: Putování atlasu
 tagline: Co se musí stát s bohy, aby smrtelníci přestali být jejich pěšáky?
 description: Baldur's Gate, Diablo, Dark Souls, Elden Ring, Pillars of Eternity, Hades a Elder Scrolls ukazují světy, v nichž božská pýcha a války lámou osudy smrtelníků. Esej o tom, proč nebesa zotročují lidi a jak se z područí bohů dá vymanit.
 ---

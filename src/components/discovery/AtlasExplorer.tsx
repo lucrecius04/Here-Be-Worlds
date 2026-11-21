@@ -84,7 +84,7 @@ export default function AtlasExplorer({
     if (themeParam && themeLabels[themeParam]) setTheme(themeParam);
     const trailParam = params.get('trail');
     if (trailParam && TRAILS.some((trail) => trail.id === trailParam)) setActiveTrail(trailParam as TrailId);
-    if (params.get('stezky')) {
+    if (params.get('putovani') || params.get('stezky')) {
       setTrailsOpen(true);
       requestAnimationFrame(() =>
         document.getElementById('catalog-results')?.scrollIntoView({ block: 'start' }),

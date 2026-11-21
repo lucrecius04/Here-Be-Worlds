@@ -2,7 +2,7 @@
 title: Uvězněni v kruhu
 approved: true
 trail: loops
-kicker: Stezka atlasu
+kicker: Putování atlasu
 tagline: Co drží čas v kruhu – a jakou cenu musí svět zaplatit, aby se znovu rozběhl?
 description: Outer Wilds, Hades, Undertale, Dark Souls, NieR: Automata, Xenoblade a Mass Effect vyprávějí o smyčkách, cyklech a věcích, které se opakují. Esej o tom, co čas zavírá do kruhu a co přežije jeho přerušení.
 ---

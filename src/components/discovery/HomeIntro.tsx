@@ -376,7 +376,7 @@ export default function HomeIntro({ chapters, worlds = [], base }: Props) {
                 </div>
               );
             })}
-            <a className="hp-link hp-trails__all" href={withBase(base, '/stezky/')}>
+            <a className="hp-link hp-trails__all" href={withBase(base, '/putovani/')}>
               {uiT('trails.all', locale).replace('{n}', String(TRAILS.length))}
             </a>
           </div>
@@ -424,7 +424,7 @@ export default function HomeIntro({ chapters, worlds = [], base }: Props) {
               const shown = members.slice(0, 7).map((w) => keep(t(w.gameTitle, locale)));
               const rest = members.length - shown.length;
               return (
-                <a key={trail.id} className="hp-trail" href={withBase(base, `/stezky/${trailSlug(trail.id)}/`)}>
+                <a key={trail.id} className="hp-trail" href={withBase(base, `/putovani/${trailSlug(trail.id)}/`)}>
                   <span className="hp-trail__name">{uiT(trail.nameKey, locale)}</span>
                   <span className="hp-trail__worlds">
                     {shown.join('\u00a0· ')}
@@ -435,7 +435,7 @@ export default function HomeIntro({ chapters, worlds = [], base }: Props) {
                 </a>
               );
             })}
-            <a className="hp-link hp-trails__all" href={withBase(base, '/stezky/')}>
+            <a className="hp-link hp-trails__all" href={withBase(base, '/putovani/')}>
               {uiT('trails.all', locale).replace('{n}', String(TRAILS.length))}
             </a>
           </div>

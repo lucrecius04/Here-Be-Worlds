@@ -319,6 +319,7 @@ Kroniky jsou **jediný zdroj faktů o světech**. Prameny používej jen v rozsa
 
 ## Na co si dát pozor (poučení z minulé eseje)
 
+- **Slovo „putování“, ne „stezka“.** Na webu se stezky jmenují Putování; v textu eseje piš „toto putování“, „světy tohoto putování“ (putování vede, prochází, vydáme se na něj).
 - **Délka 3 500–4 500 slov, nikdy přes 5 000.** Jedna z minulých esejí měla 5 700 slov a musela se krátit. Hutně a kratší je lepší než dlouze a řídce. Oddíl jednoho světa zhruba 350–500 slov.${overlapNote(t)}
 - **Nepřevyprávět děj.** U světa jen to, co nese otázku eseje. Čtenář si kroniku otevře sám.
 - **Jedna myšlenka jednou.** Typologie a závěr neopakují, co už zaznělo u světů.

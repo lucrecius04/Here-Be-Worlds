@@ -1,6 +1,6 @@
 /**
  * Podklady pro stránky stezek (sestavení): eseje z content/trails, světy stezky a prameny z rozcestníku.
- * Esej se na webu ukáže až s `approved: true` ve frontmatteru; do té doby je jen náhled /stezky/navrh/<slug>/.
+ * Esej se na webu ukáže až s `approved: true` ve frontmatteru; do té doby je jen náhled /putovani/navrh/<slug>/.
  */
 import { TRAILS, trailSlug, type TrailDef } from './trails';
 import { worlds, chapters } from './worlds';

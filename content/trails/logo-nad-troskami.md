@@ -2,7 +2,7 @@
 title: Logo nad troskami
 approved: true
 trail: corporate
-kicker: Stezka atlasu
+kicker: Putování atlasu
 tagline: Co zbude z člověka a ze světa, když korporace přeroste stát a promění tělo, smrt i vlastní katastrofu v obchodní model?
 description: Cyberpunk 2077, Deus Ex, Resident Evil, Fallout a Horizon ukazují, co se stane, když soukromé firmy přerostou státy, zákony i lidská těla. Esej o neviditelné monstrozitě kapitálu, privatizaci vědomí a o tom, proč hry umějí číst firemní složky.
 ---

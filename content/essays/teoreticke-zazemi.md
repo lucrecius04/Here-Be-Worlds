@@ -351,4 +351,4 @@ Knihy, které by metodu dál prohloubily a ke kterým se chceme dostat:
 **Eseje atlasu**
 
 - [Anatomie herního lore](/anatomie-herniho-lore/), esej o metodě atlasu.
-- [Na mrtvole boha](/stezky/na-mrtvole-boha/), esej ke stezce.
+- [Na mrtvole boha](/putovani/na-mrtvole-boha/), esej ke stezce.

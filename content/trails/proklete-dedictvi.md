@@ -2,7 +2,7 @@
 title: Prokleté dědictví
 approved: true
 trail: cursed-legacy
-kicker: Stezka atlasu
+kicker: Putování atlasu
 tagline: Kdy se dá dávný hřích předků vůbec splatit – a kdy každá záchrana světa dluh jen prohloubí?
 description: Bloodborne, Dragon Age, Horizon, Assassin's Creed, Path of Exile a NieR: Automata ukazují světy, které dodnes splácejí dávný hřích předků. Esej o dědičné vině, demystifikaci bohů, přepisování paměti a o tom, kdy lze starý účet uzavřít.
 ---

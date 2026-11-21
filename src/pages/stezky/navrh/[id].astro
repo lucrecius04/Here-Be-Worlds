@@ -1,27 +1,13 @@
 ---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
-import EssayPage from '../../../components/essay/EssayPage';
-import { trailById } from '../../../lib/trails';
-import { trailEssays, trailWorldsInfo, worldLinks } from '../../../lib/trail-pages';
+// Stará adresa náhledu: stezky se na webu jmenují Putování (2026-11).
+import RedirectPage from '../../../layouts/RedirectPage.astro';
+import { trailEssays } from '../../../lib/trail-pages';
 
-/** Náhled eseje ke stezce před schválením (/stezky/navrh/<slug>/): z webu na něj nic nevede. */
 export function getStaticPaths() {
-  return trailEssays.map((essay) => ({ params: { id: essay.slug }, props: { essay } }));
+  return trailEssays.map(({ slug }) => ({ params: { id: slug } }));
 }
 
-const { essay } = Astro.props;
-const base = import.meta.env.BASE_URL;
+const { id } = Astro.params;
 ---
 
-<BaseLayout title={`Náhled: ${essay.title} — Here Be Worlds`} description={essay.description} noindex>
-  <EssayPage
-    client:load
-    base={base}
-    markdown={essay.markdown}
-    title={essay.title}
-    kicker={essay.approved ? essay.kicker : `${essay.kicker ?? 'Stezka atlasu'} · náhled ke schválení`}
-    tagline={essay.tagline}
-    worlds={worldLinks}
-    trail={{ worlds: trailWorldsInfo(trailById(essay.trailId)) }}
-  />
-</BaseLayout>
+<RedirectPage to={`/putovani/navrh/${id}/`} />

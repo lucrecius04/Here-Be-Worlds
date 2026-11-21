@@ -2,7 +2,7 @@
 title: Ráj, který se nepovedl
 approved: true
 trail: failed-paradise
-kicker: Stezka atlasu
+kicker: Putování atlasu
 tagline: Proč se sen o dokonalé společnosti v herních světech obrací proti lidem, které měl zachránit – a co ze světa zbude, když jeho zdi prasknou?
 description: BioShock, Fallout, Disco Elysium a Pathologic zkoumají utopie, které se změnily v klec. Esej o ceně dokonalého řádu, nostalgii po zmařené budoucnosti a troskách, v nichž se musí žít dál.
 ---

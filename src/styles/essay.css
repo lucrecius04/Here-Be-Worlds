@@ -413,7 +413,7 @@
   overflow: clip;
 }
 
-/* Světy stezky (eseje ke stezkám, /stezky/<id>/): souřadnice všech světů a seznam světů */
+/* Světy stezky (eseje ke stezkám, /putovani/<id>/): souřadnice všech světů a seznam světů */
 
 .essay-prose > .trail-worlds {
   max-width: none;
