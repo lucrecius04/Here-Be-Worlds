@@ -14,7 +14,7 @@ description: Bloodborne, Xenoblade, Elder Scrolls, Pathfinder a Warhammer 40 000
 
 Jeden z nejstarších obrazů, jaký si lidé o světě vyprávějí, zní takto: na počátku byl bůh, pak zemřel a z jeho těla vzniklo všechno ostatní. Hory jsou jeho kosti, moře jeho krev, nebe jeho lebka. Mýty ten obraz používaly, aby vysvětlily, proč je svět uspořádaný. Herní světy se k němu vracejí, ale používají ho opačně. Mrtvé tělo boha u nich nevysvětluje řád, nýbrž rozklad: proč svět hnije, proč se v něm stále válčí a proč je všechno, co mají jeho obyvatelé, vlastně kradené.
 
-Tahle stezka atlasu spojuje pět světů, které stojí doslova na ostatcích božstev. V **Xenoblade** se žije na tělech dvou mrtvých titánů. V **Elder Scrolls** leží pod sopkou vyrvané srdce boha, který svět vymyslel. V **Bloodborne** vyplavilo moře mrtvolu bohyně a učenci ji rozřezali. Ve **Warhammeru 40 000** sedí na zlatém trůnu deset tisíc let tlející tělo člověka, kterého lidstvo prohlásilo za boha. A v **Pathfinderu** bůh lidstva zemřel v hodině, kdy se měl vrátit, a po jeho smrti zůstala ve světě otevřená rána.
+Toto putování atlasu spojuje pět světů, které stojí doslova na ostatcích božstev. V **Xenoblade** se žije na tělech dvou mrtvých titánů. V **Elder Scrolls** leží pod sopkou vyrvané srdce boha, který svět vymyslel. V **Bloodborne** vyplavilo moře mrtvolu bohyně a učenci ji rozřezali. Ve **Warhammeru 40 000** sedí na zlatém trůnu deset tisíc let tlející tělo člověka, kterého lidstvo prohlásilo za boha. A v **Pathfinderu** bůh lidstva zemřel v hodině, kdy se měl vrátit, a po jeho smrti zůstala ve světě otevřená rána.
 
 Na první pohled jde o pět různých žánrů: kosmický horor, japonské sci-fi, gnostickou fantasy, válečnou space operu a klasické dobrodružství s kostkami. Spojuje je jedna otázka, kterou si každý z nich klade jinak: **Co si svět počne se svým mrtvým bohem?** A právě podle odpovědi na ni se dá poznat, jestli svět dává svým obyvatelům naději. Rozhoduje totiž to, co s tělem udělají živí, ne to, jak bůh zemřel.
 
@@ -32,7 +32,7 @@ René Girard v knize *Obětní beránek* (1982) čte tyto mýty podezíravěji. 
 
 Religionista Mircea Eliade popsal ještě jiný, tišší způsob, jak bůh ze světa mizí. Nazval ho *deus otiosus*, „bůh na odpočinku“: stvořitel, který po stvoření odejde do nebes a o svět se přestane starat. Lidé ho pak sice znají jménem, ale modlí se k bližším, dostupnějším mocnostem. Svět běží dál, jen v něm zůstalo prázdné místo po tom, kdo ho založil.
 
-A pak je tu moderní verze. Friedrich Nietzsche v *Radostné vědě* (1882) nechává šílence volat na tržišti, že Bůh je mrtev a zabili jsme ho my. Méně známý je aforismus, který tomu předchází: když Buddha zemřel, ukazovali lidé ještě staletí jeho stín v jeskyni. Bůh je mrtev, píše Nietzsche, ale lidé jsou takoví, že jeho stín budou ukazovat ještě tisíce let. A v aforismu o šílenci padne věta, která by mohla stát nad celou touto stezkou: i bohové hnijí.
+A pak je tu moderní verze. Friedrich Nietzsche v *Radostné vědě* (1882) nechává šílence volat na tržišti, že Bůh je mrtev a zabili jsme ho my. Méně známý je aforismus, který tomu předchází: když Buddha zemřel, ukazovali lidé ještě staletí jeho stín v jeskyni. Bůh je mrtev, píše Nietzsche, ale lidé jsou takoví, že jeho stín budou ukazovat ještě tisíce let. A v aforismu o šílenci padne věta, která by mohla stát nad celým tímto putováním: i bohové hnijí.
 
 Tyhle tři obrazy – tělo jako stavební materiál, prázdné místo po odešlém bohu a stín mrtvého boha, který lidé dál uctívají – najdeme ve všech pěti světech. Hry k nim ale přidávají něco, co mýtus ani filozofie udělat nemohly: hráč může po mrtvole boha **chodit**.
 
@@ -124,7 +124,7 @@ Třetím důvodem je **dědictví**. Hráč skoro vždy přichází jako dědic 
 
 ## Co si svět počne se svým mrtvým bohem
 
-Atlas zakresluje každý svět na pěti souřadnicích. Když se podíváme na všech pět světů této stezky, ukáže se jasná zákonitost. Všech pět leží na souřadnici Realita blízko pólu Metafyzično a na souřadnici Měřítko u Epičnosti – i Bloodborne, které se odehraje za jedinou noc v jediném městě, protože za oponou té noci stojí kosmos. To nikoho nepřekvapí: kde umírají bohové, jde o všechno. Zajímavá je ale souřadnice **Vyhlídka**, mezi Nadějí a Zoufalstvím. Tady se světy rozcházejí od jednoho okraje ke druhému.
+Atlas zakresluje každý svět na pěti souřadnicích. Když se podíváme na všech pět světů tohoto putování, ukáže se jasná zákonitost. Všech pět leží na souřadnici Realita blízko pólu Metafyzično a na souřadnici Měřítko u Epičnosti – i Bloodborne, které se odehraje za jedinou noc v jediném městě, protože za oponou té noci stojí kosmos. To nikoho nepřekvapí: kde umírají bohové, jde o všechno. Zajímavá je ale souřadnice **Vyhlídka**, mezi Nadějí a Zoufalstvím. Tady se světy rozcházejí od jednoho okraje ke druhému.
 
 Nejblíž Naději stojí Xenoblade a Elder Scrolls, nejblíž Zoufalství Bloodborne a Warhammer 40 000. Pathfinder leží uprostřed. A právě podle toho, co živí udělají s mrtvým bohem, se dá to rozložení vysvětlit.
 

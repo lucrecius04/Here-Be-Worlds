@@ -212,7 +212,7 @@ Herní světy svého hrdinu velmi často posazují přesně na tenhle práh. Bez
 
 ### Drobnější prameny k mýtu
 
-Eseje ke stezkám využívají i kratší prameny: mýty o stvoření světa z těla boha (Ymi, Tiamat, Puruša, Pchan-ku) a srovnávací studii Michaela Witzela, Eliadeho pojem *deus otiosus*, tedy boha, který po stvoření odešel, z *Pojednání o dějinách náboženství* (1949), a Nietzscheho aforismy 108 a 125 z *Radostné vědy* (1882) o mrtvém Bohu a jeho stínu.
+Eseje k putováním využívají i kratší prameny: mýty o stvoření světa z těla boha (Ymi, Tiamat, Puruša, Pchan-ku) a srovnávací studii Michaela Witzela, Eliadeho pojem *deus otiosus*, tedy boha, který po stvoření odešel, z *Pojednání o dějinách náboženství* (1949), a Nietzscheho aforismy 108 a 125 z *Radostné vědy* (1882) o mrtvém Bohu a jeho stínu.
 
 ## Paměť a nostalgie
 
@@ -351,4 +351,4 @@ Knihy, které by metodu dál prohloubily a ke kterým se chceme dostat:
 **Eseje atlasu**
 
 - [Anatomie herního lore](/anatomie-herniho-lore/), esej o metodě atlasu.
-- [Na mrtvole boha](/putovani/na-mrtvole-boha/), esej ke stezce.
+- [Na mrtvole boha](/putovani/na-mrtvole-boha/), esej k putování.
