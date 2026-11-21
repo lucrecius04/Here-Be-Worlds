@@ -58,3 +58,5 @@ Klíčový obraz je **Panoptikon** Jeremyho Benthama: prstencová budova s celam
 
 - Teoretické zázemí: oddíl „Foucault: dohled, disciplína a Panoptikon“, tabulka pojmů, Zdroje.
 - Esej ke stezce Kdo drží kroniku (`content/trails/kdo-drzi-kroniku.md`): kořeny (moc-vědění, zkouška, spis, „moc psaní“, výhrada k dobovému rámci), Dragon Age (Varricův výslech u Cassandry)
+- Esej ke stezce Dům, ze kterého nejde odejít (`content/trails/dum-ze-ktereho-nejde-odejit.md`): Od kolébky k Panoptiku (disciplína, Panoptikon, morové město), Metro, Resident Evil, Control (Panoptikum), Half-Life (karcerální město), XCOM (mírná moc), Kdo drží klíče
+- Esej ke stezce Práce, která nikdy nekončí (`content/trails/prace-ktera-nikdy-nekonci.md`): Dělník bohů a rozvrh dílny (Faucherův řád, poslušná těla, výhrada), Death Stranding (dokonale spravované město), Half-Life (Nova Prospekt), Tři tváře (práce jako disciplína)

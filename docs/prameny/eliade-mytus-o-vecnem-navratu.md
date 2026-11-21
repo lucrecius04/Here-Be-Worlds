@@ -49,3 +49,4 @@ Pro člověka tradičních společností je skutečné jen to, co **opakuje vzor
 - Esej ke stezce Uvězněni v kruhu (`content/trails/uvezneni-v-kruhu.md`): kořeny (akitu, jugy, hrůza z dějin, výhrada), Tři podoby (jugy a řídnutí)
 - Esej ke stezce Město, které dýchá (`content/trails/mesto-ktere-dycha.md`): Tělo z kamene a paměti; Planescape: Torment (symbolika středu: Sigil na jehle, Mnohostěn a majáky BioShocku jako axis mundi, nebeský archetyp města).
 - Esej ke stezce Kdo drží kroniku (`content/trails/kdo-drzi-kroniku.md`): kořeny (nehistorická paměť, Marko Kraljević a rumunská balada, výhrada)
+- Esej ke stezce Práce, která nikdy nekončí (`content/trails/prace-ktera-nikdy-nekonci.md`): Dělník bohů a rozvrh dílny (obnova času, akitu, hrůza z dějin, výhrada), Pentiment (knihtisk), Dark Souls (převrácené zapálení ohně)

@@ -47,3 +47,4 @@ Lidská představivost přitom nepracuje s pevnou geometrií, ale s hodnotami a 
 - Esej ke stezce Netvor v zrcadle (`content/trails/netvor-v-zrcadle.md`): Silent Hill (sklep, Pokoj 302, dialektika vně a uvnitř)
 - Esej ke stezce Mluví už jen mrtví (`content/trails/mluvi-uz-jen-mrtvi.md`): kořeny (šuplíky a schránky, sklep, prázdná ulita), BioShock, Resident Evil
 - Esej ke stezce Město, které dýchá (`content/trails/mesto-ktere-dycha.md`): Tělo z kamene a paměti a oddíly o světech (topoanalýza, prostor stlačující čas, převrácená vertikála výšiny a podzemí: Night City, Gorchon, Sigil; Rapture jako ulita; Pokoj 302 jako zvrácený mateřský dům; Sigil a pootevřené dveře).
+- Esej ke stezce Dům, ze kterého nejde odejít (`content/trails/dum-ze-ktereho-nejde-odejit.md`): Od kolébky k Panoptiku (dům jako první vesmír, vertikála sklepa a půdy, pootevřené dveře, výhrada ke „šťastnému prostoru“), Metro, Resident Evil, Inscryption, Control

@@ -50,3 +50,4 @@ Podivné a tísnivé nejsou žánry, ale **módy**: způsoby vnímání a afekty
 - Esej ke stezce Mluví už jen mrtví (`content/trails/mluvi-uz-jen-mrtvi.md`): kořeny (tísnivé, otázka původce, Stonehenge), závěr (tísnivé mizí s poznáním)
 - Esej ke stezce Logo nad troskami (`content/trails/logo-nad-troskami.md`): Neviditelné monstrum s rozpočtem (kapitál jako tísnivá entita, otázka původce), Cyberpunk (Peralezovi, výklad atlasu)
 - Esej ke stezce Pod lhostejnými hvězdami (`content/trails/pod-lhostejnymi-hvezdami.md`): Ticho nad lidským měřítkem (podivné a tísnivé, otázka původce, Stonehenge, tísnivé mizí s poznáním), Control (Předměty moci jako podivné), Mass Effect a závěr (vysvětlení Smrťáků ruší tísnivé).
+- Esej ke stezce Dům, ze kterého nejde odejít (`content/trails/dum-ze-ktereho-nejde-odejit.md`): Od kolébky k Panoptiku (tísnivé a otázka původce), Control, Half-Life, Kdo drží klíče, závěr

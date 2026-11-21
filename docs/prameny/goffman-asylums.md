@@ -69,3 +69,4 @@ Kniha má i druhou, nadějnější polovinu. Chovanci se ústavu nikdy celí nev
 ## Kde už je použito
 
 - Teoretické zázemí: oddíl „Goffman: totální instituce“, tabulka pojmů, Zdroje.
+- Esej ke stezce Práce, která nikdy nekončí (`content/trails/prace-ktera-nikdy-nekonci.md`): Dělník bohů a rozvrh dílny (totální instituce a placená práce, mrtvý čas, výhrada), Death Stranding 2 (kolonizace, APAS), Half-Life (Nova Prospekt jako pokus s já); doplnil Claude

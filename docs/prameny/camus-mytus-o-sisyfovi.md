@@ -51,3 +51,4 @@ Před absurdnem lze utéct dvojím způsobem: **sebevraždou** (fyzickou) nebo *
 ## Kde už je použito
 
 - Teoretické zázemí: oddíl „Camus: absurdno a Sisyfos“, tabulka pojmů, Zdroje.
+- Esej ke stezce Práce, která nikdy nekončí (`content/trails/prace-ktera-nikdy-nekonci.md`): Dělník bohů a rozvrh dílny (absurdno, zhroucení kulis, skok, hodina vědomí, šťastný Sisyfos), Death Stranding (Mulové), Disco Elysium, Tři tváře (absurdní tvorba)

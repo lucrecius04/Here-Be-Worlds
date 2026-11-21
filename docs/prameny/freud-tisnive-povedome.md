@@ -59,3 +59,4 @@ Rozhodující je třetí část: ve **fikci** platí jiná pravidla. Pohádka, k
 
 - Teoretické zázemí: oddíl „Freud: tísnivě povědomé“, tabulka pojmů, Zdroje.
 - Esej ke stezce Kopie bez originálu (`content/trails/kopie-bez-originalu.md`): kořeny (Jentschova nejistota, Olimpie, dvojník od pojistky ke zvěstovateli smrti, pravidla fikce), Mass Effect (Gethové a EDI), Halo (klon v postýlce), Fallout (syntetik, který o sobě neví), Deus Ex (vlastní tvář v kryoboxu), závěr (realistické světy a tísnivě povědomé)
+- Esej ke stezce Dům, ze kterého nejde odejít (`content/trails/dum-ze-ktereho-nejde-odejit.md`): Od kolébky k Panoptiku (heimlich a unheimlich, strašidelný dům), Resident Evil, Control, XCOM

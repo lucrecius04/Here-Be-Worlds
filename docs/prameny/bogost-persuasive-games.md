@@ -35,3 +35,5 @@
 - Esej ke stezce Město, které dýchá (`content/trails/mesto-ktere-dycha.md`): Proč hry dokážou město oživit (co hra nedovolí: nemožnost být na dvou místech v Pathologic, Chaos v Dishonored).
 - Esej ke stezce Pod lhostejnými hvězdami (`content/trails/pod-lhostejnymi-hvezdami.md`): Proč hry umějí dát pocítit lidskou nicotnost (co hra nedovolí: volby bez vlivu na konec SOMY, nezachranitelná soustava Outer Wilds).
 - Esej ke stezce Kopie bez originálu (`content/trails/kopie-bez-originalu.md`): Proč kopie bolí (co hra nedovolí: žádný konec Cyberpunku bez ztráty)
+- Esej ke stezce Dům, ze kterého nejde odejít (`content/trails/dum-ze-ktereho-nejde-odejit.md`): Proč vězení patří právě hrám (procedurální rétorika)
+- Esej ke stezce Práce, která nikdy nekončí (`content/trails/prace-ktera-nikdy-nekonci.md`): Proč hry potřebují naši dřinu (procedurální rétorika a entyméma: Death Stranding, Pentiment, Half-Life)

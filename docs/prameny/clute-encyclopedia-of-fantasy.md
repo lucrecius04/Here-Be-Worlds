@@ -53,6 +53,7 @@
 - Esej ke stezce Uvězněni v kruhu (`content/trails/uvezneni-v-kruhu.md`): kořeny (řídnutí, amnézie, polder), Tři podoby (polder jako útočiště před ztrátou)
 - Esej ke stezce Ráj, který se nepovedl (`content/trails/raj-ktery-se-nepovedl.md`): Architektura ráje (polder, řídnutí, parodie), Čtyři podoby klece (polder, který hnije zevnitř; Revachol rozdrcený zvenčí), Pathologic (země jako živá bytost), závěr (uzdravení)
 - Esej ke stezce Pod lhostejnými hvězdami (`content/trails/pod-lhostejnymi-hvezdami.md`): Tři postoje k nezměrnému (polder a řídnutí: Impérium, Panoptikum, simulace Obyvatel Cizince; rozpoznání a pojmový průlom).
+- Esej ke stezce Dům, ze kterého nejde odejít (`content/trails/dum-ze-ktereho-nejde-odejit.md`): Kdo drží klíče (polder)
 
 ## Dočíst (podle potřeby)
 

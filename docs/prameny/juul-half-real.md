@@ -36,3 +36,5 @@
 - Esej ke stezce Smích nad propastí (`content/trails/smich-nad-propasti.md`): Proč hry umějí rozesmát i zranit (test převyprávění: Styx v Hades)
 - Esej ke stezce Město, které dýchá (`content/trails/mesto-ktere-dycha.md`): Proč hry dokážou město oživit (test převyprávění: pravidla jako tělo města).
 - Esej ke stezce Kopie bez originálu (`content/trails/kopie-bez-originalu.md`): Proč kopie bolí (konvence jako fikční pravda: pohled první osoby a Johnny v Cyberpunku)
+- Esej ke stezce Dům, ze kterého nejde odejít (`content/trails/dum-ze-ktereho-nejde-odejit.md`): Proč vězení patří právě hrám (test převyprávění)
+- Esej ke stezce Práce, která nikdy nekončí (`content/trails/prace-ktera-nikdy-nekonci.md`): Proč hry potřebují naši dřinu (test převyprávění: Dark Souls, Death Stranding)
