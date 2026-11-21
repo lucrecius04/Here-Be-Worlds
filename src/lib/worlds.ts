@@ -4,7 +4,7 @@ import axesData from '../../data/meta/axes.json';
 import themesData from '../../data/meta/theme-taxonomy.json';
 import narrationData from '../../data/meta/narration-taxonomy.json';
 import { worldsFileSchema, type LocalizedString, type RelatedWorld, type World } from '../schemas/world';
-import { kinshipLevel, kinshipRanking, type KinshipLevel } from './compare';
+import { kinshipRanking, type KinshipLevel } from './compare';
 
 const parsed = worldsFileSchema.parse(worldsData);
 
@@ -51,37 +51,26 @@ export function resolveRelatedWorlds(
   };
 
   const published = catalog.filter((item) => !item.draft);
-  const levelFor = (id?: string) => {
-    const other = id ? published.find((item) => item.id === id) : undefined;
-    return other ? kinshipLevel(world, other, published) : undefined;
-  };
 
-  if (world.relatedWorlds?.length) {
-    return world.relatedWorlds.map((item) => {
-      const fromCatalog = extras(item.id);
-      return {
-        ...item,
-        genreProfile: fromCatalog.genreProfile ?? item.genreProfile,
-        yearRange: fromCatalog.yearRange ?? item.yearRange,
-        number: fromCatalog.number,
-        chapterId: fromCatalog.chapterId,
-        href: hrefFor(item.id),
-        level: levelFor(item.id),
-      };
-    });
-  }
-
-  return kinshipRanking(world, published, 3).map(({ world: other, level }) => ({
-    id: other.id,
-    title: other.gameTitle,
-    note: {
-      en: other.themes.map((slug) => labels[slug]?.en ?? slug).join(' · '),
-      cs: other.themes.map((slug) => labels[slug]?.cs ?? slug).join(' · '),
-    },
-    ...extras(other.id),
-    href: hrefFor(other.id),
-    level,
-  }));
+  /* Příbuzenstvo = tři nejbližší světy podle indexu (compare.ts). Ruční relatedWorlds se tu už
+     neukazují (rozhodnutí majitele 2026-11-22); pod jménem jsou témata, která oba světy sdílejí,
+     a když žádná nesdílejí, jádro příbuzného světa. */
+  return kinshipRanking(world, published, 3).map(({ world: other, level }) => {
+    const shared = other.themes.filter((slug) => world.themes.includes(slug));
+    return {
+      id: other.id,
+      title: other.gameTitle,
+      note: shared.length
+        ? {
+            en: shared.map((slug) => labels[slug]?.en ?? slug).join(' · '),
+            cs: shared.map((slug) => labels[slug]?.cs ?? slug).join(' · '),
+          }
+        : other.core,
+      ...extras(other.id),
+      href: hrefFor(other.id),
+      level,
+    };
+  });
 }
 
 export function buildSearchText(world: World): string {

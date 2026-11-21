@@ -10,13 +10,8 @@ import {
   resolveRelatedWorlds,
 } from '../../lib/worlds';
 import { t } from '../../lib/i18n';
-import { chronicleStats } from '../../lib/chronicle-toc';
-
-const CHRONICLES = import.meta.glob('../../../content/chronicles/*.md', {
-  query: '?raw',
-  import: 'default',
-  eager: true,
-}) as Record<string, string>;
+import { TRAILS, trailSlug } from '../../lib/trails';
+import { publishedEssayFor } from '../../lib/trail-pages';
 
 export function getStaticPaths() {
   return worlds.map((w) => ({ params: { slug: w.id } }));
@@ -33,9 +28,23 @@ const baseUrl = base.replace(/\/$/, '');
 const related = resolveRelatedWorlds(world, worlds, themeLabels, baseUrl);
 const chapterAccents = Object.fromEntries(chapters.map((c) => [c.id, { ...c.accent, title: c.title }]));
 
-// Obsah záložek (kapitoly, doba čtení, oddíly) se spočítá z kroniky už při sestavení.
-const rawChronicle = CHRONICLES[`../../../content/chronicles/${world.chronicleSlug}.md`] ?? '';
-const tabStats = chronicleStats(rawChronicle.replace(/^---\r?\n[\s\S]*?\r?\n---\s*/, ''));
+// Putování, kterými svět prochází (záložka Putování): trasa světů v barvách archetypů.
+const accentOf = (id: string) => chapters.find((c) => c.id === id)?.accent ?? { light: 'currentColor', dark: 'currentColor' };
+const journeys = TRAILS.filter((tr) => tr.members.includes(world.id)).map((tr) => {
+  const essay = publishedEssayFor(tr.id);
+  return {
+    id: tr.id,
+    slug: trailSlug(tr.id),
+    nameKey: tr.nameKey,
+    descKey: tr.descKey,
+    tagline: essay?.tagline,
+    minutes: essay?.minutes ?? null,
+    members: tr.members
+      .map((id) => worlds.find((w) => w.id === id))
+      .filter((w): w is NonNullable<typeof w> => Boolean(w && !w.draft))
+      .map((w) => ({ id: w.id, title: w.gameTitle, accent: accentOf(w.chapterId) })),
+  };
+});
 
 const pageTitle = `${t(world.gameTitle, 'cs')} — Here Be Worlds`;
 ---
@@ -56,6 +65,6 @@ const pageTitle = `${t(world.gameTitle, 'cs')} — Here Be Worlds`;
     themeLabels={themeLabels}
     related={related}
     chapterAccents={chapterAccents}
-    tabStats={tabStats}
+    journeys={journeys}
   />
 </BaseLayout>

@@ -1,24 +1,20 @@
 import { useEffect, useMemo, useRef, useState, type CSSProperties } from 'react';
 import type { LocalizedString, RelatedWorld, World } from '../../schemas/world';
-import { countWord, uiT, type Locale } from '../../lib/i18n';
+import { uiT } from '../../lib/i18n';
 import { useLocale } from '../../lib/locale-store';
 import type { ChapterAccent } from '../../lib/worlds';
 import { loadChronicleMarkdown, type ChronicleDoc } from '../../lib/chronicles';
-import {
-  findAnalysisHeadingId,
-  splitChronicleMarkdown,
-  type ChronicleStats,
-  type TriadAnchor,
-} from '../../lib/chronicle-toc';
+import { findAnalysisHeadingId, splitChronicleMarkdown, type TriadAnchor } from '../../lib/chronicle-toc';
 import WorldPageMasthead from './WorldPageMasthead';
 import WorldCard from './WorldCard';
 import SimilarWorlds, { type ChapterAccentMap } from './SimilarWorlds';
+import WorldJourneys, { type WorldJourney } from './WorldJourneys';
 import ChronicleReader from '../chronicle/ChronicleReader';
 import { touchRecent } from '../../lib/reader-desk';
 import { toggleCompareTray, useCompareTray } from '../../lib/compare-tray';
 import { usePageFlow } from '../../lib/page-flow';
 
-type ViewMode = 'card' | 'chronicle' | 'appendices' | 'analysis';
+type ViewMode = 'card' | 'chronicle' | 'appendices' | 'analysis' | 'journeys';
 
 type Props = {
   base: string;
@@ -29,24 +25,8 @@ type Props = {
   themeLabels: Record<string, LocalizedString>;
   related?: Array<RelatedWorld & { href?: string; level?: number; number?: number; chapterId?: string }>;
   chapterAccents?: ChapterAccentMap;
-  tabStats?: ChronicleStats;
+  journeys?: WorldJourney[];
 };
-
-/** Co záložka obsahuje: „9 kapitol · 25 min“, „5 oddílů“, „6 částí“. */
-function tabMeta(mode: ViewMode, stats: ChronicleStats | undefined, locale: Locale): string {
-  if (!stats) return '';
-  if (mode === 'chronicle' && stats.chapters > 0) {
-    const chapters = countWord(stats.chapters, ['kapitola', 'kapitoly', 'kapitol'], ['chapter', 'chapters'], locale);
-    return stats.minutes > 0 ? `${chapters} · ${stats.minutes} ${uiT('world.minutes', locale)}` : chapters;
-  }
-  if (mode === 'appendices' && stats.appendices > 0) {
-    return countWord(stats.appendices, ['oddíl', 'oddíly', 'oddílů'], ['section', 'sections'], locale);
-  }
-  if (mode === 'analysis' && stats.analysisParts > 0) {
-    return countWord(stats.analysisParts, ['část', 'části', 'částí'], ['part', 'parts'], locale);
-  }
-  return '';
-}
 
 export default function WorldPageShell({
   base,
@@ -57,7 +37,7 @@ export default function WorldPageShell({
   themeLabels,
   related = [],
   chapterAccents = {},
-  tabStats,
+  journeys = [],
 }: Props) {
   const locale = useLocale();
   const inCompare = useCompareTray().includes(world.id);
@@ -77,7 +57,7 @@ export default function WorldPageShell({
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const view = params.get('view');
-    if (view === 'chronicle' || view === 'appendices' || view === 'analysis') {
+    if (view === 'chronicle' || view === 'appendices' || view === 'analysis' || view === 'journeys') {
       setMode(view);
     }
     if (params.get('resume') === '1') setResume(true);
@@ -87,7 +67,18 @@ export default function WorldPageShell({
     touchRecent(world.id, world.gameTitle);
   }, [world.id, world.gameTitle]);
 
-  const needsChronicle = mode !== 'card';
+  /* na úzkém displeji se záložky posouvají do strany: aktivní ať je vždy vidět */
+  useEffect(() => {
+    const list = document.querySelector<HTMLElement>('.wp-tabs');
+    const active = list?.querySelector<HTMLElement>('.wp-tab.is-active');
+    if (!list || !active || list.scrollWidth <= list.clientWidth) return;
+    const left = active.getBoundingClientRect().left - list.getBoundingClientRect().left + list.scrollLeft;
+    if (left < list.scrollLeft || left + active.offsetWidth > list.scrollLeft + list.clientWidth) {
+      list.scrollLeft = Math.max(0, left - 16);
+    }
+  }, [mode]);
+
+  const needsChronicle = mode === 'chronicle' || mode === 'appendices' || mode === 'analysis';
 
   /* Telefon: posouvá se celá stránka. Jakmile plná hlavička světa odjede, vrátí se jako
      stažený pruh (název a záložky), který při čtení dolů zajede a při posunu nahoru se ukáže.
@@ -208,6 +199,7 @@ export default function WorldPageShell({
     { id: 'chronicle', labelKey: 'world.viewChronicle' },
     { id: 'appendices', labelKey: 'world.viewAppendices' },
     { id: 'analysis', labelKey: 'world.viewAnalysis' },
+    ...(journeys.length ? [{ id: 'journeys' as ViewMode, labelKey: 'world.viewJourneys' }] : []),
   ];
 
   const missing = (
@@ -231,7 +223,6 @@ export default function WorldPageShell({
           <nav className="wp-tabs" aria-label={uiT('world.tabsAria', locale)}>
             <div className="wp-tabs__list" role="tablist">
               {tabs.map((tab) => {
-                const meta = tabMeta(tab.id, tabStats, locale);
                 return (
                   <button
                     key={tab.id}
@@ -242,13 +233,12 @@ export default function WorldPageShell({
                     onClick={() => {
                       setAnalysisAnchor(null);
                       setCompact(false);
-                      if (tab.id !== 'card' && chronicle === null) setChronicleLoading(true);
+                      if (tab.id !== 'card' && tab.id !== 'journeys' && chronicle === null) setChronicleLoading(true);
                       setMode(tab.id);
                       if (pageFlow) window.scrollTo({ top: 0 });
                     }}
                   >
                     <span className="wp-tab__label">{uiT(tab.labelKey, locale)}</span>
-                    {meta ? <span className="wp-tab__meta"> · {meta}</span> : null}
                   </button>
                 );
               })}
@@ -290,6 +280,10 @@ export default function WorldPageShell({
               }}
             />
             <SimilarWorlds items={related} sourceId={world.id} base={base} chapterAccents={chapterAccents} />
+          </div>
+        ) : mode === 'journeys' ? (
+          <div className="world-page__pane-scroll">
+            <WorldJourneys worldId={world.id} journeys={journeys} base={base} />
           </div>
         ) : chronicleLoading ? (
           <p className="world-chronicle-loading">{uiT('world.chronicleLoading', locale)}</p>

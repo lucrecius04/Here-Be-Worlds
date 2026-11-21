@@ -44,61 +44,71 @@ export default function WorldCard({
 
   const body = (
     <>
-      <p className="wc-core">{t(world.core, locale)}</p>
-
-      <div className="wc-grid">
-        <dl className="wc-meta" aria-label={uiT('card.metadataAria', locale)}>
-          {meta.map(([labelKey, field]) => (
-            <div className="wc-meta__item" key={labelKey}>
-              <dt className="wc-label">{uiT(labelKey, locale)}</dt>
-              <dd className="wc-meta__value">{t(field, locale)}</dd>
-              {field.sub ? <dd className="wc-meta__sub">{t(field.sub, locale)}</dd> : null}
-            </div>
-          ))}
-        </dl>
-
-        <div className="wc-side">
+      {/* Nahoře jádro a vedle něj profil světa; pod nimi šest údajů a pak rejstřík
+          (témata, jak svět vypráví, klíčoví aktéři) ve stejné podobě: linka, popisek, seznam. */}
+      <div className="wc-top">
+        <p className="wc-core">{t(world.core, locale)}</p>
+        <div className="wc-profile">
           <FiveAxes world={world} notesHref={baseUrl ? `${baseUrl}/notes/` : undefined} />
+        </div>
+      </div>
 
-          <section className="wc-block" aria-labelledby="wc-themes">
-            <h2 id="wc-themes" className="wc-label">
-              {uiT('card.themesHeading', locale)}
-            </h2>
-            <div className="wc-chips">
-              {world.themes.map((slug) => (
-                <a key={slug} className="wc-chip" href={`${baseUrl}/atlas/?theme=${encodeURIComponent(slug)}`}>
+      <dl className="wc-meta" aria-label={uiT('card.metadataAria', locale)}>
+        {meta.map(([labelKey, field]) => (
+          <div className="wc-meta__item" key={labelKey}>
+            <dt className="wc-label">{uiT(labelKey, locale)}</dt>
+            <dd className="wc-meta__value">{t(field, locale)}</dd>
+            {field.sub ? <dd className="wc-meta__sub">{t(field.sub, locale)}</dd> : null}
+          </div>
+        ))}
+      </dl>
+
+      <div className="wc-lexicon">
+        <section className="wc-lex" aria-labelledby="wc-themes">
+          <h2 id="wc-themes" className="wc-label">
+            {uiT('card.themesHeading', locale)}
+          </h2>
+          <ul className="wc-lex__list">
+            {world.themes.map((slug) => (
+              <li key={slug}>
+                <a className="wc-lex__link" href={`${baseUrl}/atlas/?theme=${encodeURIComponent(slug)}`}>
                   {themeLabels[slug] ? t(themeLabels[slug], locale) : slug}
                 </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        {world.narration?.length ? (
+          <section className="wc-lex" aria-labelledby="wc-narration">
+            <h2 id="wc-narration" className="wc-label">
+              <a href={`${baseUrl}/anatomie-herniho-lore/#jak-svety-vypraveji`}>
+                {uiT('card.narrationHeading', locale)}
+              </a>
+            </h2>
+            <ul className="wc-lex__list">
+              {world.narration.map((slug) => (
+                <li key={slug}>{NARRATION_LABELS[slug] ? t(NARRATION_LABELS[slug], locale) : slug}</li>
               ))}
-            </div>
+            </ul>
           </section>
+        ) : null}
 
-          {world.narration?.length ? (
-            <section className="wc-block" aria-labelledby="wc-narration">
-              <h2 id="wc-narration" className="wc-label">
-                <a href={`${baseUrl}/anatomie-herniho-lore/#jak-svety-vypraveji`}>
-                  {uiT('card.narrationHeading', locale)}
-                </a>
-              </h2>
-              <div className="wc-chips">
-                {world.narration.map((slug) => (
-                  <span key={slug} className="wc-chip wc-chip--fill">
-                    {NARRATION_LABELS[slug] ? t(NARRATION_LABELS[slug], locale) : slug}
-                  </span>
+        {actors ? (
+          <section className="wc-lex" aria-labelledby="wc-actors">
+            <h2 id="wc-actors" className="wc-label">
+              {uiT('card.keyActors', locale)}
+            </h2>
+            <ul className="wc-lex__list">
+              {actors
+                .split(/\s+·\s+/)
+                .filter(Boolean)
+                .map((actor) => (
+                  <li key={actor}>{actor}</li>
                 ))}
-              </div>
-            </section>
-          ) : null}
-
-          {actors ? (
-            <section className="wc-block" aria-labelledby="wc-actors">
-              <h2 id="wc-actors" className="wc-label">
-                {uiT('card.keyActors', locale)}
-              </h2>
-              <p className="wc-actors">{actors}</p>
-            </section>
-          ) : null}
-        </div>
+            </ul>
+          </section>
+        ) : null}
       </div>
 
       {world.signatureBullets?.length ? (
