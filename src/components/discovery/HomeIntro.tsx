@@ -62,10 +62,11 @@ const ICONIC: Record<string, string[]> = {
 
 /**
  * Souhvězdí bez předepsaného tvaru: hvězdy leží v ploše souhvězdí na náhodných, ale pevných místech
- * (generátor se semínkem podle archetypu, takže se obloha mezi návštěvami nemění) a každá další
- * hvězda se připojí k nejbližší dřívější. Vznikne nahodilý strom jako u skutečných souhvězdí.
- * k-tý svět archetypu (podle čísla) dostane k-té místo, takže se souhvězdí při postupném
- * odkrývání jen dokresluje a starší spojnice zůstávají.
+ * (generátor se semínkem podle archetypu, takže se obloha mezi návštěvami nemění) a spojuje je jediná
+ * klikatá linka od hvězdy k sousední hvězdě. Každá hvězda má nejvýš dva sousedy, žádná tedy nepůsobí
+ * jako střed, ze kterého by ostatní vyrůstaly. k-tý svět archetypu (podle čísla) dostane k-té místo;
+ * místa se vybírají postupně co nejdál od předchozích, takže i menší souhvězdí vyplní celou plochu
+ * a při odkrytí dalšího světa se už rozmístěné hvězdy nepohnou (linka se jen přeskládá).
  */
 function seededRandom(seedText: string) {
   let seed = 2166136261;
@@ -100,6 +101,50 @@ function scatter(id: string, count: number, w: number, h: number): Array<[number
     pts.push(best);
   }
   return pts;
+}
+
+/**
+ * Klikatá linka přes všechny hvězdy: začne u hvězdy nejvíc vlevo, pokračuje vždy k nejbližší
+ * nenavštívené a nakonec se vyrovná (2-opt), aby se úseky nekřížily a linka nebyla zbytečně dlouhá.
+ */
+function windingPath(coords: Array<[number, number]>): number[] {
+  const n = coords.length;
+  if (n < 2) return n ? [0] : [];
+  const d = (a: number, b: number) => Math.hypot(coords[a][0] - coords[b][0], coords[a][1] - coords[b][1]);
+  let start = 0;
+  coords.forEach((c, k) => {
+    if (c[0] < coords[start][0]) start = k;
+  });
+  const order = [start];
+  const left = new Set(coords.map((_, k) => k).filter((k) => k !== start));
+  while (left.size) {
+    const last = order[order.length - 1];
+    let next = -1;
+    left.forEach((k) => {
+      if (next < 0 || d(last, k) < d(last, next)) next = k;
+    });
+    order.push(next);
+    left.delete(next);
+  }
+  // 2-opt pro otevřenou cestu: otočí úsek, když se tím linka zkrátí (a zbaví křížení).
+  for (let pass = 0, improved = true; improved && pass < 30; pass += 1) {
+    improved = false;
+    for (let i = 0; i < n - 2; i += 1) {
+      for (let j = i + 2; j < n; j += 1) {
+        const a = order[i];
+        const b = order[i + 1];
+        const c = order[j];
+        const e = j + 1 < n ? order[j + 1] : -1;
+        const before = d(a, b) + (e >= 0 ? d(c, e) : 0);
+        const after = d(a, c) + (e >= 0 ? d(b, e) : 0);
+        if (after < before - 0.01) {
+          order.splice(i + 1, j - i, ...order.slice(i + 1, j + 1).reverse());
+          improved = true;
+        }
+      }
+    }
+  }
+  return order;
 }
 
 /** Dvě hvězdy se „srazí“, když by se jejich jména pod nimi překrývala. */
@@ -212,14 +257,8 @@ function buildSky(worlds: World[], chapters: ChapterCardData[], newIds: Set<stri
       stars.push({ id: w.id, title: w.gameTitle.cs ?? w.gameTitle.en, set: setOf[k], x, y, size: [5, 6, 7, 8][(seed * 17) % 4], chapterId: chapter.id, isNew: newIds.has(w.id) });
       maxY = Math.max(maxY, y);
     });
-    // Každá další hvězda se připojí k nejbližší dřívější.
-    for (let k = 1; k < n; k += 1) {
-      let nearest = 0;
-      for (let j = 1; j < k; j += 1) {
-        if (Math.hypot(coords[j][0] - coords[k][0], coords[j][1] - coords[k][1]) < Math.hypot(coords[nearest][0] - coords[k][0], coords[nearest][1] - coords[k][1])) nearest = j;
-      }
-      line(coords[nearest], coords[k], chapter.id);
-    }
+    const order = windingPath(coords);
+    for (let k = 1; k < order.length; k += 1) line(coords[order[k - 1]], coords[order[k]], chapter.id);
   });
   return { stars, lines, groups, height: Math.max(430, Math.ceil(maxY + 40)) };
 }
