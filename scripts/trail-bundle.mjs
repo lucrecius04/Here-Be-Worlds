@@ -31,11 +31,15 @@ const AXES = [
 
 // --- stezky z trails.ts a české texty z i18n.ts -------------------------
 const trailsSrc = read('src/lib/trails.ts');
-const trails = [...trailsSrc.matchAll(/def\('([^']+)',\s*'([^']+)',\s*\[([^\]]*)\]\)/g)].map((m) => ({
+const trails = [...trailsSrc.matchAll(/def\('([^']+)',\s*'([^']+)',\s*\[([^\]]*)\](?:,\s*\[([^\]]*)\])?\)/g)].map((m) => ({
   id: m[1],
   key: m[2],
   members: [...m[3].matchAll(/'([^']+)'/g)].map((x) => x[1]),
+  themes: [...(m[4] ?? '').matchAll(/'([^']+)'/g)].map((x) => x[1]),
 }));
+const themeLabel = Object.fromEntries(
+  JSON.parse(read('data/meta/theme-taxonomy.json')).themes.map((th) => [th.slug, th.label.cs ?? th.label.en]),
+);
 const i18n = read('src/lib/i18n.ts');
 const trailsStart = i18n.indexOf('trails: {');
 const csTrailsBlock = i18n.slice(trailsStart, i18n.indexOf('\n    },', trailsStart));
@@ -122,6 +126,7 @@ function trailBundle(t) {
       `- Název stezky: ${name}`,
       `- Popis stezky na webu: ${desc}`,
       `- Světy stezky v pořadí: ${t.members.map((id) => cs(byId[id].gameTitle)).join(', ')}`,
+      ...(t.themes.length ? [`- Témata, která web u putování uvádí (esej by se jich měla dotknout): ${t.themes.map((s) => themeLabel[s] ?? s).join(', ')}`] : []),
       '',
       'Napište esej ke stezce podle příručky pro autory (oddíly 3–9). Fakta o světech berte jen z kronik níže, prameny jen z výtahů. Řádek této stezky v tabulce „Prameny podle stezek“ (rozcestník pramenů) říká, které prameny se k ní hodí. Odevzdejte esej, seznam faktů s místem v kronice, seznam míst k ověření a případné návrhy k pramenům.',
     ].join('\n')),
