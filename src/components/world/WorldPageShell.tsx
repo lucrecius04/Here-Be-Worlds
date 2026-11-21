@@ -69,10 +69,9 @@ export default function WorldPageShell({
   const [compact, setCompact] = useState(false);
   const pageFlow = usePageFlow();
   const mastheadRef = useRef<HTMLDivElement>(null);
-  const paneRef = useRef<HTMLDivElement>(null);
-  const progressRef = useRef<HTMLDivElement>(null);
   const [floating, setFloating] = useState(false);
   const [hidden, setHidden] = useState(false);
+  const [animated, setAnimated] = useState(false);
   const [spacer, setSpacer] = useState(0);
 
   useEffect(() => {
@@ -92,46 +91,71 @@ export default function WorldPageShell({
 
   /* Telefon: posouvá se celá stránka. Jakmile plná hlavička světa odjede, vrátí se jako
      stažený pruh (název a záložky), který při čtení dolů zajede a při posunu nahoru se ukáže.
-     Nahoře tenká linka přečteného. */
+     Pruh nastupuje schovaný a bez animace, aby při prvním posunu dolů neproblikl; zpátky do
+     plné hlavičky se přepne, až by pod ním byla vidět víc než jeho vlastní výška. */
   useEffect(() => {
     if (!pageFlow) {
       setFloating(false);
       setHidden(false);
+      setAnimated(false);
       return;
     }
-    let height = mastheadRef.current?.offsetHeight ?? 0;
+    // spodní hrana plné hlavičky v dokumentu (pod ní je ještě hlavička webu)
+    const measureBottom = () => {
+      const head = mastheadRef.current;
+      return head ? head.getBoundingClientRect().bottom + window.scrollY : 0;
+    };
+    let fullBottom = measureBottom();
+    let fullHeight = mastheadRef.current?.offsetHeight ?? 0;
+    let barHeight = 0;
     let isFloating = false;
     let isHidden = false;
     let last = window.scrollY;
     let frame = 0;
+    let arm = 0;
 
     const update = () => {
       frame = 0;
       const y = window.scrollY;
-      if (!isFloating && mastheadRef.current) height = mastheadRef.current.offsetHeight;
-      const shouldFloat = y > height;
-      if (shouldFloat !== isFloating) {
-        isFloating = shouldFloat;
-        if (shouldFloat) setSpacer(height);
-        isHidden = shouldFloat;
-        setHidden(isHidden);
-        setFloating(shouldFloat);
+      const head = mastheadRef.current;
+      if (head) {
+        if (isFloating) barHeight = head.offsetHeight;
+        else {
+          fullHeight = head.offsetHeight;
+          fullBottom = measureBottom();
+        }
+      }
+      if (!isFloating && y > fullBottom) {
+        isFloating = true;
+        isHidden = true;
+        setSpacer(fullHeight);
+        setAnimated(false);
+        setHidden(true);
+        setFloating(true);
+        cancelAnimationFrame(arm);
+        arm = requestAnimationFrame(() => {
+          arm = requestAnimationFrame(() => setAnimated(true));
+        });
         last = y;
-      } else if (isFloating && Math.abs(y - last) > 8) {
+        return;
+      }
+      if (isFloating && y < fullBottom - Math.max(barHeight, 1)) {
+        isFloating = false;
+        isHidden = false;
+        cancelAnimationFrame(arm);
+        setAnimated(false);
+        setHidden(false);
+        setFloating(false);
+        last = y;
+        return;
+      }
+      if (isFloating && Math.abs(y - last) > 10) {
         const down = y > last;
         if (down !== isHidden) {
           isHidden = down;
           setHidden(down);
         }
         last = y;
-      }
-      const bar = progressRef.current;
-      const pane = paneRef.current;
-      if (bar && pane) {
-        const rect = pane.getBoundingClientRect();
-        const total = rect.height - window.innerHeight;
-        const done = total <= 0 ? 0 : Math.min(1, Math.max(0, -rect.top / total));
-        bar.style.transform = `scaleX(${done})`;
       }
     };
     const onScroll = () => {
@@ -140,14 +164,11 @@ export default function WorldPageShell({
     update();
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll);
-    // kronika se načítá později a mění délku stránky: linka přečteného se přepočítá
-    const resize = typeof ResizeObserver === 'undefined' ? null : new ResizeObserver(onScroll);
-    if (resize && paneRef.current) resize.observe(paneRef.current);
     return () => {
       if (frame) cancelAnimationFrame(frame);
+      cancelAnimationFrame(arm);
       window.removeEventListener('scroll', onScroll);
       window.removeEventListener('resize', onScroll);
-      resize?.disconnect();
     };
   }, [pageFlow]);
 
@@ -201,10 +222,9 @@ export default function WorldPageShell({
       data-chapter={world.chapterId}
       style={chapterVars}
     >
-      {pageFlow && mode !== 'card' ? <div ref={progressRef} className="wp-progress" aria-hidden="true" /> : null}
       <div
         ref={mastheadRef}
-        className={`world-page__masthead${floating ? ' is-floating' : ''}${floating && hidden ? ' is-hidden' : ''}`}
+        className={`world-page__masthead${floating ? ' is-floating' : ''}${floating && hidden ? ' is-hidden' : ''}${floating && animated ? ' is-animated' : ''}`}
       >
         <div className="world-page__wrap">
           <WorldPageMasthead base={base} world={world} chapterTitle={chapterTitle} />
@@ -247,7 +267,6 @@ export default function WorldPageShell({
       {floating ? <div className="world-page__masthead-spacer" style={{ height: spacer }} aria-hidden="true" /> : null}
 
       <div
-        ref={paneRef}
         className="world-page__pane"
         onScrollCapture={(e) => {
           if (pageFlow) return;

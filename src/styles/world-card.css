@@ -398,6 +398,9 @@ html[data-theme='dark'] .world-card--page {
     top: 0;
     left: 0;
     right: 0;
+  }
+
+  .world-page__masthead.is-floating.is-animated {
     transition: transform 0.25s ease;
   }
 
@@ -410,22 +413,10 @@ html[data-theme='dark'] .world-card--page {
     transform: translateY(calc(-100% - 4px));
   }
 
-  .wp-progress {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 40;
-    height: 3px;
-    background: var(--hue);
-    transform: scaleX(0);
-    transform-origin: 0 50%;
-    pointer-events: none;
-  }
 }
 
 @media (max-width: 720px) and (prefers-reduced-motion: reduce), (max-height: 540px) and (pointer: coarse) and (prefers-reduced-motion: reduce) {
-  .world-page__masthead.is-floating {
+  .world-page__masthead.is-floating.is-animated {
     transition: none;
   }
 }
