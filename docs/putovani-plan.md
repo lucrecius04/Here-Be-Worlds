@@ -19,7 +19,7 @@ Pracovní názvy jsou od Gemini. Členy, ani jejich tvrzení, nepovažovat za ho
 | 2 | **Kopie bez originálu** | SOMA, NieR: Automata, Fallout, Halo, Mass Effect, Tides of Numenera | Kde začíná duše vyrobené bytosti | **Parfit** a Freud (máme) | Lze začít |
 | 3 | **Dům, ze kterého nejde odejít** | Control, Metro, Silent Hill, Inscryption, Fallout (Vaulty), případně SOMA | Kdy se útočiště změní ve vězení | Bachelard a Foucault (máme); Goffman jako doplněk | Lze začít |
 | 4 | **Jméno jako klíč i kletba** | Planescape: Torment, Dishonored, Control, Pentiment, Undertale, DOOM | Moc jména: kdo ho zná, kdo ho ztratil, kdo ho vyslovit nesmí | **Cassirer** *Jazyk a mýtus* | Čeká na knihu |
-| 5 | **Práce, která nikdy nekončí** | Death Stranding, Disco Elysium, Cyberpunk 2077, Half-Life a další, které teprve dohledat | Práce jako smysl i trest | **Camus** *Mýtus o Sisyfovi* | Čeká na knihu |
+| 5 | **Práce, která nikdy nekončí** | Death Stranding, Disco Elysium, Cyberpunk 2077, Half-Life a další, které teprve dohledat | Práce jako smysl i trest | **Camus** *Mýtus o Sisyfovi* (máme) | Lze začít |
 
 Poznámky k výběru:
 
@@ -39,14 +39,14 @@ Světy zatím bez putování: **Halo, XCOM, Death Stranding**. Na jednom putová
 
 ## Knihy, které majitel shání
 
-Dodatečně přečteno: H. P. Lovecraft, *Supernatural Horror in Literature* (2026-11-21, výtah `docs/prameny/lovecraft-nadprirozena-hruza.md`; tip od Gemini, hodí se k *Pod lhostejnými hvězdami* a *Domu*). Camus zatím jen jako francouzská studijní příručka, plnou knihu majitel shání.
+Dodatečně přečteno: H. P. Lovecraft, *Supernatural Horror in Literature* (2026-11-21, výtah `docs/prameny/lovecraft-nadprirozena-hruza.md`; tip od Gemini, hodí se k *Pod lhostejnými hvězdami* a *Domu*).
 
 Podle užitku:
 
 1. ~~Derek Parfit: Reasons and Persons~~: **máme** (2026-11-21), výtah `docs/prameny/parfit-reasons-and-persons.md`. Nutná pro *Kopie bez originálu*.
 2. ~~Michel Foucault: Dohlížet a trestat~~: **máme** (2026-11-21), výtah `docs/prameny/foucault-dohlizet-a-trestat.md`. Esej *O jiných prostorech* (heterotopie) zatím chybí; hodila by se jako krátký doplněk.
 3. **Erving Goffman: Asylums**, stačí první esej o totálních institucích. Přesnější než Foucault přímo pro *Dům* (Vaulty, Metro, Nejstarší dům). Stačí jedna z dvojice Foucault / Goffman, obě spolu se ale doplňují.
-4. **Albert Camus: Mýtus o Sisyfovi** (česky vyšel, krátký). Pro *Práci, která nikdy nekončí*; přidá i ke smyčkám (Sisyfos je přímo v Hades).
+4. ~~Albert Camus: Mýtus o Sisyfovi~~: **máme** (2026-11-21), výtah `docs/prameny/camus-mytus-o-sisyfovi.md`. Pro *Práci, která nikdy nekončí*; přidá i ke smyčkám (Sisyfos je přímo v Hades).
 5. **Ernst Cassirer: Jazyk a mýtus** (krátký). Pro *Jméno jako klíč i kletba*.
 6. ~~Sigmund Freud: Das Unheimliche~~: **máme** (2026-11-21), výtah `docs/prameny/freud-tisnive-povedome.md` (v atlasu „tísnivě povědomé“, aby se nepletlo s Fisherovým „tísnivým“). Pro *Kopie* (dvojník, oživlá loutka), *Dům* (strašidelný dům) a případně *Hříchy otců*.
 

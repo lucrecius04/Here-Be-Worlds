@@ -42,6 +42,7 @@ Pojmy, se kterými pracujeme, nejsou naše. Přicházejí z osmi oblastí: z teo
 | Vznešená a zkrocená monstrozita | Jaroslav Švelch, *Player vs. Monster* (2023) | Herní monstra jsou simulovaná a navržená, aby prohrála. Co se dá spočítat a porazit, ztrácí tajemství. |
 | Obětní beránek, zakládající vražda | René Girard, *Obětní beránek* (1982) | Mýty vyprávějí o kolektivním násilí z pohledu pronásledovatelů. Oběť je napřed vinná krizí, po smrti uctívaná jako zachránce, a z toho dvojího přenosu vzniká posvátno. |
 | Práh (liminalita), communitas | Victor Turner, *Průběh rituálu* (1969) | Kdo prochází přechodem, stojí mimo kategorie: bez jména, majetku a postavení. Na prahu vzniká pouto rovných, které struktura potřebuje i obává se ho. |
+| Absurdno, revolta, Sisyfos | Albert Camus, *Mýtus o Sisyfovi* (1942) | Absurdno vzniká ze střetu lidské touhy po smyslu s mlčením světa. Neutíkat před ním do naděje, ale žít s ním vědomě: Sisyfa si musíme představit šťastného. |
 | Portálová, ponořená, vpádová a prahová fantasy | Farah Mendlesohn, *Rhetorics of Fantasy* (2008) | Fantasy se liší tím, jak do příběhu vstupuje fantastično a kde přitom stojí čtenář: přichází zvenčí, je doma, svět je přepaden, nebo zázrak stojí na prahu. |
 | Meč a magie, výpravná fantasy, divadelní fantasy, Fantasyland™ | Farah Mendlesohn, Edward James, *A Short History of Fantasy* (2009) | Dějiny fantasy jako rozhovor autorů: jak se z Tolkiena, Howarda, Moorcocka, pulpových časopisů a D&D zrodily vzorce i klišé herních světů. |
 | Věčný návrat, hrůza z dějin | Mircea Eliade, *Mýtus o věčném návratu* (1949) | Tradiční člověk považuje za skutečné jen to, co opakuje vzor z počátku času. Opakováním ruší dějiny a kolektivní paměť z událostí dělá mýty. |
@@ -226,6 +227,12 @@ Antropolog Victor Turner v knize *Průběh rituálu* (1969) rozvinul postřeh Ar
 
 Herní světy svého hrdinu velmi často posazují přesně na tenhle práh. Bezejmenný se v Planescape: Torment probouzí na stole v márnici, Harry v Disco Elysium neví, jak se jmenuje, a nemrtví v Dark Souls nesou cejch, který je drží mezi životem a smrtí. Zkouška trav ze Zaklínače je přechodový rituál dovedený do krajnosti, po kterém zaklínači zůstanou natrvalo mimo řád. Turnerův obraz toho, jak spontánní communitas stárne v instituce a utopie, zase sedí na Revacholskou komunu. Pozor jen na to, že Turner svou knihu staví na výzkumu jednoho afrického národa a pojem pro prahovost ve hře a volném čase moderní doby zavedl až později.
 
+### Camus: absurdno a šťastný Sisyfos
+
+Albert Camus v eseji *Mýtus o Sisyfovi* (1942) začíná otázkou, zda život stojí za to žít, a odpovídá na ni jednoznačně ano. **Absurdno** podle něj není ve světě ani v člověku, ale v jejich střetu: v lidské touze po jednotě a smyslu, které svět odpovídá jen mlčením. Rodí se v obyčejných chvílích, když se zhroutí kulisy všedního dne („vstát, tramvaj, čtyři hodiny v kanceláři nebo v továrně, jídlo, tramvaj…“) a člověk se poprvé zeptá proč. Camus odmítá dva útěky: vzdát se života a vzdát se myšlení **skokem** do naděje, který ruší absurdno místo toho, aby ho unesl. Zbývá žít s ním vědomě a z toho plynou **revolta**, **svoboda** a **vášeň**. Vzorem je Sisyfos, kterého bohové odsoudili valit balvan na horu, odkud vždy spadne. Camuse zajímá chvíle, kdy Sisyfos sestupuje dolů pro balvan: to je hodina vědomí, v níž je silnější než jeho skála. Kniha končí větou „Sisyfa si musíme představit šťastného“.
+
+Pro herní světy je Camus slovníkem opakování, které hrdina zná a přijímá. V Hades sedí Sisyfos se svým balvanem doslova v Tartaru a Zagreus se z podsvětí prodírá znovu a znovu; Dark Souls staví celý svět na nekonečném cyklu propojování ohně; Nováček v Outer Wilds nakonec vlastníma rukama vytáhne warpové jádro a vzdá se smyčky, která ho chránila. Kronika Disco Elysium mluví o vzdorovitém, téměř absurdním optimismu, který se rodí na dně porážky. Camus sám odmítal, že by byl existencialista, a o hrách nepíše; spojení se světy jsou výklad atlasu.
+
 ### Drobnější prameny k mýtu
 
 Eseje k putováním využívají i kratší prameny: mýty o stvoření světa z těla boha (Ymi, Tiamat, Puruša, Pchan-ku) a srovnávací studii Michaela Witzela, Eliadeho pojem *deus otiosus*, tedy boha, který po stvoření odešel, z *Pojednání o dějinách náboženství* (1949), a Nietzscheho aforismy 108 a 125 z *Radostné vědy* (1882) o mrtvém Bohu a jeho stínu.
@@ -366,6 +373,7 @@ Knihy, které by metodu dál prohloubily a ke kterým se chceme dostat:
 - Michel Foucault: *Dohlížet a trestat. Kniha o zrodu vězení* (Surveiller et punir, 1975), přel. Čestmír Pelikán, Dauphin 2000; anglicky *Discipline and Punish*, přel. Alan Sheridan, Vintage 1995.
 - Sigmund Freud: „Das Unheimliche“, *Imago* 5, 1919; anglicky „The Uncanny“, in: *The Uncanny*, přel. David McLintock, Penguin Classics 2003.
 - H. P. Lovecraft: „Supernatural Horror in Literature“ (1927, přepracováno 1933–1935), elektronický text Project Gutenberg of Australia 2006.
+- Albert Camus: *Mýtus o Sisyfovi* (Le Mythe de Sisyphe, 1942), přel. Dagmar Steinová, Nakladatelství Svoboda 1995; anglicky *The Myth of Sisyphus and Other Essays*, přel. Justin O'Brien, Knopf 1955.
 
 **Fikční světy a fantastika (doplněk)**
 
