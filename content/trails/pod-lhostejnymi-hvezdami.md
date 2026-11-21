@@ -1,5 +1,6 @@
 ---
 title: Pod lhostejnými hvězdami
+approved: true
 trail: indifferent-stars
 kicker: Putování atlasem
 tagline: Co si člověk počne s poznáním, že pro vesmír nic neznamená?

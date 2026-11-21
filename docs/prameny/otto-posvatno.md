@@ -46,4 +46,4 @@
 - *Na mrtvole boha*: Bloodborne a Byrgenwerth („Obávej se Staré krve“), Zdroje
 - Esej ke stezce Netvor v zrcadle (`content/trails/netvor-v-zrcadle.md`): kořeny (tremendum et fascinans, monstrum jako tajemné v hrubé podobě)
 - Esej ke stezce Bohové jako břemeno (`content/trails/bohove-jako-bremeno.md`): kořeny (numinózní před mravním dobrem, Jób)
-- Esej ke stezce Pod lhostejnými hvězdami (`content/trails/pod-lhostejnymi-hvezdami.md`, čeká na schválení): Ticho nad lidským měřítkem (numinózní, das ganz Andere, pocit stvořenosti, Jób 38, tma, ticho a prázdnota; mysterium tremendum et fascinans) a SOMA (Ottova tma a prázdnota, výklad atlasu).
+- Esej ke stezce Pod lhostejnými hvězdami (`content/trails/pod-lhostejnymi-hvezdami.md`): Ticho nad lidským měřítkem (numinózní, das ganz Andere, pocit stvořenosti, Jób 38, tma, ticho a prázdnota; mysterium tremendum et fascinans) a SOMA (Ottova tma a prázdnota, výklad atlasu).

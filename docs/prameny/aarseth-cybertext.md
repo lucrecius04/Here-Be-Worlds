@@ -44,4 +44,4 @@ Literární teoretici podle Aarsetha zaměňují **proměnlivý výraz** kyberte
 - Esej ke stezce Křehká hranice svobodné vůle (`content/trails/krehka-hranice-svobodne-vule.md`): kořeny (čtenář jako cestující ve vlaku, ergodický text, ideologie vlivu), Proč hry… (ergodická intrika)
 - Esej ke stezce Uvězněni v kruhu (`content/trails/uvezneni-v-kruhu.md`): Proč hry žijí z návratů (trojí pozice při smrti, aporie a epifanie)
 - Esej ke stezce Hra ví, že ji hraješ (`content/trails/hra-vi-ze-ji-hrajes.md`): Proč si hry vidí do karet (ideologie vlivu a intrika: BioShock; trojí pozice při smrti: Pathologic 2)
-- Esej ke stezce Pod lhostejnými hvězdami (`content/trails/pod-lhostejnymi-hvezdami.md`, čeká na schválení): Proč hry umějí dát pocítit lidskou nicotnost (aporie a epifanie, vědomostní průchod Outer Wilds).
+- Esej ke stezce Pod lhostejnými hvězdami (`content/trails/pod-lhostejnymi-hvezdami.md`): Proč hry umějí dát pocítit lidskou nicotnost (aporie a epifanie, vědomostní průchod Outer Wilds).

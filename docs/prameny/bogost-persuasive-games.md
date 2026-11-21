@@ -33,4 +33,4 @@
 - Esej ke stezce Logo nad troskami (`content/trails/logo-nad-troskami.md`): Proč hry umějí číst firemní složky (co hra nedovolí: konec Věž v Cyberpunku)
 - Esej ke stezce Smích nad propastí (`content/trails/smich-nad-propasti.md`): Proč hry umějí rozesmát i zranit (procedurální rétorika: kelímek vody, rozbité Slitování, odstrčený monitor v DOOMu)
 - Esej ke stezce Město, které dýchá (`content/trails/mesto-ktere-dycha.md`): Proč hry dokážou město oživit (co hra nedovolí: nemožnost být na dvou místech v Pathologic, Chaos v Dishonored).
-- Esej ke stezce Pod lhostejnými hvězdami (`content/trails/pod-lhostejnymi-hvezdami.md`, čeká na schválení): Proč hry umějí dát pocítit lidskou nicotnost (co hra nedovolí: volby bez vlivu na konec SOMY, nezachranitelná soustava Outer Wilds).
+- Esej ke stezce Pod lhostejnými hvězdami (`content/trails/pod-lhostejnymi-hvezdami.md`): Proč hry umějí dát pocítit lidskou nicotnost (co hra nedovolí: volby bez vlivu na konec SOMY, nezachranitelná soustava Outer Wilds).

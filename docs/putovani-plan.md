@@ -5,7 +5,7 @@ Zásobník nových putování a knih k nim. Výchozí podklad: návrhy Gemini (2
 ## Nejdřív dokončit
 
 1. ~~Město, které dýchá~~ (`living-city`): hotovo, schváleno 2026-11-21.
-2. **Pod lhostejnými hvězdami** (`indifferent-stars`): esej hotová, čeká na schválení majitele.
+2. ~~Pod lhostejnými hvězdami~~ (`indifferent-stars`): hotovo, schváleno 2026-11-21. Všech 16 putování má esej.
 
 U obou po dodání eseje zkontrolovat témata v `trails.ts`, protože jsou zatím odhadnutá.
 

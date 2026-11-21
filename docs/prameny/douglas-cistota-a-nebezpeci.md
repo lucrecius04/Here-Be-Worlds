@@ -49,4 +49,4 @@ Beztvarost, okraje a přechody systém ohrožují, ale zároveň v nich leží n
 - *Kdo za to může?* (esej ke stezce): Anatomie podezření (věc na nepatřičném místě, meziprostory, Mandariové, Jana z Arku, Azandové a sýpka), Pathologic (Mnohostěn, Klára), Dishonored (Plačky, Opatství Všedního dne), Zaklínač (meziprostorová skupina), Dragon Age (mágové jako nebezpečná anomálie), Zdroje
 - Esej ke stezce Netvor v zrcadle (`content/trails/netvor-v-zrcadle.md`): oddíl Když se zlomí odstup (nečistota jako věc na nepatřičném místě)
 - Esej ke stezce Bohové jako břemeno (`content/trails/bohove-jako-bremeno.md`): Diablo (Nephalem jako nečistá anomálie)
-- Esej ke stezce Pod lhostejnými hvězdami (`content/trails/pod-lhostejnymi-hvezdami.md`, čeká na schválení): Warhammer 40 000 (psyker jako anomálie spalovaná pro řád, výklad atlasu) a typologie (systém usilující o absolutní čistotu končí ve strnulosti nebo pokrytectví).
+- Esej ke stezce Pod lhostejnými hvězdami (`content/trails/pod-lhostejnymi-hvezdami.md`): Warhammer 40 000 (psyker jako anomálie spalovaná pro řád, výklad atlasu) a typologie (systém usilující o absolutní čistotu končí ve strnulosti nebo pokrytectví).
