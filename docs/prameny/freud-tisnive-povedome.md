@@ -58,3 +58,4 @@ Rozhodující je třetí část: ve **fikci** platí jiná pravidla. Pohádka, k
 ## Kde už je použito
 
 - Teoretické zázemí: oddíl „Freud: tísnivě povědomé“, tabulka pojmů, Zdroje.
+- Esej ke stezce Kopie bez originálu (`content/trails/kopie-bez-originalu.md`): kořeny (Jentschova nejistota, Olimpie, dvojník od pojistky ke zvěstovateli smrti, pravidla fikce), Mass Effect (Gethové a EDI), Halo (klon v postýlce), Fallout (syntetik, který o sobě neví), Deus Ex (vlastní tvář v kryoboxu), závěr (realistické světy a tísnivě povědomé)

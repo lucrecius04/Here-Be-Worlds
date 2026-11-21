@@ -35,3 +35,4 @@
 - Esej ke stezce Logo nad troskami (`content/trails/logo-nad-troskami.md`): Proč hry umějí číst firemní složky (test převyprávění: Ethanova přišitá ruka jako fakt plísňového těla)
 - Esej ke stezce Smích nad propastí (`content/trails/smich-nad-propasti.md`): Proč hry umějí rozesmát i zranit (test převyprávění: Styx v Hades)
 - Esej ke stezce Město, které dýchá (`content/trails/mesto-ktere-dycha.md`): Proč hry dokážou město oživit (test převyprávění: pravidla jako tělo města).
+- Esej ke stezce Kopie bez originálu (`content/trails/kopie-bez-originalu.md`): Proč kopie bolí (konvence jako fikční pravda: pohled první osoby a Johnny v Cyberpunku)

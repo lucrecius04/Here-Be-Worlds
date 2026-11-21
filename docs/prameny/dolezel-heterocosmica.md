@@ -76,3 +76,4 @@ Fikční svět není nápodoba skutečného světa (mimesis), ale **možný svě
 - Esej ke stezce Prokleté dědictví (`content/trails/proklete-dedictvi.md`): Tři způsoby (deontické dilema: Dragon Age a Path of Exile)
 - Esej ke stezce Město, které dýchá (`content/trails/mesto-ktere-dycha.md`): Paměť, nemoc a vůle (dyadický svět: Mlžný a Jiný svět, Dunwall a Prázdnota, Sigil a sféry; hybridní moderní mýtus: trhlina Šedi, Dabusové; fikční encyklopedie).
 - Esej ke stezce Kdo drží kroniku (`content/trails/kdo-drzi-kroniku.md`): Elder Scrolls (mytologický svět z protichůdných zpráv písařů), typologie (autentizace, stupňovitá autentizace, virtuální doména), Proč hry (fikční encyklopedie)
+- Esej ke stezce Kopie bez originálu (`content/trails/kopie-bez-originalu.md`): Proč kopie bolí (neautentizovaná stopa: tělo Adama Jensena v trezoru)
