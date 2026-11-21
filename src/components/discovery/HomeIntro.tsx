@@ -5,7 +5,7 @@ import { withBase } from '../../lib/base-url';
 import type { LocalizedString, World } from '../../schemas/world';
 import { dayNumber, featuredWorldIndex } from '../../lib/calendar';
 import { TRAILS, dailyTrails, trailSlug } from '../../lib/trails';
-import { mostRecentAdded } from '../../lib/atlas-news';
+import { latestAdded, mostRecentAdded } from '../../lib/atlas-news';
 import AxisBars from './AxisBars';
 import DailyMystery from './DailyMystery';
 import ReaderDesk from './ReaderDesk';
@@ -60,39 +60,103 @@ const ICONIC: Record<string, string[]> = {
   metaphysical: ['outer-wilds', 'control'],
 };
 
-/** Pozice popsaných hvězd v souhvězdí (cik-cak, aby jména pod hvězdami nesousedila). */
-function namedSlots(count: number, perRow: number, named: number): number[] {
-  const zigzag = [perRow - 1, perRow, 3 * perRow - 1, 2 * perRow + 1];
-  const slots = zigzag.filter((slot) => slot < count).slice(0, named);
-  if (slots.length < named && count > 0) {
-    for (let k = 0; k < count && slots.length < named; k += 2) if (!slots.includes(k)) slots.push(k);
-  }
-  return slots;
+/**
+ * Souhvězdí mají tvar, který k archetypu patří (jako figury ve starých hvězdných atlasech).
+ * Body tvaru jsou v pořadí, v jakém se souhvězdí dokresluje: k-tý svět archetypu (podle čísla)
+ * dostane k-tý bod. Hrana se kreslí, až když jsou obě hvězdy na obloze (a je-li uveden min,
+ * teprve od tolika světů), takže souhvězdí roste spolu s atlasem a v každé fázi drží pohromadě.
+ * Souřadnice jsou v jednotkách oblohy (šířka 1000) od počátku souhvězdí.
+ */
+type Shape = {
+  points: Array<[number, number]>;
+  edges: Array<[number, number, number?]>;
+  /** Body pro trvale popsané (známé) světy: dost daleko od sebe, aby se jména nepřekrývala. */
+  named: number[];
+};
+
+const SHAPES: Record<string, Shape> = {
+  // Hrad se třemi věžemi; brána přibude, až bude světů víc.
+  fantasy: {
+    points: [[10, 150], [10, 45], [55, 45], [55, 95], [110, 95], [110, 10], [170, 10], [170, 95], [225, 95], [225, 45], [270, 45], [270, 150], [120, 150], [140, 118], [160, 150]],
+    edges: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [6, 7], [7, 8], [8, 9], [9, 10], [10, 11], [11, 0, 12], [11, 12], [12, 13], [13, 14]],
+    named: [1, 6, 11],
+  },
+  // Raketa: špička, trup, stabilizátory a okénko.
+  'science-fiction': {
+    points: [[110, 0], [70, 50], [150, 50], [70, 110], [150, 110], [25, 145], [195, 145], [110, 74]],
+    edges: [[0, 1], [0, 2], [1, 3], [2, 4], [3, 4], [3, 5], [4, 6]],
+    named: [0, 5, 6],
+  },
+  // Hřib výbuchu nad krajinou.
+  'post-apocalypse': {
+    points: [[120, 0], [30, 45], [210, 45], [120, 70], [120, 148], [60, 148], [180, 148]],
+    edges: [[0, 1], [0, 2], [1, 3], [2, 3], [3, 4], [4, 5], [4, 6]],
+    named: [0, 4],
+  },
+  // Srpek měsíce.
+  horror: {
+    points: [[115, 0], [20, 62], [115, 125], [68, 62]],
+    edges: [[0, 1], [1, 2], [2, 3], [3, 0]],
+    named: [0, 1],
+  },
+  // Oko, které hlídá; zornice bez spojnic.
+  dystopia: {
+    points: [[10, 45], [115, 0], [220, 45], [115, 92], [115, 46]],
+    edges: [[0, 1], [1, 2], [2, 3], [3, 0]],
+    named: [0, 2],
+  },
+  // Přesýpací hodiny; tři světy se zatím spojí jen napřímo.
+  historical: {
+    points: [[20, 0], [150, 0], [85, 65], [20, 130], [150, 130]],
+    edges: [[0, 1], [1, 2], [0, 2, 5], [2, 3], [3, 4], [2, 4]],
+    named: [0, 2],
+  },
+  // Nekonečno: smyčka, která se vrací.
+  metaphysical: {
+    points: [[115, 50], [58, 8], [0, 50], [58, 92], [172, 8], [230, 50], [172, 92]],
+    edges: [[0, 1], [1, 2], [2, 3], [3, 0], [0, 4], [4, 5], [5, 6], [6, 0]],
+    named: [2, 5],
+  },
+};
+
+/** Dvě hvězdy se „srazí“, když by se jejich jména pod nimi překrývala. */
+function clash(a: [number, number], b: [number, number]): boolean {
+  return Math.abs(a[0] - b[0]) < 78 && Math.abs(a[1] - b[1]) < 30;
 }
 
 /**
  * Rozdělí hvězdy souhvězdí do stálých skupinek, které se na obloze střídají. První skupinka
- * jsou známé světy (slots); další berou zbylé hvězdy tak, aby v jedné řadě nestály dvě
- * sousední hvězdy (jména pod nimi by se překrývala). Vrací index skupinky pro každou pozici.
+ * jsou známé světy (first); další berou zbylé hvězdy tak, aby se jména ve skupince nepřekrývala
+ * ani s trvale popsanými (always, nově zmapované světy). Vrací index skupinky pro každou hvězdu
+ * (-1 = trvale popsaná).
  */
-function rotationSets(count: number, perRow: number, first: number[], size: number): number[] {
-  const setOf = new Array<number>(count).fill(-1);
+function rotationSets(coords: Array<[number, number]>, first: number[], always: number[], size: number): number[] {
+  const count = coords.length;
+  const setOf = new Array<number>(count).fill(-2);
+  always.forEach((k) => {
+    setOf[k] = -1;
+  });
+  const free = (k: number, group: number[]) =>
+    group.every((g) => !clash(coords[g], coords[k])) && always.every((a) => !clash(coords[a], coords[k]));
+  const firstGroup: number[] = [];
   first.forEach((k) => {
+    if (setOf[k] === -2 && free(k, firstGroup)) firstGroup.push(k);
+  });
+  firstGroup.forEach((k) => {
     setOf[k] = 0;
   });
-  const clash = (a: number, b: number) =>
-    Math.floor(a / perRow) === Math.floor(b / perRow) && Math.abs((a % perRow) - (b % perRow)) === 1;
-  // Zbylé pozice v rozházeném pořadí, aby po sobě nesvítily vždy stejné řady.
+  // Zbylé pozice v rozházeném pořadí, aby po sobě nesvítily vždy stejné části tvaru.
   let rest = Array.from({ length: count }, (_, k) => k)
-    .filter((k) => setOf[k] < 0)
+    .filter((k) => setOf[k] === -2)
     .sort((a, b) => ((a * 5) % count) - ((b * 5) % count));
-  let index = 1;
+  let index = firstGroup.length ? 1 : 0;
   while (rest.length) {
     const group: number[] = [];
     for (const k of rest) {
       if (group.length >= Math.max(1, size)) break;
-      if (group.every((g) => !clash(g, k))) group.push(k);
+      if (free(k, group)) group.push(k);
     }
+    if (!group.length) group.push(rest[0]);
     group.forEach((k) => {
       setOf[k] = index;
     });
@@ -106,62 +170,70 @@ function rotationSets(count: number, perRow: number, first: number[], size: numb
 const ROTATE_MS = 5000;
 
 /*
- * Obloha v souřadnicích 1000 × H. Souhvězdí mají pevné počátky a 80jednotkový krok hvězd.
+ * Obloha v souřadnicích 1000 × H. Souhvězdí mají pevné počátky (horní a dolní pás).
  * Jména popsaných hvězd stojí pod hvězdou, stejně jako při rozsvíceném souhvězdí.
- * Při růstu atlasu: horní pás snese 4–5 řad (cca 15 světů v souhvězdí), pak upravit počátky.
  */
-const ORIGINS: Array<[number, number, number]> = [
-  [20, 50, 3],
-  [340, 50, 3],
-  [680, 50, 3],
-  [10, 290, 2],
-  [210, 290, 3],
-  [480, 290, 3],
-  [750, 290, 3],
+const ORIGINS: Array<[number, number]> = [
+  [20, 50],
+  [340, 50],
+  [660, 50],
+  [15, 290],
+  [215, 290],
+  [480, 290],
+  [740, 290],
 ];
-const STEP_X = 80;
-const STEP_Y = 44;
 
-type Star = { id: string; title: string; set: number; x: number; y: number; size: number; chapterId: string };
-type Line = { x: number; y: number; w: number; a: number; chapterId: string };
+type Star = { id: string; title: string; set: number; x: number; y: number; size: number; chapterId: string; isNew: boolean };
+type Line = { x1: number; y1: number; x2: number; y2: number; chapterId: string };
 type Group = { chapterId: string; x: number; y: number; count: number; sets: number; order: number };
 
-function buildSky(worlds: World[], chapters: ChapterCardData[]) {
+function buildSky(worlds: World[], chapters: ChapterCardData[], newIds: Set<string>) {
   const stars: Star[] = [];
   const lines: Line[] = [];
   const groups: Group[] = [];
   let maxY = 0;
+  const line = (a: [number, number], b: [number, number], chapterId: string) => {
+    lines.push({ x1: a[0], y1: a[1], x2: b[0], y2: b[1], chapterId });
+  };
   chapters.forEach((chapter, gi) => {
-    const [ox, oy, perRow] = ORIGINS[gi] ?? [20 + (gi % 3) * 330, 50 + Math.floor(gi / 3) * 240, 3];
-    const all = worlds.filter((w) => w.chapterId === chapter.id).sort((a, b) => a.number - b.number);
-    if (!all.length) return;
+    const [ox, oy] = ORIGINS[gi] ?? [20 + (gi % 3) * 330, 50 + Math.floor(gi / 3) * 240];
+    const items = worlds.filter((w) => w.chapterId === chapter.id).sort((a, b) => a.number - b.number);
+    if (!items.length) return;
+    const shape = SHAPES[chapter.id] ?? { points: [], edges: [], named: [] };
+    const n = items.length;
+    // Body tvaru; kdyby světů bylo víc než bodů, další hvězdy pokračují řadou pod tvarem.
+    const height = Math.max(0, ...shape.points.map((pt) => pt[1]));
+    const coords: Array<[number, number]> = items.map((_, k) => {
+      const pt = shape.points[k];
+      if (pt) return [ox + pt[0], oy + pt[1]];
+      const j = k - shape.points.length;
+      return [ox + 10 + j * 80, oy + height + 44];
+    });
+    // Známé světy na body určené pro jména, ostatní podle čísla do zbylých bodů.
     const wanted = (ICONIC[chapter.id] ?? [])
-      .map((id) => all.find((w) => w.id === id))
+      .map((id) => items.find((w) => w.id === id))
       .filter((w): w is World => Boolean(w));
-    const slots = namedSlots(all.length, perRow, wanted.length);
+    const slots = shape.named.filter((k) => k < n).slice(0, wanted.length);
     const iconic = wanted.slice(0, slots.length);
-    const rest = all.filter((w) => !iconic.includes(w));
-    const items: World[] = [];
-    for (let k = 0, r = 0; k < all.length; k += 1) {
+    const rest = items.filter((w) => !iconic.includes(w));
+    const placed: World[] = [];
+    for (let k = 0, r = 0; k < n; k += 1) {
       const slotIndex = slots.indexOf(k);
-      items.push(slotIndex >= 0 ? iconic[slotIndex] : rest[r++]);
+      placed.push(slotIndex >= 0 ? iconic[slotIndex] : rest[r++]);
     }
-    const setOf = rotationSets(all.length, perRow, slots, wanted.length || 2);
-    groups.push({ chapterId: chapter.id, x: ox, y: oy - 44, count: all.length, sets: Math.max(...setOf) + 1, order: gi });
-    let prev: [number, number] | null = null;
-    items.forEach((w, k) => {
+    const always = placed.map((w, k) => (newIds.has(w.id) ? k : -1)).filter((k) => k >= 0);
+    const setOf = rotationSets(coords, slots, always, wanted.length || 2);
+    groups.push({ chapterId: chapter.id, x: ox, y: oy - 44, count: n, sets: Math.max(1, ...setOf.map((v) => v + 1)), order: gi });
+    placed.forEach((w, k) => {
       const seed = gi * 13 + k * 7;
-      const x = ox + (k % perRow) * STEP_X + ((seed * 37) % 9) - 4;
-      const y = oy + Math.floor(k / perRow) * STEP_Y + ((seed * 53) % 13) - 6;
-      stars.push({ id: w.id, title: w.gameTitle.cs ?? w.gameTitle.en, set: setOf[k], x, y, size: [5, 6, 7, 8][(seed * 17) % 4], chapterId: chapter.id });
-      if (prev) {
-        const dx = x - prev[0];
-        const dy = y - prev[1];
-        lines.push({ x: prev[0], y: prev[1], w: Math.hypot(dx, dy), a: (Math.atan2(dy, dx) * 180) / Math.PI, chapterId: chapter.id });
-      }
-      prev = [x, y];
+      const [x, y] = coords[k];
+      stars.push({ id: w.id, title: w.gameTitle.cs ?? w.gameTitle.en, set: setOf[k], x, y, size: [5, 6, 7, 8][(seed * 17) % 4], chapterId: chapter.id, isNew: newIds.has(w.id) });
       maxY = Math.max(maxY, y);
     });
+    shape.edges.forEach(([a, b, min]) => {
+      if (a < n && b < n && n >= (min ?? 0)) line(coords[a], coords[b], chapter.id);
+    });
+    for (let k = Math.max(1, shape.points.length); k < n; k += 1) line(coords[k - 1], coords[k], chapter.id);
   });
   return { stars, lines, groups, height: Math.max(430, Math.ceil(maxY + 40)) };
 }
@@ -197,7 +269,9 @@ export default function HomeIntro({ chapters, worlds = [], journeys = [], base }
   }, []);
 
   const chapterById = useMemo(() => Object.fromEntries(chapters.map((c, i) => [c.id, { ...c, index: i }])), [chapters]);
-  const sky = useMemo(() => buildSky(worlds, chapters), [worlds, chapters]);
+  // Dva naposledy zmapované světy na obloze pulzují a na počítači mají trvale jméno se štítkem.
+  const newIds = useMemo(() => new Set(latestAdded(worlds, 2).map((w) => w.id)), [worlds]);
+  const sky = useMemo(() => buildSky(worlds, chapters, newIds), [worlds, chapters, newIds]);
   const groupSets = useMemo(() => Object.fromEntries(sky.groups.map((g) => [g.chapterId, g])), [sky]);
   const latest = mostRecentAdded(worlds);
   const featured = today && worlds.length > 0 ? worlds[featuredWorldIndex(worlds.length, today)] : undefined;
@@ -268,18 +342,20 @@ export default function HomeIntro({ chapters, worlds = [], journeys = [], base }
               ['--sky-ratio-narrow' as string]: `1000 / ${Math.round(sky.height * 1.35)}`,
             }}
           >
-            {sky.lines.map((line, i) => (
-              <i
-                key={`l${i}`}
-                className={`hp-sky__line${litGroup === line.chapterId ? ' is-lit' : ''}`}
-                style={{
-                  left: `${line.x / 10}%`,
-                  top: `${(line.y / sky.height) * 100}%`,
-                  width: `${line.w / 10}%`,
-                  transform: `rotate(${line.a}deg)`,
-                }}
-              />
-            ))}
+            <svg className="hp-sky__lines" viewBox={`0 0 1000 ${sky.height}`} preserveAspectRatio="none" aria-hidden="true">
+              {sky.lines.map((line, i) => (
+                <line
+                  key={`l${i}`}
+                  className={litGroup === line.chapterId ? 'is-lit' : undefined}
+                  x1={line.x1}
+                  y1={line.y1}
+                  x2={line.x2}
+                  y2={line.y2}
+                  vectorEffect="non-scaling-stroke"
+                  style={hueVars(chapterById[line.chapterId]?.accent)}
+                />
+              ))}
+            </svg>
             {routeStars.length > 1 ? (
               <svg className="hp-sky__route" viewBox={`0 0 1000 ${sky.height}`} preserveAspectRatio="none" aria-hidden="true">
                 <polyline points={routeStars.map((st) => `${st.x},${st.y}`).join(' ')} vectorEffect="non-scaling-stroke" />
@@ -304,7 +380,7 @@ export default function HomeIntro({ chapters, worlds = [], journeys = [], base }
               return (
                 <a
                   key={star.id}
-                  className={`hp-star${star.set === phase % (groupSets[star.chapterId]?.sets ?? 1) ? ' is-named' : ''}${litGroup === star.chapterId || routeIds.has(star.id) ? ' is-lit' : ''}${routeIds.has(star.id) ? ' is-route' : ''}`}
+                  className={`hp-star${star.set === phase % (groupSets[star.chapterId]?.sets ?? 1) || star.isNew ? ' is-named' : ''}${star.isNew ? ' is-new' : ''}${litGroup === star.chapterId || routeIds.has(star.id) ? ' is-lit' : ''}${routeIds.has(star.id) ? ' is-route' : ''}`}
                   href={withBase(base, `/worlds/${star.id}/`)}
                   style={{
                     left: `${star.x / 10}%`,
@@ -315,6 +391,7 @@ export default function HomeIntro({ chapters, worlds = [], journeys = [], base }
                   }}
                 >
                   <i className="hp-star__dot" aria-hidden="true" />
+                  {star.isNew ? <span className="hp-star__new">{uiT('home2.newWorld', locale)}</span> : null}
                   <span className="hp-star__name">{(world ? t(world.gameTitle, locale) : star.title).replace(/(\d) (\d)/g, '$1\u00a0$2')}</span>
                 </a>
               );
