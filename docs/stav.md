@@ -8,7 +8,7 @@ Naposledy aktualizováno: 2026-11-22.
 
 - **O atlasu** má pás hlavičky a začíná stejně vysoko jako ostatní stránky (se souhlasem majitele 2026-11-22).
 - **Stránka archetypu:** bohatší boxy světů (kronika, studio a vesmír, ústřední dilema, čtyři údaje, témata, odkazy na kroniku a putování).
-- **Obsah kroniky:** příčina přeskakování nalezena a opravena. Obrázky bez rozměrů se po skoku dočítaly a odsouvaly text. Teď mají `width`/`height` z doby sestavení a skok přistane napoprvé.
+- **Obsah kroniky:** přeskakování mělo dvě příčiny. (1) Obrázky bez rozměrů se po skoku dočítaly a odsouvaly text: teď mají `width`/`height` z doby sestavení. (2) Při rychlém klikání (do ~3 s) běželo dorovnávání předchozího skoku dál a táhlo stránku zpět: každý nový skok ho teď zruší (`cancelPendingJump` v `ChronicleReader`). Ověřeno klikáním po 200 ms na počítači i telefonu.
 - **Putování dne:** linka mezi zastávkami je plná, 3 px, v barvách archetypů (i na telefonu).
 - **Kde se putování kříží:** mřížka ukazuje všechny světy podle abecedy, i ty na jediném putování (dřív jen světy na 2+).
 - **`docs/putovani-plan.md`** přepsaný na aktuální stav: 22 putování, tabulka pokrytí světů, další vlna zatím bez plánu.
@@ -44,7 +44,7 @@ Naposledy aktualizováno: 2026-11-22.
 ## Známá omezení
 
 - **Hledání v textech** neohýbá češtinu: „bůh“ nenajde „boha“. Funguje začátek slova („boh“). Kdyby to vadilo, další krok je jednoduché odřezávání koncovek.
-- **Obsah kroniky:** přeskakování po kliknutí způsobovaly líně načtené obrázky bez rozměrů (2026-11-22 opraveno rozměry z doby sestavení). Kdyby se to vrátilo, zeptat se na svět, kapitolu a zařízení a zkontrolovat, jestli kronika nemá obrázek mimo PNG nebo mimo svou složku (hlídá test `chronicle-images.test.ts`).
+- **Obsah kroniky:** přeskakování po kliknutí způsobovaly líně načtené obrázky bez rozměrů a souboj dorovnávání při rychlém klikání (obojí opraveno 2026-11-22). Při testu klikat rychle za sebou, ne s pauzou: s pauzou se chyba neukáže. Kdyby se to vrátilo, zeptat se na svět, kapitolu a zařízení a zkontrolovat, jestli kronika nemá obrázek mimo PNG nebo mimo svou složku (hlídá test `chronicle-images.test.ts`).
 
 ## Tipy k prostředí (cloud)
 

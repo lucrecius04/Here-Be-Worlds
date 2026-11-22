@@ -56,11 +56,15 @@ type Props = {
 
 /** Zvýraznění v obsahu je během skoku zamčené na cíli (jinak by při dorovnávání blikalo). */
 let jumpLock: { id: string; until: number } | null = null;
+/** Zruší dorovnávání předchozího skoku. Bez toho se při rychlém klikání v obsahu staré a nové
+ *  dorovnávání přetahovaly a stránka skákala tam a zpět mezi kapitolami (opraveno 2026-11-22). */
+let cancelPendingJump: (() => void) | null = null;
 
 function scrollHeadingIntoView(root: HTMLElement | null, id: string) {
   if (!root || !id) return;
   const el = root.querySelector<HTMLElement>(`#${CSS.escape(id)}`);
   if (!el) return;
+  cancelPendingJump?.();
   // Skok rovnou na místo jako u esejí: plynulý posun přes celou kroniku míjel všechny kapitoly.
   el.scrollIntoView({ behavior: 'auto', block: 'start' });
   jumpLock = { id, until: Date.now() + 3200 };
@@ -68,11 +72,20 @@ function scrollHeadingIntoView(root: HTMLElement | null, id: string) {
   // dokud čtenář sám nezačne posouvat.
   let tries = 0;
   let stop = false;
+  let timer = 0;
   const cleanup = () => {
+    window.clearTimeout(timer);
     window.removeEventListener('wheel', abort);
     window.removeEventListener('touchstart', abort);
     window.removeEventListener('keydown', abort);
+    if (cancelPendingJump === cancel) cancelPendingJump = null;
   };
+  // Nový skok jen zastaví toto dorovnávání; zámek zvýraznění si nový skok nastavil sám.
+  const cancel = () => {
+    stop = true;
+    cleanup();
+  };
+  cancelPendingJump = cancel;
   const abort = () => {
     stop = true;
     jumpLock = null;
@@ -91,13 +104,13 @@ function scrollHeadingIntoView(root: HTMLElement | null, id: string) {
       if (Math.abs(off) > 8) target.scrollIntoView({ behavior: 'auto', block: 'start' });
     }
     tries += 1;
-    if (tries < 6) window.setTimeout(settle, 500);
+    if (tries < 6) timer = window.setTimeout(settle, 500);
     else {
       jumpLock = null;
       cleanup();
     }
   };
-  window.setTimeout(settle, 300);
+  timer = window.setTimeout(settle, 300);
 }
 
 function scrollToPercent(root: HTMLElement | null, percent: number, pageFlow = false) {
