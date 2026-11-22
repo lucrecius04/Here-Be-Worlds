@@ -7,6 +7,7 @@ Naposledy aktualizováno: 2026-11-22.
 ## Co se dělalo naposledy (2026-11-21 až 22)
 
 - **O atlasu** má pás hlavičky a začíná stejně vysoko jako ostatní stránky (se souhlasem majitele 2026-11-22).
+- **Mapa souřadnic přestavěná** podle návrhů C a A (majitel vybral C nahoru, A pod něj): Pět pásů s výběrem dvou světů a kartami vpravo, výraznější průměr, Zkřiž dvě souřadnice s Deseti mapami. Stará `AxisGridMap` (příbuznost, „Kde leží tvůj svět“, Atlas dvojic) je pryč. „Otevřít spis“ je všude „Prozkoumat svět“. Majitel chce ještě doladit drobnosti.
 - **Stránka archetypu:** bohatší boxy světů (kronika, studio a vesmír, ústřední dilema, čtyři údaje, témata, odkazy na kroniku a putování).
 - **Obsah kroniky:** přeskakování mělo dvě příčiny. (1) Obrázky bez rozměrů se po skoku dočítaly a odsouvaly text: teď mají `width`/`height` z doby sestavení. (2) Při rychlém klikání (do ~3 s) běželo dorovnávání předchozího skoku dál a táhlo stránku zpět: každý nový skok ho teď zruší (`cancelPendingJump` v `ChronicleReader`). Ověřeno klikáním po 200 ms na počítači i telefonu.
 - **Putování dne:** linka mezi zastávkami je plná, 3 px, v barvách archetypů (i na telefonu).
@@ -22,10 +23,6 @@ Naposledy aktualizováno: 2026-11-22.
   - Linky souhvězdí jsou nejkratší cestou.
   - Náhodný svět má zlatou hvězdu.
 - **Hlavička:** bez odkazu Esej, motiv jedním tlačítkem. Lupa hledá v rejstříku i v plných textech kronik a esejí.
-
-## Rozpracované: nová Mapa souřadnic (2026-11-22)
-
-Majitel považuje mapu za nejslabší stránku webu. Vznikly tři návrhy jako skryté stránky (`noindex`, nic na ně nevede): `/map/navrh/a/` Kartografický list (dvě souřadnice zkřížené, Zápisky kartografa z dat, Deset map), `/map/navrh/b/` Pět poledníků (paralelní souřadnice, filtr klikem na hodnotu), `/map/navrh/c/` Pět pásů (rozložení po hodnotách, profil světa napříč pásy, kosočtverec průměru). Kód `src/components/map-proto/`, `src/styles/map-proto.css`, stránka `src/pages/map/navrh/[variant].astro`. Současná `/map/` zatím beze změny. Po rozhodnutí majitele vybraný návrh převzít do `/map/` (i s EN texty v i18n) a prototypy smazat.
 
 ## Odložené (majitel řekl „později“ / „zatím ne“)
 
