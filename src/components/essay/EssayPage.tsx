@@ -208,6 +208,7 @@ export default function EssayPage({ base, markdown, title, kicker, tagline, worl
 
   return (
     <article className="essay">
+      <div className="essay__top page-band">
       <header className="essay__head">
         {kicker ? <p className="essay__kicker">{kicker}</p> : null}
         <h1 className="essay__title">{title}</h1>
@@ -219,6 +220,7 @@ export default function EssayPage({ base, markdown, title, kicker, tagline, worl
 
       {trail ? <TrailCast worlds={trail.worlds} base={base} locale={locale} /> : null}
       {trail?.themes?.length ? <TrailThemes themes={trail.themes} base={base} locale={locale} /> : null}
+      </div>
 
       <div className="essay-layout">
         <aside className="essay-toc">

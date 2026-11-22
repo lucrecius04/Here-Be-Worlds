@@ -141,7 +141,7 @@ export default function TrailsIndex({ base, trails, worlds, themeLabels }: Props
 
   return (
     <div className="trails-page">
-      <header className="atlas-page__head">
+      <header className="atlas-page__head page-band">
         <h1 className="atlas-page__title display">{uiT('trailsPage.title', locale)}</h1>
         <p className="atlas-page__lead">{uiT('trailsPage.lead', locale)}</p>
       </header>

@@ -409,9 +409,10 @@
   }
 }
 
-/* .site-main má overflow: hidden, což ruší position: sticky. Na této stránce ho nahradí clip. */
-.site-main:has(.essay) {
-  overflow: clip;
+/* Široký obsah eseje nesmí stránku rozšířit; ořez je na body, ne na .site-main,
+   aby pás hlavičky mohl jít přes celou šířku (clip zároveň neruší position: sticky). */
+body:has(.essay) {
+  overflow-x: clip;
 }
 
 /* Světy stezky (eseje ke stezkám, /putovani/<id>/): souřadnice všech světů a seznam světů */
@@ -719,4 +720,15 @@ html[data-theme='dark'] .trail-cast__item {
     gap: 1rem 1.25rem;
     margin-bottom: 2rem;
   }
+}
+
+/* --- pás hlavičky (2026-11-22): nadpis, světy a témata putování na tónovaném pásu --- */
+.essay__top {
+  --band-top: calc(var(--frame-pad-y, 2.5rem) + 0.5rem);
+  margin-bottom: 2.75rem;
+}
+
+.essay__top + .essay-layout {
+  padding-top: 0;
+  border-top: 0;
 }

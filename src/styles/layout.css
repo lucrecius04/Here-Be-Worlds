@@ -747,3 +747,34 @@ body:has(.world-card--page) .site-main {
     font-size: 1.0625rem;
   }
 }
+
+/* ---------- Pás hlavičky stránky (2026-11-22) ----------
+   Vrch stránky (drobečky, nadpis, úvod; u spisu i záložky) leží na tónovaném pásu
+   přes celou šířku jako desky spisu; obsah začíná na papíře. Titulní strana výjimkou.
+   Pás jde od hlavičky webu (horní odsazení .site-main) po spodek prvku. */
+.page-band {
+  --band-top: var(--frame-pad-y, 2.5rem);
+  --band-pad: 2.25rem;
+  position: relative;
+  z-index: 1;
+  margin-top: 0 !important;
+  padding-bottom: var(--band-pad);
+}
+
+.page-band::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: calc(-1 * var(--band-top));
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--color-band);
+  box-shadow: 0 0 0 100vmax var(--color-band);
+  clip-path: inset(0 -100vmax);
+  pointer-events: none;
+}
+
+.page-band > :last-child {
+  margin-bottom: 0;
+}

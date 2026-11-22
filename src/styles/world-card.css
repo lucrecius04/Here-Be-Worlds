@@ -39,12 +39,12 @@ html[data-theme='dark'] .world-card--page {
   padding: 0 var(--gutter);
 }
 
+/* Hlavička spisu leží na tónovaném pásu jako desky spisu (2026-11-22); stažený pruh taky. */
 .world-page__masthead {
   position: relative;
   z-index: 30;
   flex: 0 0 auto;
-  background: var(--color-paper);
-  border-bottom: 1px solid var(--color-line);
+  background: var(--color-band);
 }
 
 .world-page__pane {

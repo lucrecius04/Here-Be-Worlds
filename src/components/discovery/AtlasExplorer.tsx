@@ -210,7 +210,7 @@ export default function AtlasExplorer({
 
   return (
     <>
-    <header className="atlas-page__head">
+    <header className="atlas-page__head page-band">
       <h1 className="atlas-page__title display">{uiT('atlasPage.title', locale)}</h1>
       <p className="atlas-page__lead">
         {uiT('atlasPage.lead', locale)}

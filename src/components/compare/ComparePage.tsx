@@ -362,6 +362,7 @@ export default function ComparePage({ worlds, chapters, themeLabels, axes, base,
 
   return (
     <div className="cmp">
+      <div className="cmp-top page-band">
       <header className="atlas-page__head cmp-head">
         <p className="cmp-head__crumbs">
           <a href={withBase(base, '/atlas/')}>{uiT('nav.atlas', locale)}</a>
@@ -410,6 +411,7 @@ export default function ComparePage({ worlds, chapters, themeLabels, axes, base,
             />
           );
         })}
+      </div>
       </div>
 
       {!ready ? (

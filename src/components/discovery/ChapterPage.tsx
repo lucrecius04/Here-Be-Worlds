@@ -34,7 +34,7 @@ export default function ChapterPage({ id, title, thesis, lead, accent, worlds, b
 
   return (
     <article className="chapter-page" data-chapter={id} style={hueVars}>
-      <header className="chapter-hero">
+      <header className="chapter-hero page-band">
         <div className="chapter-hero__top">
           <p className="chapter-hero__kicker">{uiT('chapterPage.kicker', locale)}</p>
           <a className="chapter-hero__back" href={home}>

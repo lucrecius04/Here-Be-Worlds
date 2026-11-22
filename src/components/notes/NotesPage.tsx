@@ -29,7 +29,7 @@ export default function NotesPage({ base }: Props) {
 
   return (
     <article className="doc notes-page">
-      <header className="doc-head">
+      <header className="doc-head page-band">
         <p className="doc-kicker">{uiT('notes.kicker', locale)}</p>
         <h1 className="doc-title">{uiT('notes.title', locale)}</h1>
         <p className="doc-lead">

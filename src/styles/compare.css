@@ -1264,3 +1264,25 @@ html[data-theme='dark'] .cmp-slot__option {
     padding-right: var(--cmp-pad);
   }
 }
+
+/* --- pás hlavičky: nadpis a spisy světů leží na tónovaném pásu (2026-11-22) --- */
+.cmp-top .cmp-slot.is-filled {
+  background: color-mix(in srgb, var(--slot-hue) var(--cmp-wash), var(--color-band));
+}
+
+/* prázdné okénko je světlejší než pás, aby nesplývalo */
+.cmp-top .cmp-slot.is-empty {
+  background: color-mix(in srgb, var(--slot-hue) calc(var(--cmp-wash) / 3), var(--color-paper));
+}
+
+/* první oddíl pod pásem nepotřebuje linku: hranici dělá pás */
+.cmp-top + .cmp-section,
+.cmp-top + * > .cmp-section:first-of-type {
+  margin-top: 2.75rem;
+}
+
+.cmp-top + .cmp-section > .cmp-section__head,
+.cmp-top + * > .cmp-section:first-of-type > .cmp-section__head {
+  padding-top: 0;
+  border-top: 0;
+}
