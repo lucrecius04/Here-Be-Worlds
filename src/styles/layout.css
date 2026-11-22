@@ -774,6 +774,21 @@ body:has(.world-card--page) .site-main {
   pointer-events: none;
 }
 
+.page-band > :first-child {
+  margin-top: 0;
+}
+
 .page-band > :last-child {
   margin-bottom: 0;
+}
+
+/* Stránky s pásem začínají stejně vysoko jako spis světa (28 px pod hlavičkou, na telefonu 18 px). */
+.site-main:has(.page-band) {
+  --frame-pad-y: 1.75rem;
+}
+
+@media (max-width: 720px), (max-height: 540px) and (pointer: coarse) {
+  .site-main:has(.page-band) {
+    --frame-pad-y: 1.125rem;
+  }
 }

@@ -723,8 +723,11 @@ html[data-theme='dark'] .trail-cast__item {
 }
 
 /* --- pás hlavičky (2026-11-22): nadpis, světy a témata putování na tónovaném pásu --- */
+.essay:has(> .essay__top) {
+  padding-top: 0;
+}
+
 .essay__top {
-  --band-top: calc(var(--frame-pad-y, 2.5rem) + 0.5rem);
   margin-bottom: 2.75rem;
 }
 
