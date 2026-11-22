@@ -104,13 +104,45 @@ function scatter(id: string, count: number, w: number, h: number): Array<[number
 }
 
 /**
- * Klikatá linka přes všechny hvězdy: začne u hvězdy nejvíc vlevo, pokračuje vždy k nejbližší
- * nenavštívené a nakonec se vyrovná (2-opt), aby se úseky nekřížily a linka nebyla zbytečně dlouhá.
+ * Nejkratší možná linka přes všechny hvězdy (otevřená cesta, začít i skončit může kdekoli).
+ * Přesně (Held–Karp) do 16 hvězd, nad tím nejbližší soused + 2-opt. Každá hvězda má nejvýš
+ * dva sousedy a linka se nekříží.
  */
 function windingPath(coords: Array<[number, number]>): number[] {
   const n = coords.length;
-  if (n < 2) return n ? [0] : [];
+  if (n < 3) return coords.map((_, k) => k);
   const d = (a: number, b: number) => Math.hypot(coords[a][0] - coords[b][0], coords[a][1] - coords[b][1]);
+  if (n <= 16) {
+    const full = (1 << n) - 1;
+    const dp = new Float64Array((full + 1) * n).fill(Infinity);
+    const from = new Int8Array((full + 1) * n).fill(-1);
+    for (let j = 0; j < n; j += 1) dp[(1 << j) * n + j] = 0;
+    for (let mask = 1; mask <= full; mask += 1) {
+      for (let j = 0; j < n; j += 1) {
+        const cur = dp[mask * n + j];
+        if (!(mask & (1 << j)) || cur === Infinity) continue;
+        for (let k = 0; k < n; k += 1) {
+          if (mask & (1 << k)) continue;
+          const next = mask | (1 << k);
+          const len = cur + d(j, k);
+          if (len < dp[next * n + k] - 1e-9) {
+            dp[next * n + k] = len;
+            from[next * n + k] = j;
+          }
+        }
+      }
+    }
+    let end = 0;
+    for (let j = 1; j < n; j += 1) if (dp[full * n + j] < dp[full * n + end] - 1e-9) end = j;
+    const order: number[] = [];
+    for (let mask = full, j = end; j >= 0; ) {
+      order.push(j);
+      const prev = from[mask * n + j];
+      mask &= ~(1 << j);
+      j = prev;
+    }
+    return order.reverse();
+  }
   let start = 0;
   coords.forEach((c, k) => {
     if (c[0] < coords[start][0]) start = k;
@@ -126,17 +158,16 @@ function windingPath(coords: Array<[number, number]>): number[] {
     order.push(next);
     left.delete(next);
   }
-  // 2-opt pro otevřenou cestu: otočí úsek, když se tím linka zkrátí (a zbaví křížení).
   for (let pass = 0, improved = true; improved && pass < 30; pass += 1) {
     improved = false;
-    for (let i = 0; i < n - 2; i += 1) {
+    for (let i = -1; i < n - 2; i += 1) {
       for (let j = i + 2; j < n; j += 1) {
-        const a = order[i];
+        const a = i >= 0 ? order[i] : -1;
         const b = order[i + 1];
         const c = order[j];
         const e = j + 1 < n ? order[j + 1] : -1;
-        const before = d(a, b) + (e >= 0 ? d(c, e) : 0);
-        const after = d(a, c) + (e >= 0 ? d(b, e) : 0);
+        const before = (a >= 0 ? d(a, b) : 0) + (e >= 0 ? d(c, e) : 0);
+        const after = (a >= 0 ? d(a, c) : 0) + (e >= 0 ? d(b, e) : 0);
         if (after < before - 0.01) {
           order.splice(i + 1, j - i, ...order.slice(i + 1, j + 1).reverse());
           improved = true;
@@ -196,8 +227,7 @@ function rotationSets(coords: Array<[number, number]>, first: number[], always: 
 
 /** Jak často se na obloze vymění popsané světy (ms). */
 const ROTATE_MS = 5000;
-/** Trasy oblohou: každých pár sekund jiná trojice putování. */
-const ROUTES_MS = 8000;
+
 
 /*
  * Obloha v souřadnicích 1000 × H. Souhvězdí mají pevné počátky (horní a dolní pás).
@@ -277,10 +307,8 @@ export default function HomeIntro({ chapters, worlds = [], journeys = [], base }
   const [phase, setPhase] = useState(0);
   // Putování, jehož trasa je právě nakreslená přes oblohu (najetí na jeho název pod oblohou).
   const [route, setRoute] = useState<string | null>(null);
-  // Trojice pod oblohou se střídá (krok 1 = jiná trojice než Putování dne pod nocí);
-  // stojí, když je kurzor na řádku tras.
-  const [routeStep, setRouteStep] = useState(1);
-  const [routesHover, setRoutesHover] = useState(false);
+  // Trasy oblohou: při každém načtení stránky jiná trojice putování (jiná než Putování dne).
+  const [skyPick, setSkyPick] = useState<string[] | null>(null);
 
   // Popsané světy se po skupinkách střídají pořád; stojí jen při rozsvíceném souhvězdí (kurzor na
   // názvu archetypu), na kartě v pozadí a u čtenáře, který nechce pohyb. Na úzkém a dotykovém
@@ -296,17 +324,15 @@ export default function HomeIntro({ chapters, worlds = [], journeys = [], base }
   }, [litGroup, route]);
 
   useEffect(() => {
-    if (routesHover) return undefined;
-    const still = window.matchMedia('(prefers-reduced-motion: reduce), (hover: none), (max-width: 760px)');
-    if (still.matches) return undefined;
-    const timer = window.setInterval(() => {
-      if (!document.hidden) setRouteStep((value) => value + 1);
-    }, ROUTES_MS);
-    return () => window.clearInterval(timer);
-  }, [routesHover]);
-
-  useEffect(() => {
-    setToday(new Date());
+    const now = new Date();
+    setToday(now);
+    const daily = new Set(dailyTrails(dayNumber(now)).map((tr) => tr.id));
+    const pool = TRAILS.filter((tr) => !daily.has(tr.id)).map((tr) => tr.id);
+    for (let i = pool.length - 1; i > 0; i -= 1) {
+      const k = Math.floor(Math.random() * (i + 1));
+      [pool[i], pool[k]] = [pool[k], pool[i]];
+    }
+    setSkyPick(pool.slice(0, 3));
   }, []);
 
   const chapterById = useMemo(() => Object.fromEntries(chapters.map((c, i) => [c.id, { ...c, index: i }])), [chapters]);
@@ -333,14 +359,15 @@ export default function HomeIntro({ chapters, worlds = [], journeys = [], base }
     info: journeyInfo.get(trail.id),
     members: trail.members.map((id) => byId.get(id)).filter((w): w is (typeof worlds)[number] => Boolean(w)),
   }));
-  // Trasy oblohou: další trojice v pořadí putování, po kroku vždy tři jiná.
-  const skyRoutes = dailyTrails((today ? dayNumber(today) : 0) + routeStep);
+  const skyRoutes = (skyPick ?? []).map((id) => TRAILS.find((tr) => tr.id === id)).filter((tr): tr is (typeof TRAILS)[number] => Boolean(tr));
   // Trasa putování přes oblohu jen při najetí: hvězdy jeho světů v pořadí, v jakém je putování prochází.
   const shownRoute = route;
   const routeTrail = TRAILS.find((tr) => tr.id === shownRoute);
-  const routeStars = routeTrail
+  const routeMembers = routeTrail
     ? routeTrail.members.map((id) => sky.stars.find((st) => st.id === id)).filter((st): st is (typeof sky.stars)[number] => Boolean(st))
     : [];
+  // Trasa vede nejkratší cestou mezi hvězdami světů putování, ne v pořadí seznamu.
+  const routeStars = windingPath(routeMembers.map((st) => [st.x, st.y] as [number, number])).map((k) => routeMembers[k]);
   const routeIds = new Set(route ? routeStars.map((st) => st.id) : []);
   const [featuredTrail, ...otherTrails] = trails;
   const tagline = (info?: JourneyInfo, descKey?: string) =>
@@ -451,13 +478,9 @@ export default function HomeIntro({ chapters, worlds = [], journeys = [], base }
             ))}
           </nav>
           <p className="hp-sky__caption">
-            <span
-              className="hp-sky__routes"
-              onMouseEnter={() => setRoutesHover(true)}
-              onMouseLeave={() => setRoutesHover(false)}
-            >
+            <span className="hp-sky__routes">
               {uiT('home2.skyRoutes', locale)}:{' '}
-              <span className="hp-sky__routes-set" key={routeStep}>
+              <span className="hp-sky__routes-set">
               {skyRoutes.map((trail, i) => (
                 <span key={trail.id}>
                   {i > 0 ? ' · ' : ''}
