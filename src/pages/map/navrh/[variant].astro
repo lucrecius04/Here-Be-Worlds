@@ -1,0 +1,24 @@
+---
+/* Návrhy nové Mapy souřadnic (2026-11-22). Skryté: nic na ně nevede, noindex. Po rozhodnutí majitele smazat. */
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ProtoA from '../../../components/map-proto/ProtoA';
+import ProtoB from '../../../components/map-proto/ProtoB';
+import ProtoC from '../../../components/map-proto/ProtoC';
+import { chapters, worlds } from '../../../lib/worlds';
+
+export function getStaticPaths() {
+  return ['a', 'b', 'c'].map((variant) => ({ params: { variant } }));
+}
+
+const { variant } = Astro.params;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const published = worlds.filter((w) => !w.draft);
+const chapterLite = chapters.map((c) => ({ id: c.id, title: c.title, accent: c.accent }));
+const props = { worlds: published, chapters: chapterLite, base };
+---
+
+<BaseLayout title={`Mapa souřadnic · návrh ${variant!.toUpperCase()} — Here Be Worlds`} noindex>
+  {variant === 'a' ? <ProtoA client:load {...props} /> : null}
+  {variant === 'b' ? <ProtoB client:load {...props} /> : null}
+  {variant === 'c' ? <ProtoC client:load {...props} /> : null}
+</BaseLayout>

@@ -23,6 +23,10 @@ Naposledy aktualizováno: 2026-11-22.
   - Náhodný svět má zlatou hvězdu.
 - **Hlavička:** bez odkazu Esej, motiv jedním tlačítkem. Lupa hledá v rejstříku i v plných textech kronik a esejí.
 
+## Rozpracované: nová Mapa souřadnic (2026-11-22)
+
+Majitel považuje mapu za nejslabší stránku webu. Vznikly tři návrhy jako skryté stránky (`noindex`, nic na ně nevede): `/map/navrh/a/` Kartografický list (dvě souřadnice zkřížené, Zápisky kartografa z dat, Deset map), `/map/navrh/b/` Pět poledníků (paralelní souřadnice, filtr klikem na hodnotu), `/map/navrh/c/` Pět pásů (rozložení po hodnotách, profil světa napříč pásy, kosočtverec průměru). Kód `src/components/map-proto/`, `src/styles/map-proto.css`, stránka `src/pages/map/navrh/[variant].astro`. Současná `/map/` zatím beze změny. Po rozhodnutí majitele vybraný návrh převzít do `/map/` (i s EN texty v i18n) a prototypy smazat.
+
 ## Odložené (majitel řekl „později“ / „zatím ne“)
 
 - **Přepočet indexu příbuznosti.** Pravidlo „ručně spojené dvojice aspoň Blízcí příbuzní“ je zrušené. Majitel chce index ještě někdy promyslet a překalibrovat.
