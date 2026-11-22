@@ -308,6 +308,17 @@ html[data-theme='dark'] .ss-item__dot {
   color: var(--color-ink-muted);
 }
 
+/* Tmavý motiv: ztmavení stejnou nocí by na noční stránce nebylo vidět. Pozadí jde do hluboké
+   tmy a panel je o stupeň světlejší (tón pásu), aby se od stránky pod sebou oddělil. */
+html[data-theme='dark'] .ss__backdrop {
+  background: rgb(2 4 10 / 0.72);
+}
+
+html[data-theme='dark'] .ss__panel {
+  background: var(--color-band);
+  border-bottom-color: color-mix(in srgb, var(--color-ink) 22%, transparent);
+}
+
 @keyframes ss-drop {
   from {
     opacity: 0;
