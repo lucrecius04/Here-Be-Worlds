@@ -6,6 +6,8 @@ Naposledy aktualizováno: 2026-11-22.
 
 ## Co se dělalo naposledy (2026-11-21 až 22)
 
+- **O atlasu** má pás hlavičky a začíná stejně vysoko jako ostatní stránky (se souhlasem majitele 2026-11-22).
+- **`docs/putovani-plan.md`** přepsaný na aktuální stav: 22 putování, tabulka pokrytí světů, další vlna zatím bez plánu.
 - Všech 22 esejí putování je schválených a na webu.
 - **Spis světa:** přestavěná karta (rejstřík Témata · Jak svět vypráví · Klíčoví aktéři), záložka Putování, Příbuzenstvo jen podle indexu. Posun celé stránky se staženým pruhem, na telefonu i počítači.
 - **Kronika:** obálka „Příběh světa …“, sdílený obsah `ReadingToc` a okamžitý skok na kapitolu. Rozečtenost je skrytá.
@@ -26,7 +28,6 @@ Naposledy aktualizováno: 2026-11-22.
 
 ## Čeká na rozhodnutí majitele
 
-- **O atlasu** je chráněná stránka. Nemá pás hlavičky a začíná níž než ostatní (48 px). Srovnat jen s výslovným souhlasem.
 - **Nápady, které padly a nikdo je nerozhodl:**
   - stáhnout hlavičku spisu na telefonu otočeném na šířku;
   - kratší popisek záložky „Anatomie vyprávění“ na telefonu;
@@ -34,7 +35,7 @@ Naposledy aktualizováno: 2026-11-22.
 - **Kontaktní formulář** zatím nic neodesílá (`CONTACT_EMAIL` prázdné). Plán je Web3Forms nebo Formspree s klíčem majitele.
 - **Obrázky k putováním:** jediné místo na webu s obrázky, styl se teprve bude ladit.
 - **Postupné odkrývání světů:** viz `docs/odkryvani.md`.
-- **Další putování a knihy:** viz `docs/putovani-plan.md`.
+- **Další putování a knihy:** další vlna zatím nemá plán. Kandidáti, pokrytí světů a knihy jsou v `docs/putovani-plan.md`.
 
 ## Známá omezení
 
@@ -44,6 +45,6 @@ Naposledy aktualizováno: 2026-11-22.
 ## Tipy k prostředí (cloud)
 
 - **Náhled:** `npm run build`, pak `npx astro preview --port 4321` na pozadí, adresa `http://localhost:4321/Here-Be-Worlds/`.
-- **Kontrola v prohlížeči:** Playwright, skripty si psát do `/tmp`. Živý web jde z cloudu otevřít jen přes cloudový prohlížeč, ne z příkazové řádky.
+- **Kontrola v prohlížeči:** Playwright, skripty si psát do `/tmp`. V repozitáři Playwright není: nainstalovat ho do `/tmp/pw` (`npm i playwright`) a spouštět předinstalovaný Chromium přes `chromium.launch({ executablePath: '/opt/pw-browsers/chromium-1243/chrome-linux64/chrome' })`, protože stahování prohlížečů proxy nepustí (číslo verze ve složce se může lišit, `ls /opt/pw-browsers`). Živý web jde z cloudu otevřít jen přes cloudový prohlížeč, ne z příkazové řádky.
 - **Karty pro sdílení:** Google Fonts v cloudu nejsou, postup s `HBW_OG_FONT_CSS` je v `CLAUDE.md`. Balíčky fontsource se instalují `npm i --no-save` a v nové relaci je potřeba je nainstalovat znovu.
 - **Commit a push:** commit s podpisem podle aktuální relace, pak `git pull --rebase` a `git push origin main`. Push spustí nasazení na GitHub Pages (`gh run list -R lucrecius04/Here-Be-Worlds`).

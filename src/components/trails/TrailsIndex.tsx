@@ -38,7 +38,7 @@ function trailsCount(n: number, locale: Locale) {
 }
 
 /**
- * Stránka /putovani/: rejstřík šestnácti stezek (název, popis, světy s linkou v barvě archetypu,
+ * Stránka /putovani/: rejstřík všech stezek (název, popis, světy s linkou v barvě archetypu,
  * témata eseje, doba čtení), filtr podle světa a tématu a mřížka, kde se stezky kříží.
  */
 export default function TrailsIndex({ base, trails, worlds, themeLabels }: Props) {

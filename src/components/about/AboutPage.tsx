@@ -38,7 +38,7 @@ export default function AboutPage({ base, stats, latest, next }: Props) {
 
   return (
     <article className="doc about-page">
-      <header className="doc-head">
+      <header className="doc-head page-band">
         <h1 className="doc-title">{uiT('about.title', locale)}</h1>
         <p className="doc-lead">{uiT('about.lead', locale)}</p>
       </header>
