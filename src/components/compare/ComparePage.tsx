@@ -640,10 +640,16 @@ export default function ComparePage({ worlds, chapters, themeLabels, axes, base,
             {filled.map((item) => (
               <div key={`links-${item.world.id}`} className="cmp-cell cmp-links__world" style={hueStyle(item.index)}>
                 <span className="cmp-links__name">{worldName(item.world)}</span>
-                <a href={withBase(base, `/worlds/${item.world.id}/`)}>{uiT('compare.openCard', locale)} →</a>
-                <a href={withBase(base, `/worlds/${item.world.id}/?view=chronicle`)}>
-                  {uiT('compare.openChronicle', locale)} →
-                </a>
+                {[
+                  { href: `/worlds/${item.world.id}/`, label: uiT('compare.openCard', locale) },
+                  { href: `/worlds/${item.world.id}/?view=chronicle`, label: uiT('compare.openChronicle', locale) },
+                ].map((link) => (
+                  <a key={link.href} className="cmp-go" href={withBase(base, link.href)}>
+                    <span className="cmp-go__dot" aria-hidden="true" />
+                    <span className="cmp-go__label">{link.label}</span>
+                    <span className="cmp-go__arrow" aria-hidden="true">→</span>
+                  </a>
+                ))}
               </div>
             ))}
           </div>

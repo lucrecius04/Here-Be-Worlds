@@ -1009,17 +1009,78 @@ html[data-theme='dark'] .cmp-slot__option {
   font-weight: 600;
 }
 
-.cmp-links__world a {
+/* Odkazy na spis a kroniku: tečka v barvě srovnání se září (jako hvězda Náhodného světa na titulní
+   straně), název s tečkovanou linkou a šipka; při najetí tečka zazáří a šipka se posune. */
+.cmp-links__world {
+  gap: 0.15rem;
+  padding-bottom: 1rem;
+}
+
+.cmp-links__name {
+  margin-bottom: 0.35rem;
+}
+
+.cmp-go {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 0.6rem;
+  padding: 0.3rem 0;
   font-family: var(--font-sans);
-  font-size: 0.875rem;
-  color: var(--color-accent);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--color-ink);
   text-decoration: none;
 }
 
-.cmp-links__world a:hover,
-.cmp-links__world a:focus-visible {
-  text-decoration: underline;
-  text-underline-offset: 0.2em;
+.cmp-go__dot {
+  flex: none;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: var(--slot-hue);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--slot-hue) 18%, transparent);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.cmp-go__label {
+  padding-bottom: 0.05rem;
+  border-bottom: 1px dotted color-mix(in srgb, var(--slot-hue) 70%, transparent);
+  transition: border-color 0.2s ease;
+}
+
+.cmp-go__arrow {
+  color: var(--slot-hue);
+  transition: transform 0.25s ease;
+}
+
+.cmp-go:hover .cmp-go__dot,
+.cmp-go:focus-visible .cmp-go__dot {
+  transform: scale(1.35);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--slot-hue) 25%, transparent), 0 0 12px 2px color-mix(in srgb, var(--slot-hue) 55%, transparent);
+}
+
+.cmp-go:hover .cmp-go__label,
+.cmp-go:focus-visible .cmp-go__label {
+  border-bottom: 1px solid var(--slot-hue);
+}
+
+.cmp-go:hover .cmp-go__arrow,
+.cmp-go:focus-visible .cmp-go__arrow {
+  transform: translateX(0.25rem);
+}
+
+.cmp-go:focus-visible {
+  outline: 1px solid var(--slot-hue);
+  outline-offset: 0.25rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cmp-go__dot,
+  .cmp-go__label,
+  .cmp-go__arrow {
+    transition: none;
+  }
 }
 
 /* --- střední šířka: užší sloupec popisků ----------------------------------------------- */
