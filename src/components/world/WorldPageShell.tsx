@@ -46,6 +46,8 @@ export default function WorldPageShell({
   const [chronicleLoading, setChronicleLoading] = useState(false);
   const [analysisAnchor, setAnalysisAnchor] = useState<TriadAnchor | null>(null);
   const [resume, setResume] = useState(false);
+  // Kotva z adresy (#kapitola) — odkaz z hledání vede přímo na oddíl kroniky.
+  const [hashTarget, setHashTarget] = useState<string | null>(null);
   const pageFlow = usePageFlow();
   const barHides = useMediaQuery(BAR_HIDES_QUERY);
   const mastheadRef = useRef<HTMLDivElement>(null);
@@ -61,6 +63,13 @@ export default function WorldPageShell({
       setMode(view);
     }
     if (params.get('resume') === '1') setResume(true);
+    const readHash = () => {
+      const id = decodeURIComponent(window.location.hash.replace(/^#/, ''));
+      setHashTarget(id || null);
+    };
+    readHash();
+    window.addEventListener('hashchange', readHash);
+    return () => window.removeEventListener('hashchange', readHash);
   }, []);
 
   useEffect(() => {
@@ -243,6 +252,11 @@ export default function WorldPageShell({
                     className={`wp-tab${mode === tab.id ? ' is-active' : ''}`}
                     onClick={() => {
                       setAnalysisAnchor(null);
+                      // kotva z odkazu platí jen pro první otevření, ne pro přepnutí záložky
+                      if (hashTarget) {
+                        setHashTarget(null);
+                        history.replaceState(null, '', window.location.pathname + window.location.search);
+                      }
                       if (tab.id !== 'card' && tab.id !== 'journeys' && chronicle === null) setChronicleLoading(true);
                       setMode(tab.id);
                       if (pageFlow) window.scrollTo({ top: 0 });
@@ -299,7 +313,8 @@ export default function WorldPageShell({
             coverRange={chronicle.coverRange}
             worldId={world.id}
             worldTitle={world.gameTitle}
-            resumeOnMount={resume}
+            resumeOnMount={resume && !hashTarget}
+            scrollToId={hashTarget}
           />
         ) : mode === 'appendices' ? (
           parts.appendices ? (
@@ -308,6 +323,7 @@ export default function WorldPageShell({
               variant="appendices"
               showToc={false}
               showCover={false}
+              scrollToId={hashTarget}
             />
           ) : (
             missing
@@ -319,7 +335,7 @@ export default function WorldPageShell({
             showToc={false}
             showCover={false}
             scrollToId={
-              analysisAnchor ? findAnalysisHeadingId(parts.analysis, analysisAnchor) : null
+              analysisAnchor ? findAnalysisHeadingId(parts.analysis, analysisAnchor) : hashTarget
             }
           />
         ) : (

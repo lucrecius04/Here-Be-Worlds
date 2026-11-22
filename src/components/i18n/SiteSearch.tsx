@@ -13,7 +13,11 @@ import {
   type SearchKind,
   type SiteIndex,
 } from '../../lib/site-search';
+import { searchTexts, wantsTextSearch, type TextHit } from '../../lib/text-search';
 import '../../styles/site-search.css';
+
+const TEXT_LIMIT = 5;
+const TEXT_MAX = 30;
 
 type Props = { base: string };
 
@@ -40,6 +44,8 @@ type Row = {
   href: string;
   group: string;
   entry?: SearchEntry;
+  /** Výsledek z plných textů (kronika, esej). */
+  text?: TextHit;
   /** Vlastní obsah řádku (srovnání, náhodný svět). */
   label?: ReactNode;
   sub?: string;
@@ -79,6 +85,9 @@ export default function SiteSearch({ base }: Props) {
   const buttonRef = useRef<HTMLButtonElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
+  // Plné texty: hledá se zvlášť (načítá kousky rejstříku), s malým zpožděním po psaní.
+  const [texts, setTexts] = useState<{ q: string; status: 'loading' | 'ready' | 'error'; total: number; hits: TextHit[] } | null>(null);
+  const [textLimit, setTextLimit] = useState(TEXT_LIMIT);
 
   useEffect(() => setMounted(true), []);
 
@@ -135,6 +144,27 @@ export default function SiteSearch({ base }: Props) {
     };
   }, [open]);
 
+  useEffect(() => setTextLimit(TEXT_LIMIT), [query]);
+
+  useEffect(() => {
+    const q = query.trim();
+    if (!open || !wantsTextSearch(q)) {
+      setTexts(null);
+      return undefined;
+    }
+    let live = true;
+    setTexts((prev) => (prev ? { ...prev, status: 'loading' } : { q, status: 'loading', total: 0, hits: [] }));
+    const timer = window.setTimeout(() => {
+      searchTexts(base, q, textLimit)
+        .then((r) => live && setTexts({ q, status: 'ready', total: r.total, hits: r.hits }))
+        .catch(() => live && setTexts({ q, status: 'error', total: 0, hits: [] }));
+    }, 160);
+    return () => {
+      live = false;
+      window.clearTimeout(timer);
+    };
+  }, [query, open, base, textLimit]);
+
   const groups = useMemo(() => (data && query.trim() ? searchSite(data.index, query) : []), [data, query]);
   const pair = useMemo(() => (data && query.trim() ? comparePair(data.index, query) : null), [data, query]);
 
@@ -156,6 +186,7 @@ export default function SiteSearch({ base }: Props) {
         });
       }
       for (const g of groups) for (const e of g.items) out.push({ key: `${e.kind}:${e.id}`, group: e.kind, href: e.href, entry: e });
+      if (texts && texts.q === query.trim()) for (const hit of texts.hits) out.push({ key: hit.key, group: 'text', href: hit.href, text: hit });
       return out;
     }
     // Prázdné pole: naposledy otevřené spisy, archetypy, náhodný svět.
@@ -181,7 +212,7 @@ export default function SiteSearch({ base }: Props) {
       },
     });
     return out;
-  }, [data, query, groups, pair, locale, base]);
+  }, [data, query, groups, pair, locale, base, texts]);
 
   useEffect(() => setActive(0), [query, open]);
 
@@ -234,7 +265,14 @@ export default function SiteSearch({ base }: Props) {
   });
 
   const q = query.trim();
-  const nothing = Boolean(q) && status === 'ready' && rows.length === 0;
+  const textsBusy = Boolean(texts && texts.status === 'loading');
+  const nothing = Boolean(q) && status === 'ready' && rows.length === 0 && !textsBusy;
+  const partLabel = (hit: TextHit) =>
+    hit.doc.kind === 'page'
+      ? ''
+      : hit.part === 'essay'
+        ? uiT('siteSearch.essay', locale)
+        : uiT(hit.part === 'chronicle' ? 'world.viewChronicle' : hit.part === 'appendices' ? 'world.viewAppendices' : 'world.viewAnalysis', locale);
   const totals = new Map<SearchKind, number>(groups.map((g) => [g.kind, g.total]));
 
   const panel = open ? (
@@ -279,7 +317,11 @@ export default function SiteSearch({ base }: Props) {
               <section key={section.group} className="ss-group">
                 <h2 className="ss-group__label">
                   {groupLabel(section.group)}
-                  {totals.get(section.group as SearchKind) && totals.get(section.group as SearchKind)! > section.rows.length ? (
+                  {section.group === 'text' && texts && texts.total > section.rows.length ? (
+                    <span className="ss-group__count">
+                      {section.rows.length} / {texts.total}
+                    </span>
+                  ) : totals.get(section.group as SearchKind) && totals.get(section.group as SearchKind)! > section.rows.length ? (
                     <span className="ss-group__count">
                       {section.rows.length} / {totals.get(section.group as SearchKind)}
                     </span>
@@ -287,6 +329,33 @@ export default function SiteSearch({ base }: Props) {
                 </h2>
                 <ul className="ss-group__list">
                   {section.rows.map((row) => {
+                    if (row.text) {
+                      const hit = row.text;
+                      const tHue = hit.doc.hue ? ({ '--hue-l': hit.doc.hue.light, '--hue-d': hit.doc.hue.dark } as CSSProperties) : undefined;
+                      const where = [partLabel(hit), hit.place].filter(Boolean).join(' · ');
+                      return (
+                        <li key={row.key} className="ss-group__row">
+                          <a
+                            id={`ss-${row.key}`}
+                            role="option"
+                            aria-selected={row.index === active}
+                            className={`ss-item ss-item--text${row.index === active ? ' is-active' : ''}${tHue ? ' has-hue' : ''}`}
+                            href={withBase(base, row.href)}
+                            style={tHue}
+                            onMouseMove={() => row.index !== active && setActive(row.index)}
+                          >
+                            <span className="ss-text__head">
+                              {tHue ? <i className="ss-item__dot" aria-hidden="true" /> : null}
+                              <span className="ss-item__title">{pick(hit.doc.title, locale)}</span>
+                              {where ? <span className="ss-text__where">{where}</span> : null}
+                            </span>
+                            <span className="ss-text__snippet">
+                              <Highlight text={hit.snippet} query={q} />
+                            </span>
+                          </a>
+                        </li>
+                      );
+                    }
                     const e = row.entry;
                     const sub = e ? subOf(e) : row.sub;
                     const hue = e?.hue ? ({ '--hue-l': e.hue.light, '--hue-d': e.hue.dark } as CSSProperties) : undefined;
@@ -326,8 +395,25 @@ export default function SiteSearch({ base }: Props) {
                     );
                   })}
                 </ul>
+                {section.group === 'text' && texts && texts.total > section.rows.length ? (
+                  textLimit < TEXT_MAX ? (
+                    <button type="button" className="ss-more" onClick={() => setTextLimit(TEXT_MAX)}>
+                      {uiT('siteSearch.textMore', locale).replace('{n}', String(texts.total))}
+                    </button>
+                  ) : (
+                    <p className="ss-more ss-more--note">
+                      {uiT('siteSearch.textCapped', locale)
+                        .replace('{shown}', String(section.rows.length))
+                        .replace('{n}', String(texts.total))}
+                    </p>
+                  )
+                ) : null}
               </section>
             ))}
+
+            {textsBusy && !rows.some((r) => r.group === 'text') ? (
+              <p className="ss__note ss__note--texts">{uiT('siteSearch.textLoading', locale)}</p>
+            ) : null}
 
             {q && status === 'ready' ? (
               <p className="ss__atlas">
