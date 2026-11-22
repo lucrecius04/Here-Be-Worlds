@@ -196,6 +196,8 @@ function rotationSets(coords: Array<[number, number]>, first: number[], always: 
 
 /** Jak často se na obloze vymění popsané světy (ms). */
 const ROTATE_MS = 5000;
+/** Trasy oblohou: každých pár sekund jiná trojice putování. */
+const ROUTES_MS = 8000;
 
 /*
  * Obloha v souřadnicích 1000 × H. Souhvězdí mají pevné počátky (horní a dolní pás).
@@ -275,6 +277,10 @@ export default function HomeIntro({ chapters, worlds = [], journeys = [], base }
   const [phase, setPhase] = useState(0);
   // Putování, jehož trasa je právě nakreslená přes oblohu (najetí na jeho název pod oblohou).
   const [route, setRoute] = useState<string | null>(null);
+  // Trojice pod oblohou se střídá (krok 1 = jiná trojice než Putování dne pod nocí);
+  // stojí, když je kurzor na řádku tras.
+  const [routeStep, setRouteStep] = useState(1);
+  const [routesHover, setRoutesHover] = useState(false);
 
   // Popsané světy se po skupinkách střídají pořád; stojí jen při rozsvíceném souhvězdí (kurzor na
   // názvu archetypu), na kartě v pozadí a u čtenáře, který nechce pohyb. Na úzkém a dotykovém
@@ -288,6 +294,16 @@ export default function HomeIntro({ chapters, worlds = [], journeys = [], base }
     }, ROTATE_MS);
     return () => window.clearInterval(timer);
   }, [litGroup, route]);
+
+  useEffect(() => {
+    if (routesHover) return undefined;
+    const still = window.matchMedia('(prefers-reduced-motion: reduce), (hover: none), (max-width: 760px)');
+    if (still.matches) return undefined;
+    const timer = window.setInterval(() => {
+      if (!document.hidden) setRouteStep((value) => value + 1);
+    }, ROUTES_MS);
+    return () => window.clearInterval(timer);
+  }, [routesHover]);
 
   useEffect(() => {
     setToday(new Date());
@@ -317,8 +333,10 @@ export default function HomeIntro({ chapters, worlds = [], journeys = [], base }
     info: journeyInfo.get(trail.id),
     members: trail.members.map((id) => byId.get(id)).filter((w): w is (typeof worlds)[number] => Boolean(w)),
   }));
-  // Trasa putování přes oblohu: hvězdy jeho světů v pořadí, v jakém je putování prochází.
-  const shownRoute = route ?? trails[0]?.trail.id ?? null;
+  // Trasy oblohou: další trojice v pořadí putování, po kroku vždy tři jiná.
+  const skyRoutes = dailyTrails((today ? dayNumber(today) : 0) + routeStep);
+  // Trasa putování přes oblohu jen při najetí: hvězdy jeho světů v pořadí, v jakém je putování prochází.
+  const shownRoute = route;
   const routeTrail = TRAILS.find((tr) => tr.id === shownRoute);
   const routeStars = routeTrail
     ? routeTrail.members.map((id) => sky.stars.find((st) => st.id === id)).filter((st): st is (typeof sky.stars)[number] => Boolean(st))
@@ -433,9 +451,14 @@ export default function HomeIntro({ chapters, worlds = [], journeys = [], base }
             ))}
           </nav>
           <p className="hp-sky__caption">
-            <span className="hp-sky__routes">
+            <span
+              className="hp-sky__routes"
+              onMouseEnter={() => setRoutesHover(true)}
+              onMouseLeave={() => setRoutesHover(false)}
+            >
               {uiT('home2.skyRoutes', locale)}:{' '}
-              {trails.map(({ trail }, i) => (
+              <span className="hp-sky__routes-set" key={routeStep}>
+              {skyRoutes.map((trail, i) => (
                 <span key={trail.id}>
                   {i > 0 ? ' · ' : ''}
                   <a
@@ -450,6 +473,7 @@ export default function HomeIntro({ chapters, worlds = [], journeys = [], base }
                   </a>
                 </span>
               ))}
+              </span>
             </span>
             {latest ? (
               <span>
