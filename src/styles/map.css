@@ -557,12 +557,12 @@ html[data-theme='dark'] .cm [style*='--c-l'] {
   display: flex;
   flex-wrap: wrap;
   align-items: end;
-  gap: 1rem 2.5rem;
+  gap: 1rem 1.75rem;
   margin-bottom: 1.25rem;
 }
 
 .cm-cross__controls .cm-field {
-  width: min(100%, 19rem);
+  width: min(100%, 17rem);
 }
 
 .cm-swap {

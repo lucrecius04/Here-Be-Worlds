@@ -389,7 +389,6 @@ export default function CoordinateMap({ worlds, chapters, themeLabels, base }: P
             <>
               {pickedSlots.map(({ w, slot }) => {
                 const facts: Array<[string, string]> = [
-                  ['map.subgenre', t(w.metadata.genreProfile, locale)],
                   ['card.atmosphere', t(w.metadata.atmosphere, locale)],
                   ['card.spatialScope', t(w.metadata.spatialScope, locale)],
                   ['card.societalOrder', t(w.metadata.societalOrder, locale)],
@@ -401,7 +400,11 @@ export default function CoordinateMap({ worlds, chapters, themeLabels, base }: P
                     key={w.id}
                     style={{ ...hueVars(w.chapterId), '--slot': SLOT_COLORS[slot] } as CSSProperties}
                   >
-                    <p className="cm-kicker cm-kicker--hue">{t(chapterById[w.chapterId]?.title ?? { en: '' }, locale)}</p>
+                    <p className="cm-kicker cm-kicker--hue">
+                      {[t(chapterById[w.chapterId]?.title ?? { en: '' }, locale), t(w.metadata.genreProfile, locale)]
+                        .filter(Boolean)
+                        .join(' · ')}
+                    </p>
                     <h2 className="cm-card__title">{t(w.gameTitle, locale)}</h2>
                     <dl className="cm-card__facts">
                       {facts
@@ -464,6 +467,11 @@ export default function CoordinateMap({ worlds, chapters, themeLabels, base }: P
             <button type="button" className="cm-link cm-swap" onClick={() => setAxis('x', yi)}>
               {uiT('map.swap', locale)}
             </button>
+            {picks.length || focus ? (
+              <button type="button" className="cm-link cm-swap" onClick={clearAll}>
+                {uiT('map.clearAll', locale)}
+              </button>
+            ) : null}
           </div>
           {legend}
 
