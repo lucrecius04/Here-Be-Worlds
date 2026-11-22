@@ -152,12 +152,11 @@ body:has(.world-card--page) {
   color: #f6f0e6;
 }
 
+/* Jedno tlačítko motivu (2026-11-22): vidět je jen druhý motiv, klik na něj přepne. */
 html[data-theme='light'] .theme-switch__btn[data-theme-pick='light'],
 html:not([data-theme]) .theme-switch__btn[data-theme-pick='light'],
 html[data-theme='dark'] .theme-switch__btn[data-theme-pick='dark'] {
-  color: #f6f0e6;
-  background: rgb(255 255 255 / 0.1);
-  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.18);
+  display: none;
 }
 
 .theme-switch__icon {
