@@ -4,6 +4,7 @@ import { uiT } from '../../lib/i18n';
 import { withBase } from '../../lib/base-url';
 import LanguageSwitcher from './LanguageSwitcher';
 import ThemeSwitcher from './ThemeSwitcher';
+import SiteSearch from './SiteSearch';
 import BrandMark, { Wordmark } from './BrandMark';
 
 type Props = { base: string };
@@ -61,6 +62,7 @@ export default function SiteHeader({ base }: Props) {
           </nav>
           <LanguageSwitcher />
         </div>
+        <SiteSearch base={base} />
         <ThemeSwitcher />
         <button
           type="button"

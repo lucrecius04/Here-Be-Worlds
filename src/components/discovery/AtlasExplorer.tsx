@@ -80,6 +80,9 @@ export default function AtlasExplorer({
   // Odkazy z titulní strany a z karet světa: /atlas/?theme=… a /atlas/?trail=…
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
+    // Z hledání v hlavičce („Hledat … v atlasu“): dotaz rovnou do pole katalogu.
+    const queryParam = params.get('q');
+    if (queryParam) setQuery(queryParam);
     const themeParam = params.get('theme');
     if (themeParam && themeLabels[themeParam]) setTheme(themeParam);
     const trailParam = params.get('trail');
@@ -90,7 +93,7 @@ export default function AtlasExplorer({
         document.getElementById('catalog-results')?.scrollIntoView({ block: 'start' }),
       );
     }
-    if (themeParam || trailParam) {
+    if (themeParam || trailParam || queryParam) {
       requestAnimationFrame(() =>
         document.getElementById('catalog-results')?.scrollIntoView({ block: 'start' }),
       );
