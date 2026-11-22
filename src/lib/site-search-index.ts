@@ -83,6 +83,16 @@ export function buildSearchEntries(): SearchEntry[] {
     });
   }
 
+  // Zkratky, kterými lidé archetypy hledají (všechny archetypy mají navíc slovo „archetyp“).
+  const chapterAliases: Record<string, string> = {
+    fantasy: 'fantasy fantazy',
+    'science-fiction': 'scifi sci-fi sf vědecká',
+    'post-apocalypse': 'postapo post-apo postapokalyptický apokalypsa',
+    horror: 'horor horror hrůza',
+    dystopia: 'dystopie dystopický utopie',
+    historical: 'historie historický alternativní alternate',
+    metaphysical: 'metafyzika metafyzický experimentální experimental',
+  };
   for (const c of chapters) {
     entries.push({
       kind: 'chapter',
@@ -91,7 +101,7 @@ export function buildSearchEntries(): SearchEntry[] {
       sub: loc(c.thesis),
       href: `/chapters/${c.id}/`,
       hue: c.accent,
-      keys: [c.title.en, c.title.cs, 'archetyp archetype'].filter(Boolean).join(' · '),
+      keys: [c.title.en, c.title.cs, chapterAliases[c.id], 'archetyp archetype'].filter(Boolean).join(' · '),
     });
   }
 

@@ -27,6 +27,22 @@ describe('hledání v hlavičce', () => {
     expect(top('mapa', 'page')).toBe('map');
   });
 
+  it('archetypy: všech sedm v pořadí atlasu, zkratky a upřesnění', () => {
+    const ids = (q: string) => searchSite(index, q).find((g) => g.kind === 'chapter')?.items.map((e) => e.id) ?? [];
+    expect(ids('arche')).toEqual([
+      'fantasy',
+      'science-fiction',
+      'post-apocalypse',
+      'horror',
+      'dystopia',
+      'historical',
+      'metaphysical',
+    ]);
+    expect(ids('scifi')[0]).toBe('science-fiction');
+    expect(ids('postapo')[0]).toBe('post-apocalypse');
+    expect(ids('archetyp dystopie')).toEqual(['dystopia']);
+  });
+
   it('nabídne srovnání, když dotaz jmenuje dva světy', () => {
     const pair = comparePair(index, 'dark souls elden ring');
     expect(pair?.map((e) => e.id)).toEqual(['dark-souls', 'elden-ring']);

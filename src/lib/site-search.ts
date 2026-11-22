@@ -30,17 +30,18 @@ export const SEARCH_GROUPS: { kind: SearchKind; limit: number }[] = [
   { kind: 'world', limit: 5 },
   { kind: 'trail', limit: 3 },
   { kind: 'theme', limit: 3 },
-  { kind: 'chapter', limit: 2 },
+  { kind: 'chapter', limit: 7 }, // archetypů je jen sedm: ukázat všechny, které sedí
   { kind: 'term', limit: 3 },
   { kind: 'page', limit: 3 },
 ];
 
 type Doc = { key: string; kind: SearchKind; titleCs: string; titleEn: string; sub: string; keys: string };
 
-export type SiteIndex = { mini: MiniSearch<Doc>; byKey: Map<string, SearchEntry> };
+export type SiteIndex = { mini: MiniSearch<Doc>; byKey: Map<string, SearchEntry>; order: Map<string, number> };
 
 export function createSiteIndex(entries: SearchEntry[]): SiteIndex {
   const byKey = new Map(entries.map((e) => [`${e.kind}:${e.id}`, e]));
+  const order = new Map(entries.map((e, i) => [`${e.kind}:${e.id}`, i]));
   const mini = new MiniSearch<Doc>({
     idField: 'key',
     fields: ['titleCs', 'titleEn', 'sub', 'keys'],
@@ -59,7 +60,7 @@ export function createSiteIndex(entries: SearchEntry[]): SiteIndex {
       keys: e.keys,
     })),
   );
-  return { mini, byKey };
+  return { mini, byKey, order };
 }
 
 export type SearchGroup = { kind: SearchKind; items: SearchEntry[]; total: number };
@@ -78,6 +79,10 @@ export function searchSite(index: SiteIndex, query: string): SearchGroup[] {
   }
   return SEARCH_GROUPS.filter((g) => groups.has(g.kind)).map((g) => {
     const list = groups.get(g.kind)!;
+    // archetypy v pořadí atlasu (jinak by kratší názvy vyhrávaly jen délkou textu)
+    if (g.kind === 'chapter') {
+      list.sort((a, b) => (index.order.get(`chapter:${a.id}`) ?? 0) - (index.order.get(`chapter:${b.id}`) ?? 0));
+    }
     return { kind: g.kind, items: list.slice(0, g.limit), total: list.length };
   });
 }
