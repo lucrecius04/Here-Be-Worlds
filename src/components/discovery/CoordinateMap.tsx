@@ -11,11 +11,12 @@ import axesMeta from '../../../data/meta/axes.json';
  * Mapa souřadnic (přestavba 2026-11-22, podle návrhů C a A schválených majitelem).
  *
  * 1. Pět pásů: každá souřadnice je pás s pěti sloupci (hodnoty 1–5), světy jako čtverečky v barvě
- *    archetypu. Kosočtverec = průměr atlasu (s vybraným archetypem i jeho průměr). Klik vybere svět
- *    (nejvýš dva, v barvách srovnání) a jeho čtverečky spojí linka: profil napříč pásy.
+ *    archetypu, každý sloupec je samostatná přihrádka. Kosočtverec = průměr atlasu (s vybraným archetypem
+ *    i jeho průměr). Dvě pevná místa Svět 1 / Svět 2 (barvy srovnání): klik na čtvereček zaplní první
+ *    volné, plná obě → vymění Svět 2; v polích nahoře jde každé místo změnit zvlášť. Čtverečky vybraných
+ *    světů spojí linka: profil napříč pásy. Vybrané světy se archetypem nikdy neztlumí.
  * 2. Zkřiž dvě souřadnice: mřížka 5 × 5 pro zvolenou dvojici, pod ní Deset map (všechny dvojice).
- * Vpravo panel vybraných světů přes obě části. Příbuznost se tu nepočítá (je ve Srovnání);
- * „Deset map“ jen popisuje souvislost dvou souřadnic slovy (Pearsonův koeficient, bez čísel).
+ * Vpravo panel vybraných světů přes obě části. Příbuznost se tu nepočítá (je ve Srovnání).
  */
 
 type ChapterLite = {
@@ -44,26 +45,6 @@ const pole = (key: AxisKey, side: 'left' | 'right', locale: Locale) => t(meta(ke
 const val = (w: World, key: AxisKey) => w.axes[key].value;
 const fmt = (n: number, locale: Locale) => n.toFixed(1).replace('.', locale === 'cs' ? ',' : '.');
 
-function pearson(xs: number[], ys: number[]): number {
-  const n = xs.length;
-  const mx = xs.reduce((a, b) => a + b, 0) / n;
-  const my = ys.reduce((a, b) => a + b, 0) / n;
-  let sxy = 0;
-  let sxx = 0;
-  let syy = 0;
-  for (let i = 0; i < n; i++) {
-    sxy += (xs[i] - mx) * (ys[i] - my);
-    sxx += (xs[i] - mx) ** 2;
-    syy += (ys[i] - my) ** 2;
-  }
-  return sxx && syy ? sxy / Math.sqrt(sxx * syy) : 0;
-}
-
-const strengthLevel = (r: number) => {
-  const a = Math.abs(r);
-  return a >= 0.5 ? 3 : a >= 0.3 ? 2 : a >= 0.15 ? 1 : 0;
-};
-
 const average = (list: World[], key: AxisKey) => list.reduce((s, w) => s + val(w, key), 0) / Math.max(1, list.length);
 /** Poloha hodnoty 1–5 v procentech šířky pěti stejných sloupců. */
 const pct = (v: number) => ((v - 0.5) / 5) * 100;
@@ -72,7 +53,7 @@ type Pt = { x: number; y: number };
 
 export default function CoordinateMap({ worlds, chapters, themeLabels, base }: Props) {
   const locale = useLocale();
-  const [picks, setPicks] = useState<string[]>([]);
+  const [slots, setSlots] = useState<(string | null)[]>([null, null]);
   const [hover, setHover] = useState<string | null>(null);
   const [focus, setFocus] = useState('');
   const [xi, setXi] = useState(0);
@@ -94,8 +75,8 @@ export default function CoordinateMap({ worlds, chapters, themeLabels, base }: P
   /* Stav v adrese: ?svet=a,b&x=…&y=… (spis světa odkazuje na /map/?svet=<id>). */
   useEffect(() => {
     const p = new URLSearchParams(window.location.search);
-    const ids = (p.get('svet') ?? '').split(',').filter((id) => byId[id]).slice(0, 2);
-    if (ids.length) setPicks(ids);
+    const ids = (p.get('svet') ?? '').split(',').slice(0, 2).map((id) => (byId[id] ? id : null));
+    if (ids.some(Boolean)) setSlots([ids[0] ?? null, ids[1] ?? null]);
     const ix = AXIS_KEYS.indexOf(p.get('x') as AxisKey);
     const iy = AXIS_KEYS.indexOf(p.get('y') as AxisKey);
     if (ix >= 0) setXi(ix);
@@ -105,18 +86,33 @@ export default function CoordinateMap({ worlds, chapters, themeLabels, base }: P
   useEffect(() => {
     if (!ready.current) return;
     const p = new URLSearchParams(window.location.search);
-    if (picks.length) p.set('svet', picks.join(','));
+    if (slots.some(Boolean)) p.set('svet', slots.map((x) => x ?? '').join(','));
     else p.delete('svet');
     p.set('x', ax);
     p.set('y', ay);
     window.history.replaceState(null, '', `${window.location.pathname}?${p.toString()}`);
-  }, [picks, ax, ay]);
+  }, [slots, ax, ay]);
 
   useEffect(() => setOpenCell(null), [xi, yi]);
 
+  /* Klik na svět: vybraný zruší, jinak zaplní první volné místo; plná obě → vymění Svět 2. */
   const togglePick = (id: string) =>
-    setPicks((cur) => (cur.includes(id) ? cur.filter((x) => x !== id) : [...cur, id].slice(-2)));
-  const slotOf = (id: string) => picks.indexOf(id);
+    setSlots((cur) => {
+      if (cur.includes(id)) return cur.map((x) => (x === id ? null : x));
+      if (!cur[0]) return [id, cur[1]];
+      if (!cur[1]) return [cur[0], id];
+      return [cur[0], id];
+    });
+  const setSlot = (slot: number, id: string | null) =>
+    setSlots((cur) => cur.map((x, i) => (i === slot ? id : x === id ? null : x)));
+  const clearAll = () => {
+    setSlots([null, null]);
+    setFocus('');
+    setHover(null);
+    setTip(null);
+  };
+  const picks = useMemo(() => slots.filter((x): x is string => Boolean(x)), [slots]);
+  const slotOf = (id: string) => slots.indexOf(id);
   const hueVars = (chapterId: string) => {
     const c = chapterById[chapterId];
     return { '--c-l': c?.accent.light ?? '#888', '--c-d': c?.accent.dark ?? '#aaa' } as CSSProperties;
@@ -180,16 +176,12 @@ export default function CoordinateMap({ worlds, chapters, themeLabels, base }: P
   }, [sorted, ax, ay]);
 
   const pairs = useMemo(() => {
-    const out: Array<{ i: number; j: number; counts: number[][]; r: number }> = [];
+    const out: Array<{ i: number; j: number; counts: number[][] }> = [];
     for (let i = 0; i < 5; i++)
       for (let j = i + 1; j < 5; j++) {
         const counts = [0, 1, 2, 3, 4].map(() => [0, 0, 0, 0, 0]);
         for (const w of worlds) counts[val(w, AXIS_KEYS[i]) - 1][val(w, AXIS_KEYS[j]) - 1]++;
-        const r = pearson(
-          worlds.map((w) => val(w, AXIS_KEYS[i])),
-          worlds.map((w) => val(w, AXIS_KEYS[j])),
-        );
-        out.push({ i, j, counts, r });
+        out.push({ i, j, counts });
       }
     return out;
   }, [worlds]);
@@ -229,7 +221,7 @@ export default function CoordinateMap({ worlds, chapters, themeLabels, base }: P
       <button
         key={w.id}
         type="button"
-        className={['cm-gw', slot >= 0 ? 'is-pick' : '', focus && w.chapterId !== focus ? 'is-dim' : ''].filter(Boolean).join(' ')}
+        className={['cm-gw', slot >= 0 ? 'is-pick' : '', slot < 0 && focus && w.chapterId !== focus ? 'is-dim' : ''].filter(Boolean).join(' ')}
         style={worldVars(w)}
         aria-pressed={slot >= 0}
         title={t(w.gameTitle, locale)}
@@ -241,7 +233,10 @@ export default function CoordinateMap({ worlds, chapters, themeLabels, base }: P
     );
   };
 
-  const pickedWorlds = picks.map((id) => byId[id]).filter(Boolean);
+  const pickedSlots = slots
+    .map((id, slot) => (id && byId[id] ? { w: byId[id], slot } : null))
+    .filter((x): x is { w: World; slot: number } => Boolean(x));
+  const worldOptions = [...worlds].sort((a, b) => t(a.gameTitle, locale).localeCompare(t(b.gameTitle, locale), locale));
   const active = picks.length > 0 || Boolean(hover);
 
   return (
@@ -256,42 +251,39 @@ export default function CoordinateMap({ worlds, chapters, themeLabels, base }: P
         <section className="cm-bands" aria-label={uiT('map.title', locale)}>
           <div className="cm-tools">
             {legend}
-            <label className="cm-field cm-find">
-              <span>{uiT('map.findWorld', locale)}</span>
-              <select
-                value=""
-                onChange={(e) => {
-                  if (e.target.value) togglePick(e.target.value);
-                }}
-              >
-                <option value="">—</option>
-                {[...worlds]
-                  .sort((a, b) => t(a.gameTitle, locale).localeCompare(t(b.gameTitle, locale), locale))
-                  .map((w) => (
-                    <option key={w.id} value={w.id}>
-                      {t(w.gameTitle, locale)}
-                    </option>
-                  ))}
-              </select>
-            </label>
+            <div className="cm-picks">
+              {[0, 1].map((slot) => (
+                <label key={slot} className="cm-field cm-find" style={{ '--slot': SLOT_COLORS[slot] } as CSSProperties}>
+                  <span>
+                    <i aria-hidden="true" />
+                    {uiT(slot === 0 ? 'map.world1' : 'map.world2', locale)}
+                  </span>
+                  <select value={slots[slot] ?? ''} onChange={(e) => setSlot(slot, e.target.value || null)}>
+                    <option value="">—</option>
+                    {worldOptions.map((w) => (
+                      <option key={w.id} value={w.id} disabled={slots[1 - slot] === w.id}>
+                        {t(w.gameTitle, locale)}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+              ))}
+              {picks.length || focus ? (
+                <button type="button" className="cm-link cm-clear" onClick={clearAll}>
+                  {uiT('map.clearAll', locale)}
+                </button>
+              ) : null}
+            </div>
           </div>
 
           <div className={`cm-strips${active ? ' has-active' : ''}${focus ? ' has-focus' : ''}`} ref={stripsRef}>
             {AXIS_KEYS.map((key) => {
               const atlasAvg = average(worlds, key);
               const focusAvg = focus ? average(focusWorlds, key) : null;
-              const shown = focusAvg ?? atlasAvg;
-              const lean =
-                shown >= 3.35
-                  ? uiT('map.leanTo', locale).replace('{who}', who).replace('{pole}', pole(key, 'right', locale))
-                  : shown <= 2.65
-                    ? uiT('map.leanTo', locale).replace('{who}', who).replace('{pole}', pole(key, 'left', locale))
-                    : uiT('map.leanMid', locale).replace('{who}', who);
               return (
                 <section className="cm-strip" key={key}>
                   <header className="cm-strip__head">
                     <h2>{axisName(key, locale)}</h2>
-                    <p>{lean}</p>
                   </header>
                   <div className="cm-strip__plot">
                     <div className="cm-cols">
@@ -310,7 +302,7 @@ export default function CoordinateMap({ worlds, chapters, themeLabels, base }: P
                                     'cm-dot',
                                     slot >= 0 ? 'is-pick' : '',
                                     w.id === hover ? 'is-hover' : '',
-                                    focus && w.chapterId !== focus ? 'is-dim' : '',
+                                    slot < 0 && focus && w.chapterId !== focus ? 'is-dim' : '',
                                   ]
                                     .filter(Boolean)
                                     .join(' ')}
@@ -348,7 +340,14 @@ export default function CoordinateMap({ worlds, chapters, themeLabels, base }: P
                     </div>
                     <div className="cm-scale" aria-hidden="true">
                       {[1, 2, 3, 4, 5].map((v) => (
-                        <span key={v}>{v}</span>
+                        <span key={v}>
+                          {v}
+                          {pickedSlots
+                            .filter(({ w }) => val(w, key) === v)
+                            .map(({ w, slot }) => (
+                              <i key={w.id} style={{ background: SLOT_COLORS[slot] }} />
+                            ))}
+                        </span>
                       ))}
                     </div>
                     <div className="cm-poles" aria-hidden="true">
@@ -386,9 +385,9 @@ export default function CoordinateMap({ worlds, chapters, themeLabels, base }: P
 
         {/* ---------- panel vybraných světů ---------- */}
         <aside className="cm-side" aria-live="polite">
-          {pickedWorlds.length ? (
+          {pickedSlots.length ? (
             <>
-              {pickedWorlds.map((w, slot) => {
+              {pickedSlots.map(({ w, slot }) => {
                 const facts: Array<[string, string]> = [
                   ['map.subgenre', t(w.metadata.genreProfile, locale)],
                   ['card.atmosphere', t(w.metadata.atmosphere, locale)],
@@ -404,7 +403,6 @@ export default function CoordinateMap({ worlds, chapters, themeLabels, base }: P
                   >
                     <p className="cm-kicker cm-kicker--hue">{t(chapterById[w.chapterId]?.title ?? { en: '' }, locale)}</p>
                     <h2 className="cm-card__title">{t(w.gameTitle, locale)}</h2>
-                    <p className="cm-card__core">{t(w.core, locale)}</p>
                     <dl className="cm-card__facts">
                       {facts
                         .filter(([, v]) => v)
@@ -424,7 +422,7 @@ export default function CoordinateMap({ worlds, chapters, themeLabels, base }: P
                   </div>
                 );
               })}
-              {pickedWorlds.length === 2 ? (
+              {pickedSlots.length === 2 ? (
                 <p className="cm-side__compare">
                   <a href={withBase(base, `/compare/?w=${picks.join(',')}`)}>{uiT('map.compareTwo', locale)}</a>
                 </p>
@@ -532,7 +530,7 @@ export default function CoordinateMap({ worlds, chapters, themeLabels, base }: P
               <p>{uiT('map.pairsLead', locale)}</p>
             </div>
             <div className="cm-pairs__grid">
-              {pairs.map(({ i, j, counts, r }) => {
+              {pairs.map(({ i, j, counts }) => {
                 const on = (xi === i && yi === j) || (xi === j && yi === i);
                 const max = Math.max(...counts.flat());
                 return (
@@ -562,7 +560,6 @@ export default function CoordinateMap({ worlds, chapters, themeLabels, base }: P
                     <span className="cm-pair__name">
                       {axisName(AXIS_KEYS[i], locale)} × {axisName(AXIS_KEYS[j], locale)}
                     </span>
-                    <span className="cm-pair__r">{uiT(`map.strength${strengthLevel(r)}`, locale)}</span>
                   </button>
                 );
               })}
