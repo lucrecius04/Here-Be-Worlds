@@ -67,7 +67,11 @@ export default function TrailsIndex({ base, trails, worlds, themeLabels }: Props
     [counts, locale, byId],
   );
 
-  // Křižovatky: světy na dvou a více stezkách, nejvíc nahoře.
+  // Mřížka křižovatek: všechny světy na stezkách podle abecedy (rozhodnutí majitele 2026-11-22),
+  // i ty na jediné stezce, aby bylo vidět, kde křížení chybí.
+  const gridWorlds = worldOptions;
+
+  // Seznam na telefonu: světy na dvou a více stezkách, nejvíc nahoře.
   const crossWorlds = useMemo(
     () =>
       [...counts.entries()]
@@ -272,7 +276,7 @@ export default function TrailsIndex({ base, trails, worlds, themeLabels }: Props
               </tr>
             </thead>
             <tbody>
-              {crossWorlds.map((id) => {
+              {gridWorlds.map((id) => {
                 const w = byId.get(id);
                 return (
                   <tr

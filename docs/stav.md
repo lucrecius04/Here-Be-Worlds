@@ -7,6 +7,7 @@ Naposledy aktualizováno: 2026-11-22.
 ## Co se dělalo naposledy (2026-11-21 až 22)
 
 - **O atlasu** má pás hlavičky a začíná stejně vysoko jako ostatní stránky (se souhlasem majitele 2026-11-22).
+- **Kde se putování kříží:** mřížka ukazuje všechny světy podle abecedy, i ty na jediném putování (dřív jen světy na 2+).
 - **`docs/putovani-plan.md`** přepsaný na aktuální stav: 22 putování, tabulka pokrytí světů, další vlna zatím bez plánu.
 - Všech 22 esejí putování je schválených a na webu.
 - **Spis světa:** přestavěná karta (rejstřík Témata · Jak svět vypráví · Klíčoví aktéři), záložka Putování, Příbuzenstvo jen podle indexu. Posun celé stránky se staženým pruhem, na telefonu i počítači.
