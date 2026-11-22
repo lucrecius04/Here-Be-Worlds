@@ -229,6 +229,7 @@ Další:
 
 ## 6. Jak pracujeme
 
+- **Na začátku nové konverzace přečíst `docs/stav.md`** (rozpracované, odložené a nerozhodnuté věci, tipy k prostředí) a po větším kusu práce ho aktualizovat.
 - Vše se řeší v konverzaci s Claudem v aplikaci Claude: návrh, diskuse, implementace. Claude pracuje v cloudu nad tímto repozitářem, ověří změnu (`npm test`, `npm run build`, kontrola v prohlížeči) a **sám commitne a pushne do `main`**. Push spustí nasazení na GitHub Pages.
 - Majitel si změny stahuje do Cursoru přes Pull, jen když potřebuje. Patche a prompty pro Cursor se už neposílají.
 - Před každou prací stáhnout nejnovější `main`. Kdyby majitel mezitím pushnul z Cursoru, navázat na jeho commit, nikdy ho nepřepsat.
