@@ -1325,23 +1325,74 @@ a.hp-tab:focus-visible {
 
 /* Náhodný svět jako tichý odkaz pod dvěma tlačítky. */
 .hp-hero__random {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
   flex-basis: 100%;
-  margin-top: 0.25rem;
-  padding: 0;
+  justify-content: flex-start;
+  margin-top: 0.5rem;
+  padding: 0.25rem 0;
   border: 0;
   background: none;
   font-family: var(--font-sans);
-  font-size: 0.875rem;
-  color: var(--color-night-soft);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--color-night-ink, #f6f0e6);
   cursor: pointer;
   text-align: left;
 }
 
-.hp-hero__random:hover,
-.hp-hero__random:focus-visible {
+/* Hvězda jako na obloze nad tím: zlatá tečka se září, při najetí se rozsvítí. */
+.hp-hero__random-star {
+  position: relative;
+  flex: none;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--mark-glow, #e5be7e);
+  box-shadow: 0 0 0 3px rgb(229 190 126 / 0.14), 0 0 10px 1px rgb(229 190 126 / 0.45);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.hp-hero__random-label {
+  border-bottom: 1px dotted rgb(229 190 126 / 0.55);
+  padding-bottom: 0.05rem;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.hp-hero__random-arrow {
+  color: var(--mark-glow, #e5be7e);
+  transition: transform 0.25s ease;
+}
+
+.hp-hero__random:hover .hp-hero__random-star,
+.hp-hero__random:focus-visible .hp-hero__random-star {
+  transform: scale(1.35);
+  box-shadow: 0 0 0 4px rgb(229 190 126 / 0.2), 0 0 16px 3px rgb(229 190 126 / 0.7);
+}
+
+.hp-hero__random:hover .hp-hero__random-label,
+.hp-hero__random:focus-visible .hp-hero__random-label {
   color: #fff;
-  text-decoration: underline;
-  text-underline-offset: 0.2em;
+  border-bottom-color: var(--mark-glow, #e5be7e);
+}
+
+.hp-hero__random:hover .hp-hero__random-arrow,
+.hp-hero__random:focus-visible .hp-hero__random-arrow {
+  transform: translateX(0.25rem);
+}
+
+.hp-hero__random:focus-visible {
+  outline: 1px solid var(--mark-glow, #e5be7e);
+  outline-offset: 0.25rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hp-hero__random-star,
+  .hp-hero__random-label,
+  .hp-hero__random-arrow {
+    transition: none;
+  }
 }
 
 /* Hlavní tlačítko „Vydej se na putování“: zlatý štítek ze znaku atlasu (rozsvícená vrstva

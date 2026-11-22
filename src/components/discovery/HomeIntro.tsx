@@ -395,7 +395,10 @@ export default function HomeIntro({ chapters, worlds = [], journeys = [], base }
                 {uiT('home2.openAtlas', locale)}
               </a>
               <button type="button" className="hp-hero__random" onClick={openRandom}>
-                {uiT('home2.random', locale)} →
+                {/* hvězda jako na obloze: náhodný svět je jedna z nich */}
+                <span className="hp-hero__random-star" aria-hidden="true" />
+                <span className="hp-hero__random-label">{uiT('home2.random', locale)}</span>
+                <span className="hp-hero__random-arrow" aria-hidden="true">→</span>
               </button>
             </p>
           </div>
