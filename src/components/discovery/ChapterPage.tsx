@@ -27,7 +27,6 @@ export default function ChapterPage({ id, title, thesis, lead, accent, worlds, e
     '--chapter-hue-light': accent.light,
     '--chapter-hue-dark': accent.dark,
   } as CSSProperties;
-  const home = withBase(base, '/atlas/');
   const mapped = worlds.filter(isMappedWorld);
   const spread = axisSpread(mapped);
   const extremes = spread ? axisExtremes(mapped, 3) : [];
@@ -39,9 +38,6 @@ export default function ChapterPage({ id, title, thesis, lead, accent, worlds, e
       <header className="chapter-hero page-band">
         <div className="chapter-hero__top">
           <p className="chapter-hero__kicker">{uiT('chapterPage.kicker', locale)}</p>
-          <a className="chapter-hero__back" href={home}>
-            {uiT('chapterPage.back', locale)}
-          </a>
         </div>
         <div className="chapter-hero__grid">
           <div className="chapter-hero__identity">

@@ -364,11 +364,6 @@ export default function ComparePage({ worlds, chapters, themeLabels, axes, base,
     <div className="cmp">
       <div className="cmp-top page-band">
       <header className="atlas-page__head cmp-head">
-        <p className="cmp-head__crumbs">
-          <a href={withBase(base, '/atlas/')}>{uiT('nav.atlas', locale)}</a>
-          <span aria-hidden="true">/</span>
-          <span>{uiT('nav.compare', locale)}</span>
-        </p>
         <h1 className="atlas-page__title display">{uiT('compare.title', locale)}</h1>
         <p className="atlas-page__lead">
           {uiT('compare.lead', locale)}{' '}

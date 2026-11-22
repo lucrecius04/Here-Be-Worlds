@@ -15,9 +15,8 @@ html[data-theme='dark'] .chapter-page {
 .chapter-hero__top {
   display: flex;
   align-items: baseline;
-  justify-content: space-between;
   gap: 1.25rem;
-  margin-bottom: 1.375rem;
+  margin-bottom: 0.75rem;
 }
 
 .chapter-hero__kicker {
@@ -30,20 +29,7 @@ html[data-theme='dark'] .chapter-page {
   color: var(--color-ink-muted);
 }
 
-.chapter-hero__back {
-  flex-shrink: 0;
-  font-family: var(--font-sans);
-  font-size: 0.9375rem;
-  font-weight: 600;
-  color: var(--color-accent);
-  text-decoration: none;
-}
 
-.chapter-hero__back:hover,
-.chapter-hero__back:focus-visible {
-  text-decoration: underline;
-  text-underline-offset: 0.2em;
-}
 
 .chapter-hero__grid {
   display: grid;
