@@ -52,37 +52,50 @@ type Props = {
   resumeOnMount?: boolean;
 };
 
+/** Zvýraznění v obsahu je během skoku zamčené na cíli (jinak by při dorovnávání blikalo). */
+let jumpLock: { id: string; until: number } | null = null;
+
 function scrollHeadingIntoView(root: HTMLElement | null, id: string) {
   if (!root || !id) return;
   const el = root.querySelector<HTMLElement>(`#${CSS.escape(id)}`);
   if (!el) return;
-  el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  // Obrázky nad cílem se dočítají až během posunu a odsunou ho: chvíli po doběhnutí dorovnávat,
+  // Skok rovnou na místo jako u esejí: plynulý posun přes celou kroniku míjel všechny kapitoly.
+  el.scrollIntoView({ behavior: 'auto', block: 'start' });
+  jumpLock = { id, until: Date.now() + 3200 };
+  // Obrázky nad cílem se dočítají až po skoku a odsunou ho: chvíli dorovnávat,
   // dokud čtenář sám nezačne posouvat.
   let tries = 0;
   let stop = false;
+  const cleanup = () => {
+    window.removeEventListener('wheel', abort);
+    window.removeEventListener('touchstart', abort);
+    window.removeEventListener('keydown', abort);
+  };
   const abort = () => {
     stop = true;
+    jumpLock = null;
+    cleanup();
+    window.dispatchEvent(new Event('scroll'));
   };
-  window.addEventListener('wheel', abort, { once: true, passive: true });
-  window.addEventListener('touchstart', abort, { once: true, passive: true });
-  window.addEventListener('keydown', abort, { once: true });
+  window.addEventListener('wheel', abort, { passive: true });
+  window.addEventListener('touchstart', abort, { passive: true });
+  window.addEventListener('keydown', abort);
   const settle = () => {
     if (stop) return;
     const target = document.getElementById(id);
-    if (!target) return;
-    const margin = parseFloat(getComputedStyle(target).scrollMarginTop) || 0;
-    const off = target.getBoundingClientRect().top - margin;
-    if (Math.abs(off) > 8) target.scrollIntoView({ behavior: 'auto', block: 'start' });
+    if (target) {
+      const margin = parseFloat(getComputedStyle(target).scrollMarginTop) || 0;
+      const off = target.getBoundingClientRect().top - margin;
+      if (Math.abs(off) > 8) target.scrollIntoView({ behavior: 'auto', block: 'start' });
+    }
     tries += 1;
-    if (tries < 6) window.setTimeout(settle, 400);
+    if (tries < 6) window.setTimeout(settle, 500);
     else {
-      window.removeEventListener('wheel', abort);
-      window.removeEventListener('touchstart', abort);
-      window.removeEventListener('keydown', abort);
+      jumpLock = null;
+      cleanup();
     }
   };
-  window.setTimeout(settle, 900);
+  window.setTimeout(settle, 300);
 }
 
 function scrollToPercent(root: HTMLElement | null, percent: number, pageFlow = false) {
@@ -190,24 +203,40 @@ export default function ChronicleReader({
       : null;
 
   useEffect(() => {
+    // Stejně jako u esejí: aktivní je poslední nadpis nad čarou pod pruhem světa.
     const root = scrollRef.current;
-    const observe = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-        if (visible[0]?.target.id) {
-          activeRef.current = visible[0].target.id;
-          setActive(visible[0].target.id);
-        }
-      },
-      { root: pageFlow ? null : root, rootMargin: '-10% 0px -70% 0px', threshold: [0, 0.25, 0.5] },
-    );
-    toc.forEach((h) => {
-      const el = document.getElementById(h.id);
-      if (el) observe.observe(el);
-    });
-    return () => observe.disconnect();
+    let frame = 0;
+    const update = () => {
+      if (jumpLock && Date.now() < jumpLock.until) {
+        activeRef.current = jumpLock.id;
+        setActive(jumpLock.id);
+        return;
+      }
+      const els = toc.map((h) => document.getElementById(h.id)).filter(Boolean) as HTMLElement[];
+      const top = pageFlow || !root ? 0 : root.getBoundingClientRect().top;
+      const bar = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--wp-bar-h')) || 0;
+      const line = top + bar + window.innerHeight * 0.25;
+      let current = els[0]?.id ?? '';
+      for (const el of els) {
+        if (el.getBoundingClientRect().top <= line) current = el.id;
+        else break;
+      }
+      activeRef.current = current;
+      setActive(current);
+    };
+    const onScroll = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(update);
+    };
+    update();
+    const target: HTMLElement | Window = pageFlow || !root ? window : root;
+    target.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    return () => {
+      cancelAnimationFrame(frame);
+      target.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+    };
   }, [toc, formatted, pageFlow]);
 
   useEffect(() => {
