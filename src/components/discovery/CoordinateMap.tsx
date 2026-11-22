@@ -259,7 +259,7 @@ export default function CoordinateMap({ worlds, chapters, themeLabels, base }: P
                     {uiT(slot === 0 ? 'map.world1' : 'map.world2', locale)}
                   </span>
                   <select value={slots[slot] ?? ''} onChange={(e) => setSlot(slot, e.target.value || null)}>
-                    <option value="">—</option>
+                    <option value="">{uiT('map.pickPlaceholder', locale)}</option>
                     {worldOptions.map((w) => (
                       <option key={w.id} value={w.id} disabled={slots[1 - slot] === w.id}>
                         {t(w.gameTitle, locale)}
@@ -435,10 +435,20 @@ export default function CoordinateMap({ worlds, chapters, themeLabels, base }: P
             </>
           ) : (
             <div className="cm-how">
-              <p className="cm-kicker">{uiT('map.howTitle', locale)}</p>
-              <p>{uiT('map.how1', locale)}</p>
-              <p>{uiT('map.how2', locale)}</p>
-              <p>{uiT('map.how3', locale)}</p>
+              <p className="cm-kicker">{uiT('map.pickTitle', locale)}</p>
+              <p className="cm-how__hint">{uiT('map.pickHint', locale)}</p>
+              <p className="cm-kicker">{uiT('map.readTitle', locale)}</p>
+              <ul className="cm-read">
+                <li>
+                  <a href={withBase(base, '/notes/#stupnice')}>{uiT('map.readNotes', locale)}</a>
+                </li>
+                <li>
+                  <a href={withBase(base, '/anatomie-herniho-lore/')}>{uiT('map.readEssay', locale)}</a>
+                </li>
+                <li>
+                  <a href={withBase(base, '/teoreticke-zazemi/')}>{uiT('map.readTheory', locale)}</a>
+                </li>
+              </ul>
             </div>
           )}
         </aside>
@@ -535,7 +545,6 @@ export default function CoordinateMap({ worlds, chapters, themeLabels, base }: P
           <div className="cm-pairs">
             <div className="cm-pairs__head">
               <h3>{uiT('map.pairsTitle', locale)}</h3>
-              <p>{uiT('map.pairsLead', locale)}</p>
             </div>
             <div className="cm-pairs__grid">
               {pairs.map(({ i, j, counts }) => {
