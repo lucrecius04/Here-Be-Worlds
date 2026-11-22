@@ -1,7 +1,10 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ChapterPage from '../../components/discovery/ChapterPage';
-import { chapters, worlds } from '../../lib/worlds';
+import type { WorldTeaserExtra } from '../../components/discovery/WorldTeaser';
+import { chapters, worlds, themeTaxonomy } from '../../lib/worlds';
+import { chronicleStats } from '../../lib/chronicle-toc';
+import { TRAILS } from '../../lib/trails';
 
 export function getStaticPaths() {
   return chapters.map((c) => ({ params: { id: c.id } }));
@@ -12,6 +15,24 @@ const chapter = chapters.find((c) => c.id === id);
 if (!chapter) throw new Error(`Unknown chapter: ${id}`);
 const list = worlds.filter((w) => w.chapterId === id && !w.draft);
 const base = import.meta.env.BASE_URL;
+const themeLabels = Object.fromEntries(themeTaxonomy.map((t) => [t.slug, t.label]));
+
+// Doba čtení kroniky a počet putování pro boxy světů: počítá se při sestavení.
+const CHRONICLES = import.meta.glob('../../../content/chronicles/*.md', {
+  query: '?raw',
+  import: 'default',
+  eager: true,
+}) as Record<string, string>;
+
+const extras: Record<string, WorldTeaserExtra> = {};
+for (const world of list) {
+  const raw = CHRONICLES[`../../../content/chronicles/${world.chronicleSlug}.md`] ?? '';
+  const stats = chronicleStats(raw.replace(/^---\r?\n[\s\S]*?\r?\n---\s*/, ''));
+  extras[world.id] = {
+    minutes: stats.minutes,
+    journeys: TRAILS.filter((trail) => trail.members.includes(world.id)).length,
+  };
+}
 ---
 
 <BaseLayout title={`${chapter.title.cs ?? chapter.title.en} — Here Be Worlds`}>
@@ -23,6 +44,8 @@ const base = import.meta.env.BASE_URL;
     lead={chapter.lead}
     accent={chapter.accent}
     worlds={list}
+    extras={extras}
+    themeLabels={themeLabels}
     base={base.replace(/\/$/, '')}
   />
 </BaseLayout>

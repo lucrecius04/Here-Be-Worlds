@@ -26,6 +26,8 @@ type Props = {
   related?: Array<RelatedWorld & { href?: string; level?: number; number?: number; chapterId?: string }>;
   chapterAccents?: ChapterAccentMap;
   journeys?: WorldJourney[];
+  /** Rozměry obrázků kroniky (`/chronicles/…png` → [šířka, výška]) z doby sestavení. */
+  imageSizes?: Record<string, [number, number]>;
 };
 
 export default function WorldPageShell({
@@ -38,6 +40,7 @@ export default function WorldPageShell({
   related = [],
   chapterAccents = {},
   journeys = [],
+  imageSizes,
 }: Props) {
   const locale = useLocale();
   const inCompare = useCompareTray().includes(world.id);
@@ -306,6 +309,7 @@ export default function WorldPageShell({
           missing
         ) : mode === 'chronicle' ? (
           <ChronicleReader
+            imageSizes={imageSizes}
             markdown={parts.narrative}
             variant="narrative"
             coverTitle={chronicle.coverTitle}
@@ -319,6 +323,7 @@ export default function WorldPageShell({
         ) : mode === 'appendices' ? (
           parts.appendices ? (
             <ChronicleReader
+              imageSizes={imageSizes}
               markdown={parts.appendices}
               variant="appendices"
               showToc={false}
@@ -330,6 +335,7 @@ export default function WorldPageShell({
           )
         ) : parts.analysis ? (
           <ChronicleReader
+            imageSizes={imageSizes}
             markdown={parts.analysis}
             variant="analysis"
             showToc={false}

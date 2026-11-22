@@ -381,6 +381,9 @@ export const ui: Record<Locale, UiTree> = {
       extremeIntimateEpic: 'Nejvíc epický svět archetypu',
       extremeMoral: 'Nejkomplexnější morálka archetypu',
       extremeMetaphysical: 'Nejvíc metafyzický svět archetypu',
+      chronicleLink: 'Kronika · {m} min',
+      journeysOne: '{n} putování',
+      journeysMany: '{n} putování',
     },
     stub: {
       coming: 'Připravujeme',
@@ -892,6 +895,9 @@ Berte prosím tento atlas jako skromnou poctu všem scenáristům, designérům 
       extremeIntimateEpic: 'The most epic world here',
       extremeMoral: 'The most complex morality here',
       extremeMetaphysical: 'The most metaphysical world here',
+      chronicleLink: 'Chronicle · {m} min',
+      journeysOne: '{n} journey',
+      journeysMany: '{n} journeys',
     },
     stub: {
       coming: 'Coming soon',

@@ -299,6 +299,16 @@ function hueVars(accent?: { light: string; dark: string }): CSSProperties | unde
   return accent ? ({ '--hue-l': accent.light, '--hue-d': accent.dark } as CSSProperties) : undefined;
 }
 
+/** Zastávka trasy Putování dne: vlastní barva a barva další zastávky (úsek linky mezi nimi přechází). */
+function routeVars(
+  accent?: { light: string; dark: string },
+  next?: { light: string; dark: string },
+): CSSProperties | undefined {
+  const own = hueVars(accent);
+  if (!own || !next) return own;
+  return { ...own, '--next-l': next.light, '--next-d': next.dark } as CSSProperties;
+}
+
 
 export default function HomeIntro({ chapters, worlds = [], journeys = [], base }: Props) {
   const locale = useLocale();
@@ -535,8 +545,8 @@ export default function HomeIntro({ chapters, worlds = [], journeys = [], base }
                   </blockquote>
                 ) : null}
                 <ol className="hp-route" aria-label={uiT('home2.routeAria', locale)}>
-                  {featuredTrail.members.map((w) => (
-                    <li key={w.id} style={hueVars(chapterById[w.chapterId]?.accent)}>
+                  {featuredTrail.members.map((w, i, all) => (
+                    <li key={w.id} style={routeVars(chapterById[w.chapterId]?.accent, chapterById[all[i + 1]?.chapterId]?.accent)}>
                       <a href={withBase(base, `/worlds/${w.id}/`)}>
                         <i aria-hidden="true" />
                         <span>{t(w.gameTitle, locale)}</span>

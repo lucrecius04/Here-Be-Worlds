@@ -12,6 +12,7 @@ import {
 import { t } from '../../lib/i18n';
 import { TRAILS, trailSlug } from '../../lib/trails';
 import { publishedEssayFor } from '../../lib/trail-pages';
+import { chronicleImageSizes } from '../../lib/chronicle-images';
 
 export function getStaticPaths() {
   return worlds.map((w) => ({ params: { slug: w.id } }));
@@ -46,6 +47,9 @@ const journeys = TRAILS.filter((tr) => tr.members.includes(world.id)).map((tr) =
   };
 });
 
+// Rozměry obrázků kroniky, aby se text při jejich dočtení neposouval (skoky z obsahu).
+const imageSizes = chronicleImageSizes(world.chronicleSlug);
+
 const pageTitle = `${t(world.gameTitle, 'cs')} — Here Be Worlds`;
 ---
 
@@ -66,5 +70,6 @@ const pageTitle = `${t(world.gameTitle, 'cs')} — Here Be Worlds`;
     related={related}
     chapterAccents={chapterAccents}
     journeys={journeys}
+    imageSizes={imageSizes}
   />
 </BaseLayout>

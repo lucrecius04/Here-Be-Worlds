@@ -1149,6 +1149,37 @@ a.hp-tab:focus-visible {
   min-width: 0;
 }
 
+/* Linka mezi zastávkami (2026-11-22): plný úsek o síle 3 px od tečky k další tečce, barva přechází
+   z archetypu jednoho světa do archetypu dalšího. Tečky ho překrývají i se svým prstencem. */
+.hp-route:not(.hp-route--small)::before {
+  display: none;
+}
+
+.hp-route [style*='--next-l'] {
+  --next: var(--next-l);
+}
+
+[data-theme='dark'] .hp-route [style*='--next-l'] {
+  --next: var(--next-d);
+}
+
+.hp-route:not(.hp-route--small) li[style*='--next-l']::after {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  top: 5px;
+  left: 6px;
+  right: -6px;
+  height: 3px;
+  background: linear-gradient(to right, var(--hue), var(--next));
+  pointer-events: none;
+}
+
+.hp-route:not(.hp-route--small) li a {
+  position: relative;
+  z-index: 1;
+}
+
 .hp-route li a {
   display: flex;
   flex-direction: column;
@@ -1448,9 +1479,23 @@ a.hp-tab:focus-visible {
     grid-column: 1 / -1;
   }
 
-  /* Bez tenkých linek: trasa po zastávkách bez spojnice. */
-  .hp-route:not(.hp-route--small)::before {
-    display: none;
+  /* Na telefonu linka svisle: od středu tečky k tečce o řádek níž, tečky bez prstence,
+     aby byl vidět celý přechod barev (mezera mezi zastávkami 1.25rem). */
+  .hp-route:not(.hp-route--small) {
+    gap: 1.25rem;
+  }
+
+  .hp-route:not(.hp-route--small) i {
+    box-shadow: none;
+  }
+
+  .hp-route:not(.hp-route--small) li[style*='--next-l']::after {
+    top: calc(50% - 1px);
+    left: 5px;
+    right: auto;
+    width: 3px;
+    height: calc(100% + 1.25rem);
+    background: linear-gradient(to bottom, var(--hue), var(--next));
   }
 }
 

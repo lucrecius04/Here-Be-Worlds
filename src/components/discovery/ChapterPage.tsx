@@ -7,7 +7,7 @@ import { withBase } from '../../lib/base-url';
 import { isMappedWorld } from '../../lib/atlas-news';
 import { axisExtremes, axisSpread } from '../../lib/chapter-portrait';
 import AxisRange from './AxisRange';
-import WorldTeaser from './WorldTeaser';
+import WorldTeaser, { type WorldTeaserExtra } from './WorldTeaser';
 
 type Props = {
   id: string;
@@ -16,10 +16,12 @@ type Props = {
   lead?: LocalizedString;
   accent: { light: string; dark: string };
   worlds: World[];
+  extras?: Record<string, WorldTeaserExtra>;
+  themeLabels?: Record<string, LocalizedString>;
   base: string;
 };
 
-export default function ChapterPage({ id, title, thesis, lead, accent, worlds, base }: Props) {
+export default function ChapterPage({ id, title, thesis, lead, accent, worlds, extras, themeLabels, base }: Props) {
   const locale = useLocale();
   const hueVars = {
     '--chapter-hue-light': accent.light,
@@ -82,6 +84,8 @@ export default function ChapterPage({ id, title, thesis, lead, accent, worlds, b
               world={world}
               href={withBase(base, `/worlds/${world.id}/`)}
               locale={locale}
+              extra={extras?.[world.id]}
+              themeLabels={themeLabels}
             />
           ))}
         </div>

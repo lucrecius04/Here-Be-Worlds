@@ -164,6 +164,114 @@ html[data-theme='dark'] .chapter-page {
   border-top-color: var(--chapter-hue);
 }
 
+/* Bohatší box světa (2026-11-22): kronika, údaje charakteru, témata, odkazy dole. */
+.chapter-page .world-teaser {
+  padding: 1rem 1.25rem 1.1rem;
+}
+
+.chapter-page .world-teaser__top {
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.world-teaser__chronicle {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--chapter-hue);
+}
+
+.chapter-page .world-teaser__body {
+  flex: 1;
+  margin-top: 0.45rem;
+}
+
+.chapter-page .world-teaser__title {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+}
+
+.chapter-page .world-teaser__core {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.05rem;
+  margin-top: 0.6rem;
+  -webkit-line-clamp: unset;
+  display: block;
+}
+
+.world-teaser__label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+.world-teaser__dilemma {
+  margin-top: 0.9rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--color-line);
+}
+
+.world-teaser__dilemma p {
+  margin: 0.3rem 0 0;
+  font-family: var(--font-text);
+  font-size: 0.9375rem;
+  line-height: 1.45;
+}
+
+.world-teaser__facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.7rem 1rem;
+  margin: 0.9rem 0 0;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--color-line);
+}
+
+.world-teaser__facts dd {
+  margin: 0.2rem 0 0;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  line-height: 1.35;
+}
+
+.world-teaser__themes {
+  margin: 0.85rem 0 0;
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: var(--color-ink-muted);
+}
+
+.world-teaser__foot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.5rem;
+  margin-top: 0.9rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--color-line);
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+}
+
+.world-teaser__foot a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.world-teaser__foot a:hover,
+.world-teaser__foot a:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 0.16em;
+}
+
 @media (max-width: 900px) {
   .chapter-hero__grid {
     grid-template-columns: 1fr;

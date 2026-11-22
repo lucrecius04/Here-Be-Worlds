@@ -50,6 +50,8 @@ type Props = {
   worldId?: string;
   worldTitle?: LocalizedString;
   resumeOnMount?: boolean;
+  /** Rozměry obrázků (`/chronicles/…png` → [šířka, výška]): místo se vyhradí předem. */
+  imageSizes?: Record<string, [number, number]>;
 };
 
 /** Zvýraznění v obsahu je během skoku zamčené na cíli (jinak by při dorovnávání blikalo). */
@@ -177,6 +179,7 @@ export default function ChronicleReader({
   worldId,
   worldTitle,
   resumeOnMount = false,
+  imageSizes,
 }: Props) {
   const locale = useLocale();
   const desk = useReaderDesk();
@@ -360,20 +363,28 @@ export default function ChronicleReader({
         h3: ({ children }) => headingEl('h3', children),
         hr: () => <Ornament />,
         strong: ({ children }) => <strong>{children}</strong>,
-        img: ({ src = '', alt = '' }) => (
-          <img
-            className="chronicle-figure"
-            src={typeof src === 'string' && src.startsWith('/') ? withBase(import.meta.env.BASE_URL, src) : src}
-            alt={alt}
-            loading="lazy"
-          />
-        ),
+        img: ({ src = '', alt = '' }) => {
+          const path = typeof src === 'string' ? src : '';
+          // Rozměry z doby sestavení: líně načtený obrázek drží místo, text pod čtenářem neodjede.
+          const size = imageSizes?.[path];
+          return (
+            <img
+              className="chronicle-figure"
+              src={path.startsWith('/') ? withBase(import.meta.env.BASE_URL, path) : path}
+              alt={alt}
+              width={size?.[0]}
+              height={size?.[1]}
+              loading="lazy"
+              decoding="async"
+            />
+          );
+        },
       }}
     >
       {formatted}
     </ReactMarkdown>
     ),
-    [formatted, locale],
+    [formatted, locale, imageSizes],
   );
 
   return (
