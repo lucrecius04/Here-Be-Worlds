@@ -239,7 +239,7 @@ html[data-theme='dark'] .trails-cross__dot {
 
 /* Obrázek u stezky (zatím jen náhled /putovani/navrh-obrazku/): výřez z širokého obrázku. */
 .trails-row.has-image {
-  grid-template-columns: minmax(0, 1fr) var(--tr-img-w, 17rem);
+  grid-template-columns: minmax(0, 1fr) var(--tr-img-w, 21rem);
 }
 
 .trails-row__img {
@@ -259,6 +259,39 @@ html[data-theme='dark'] .trails-cross__dot {
 
 .trails-row__img:hover img {
   transform: scale(1.03);
+}
+
+/* Náhled: obrázek se do rejstříku vpíjí jako na stránce eseje (maska z panelu, html.pv-index). */
+html.pv-index .trails-row__img {
+  overflow: visible;
+  background: none;
+}
+
+html.pv-index .trails-row__img img {
+  -webkit-mask-image: var(--pv-mask);
+  mask-image: var(--pv-mask);
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+html.pv-index:not([data-theme='dark']) .trails-row__img img {
+  mix-blend-mode: multiply;
+}
+
+/* V tmavém motivu maska podle tuše; velikost cover sedí na výřez object-fit: cover. */
+html.pv-index[data-theme='dark'] .trails-row__img img.has-ink {
+  /* průnik: maska podle tuše a k tomu fresková maska výřezu, ať se ztrácí i ořezané okraje */
+  -webkit-mask-image: var(--pv-mask), var(--pv-mask-ink);
+  mask-image: var(--pv-mask), var(--pv-mask-ink);
+  -webkit-mask-size: 100% 100%, cover;
+  mask-size: 100% 100%, cover;
+  -webkit-mask-position: center, center;
+  mask-position: center, center;
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+  filter: brightness(0.8);
 }
 
 /* --- kde se stezky kříží --------------------------------------------------- */
