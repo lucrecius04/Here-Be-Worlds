@@ -18,7 +18,7 @@ Stav 2026-11-23: styl nalezený po pěti kolech zkoušek (náhled `/putovani/nav
 - Masky: `maska/<slug>-N.png` podle tuše pro tmavý motiv (`python3 scripts/ink-masks.py`, pak zkopírovat z `navrh-obrazku/maska/`, nebo upravit cestu ve skriptu), `maska/freska.png` obecná.
 - Které putování obrázky má: `READY` v `src/lib/trail-images.ts`. Obrázky se ukážou jen u schválené eseje.
 - Rejstřík `/putovani/` má rozvržení karet ve dvou sloupcích s obrázkem nahoře (C, vybráno ze tří variant: A obraz za textem, B střídavé desky). Dokud nemají obrázky všechna putování, stojí vedle karty s obrázkem textové karty.
-- Na webu (2026-11-23): Bohové jako břemeno (katedrála ze žeber, kamenné víčko); Dům, ze kterého nejde odejít (tapeta odloupnutá na zeď cely, dveře se zlatou škvírou; z pěti motivů, zbylé kolébka, dům v domě, věž). Postup: 5 motivů z otázky a obrazů eseje, vybrat 2. Masky: `python3 scripts/ink-masks.py public/putovani-obrazky/<slug>-1.jpg …`.
+- Na webu (2026-11-23): Bohové jako břemeno (katedrála ze žeber, kamenné víčko); Dům, ze kterého nejde odejít (měsíc jako zlatá klíčová dírka nad městečkem, okno uprostřed pláně s pokojem uvnitř). Postup: 5 motivů, vybrat 2. **Motivy: jemný surrealismus, neobvyklé spojení předmětů (v duchu Magritta), jen lehce doslovné** — první kolo s doslovnými motivy (tapeta, dveře, kolébka) majitel zamítl jako nenápadité. Do promptu řádek `Mood: subtle surrealism in the spirit of Magritte: one unexpected combination, quiet and uncanny, never literal or explanatory.` Masky: `python3 scripts/ink-masks.py public/putovani-obrazky/<slug>-1.jpg …`.
 
 ## Jak generovat
 
