@@ -28,13 +28,15 @@ export const PREVIEW_IMAGES: PreviewImage[] = [
   { file: '20-krida-modra-katedrala.jpg', label: 'Křída na modré · katedrála', night: true },
   { file: '21-tus-papir-vicko.jpg', label: 'Tuš na papíře · víčko', night: false },
   { file: '22-krida-modra-vicko.jpg', label: 'Křída na modré · víčko', night: true },
+  { file: '23-monotypie-dum.jpg', label: 'Monotypie s kresbou · dům', night: false },
+  { file: '24-monotypie-katedrala.jpg', label: 'Monotypie s kresbou · katedrála', night: false },
 ];
 
 /** Všechny obrázky: k tématu, kde sedí, zbytek dokola. Číslo = pořadí v PREVIEW_IMAGES od 1. */
 const MIX: Record<string, number> = {
-  'god-corpse': 19,
+  'god-corpse': 24,
   'gods-burden': 21,
-  house: 12,
+  house: 23,
   loops: 11,
   'indifferent-stars': 13,
   'dead-speak': 9,
