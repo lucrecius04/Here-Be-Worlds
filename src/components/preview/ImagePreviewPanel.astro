@@ -63,13 +63,6 @@ const indexNight = withBase(base, '/putovani/navrh-obrazku/nocni/');
         </>
       ) : (
         <>
-          <div class="pv__row">
-            <span class="pv__name">Rozvržení</span>
-            <button type="button" class="pv__opt" data-layout="a">A · Obraz za textem</button>
-            <button type="button" class="pv__opt" data-layout="b">B · Střídavé desky</button>
-            <button type="button" class="pv__opt" data-layout="c">C · Karty</button>
-            <button type="button" class="pv__opt" data-layout="orig">Dosavadní</button>
-          </div>
           <p class="pv__note">Obrázky jsou zkušební kresby ve vybraném stylu, k tématům zatím nesedí.</p>
           <p class="pv__note">Klikni na obrázek nebo název: otevře se stránka putování s obrázkem.</p>
         </>
@@ -99,8 +92,6 @@ const indexNight = withBase(base, '/putovani/navrh-obrazku/nocni/');
     const apply = () => {
       root.classList.toggle('pv-inline', st.pos === 'inline');
       root.classList.toggle('pv-bleed', st.pos === 'bleed');
-      ['a', 'b', 'c'].forEach((l) => root.classList.toggle(`pv-layout-${l}`, mode === 'index' && (st.layout || 'a') === l));
-      panel.querySelectorAll('[data-layout]').forEach((b) => b.classList.toggle('is-on', (st.layout || 'a') === b.dataset.layout));
       root.classList.toggle('pv-quote', mode === 'essay' && (st.pos || 'quote') === 'quote');
       root.classList.toggle('pv-fresco', mode === 'essay' && st.edge !== 'straight');
       root.style.setProperty('--pv-mask', `url("${maskSrc}")`);
@@ -141,7 +132,6 @@ const indexNight = withBase(base, '/putovani/navrh-obrazku/nocni/');
       } else if (t.dataset.pos) st.pos = t.dataset.pos;
       else if (t.dataset.hero) st.hero = t.dataset.hero;
       else if (t.dataset.edge) st.edge = t.dataset.edge;
-      else if (t.dataset.layout) st.layout = t.dataset.layout;
       else if (t.dataset.ratio) st.ratio = t.dataset.ratio;
       else if (t.dataset.width) st.width = t.dataset.width;
       save();

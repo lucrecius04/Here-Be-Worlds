@@ -236,15 +236,19 @@ export default function TrailsIndex({ base, trails, worlds, themeLabels, images,
                       </button>
                     </span>
                   ))}
-                  {images?.[tr.id] && tr.essayMinutes !== null ? (
+                  {tr.essayMinutes !== null ? (
                     <a className="trails-row__essay trails-row__essay--inline" href={withBase(base, `${trailHref}${tr.slug}/`)}>
                       {uiT('trailsPage.essay', locale).replace('{n}', String(tr.essayMinutes))}
                     </a>
-                  ) : null}
+                  ) : (
+                    <span className="trails-row__essay trails-row__essay--inline is-pending">
+                      {uiT('trailsPage.essayPending', locale)}
+                    </span>
+                  )}
                 </p>
               </div>
-              <div className="trails-row__side">
-                {images?.[tr.id] ? (
+              {images?.[tr.id] ? (
+                <div className="trails-row__side">
                   <a className="trails-row__img" href={withBase(base, `${trailHref}${tr.slug}/`)} tabIndex={-1} aria-hidden="true">
                     <img
                       src={images[tr.id].src}
@@ -260,15 +264,8 @@ export default function TrailsIndex({ base, trails, worlds, themeLabels, images,
                       }
                     />
                   </a>
-                ) : null}
-                {images?.[tr.id] && tr.essayMinutes !== null ? null : tr.essayMinutes !== null ? (
-                  <a className="trails-row__essay" href={withBase(base, `${trailHref}${tr.slug}/`)}>
-                    {uiT('trailsPage.essay', locale).replace('{n}', String(tr.essayMinutes))}
-                  </a>
-                ) : (
-                  <span className="trails-row__essay is-pending">{uiT('trailsPage.essayPending', locale)}</span>
-                )}
-              </div>
+                </div>
+              ) : null}
             </li>
           );
         })}

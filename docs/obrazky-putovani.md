@@ -17,6 +17,7 @@ Stav 2026-11-23: styl nalezený po pěti kolech zkoušek (náhled `/putovani/nav
 - Soubory `public/putovani-obrazky/<slug>-1.jpg` (pod úvodním citátem eseje a náhled v rejstříku `/putovani/`) a `<slug>-2.jpg` (uprostřed eseje, před nadpisem ## nejblíž polovině). Šířka max 1600 px, JPEG 82.
 - Masky: `maska/<slug>-N.png` podle tuše pro tmavý motiv (`python3 scripts/ink-masks.py`, pak zkopírovat z `navrh-obrazku/maska/`, nebo upravit cestu ve skriptu), `maska/freska.png` obecná.
 - Které putování obrázky má: `READY` v `src/lib/trail-images.ts`. Obrázky se ukážou jen u schválené eseje.
+- Rejstřík `/putovani/` má rozvržení karet ve dvou sloupcích s obrázkem nahoře (C, vybráno ze tří variant: A obraz za textem, B střídavé desky). Dokud nemají obrázky všechna putování, stojí vedle karty s obrázkem textové karty.
 - První na webu (2026-11-23): Bohové jako břemeno (katedrála ze žeber, kamenné víčko).
 
 ## Jak generovat
