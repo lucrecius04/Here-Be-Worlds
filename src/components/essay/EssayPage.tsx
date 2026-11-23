@@ -36,6 +36,8 @@ type Props = {
   pending?: boolean;
   /** Obrázek stezky (zatím jen náhled): široký pás pod hlavičkou, nebo na začátku textu. */
   hero?: { src: string; alt: string };
+  /** Druhý obrázek stezky (náhled): uprostřed textu, před nadpisem nejblíž polovině. */
+  hero2?: { src: string; alt: string };
 };
 
 /** Stabilní kotvy, na které odkazuje triáda na kartě světa. */
@@ -97,7 +99,7 @@ function splitSources(markdown: string): [string, string] {
   return at < 0 ? [markdown, ''] : [markdown.slice(0, at), markdown.slice(at)];
 }
 
-export default function EssayPage({ base, markdown, title, kicker, tagline, worlds, trail, pending, hero }: Props) {
+export default function EssayPage({ base, markdown, title, kicker, tagline, worlds, trail, pending, hero, hero2 }: Props) {
   const locale = useLocale();
   const [mainMd, sourcesMd] = useMemo(
     () => (trail ? splitSources(markdown) : [markdown, '']),
@@ -149,13 +151,23 @@ export default function EssayPage({ base, markdown, title, kicker, tagline, worl
   }, [toc]);
 
   // Náhled obrázku „pod citát“: text rozdělený za úvodním citátem (první odstavec kurzívou po prvním ##).
-  const quoteSplit = useMemo<[string, string] | null>(() => {
+  // Náhled obrázků: text rozdělený za úvodním citátem (první odstavec kurzívou po prvním ##)
+  // a s druhým obrázkem před nadpisem ## nejblíž polovině textu.
+  const quoteSplit = useMemo<string[] | null>(() => {
     if (!hero) return null;
     const m = /^##[^\n]*\n+(\*[^\n]*(?:\n\*[^\n]*)*)\n/m.exec(mainMd);
     if (!m) return null;
     const end = m.index + m[0].length;
-    return [mainMd.slice(0, end), mainMd.slice(end)];
-  }, [hero, mainMd]);
+    const head = mainMd.slice(0, end);
+    const rest = mainMd.slice(end);
+    if (!hero2) return [head, rest];
+    const half = mainMd.length / 2 - end;
+    let best = -1;
+    for (const h of rest.matchAll(/^## /gm)) {
+      if (best < 0 || Math.abs((h.index ?? 0) - half) < Math.abs(best - half)) best = h.index ?? 0;
+    }
+    return best > 0 ? [head, rest.slice(0, best), rest.slice(best)] : [head, rest];
+  }, [hero, hero2, mainMd]);
 
   const mdComponents: Components = {
               h2: ({ children }) => {
@@ -261,6 +273,16 @@ export default function EssayPage({ base, markdown, title, kicker, tagline, worl
               <ReactMarkdown remarkPlugins={[remarkGfm]} components={mdComponents}>
                 {quoteSplit[1]}
               </ReactMarkdown>
+              {hero2 && quoteSplit[2] ? (
+                <>
+                  <figure className="essay-hero essay-hero--quote essay-hero--mid">
+                    <img data-preview-img2 src={hero2.src} alt={hero2.alt} decoding="async" />
+                  </figure>
+                  <ReactMarkdown remarkPlugins={[remarkGfm]} components={mdComponents}>
+                    {quoteSplit[2]}
+                  </ReactMarkdown>
+                </>
+              ) : null}
             </>
           ) : (
             <ReactMarkdown remarkPlugins={[remarkGfm]} components={mdComponents}>

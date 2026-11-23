@@ -108,13 +108,13 @@ const indexNight = withBase(base, '/putovani/navrh-obrazku/nocni/');
     const apply = () => {
       root.classList.toggle('pv-inline', st.pos === 'inline');
       root.classList.toggle('pv-bleed', st.pos === 'bleed');
-      root.classList.toggle('pv-quote', st.pos === 'quote');
+      root.classList.toggle('pv-quote', mode === 'essay' && (st.pos || 'quote') === 'quote');
       root.classList.toggle('pv-fresco', mode === 'essay' && st.edge !== 'straight');
       root.style.setProperty('--pv-mask', `url("${maskSrc}")`);
       root.style.setProperty('--essay-hero-ratio', st.hero || '16 / 9');
       if (st.ratio) root.style.setProperty('--tr-img-ratio', st.ratio);
       if (st.width) root.style.setProperty('--tr-img-w', st.width);
-      panel.querySelectorAll('[data-pos]').forEach((b) => b.classList.toggle('is-on', (st.pos || 'band') === b.dataset.pos));
+      panel.querySelectorAll('[data-pos]').forEach((b) => b.classList.toggle('is-on', (st.pos || 'quote') === b.dataset.pos));
       panel.querySelectorAll('[data-edge]').forEach((b) => b.classList.toggle('is-on', (st.edge || 'fresco') === b.dataset.edge));
       panel.querySelectorAll('[data-hero]').forEach((b) => b.classList.toggle('is-on', (st.hero || '16 / 9') === b.dataset.hero));
       panel.querySelectorAll('[data-ratio]').forEach((b) => b.classList.toggle('is-on', (st.ratio || '3 / 2') === b.dataset.ratio));
@@ -128,6 +128,12 @@ const indexNight = withBase(base, '/putovani/navrh-obrazku/nocni/');
       const img = images[idx - 1];
       document.querySelectorAll('[data-preview-img]').forEach((el) => (el.src = img.src));
       root.style.setProperty('--pv-mask-ink', img.ink ? `url("${img.ink}")` : 'var(--pv-mask)');
+      // druhý obrázek (uprostřed eseje) má vlastní masku podle své tuše
+      document.querySelectorAll('[data-preview-img2]').forEach((el) => {
+        const file = el.getAttribute('src').split('/').pop();
+        const other = images.find((i) => i.src.endsWith(file));
+        el.style.setProperty('--pv-mask-ink', other && other.ink ? `url("${other.ink}")` : 'var(--pv-mask)');
+      });
       panel.querySelector('.pv__label').textContent = `${idx} / ${images.length} · ${img.label}`;
       const url = new URL(location.href);
       url.searchParams.set('obr', String(idx));

@@ -772,6 +772,12 @@ html.pv-quote .essay-hero--band {
   margin: 1.75rem 0 2rem;
 }
 
+/* Druhý obrázek uprostřed eseje je vidět vždy (nezávisle na volbě umístění prvního). */
+.essay-hero--mid {
+  display: block;
+  margin: 2.5rem 0 2.75rem;
+}
+
 html.pv-quote .essay-hero--quote {
   display: block;
 }

@@ -11,7 +11,7 @@ import {
   trailThemes,
   worldLinks,
 } from '../../../lib/trail-pages';
-import { previewIndexFor, previewSrc } from '../../../lib/image-preview';
+import { previewIndexFor, previewSecondFor, previewSrc } from '../../../lib/image-preview';
 import ImagePreviewPanel from '../../../components/preview/ImagePreviewPanel.astro';
 
 /**
@@ -31,6 +31,7 @@ const name = uiT(trail.nameKey, 'cs');
 const desc = uiT(trail.descKey, 'cs');
 const sources = trailSources(trail);
 const start = previewIndexFor(trail.id);
+const second = previewSecondFor(trail.id);
 
 const pendingMarkdown = [
   '> **Esej připravujeme**',
@@ -63,6 +64,7 @@ const pendingMarkdown = [
     trail={{ worlds: trailWorldsInfo(trail), themes: trailThemes(trail.themes) }}
     pending={!essay}
     hero={{ src: previewSrc(base, start), alt: '' }}
+    hero2={second ? { src: previewSrc(base, second), alt: '' } : undefined}
   />
   <ImagePreviewPanel mode="essay" start={start} />
 </BaseLayout>

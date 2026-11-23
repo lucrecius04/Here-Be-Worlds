@@ -36,7 +36,7 @@ export const PREVIEW_IMAGES: PreviewImage[] = [
 /** Všechny obrázky: k tématu, kde sedí, zbytek dokola. Číslo = pořadí v PREVIEW_IMAGES od 1. */
 const MIX: Record<string, number> = {
   'god-corpse': 24,
-  'gods-burden': 25,
+  'gods-burden': 24,
   house: 23,
   loops: 11,
   'indifferent-stars': 13,
@@ -84,6 +84,15 @@ const NIGHT: Record<string, number> = {
   'true-names': 11,
   contagion: 6,
 };
+
+/** Druhý obrázek doprostřed eseje (jen kde ho máme). */
+const SECOND: Record<string, number> = {
+  'gods-burden': 25,
+};
+
+export function previewSecondFor(trailId: string): number | null {
+  return SECOND[trailId] ?? null;
+}
 
 export function previewSrc(base: string, n: number): string {
   return `${base.replace(/\/$/, '')}/navrh-obrazku/${PREVIEW_IMAGES[n - 1].file}`;
