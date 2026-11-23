@@ -793,3 +793,22 @@ html.pv-bleed .essay__top:has(+ .essay-hero) {
     aspect-ratio: 16 / 9;
   }
 }
+
+/* Freska (náhled): obrázek bez rámu, s rozpitým nepravidelným okrajem a odprýsknutými místy, jako by
+   se vpíjel do podkladu. Masku (public/navrh-obrazku/freska-maska.png) dodá panel přes --pv-mask. */
+html.pv-fresco .essay-hero {
+  background: none;
+}
+
+html.pv-fresco .essay-hero img {
+  -webkit-mask-image: var(--pv-mask);
+  mask-image: var(--pv-mask);
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+html.pv-fresco:not([data-theme='dark']) .essay-hero img {
+  mix-blend-mode: multiply;
+}

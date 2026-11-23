@@ -15,6 +15,7 @@ const { mode, set = 'mix', start = 1 } = Astro.props;
 const base = import.meta.env.BASE_URL;
 const images = PREVIEW_IMAGES.map((img, i) => ({ src: previewSrc(base, i + 1), label: img.label }));
 const indexMix = withBase(base, '/putovani/navrh-obrazku/');
+const maskSrc = withBase(base, '/navrh-obrazku/freska-maska.png');
 const indexNight = withBase(base, '/putovani/navrh-obrazku/nocni/');
 ---
 
@@ -34,6 +35,11 @@ const indexNight = withBase(base, '/putovani/navrh-obrazku/nocni/');
             <button type="button" class="pv__opt" data-pos="band">Pás</button>
             <button type="button" class="pv__opt" data-pos="bleed">Celá šířka</button>
             <button type="button" class="pv__opt" data-pos="inline">V textu</button>
+          </div>
+          <div class="pv__row">
+            <span class="pv__name">Okraj</span>
+            <button type="button" class="pv__opt" data-edge="fresco">Freska</button>
+            <button type="button" class="pv__opt" data-edge="straight">Rovný</button>
           </div>
           <div class="pv__row">
             <span class="pv__name">Výška pásu</span>
@@ -71,7 +77,7 @@ const indexNight = withBase(base, '/putovani/navrh-obrazku/nocni/');
   </div>
 </aside>
 
-<script is:inline define:vars={{ images, start, mode }}>
+<script is:inline define:vars={{ images, start, mode, maskSrc }}>
   (() => {
     const KEY = 'hbw_pv';
     let st = {};
@@ -92,10 +98,13 @@ const indexNight = withBase(base, '/putovani/navrh-obrazku/nocni/');
     const apply = () => {
       root.classList.toggle('pv-inline', st.pos === 'inline');
       root.classList.toggle('pv-bleed', st.pos === 'bleed');
+      root.classList.toggle('pv-fresco', mode === 'essay' && st.edge !== 'straight');
+      root.style.setProperty('--pv-mask', `url("${maskSrc}")`);
       if (st.hero) root.style.setProperty('--essay-hero-ratio', st.hero);
       if (st.ratio) root.style.setProperty('--tr-img-ratio', st.ratio);
       if (st.width) root.style.setProperty('--tr-img-w', st.width);
       panel.querySelectorAll('[data-pos]').forEach((b) => b.classList.toggle('is-on', (st.pos || 'band') === b.dataset.pos));
+      panel.querySelectorAll('[data-edge]').forEach((b) => b.classList.toggle('is-on', (st.edge || 'fresco') === b.dataset.edge));
       panel.querySelectorAll('[data-hero]').forEach((b) => b.classList.toggle('is-on', (st.hero || '21 / 9') === b.dataset.hero));
       panel.querySelectorAll('[data-ratio]').forEach((b) => b.classList.toggle('is-on', (st.ratio || '3 / 2') === b.dataset.ratio));
       panel.querySelectorAll('[data-width]').forEach((b) => b.classList.toggle('is-on', (st.width || '17rem') === b.dataset.width));
@@ -124,6 +133,7 @@ const indexNight = withBase(base, '/putovani/navrh-obrazku/nocni/');
         return;
       } else if (t.dataset.pos) st.pos = t.dataset.pos;
       else if (t.dataset.hero) st.hero = t.dataset.hero;
+      else if (t.dataset.edge) st.edge = t.dataset.edge;
       else if (t.dataset.ratio) st.ratio = t.dataset.ratio;
       else if (t.dataset.width) st.width = t.dataset.width;
       save();
