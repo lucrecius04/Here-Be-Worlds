@@ -889,3 +889,14 @@ html.pv-fresco .essay-hero img.pv-ink {
 html[data-theme='dark'] .essay-hero--live img.has-ink {
   filter: brightness(0.8);
 }
+
+/* Vyblednutý okraj kresby je průhledný: obrázek přitáhnout k citátu nad ním i k textu pod ním. */
+.essay-hero--quote.essay-hero--live,
+.essay-hero--mid.essay-hero--live {
+  margin-top: -1.75rem;
+  margin-bottom: -1rem;
+}
+
+.essay-hero--mid.essay-hero--live {
+  margin-top: -3rem;
+}
