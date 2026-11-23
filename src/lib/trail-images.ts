@@ -16,6 +16,7 @@ const READY: Record<TrailId, number> = {
   'indifferent-stars': 2,
   'endless-war': 3,
   'living-city': 2,
+  loops: 3,
 };
 
 const DIR = 'putovani-obrazky';
