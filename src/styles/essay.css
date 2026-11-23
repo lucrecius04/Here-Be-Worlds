@@ -876,7 +876,13 @@ html:not([data-theme='dark']) .essay-hero img {
   mask-repeat: no-repeat;
 }
 
-.essay-hero--live img.has-ink,
+/* Kresba na papíře má vlastní tvar skvrny: v eseji jen maska podle tuše (fresková by ořízla tahy štětce
+   nahoře a drobnosti u spodního okraje, např. stopy v dlažbě). */
+.essay-hero--live img.has-ink {
+  -webkit-mask-image: var(--pv-mask-ink);
+  mask-image: var(--pv-mask-ink);
+}
+
 html.pv-fresco .essay-hero img.pv-ink {
   -webkit-mask-image: var(--pv-mask), var(--pv-mask-ink);
   mask-image: var(--pv-mask), var(--pv-mask-ink);
@@ -886,7 +892,15 @@ html.pv-fresco .essay-hero img.pv-ink {
   mask-composite: intersect;
 }
 
+/* V tmavém motivu by krémový papír kolem tuše svítil jako svatozář: maska dvakrát přes sebe (alfa na druhou)
+   okraj stáhne blíž ke kresbě. */
 html[data-theme='dark'] .essay-hero--live img.has-ink {
+  -webkit-mask-image: var(--pv-mask-ink), var(--pv-mask-ink);
+  mask-image: var(--pv-mask-ink), var(--pv-mask-ink);
+  -webkit-mask-size: 100% 100%, 100% 100%;
+  mask-size: 100% 100%, 100% 100%;
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
   filter: brightness(0.8);
 }
 
