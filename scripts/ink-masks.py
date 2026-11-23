@@ -51,5 +51,18 @@ for f in (files or sorted(glob.glob(os.path.join(src, '[0-9]*.jpg')))):
     o = Image.new('LA', (w, h), 0); o.putalpha(m)
     name = os.path.basename(f).replace('.jpg', '.png')
     o.save(os.path.join(out, name), optimize=True)
+    # široká maska pro světlý motiv: každé místo s trochou tuše (i slabé tahy) zůstane plné,
+    # mizí jen holý papír daleko od kresby a úzký pruh u okraje
+    from scipy import ndimage
+    q = 8; small = s[::q, ::q]
+    r = max(2, int(small.shape[1] * 0.03))
+    yy, xx = np.ogrid[-r:r + 1, -r:r + 1]
+    small = ndimage.grey_dilation(small, footprint=xx * xx + yy * yy <= r * r)
+    wide = np.asarray(Image.fromarray((small * 255).astype(np.uint8)).resize((w, h), Image.BILINEAR), np.float32) / 255
+    la = smooth(0.02, 0.22, wide)
+    la *= smooth(0, 0.035, np.minimum(u, 1 - u)) * smooth(0, 0.045, np.minimum(v, 1 - v))
+    ml = Image.fromarray((la * 255).astype(np.uint8), 'L').filter(ImageFilter.GaussianBlur(w / 90))
+    ol = Image.new('LA', (w, h), 0); ol.putalpha(ml)
+    ol.save(os.path.join(out, name.replace('.png', '-light.png')), optimize=True)
     made.append(name)
 print(len(made), made)

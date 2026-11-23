@@ -297,6 +297,12 @@ html:not([data-theme='dark']) .trails-row__img img {
   mask-composite: intersect;
 }
 
+html:not([data-theme='dark']) .trails-row__img img.has-ink {
+  -webkit-mask-image: var(--pv-mask), var(--pv-mask-ink-light, var(--pv-mask-ink));
+  mask-image: var(--pv-mask), var(--pv-mask-ink-light, var(--pv-mask-ink));
+  filter: brightness(1.06) saturate(0.8);
+}
+
 html[data-theme='dark'] .trails-row__img img.has-ink {
   filter: brightness(0.8);
 }

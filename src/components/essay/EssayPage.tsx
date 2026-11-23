@@ -107,7 +107,11 @@ function splitSources(markdown: string): [string, string] {
 function heroImgProps(h: { ink?: string; mask?: string }) {
   const style: Record<string, string> = {};
   if (h.mask) style['--pv-mask'] = `url("${h.mask}")`;
-  if (h.ink) style['--pv-mask-ink'] = `url("${h.ink}")`;
+  if (h.ink) {
+    style['--pv-mask-ink'] = `url("${h.ink}")`;
+    // širší maska pro světlý motiv (papír tam multiply schová, maska jen nesmí sníst slabé tahy)
+    style['--pv-mask-ink-light'] = `url("${h.ink.replace(/\.png$/, '-light.png')}")`;
+  }
   return { style: style as CSSProperties, className: h.ink ? 'has-ink' : undefined };
 }
 

@@ -883,6 +883,14 @@ html:not([data-theme='dark']) .essay-hero img {
   mask-image: var(--pv-mask-ink);
 }
 
+/* Světlý motiv: papír splyne díky multiply, maska je široká, aby slabé tahy nahoře nezamlžila. */
+html:not([data-theme='dark']) .essay-hero--live img.has-ink {
+  -webkit-mask-image: var(--pv-mask-ink-light, var(--pv-mask-ink));
+  mask-image: var(--pv-mask-ink-light, var(--pv-mask-ink));
+  /* krémový papír vybělit, ať po multiply nezůstane béžová svatozář */
+  filter: brightness(1.06) saturate(0.8);
+}
+
 html.pv-fresco .essay-hero img.pv-ink {
   -webkit-mask-image: var(--pv-mask), var(--pv-mask-ink);
   mask-image: var(--pv-mask), var(--pv-mask-ink);
