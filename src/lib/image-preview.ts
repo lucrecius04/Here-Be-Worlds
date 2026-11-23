@@ -30,12 +30,13 @@ export const PREVIEW_IMAGES: PreviewImage[] = [
   { file: '22-krida-modra-vicko.jpg', label: 'Křída na modré · víčko', night: true },
   { file: '23-monotypie-dum.jpg', label: 'Monotypie s kresbou · dům', night: false },
   { file: '24-monotypie-katedrala.jpg', label: 'Monotypie s kresbou · katedrála', night: false },
+  { file: '25-styl-vicko.jpg', label: 'Nalezený styl · víčko', night: false },
 ];
 
 /** Všechny obrázky: k tématu, kde sedí, zbytek dokola. Číslo = pořadí v PREVIEW_IMAGES od 1. */
 const MIX: Record<string, number> = {
   'god-corpse': 24,
-  'gods-burden': 21,
+  'gods-burden': 25,
   house: 23,
   loops: 11,
   'indifferent-stars': 13,
