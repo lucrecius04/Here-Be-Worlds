@@ -900,11 +900,10 @@ html.pv-fresco .essay-hero img.pv-ink {
   mask-composite: intersect;
 }
 
-/* V tmavém motivu by krémový papír kolem tuše svítil jako svatozář: maska dvakrát přes sebe (alfa na druhou)
-   okraj stáhne blíž ke kresbě. */
+/* Tmavý motiv: fresková maska a maska podle tuše přes sebe, kresba se ztrácí do tmy (stav schválený majitelem). */
 html[data-theme='dark'] .essay-hero--live img.has-ink {
-  -webkit-mask-image: var(--pv-mask-ink), var(--pv-mask-ink);
-  mask-image: var(--pv-mask-ink), var(--pv-mask-ink);
+  -webkit-mask-image: var(--pv-mask), var(--pv-mask-ink);
+  mask-image: var(--pv-mask), var(--pv-mask-ink);
   -webkit-mask-size: 100% 100%, 100% 100%;
   mask-size: 100% 100%, 100% 100%;
   -webkit-mask-composite: source-in;

@@ -44,10 +44,10 @@ for f in (files or sorted(glob.glob(os.path.join(src, '[0-9]*.jpg')))):
         uu = np.linspace(-1, 1, w)[None, :]; vv = np.linspace(-1, 1, h)[:, None]
         win = smooth(1.0, 0.55, np.sqrt((uu / 0.42) ** 2 + ((vv + 0.1) / 0.5) ** 2))
         s = np.maximum(s, big * win)
-    alpha = smooth(0.12, 0.7, s) ** 1.3  # dlouhý pozvolný přechod, okraj se ztrácí uvnitř tuše
+    alpha = smooth(0.25, 0.85, s) ** 1.6  # dlouhý pozvolný přechod, okraj se ztrácí uvnitř tuše
     u = np.linspace(0, 1, w)[None, :]; v = np.linspace(0, 1, h)[:, None]
-    alpha *= smooth(0, 0.06, np.minimum(u, 1 - u)) * smooth(0, 0.07, np.minimum(v, 1 - v))
-    m = Image.fromarray((alpha * 255).astype(np.uint8), 'L').filter(ImageFilter.GaussianBlur(w / 70))
+    alpha *= smooth(0, 0.12, np.minimum(u, 1 - u)) * smooth(0, 0.16, np.minimum(v, 1 - v))
+    m = Image.fromarray((alpha * 255).astype(np.uint8), 'L').filter(ImageFilter.GaussianBlur(w / 50))
     o = Image.new('LA', (w, h), 0); o.putalpha(m)
     name = os.path.basename(f).replace('.jpg', '.png')
     o.save(os.path.join(out, name), optimize=True)
