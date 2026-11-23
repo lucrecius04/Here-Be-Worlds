@@ -117,7 +117,7 @@ const indexNight = withBase(base, '/putovani/navrh-obrazku/nocni/');
       panel.querySelectorAll('[data-pos]').forEach((b) => b.classList.toggle('is-on', (st.pos || 'quote') === b.dataset.pos));
       panel.querySelectorAll('[data-edge]').forEach((b) => b.classList.toggle('is-on', (st.edge || 'fresco') === b.dataset.edge));
       panel.querySelectorAll('[data-hero]').forEach((b) => b.classList.toggle('is-on', (st.hero || '16 / 9') === b.dataset.hero));
-      panel.querySelectorAll('[data-ratio]').forEach((b) => b.classList.toggle('is-on', (st.ratio || '3 / 2') === b.dataset.ratio));
+      panel.querySelectorAll('[data-ratio]').forEach((b) => b.classList.toggle('is-on', (st.ratio || '16 / 9') === b.dataset.ratio));
       panel.querySelectorAll('[data-width]').forEach((b) => b.classList.toggle('is-on', (st.width || '21rem') === b.dataset.width));
       if (st.closed) panel.classList.add('is-closed');
       panel.querySelector('.pv__toggle').setAttribute('aria-expanded', String(!st.closed));

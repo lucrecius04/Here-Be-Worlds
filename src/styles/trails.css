@@ -242,6 +242,24 @@ html[data-theme='dark'] .trails-cross__dot {
   grid-template-columns: minmax(0, 1fr) var(--tr-img-w, 21rem);
 }
 
+/* Obrázek začíná nahoře u názvu a nepřidává řádku výšku; Esej · N min leží v jeho vyblednutém spodku. */
+.trails-row.has-image .trails-row__side {
+  position: relative;
+  align-self: start;
+  margin-top: -0.75rem;
+  padding-top: 0;
+}
+
+.trails-row.has-image .trails-row__img {
+  margin: 0;
+}
+
+.trails-row.has-image .trails-row__essay {
+  position: absolute;
+  right: 0;
+  bottom: 0.25rem;
+}
+
 .trails-row__img {
   display: block;
   margin: 0 0 0.75rem;
@@ -252,7 +270,7 @@ html[data-theme='dark'] .trails-cross__dot {
 .trails-row__img img {
   display: block;
   width: 100%;
-  aspect-ratio: var(--tr-img-ratio, 3 / 2);
+  aspect-ratio: var(--tr-img-ratio, 16 / 9);
   object-fit: cover;
   transition: transform 0.4s ease;
 }
@@ -467,6 +485,11 @@ html[data-theme='dark'] .trails-row__img img.has-ink {
 
   .trails-row.has-image .trails-row__side {
     order: -1;
+    margin-top: 0;
+  }
+
+  .trails-row.has-image .trails-row__essay {
+    position: static;
   }
 
   .trails-cross {
