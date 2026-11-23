@@ -606,7 +606,8 @@ html[data-theme='dark'] .cm [style*='--c-l'] {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 0 3.5rem;
+  /* otočeno o 180°: horní odsazení vyjde dole, pod pátou řadou (čísla a popisek vodorovné souřadnice) */
+  padding: 2.7rem 0 0;
   font: 500 0.6875rem var(--font-mono);
   letter-spacing: 0.1em;
   text-transform: uppercase;

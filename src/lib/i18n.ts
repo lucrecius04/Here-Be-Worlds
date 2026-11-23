@@ -387,8 +387,7 @@ export const ui: Record<Locale, UiTree> = {
       unpick: 'Zrušit označení',
       compareTwo: 'Srovnat tyto dva →',
       crossKicker: 'Druhý pohled',
-      crossTitle: 'Zkřiž dvě souřadnice',
-      crossLead: 'Vyber dvě souřadnice a uvidíš, kde se světy tlačí a kde zůstala bílá místa.',
+      crossTitle: 'Korelace souřadnic',
     },
     chapterPage: {
       back: 'Zpět',
@@ -920,8 +919,7 @@ Berte prosím tento atlas jako skromnou poctu všem scenáristům, designérům 
       unpick: 'Clear selection',
       compareTwo: 'Compare these two →',
       crossKicker: 'A second view',
-      crossTitle: 'Cross two coordinates',
-      crossLead: 'Pick two coordinates to see where worlds crowd together and where blank spaces remain.',
+      crossTitle: 'Coordinate correlation',
     },
     chapterPage: {
       back: 'Back',

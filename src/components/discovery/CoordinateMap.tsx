@@ -15,7 +15,7 @@ import axesMeta from '../../../data/meta/axes.json';
  *    i jeho průměr). Dvě pevná místa Svět 1 / Svět 2 (barvy srovnání): klik na čtvereček zaplní první
  *    volné, plná obě → vymění Svět 2; v polích nahoře jde každé místo změnit zvlášť. Čtverečky vybraných
  *    světů spojí linka: profil napříč pásy. Vybrané světy se archetypem nikdy neztlumí.
- * 2. Zkřiž dvě souřadnice: mřížka 5 × 5 pro zvolenou dvojici, pod ní Deset map (všechny dvojice).
+ * 2. Korelace souřadnic: mřížka 5 × 5 pro zvolenou dvojici, pod ní Deset map (všechny dvojice).
  * Vpravo panel vybraných světů přes obě části. Příbuznost se tu nepočítá (je ve Srovnání).
  */
 
@@ -453,12 +453,11 @@ export default function CoordinateMap({ worlds, chapters, themeLabels, base }: P
           )}
         </aside>
 
-        {/* ---------- 2. Zkřiž dvě souřadnice ---------- */}
+        {/* ---------- 2. Korelace souřadnic ---------- */}
         <section className="cm-cross" aria-labelledby="cm-cross-title">
           <header className="cm-cross__head">
             <p className="cm-kicker">{uiT('map.crossKicker', locale)}</p>
             <h2 id="cm-cross-title">{uiT('map.crossTitle', locale)}</h2>
-            <p>{uiT('map.crossLead', locale)}</p>
           </header>
 
           <div className="cm-cross__controls">
