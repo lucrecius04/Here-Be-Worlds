@@ -6,6 +6,9 @@ import glob, os
 import numpy as np
 from PIL import Image, ImageFilter
 
+import sys
+# bez argumentů: všechny zkušební obrázky; s argumenty: zadané soubory (maska do maska/ vedle nich)
+files = sys.argv[1:]
 src = 'public/navrh-obrazku'
 out = os.path.join(src, 'maska')
 os.makedirs(out, exist_ok=True)
@@ -14,7 +17,8 @@ def smooth(e0, e1, x):
     t = np.clip((x - e0) / (e1 - e0), 0, 1); return t * t * (3 - 2 * t)
 
 made = []
-for f in sorted(glob.glob(os.path.join(src, '[0-9]*.jpg'))):
+for f in (files or sorted(glob.glob(os.path.join(src, '[0-9]*.jpg')))):
+    out = os.path.join(os.path.dirname(f), 'maska'); os.makedirs(out, exist_ok=True)
     im = Image.open(f).convert('L')
     w, h = im.size
     a = np.asarray(im, np.float32) / 255

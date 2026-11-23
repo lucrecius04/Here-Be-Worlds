@@ -12,6 +12,7 @@ export type TrailImage = { src: string; ink?: string; mask: string };
 /** Putování, která už obrázky mají: počet obrázků (1 nebo 2). */
 const READY: Record<TrailId, 1 | 2> = {
   'gods-burden': 2,
+  house: 2,
 };
 
 const DIR = 'putovani-obrazky';
