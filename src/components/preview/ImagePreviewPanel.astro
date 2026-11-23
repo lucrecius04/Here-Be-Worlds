@@ -1,0 +1,259 @@
+---
+/**
+ * Ovládání náhledu obrázků k putováním (jen skryté stránky /putovani/navrh-obrazku/…).
+ * Přepíná obrázek eseje, umístění pásu a výřez v rejstříku. Volby si pamatuje v localStorage (hbw_pv).
+ */
+import { PREVIEW_IMAGES, previewSrc } from '../../lib/image-preview';
+import { withBase } from '../../lib/base-url';
+
+interface Props {
+  mode: 'index' | 'essay';
+  set?: 'mix' | 'night';
+  start?: number;
+}
+const { mode, set = 'mix', start = 1 } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const images = PREVIEW_IMAGES.map((img, i) => ({ src: previewSrc(base, i + 1), label: img.label }));
+const indexMix = withBase(base, '/putovani/navrh-obrazku/');
+const indexNight = withBase(base, '/putovani/navrh-obrazku/nocni/');
+---
+
+<aside class="pv" data-mode={mode} aria-label="Náhled obrázků">
+  <button type="button" class="pv__toggle" aria-expanded="true">Náhled obrázků</button>
+  <div class="pv__body">
+    {
+      mode === 'essay' ? (
+        <>
+          <div class="pv__row pv__pick">
+            <button type="button" class="pv__btn" data-step="-1" aria-label="Předchozí obrázek">‹</button>
+            <span class="pv__label" aria-live="polite" />
+            <button type="button" class="pv__btn" data-step="1" aria-label="Další obrázek">›</button>
+          </div>
+          <div class="pv__row">
+            <span class="pv__name">Umístění</span>
+            <button type="button" class="pv__opt" data-pos="band">Pás</button>
+            <button type="button" class="pv__opt" data-pos="bleed">Celá šířka</button>
+            <button type="button" class="pv__opt" data-pos="inline">V textu</button>
+          </div>
+          <div class="pv__row">
+            <span class="pv__name">Výška pásu</span>
+            <button type="button" class="pv__opt" data-hero="3 / 1">3 : 1</button>
+            <button type="button" class="pv__opt" data-hero="21 / 9">21 : 9</button>
+            <button type="button" class="pv__opt" data-hero="16 / 9">16 : 9</button>
+          </div>
+          <div class="pv__row">
+            <a class="pv__link" href={indexMix}>Rejstřík s obrázky →</a>
+          </div>
+        </>
+      ) : (
+        <>
+          <div class="pv__row">
+            <span class="pv__name">Obrázky</span>
+            <a class:list={['pv__opt', { 'is-on': set === 'mix' }]} href={indexMix}>Všechny</a>
+            <a class:list={['pv__opt', { 'is-on': set === 'night' }]} href={indexNight}>Jen noční grafika</a>
+          </div>
+          <div class="pv__row">
+            <span class="pv__name">Výřez</span>
+            <button type="button" class="pv__opt" data-ratio="3 / 2">3 : 2</button>
+            <button type="button" class="pv__opt" data-ratio="4 / 5">4 : 5</button>
+            <button type="button" class="pv__opt" data-ratio="16 / 9">16 : 9</button>
+          </div>
+          <div class="pv__row">
+            <span class="pv__name">Velikost</span>
+            <button type="button" class="pv__opt" data-width="13rem">Menší</button>
+            <button type="button" class="pv__opt" data-width="17rem">Střední</button>
+            <button type="button" class="pv__opt" data-width="22rem">Větší</button>
+          </div>
+          <p class="pv__note">Klikni na obrázek nebo název: otevře se stránka putování s obrázkem.</p>
+        </>
+      )
+    }
+  </div>
+</aside>
+
+<script is:inline define:vars={{ images, start, mode }}>
+  (() => {
+    const KEY = 'hbw_pv';
+    let st = {};
+    try {
+      st = JSON.parse(localStorage.getItem(KEY) || '{}') || {};
+    } catch {}
+    const save = () => {
+      try {
+        localStorage.setItem(KEY, JSON.stringify(st));
+      } catch {}
+    };
+    const root = document.documentElement;
+    const panel = document.querySelector('.pv');
+    const params = new URLSearchParams(location.search);
+    let idx = Number(params.get('obr')) || start;
+    if (st.closed === undefined && matchMedia('(max-width: 720px)').matches) st.closed = true;
+
+    const apply = () => {
+      root.classList.toggle('pv-inline', st.pos === 'inline');
+      root.classList.toggle('pv-bleed', st.pos === 'bleed');
+      if (st.hero) root.style.setProperty('--essay-hero-ratio', st.hero);
+      if (st.ratio) root.style.setProperty('--tr-img-ratio', st.ratio);
+      if (st.width) root.style.setProperty('--tr-img-w', st.width);
+      panel.querySelectorAll('[data-pos]').forEach((b) => b.classList.toggle('is-on', (st.pos || 'band') === b.dataset.pos));
+      panel.querySelectorAll('[data-hero]').forEach((b) => b.classList.toggle('is-on', (st.hero || '21 / 9') === b.dataset.hero));
+      panel.querySelectorAll('[data-ratio]').forEach((b) => b.classList.toggle('is-on', (st.ratio || '3 / 2') === b.dataset.ratio));
+      panel.querySelectorAll('[data-width]').forEach((b) => b.classList.toggle('is-on', (st.width || '17rem') === b.dataset.width));
+      if (st.closed) panel.classList.add('is-closed');
+      panel.querySelector('.pv__toggle').setAttribute('aria-expanded', String(!st.closed));
+    };
+
+    const show = () => {
+      if (mode !== 'essay') return;
+      const img = images[idx - 1];
+      document.querySelectorAll('[data-preview-img]').forEach((el) => (el.src = img.src));
+      panel.querySelector('.pv__label').textContent = `${idx} / ${images.length} · ${img.label}`;
+      const url = new URL(location.href);
+      url.searchParams.set('obr', String(idx));
+      history.replaceState(null, '', url);
+    };
+
+    panel.addEventListener('click', (e) => {
+      const t = e.target.closest('button');
+      if (!t) return;
+      if (t.classList.contains('pv__toggle')) {
+        st.closed = !panel.classList.toggle('is-closed') ? false : true;
+      } else if (t.dataset.step) {
+        idx = ((idx - 1 + Number(t.dataset.step) + images.length) % images.length) + 1;
+        show();
+        return;
+      } else if (t.dataset.pos) st.pos = t.dataset.pos;
+      else if (t.dataset.hero) st.hero = t.dataset.hero;
+      else if (t.dataset.ratio) st.ratio = t.dataset.ratio;
+      else if (t.dataset.width) st.width = t.dataset.width;
+      save();
+      apply();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (mode !== 'essay' || e.target.closest('input, textarea, select')) return;
+      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+        idx = ((idx - 1 + (e.key === 'ArrowRight' ? 1 : -1) + images.length) % images.length) + 1;
+        show();
+      }
+    });
+
+    // V rejstříku pošle klik na putování i číslo obrázku, aby stránka eseje ukázala stejný obrázek.
+    if (mode === 'index') {
+      document.addEventListener('click', (e) => {
+        const a = e.target.closest('.trails-row a');
+        if (!a) return;
+        const img = a.closest('.trails-row').querySelector('.trails-row__img img');
+        if (!img) return;
+        const file = img.getAttribute('src').split('/').pop();
+        const n = images.findIndex((i) => i.src.endsWith(file)) + 1;
+        if (n > 0) a.href = a.href.split('?')[0] + '?obr=' + n;
+      }, true);
+    }
+
+    apply();
+    show();
+  })();
+</script>
+
+<style is:global>
+  .pv {
+    position: fixed;
+    left: 1rem;
+    bottom: 1rem;
+    z-index: 60;
+    width: min(23rem, calc(100vw - 2rem));
+    border-top: 3px solid var(--mark-glow, #e5be7e);
+    background: var(--color-paper);
+    color: var(--color-ink);
+    box-shadow: 0 0 0 1px var(--color-line);
+    font-family: var(--font-sans);
+    font-size: 0.8125rem;
+  }
+
+  .pv__toggle {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: 0;
+    background: none;
+    font: 500 0.6875rem var(--font-mono);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-align: left;
+    color: var(--color-ink-muted);
+    cursor: pointer;
+  }
+
+  .pv__toggle::after {
+    content: ' ▾';
+  }
+
+  .pv.is-closed .pv__toggle::after {
+    content: ' ▸';
+  }
+
+  .pv.is-closed .pv__body {
+    display: none;
+  }
+
+  .pv__body {
+    padding: 0 0.75rem 0.75rem;
+  }
+
+  .pv__row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.375rem;
+    margin-top: 0.5rem;
+  }
+
+  .pv__name {
+    width: 5.5rem;
+    font: 500 0.625rem var(--font-mono);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-ink-muted);
+  }
+
+  .pv__opt,
+  .pv__btn {
+    padding: 0.25rem 0.5rem;
+    border: 1px solid var(--color-line);
+    background: none;
+    font: inherit;
+    color: var(--color-ink);
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .pv__opt.is-on {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+
+  .pv__pick .pv__btn {
+    font-size: 1rem;
+    line-height: 1;
+  }
+
+  .pv__label {
+    flex: 1;
+    min-width: 0;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    text-align: center;
+  }
+
+  .pv__link {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  .pv__note {
+    margin: 0.625rem 0 0;
+    font-size: 0.75rem;
+    color: var(--color-ink-muted);
+  }
+</style>

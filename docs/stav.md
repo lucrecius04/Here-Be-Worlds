@@ -53,3 +53,10 @@ Naposledy aktualizováno: 2026-11-22.
 - **Kontrola v prohlížeči:** Playwright, skripty si psát do `/tmp`. V repozitáři Playwright není: nainstalovat ho do `/tmp/pw` (`npm i playwright`) a spouštět předinstalovaný Chromium přes `chromium.launch({ executablePath: '/opt/pw-browsers/chromium-1243/chrome-linux64/chrome' })`, protože stahování prohlížečů proxy nepustí (číslo verze ve složce se může lišit, `ls /opt/pw-browsers`). Živý web jde z cloudu otevřít jen přes cloudový prohlížeč, ne z příkazové řádky.
 - **Karty pro sdílení:** Google Fonts v cloudu nejsou, postup s `HBW_OG_FONT_CSS` je v `CLAUDE.md`. Balíčky fontsource se instalují `npm i --no-save` a v nové relaci je potřeba je nainstalovat znovu.
 - **Commit a push:** commit s podpisem podle aktuální relace, pak `git pull --rebase` a `git push origin main`. Push spustí nasazení na GitHub Pages (`gh run list -R lucrecius04/Here-Be-Worlds`).
+
+## Náhled obrázků k putováním (2026-11-23, dočasné)
+
+- Skryté stránky (noindex, z webu na ně nic nevede): `/putovani/navrh-obrazku/` (rejstřík se všemi zkušebními obrázky), `/putovani/navrh-obrazku/nocni/` (jen noční grafika) a `/putovani/navrh-obrazku/<slug>/` (stránka putování s obrázkem; panel vlevo dole přepíná obrázek, umístění pás / celá šířka / v textu a výšku pásu, šipky ← → listují).
+- Obrázky: `public/navrh-obrazku/` (16 zkušebních, styly mezzotinta, rytina, šin-hanga, symbolismus/uhel, kyanotypie, noční rytina), seznam a přiřazení ke stezkám `src/lib/image-preview.ts`, ovládání `src/components/preview/ImagePreviewPanel.astro`.
+- `TrailsIndex` má nepovinné `images` a `trailHref`, `EssayPage` nepovinné `hero`; živé stránky je nepoužívají.
+- Favorit po dvou kolech: noční grafika (mezzotinta + noční rytina, jedno zlaté světlo, malý poutník). Až majitel vybere, náhledové stránky a zkušební obrázky smazat a obrázky dát natrvalo ke stezkám.

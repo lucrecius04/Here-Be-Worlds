@@ -735,3 +735,61 @@ html[data-theme='dark'] .trail-cast__item {
   padding-top: 0;
   border-top: 0;
 }
+
+/* Obrázek stezky (zatím jen náhled /putovani/navrh-obrazku/<slug>/). Dvě podoby, přepíná je třída
+   na <html>: pás pod hlavičkou (výchozí, obsah nebo celá šířka) a obrázek na začátku textu. */
+.essay-hero {
+  margin: 0 0 2.75rem;
+  background: var(--color-band);
+}
+
+.essay-hero img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+
+.essay-hero--band img {
+  aspect-ratio: var(--essay-hero-ratio, 21 / 9);
+}
+
+.essay-hero--inline {
+  display: none;
+  margin-bottom: 2rem;
+}
+
+.essay-hero--inline img {
+  aspect-ratio: 3 / 2;
+}
+
+html.pv-inline .essay-hero--band {
+  display: none;
+}
+
+html.pv-inline .essay-hero--inline {
+  display: block;
+}
+
+html.pv-bleed .essay-hero--band {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+}
+
+.essay-hero + .essay-layout {
+  padding-top: 0;
+  border-top: 0;
+}
+
+html.pv-bleed .essay__top:has(+ .essay-hero) {
+  margin-bottom: 0;
+}
+
+@media (max-width: 720px) {
+  .essay-hero {
+    margin-bottom: 1.75rem;
+  }
+
+  .essay-hero--band img {
+    aspect-ratio: 16 / 9;
+  }
+}

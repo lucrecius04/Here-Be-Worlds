@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import EssayPage from '../../../components/essay/EssayPage';
+import { trailBySlug } from '../../../lib/trails';
+import { uiT } from '../../../lib/i18n';
+import {
+  trailPages,
+  publishedEssayFor,
+  trailWorldsInfo,
+  trailSources,
+  trailThemes,
+  worldLinks,
+} from '../../../lib/trail-pages';
+import { previewIndexFor, previewSrc } from '../../../lib/image-preview';
+import ImagePreviewPanel from '../../../components/preview/ImagePreviewPanel.astro';
+
+/**
+ * NÁHLED OBRÁZKŮ (skryté, noindex): stejná stránka putování s obrázkem nahoře. Původní popis:
+ * Stránka každého putování (/putovani/<slug>/; interně „stezka“, trail). Se schválenou esejí ukazuje esej,
+ * jinak hlavičku, světy stezky, jejich souřadnice a prameny, o které se esej opře.
+ */
+export function getStaticPaths() {
+  return trailPages.map(({ slug }) => ({ params: { id: slug } }));
+}
+
+const { id } = Astro.params;
+const trail = trailBySlug(id)!;
+const essay = publishedEssayFor(trail.id);
+const base = import.meta.env.BASE_URL;
+const name = uiT(trail.nameKey, 'cs');
+const desc = uiT(trail.descKey, 'cs');
+const sources = trailSources(trail);
+const start = previewIndexFor(trail.id);
+
+const pendingMarkdown = [
+  '> **Esej připravujeme**',
+  '>',
+  '> K putování píšeme esej. Zatím si projdi světy, kterými vede, a jejich polohu na pěti souřadnicích.',
+  '',
+  ...(sources.length
+    ? [
+        '## Na čem putování stojí',
+        '',
+        `Esej se opře o tyto prameny: ${sources.join(', ')}. Kdo jsou a co z nich atlas bere, popisuje [Teoretické zázemí](/teoreticke-zazemi/).`,
+      ]
+    : []),
+].join('\n');
+---
+
+<BaseLayout
+  noindex
+  title={`Náhled obrázku: ${essay?.title ?? name} — Here Be Worlds`}
+  description={essay?.description ?? desc}
+>
+  <EssayPage
+    client:load
+    base={base}
+    markdown={essay?.markdown ?? pendingMarkdown}
+    title={essay?.title ?? name}
+    kicker={essay?.kicker ?? uiT('trails.essayKicker', 'cs')}
+    tagline={essay?.tagline ?? desc}
+    worlds={worldLinks}
+    trail={{ worlds: trailWorldsInfo(trail), themes: trailThemes(trail.themes) }}
+    pending={!essay}
+    hero={{ src: previewSrc(base, start), alt: '' }}
+  />
+  <ImagePreviewPanel mode="essay" start={start} />
+</BaseLayout>

@@ -34,6 +34,8 @@ type Props = {
   trail?: { worlds: TrailWorldInfo[]; themes?: { slug: string; label: string }[] };
   /** Stránka stezky bez schválené eseje: bez doby čtení. */
   pending?: boolean;
+  /** Obrázek stezky (zatím jen náhled): široký pás pod hlavičkou, nebo na začátku textu. */
+  hero?: { src: string; alt: string };
 };
 
 /** Stabilní kotvy, na které odkazuje triáda na kartě světa. */
@@ -95,7 +97,7 @@ function splitSources(markdown: string): [string, string] {
   return at < 0 ? [markdown, ''] : [markdown.slice(0, at), markdown.slice(at)];
 }
 
-export default function EssayPage({ base, markdown, title, kicker, tagline, worlds, trail, pending }: Props) {
+export default function EssayPage({ base, markdown, title, kicker, tagline, worlds, trail, pending, hero }: Props) {
   const locale = useLocale();
   const [mainMd, sourcesMd] = useMemo(
     () => (trail ? splitSources(markdown) : [markdown, '']),
@@ -222,12 +224,23 @@ export default function EssayPage({ base, markdown, title, kicker, tagline, worl
       {trail?.themes?.length ? <TrailThemes themes={trail.themes} base={base} locale={locale} /> : null}
       </div>
 
+      {hero ? (
+        <figure className="essay-hero essay-hero--band">
+          <img data-preview-img src={hero.src} alt={hero.alt} decoding="async" />
+        </figure>
+      ) : null}
+
       <div className="essay-layout">
         <aside className="essay-toc">
           <ReadingToc items={toc} active={active} label={uiT('essay.toc', locale)} />
         </aside>
 
         <div className="essay-prose" lang="cs">
+          {hero ? (
+            <figure className="essay-hero essay-hero--inline">
+              <img data-preview-img src={hero.src} alt={hero.alt} decoding="async" />
+            </figure>
+          ) : null}
           <ReactMarkdown remarkPlugins={[remarkGfm]} components={mdComponents}>
             {mainMd}
           </ReactMarkdown>

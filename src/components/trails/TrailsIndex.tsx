@@ -28,6 +28,10 @@ type Props = {
   trails: TrailsIndexTrail[];
   worlds: TrailsIndexWorld[];
   themeLabels: Record<string, { en: string; cs?: string }>;
+  /** Náhled obrázků (zatím jen skrytá stránka): id stezky → adresa obrázku. */
+  images?: Record<string, string>;
+  /** Kam vedou odkazy na stránky stezek (výchozí /putovani/). */
+  trailHref?: string;
 };
 
 const hue = (accent: { light: string; dark: string }) =>
@@ -41,7 +45,7 @@ function trailsCount(n: number, locale: Locale) {
  * Stránka /putovani/: rejstřík všech stezek (název, popis, světy s linkou v barvě archetypu,
  * témata eseje, doba čtení), filtr podle světa a tématu a mřížka, kde se stezky kříží.
  */
-export default function TrailsIndex({ base, trails, worlds, themeLabels }: Props) {
+export default function TrailsIndex({ base, trails, worlds, themeLabels, images, trailHref = '/putovani/' }: Props) {
   const locale = useLocale();
   const [world, setWorld] = useState('');
   const [theme, setTheme] = useState('');
@@ -188,10 +192,14 @@ export default function TrailsIndex({ base, trails, worlds, themeLabels }: Props
         {visible.map((tr) => {
           const on = filtering && matches(tr);
           return (
-            <li key={tr.id} id={`stezka-${tr.slug}`} className={`trails-row${on ? ' is-on' : ''}`}>
+            <li
+              key={tr.id}
+              id={`stezka-${tr.slug}`}
+              className={`trails-row${on ? ' is-on' : ''}${images?.[tr.id] ? ' has-image' : ''}`}
+            >
               <div className="trails-row__main">
                 <h2 className="trails-row__name">
-                  <a href={withBase(base, `/putovani/${tr.slug}/`)}>{uiT(tr.nameKey, locale)}</a>
+                  <a href={withBase(base, `${trailHref}${tr.slug}/`)}>{uiT(tr.nameKey, locale)}</a>
                 </h2>
                 <p className="trails-row__desc">{uiT(tr.descKey, locale)}</p>
                 <ul className="trails-row__worlds">
@@ -231,8 +239,13 @@ export default function TrailsIndex({ base, trails, worlds, themeLabels }: Props
                 </p>
               </div>
               <div className="trails-row__side">
+                {images?.[tr.id] ? (
+                  <a className="trails-row__img" href={withBase(base, `${trailHref}${tr.slug}/`)} tabIndex={-1} aria-hidden="true">
+                    <img src={images[tr.id]} alt="" loading="lazy" decoding="async" />
+                  </a>
+                ) : null}
                 {tr.essayMinutes !== null ? (
-                  <a className="trails-row__essay" href={withBase(base, `/putovani/${tr.slug}/`)}>
+                  <a className="trails-row__essay" href={withBase(base, `${trailHref}${tr.slug}/`)}>
                     {uiT('trailsPage.essay', locale).replace('{n}', String(tr.essayMinutes))}
                   </a>
                 ) : (
