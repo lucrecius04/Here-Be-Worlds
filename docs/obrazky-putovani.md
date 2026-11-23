@@ -29,7 +29,8 @@ Gemini, nový chat. Přiložit **jediný vzorový obrázek** `public/navrh-obraz
 Use the attached image as the style reference: keep exactly the same technique, paper, ink, mist, line work, palette and mood. Do not copy its subject, objects or its small lamp.
 Style: a dark-field ink monotype printed on warm off-white paper, in the tradition of Degas' monotypes: soft foggy indigo ink pressed and wiped into mist, the image dissolving irregularly into the bare paper at the edges. Over the soft print, confident hand-drawn ink and pencil lines with varied thickness and some cross-hatching define the main forms; the mist stays dominant and the image stays quiet. No ruled frame, no border.
 Colour: monochrome indigo and midnight blue ink (#1B2547, #0D1324) on cream paper only. No gold, no yellow, no warm light, no glowing windows, no lamps, lanterns or candles (unless the Scene line explicitly asks for one gold element).
-Scene: [MOTIV]
+Mood: surrealism in the spirit of Magritte and Dalí: unexpected combinations of things that do not belong together, often a moment of motion, uncanny but never literal or explanatory. Rich in discoverable detail: several unexpected secondary motifs are woven into the main forms, so the viewer keeps finding new things on a second look.
+Scene: [MOTIV + 4–6 vedlejších motivů vetkaných do hlavního tvaru]
 Composition: 16:9 wide, detail or medium shot, main subject in the central third, quiet empty space around, legible even as a small thumbnail.
 Avoid: text, letters, signatures, frames, video game characters, logos, religious symbols, photorealism, ink splatter, airbrush, random decorative lamps or candles.
 ```
