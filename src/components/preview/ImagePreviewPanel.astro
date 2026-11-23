@@ -5,6 +5,7 @@
  */
 import { PREVIEW_IMAGES, previewSrc } from '../../lib/image-preview';
 import { withBase } from '../../lib/base-url';
+import { existsSync } from 'node:fs';
 
 interface Props {
   mode: 'index' | 'essay';
@@ -13,7 +14,15 @@ interface Props {
 }
 const { mode, set = 'mix', start = 1 } = Astro.props;
 const base = import.meta.env.BASE_URL;
-const images = PREVIEW_IMAGES.map((img, i) => ({ src: previewSrc(base, i + 1), label: img.label }));
+const images = PREVIEW_IMAGES.map((img, i) => {
+  const mask = `navrh-obrazku/maska/${img.file.replace(/\.jpg$/, '.png')}`;
+  return {
+    src: previewSrc(base, i + 1),
+    label: img.label,
+    // maska podle tuše pro tmavý motiv (scripts/ink-masks.py), jen u kreseb na papíře
+    ink: existsSync(`public/${mask}`) ? withBase(base, `/${mask}`) : null,
+  };
+});
 const indexMix = withBase(base, '/putovani/navrh-obrazku/');
 const maskSrc = withBase(base, '/navrh-obrazku/freska-maska.png');
 const indexNight = withBase(base, '/putovani/navrh-obrazku/nocni/');
@@ -118,6 +127,7 @@ const indexNight = withBase(base, '/putovani/navrh-obrazku/nocni/');
       if (mode !== 'essay') return;
       const img = images[idx - 1];
       document.querySelectorAll('[data-preview-img]').forEach((el) => (el.src = img.src));
+      root.style.setProperty('--pv-mask-ink', img.ink ? `url("${img.ink}")` : 'var(--pv-mask)');
       panel.querySelector('.pv__label').textContent = `${idx} / ${images.length} · ${img.label}`;
       const url = new URL(location.href);
       url.searchParams.set('obr', String(idx));

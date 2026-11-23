@@ -1,0 +1,37 @@
+# Masky pro náhled obrázků k putováním v tmavém motivu: u kreseb na krémovém papíře vytvoří masku
+# podle tuše (nepravidelný tvar skvrny), aby papír kolem nevystupoval jako pravidelný obdélník.
+# Obrázky bez papírového okraje (tmavé grafiky) masku nedostanou a použijí obecnou fresku.
+# Spuštění: python3 scripts/ink-masks.py  → public/navrh-obrazku/maska/<obrázek>.png
+import glob, os
+import numpy as np
+from PIL import Image, ImageFilter
+
+src = 'public/navrh-obrazku'
+out = os.path.join(src, 'maska')
+os.makedirs(out, exist_ok=True)
+
+def smooth(e0, e1, x):
+    t = np.clip((x - e0) / (e1 - e0), 0, 1); return t * t * (3 - 2 * t)
+
+made = []
+for f in sorted(glob.glob(os.path.join(src, '[0-9]*.jpg'))):
+    im = Image.open(f).convert('L')
+    w, h = im.size
+    a = np.asarray(im, np.float32) / 255
+    b = max(4, w // 40)
+    border = np.concatenate([a[:b].ravel(), a[-b:].ravel(), a[:, :b].ravel(), a[:, -b:].ravel()])
+    paper = np.percentile(border, 60)
+    if paper < 0.78 or (border > paper - 0.08).mean() < 0.6:
+        continue  # bez papírového okraje
+    ink = np.clip((paper - a) / 0.22, 0, 1)
+    k = Image.fromarray((ink * 255).astype(np.uint8)).filter(ImageFilter.GaussianBlur(w / 160))
+    s = np.asarray(k, np.float32) / 255
+    alpha = smooth(0.30, 0.75, s)  # okraj masky uvnitř tuše, papír kolem zmizí
+    u = np.linspace(0, 1, w)[None, :]; v = np.linspace(0, 1, h)[:, None]
+    alpha *= smooth(0, 0.04, np.minimum(u, 1 - u)) * smooth(0, 0.06, np.minimum(v, 1 - v))
+    m = Image.fromarray((alpha * 255).astype(np.uint8), 'L').filter(ImageFilter.GaussianBlur(w / 180))
+    o = Image.new('LA', (w, h), 0); o.putalpha(m)
+    name = os.path.basename(f).replace('.jpg', '.png')
+    o.save(os.path.join(out, name), optimize=True)
+    made.append(name)
+print(len(made), made)

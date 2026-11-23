@@ -819,6 +819,29 @@ html.pv-fresco .essay-hero img {
   mask-repeat: no-repeat;
 }
 
+/* V tmavém motivu má kresba na papíře masku podle tuše (nepravidelná skvrna místo pravidelného oválu). */
+html.pv-fresco[data-theme='dark'] .essay-hero img {
+  -webkit-mask-image: var(--pv-mask-ink, var(--pv-mask));
+  mask-image: var(--pv-mask-ink, var(--pv-mask));
+}
+
+/* Pod citátem větší: na telefonu přes celou šířku, na počítači přesah do volného místa vpravo. */
+@media (max-width: 720px) {
+  .essay-hero--quote {
+    width: 100vw;
+    max-width: none;
+    margin-left: calc(50% - 50vw);
+  }
+}
+
+@media (min-width: 1100px) {
+  .essay-hero--quote {
+    width: min(52rem, calc(100% + 3rem));
+    max-width: none;
+    margin-left: -3rem;
+  }
+}
+
 /* Ve světlém motivu se obrázek „vpije“ do papíru webu (kresba na krémovém papíře pak nemá vlastní obdélník). */
 html:not([data-theme='dark']) .essay-hero img {
   mix-blend-mode: multiply;
