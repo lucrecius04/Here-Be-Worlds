@@ -1,0 +1,132 @@
+/*
+ * Náhled rozvržení rejstříku putování s velkými obrázky (jen /putovani/navrh-obrazku/, třídy na <html>
+ * dává panel náhledu). A = obraz za textem, B = střídavé desky, C = karty ve dvou sloupcích.
+ * Na telefonu mají všechny tři obrázek přes celou šířku nad textem.
+ */
+
+/* --- společné ------------------------------------------------------------- */
+:is(.pv-layout-a, .pv-layout-b, .pv-layout-c) .trails-row.has-image .trails-row__img {
+  overflow: visible;
+}
+
+:is(.pv-layout-a, .pv-layout-b, .pv-layout-c) .trails-row.has-image .trails-row__img img {
+  transition: transform 0.6s ease, opacity 0.4s ease;
+}
+
+:is(.pv-layout-a, .pv-layout-b, .pv-layout-c) .trails-row.has-image:hover .trails-row__img img {
+  transform: scale(1.015);
+}
+
+:is(.pv-layout-a, .pv-layout-b, .pv-layout-c) .trails-row__name {
+  font-size: clamp(1.75rem, 2.8vw, 2.375rem);
+}
+
+@media (min-width: 721px) {
+  /* --- A · obraz za textem: kresba vpravo přes dvě třetiny, vlevo bledne pod text ----------------- */
+  .pv-layout-a .trails-row.has-image {
+    display: block;
+    position: relative;
+    min-height: clamp(19rem, 28vw, 26rem);
+    padding: 2.5rem 0 2.75rem;
+  }
+
+  .pv-layout-a .trails-row.has-image .trails-row__main {
+    position: relative;
+    z-index: 1;
+    max-width: min(34rem, 48%);
+  }
+
+  .pv-layout-a .trails-row.has-image .trails-row__side {
+    position: absolute;
+    top: 1.25rem;
+    right: 0;
+    bottom: 1.25rem;
+    width: 68%;
+    margin: 0;
+  }
+
+  .pv-layout-a .trails-row.has-image .trails-row__img,
+  .pv-layout-a .trails-row.has-image .trails-row__img img {
+    height: 100%;
+  }
+
+  .pv-layout-a .trails-row.has-image .trails-row__img img {
+    aspect-ratio: auto;
+    object-fit: cover;
+    object-position: center;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, rgb(0 0 0 / 0.25) 22%, #000 52%), var(--pv-mask);
+    mask-image: linear-gradient(to right, transparent 0%, rgb(0 0 0 / 0.25) 22%, #000 52%), var(--pv-mask);
+    -webkit-mask-size: 100% 100%, 100% 100%;
+    mask-size: 100% 100%, 100% 100%;
+    -webkit-mask-composite: source-in;
+    mask-composite: intersect;
+  }
+
+  html[data-theme='dark'].pv-layout-a .trails-row.has-image .trails-row__img img.has-ink {
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, rgb(0 0 0 / 0.25) 22%, #000 52%), var(--pv-mask-ink);
+    mask-image: linear-gradient(to right, transparent 0%, rgb(0 0 0 / 0.25) 22%, #000 52%), var(--pv-mask-ink);
+    -webkit-mask-size: 100% 100%, cover;
+    mask-size: 100% 100%, cover;
+  }
+
+  /* --- B · střídavé desky: půl na půl, obraz jednou vpravo, jednou vlevo ---------------------------- */
+  .pv-layout-b .trails-row.has-image {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 0 clamp(2rem, 4vw, 4rem);
+    padding: 2.75rem 0;
+  }
+
+  .pv-layout-b .trails-row.has-image:nth-child(even) .trails-row__side {
+    order: -1;
+  }
+
+  .pv-layout-b .trails-row.has-image .trails-row__side {
+    margin: -1rem 0;
+  }
+
+  .pv-layout-b .trails-row.has-image .trails-row__img img {
+    aspect-ratio: 3 / 2;
+  }
+
+  .pv-layout-b .trails-row.has-image .trails-row__desc {
+    max-width: 32rem;
+  }
+
+  /* --- C · karty: dva sloupce, velký obraz nahoře --------------------------------------------------- */
+  .pv-layout-c .trails-index {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 clamp(2rem, 4vw, 3.5rem);
+    border-top: 0;
+  }
+
+  .pv-layout-c .trails-row.has-image {
+    display: flex;
+    flex-direction: column;
+    padding: 1.25rem 0 2.75rem;
+    border-top: 1px solid var(--color-ink);
+    border-bottom: 0;
+  }
+
+  .pv-layout-c .trails-row.has-image .trails-row__side {
+    order: -1;
+    margin: 0 0 1.25rem;
+  }
+
+  .pv-layout-c .trails-row.has-image .trails-row__img img {
+    aspect-ratio: 16 / 10;
+  }
+}
+
+/* --- telefon: obrázek přes celou šířku nad textem ----------------------------------------------- */
+@media (max-width: 720px) {
+  :is(.pv-layout-a, .pv-layout-b, .pv-layout-c) .trails-row.has-image .trails-row__side {
+    width: auto;
+    margin: 0 calc(-1 * var(--frame-pad-x, 1rem)) 0.75rem;
+  }
+
+  :is(.pv-layout-a, .pv-layout-b, .pv-layout-c) .trails-row.has-image .trails-row__img img {
+    aspect-ratio: 3 / 2;
+  }
+}

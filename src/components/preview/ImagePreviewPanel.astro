@@ -64,22 +64,13 @@ const indexNight = withBase(base, '/putovani/navrh-obrazku/nocni/');
       ) : (
         <>
           <div class="pv__row">
-            <span class="pv__name">Obrázky</span>
-            <a class:list={['pv__opt', { 'is-on': set === 'mix' }]} href={indexMix}>Všechny</a>
-            <a class:list={['pv__opt', { 'is-on': set === 'night' }]} href={indexNight}>Jen noční grafika</a>
+            <span class="pv__name">Rozvržení</span>
+            <button type="button" class="pv__opt" data-layout="a">A · Obraz za textem</button>
+            <button type="button" class="pv__opt" data-layout="b">B · Střídavé desky</button>
+            <button type="button" class="pv__opt" data-layout="c">C · Karty</button>
+            <button type="button" class="pv__opt" data-layout="orig">Dosavadní</button>
           </div>
-          <div class="pv__row">
-            <span class="pv__name">Výřez</span>
-            <button type="button" class="pv__opt" data-ratio="3 / 2">3 : 2</button>
-            <button type="button" class="pv__opt" data-ratio="4 / 5">4 : 5</button>
-            <button type="button" class="pv__opt" data-ratio="16 / 9">16 : 9</button>
-          </div>
-          <div class="pv__row">
-            <span class="pv__name">Velikost</span>
-            <button type="button" class="pv__opt" data-width="21rem">Menší</button>
-            <button type="button" class="pv__opt" data-width="26rem">Střední</button>
-            <button type="button" class="pv__opt" data-width="30rem">Větší</button>
-          </div>
+          <p class="pv__note">Obrázky jsou zkušební kresby ve vybraném stylu, k tématům zatím nesedí.</p>
           <p class="pv__note">Klikni na obrázek nebo název: otevře se stránka putování s obrázkem.</p>
         </>
       )
@@ -108,17 +99,15 @@ const indexNight = withBase(base, '/putovani/navrh-obrazku/nocni/');
     const apply = () => {
       root.classList.toggle('pv-inline', st.pos === 'inline');
       root.classList.toggle('pv-bleed', st.pos === 'bleed');
+      ['a', 'b', 'c'].forEach((l) => root.classList.toggle(`pv-layout-${l}`, mode === 'index' && (st.layout || 'a') === l));
+      panel.querySelectorAll('[data-layout]').forEach((b) => b.classList.toggle('is-on', (st.layout || 'a') === b.dataset.layout));
       root.classList.toggle('pv-quote', mode === 'essay' && (st.pos || 'quote') === 'quote');
       root.classList.toggle('pv-fresco', mode === 'essay' && st.edge !== 'straight');
       root.style.setProperty('--pv-mask', `url("${maskSrc}")`);
       root.style.setProperty('--essay-hero-ratio', st.hero || '16 / 9');
-      if (st.ratio) root.style.setProperty('--tr-img-ratio', st.ratio);
-      if (st.width) root.style.setProperty('--tr-img-w', st.width);
       panel.querySelectorAll('[data-pos]').forEach((b) => b.classList.toggle('is-on', (st.pos || 'quote') === b.dataset.pos));
       panel.querySelectorAll('[data-edge]').forEach((b) => b.classList.toggle('is-on', (st.edge || 'fresco') === b.dataset.edge));
       panel.querySelectorAll('[data-hero]').forEach((b) => b.classList.toggle('is-on', (st.hero || '16 / 9') === b.dataset.hero));
-      panel.querySelectorAll('[data-ratio]').forEach((b) => b.classList.toggle('is-on', (st.ratio || '16 / 9') === b.dataset.ratio));
-      panel.querySelectorAll('[data-width]').forEach((b) => b.classList.toggle('is-on', (st.width || '26rem') === b.dataset.width));
       if (st.closed) panel.classList.add('is-closed');
       panel.querySelector('.pv__toggle').setAttribute('aria-expanded', String(!st.closed));
     };
@@ -152,6 +141,7 @@ const indexNight = withBase(base, '/putovani/navrh-obrazku/nocni/');
       } else if (t.dataset.pos) st.pos = t.dataset.pos;
       else if (t.dataset.hero) st.hero = t.dataset.hero;
       else if (t.dataset.edge) st.edge = t.dataset.edge;
+      else if (t.dataset.layout) st.layout = t.dataset.layout;
       else if (t.dataset.ratio) st.ratio = t.dataset.ratio;
       else if (t.dataset.width) st.width = t.dataset.width;
       save();

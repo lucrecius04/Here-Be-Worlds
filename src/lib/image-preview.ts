@@ -33,9 +33,30 @@ export const PREVIEW_IMAGES: PreviewImage[] = [
   { file: '25-styl-vicko.jpg', label: 'Nalezený styl · víčko', night: false },
 ];
 
-/** Rejstřík náhledu: jen putování, která mají tematický obrázek. Číslo = pořadí v PREVIEW_IMAGES od 1. */
+/** Rejstřík náhledu rozvržení: zkušební kresby ve výsledném stylu dokola (motivy zatím nesedí). Číslo = pořadí v PREVIEW_IMAGES od 1. */
 const MIX: Record<string, number> = {
   'gods-burden': 24,
+  'cursed-legacy': 25,
+  'free-will': 23,
+  'god-corpse': 19,
+  loops: 21,
+  'knows-you-play': 17,
+  'who-woke-up': 24,
+  'monster-mirror': 25,
+  scapegoat: 23,
+  'failed-paradise': 19,
+  corporate: 21,
+  'dead-speak': 17,
+  laughter: 24,
+  'living-city': 25,
+  'endless-war': 23,
+  'indifferent-stars': 19,
+  'chronicle-keepers': 21,
+  copies: 17,
+  house: 24,
+  'endless-work': 25,
+  'true-names': 23,
+  contagion: 19,
 };
 
 /** Jen noční grafika (mezzotinta a noční rytina), v pořadí rejstříku tak, aby sousedé neměli stejný obrázek. */
