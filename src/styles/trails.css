@@ -223,7 +223,8 @@ html[data-theme='dark'] .trails-cross__dot {
 
 .trails-row__side {
   order: -1;
-  margin: 0 -0.75rem 1.25rem;
+  /* vyblednutý okraj kresby je průhledný: obrázek přitáhnout k horní lince a text k obrázku */
+  margin: -1.75rem -0.75rem -1rem;
 }
 
 .trails-row__essay {
@@ -462,7 +463,7 @@ html[data-theme='dark'] .trails-row__img img.has-ink {
   }
 
   .trails-row__side {
-    margin: 0 0 1rem;
+    margin: -1.25rem 0 -0.5rem;
   }
 
   .trails-cross {
