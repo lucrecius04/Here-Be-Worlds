@@ -14,6 +14,7 @@ const READY: Record<TrailId, 1 | 2> = {
   'gods-burden': 2,
   house: 2,
   'indifferent-stars': 2,
+  'endless-war': 2,
 };
 
 const DIR = 'putovani-obrazky';
