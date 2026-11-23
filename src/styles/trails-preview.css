@@ -28,6 +28,18 @@
     position: relative;
     min-height: clamp(19rem, 28vw, 26rem);
     padding: 2.5rem 0 2.75rem;
+    border-bottom: 0;
+  }
+
+  /* dělicí linka jen pod textem vlevo, obrázky vpravo plynou bez přerušení */
+  .pv-layout-a .trails-row.has-image::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50%;
+    height: 1px;
+    background: var(--color-line);
   }
 
   .pv-layout-a .trails-row.has-image .trails-row__main {
@@ -38,10 +50,10 @@
 
   .pv-layout-a .trails-row.has-image .trails-row__side {
     position: absolute;
-    top: 1.25rem;
+    top: 2.5rem;
     right: 0;
-    bottom: 1.25rem;
-    width: 68%;
+    bottom: 2.5rem;
+    width: 56%;
     margin: 0;
   }
 
@@ -63,10 +75,12 @@
   }
 
   html[data-theme='dark'].pv-layout-a .trails-row.has-image .trails-row__img img.has-ink {
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, rgb(0 0 0 / 0.25) 22%, #000 52%), var(--pv-mask-ink);
-    mask-image: linear-gradient(to right, transparent 0%, rgb(0 0 0 / 0.25) 22%, #000 52%), var(--pv-mask-ink);
-    -webkit-mask-size: 100% 100%, cover;
-    mask-size: 100% 100%, cover;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, rgb(0 0 0 / 0.25) 22%, #000 52%), var(--pv-mask), var(--pv-mask-ink);
+    mask-image: linear-gradient(to right, transparent 0%, rgb(0 0 0 / 0.25) 22%, #000 52%), var(--pv-mask), var(--pv-mask-ink);
+    -webkit-mask-size: 100% 100%, 100% 100%, cover;
+    mask-size: 100% 100%, 100% 100%, cover;
+    -webkit-mask-position: center;
+    mask-position: center;
   }
 
   /* --- B · střídavé desky: půl na půl, obraz jednou vpravo, jednou vlevo ---------------------------- */
