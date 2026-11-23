@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState, type CSSProperties, type ReactNode } from 'react';
+import { Fragment, useEffect, useMemo, useState, type CSSProperties, type ReactNode } from 'react';
 import ReactMarkdown, { type Components } from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { uiT } from '../../lib/i18n';
@@ -38,6 +38,8 @@ type Props = {
   hero?: { src: string; alt: string; ink?: string; mask?: string };
   /** Druhý obrázek stezky (náhled): uprostřed textu, před nadpisem nejblíž polovině. */
   hero2?: { src: string; alt: string; ink?: string; mask?: string };
+  /** Další obrázky stezky (po prvním): rozložené rovnoměrně textem, každý před nadpisem ##. Má přednost před hero2. */
+  heroMore?: { src: string; alt: string; ink?: string; mask?: string }[];
   /** Skutečná stránka (ne náhled): obrázky jen pod citátem a uprostřed, s maskami. */
   heroLive?: boolean;
 };
@@ -109,7 +111,7 @@ function heroImgProps(h: { ink?: string; mask?: string }) {
   return { style: style as CSSProperties, className: h.ink ? 'has-ink' : undefined };
 }
 
-export default function EssayPage({ base, markdown, title, kicker, tagline, worlds, trail, pending, hero, hero2, heroLive }: Props) {
+export default function EssayPage({ base, markdown, title, kicker, tagline, worlds, trail, pending, hero, hero2, heroMore, heroLive }: Props) {
   const locale = useLocale();
   const [mainMd, sourcesMd] = useMemo(
     () => (trail ? splitSources(markdown) : [markdown, '']),
@@ -163,6 +165,9 @@ export default function EssayPage({ base, markdown, title, kicker, tagline, worl
   // Náhled obrázku „pod citát“: text rozdělený za úvodním citátem (první odstavec kurzívou po prvním ##).
   // Náhled obrázků: text rozdělený za úvodním citátem (první odstavec kurzívou po prvním ##)
   // a s druhým obrázkem před nadpisem ## nejblíž polovině textu.
+  const extras = useMemo(() => heroMore ?? (hero2 ? [hero2] : []), [heroMore, hero2]);
+  // Text rozdělený za úvodním citátem (první odstavec kurzívou po prvním ##) a dál před nadpisy ##
+  // nejblíž rovnoměrnému rozložení dalších obrázků (jeden = polovina, dva = třetiny…).
   const quoteSplit = useMemo<string[] | null>(() => {
     if (!hero) return null;
     const m = /^##[^\n]*\n+(\*[^\n]*(?:\n\*[^\n]*)*)\n/m.exec(mainMd);
@@ -170,14 +175,23 @@ export default function EssayPage({ base, markdown, title, kicker, tagline, worl
     const end = m.index + m[0].length;
     const head = mainMd.slice(0, end);
     const rest = mainMd.slice(end);
-    if (!hero2) return [head, rest];
-    const half = mainMd.length / 2 - end;
-    let best = -1;
-    for (const h of rest.matchAll(/^## /gm)) {
-      if (best < 0 || Math.abs((h.index ?? 0) - half) < Math.abs(best - half)) best = h.index ?? 0;
+    const heads = [...rest.matchAll(/^## /gm)].map((h) => h.index ?? 0).filter((i) => i > 0);
+    const cuts: number[] = [];
+    extras.forEach((_, k) => {
+      const target = (mainMd.length * (k + 1)) / (extras.length + 1) - end;
+      const free = heads.filter((i) => i > (cuts[cuts.length - 1] ?? 0));
+      if (!free.length) return;
+      cuts.push(free.reduce((a, b) => (Math.abs(b - target) < Math.abs(a - target) ? b : a)));
+    });
+    const parts = [head];
+    let from = 0;
+    for (const c of cuts) {
+      parts.push(rest.slice(from, c));
+      from = c;
     }
-    return best > 0 ? [head, rest.slice(0, best), rest.slice(best)] : [head, rest];
-  }, [hero, hero2, mainMd]);
+    parts.push(rest.slice(from));
+    return parts;
+  }, [hero, extras, mainMd]);
 
   const mdComponents: Components = {
               h2: ({ children }) => {
@@ -283,16 +297,23 @@ export default function EssayPage({ base, markdown, title, kicker, tagline, worl
               <ReactMarkdown remarkPlugins={[remarkGfm]} components={mdComponents}>
                 {quoteSplit[1]}
               </ReactMarkdown>
-              {hero2 && quoteSplit[2] ? (
-                <>
+              {quoteSplit.slice(2).map((part, k) => (
+                <Fragment key={k}>
                   <figure className={`essay-hero essay-hero--quote essay-hero--mid${heroLive ? ' essay-hero--live' : ''}`}>
-                    <img data-preview-img2 src={hero2.src} alt={hero2.alt} decoding="async" loading="lazy" {...heroImgProps(hero2)} />
+                    <img
+                      data-preview-img2
+                      src={extras[k].src}
+                      alt={extras[k].alt}
+                      decoding="async"
+                      loading="lazy"
+                      {...heroImgProps(extras[k])}
+                    />
                   </figure>
                   <ReactMarkdown remarkPlugins={[remarkGfm]} components={mdComponents}>
-                    {quoteSplit[2]}
+                    {part}
                   </ReactMarkdown>
-                </>
-              ) : null}
+                </Fragment>
+              ))}
             </>
           ) : (
             <ReactMarkdown remarkPlugins={[remarkGfm]} components={mdComponents}>

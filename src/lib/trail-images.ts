@@ -1,6 +1,6 @@
 /**
  * Obrázky k putováním (styl: docs/obrazky-putovani.md). Soubory v public/putovani-obrazky/:
- * <slug>-1.jpg pod úvodním citátem eseje a jako náhled v rejstříku, <slug>-2.jpg uprostřed eseje.
+ * <slug>-1.jpg pod úvodním citátem eseje a jako náhled v rejstříku, <slug>-2.jpg (a -3.jpg…) rozložené textem eseje.
  * Masky: maska/<soubor>.png podle tuše pro tmavý motiv (scripts/ink-masks.py), maska/freska.png obecná.
  */
 import { existsSync } from 'node:fs';
@@ -9,12 +9,12 @@ import { TRAIL_SLUGS, type TrailId } from './trails';
 
 export type TrailImage = { src: string; ink?: string; mask: string };
 
-/** Putování, která už obrázky mají: počet obrázků (1 nebo 2). */
-const READY: Record<TrailId, 1 | 2> = {
+/** Putování, která už obrázky mají: počet obrázků (první pod citátem, další rovnoměrně textem). */
+const READY: Record<TrailId, number> = {
   'gods-burden': 2,
   house: 2,
   'indifferent-stars': 2,
-  'endless-war': 2,
+  'endless-war': 3,
 };
 
 const DIR = 'putovani-obrazky';
