@@ -823,6 +823,7 @@ html.pv-fresco .essay-hero img {
 html.pv-fresco[data-theme='dark'] .essay-hero img {
   -webkit-mask-image: var(--pv-mask-ink, var(--pv-mask));
   mask-image: var(--pv-mask-ink, var(--pv-mask));
+  filter: brightness(0.8);  /* krémový papír v noci nesvítí */
 }
 
 /* Pod citátem větší: na telefonu přes celou šířku, na počítači přesah do volného místa vpravo. */

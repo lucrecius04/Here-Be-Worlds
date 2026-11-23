@@ -24,12 +24,12 @@ for f in sorted(glob.glob(os.path.join(src, '[0-9]*.jpg'))):
     if paper < 0.78 or (border > paper - 0.08).mean() < 0.6:
         continue  # bez papírového okraje
     ink = np.clip((paper - a) / 0.22, 0, 1)
-    k = Image.fromarray((ink * 255).astype(np.uint8)).filter(ImageFilter.GaussianBlur(w / 160))
+    k = Image.fromarray((ink * 255).astype(np.uint8)).filter(ImageFilter.GaussianBlur(w / 60))
     s = np.asarray(k, np.float32) / 255
-    alpha = smooth(0.30, 0.75, s)  # okraj masky uvnitř tuše, papír kolem zmizí
+    alpha = smooth(0.25, 0.85, s) ** 1.6  # dlouhý pozvolný přechod, okraj se ztrácí uvnitř tuše
     u = np.linspace(0, 1, w)[None, :]; v = np.linspace(0, 1, h)[:, None]
-    alpha *= smooth(0, 0.04, np.minimum(u, 1 - u)) * smooth(0, 0.06, np.minimum(v, 1 - v))
-    m = Image.fromarray((alpha * 255).astype(np.uint8), 'L').filter(ImageFilter.GaussianBlur(w / 180))
+    alpha *= smooth(0, 0.12, np.minimum(u, 1 - u)) * smooth(0, 0.16, np.minimum(v, 1 - v))
+    m = Image.fromarray((alpha * 255).astype(np.uint8), 'L').filter(ImageFilter.GaussianBlur(w / 50))
     o = Image.new('LA', (w, h), 0); o.putalpha(m)
     name = os.path.basename(f).replace('.jpg', '.png')
     o.save(os.path.join(out, name), optimize=True)
