@@ -285,9 +285,8 @@ html:not([data-theme='dark']) .trails-row__img img {
   mix-blend-mode: multiply;
 }
 
-/* V tmavém motivu maska podle tuše; velikost cover sedí na výřez object-fit: cover. */
-html[data-theme='dark'] .trails-row__img img.has-ink {
-  /* průnik: maska podle tuše a k tomu fresková maska výřezu, ať se ztrácí i ořezané okraje */
+/* Maska podle tuše v obou motivech (papír kolem kresby i jeho zrno zmizí), k ní fresková maska výřezu. */
+.trails-row__img img.has-ink {
   -webkit-mask-image: var(--pv-mask), var(--pv-mask-ink);
   mask-image: var(--pv-mask), var(--pv-mask-ink);
   -webkit-mask-size: 100% 100%, cover;
@@ -296,6 +295,9 @@ html[data-theme='dark'] .trails-row__img img.has-ink {
   mask-position: center, center;
   -webkit-mask-composite: source-in;
   mask-composite: intersect;
+}
+
+html[data-theme='dark'] .trails-row__img img.has-ink {
   filter: brightness(0.8);
 }
 

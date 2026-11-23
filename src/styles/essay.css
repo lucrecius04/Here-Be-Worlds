@@ -826,9 +826,16 @@ html.pv-fresco .essay-hero img {
 }
 
 /* V tmavém motivu má kresba na papíře masku podle tuše (nepravidelná skvrna místo pravidelného oválu). */
+html.pv-fresco .essay-hero img {
+  -webkit-mask-image: var(--pv-mask), var(--pv-mask-ink, var(--pv-mask));
+  mask-image: var(--pv-mask), var(--pv-mask-ink, var(--pv-mask));
+  -webkit-mask-size: 100% 100%, 100% 100%;
+  mask-size: 100% 100%, 100% 100%;
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+}
+
 html.pv-fresco[data-theme='dark'] .essay-hero img {
-  -webkit-mask-image: var(--pv-mask-ink, var(--pv-mask));
-  mask-image: var(--pv-mask-ink, var(--pv-mask));
   filter: brightness(0.8);  /* krémový papír v noci nesvítí */
 }
 
@@ -869,8 +876,16 @@ html:not([data-theme='dark']) .essay-hero img {
   mask-repeat: no-repeat;
 }
 
+.essay-hero--live img.has-ink,
+html.pv-fresco .essay-hero img.pv-ink {
+  -webkit-mask-image: var(--pv-mask), var(--pv-mask-ink);
+  mask-image: var(--pv-mask), var(--pv-mask-ink);
+  -webkit-mask-size: 100% 100%, 100% 100%;
+  mask-size: 100% 100%, 100% 100%;
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+}
+
 html[data-theme='dark'] .essay-hero--live img.has-ink {
-  -webkit-mask-image: var(--pv-mask-ink);
-  mask-image: var(--pv-mask-ink);
   filter: brightness(0.8);
 }
