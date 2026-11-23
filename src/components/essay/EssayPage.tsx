@@ -148,6 +148,15 @@ export default function EssayPage({ base, markdown, title, kicker, tagline, worl
     };
   }, [toc]);
 
+  // Náhled obrázku „pod citát“: text rozdělený za úvodním citátem (první odstavec kurzívou po prvním ##).
+  const quoteSplit = useMemo<[string, string] | null>(() => {
+    if (!hero) return null;
+    const m = /^##[^\n]*\n+(\*[^\n]*(?:\n\*[^\n]*)*)\n/m.exec(mainMd);
+    if (!m) return null;
+    const end = m.index + m[0].length;
+    return [mainMd.slice(0, end), mainMd.slice(end)];
+  }, [hero, mainMd]);
+
   const mdComponents: Components = {
               h2: ({ children }) => {
                 const text = textOf(children);
@@ -241,9 +250,23 @@ export default function EssayPage({ base, markdown, title, kicker, tagline, worl
               <img data-preview-img src={hero.src} alt={hero.alt} decoding="async" />
             </figure>
           ) : null}
-          <ReactMarkdown remarkPlugins={[remarkGfm]} components={mdComponents}>
-            {mainMd}
-          </ReactMarkdown>
+          {hero && quoteSplit ? (
+            <>
+              <ReactMarkdown remarkPlugins={[remarkGfm]} components={mdComponents}>
+                {quoteSplit[0]}
+              </ReactMarkdown>
+              <figure className="essay-hero essay-hero--quote">
+                <img data-preview-img src={hero.src} alt={hero.alt} decoding="async" />
+              </figure>
+              <ReactMarkdown remarkPlugins={[remarkGfm]} components={mdComponents}>
+                {quoteSplit[1]}
+              </ReactMarkdown>
+            </>
+          ) : (
+            <ReactMarkdown remarkPlugins={[remarkGfm]} components={mdComponents}>
+              {mainMd}
+            </ReactMarkdown>
+          )}
           {trail ? (
             <>
               <TrailWorlds worlds={trail.worlds} base={base} locale={locale} />

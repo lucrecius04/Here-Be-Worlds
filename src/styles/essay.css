@@ -762,8 +762,18 @@ html[data-theme='dark'] .trail-cast__item {
   aspect-ratio: 3 / 2;
 }
 
-html.pv-inline .essay-hero--band {
+html.pv-inline .essay-hero--band,
+html.pv-quote .essay-hero--band {
   display: none;
+}
+
+.essay-hero--quote {
+  display: none;
+  margin: 1.75rem 0 2rem;
+}
+
+html.pv-quote .essay-hero--quote {
+  display: block;
 }
 
 html.pv-inline .essay-hero--inline {

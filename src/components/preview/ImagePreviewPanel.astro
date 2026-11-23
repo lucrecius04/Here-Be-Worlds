@@ -35,6 +35,7 @@ const indexNight = withBase(base, '/putovani/navrh-obrazku/nocni/');
             <button type="button" class="pv__opt" data-pos="band">Pás</button>
             <button type="button" class="pv__opt" data-pos="bleed">Celá šířka</button>
             <button type="button" class="pv__opt" data-pos="inline">V textu</button>
+            <button type="button" class="pv__opt" data-pos="quote">Pod citát</button>
           </div>
           <div class="pv__row">
             <span class="pv__name">Okraj</span>
@@ -98,6 +99,7 @@ const indexNight = withBase(base, '/putovani/navrh-obrazku/nocni/');
     const apply = () => {
       root.classList.toggle('pv-inline', st.pos === 'inline');
       root.classList.toggle('pv-bleed', st.pos === 'bleed');
+      root.classList.toggle('pv-quote', st.pos === 'quote');
       root.classList.toggle('pv-fresco', mode === 'essay' && st.edge !== 'straight');
       root.style.setProperty('--pv-mask', `url("${maskSrc}")`);
       root.style.setProperty('--essay-hero-ratio', st.hero || '16 / 9');
