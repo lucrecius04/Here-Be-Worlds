@@ -239,14 +239,13 @@ html[data-theme='dark'] .trails-cross__dot {
 
 /* Obrázek u stezky (zatím jen náhled /putovani/navrh-obrazku/): výřez z širokého obrázku. */
 .trails-row.has-image {
-  grid-template-columns: minmax(0, 1fr) var(--tr-img-w, 21rem);
+  grid-template-columns: minmax(0, 1fr) var(--tr-img-w, 26rem);
 }
 
-/* Obrázek začíná nahoře u názvu a nepřidává řádku výšku; Esej · N min leží v jeho vyblednutém spodku. */
+/* Obrázek přesahuje do horního i dolního okraje řádku (výšku řádku nezvětší); Esej · N min je v textu. */
 .trails-row.has-image .trails-row__side {
-  position: relative;
-  align-self: start;
-  margin-top: -0.75rem;
+  align-self: center;
+  margin: -1.375rem 0 -1.5rem;
   padding-top: 0;
 }
 
@@ -254,10 +253,14 @@ html[data-theme='dark'] .trails-cross__dot {
   margin: 0;
 }
 
-.trails-row.has-image .trails-row__essay {
-  position: absolute;
-  right: 0;
-  bottom: 0.25rem;
+.trails-row__essay--inline {
+  display: inline-block;
+  margin-left: 0.75rem;
+  vertical-align: middle;
+}
+
+.trails-row__img {
+  margin: 0;
 }
 
 .trails-row__img {
@@ -485,11 +488,7 @@ html[data-theme='dark'] .trails-row__img img.has-ink {
 
   .trails-row.has-image .trails-row__side {
     order: -1;
-    margin-top: 0;
-  }
-
-  .trails-row.has-image .trails-row__essay {
-    position: static;
+    margin: 0;
   }
 
   .trails-cross {

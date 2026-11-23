@@ -236,6 +236,11 @@ export default function TrailsIndex({ base, trails, worlds, themeLabels, images,
                       </button>
                     </span>
                   ))}
+                  {images?.[tr.id] && tr.essayMinutes !== null ? (
+                    <a className="trails-row__essay trails-row__essay--inline" href={withBase(base, `${trailHref}${tr.slug}/`)}>
+                      {uiT('trailsPage.essay', locale).replace('{n}', String(tr.essayMinutes))}
+                    </a>
+                  ) : null}
                 </p>
               </div>
               <div className="trails-row__side">
@@ -256,7 +261,7 @@ export default function TrailsIndex({ base, trails, worlds, themeLabels, images,
                     />
                   </a>
                 ) : null}
-                {tr.essayMinutes !== null ? (
+                {images?.[tr.id] && tr.essayMinutes !== null ? null : tr.essayMinutes !== null ? (
                   <a className="trails-row__essay" href={withBase(base, `${trailHref}${tr.slug}/`)}>
                     {uiT('trailsPage.essay', locale).replace('{n}', String(tr.essayMinutes))}
                   </a>

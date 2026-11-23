@@ -76,9 +76,9 @@ const indexNight = withBase(base, '/putovani/navrh-obrazku/nocni/');
           </div>
           <div class="pv__row">
             <span class="pv__name">Velikost</span>
-            <button type="button" class="pv__opt" data-width="17rem">Menší</button>
-            <button type="button" class="pv__opt" data-width="21rem">Střední</button>
-            <button type="button" class="pv__opt" data-width="26rem">Větší</button>
+            <button type="button" class="pv__opt" data-width="21rem">Menší</button>
+            <button type="button" class="pv__opt" data-width="26rem">Střední</button>
+            <button type="button" class="pv__opt" data-width="30rem">Větší</button>
           </div>
           <p class="pv__note">Klikni na obrázek nebo název: otevře se stránka putování s obrázkem.</p>
         </>
@@ -118,7 +118,7 @@ const indexNight = withBase(base, '/putovani/navrh-obrazku/nocni/');
       panel.querySelectorAll('[data-edge]').forEach((b) => b.classList.toggle('is-on', (st.edge || 'fresco') === b.dataset.edge));
       panel.querySelectorAll('[data-hero]').forEach((b) => b.classList.toggle('is-on', (st.hero || '16 / 9') === b.dataset.hero));
       panel.querySelectorAll('[data-ratio]').forEach((b) => b.classList.toggle('is-on', (st.ratio || '16 / 9') === b.dataset.ratio));
-      panel.querySelectorAll('[data-width]').forEach((b) => b.classList.toggle('is-on', (st.width || '21rem') === b.dataset.width));
+      panel.querySelectorAll('[data-width]').forEach((b) => b.classList.toggle('is-on', (st.width || '26rem') === b.dataset.width));
       if (st.closed) panel.classList.add('is-closed');
       panel.querySelector('.pv__toggle').setAttribute('aria-expanded', String(!st.closed));
     };
