@@ -261,13 +261,15 @@ html[data-theme='dark'] .trails-cross__dot {
   transform: scale(1.03);
 }
 
-/* Náhled: obrázek se do rejstříku vpíjí jako na stránce eseje (maska z panelu, html.pv-index). */
-html.pv-index .trails-row__img {
+/* Obrázek se do rejstříku vpíjí jako na stránce eseje: fresková maska, v tmavém motivu maska podle tuše
+   (proměnné --pv-mask a --pv-mask-ink na obrázku, v náhledu je doplní panel). */
+.trails-row__img {
+  /* bez podkladu, obrázek se rozpíjí */
   overflow: visible;
   background: none;
 }
 
-html.pv-index .trails-row__img img {
+.trails-row__img img {
   -webkit-mask-image: var(--pv-mask);
   mask-image: var(--pv-mask);
   -webkit-mask-size: 100% 100%;
@@ -276,12 +278,12 @@ html.pv-index .trails-row__img img {
   mask-repeat: no-repeat;
 }
 
-html.pv-index:not([data-theme='dark']) .trails-row__img img {
+html:not([data-theme='dark']) .trails-row__img img {
   mix-blend-mode: multiply;
 }
 
 /* V tmavém motivu maska podle tuše; velikost cover sedí na výřez object-fit: cover. */
-html.pv-index[data-theme='dark'] .trails-row__img img.has-ink {
+html[data-theme='dark'] .trails-row__img img.has-ink {
   /* průnik: maska podle tuše a k tomu fresková maska výřezu, ať se ztrácí i ořezané okraje */
   -webkit-mask-image: var(--pv-mask), var(--pv-mask-ink);
   mask-image: var(--pv-mask), var(--pv-mask-ink);

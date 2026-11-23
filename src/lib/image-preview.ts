@@ -33,30 +33,9 @@ export const PREVIEW_IMAGES: PreviewImage[] = [
   { file: '25-styl-vicko.jpg', label: 'Nalezený styl · víčko', night: false },
 ];
 
-/** Všechny obrázky: k tématu, kde sedí, zbytek dokola. Číslo = pořadí v PREVIEW_IMAGES od 1. */
+/** Rejstřík náhledu: jen putování, která mají tematický obrázek. Číslo = pořadí v PREVIEW_IMAGES od 1. */
 const MIX: Record<string, number> = {
-  'god-corpse': 24,
   'gods-burden': 24,
-  house: 23,
-  loops: 11,
-  'indifferent-stars': 13,
-  'dead-speak': 9,
-  'chronicle-keepers': 2,
-  copies: 15,
-  'endless-work': 16,
-  'who-woke-up': 18,
-  'cursed-legacy': 17,
-  'failed-paradise': 3,
-  'living-city': 14,
-  'true-names': 5,
-  'monster-mirror': 10,
-  'knows-you-play': 22,
-  'free-will': 20,
-  scapegoat: 4,
-  corporate: 6,
-  laughter: 13,
-  'endless-war': 1,
-  contagion: 11,
 };
 
 /** Jen noční grafika (mezzotinta a noční rytina), v pořadí rejstříku tak, aby sousedé neměli stejný obrázek. */
@@ -98,9 +77,9 @@ export function previewSrc(base: string, n: number): string {
   return `${base.replace(/\/$/, '')}/navrh-obrazku/${PREVIEW_IMAGES[n - 1].file}`;
 }
 
-export function previewImages(base: string, set: 'mix' | 'night'): Record<string, string> {
+export function previewImages(base: string, set: 'mix' | 'night'): Record<string, { src: string }> {
   const map = set === 'night' ? NIGHT : MIX;
-  return Object.fromEntries(Object.entries(map).map(([id, n]) => [id, previewSrc(base, n)]));
+  return Object.fromEntries(Object.entries(map).map(([id, n]) => [id, { src: previewSrc(base, n) }]));
 }
 
 export function previewIndexFor(trailId: string): number {

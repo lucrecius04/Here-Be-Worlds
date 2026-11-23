@@ -853,3 +853,24 @@ html.pv-fresco[data-theme='dark'] .essay-hero img {
 html:not([data-theme='dark']) .essay-hero img {
   mix-blend-mode: multiply;
 }
+
+/* Skutečné stránky putování (heroLive): obrázek pod citátem a uprostřed, do ztracena. */
+.essay-hero--live {
+  display: block;
+  background: none;
+}
+
+.essay-hero--live img {
+  -webkit-mask-image: var(--pv-mask);
+  mask-image: var(--pv-mask);
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+html[data-theme='dark'] .essay-hero--live img.has-ink {
+  -webkit-mask-image: var(--pv-mask-ink);
+  mask-image: var(--pv-mask-ink);
+  filter: brightness(0.8);
+}

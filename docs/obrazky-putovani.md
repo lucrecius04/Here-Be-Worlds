@@ -12,6 +12,13 @@ Stav 2026-11-23: styl nalezený po pěti kolech zkoušek (náhled `/putovani/nav
 - **Nikdy:** text, písmena, podpisy, rámečky; postavy, loga a místa z her; náboženské symboly; lidé (nanejvýš drobná postava zezadu, když to motiv potřebuje); cákance tuše; airbrush; uhlazená digitální linka.
 - **Formát:** 16 : 9 na šířku, hlavní motiv v prostřední třetině (výřez 4 : 5 v rejstříku), čitelné i jako malý náhled.
 
+## Na webu
+
+- Soubory `public/putovani-obrazky/<slug>-1.jpg` (pod úvodním citátem eseje a náhled v rejstříku `/putovani/`) a `<slug>-2.jpg` (uprostřed eseje, před nadpisem ## nejblíž polovině). Šířka max 1600 px, JPEG 82.
+- Masky: `maska/<slug>-N.png` podle tuše pro tmavý motiv (`python3 scripts/ink-masks.py`, pak zkopírovat z `navrh-obrazku/maska/`, nebo upravit cestu ve skriptu), `maska/freska.png` obecná.
+- Které putování obrázky má: `READY` v `src/lib/trail-images.ts`. Obrázky se ukážou jen u schválené eseje.
+- První na webu (2026-11-23): Bohové jako břemeno (katedrála ze žeber, kamenné víčko).
+
 ## Jak generovat
 
 Gemini, nový chat. Přiložit **jediný vzorový obrázek** `public/navrh-obrazku/25-styl-vicko.jpg` (s více vzory se jejich motivy propisují do nového obrázku: lampa se změnila ve svíčku z katedrály). Měnit jen řádek `Scene:`.

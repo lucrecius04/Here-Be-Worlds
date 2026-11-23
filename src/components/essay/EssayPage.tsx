@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState, type ReactNode } from 'react';
+import { useEffect, useMemo, useState, type CSSProperties, type ReactNode } from 'react';
 import ReactMarkdown, { type Components } from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { uiT } from '../../lib/i18n';
@@ -35,9 +35,11 @@ type Props = {
   /** Stránka stezky bez schválené eseje: bez doby čtení. */
   pending?: boolean;
   /** Obrázek stezky (zatím jen náhled): široký pás pod hlavičkou, nebo na začátku textu. */
-  hero?: { src: string; alt: string };
+  hero?: { src: string; alt: string; ink?: string; mask?: string };
   /** Druhý obrázek stezky (náhled): uprostřed textu, před nadpisem nejblíž polovině. */
-  hero2?: { src: string; alt: string };
+  hero2?: { src: string; alt: string; ink?: string; mask?: string };
+  /** Skutečná stránka (ne náhled): obrázky jen pod citátem a uprostřed, s maskami. */
+  heroLive?: boolean;
 };
 
 /** Stabilní kotvy, na které odkazuje triáda na kartě světa. */
@@ -99,7 +101,15 @@ function splitSources(markdown: string): [string, string] {
   return at < 0 ? [markdown, ''] : [markdown.slice(0, at), markdown.slice(at)];
 }
 
-export default function EssayPage({ base, markdown, title, kicker, tagline, worlds, trail, pending, hero, hero2 }: Props) {
+/** Masky obrázku stezky jako proměnné CSS (fresková maska, v tmavém motivu maska podle tuše). */
+function heroImgProps(h: { ink?: string; mask?: string }) {
+  const style: Record<string, string> = {};
+  if (h.mask) style['--pv-mask'] = `url("${h.mask}")`;
+  if (h.ink) style['--pv-mask-ink'] = `url("${h.ink}")`;
+  return { style: style as CSSProperties, className: h.ink ? 'has-ink' : undefined };
+}
+
+export default function EssayPage({ base, markdown, title, kicker, tagline, worlds, trail, pending, hero, hero2, heroLive }: Props) {
   const locale = useLocale();
   const [mainMd, sourcesMd] = useMemo(
     () => (trail ? splitSources(markdown) : [markdown, '']),
@@ -245,7 +255,7 @@ export default function EssayPage({ base, markdown, title, kicker, tagline, worl
       {trail?.themes?.length ? <TrailThemes themes={trail.themes} base={base} locale={locale} /> : null}
       </div>
 
-      {hero ? (
+      {hero && !heroLive ? (
         <figure className="essay-hero essay-hero--band">
           <img data-preview-img src={hero.src} alt={hero.alt} decoding="async" />
         </figure>
@@ -257,7 +267,7 @@ export default function EssayPage({ base, markdown, title, kicker, tagline, worl
         </aside>
 
         <div className="essay-prose" lang="cs">
-          {hero ? (
+          {hero && !heroLive ? (
             <figure className="essay-hero essay-hero--inline">
               <img data-preview-img src={hero.src} alt={hero.alt} decoding="async" />
             </figure>
@@ -267,16 +277,16 @@ export default function EssayPage({ base, markdown, title, kicker, tagline, worl
               <ReactMarkdown remarkPlugins={[remarkGfm]} components={mdComponents}>
                 {quoteSplit[0]}
               </ReactMarkdown>
-              <figure className="essay-hero essay-hero--quote">
-                <img data-preview-img src={hero.src} alt={hero.alt} decoding="async" />
+              <figure className={`essay-hero essay-hero--quote${heroLive ? ' essay-hero--live' : ''}`}>
+                <img data-preview-img src={hero.src} alt={hero.alt} decoding="async" {...heroImgProps(hero)} />
               </figure>
               <ReactMarkdown remarkPlugins={[remarkGfm]} components={mdComponents}>
                 {quoteSplit[1]}
               </ReactMarkdown>
               {hero2 && quoteSplit[2] ? (
                 <>
-                  <figure className="essay-hero essay-hero--quote essay-hero--mid">
-                    <img data-preview-img2 src={hero2.src} alt={hero2.alt} decoding="async" />
+                  <figure className={`essay-hero essay-hero--quote essay-hero--mid${heroLive ? ' essay-hero--live' : ''}`}>
+                    <img data-preview-img2 src={hero2.src} alt={hero2.alt} decoding="async" loading="lazy" {...heroImgProps(hero2)} />
                   </figure>
                   <ReactMarkdown remarkPlugins={[remarkGfm]} components={mdComponents}>
                     {quoteSplit[2]}

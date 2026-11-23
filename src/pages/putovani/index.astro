@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import TrailsIndex from '../../components/trails/TrailsIndex';
+import { trailThumbs } from '../../lib/trail-images';
 import { TRAILS, trailSlug } from '../../lib/trails';
 import { worlds, chapters, themeTaxonomy } from '../../lib/worlds';
 import { publishedEssayFor } from '../../lib/trail-pages';
@@ -34,5 +35,12 @@ const trailWorlds = worlds
   title="Putování světy · Here Be Worlds"
   description={`${TRAILS.length} putování napříč herními světy atlasu Here Be Worlds: výběry světů, které spojuje jedna otázka, a eseje k nim.`}
 >
-  <TrailsIndex client:load base={base} trails={trails} worlds={trailWorlds} themeLabels={themeLabels} />
+  <TrailsIndex
+    client:load
+    base={base}
+    trails={trails}
+    worlds={trailWorlds}
+    themeLabels={themeLabels}
+    images={trailThumbs(base)}
+  />
 </BaseLayout>

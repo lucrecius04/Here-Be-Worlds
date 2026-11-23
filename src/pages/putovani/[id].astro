@@ -11,6 +11,7 @@ import {
   trailThemes,
   worldLinks,
 } from '../../lib/trail-pages';
+import { trailImages } from '../../lib/trail-images';
 
 /**
  * Stránka každého putování (/putovani/<slug>/; interně „stezka“, trail). Se schválenou esejí ukazuje esej,
@@ -27,6 +28,7 @@ const base = import.meta.env.BASE_URL;
 const name = uiT(trail.nameKey, 'cs');
 const desc = uiT(trail.descKey, 'cs');
 const sources = trailSources(trail);
+const images = trailImages(base, trail.id);
 
 const pendingMarkdown = [
   '> **Esej připravujeme**',
@@ -57,5 +59,8 @@ const pendingMarkdown = [
     worlds={worldLinks}
     trail={{ worlds: trailWorldsInfo(trail), themes: trailThemes(trail.themes) }}
     pending={!essay}
+    hero={essay && images[0] ? { ...images[0], alt: '' } : undefined}
+    hero2={essay && images[1] ? { ...images[1], alt: '' } : undefined}
+    heroLive
   />
 </BaseLayout>
