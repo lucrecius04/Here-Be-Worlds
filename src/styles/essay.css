@@ -809,6 +809,7 @@ html.pv-fresco .essay-hero img {
   mask-repeat: no-repeat;
 }
 
-html.pv-fresco:not([data-theme='dark']) .essay-hero img {
+/* Ve světlém motivu se obrázek „vpije“ do papíru webu (kresba na krémovém papíře pak nemá vlastní obdélník). */
+html:not([data-theme='dark']) .essay-hero img {
   mix-blend-mode: multiply;
 }

@@ -39,7 +39,7 @@ const indexNight = withBase(base, '/putovani/navrh-obrazku/nocni/');
           <div class="pv__row">
             <span class="pv__name">Okraj</span>
             <button type="button" class="pv__opt" data-edge="fresco">Freska</button>
-            <button type="button" class="pv__opt" data-edge="straight">Rovný</button>
+            <button type="button" class="pv__opt" data-edge="straight">Bez masky</button>
           </div>
           <div class="pv__row">
             <span class="pv__name">Výška pásu</span>
@@ -100,12 +100,12 @@ const indexNight = withBase(base, '/putovani/navrh-obrazku/nocni/');
       root.classList.toggle('pv-bleed', st.pos === 'bleed');
       root.classList.toggle('pv-fresco', mode === 'essay' && st.edge !== 'straight');
       root.style.setProperty('--pv-mask', `url("${maskSrc}")`);
-      if (st.hero) root.style.setProperty('--essay-hero-ratio', st.hero);
+      root.style.setProperty('--essay-hero-ratio', st.hero || '16 / 9');
       if (st.ratio) root.style.setProperty('--tr-img-ratio', st.ratio);
       if (st.width) root.style.setProperty('--tr-img-w', st.width);
       panel.querySelectorAll('[data-pos]').forEach((b) => b.classList.toggle('is-on', (st.pos || 'band') === b.dataset.pos));
       panel.querySelectorAll('[data-edge]').forEach((b) => b.classList.toggle('is-on', (st.edge || 'fresco') === b.dataset.edge));
-      panel.querySelectorAll('[data-hero]').forEach((b) => b.classList.toggle('is-on', (st.hero || '21 / 9') === b.dataset.hero));
+      panel.querySelectorAll('[data-hero]').forEach((b) => b.classList.toggle('is-on', (st.hero || '16 / 9') === b.dataset.hero));
       panel.querySelectorAll('[data-ratio]').forEach((b) => b.classList.toggle('is-on', (st.ratio || '3 / 2') === b.dataset.ratio));
       panel.querySelectorAll('[data-width]').forEach((b) => b.classList.toggle('is-on', (st.width || '17rem') === b.dataset.width));
       if (st.closed) panel.classList.add('is-closed');
