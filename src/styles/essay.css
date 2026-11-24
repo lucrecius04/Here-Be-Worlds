@@ -910,13 +910,16 @@ html[data-theme='dark'] .essay-hero--live img.has-ink {
   filter: brightness(0.8);
 }
 
-/* Vyblednutý okraj kresby je průhledný: obrázek přitáhnout k citátu nad ním i k textu pod ním. */
+/* Obrázek v eseji má nad sebou i pod sebou stejnou mezeru (majitel 2026-11-24: text pod obrázkem byl namáčknutý,
+   obrázek uprostřed lezl do textu nad sebou a pod ním zůstávala díra až k lince kapitoly). Obrázek uprostřed stojí
+   vždy před nadpisem kapitoly, ten pak nemá vlastní horní mezeru, aby se mezery nesčítaly. */
 .essay-hero--quote.essay-hero--live,
 .essay-hero--mid.essay-hero--live {
-  margin-top: -1.75rem;
-  margin-bottom: -1rem;
+  --essay-hero-gap: 1.5rem;
+  margin-top: var(--essay-hero-gap);
+  margin-bottom: var(--essay-hero-gap);
 }
 
-.essay-hero--mid.essay-hero--live {
-  margin-top: -3rem;
+.essay-hero--mid.essay-hero--live + .essay-chapter {
+  margin-top: 0;
 }
