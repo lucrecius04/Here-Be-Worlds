@@ -117,6 +117,26 @@ export default function OurTimeline({ worlds, now, locale, compact, picked, onPi
         {uiT('deepTime.oursTitle', locale)}
       </h2>
       <p className="dt-ours__lead">{uiT('deepTime.oursLead', locale)}</p>
+      <div className="dt-legend dt-legend--ours">
+        <ul>
+          {(
+            [
+              ['played', 'deepTime.legendPlayed'],
+              ['layers', 'deepTime.legendLayers'],
+              ['seam', 'deepTime.legendSeam'],
+              ['unsure', 'deepTime.legendUnsure'],
+              ['now', 'deepTime.legendNow'],
+              ['later', 'deepTime.legendLater'],
+            ] as const
+          ).map(([key, label]) => (
+            <li key={key}>
+              <span className={`dt-glyph dt-glyph--h dt-glyph--h-${key}`} aria-hidden="true" />
+              <span>{uiT(label, locale)}</span>
+            </li>
+          ))}
+        </ul>
+        <p className="dt-legend__hint">{uiT('deepTime.oursHint', locale)}</p>
+      </div>
       <figure className="dt-ours__chart" onMouseLeave={() => setHover(null)}>
         <svg viewBox={`0 0 ${g.width} ${height}`} className={focus ? 'has-focus' : undefined} role="group" aria-label={uiT('deepTime.oursTitle', locale)}>
           <defs>
@@ -277,7 +297,13 @@ export default function OurTimeline({ worlds, now, locale, compact, picked, onPi
                 {/* přítomnost světa */}
                 <rect className="dt-ours__now" x={X(py) - 3.5} y={y - 3.5} width={7} height={7} transform={`rotate(45 ${X(py)} ${y})`} />
                 {isFocus && !compact ? (
-                  <text className="dt-ours__tip" x={X(py) + 9} y={y + 4}>
+                  // U světů vpravo by popisek přetekl z grafu (do průřezu), proto jde nad vrt a končí u přítomnosti.
+                  <text
+                    className="dt-ours__tip"
+                    x={X(py) > g.width - 190 ? X(py) - 4 : X(py) + 9}
+                    y={X(py) > g.width - 190 ? y - 7 : y + 4}
+                    textAnchor={X(py) > g.width - 190 ? 'end' : 'start'}
+                  >
                     {formatYear(oldest, locale)} – {formatYear(py, locale)}
                   </text>
                 ) : null}

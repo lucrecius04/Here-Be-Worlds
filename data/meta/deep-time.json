@@ -11,8 +11,8 @@
         { "ago": 1150, "when": "861–878 n. l.", "kind": "game", "text": "Mirage a Valhalla: Basim a Eivor, Loki uvězněn v Yggdrasilu" },
         { "ago": 829, "when": "1191", "kind": "game", "text": "Assassin's Creed: Altaïr a třetí křížová výprava" },
         { "ago": 530, "when": "1476–1512", "kind": "game", "text": "Ezio buduje Bratrstvo v Itálii a Konstantinopoli" },
-        { "ago": 290, "when": "1715–1783", "kind": "game", "text": "Sága Kenwayů v Americe" },
-        { "ago": 231, "when": "1789–1868", "kind": "game", "text": "Unity a Syndicate: revoluční Paříž, viktoriánský Londýn" },
+        { "ago": 270, "when": "1715–1783", "kind": "game", "text": "Sága Kenwayů v Americe" },
+        { "ago": 190, "when": "1789–1868", "kind": "game", "text": "Unity a Syndicate: revoluční Paříž, viktoriánský Londýn" },
         { "ago": 8, "when": "21. 12. 2012", "kind": "catastrophe", "text": "Desmond obětuje život, aby odvrátil sluneční erupci" },
         { "ago": 0, "when": "2017–2020", "kind": "game", "text": "Layla s Hůlí Herma, Basim vchází do současnosti" }
       ]
@@ -385,7 +385,7 @@
         { "ago": 10009, "when": "−5293 A. R.", "kind": "catastrophe", "text": "Pád Země: meteority zničí Azlant" },
         { "ago": 4715, "when": "Rok 1 A. R.", "kind": "turn", "text": "Aroden se stává bohem a zakládá Absalom" },
         { "ago": 110, "when": "4606 A. R.", "kind": "catastrophe", "text": "Smrt Arodena, otevření Světové rány" },
-        { "ago": 6, "when": "4710–4714 A. R.", "kind": "game", "text": "Pathfinder: Kingmaker" },
+        { "ago": 4, "when": "4710–4714 A. R.", "kind": "game", "text": "Pathfinder: Kingmaker" },
         { "ago": 0, "when": "4715–4716 A. R.", "kind": "game", "text": "Wrath of the Righteous: uzavření Světové rány" },
         { "after": 8, "when": "4724 A. R.", "kind": "catastrophe", "text": "Stolní kánon: smrt boha Goruma" }
       ]
@@ -499,7 +499,7 @@
         { "ago": 510, "when": "760. léta", "kind": "turn", "text": "První přistání: lidé připlouvají, války s elfy" },
         { "ago": 320, "when": "cca 950–960", "kind": "turn", "text": "První Zaklínači na Rissbergu" },
         { "ago": 105, "when": "cca 1160–1180", "kind": "catastrophe", "text": "Linie Starší krve, vyplenění Kaer Morhen" },
-        { "ago": 23, "when": "1252–1268", "kind": "turn", "text": "Knižní sága a války s Nilfgaardem" },
+        { "ago": 15, "when": "1252–1268", "kind": "turn", "text": "Knižní sága a války s Nilfgaardem" },
         { "ago": 5, "when": "1270", "kind": "game", "text": "Zaklínač" },
         { "ago": 3, "when": "1272", "kind": "game", "text": "Zaklínač 3: Divoký hon" },
         { "ago": 0, "when": "1275", "kind": "game", "text": "O víně a krvi: Corvo Bianco" }
@@ -543,15 +543,15 @@
       ]
     },
     "warhammer-40k": {
-      "presentYear": 41999,
+      "presentYear": 40999,
       "present": "999.M41 · Éra Indomitus",
       "events": [
-        { "ago": 60042000, "when": "~ 60 000 000 př. n. l.", "kind": "catastrophe", "text": "Válka v Nebesích, zrození prvních Bohů Chaosu" },
-        { "ago": 50000, "when": "~ 8 000 př. n. l.", "kind": "turn", "text": "Zrození Císaře" },
-        { "ago": 28000, "when": "M15", "kind": "turn", "text": "Temný věk technologie" },
+        { "ago": 60041000, "when": "~ 60 000 000 př. n. l.", "kind": "catastrophe", "text": "Válka v Nebesích, zrození prvních Bohů Chaosu" },
+        { "ago": 49000, "when": "~ 8 000 př. n. l.", "kind": "turn", "text": "Zrození Císaře" },
+        { "ago": 27000, "when": "M15", "kind": "turn", "text": "Temný věk technologie" },
         { "ago": 17000, "when": "M25", "kind": "catastrophe", "text": "Vzpoura Mužů ze železa, Věk sváru" },
-        { "ago": 12000, "when": "Konec M30", "kind": "catastrophe", "text": "Zrození Slaaneshe, Oko teroru" },
-        { "ago": 11990, "when": "005.M31", "kind": "catastrophe", "text": "Horovo kacířství, Císař na Zlatém trůnu" },
+        { "ago": 11000, "when": "Konec M30", "kind": "catastrophe", "text": "Zrození Slaaneshe, Oko teroru" },
+        { "ago": 10994, "when": "005.M31", "kind": "catastrophe", "text": "Horovo kacířství, Císař na Zlatém trůnu" },
         { "ago": 0, "when": "999.M41", "kind": "catastrophe", "text": "Pád Cadie a Velká trhlina" }
       ]
     },
