@@ -36,7 +36,7 @@ const hue = (accent: { light: string; dark: string }) =>
 /**
  * Rozměry grafu: na počítači se jmény světů, na telefonu úzké vrty bez jmen.
  * Na telefonu s jediným archetypem (`focusCount`) širší vrty a jména jako na počítači.
- * `lz` = pásmo nad hladinou pro pozdější díly (pod jmény), `ear` = přesah zářezu dílu, `ring` = kroužek pozdějšího dílu.
+ * `lz` = pásmo nad hladinou pro pozdější díly (pod jmény), `ear` = přesah rysky dílu, `ring` = kroužek pozdějšího dílu.
  */
 function geometry(compact: boolean, focusCount = 0, longestName = 0, hasLater = true) {
   if (compact && focusCount) {
@@ -47,7 +47,7 @@ function geometry(compact: boolean, focusCount = 0, longestName = 0, hasLater = 
     const top = Math.round(18 + longestName * 7.4) + lz;
     return { gutter: 80, pitch, col: Math.round(pitch * 0.5), top, groupGap: 0, label: 12.5, decade: 68, lz, ear: 3, ring: 2.6 };
   }
-  // V přehledu na telefonu se přesah zářezu mezi úzké vrty nevejde: díl je jen tenká linka uvnitř období her.
+  // V přehledu na telefonu se přesah rysky mezi úzké vrty nevejde: díl je jen tenká linka uvnitř období her.
   return compact
     ? { gutter: 58, pitch: 7.6, col: 5, top: 36, groupGap: 5, label: 9.5, decade: 58, lz: 22, ear: 0, ring: 2 }
     : { gutter: 132, pitch: 19, col: 11, top: 200, groupGap: 14, label: 10.5, decade: SCALE.decade, lz: 50, ear: 3, ring: 3 };
@@ -98,6 +98,15 @@ function useCompact() {
 /** Nejhlubší umístěná událost slovy (u odhadu „řádově tisíce let“). */
 function deepLabel(sum: ReturnType<typeof summarize>, locale: Locale) {
   return sum.deepestEvent ? formatAgo(sum.deepestEvent, locale) : formatDuration(sum.deepest, locale);
+}
+
+/** Ikona cyklických dějin: stejný tvar jako v grafu (kruh se šipkou). */
+function CycleIcon() {
+  return (
+    <svg className="dt-cycle-icon" viewBox="-6 -7 12 12" aria-hidden="true">
+      <path d="M-4 0a4 4 0 1 0 4-4m0 0l-1.8-1.6M0-4l-1.8 1.6" />
+    </svg>
+  );
 }
 
 function KindMark({ kind }: { kind: DeepKind }) {
@@ -451,7 +460,7 @@ export default function DeepTime({ base, worlds, chapters, now }: Props) {
                   {cracks.map((b, i) => (
                     <line key={`c${i}`} className="dt-crack" x1={0} x2={g.col} y1={b} y2={b} />
                   ))}
-                  {/* hrané díly: zářez s přesahem, uvnitř tenká linka */}
+                  {/* hrané díly: ryska s přesahem, uvnitř tenká linka */}
                   {w.parts.map((p, i) => {
                     const at = p.ago > 0 ? Y(p.ago) : g.top;
                     const ear = g.ear + (tipKeys.includes(`p${i}`) ? 2.5 : 0);
@@ -583,12 +592,14 @@ export default function DeepTime({ base, worlds, chapters, now }: Props) {
   );
 }
 
+/** Jediná legenda pro oba grafy (vrty i naši časovou osu). */
 function Legend({ locale }: { locale: Locale }) {
   const rows: Array<[string, string]> = [
     ['played', 'deepTime.legendPlayed'],
     ['layers', 'deepTime.legendLayers'],
     ['seam', 'deepTime.legendSeam'],
     ['unsure', 'deepTime.legendUnsure'],
+    ['now', 'deepTime.legendNow'],
     ['later', 'deepTime.legendLater'],
     ['myth', 'deepTime.legendMyth'],
     ['cycle', 'deepTime.legendCycle'],
@@ -599,11 +610,12 @@ function Legend({ locale }: { locale: Locale }) {
       <ul>
         {rows.map(([key, label]) => (
           <li key={key}>
-            <span className={`dt-glyph dt-glyph--${key}`} aria-hidden="true" />
+            {key === 'cycle' ? <CycleIcon /> : <span className={`dt-glyph dt-glyph--${key}`} aria-hidden="true" />}
             <span>{uiT(label, locale)}</span>
           </li>
         ))}
       </ul>
+      <p className="dt-legend__note">{uiT('deepTime.legendLog', locale)}</p>
       <p className="dt-legend__hint">
         <span className="dt-hint--hover">{uiT('deepTime.hintHover', locale)}</span>
         <span className="dt-hint--touch">{uiT('deepTime.hint', locale)}</span>
@@ -637,6 +649,11 @@ function WorldPanel({
       ? parts[0].e.when
       : `${parts[0].e.when} – ${parts[parts.length - 1].e.when}`;
   const laterGames = world.later.filter((l) => l.isGame);
+  // délka období her v letech (u odhadů přibližně)
+  const span =
+    parts.length > 1
+      ? ` (${parts.some((p) => isRange(p.e.ago)) ? (locale === 'cs' ? 'cca ' : 'c. ') : ''}${formatDuration(world.sum.played, locale)})`
+      : '';
   // Od hladiny dolů: přítomnost nahoře, nejstarší dole (jako vrt).
   const down = world.deep.events.filter((e) => e.after === undefined).slice().reverse();
   const row = (e: DeepEvent, i: number) => (
@@ -680,6 +697,7 @@ function WorldPanel({
           <dt>{uiT('deepTime.played', locale)}</dt>
           <dd>
             {playedText}
+            {span}
             {laterGames.length ? (
               <span className="dt-world__then">
                 {uiT('deepTime.laterInline', locale)} {laterGames.map((l) => l.e.when).join(', ')}
@@ -690,7 +708,7 @@ function WorldPanel({
       </dl>
       {world.deep.cycle ? (
         <p className="dt-world__cycle">
-          <span className="dt-glyph dt-glyph--cycle" aria-hidden="true" /> {world.deep.cycle}
+          <CycleIcon /> {world.deep.cycle}
         </p>
       ) : null}
       {later.length ? (

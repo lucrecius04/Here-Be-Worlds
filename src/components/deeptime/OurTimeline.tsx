@@ -66,7 +66,7 @@ export default function OurTimeline({ worlds, now, locale, compact, picked, onPi
   const [tip, setTip] = useState<TipState | null>(null);
   const svgRef = useRef<SVGSVGElement>(null);
   const figRef = useRef<HTMLElement>(null);
-  // `ear` = přesah zářezu dílu nad a pod vrt (jako u vrtů nahoře), `ring` = kroužek pozdějšího dílu.
+  // `ear` = přesah rysky dílu nad a pod vrt (jako u vrtů nahoře), `ring` = kroužek pozdějšího dílu.
   const g = compact
     ? { width: 390, gutter: 100, top: 54, row: 19, bar: 4, label: 8.5, zone: 6, bottom: 40, ear: 2, ring: 2 }
     : { width: 1000, gutter: 156, top: 52, row: 24, bar: 6, label: 11, zone: 10, bottom: 84, ear: 3, ring: 3 };
@@ -122,29 +122,6 @@ export default function OurTimeline({ worlds, now, locale, compact, picked, onPi
         {uiT('deepTime.oursTitle', locale)}
       </h2>
       <p className="dt-ours__lead">{uiT('deepTime.oursLead', locale)}</p>
-      <div className="dt-legend dt-legend--ours">
-        <ul>
-          {(
-            [
-              ['played', 'deepTime.legendPlayed'],
-              ['layers', 'deepTime.legendLayers'],
-              ['seam', 'deepTime.legendSeam'],
-              ['unsure', 'deepTime.legendUnsure'],
-              ['now', 'deepTime.legendNow'],
-              ['later', 'deepTime.legendLater'],
-            ] as const
-          ).map(([key, label]) => (
-            <li key={key}>
-              <span className={`dt-glyph dt-glyph--h dt-glyph--h-${key}`} aria-hidden="true" />
-              <span>{uiT(label, locale)}</span>
-            </li>
-          ))}
-        </ul>
-        <p className="dt-legend__hint">
-          <span className="dt-hint--hover">{uiT('deepTime.oursHintHover', locale)}</span>
-          <span className="dt-hint--touch">{uiT('deepTime.oursHint', locale)}</span>
-        </p>
-      </div>
       <figure
         className="dt-ours__chart"
         ref={figRef}
@@ -307,7 +284,7 @@ export default function OurTimeline({ worlds, now, locale, compact, picked, onPi
                 {cracks.map((bnd, k) => (
                   <line key={`c${k}`} className="dt-crack" x1={X(bnd)} x2={X(bnd)} y1={y - hb / 2} y2={y + hb / 2} />
                 ))}
-                {/* hrané díly: zářez s přesahem, uvnitř tenká linka (stejně jako ve vrtech nahoře) */}
+                {/* hrané díly: ryska s přesahem, uvnitř tenká linka (stejně jako ve vrtech nahoře) */}
                 {w.parts.map((p, k) => {
                   const year = py - p.ago;
                   const ear = g.ear + (tipKeys.includes(`p${k}`) ? 2.5 : 0);

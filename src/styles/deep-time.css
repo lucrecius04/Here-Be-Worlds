@@ -1,5 +1,5 @@
 /* Hlubina času (/hlubina-casu/): světy jako vrty od hladiny (teď) do hlubiny dějin.
-   Barva archetypu jen ve vrtech (vrstvy, období her se zářezy dílů, pozdější díly, mýtické kroužky), zbytek tuš a papír. */
+   Barva archetypu jen ve vrtech (vrstvy, období her s ryskami dílů, pozdější díly, mýtické kroužky), zbytek tuš a papír. */
 
 .dt-core,
 .dt-group,
@@ -334,7 +334,7 @@ html[data-theme='dark'] .dt-abyss-1 {
   stroke-width: 0.9;
 }
 
-/* hraný díl: zářez v barvě archetypu přesahující vrt, uvnitř tenká linka papíru */
+/* hraný díl: ryska v barvě archetypu přesahující vrt, uvnitř tenká linka papíru */
 .dt-part rect {
   fill: var(--dt-hue);
 }
@@ -547,11 +547,9 @@ html[data-theme='dark'] .dt-abyss-1 {
   background: var(--color-ink);
 }
 
-/* zářez dílu: přesah v tuši a uvnitř tenká linka papíru */
+/* ryska dílu: přesah v tuši a uvnitř tenká linka papíru */
 .dt-glyph--played::before,
-.dt-glyph--played::after,
-.dt-glyph--h-played::before,
-.dt-glyph--h-played::after {
+.dt-glyph--played::after {
   content: '';
   position: absolute;
 }
@@ -573,43 +571,31 @@ html[data-theme='dark'] .dt-abyss-1 {
   background: var(--color-paper);
 }
 
-.dt-glyph--h-played::after {
-  top: -3px;
-  bottom: -3px;
-  left: calc(55% - 1.5px);
-  width: 3px;
-  background: var(--color-ink);
-}
-
-.dt-glyph--h-played::before {
-  z-index: 1;
-  top: 0;
-  bottom: 0;
-  left: calc(55% - 0.5px);
-  width: 1px;
-  background: var(--color-paper);
-}
-
 .dt-glyph--later {
   width: 0.7rem;
   background: linear-gradient(var(--color-ink-muted) 50%, transparent 50%) center bottom / 1.5px 4px repeat-y;
 }
 
-.dt-glyph--later::after,
-.dt-glyph--h-later::after {
+.dt-glyph--later::after {
   content: '';
   position: absolute;
+  left: 50%;
+  top: -2px;
   width: 7px;
   height: 7px;
+  margin-left: -5px;
   border: 1.5px solid var(--color-ink);
   border-radius: 50%;
   background: var(--color-ink);
 }
 
-.dt-glyph--later::after {
-  left: 50%;
-  top: -2px;
-  margin-left: -5px;
+/* přítomnost světa: kosočtverec jako na naší časové ose */
+.dt-glyph--now {
+  width: 0.6rem;
+  height: 0.6rem;
+  margin: 0 0.05rem;
+  background: var(--color-ink);
+  transform: rotate(45deg);
 }
 
 .dt-glyph--layers {
@@ -657,13 +643,28 @@ html[data-theme='dark'] .dt-abyss-1 {
   background: var(--color-paper);
 }
 
-.dt-glyph--cycle {
+/* cyklické dějiny: stejná kresba jako v grafu */
+.dt-cycle-icon {
+  flex: none;
   width: 0.95rem;
   height: 0.95rem;
-  border: 1.5px solid var(--color-ink);
-  border-right-color: transparent;
-  border-radius: 50%;
-  transform: rotate(35deg);
+  color: var(--color-ink);
+}
+
+.dt-cycle-icon path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.dt-legend__note {
+  flex-basis: 100%;
+  margin: 0;
+  max-width: 62rem;
+  font: 400 0.8125rem/1.45 var(--font-sans);
+  color: var(--color-ink-muted);
 }
 
 /* svět v panelu */
@@ -758,10 +759,8 @@ html[data-theme='dark'] .dt-abyss-1 {
   line-height: 1.4;
 }
 
-.dt-world__cycle .dt-glyph--cycle {
-  flex: none;
-  border-color: var(--dt-hue);
-  border-right-color: transparent;
+.dt-world__cycle .dt-cycle-icon {
+  color: var(--dt-hue);
 }
 
 .dt-world__sub {
@@ -1301,64 +1300,4 @@ html[data-theme='dark'] .dt-ours__row * {
 .dt-break__mark {
   stroke: var(--dt-hue);
   stroke-width: 2;
-}
-
-/* legenda naší časové osy: vodorovné značky jako vodorovné vrty */
-.dt-legend--ours {
-  margin: 1rem 0 1.5rem;
-}
-
-.dt-glyph--h {
-  width: 1.6rem;
-  height: 0.5rem;
-}
-
-.dt-glyph--h-played {
-  background: var(--color-ink);
-}
-
-.dt-glyph--h-layers {
-  background: linear-gradient(
-    90deg,
-    color-mix(in srgb, var(--color-ink-muted) 45%, transparent) 0 46%,
-    var(--color-paper) 46% 54%,
-    color-mix(in srgb, var(--color-ink-muted) 45%, transparent) 54%
-  );
-}
-
-.dt-glyph--h-seam {
-  background: color-mix(in srgb, var(--color-ink-muted) 45%, transparent);
-}
-
-.dt-glyph--h-seam::after {
-  content: '';
-  position: absolute;
-  top: -3px;
-  bottom: -3px;
-  left: calc(50% - 1.25px);
-  width: 2.5px;
-  background: var(--color-ink);
-}
-
-.dt-glyph--h-unsure {
-  background: repeating-linear-gradient(-45deg, var(--color-ink-muted) 0 2px, transparent 2px 4px);
-  opacity: 0.7;
-}
-
-.dt-glyph--h-now {
-  width: 0.6rem;
-  height: 0.6rem;
-  margin: 0 0.5rem;
-  background: var(--color-ink);
-  transform: rotate(45deg);
-}
-
-.dt-glyph--h-later {
-  background: linear-gradient(90deg, var(--color-ink-muted) 50%, transparent 50%) left center / 5px 1.5px repeat-x;
-}
-
-.dt-glyph--h-later::after {
-  right: -2px;
-  top: 50%;
-  margin-top: -4.5px;
 }

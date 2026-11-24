@@ -15,7 +15,7 @@ export type DeepEvent = {
   when: string;
   kind: DeepKind;
   /**
-   * Název hry: událost je hraný díl (zářez v grafech, popisek). Má ho každá událost druhu `game`
+   * Název hry: událost je hraný díl (ryska v grafech, popisek). Má ho každá událost druhu `game`
    * a může ho mít i katastrofa nebo předěl, který je zároveň dílem (pád Raccoon City = Resident Evil 2 a 3).
    */
   game?: string;
@@ -44,7 +44,7 @@ export type LaterPart = { e: DeepEvent; after: number; isGame: boolean };
 
 /**
  * Hrané díly pod hladinou (události s názvem hry a datem), od nejstaršího po přítomnost.
- * Oba grafy je kreslí jako zářezy v období her; díly bez data (Dark Souls I–II) tu nejsou.
+ * Oba grafy je kreslí jako rysky v období her; díly bez data (Dark Souls I–II) tu nejsou.
  */
 export function gameParts(world: DeepWorld): GamePart[] {
   return world.events
@@ -79,7 +79,7 @@ export type DeepSummary = {
   /** Totéž pro řazení (u odhadu geometrický střed). */
   deepestMid: number;
   deepestEvent: DeepEvent | null;
-  /** Období her: od přítomnosti po nejstarší datovaný díl (u odhadu střed, jako jeho zářez). */
+  /** Období her: od přítomnosti po nejstarší datovaný díl (u odhadu střed, jako jeho ryska). */
   played: number;
   hasMyth: boolean;
   /** Žádné přesné datum kromě přítomnosti (jen odhady a mýtus). */
