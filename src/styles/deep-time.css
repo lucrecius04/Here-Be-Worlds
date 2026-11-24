@@ -390,10 +390,10 @@ html[data-theme='dark'] .dt-abyss-1 {
   flex-wrap: wrap;
   align-items: center;
   gap: 0.6rem 2rem;
-  margin: 0 0 1.25rem;
-  padding: 0.85rem 0;
-  border-top: 1px solid var(--color-line);
-  border-bottom: 1px solid var(--color-line);
+  margin: 0 0 2rem;
+  padding: 1.1rem 1.4rem;
+  background: var(--color-band);
+  border-left: 3px solid var(--color-ink);
 }
 
 .dt-legend ul {
@@ -984,4 +984,47 @@ html[data-theme='dark'] .dt-ours__row * {
 .dt-ours__yard-when {
   font-family: var(--font-mono);
   fill: var(--color-ink-muted);
+}
+
+/* telefon: místo popisků u ér čísla a seznam pod grafem */
+.dt-ours__yard-dot {
+  fill: var(--color-paper);
+  stroke: var(--color-ink-muted);
+  stroke-width: 1;
+}
+
+.dt-ours__yard-num {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  fill: var(--color-ink);
+}
+
+.dt-ours__yards {
+  margin: 0.5rem 0 0;
+  padding: 0 0 0 1.4rem;
+  font: 400 0.8125rem/1.5 var(--font-sans);
+  color: var(--color-ink);
+}
+
+.dt-ours__yards li::marker {
+  font-family: var(--font-mono);
+  font-weight: 600;
+}
+
+.dt-ours__yards span {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-ink-muted);
+}
+
+/* průřez světa: hlavička až po „Od hladiny do hlubiny“ v tónovaném pásu */
+.dt-world__top {
+  margin: -0.9rem 0 0;
+  padding: 0.9rem 1rem 1.1rem;
+  background: var(--color-band);
+}
+
+.dt-world__top .dt-world__facts dd,
+.dt-world__top .dt-world__facts dt {
+  background: transparent;
 }

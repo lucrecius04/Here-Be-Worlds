@@ -43,7 +43,7 @@ function tickLabel(year: number, locale: Locale): string {
 export default function OurTimeline({ worlds, now, locale, compact, picked, onPick, chapterOrder }: Props) {
   const [hover, setHover] = useState<string | null>(null);
   const g = compact
-    ? { width: 390, gutter: 100, top: 40, row: 19, bar: 4, label: 8.5, zone: 6, bottom: 74 }
+    ? { width: 390, gutter: 100, top: 54, row: 19, bar: 4, label: 8.5, zone: 6, bottom: 40 }
     : { width: 1000, gutter: 156, top: 52, row: 24, bar: 6, label: 11, zone: 10, bottom: 84 };
   const plot = g.width - g.gutter - 12;
   const decade = (plot - 2 * g.zone) / (PAST + FUTURE);
@@ -69,6 +69,8 @@ export default function OurTimeline({ worlds, now, locale, compact, picked, onPi
     [worlds, chapterOrder],
   );
   const height = g.top + rows.length * g.row + g.bottom;
+  // Od nejstaršího (zleva) k nejmladšímu.
+  const yards = [...YARDSTICKS].sort((a, b) => a.year - b.year);
   // Ztlumit ostatní jen tehdy, když vybraný svět na této ose leží.
   const focusRaw = picked ?? hover;
   const focus = focusRaw && rows.some((w) => w.id === focusRaw) ? focusRaw : hover;
@@ -95,10 +97,10 @@ export default function OurTimeline({ worlds, now, locale, compact, picked, onPi
 
           {/* minulost a budoucnost */}
           <rect className="dt-ours__past" x={g.gutter} y={g.top - 8} width={center - g.gutter} height={rows.length * g.row + 16} />
-          <text className="dt-ours__side" x={g.gutter} y={14} fontSize={g.label}>
+          <text className="dt-ours__side" x={g.gutter} y={compact ? 30 : 14} fontSize={g.label}>
             ← {uiT('deepTime.past', locale)}
           </text>
-          <text className="dt-ours__side" x={g.width - 12} y={14} textAnchor="end" fontSize={g.label}>
+          <text className="dt-ours__side" x={g.width - 12} y={compact ? 30 : 14} textAnchor="end" fontSize={g.label}>
             {uiT('deepTime.future', locale)} →
           </text>
 
@@ -115,10 +117,23 @@ export default function OurTimeline({ worlds, now, locale, compact, picked, onPi
             ))}
 
           {/* délky z našeho světa: tady opravdu leží na ose */}
-          {YARDSTICKS.map((ys, i) => {
+          {yards.map((ys, i) => {
             const x = X(ys.year);
-            const step = compact ? 22 : 28;
-            const y = g.top + rows.length * g.row + 22 + (i % 2) * step;
+            const base = g.top + rows.length * g.row;
+            if (compact) {
+              // Na telefonu jen číslo, popisky jsou v seznamu pod grafem.
+              const y = base + 14 + (i % 2) * 14;
+              return (
+                <g key={ys.key} className="dt-ours__yard">
+                  <line x1={x} x2={x} y1={g.top - 8} y2={y - 6} />
+                  <circle className="dt-ours__yard-dot" cx={x} cy={y} r={5.5} />
+                  <text className="dt-ours__yard-num" x={x} y={y + 2.6} textAnchor="middle" fontSize={7}>
+                    {i + 1}
+                  </text>
+                </g>
+              );
+            }
+            const y = base + 22 + (i % 2) * 28;
             return (
               <g key={ys.key} className="dt-ours__yard">
                 <line x1={x} x2={x} y1={g.top - 8} y2={y - 9} />
@@ -132,7 +147,6 @@ export default function OurTimeline({ worlds, now, locale, compact, picked, onPi
             );
           })}
 
-          {/* řádky světů */}
           {rows.map((w, i) => {
             const py = w.deep.presentYear!;
             const y = g.top + i * g.row + g.row / 2;
@@ -238,11 +252,20 @@ export default function OurTimeline({ worlds, now, locale, compact, picked, onPi
           })}
 
           {/* dnes */}
-          <line className="dt-ours__today" x1={center} x2={center} y1={g.top - 26} y2={g.top + rows.length * g.row + 8} />
-          <text className="dt-ours__today-label" x={center} y={g.top - 30} textAnchor="middle" fontSize={g.label}>
+          <line className="dt-ours__today" x1={center} x2={center} y1={compact ? 16 : g.top - 26} y2={g.top + rows.length * g.row + 8} />
+          <text className="dt-ours__today-label" x={center} y={compact ? 11 : g.top - 30} textAnchor="middle" fontSize={g.label}>
             {uiT('deepTime.today', locale)} · {now}
           </text>
         </svg>
+        {compact ? (
+          <ol className="dt-ours__yards">
+            {yards.map((ys) => (
+              <li key={ys.key}>
+                {uiT(ys.key, locale)} <span>{uiT(ys.when, locale)}</span>
+              </li>
+            ))}
+          </ol>
+        ) : null}
       </figure>
     </section>
   );

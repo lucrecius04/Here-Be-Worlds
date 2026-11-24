@@ -181,12 +181,14 @@ export function formatAgo(e: DeepEvent, locale: Loc): string {
   if (Array.isArray(ago)) {
     const m = MAGNITUDE.find(([lo, hi]) => lo === ago[0] && hi === ago[1]);
     if (m) return m[2][locale];
-    if (ago[1] >= 1e6) {
-      const unit = ago[1] >= 1e9 ? 1e9 : 1e6;
-      const tail = formatDuration(ago[1], locale);
-      return `${nf(Number((ago[0] / unit).toPrecision(2)), locale, 1)}–${tail}`;
+    // Od staršího k mladšímu: „450–66 milionů let“, „851–53 let“.
+    const [lo, hi] = ago;
+    if (hi >= 1e6) {
+      const unit = lo >= 1e9 ? 1e9 : lo >= 1e6 ? 1e6 : 0;
+      if (!unit || (hi >= 1e9) !== (lo >= 1e9)) return `${formatDuration(hi, locale)} – ${formatDuration(lo, locale)}`;
+      return `${nf(Number((hi / unit).toPrecision(2)), locale, 1)}–${formatDuration(lo, locale)}`;
     }
-    return `${nf(ago[0], locale)}–${formatDuration(ago[1], locale)}`;
+    return `${nf(hi, locale)}–${formatDuration(lo, locale)}`;
   }
   return formatDuration(ago, locale);
 }

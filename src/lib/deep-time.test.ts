@@ -33,6 +33,8 @@ describe('hlubina času', () => {
     expect(formatDuration(4208, 'cs').replace(/\s/g, ' ')).toBe('4 208 let');
     expect(formatDuration(1e9, 'cs')).toBe('1 miliarda let');
     expect(formatAgo({ ago: [1000, 10000], when: '', kind: 'turn', text: '' }, 'cs')).toBe('řádově tisíce let');
+    const ds = formatAgo({ ago: [66000000, 445000000], when: '', kind: 'turn', text: '' }, 'cs').replace(/\s/g, ' ');
+    expect(ds).toBe('450–66 milionů let');
     expect(summarize(DEEP_TIME['hades']).noDates).toBe(true);
   });
 });

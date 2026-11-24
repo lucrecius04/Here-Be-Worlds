@@ -81,7 +81,13 @@ export default function DeepTime({ base, worlds, chapters, now }: Props) {
   useEffect(() => {
     if (!picked || !window.matchMedia('(max-width: 1100px)').matches) return;
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    panelRef.current?.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+    const panel = panelRef.current;
+    if (!panel) return;
+    // Zakotvit přesně pod lepivý pruh s řazením (a hlavičku webu, je-li vidět).
+    const bar = document.querySelector('.dt-sticky');
+    const barTop = bar ? parseFloat(getComputedStyle(bar).top) || 0 : 0;
+    const cover = barTop + (bar ? bar.getBoundingClientRect().height : 0) + 12;
+    window.scrollTo({ top: panel.getBoundingClientRect().top + window.scrollY - cover, behavior: reduce ? 'auto' : 'smooth' });
   }, [picked]);
 
   const items = useMemo(() => worlds.map((w) => ({ ...w, sum: summarize(w.deep) })), [worlds]);
@@ -458,6 +464,7 @@ function WorldPanel({
   );
   return (
     <div className="dt-world" style={hue(world.accent)}>
+      <div className="dt-world__top">
       <div className="dt-world__head">
         <p className="dt-panel__kicker">{chapter ? t(chapter.short, locale) : ''}</p>
         {pinned ? (
@@ -497,6 +504,7 @@ function WorldPanel({
           <ol className="dt-events">{later.map(row)}</ol>
         </>
       ) : null}
+      </div>
       <h3 className="dt-world__sub">{uiT('deepTime.drill', locale)}</h3>
       <ol className="dt-events">{down.map(row)}</ol>
       <p className="dt-world__more">
