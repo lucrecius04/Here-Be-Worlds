@@ -222,6 +222,12 @@ export default function AtlasExplorer({
         </button>
         {uiT('atlasPage.leadEnd', locale)}
       </p>
+      <nav className="atlas-page__more" aria-label={uiT('atlasPage.more', locale)}>
+        <span className="atlas-page__more-label">{uiT('atlasPage.more', locale)}</span>
+        <a href={withBase(baseUrl, '/galerie-triad/')}>{uiT('triads.title', locale)}</a>
+        <a href={withBase(baseUrl, '/mapa-neznama/')}>{uiT('unknown.title', locale)}</a>
+        <a href={withBase(baseUrl, '/map/')}>{uiT('nav.map', locale)}</a>
+      </nav>
     </header>
     <section className="catalog" id="catalog-results" aria-label={uiT('home.catalog', locale)}>
       <div className="atlas-tabs" role="group" aria-label={uiT('filter.chapter', locale)}>

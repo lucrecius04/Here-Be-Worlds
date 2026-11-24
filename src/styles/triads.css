@@ -1,0 +1,617 @@
+/* Galerie triád (/galerie-triad/) a Mapa neznáma (/mapa-neznama/).
+   Rejstříková podoba jako karta světa: tmavá linka, mono popisek, text ve Fraunces a Source Serif.
+   Barva archetypu jen jako značka (čtvereček jako v legendě mapy souřadnic) a jemná linka u záznamu. */
+
+.tg-dot,
+.tg-entry,
+.tg-filter__btn,
+.un-cell li {
+  --tg-hue: var(--tg-hue-l, var(--color-ink-muted));
+}
+
+html[data-theme='dark'] .tg-dot,
+html[data-theme='dark'] .tg-entry,
+html[data-theme='dark'] .tg-filter__btn,
+html[data-theme='dark'] .un-cell li {
+  --tg-hue: var(--tg-hue-d, var(--color-ink-muted));
+}
+
+.tg-page {
+  --tg-scroll: calc(var(--site-header-height) + 4.5rem);
+}
+
+/* ---------- hlavička ---------- */
+.tg-head__links {
+  margin: 1rem 0 0;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  color: var(--color-ink-muted);
+}
+
+.tg-head__links a {
+  color: var(--color-accent);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--color-accent) 35%, transparent);
+}
+
+.tg-head__links a:hover,
+.tg-head__links a:focus-visible {
+  border-bottom-color: currentColor;
+}
+
+.tg-head__sep {
+  margin: 0 0.6rem;
+  opacity: 0.6;
+}
+
+/* ---------- skok na oddíl ---------- */
+.tg-jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.75rem;
+  margin: 0 0 0.25rem;
+}
+
+.tg-jump a {
+  font: 500 0.75rem var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+  text-decoration: none;
+}
+
+.tg-jump a:hover,
+.tg-jump a:focus-visible {
+  color: var(--color-accent);
+}
+
+/* ---------- lepivý filtr ---------- */
+.tg-sticky {
+  position: sticky;
+  top: var(--site-header-height);
+  z-index: 20;
+  margin: 0 calc(-1 * var(--gutter)) 0;
+  padding: 0.6rem var(--gutter);
+  background: var(--color-paper);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.tg-filter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.15rem 1.25rem;
+}
+
+.tg-filter__label {
+  margin-right: 0.25rem;
+  font: 500 0.6875rem var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+.tg-filter__btn {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 2.25rem;
+  padding: 0.3rem 0;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: none;
+  font: 500 0.875rem var(--font-sans);
+  color: var(--color-ink-muted);
+  cursor: pointer;
+}
+
+.tg-filter__btn:hover,
+.tg-filter__btn[aria-pressed='true'] {
+  color: var(--color-ink);
+}
+
+.tg-filter__btn[aria-pressed='true'] {
+  border-bottom-color: var(--tg-hue-l, var(--color-ink));
+}
+
+html[data-theme='dark'] .tg-filter__btn[aria-pressed='true'] {
+  border-bottom-color: var(--tg-hue-d, var(--color-ink));
+}
+
+.tg-filter__btn:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+/* čtvereček v barvě archetypu (jako legenda mapy souřadnic) */
+.tg-dot {
+  display: inline-block;
+  flex: none;
+  width: 0.6rem;
+  height: 0.6rem;
+  background: var(--tg-hue);
+  transition: opacity 0.2s ease;
+}
+
+.tg-dot.is-dim {
+  opacity: 0.18;
+}
+
+/* ---------- oddíl ---------- */
+.tg-section {
+  margin-top: 3.5rem;
+  scroll-margin-top: var(--tg-scroll);
+}
+
+.tg-section__title {
+  margin: 0 0 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 2px solid var(--color-ink);
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 3vw, 2.6rem);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+/* přehled typů: název, řada čtverečků, počet */
+.tg-overview {
+  list-style: none;
+  margin: 0 0 3rem;
+  padding: 0;
+  max-width: 52rem;
+}
+
+.tg-overview__row {
+  display: grid;
+  grid-template-columns: 15rem minmax(0, 1fr) 4.5rem;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.55rem 0;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.tg-overview__name {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-ink);
+  text-decoration: none;
+}
+
+.tg-overview__name:hover,
+.tg-overview__name:focus-visible {
+  color: var(--color-accent);
+}
+
+.tg-overview__dots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.tg-overview__dots .tg-dot {
+  width: 0.8rem;
+  height: 0.8rem;
+}
+
+.tg-overview__n {
+  text-align: right;
+  font: 500 0.8125rem var(--font-mono);
+  color: var(--color-ink-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* typ: vlevo název a výklad (lepí se), vpravo záznamy světů */
+.tg-type {
+  display: grid;
+  grid-template-columns: 17rem minmax(0, 1fr);
+  column-gap: 3rem;
+  padding: 2rem 0 2.25rem;
+  border-top: 1px solid var(--color-ink);
+  scroll-margin-top: var(--tg-scroll);
+}
+
+.tg-type__head {
+  align-self: start;
+  position: sticky;
+  top: calc(var(--site-header-height) + 4.25rem);
+}
+
+.tg-type__name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.tg-type__desc {
+  margin: 0.6rem 0 0;
+  font-family: var(--font-text);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--color-ink-muted);
+  text-wrap: pretty;
+}
+
+.tg-type__count {
+  margin: 0.9rem 0 0;
+  font: 500 0.75rem var(--font-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+.tg-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.75rem 2.5rem;
+}
+
+.tg-entry {
+  padding-top: 0.75rem;
+  border-top: 3px solid var(--tg-hue);
+  transition: opacity 0.2s ease;
+}
+
+.tg-entry.is-dim {
+  opacity: 0.32;
+}
+
+.tg-entry__world {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.2rem 0.75rem;
+  margin: 0;
+}
+
+.tg-entry__world a {
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 600;
+  color: var(--color-ink);
+  text-decoration: none;
+}
+
+.tg-entry__world a:hover,
+.tg-entry__world a:focus-visible {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.tg-entry__arch {
+  font: 500 0.6875rem var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+.tg-entry__text {
+  margin: 0.4rem 0 0;
+  font-family: var(--font-text);
+  font-size: 1rem;
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+.tg-entry__also {
+  margin: 0.45rem 0 0;
+  font: 500 0.75rem var(--font-mono);
+  letter-spacing: 0.04em;
+  color: var(--color-ink-muted);
+}
+
+.tg-entry__also a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.tg-entry--also {
+  border-top-style: dashed;
+  border-top-width: 2px;
+}
+
+.tg-entry--also .tg-entry__text {
+  color: var(--color-ink-muted);
+}
+
+/* ---------- Mapa neznáma: mřížka ---------- */
+.un-grid-wrap {
+  margin-top: 2.5rem;
+}
+
+.un-grid {
+  width: calc(100% + 0.8rem);
+  border-collapse: separate;
+  border-spacing: 0.4rem;
+  margin: 0 -0.4rem;
+  table-layout: fixed;
+}
+
+.un-grid__corner {
+  width: 13rem;
+  vertical-align: top;
+  padding-top: 0.35rem !important;
+  padding: 0 0 0.6rem;
+}
+
+.un-grid__corner span,
+.un-grid__col-desc {
+  font: 500 0.6875rem var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+.un-grid__col {
+  text-align: left;
+  vertical-align: top;
+  padding: 0 0.25rem 0.75rem;
+  border-bottom: 2px solid var(--color-ink);
+  font-weight: inherit;
+  transition: opacity 0.2s ease;
+}
+
+.un-grid__col-name {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 600;
+}
+
+.un-grid__n {
+  margin-left: auto;
+  font: 500 0.8125rem var(--font-mono);
+  color: var(--color-ink-muted);
+}
+
+.un-grid__col-desc {
+  display: block;
+  margin-top: 0.35rem;
+  text-transform: none;
+  letter-spacing: 0;
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  line-height: 1.4;
+}
+
+.un-grid__row {
+  text-align: left;
+  vertical-align: top;
+  padding: 0.85rem 0.75rem 0.85rem 0;
+  border-top: 1px solid var(--color-ink);
+  font-weight: inherit;
+}
+
+.un-grid__row-name {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.un-grid__row-q {
+  display: block;
+  margin-top: 0.3rem;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.9375rem;
+  color: var(--color-ink-muted);
+}
+
+.un-cell {
+  vertical-align: top;
+  padding: 0.75rem 0.85rem 0.9rem;
+  background: var(--color-band);
+  transition: background-color 0.2s ease;
+}
+
+.un-cell ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.2rem;
+}
+
+.un-cell a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.12rem 0;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--color-ink);
+  text-decoration: none;
+}
+
+.un-cell a:hover,
+.un-cell a:focus-visible {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.un-cell.is-empty {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  background-color: transparent;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent 0 7px,
+    color-mix(in srgb, var(--color-line) 70%, transparent) 7px 8px
+  );
+}
+
+.un-cell.is-empty em {
+  font: italic 0.875rem var(--font-display);
+  color: var(--color-ink-muted);
+}
+
+/* ztlumení sloupce bez průhlednosti celé buňky (ta v Chromiu kreslila vnitřní obdélník) */
+.un-grid__col.is-dim > * {
+  opacity: 0.32;
+}
+
+.un-cell.is-dim {
+  background-color: color-mix(in srgb, var(--color-band) 40%, var(--color-paper));
+}
+
+.un-cell.is-dim > * {
+  opacity: 0.32;
+}
+
+/* značka „kdo drží mezeru“: tvar, ne barva (barvy patří archetypům) */
+.un-mark {
+  display: inline-block;
+  flex: none;
+  width: 0.7rem;
+  height: 0.7rem;
+  box-sizing: border-box;
+  border: 1.5px solid var(--color-ink);
+}
+
+.un-mark--zamceno-tvurci {
+  background: var(--color-ink);
+}
+
+.un-mark--ceka-na-pokracovani {
+  border-style: dashed;
+  background: linear-gradient(to top, var(--color-ink) 50%, transparent 50%);
+}
+
+.un-mark--otevreno-vykladu {
+  background: transparent;
+}
+
+/* ---------- Mapa neznáma: rejstřík ---------- */
+.un-register .tg-type__head {
+  top: calc(var(--site-header-height) + 4.25rem);
+}
+
+.un-item {
+  scroll-margin-top: var(--tg-scroll);
+}
+
+.un-item:target {
+  background: color-mix(in srgb, var(--color-accent) 9%, transparent);
+  box-shadow: 0 0 0 0.75rem color-mix(in srgb, var(--color-accent) 9%, transparent);
+}
+
+.un-item__q {
+  margin: 0.45rem 0 0;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.125rem;
+  line-height: 1.4;
+  text-wrap: pretty;
+}
+
+.un-item__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 1.25rem;
+  margin: 0.65rem 0 0;
+}
+
+.un-item__holder {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font: 500 0.6875rem var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+.un-item__read {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.un-item__read:hover,
+.un-item__read:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ---------- úzké displeje ---------- */
+@media (max-width: 1080px) {
+  .tg-type {
+    grid-template-columns: 13rem minmax(0, 1fr);
+    column-gap: 2rem;
+  }
+
+  .tg-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 760px) {
+  .un-grid-wrap {
+    display: none;
+  }
+
+  .tg-type {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 1.25rem;
+  }
+
+  .tg-type__head {
+    position: static;
+  }
+
+  .tg-overview__row {
+    grid-template-columns: minmax(0, 1fr) auto;
+    row-gap: 0.4rem;
+  }
+
+  .tg-overview__dots {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .tg-filter {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .tg-filter::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tg-filter__btn {
+    flex: none;
+  }
+
+  .tg-filter__label {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tg-dot,
+  .tg-entry,
+  .un-cell,
+  .un-grid__col {
+    transition: none;
+  }
+}

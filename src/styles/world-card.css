@@ -715,6 +715,27 @@ html[data-theme='dark'] .world-card--page {
   cursor: pointer;
 }
 
+/* Typ pole triády: odkaz do Galerie triád / na Mapu neznáma (2026-11-24, se souhlasem majitele) */
+.wc-triad__type {
+  display: inline-flex;
+  gap: 0.35rem;
+  margin-top: 0.9rem;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.wc-triad__type:hover,
+.wc-triad__type:focus-visible {
+  color: var(--color-accent);
+  border-bottom-color: currentColor;
+}
+
 .wc-triad__text--jump:hover,
 .wc-triad__text--jump:focus-visible {
   text-decoration: underline;

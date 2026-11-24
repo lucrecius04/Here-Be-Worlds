@@ -3,6 +3,7 @@ import type { LocalizedString, World } from '../../schemas/world';
 
 import { t, uiT } from '../../lib/i18n';
 import type { TriadAnchor } from '../../lib/chronicle-toc';
+import { GALLERY_PATH, UNKNOWN_PATH, mysteryAnchor, triadTypesOf } from '../../lib/triad-types';
 import { useLocale } from '../../lib/locale-store';
 import FiveAxes from './FiveAxes';
 import narrationData from '../../../data/meta/narration-taxonomy.json';
@@ -148,6 +149,7 @@ export default function WorldCard({
             ) : (
               <p className="wc-triad__text">{t(world.triad[key], locale)}</p>
             )}
+            <TriadTypeLink worldId={world.id} kind={key} baseUrl={baseUrl} />
           </div>
         ))}
       </section>
@@ -178,6 +180,36 @@ function SignatureLead({ text }: { text: string }) {
       {match[2]}
       {match[3]}
     </>
+  );
+}
+
+/** Pod polem triády: typ, do kterého svět patří, jako odkaz do Galerie triád nebo na Mapu neznáma. */
+function TriadTypeLink({ worldId, kind, baseUrl }: { worldId: string; kind: TriadAnchor; baseUrl: string }) {
+  const locale = useLocale();
+  const types = triadTypesOf(worldId);
+  if (!types) return null;
+  if (kind === 'ultimateMystery') {
+    if (!types.mystery || !types.holder) return null;
+    return (
+      <a
+        className="wc-triad__type"
+        href={`${baseUrl}${UNKNOWN_PATH}#${mysteryAnchor(worldId)}`}
+        aria-label={`${t(types.mystery.label, locale)}, ${t(types.holder.label, locale)} – ${uiT('card.triadMysteryIn', locale)}`}
+      >
+        {t(types.mystery.label, locale)} · {t(types.holder.label, locale)} <span aria-hidden="true">→</span>
+      </a>
+    );
+  }
+  const type = kind === 'originalSin' ? types.sin : types.dilemma;
+  if (!type) return null;
+  return (
+    <a
+      className="wc-triad__type"
+      href={`${baseUrl}${GALLERY_PATH}#${type.id}`}
+      aria-label={`${t(type.label, locale)} – ${uiT('card.triadTypeIn', locale)}`}
+    >
+      {t(type.label, locale)} <span aria-hidden="true">→</span>
+    </a>
   );
 }
 

@@ -1,0 +1,161 @@
+{
+  "_note": "Roztřídění triád světů (Galerie triád /galerie-triad/ a Mapa neznáma /mapa-neznama/). Schváleno majitelem 2026-11-24. Každý publikovaný svět má jeden hlavní typ; `sinAlso` = hraniční případ, ukáže se jako „také: …“. Kdo drží mezeru ověřeno proti oddílu 4. Nosná mezera v kronikách: Zamčeno tvůrci jen tam, kde autoři odpověď výslovně odmítli nebo dílo záměrně nikdy neodhalí.",
+  "sinTypes": [
+    {
+      "id": "zadrzeny-konec",
+      "label": { "cs": "Zadržený konec", "en": "The withheld ending" },
+      "desc": { "cs": "Něco, co mělo skončit, nesmí skončit – a svět začne hnít.", "en": "Something that should have ended is not allowed to end – and the world begins to rot." }
+    },
+    {
+      "id": "tvor-jako-nastroj",
+      "label": { "cs": "Tvor jako nástroj", "en": "The creature as a tool" },
+      "desc": { "cs": "Stvořené bytosti jsou materiál, figurky nebo pokusné objekty.", "en": "Created beings are raw material, game pieces or test subjects." }
+    },
+    {
+      "id": "krev-v-zakladech",
+      "label": { "cs": "Krev v základech", "en": "Blood in the foundations" },
+      "desc": { "cs": "U kořene světa leží vražda, oběť nevinného nebo znesvěcení posvátného.", "en": "At the root of the world lies a murder, an innocent sacrificed or something sacred defiled." }
+    },
+    {
+      "id": "lez-v-zakladech",
+      "label": { "cs": "Lež v základech", "en": "A lie in the foundations" },
+      "desc": { "cs": "Řád stojí na zatajené pravdě a drží jen, dokud ji nikdo neodhalí.", "en": "The order rests on a hidden truth and holds only until someone uncovers it." }
+    },
+    {
+      "id": "lek-horsi-nez-nemoc",
+      "label": { "cs": "Lék horší než nemoc", "en": "A cure worse than the disease" },
+      "desc": { "cs": "Dobrý úmysl nebo strach spustí katastrofu, kterou měl odvrátit.", "en": "A good intention or a fear unleashes the very catastrophe it was meant to prevent." }
+    },
+    {
+      "id": "moc-a-zisk",
+      "label": { "cs": "Moc a zisk", "en": "Power and profit" },
+      "desc": { "cs": "Prestiž, korporace a ovládnutí: svět prodaný za výhodu několika.", "en": "Prestige, corporations and control: a world sold for the advantage of a few." }
+    }
+  ],
+  "dilemmaTypes": [
+    {
+      "id": "svoboda-nebo-spravce",
+      "label": { "cs": "Svoboda, nebo správce", "en": "Freedom or a keeper" },
+      "desc": { "cs": "Patří osud lidem, nebo těm, kdo je řídí – bohům, elitám, strojům?", "en": "Does fate belong to people, or to those who steer them – gods, elites, machines?" }
+    },
+    {
+      "id": "lidskost-nebo-preziti",
+      "label": { "cs": "Lidskost, nebo přežití", "en": "Humanity or survival" },
+      "desc": { "cs": "Kolik z sebe smí člověk obětovat, aby vůbec přežil?", "en": "How much of oneself may be sacrificed just to survive?" }
+    },
+    {
+      "id": "pravda-nebo-mytus",
+      "label": { "cs": "Pravda, nebo mýtus", "en": "Truth or myth" },
+      "desc": { "cs": "Má se bourat lež, na které stojí společenství?", "en": "Should a lie that holds a community together be torn down?" }
+    },
+    {
+      "id": "udrzet-nebo-skoncit",
+      "label": { "cs": "Udržet, nebo nechat skončit", "en": "Sustain or let it end" },
+      "desc": { "cs": "Držet zhasínající řád, nebo vykročit do neznáma za ním?", "en": "Hold on to a fading order, or step into the unknown beyond it?" }
+    },
+    {
+      "id": "zopakuje-se-to",
+      "label": { "cs": "Zopakuje se to?", "en": "Will it happen again?" },
+      "desc": { "cs": "Poučí se svět z katastrofy, nebo ji v novém šatě zopakuje?", "en": "Will the world learn from the catastrophe, or repeat it in new clothes?" }
+    },
+    {
+      "id": "co-je-clovek",
+      "label": { "cs": "Co je člověk", "en": "What is a person" },
+      "desc": { "cs": "Kde začíná osoba, když lze vědomí vyrobit, zkopírovat nebo odhodit?", "en": "Where does a person begin when a mind can be made, copied or discarded?" }
+    },
+    {
+      "id": "moc-a-laskavost",
+      "label": { "cs": "Moc a laskavost", "en": "Power and kindness" },
+      "desc": { "cs": "Co udělá člověk s mocí, za kterou nikdo nepřijde účtovat?", "en": "What does one do with power that no one will ever hold to account?" }
+    },
+    {
+      "id": "vina-a-zmena",
+      "label": { "cs": "Vina a změna", "en": "Guilt and change" },
+      "desc": { "cs": "Dá se unést vlastní vina – a může se člověk doopravdy změnit?", "en": "Can one bear one's own guilt – and can a person truly change?" }
+    }
+  ],
+  "mysteryKinds": [
+    {
+      "id": "postava-bez-tvare",
+      "label": { "cs": "Postava bez tváře", "en": "A figure without a face" },
+      "desc": { "cs": "Kdo to je?", "en": "Who is it?" }
+    },
+    {
+      "id": "sila-bez-jmena",
+      "label": { "cs": "Síla bez jména", "en": "A force without a name" },
+      "desc": { "cs": "Co to je?", "en": "What is it?" }
+    },
+    {
+      "id": "ztracena-udalost",
+      "label": { "cs": "Ztracená událost", "en": "A lost event" },
+      "desc": { "cs": "Co se stalo?", "en": "What happened?" }
+    },
+    {
+      "id": "za-koncem",
+      "label": { "cs": "Za koncem", "en": "Beyond the ending" },
+      "desc": { "cs": "Co přijde – a který konec platí?", "en": "What comes next – and which ending holds?" }
+    }
+  ],
+  "mysteryHolders": [
+    {
+      "id": "zamceno-tvurci",
+      "label": { "cs": "Zamčeno tvůrci", "en": "Locked by the makers" },
+      "desc": { "cs": "Autoři odpověď výslovně odmítli, nebo ji dílo záměrně nikdy neodhalí.", "en": "The makers have refused to answer, or the work deliberately never reveals it." }
+    },
+    {
+      "id": "ceka-na-pokracovani",
+      "label": { "cs": "Čeká na pokračování", "en": "Awaiting a sequel" },
+      "desc": { "cs": "Mezera je nit, kterou mají navázat další díly.", "en": "The gap is a thread meant to be picked up by later works." }
+    },
+    {
+      "id": "otevreno-vykladu",
+      "label": { "cs": "Otevřeno výkladu", "en": "Open to interpretation" },
+      "desc": { "cs": "Odpověď zůstává hráčům a jejich čtení stop.", "en": "The answer is left to players and how they read the clues." }
+    }
+  ],
+  "worlds": {
+    "baldurs-gate": { "sin": "tvor-jako-nastroj", "dilemma": "svoboda-nebo-spravce", "mystery": "postava-bez-tvare", "holder": "zamceno-tvurci" },
+    "dark-souls": { "sin": "zadrzeny-konec", "dilemma": "udrzet-nebo-skoncit", "mystery": "za-koncem", "holder": "otevreno-vykladu" },
+    "diablo": { "sin": "lek-horsi-nez-nemoc", "dilemma": "svoboda-nebo-spravce", "mystery": "za-koncem", "holder": "otevreno-vykladu" },
+    "dragon-age": { "sin": "lek-horsi-nez-nemoc", "dilemma": "pravda-nebo-mytus", "mystery": "sila-bez-jmena", "holder": "zamceno-tvurci" },
+    "elden-ring": { "sin": "zadrzeny-konec", "dilemma": "udrzet-nebo-skoncit", "mystery": "postava-bez-tvare", "holder": "otevreno-vykladu" },
+    "elder-scrolls": { "sin": "lez-v-zakladech", "dilemma": "pravda-nebo-mytus", "mystery": "ztracena-udalost", "holder": "zamceno-tvurci" },
+    "hades": { "sin": "lez-v-zakladech", "dilemma": "vina-a-zmena", "mystery": "za-koncem", "holder": "otevreno-vykladu" },
+    "path-of-exile": { "sin": "lek-horsi-nez-nemoc", "dilemma": "moc-a-laskavost", "mystery": "postava-bez-tvare", "holder": "otevreno-vykladu" },
+    "pathfinder": { "sin": "tvor-jako-nastroj", "dilemma": "svoboda-nebo-spravce", "mystery": "ztracena-udalost", "holder": "zamceno-tvurci" },
+    "warcraft": { "sin": "lek-horsi-nez-nemoc", "dilemma": "zopakuje-se-to", "mystery": "sila-bez-jmena", "holder": "ceka-na-pokracovani" },
+    "the-witcher": { "sin": "tvor-jako-nastroj", "dilemma": "lidskost-nebo-preziti", "mystery": "ztracena-udalost", "holder": "otevreno-vykladu" },
+    "doom": { "sin": "krev-v-zakladech", "dilemma": "lidskost-nebo-preziti", "mystery": "postava-bez-tvare", "holder": "ceka-na-pokracovani" },
+    "halo": { "sin": "krev-v-zakladech", "dilemma": "co-je-clovek", "mystery": "sila-bez-jmena", "holder": "otevreno-vykladu" },
+    "mass-effect": { "sin": "lek-horsi-nez-nemoc", "dilemma": "zopakuje-se-to", "mystery": "sila-bez-jmena", "holder": "otevreno-vykladu" },
+    "starcraft": { "sin": "tvor-jako-nastroj", "dilemma": "lidskost-nebo-preziti", "mystery": "za-koncem", "holder": "otevreno-vykladu" },
+    "warhammer-40k": { "sin": "tvor-jako-nastroj", "dilemma": "lidskost-nebo-preziti", "mystery": "postava-bez-tvare", "holder": "zamceno-tvurci" },
+    "xcom": { "sin": "zadrzeny-konec", "dilemma": "lidskost-nebo-preziti", "mystery": "sila-bez-jmena", "holder": "otevreno-vykladu" },
+    "xenoblade": { "sin": "lek-horsi-nez-nemoc", "dilemma": "svoboda-nebo-spravce", "mystery": "sila-bez-jmena", "holder": "otevreno-vykladu" },
+    "death-stranding": { "sin": "zadrzeny-konec", "dilemma": "vina-a-zmena", "mystery": "za-koncem", "holder": "otevreno-vykladu" },
+    "fallout": { "sin": "tvor-jako-nastroj", "sinAlso": "moc-a-zisk", "dilemma": "zopakuje-se-to", "mystery": "ztracena-udalost", "holder": "zamceno-tvurci" },
+    "horizon": { "sin": "lez-v-zakladech", "dilemma": "zopakuje-se-to", "mystery": "sila-bez-jmena", "holder": "otevreno-vykladu" },
+    "metro": { "sin": "lez-v-zakladech", "sinAlso": "moc-a-zisk", "dilemma": "zopakuje-se-to", "mystery": "za-koncem", "holder": "otevreno-vykladu" },
+    "nier-automata": { "sin": "lez-v-zakladech", "dilemma": "co-je-clovek", "mystery": "postava-bez-tvare", "holder": "otevreno-vykladu" },
+    "bloodborne": { "sin": "krev-v-zakladech", "dilemma": "vina-a-zmena", "mystery": "ztracena-udalost", "holder": "otevreno-vykladu" },
+    "resident-evil": { "sin": "krev-v-zakladech", "sinAlso": "moc-a-zisk", "dilemma": "vina-a-zmena", "mystery": "postava-bez-tvare", "holder": "otevreno-vykladu" },
+    "silent-hill": { "sin": "krev-v-zakladech", "dilemma": "vina-a-zmena", "mystery": "za-koncem", "holder": "zamceno-tvurci" },
+    "soma": { "sin": "lek-horsi-nez-nemoc", "dilemma": "co-je-clovek", "mystery": "sila-bez-jmena", "holder": "otevreno-vykladu" },
+    "assassins-creed": { "sin": "tvor-jako-nastroj", "dilemma": "svoboda-nebo-spravce", "mystery": "postava-bez-tvare", "holder": "ceka-na-pokracovani" },
+    "disco-elysium": { "sin": "moc-a-zisk", "dilemma": "vina-a-zmena", "mystery": "sila-bez-jmena", "holder": "otevreno-vykladu" },
+    "pentiment": { "sin": "lez-v-zakladech", "dilemma": "pravda-nebo-mytus", "mystery": "ztracena-udalost", "holder": "zamceno-tvurci" },
+    "bioshock": { "sin": "tvor-jako-nastroj", "dilemma": "svoboda-nebo-spravce", "mystery": "sila-bez-jmena", "holder": "otevreno-vykladu" },
+    "cyberpunk-2077": { "sin": "moc-a-zisk", "dilemma": "udrzet-nebo-skoncit", "mystery": "postava-bez-tvare", "holder": "ceka-na-pokracovani" },
+    "deus-ex": { "sin": "moc-a-zisk", "dilemma": "svoboda-nebo-spravce", "mystery": "postava-bez-tvare", "holder": "otevreno-vykladu" },
+    "dishonored": { "sin": "krev-v-zakladech", "dilemma": "moc-a-laskavost", "mystery": "postava-bez-tvare", "holder": "otevreno-vykladu" },
+    "half-life": { "sin": "moc-a-zisk", "dilemma": "svoboda-nebo-spravce", "mystery": "postava-bez-tvare", "holder": "otevreno-vykladu" },
+    "control": { "sin": "tvor-jako-nastroj", "dilemma": "svoboda-nebo-spravce", "mystery": "postava-bez-tvare", "holder": "otevreno-vykladu" },
+    "inscryption": { "sin": "moc-a-zisk", "dilemma": "co-je-clovek", "mystery": "ztracena-udalost", "holder": "otevreno-vykladu" },
+    "outer-wilds": { "sin": "zadrzeny-konec", "dilemma": "udrzet-nebo-skoncit", "mystery": "sila-bez-jmena", "holder": "otevreno-vykladu" },
+    "pathologic": { "sin": "krev-v-zakladech", "dilemma": "udrzet-nebo-skoncit", "mystery": "sila-bez-jmena", "holder": "zamceno-tvurci" },
+    "planescape-torment": { "sin": "zadrzeny-konec", "dilemma": "vina-a-zmena", "mystery": "postava-bez-tvare", "holder": "zamceno-tvurci" },
+    "tides-of-numenera": { "sin": "zadrzeny-konec", "dilemma": "co-je-clovek", "mystery": "sila-bez-jmena", "holder": "zamceno-tvurci" },
+    "undertale": { "sin": "lek-horsi-nez-nemoc", "dilemma": "moc-a-laskavost", "mystery": "postava-bez-tvare", "holder": "ceka-na-pokracovani" },
+    "pillars-of-eternity": { "sin": "lez-v-zakladech", "dilemma": "pravda-nebo-mytus", "mystery": "sila-bez-jmena", "holder": "otevreno-vykladu" }
+  }
+}

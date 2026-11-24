@@ -130,6 +130,8 @@ export function buildSearchEntries(): SearchEntry[] {
   page('trails', both('trailsPage.title'), '/putovani/', 'putování journeys stezky eseje');
   page('compare', both('compare.title'), '/compare/', 'srovnání compare porovnat příbuznost');
   page('map', both('nav.map'), '/map/', 'mapa souřadnic coordinate map');
+  page('triads', both('triads.title'), '/galerie-triad/', 'galerie triád triáda prvotní hřích hříchy ústřední dilema dilemata original sin dilemma');
+  page('unknown', both('unknown.title'), '/mapa-neznama/', 'mapa neznáma tajemství tajemstvi záhady nosná mezera řízená mezera mystery unknown');
   page('essay', { cs: 'Anatomie herního lore', en: 'Anatomy of game lore' }, '/anatomie-herniho-lore/', 'esej essay metoda method');
   page('theory', both('footer.theory'), '/teoreticke-zazemi/', 'prameny literatura sources teorie theory');
   page('notes', notes, '/notes/', 'vysvětlivky notes metoda pojmy glossary');
