@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState, type CSSProperties } from 'react';
+import { useEffect, useMemo, useRef, useState, type CSSProperties } from 'react';
 import { t, uiT, type Locale } from '../../lib/i18n';
 import { useLocale } from '../../lib/locale-store';
 import { withBase } from '../../lib/base-url';
@@ -76,6 +76,13 @@ export default function DeepTime({ base, worlds, chapters }: Props) {
   const [sort, setSort] = useState<Sort>('depth');
   const [hover, setHover] = useState<string | null>(null);
   const [picked, setPicked] = useState<string | null>(null);
+  const panelRef = useRef<HTMLElement>(null);
+  // Na užším displeji je průřez pod grafem: po výběru světa na něj sjeď.
+  useEffect(() => {
+    if (!picked || !window.matchMedia('(max-width: 1100px)').matches) return;
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    panelRef.current?.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+  }, [picked]);
 
   const items = useMemo(() => worlds.map((w) => ({ ...w, sum: summarize(w.deep) })), [worlds]);
   const chapterOrder = useMemo(() => new Map(chapters.map((c, i) => [c.id, i])), [chapters]);
@@ -180,7 +187,9 @@ export default function DeepTime({ base, worlds, chapters }: Props) {
         </label>
       </div>
 
-      <div className="dt-layout">
+      <Legend locale={locale} />
+
+      <div className={`dt-layout${active && picked ? ' has-panel' : ''}`}>
         <figure className="dt-chart" onMouseLeave={() => setHover(null)}>
           <svg
             viewBox={`0 0 ${layout.width} ${height}`}
@@ -388,12 +397,10 @@ export default function DeepTime({ base, worlds, chapters }: Props) {
           </svg>
         </figure>
 
-        <aside className="dt-panel" aria-live="polite">
-          {active ? (
-            <WorldPanel world={active} base={base} locale={locale} chapters={chapters} pinned={picked === active.id} onClose={() => setPicked(null)} />
-          ) : (
-            <Legend locale={locale} />
-          )}
+        <aside className="dt-panel" aria-live="polite" ref={panelRef}>
+          {active && picked ? (
+            <WorldPanel world={active} base={base} locale={locale} chapters={chapters} pinned onClose={() => setPicked(null)} />
+          ) : null}
         </aside>
       </div>
     </div>
@@ -412,7 +419,7 @@ function Legend({ locale }: { locale: Locale }) {
   ];
   return (
     <div className="dt-legend">
-      <h2 className="dt-panel__kicker">{uiT('deepTime.howTo', locale)}</h2>
+      <h2 className="visually-hidden">{uiT('deepTime.howTo', locale)}</h2>
       <ul>
         {rows.map(([key, label]) => (
           <li key={key}>
