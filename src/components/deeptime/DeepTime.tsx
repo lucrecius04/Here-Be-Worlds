@@ -31,11 +31,13 @@ const hue = (accent: { light: string; dark: string }) =>
  * Rozměry grafu: na počítači se jmény světů, na telefonu úzké vrty bez jmen.
  * Na telefonu s jediným archetypem (`focusCount`) širší vrty a jména jako na počítači.
  */
-function geometry(compact: boolean, focusCount = 0) {
+function geometry(compact: boolean, focusCount = 0, longestName = 0) {
   if (compact && focusCount) {
-    // Nejvýš tak široké jako u Fantasy (12 světů), aby se málo světů nezvětšilo přes celý displej.
-    const pitch = Math.min(27, (390 - 64 - 8) / focusCount);
-    return { gutter: 64, pitch, col: Math.round(pitch * 0.5), top: 140, groupGap: 0, label: 9.5, decade: 40 };
+    // Nejvýš o kousek širší než u Fantasy (12 světů), aby se málo světů nezvětšilo přes celý displej.
+    const pitch = Math.min(30, (390 - 64 - 8) / focusCount);
+    // Nad hladinou jen tolik místa, kolik potřebuje nejdelší jméno.
+    const top = Math.round(18 + longestName * 6.2);
+    return { gutter: 64, pitch, col: Math.round(pitch * 0.5), top, groupGap: 0, label: 10.5, decade: 40 };
   }
   return compact
     ? { gutter: 58, pitch: 7.6, col: 5, top: 14, groupGap: 5, label: 9.5, decade: 40 }
@@ -102,7 +104,8 @@ export default function DeepTime({ base, worlds, chapters, now }: Props) {
   const items = useMemo(() => worlds.map((w) => ({ ...w, sum: summarize(w.deep) })), [worlds]);
   const focusOn = compact && sort === 'archetype' && only ? only : null;
   const shown = useMemo(() => (focusOn ? items.filter((w) => w.chapterId === focusOn) : items), [items, focusOn]);
-  const g = useMemo(() => geometry(compact, focusOn ? shown.length : 0), [compact, focusOn, shown.length]);
+  const longestName = focusOn ? Math.max(...shown.map((w) => t(w.title, locale).length)) : 0;
+  const g = useMemo(() => geometry(compact, focusOn ? shown.length : 0, longestName), [compact, focusOn, shown.length, longestName]);
   const chapterOrder = useMemo(() => new Map(chapters.map((c, i) => [c.id, i])), [chapters]);
 
   // Pořadí a vodorovné polohy vrtů (při přeřazení se vrty přesunou plynule).

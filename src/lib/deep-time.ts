@@ -74,10 +74,10 @@ export const SCALE = {
   subYear: 34,
   /** výška jednoho řádu (×10) */
   decade: 58,
-  /** nejhlubší řád na stupnici (10^10,2 ≈ 16 miliard let) */
-  maxLog: 10.2,
+  /** nejhlubší řád na stupnici (10^9,4 ≈ 2,5 miliardy let; nejhlubší svět sahá na miliardu) */
+  maxLog: 9.4,
   /** mezera mezi měřitelným a mýtickým časem */
-  gap: 30,
+  gap: 14,
   /** výška mýtického pásma */
   myth: 92,
 };
@@ -92,8 +92,8 @@ export function depthY(years: number, decade = SCALE.decade): number {
 export const measuredHeight = (decade = SCALE.decade) => SCALE.subYear + SCALE.maxLog * decade;
 export const mythTop = (decade = SCALE.decade) => measuredHeight(decade) + SCALE.gap;
 
-/** Řády na stupnici: 1 rok … 10 miliard let. */
-export const DECADES = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+/** Řády na stupnici: 1 rok … miliarda let. */
+export const DECADES = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 /** Délky z našeho světa pro měřítko (šedé značky u stupnice). */
 /* ---------- naše časová osa (světy s naším letopočtem) ---------- */
