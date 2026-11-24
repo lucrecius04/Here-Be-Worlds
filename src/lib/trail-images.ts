@@ -20,6 +20,7 @@ const READY: Record<TrailId, number> = {
   'dead-speak': 3,
   'monster-mirror': 1,
   'god-corpse': 3,
+  'knows-you-play': 2,
 };
 
 const DIR = 'putovani-obrazky';
