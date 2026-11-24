@@ -41,8 +41,8 @@ function tickLabel(year: number, locale: Locale): string {
 export default function OurTimeline({ worlds, now, locale, compact, picked, onPick }: Props) {
   const [hover, setHover] = useState<string | null>(null);
   const g = compact
-    ? { width: 390, gutter: 100, top: 40, row: 19, bar: 4, label: 8.5, zone: 6, bottom: 62 }
-    : { width: 1000, gutter: 156, top: 52, row: 24, bar: 6, label: 11, zone: 10, bottom: 64 };
+    ? { width: 390, gutter: 100, top: 40, row: 19, bar: 4, label: 8.5, zone: 6, bottom: 74 }
+    : { width: 1000, gutter: 156, top: 52, row: 24, bar: 6, label: 11, zone: 10, bottom: 84 };
   const plot = g.width - g.gutter - 12;
   const decade = (plot - 2 * g.zone) / (PAST + FUTURE);
   const center = g.gutter + g.zone + PAST * decade;
@@ -63,7 +63,9 @@ export default function OurTimeline({ worlds, now, locale, compact, picked, onPi
     [worlds],
   );
   const height = g.top + rows.length * g.row + g.bottom;
-  const focus = picked ?? hover;
+  // Ztlumit ostatní jen tehdy, když vybraný svět na této ose leží.
+  const focusRaw = picked ?? hover;
+  const focus = focusRaw && rows.some((w) => w.id === focusRaw) ? focusRaw : hover;
 
   const pastLabel = (p: number) => tickLabel(now - 10 ** p, locale);
   const futureLabel = (p: number) => tickLabel(now + 10 ** p, locale);
@@ -108,13 +110,17 @@ export default function OurTimeline({ worlds, now, locale, compact, picked, onPi
 
           {/* délky z našeho světa: tady opravdu leží na ose */}
           {YARDSTICKS.map((ys, i) => {
-            const x = X(now - ys.years);
-            const y = g.top + rows.length * g.row + 22 + (i % (compact ? 3 : 2)) * (compact ? 12 : 15);
+            const x = X(ys.year);
+            const step = compact ? 22 : 28;
+            const y = g.top + rows.length * g.row + 22 + (i % 2) * step;
             return (
               <g key={ys.key} className="dt-ours__yard">
                 <line x1={x} x2={x} y1={g.top - 8} y2={y - 9} />
-                <text x={x} y={y} textAnchor="middle" fontSize={g.label - 1.5}>
+                <text x={x} y={y} textAnchor="middle" fontSize={g.label - 1}>
                   {uiT(ys.key, locale)}
+                </text>
+                <text className="dt-ours__yard-when" x={x} y={y + g.label + 1} textAnchor="middle" fontSize={g.label - 1.5}>
+                  {uiT(ys.when, locale)}
                 </text>
               </g>
             );
@@ -182,7 +188,7 @@ export default function OurTimeline({ worlds, now, locale, compact, picked, onPi
                 </text>
                 {/* vrstvy dějin (střídavé tóny), nejhlubší odhad do ztracena */}
                 {layers.map(([x0, x1], k) => (
-                  <rect key={`l${k}`} className={`dt-layer${k % 2 ? ' is-alt' : ''}`} x={X(x0)} y={y - hb / 2} width={Math.max(X(x1) - X(x0), 0.8)} height={hb} />
+                  <rect key={`l${k}`} className="dt-layer" x={X(x0)} y={y - hb / 2} width={Math.max(X(x1) - X(x0), 0.8)} height={hb} />
                 ))}
                 {deepRange ? (
                   <rect x={X(oldest)} y={y - hb / 2} width={Math.max(X(solidFrom) - X(oldest), 1)} height={hb} fill={`url(#dt-ours-fade-${w.id})`} />

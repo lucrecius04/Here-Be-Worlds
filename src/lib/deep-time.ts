@@ -115,12 +115,13 @@ export function formatYear(year: number, locale: Loc): string {
   return locale === 'cs' ? `${nf(Number((bc / 1e9).toPrecision(2)), locale, 1)} mld. let př. n. l.` : `${nf(Number((bc / 1e9).toPrecision(2)), locale, 1)} billion years BC`;
 }
 
-export const YARDSTICKS: Array<{ years: number; key: string }> = [
-  { years: 5000, key: 'deepTime.yardWriting' },
-  { years: 300000, key: 'deepTime.yardSapiens' },
-  { years: 66000000, key: 'deepTime.yardDinosaurs' },
-  { years: 4500000000, key: 'deepTime.yardEarth' },
-  { years: 13800000000, key: 'deepTime.yardUniverse' },
+/** Události z našeho světa na naší časové ose; `year` = rok (záporný = před n. l.), `when` = popisek data. */
+export const YARDSTICKS: Array<{ year: number; key: string; when: string }> = [
+  { year: -3200, key: 'deepTime.yardWriting', when: 'deepTime.yardWritingWhen' },
+  { year: -300000, key: 'deepTime.yardSapiens', when: 'deepTime.yardSapiensWhen' },
+  { year: -66000000, key: 'deepTime.yardDinosaurs', when: 'deepTime.yardDinosaursWhen' },
+  { year: -4540000000, key: 'deepTime.yardEarth', when: 'deepTime.yardEarthWhen' },
+  { year: -13800000000, key: 'deepTime.yardUniverse', when: 'deepTime.yardUniverseWhen' },
 ];
 
 /* ---------- slovy ---------- */

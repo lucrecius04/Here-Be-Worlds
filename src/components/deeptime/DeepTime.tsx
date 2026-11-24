@@ -7,7 +7,6 @@ import {
   SCALE,
   measuredHeight,
   mythTop,
-  YARDSTICKS,
   agoMid,
   depthY,
   formatAgo,
@@ -32,7 +31,7 @@ const hue = (accent: { light: string; dark: string }) =>
 function geometry(compact: boolean) {
   return compact
     ? { gutter: 58, pitch: 7.6, col: 5, top: 14, groupGap: 5, label: 9.5, decade: 40 }
-    : { gutter: 176, pitch: 19, col: 11, top: 150, groupGap: 14, label: 10.5, decade: SCALE.decade };
+    : { gutter: 132, pitch: 19, col: 11, top: 150, groupGap: 14, label: 10.5, decade: SCALE.decade };
 }
 
 const DECADE_KEYS = [
@@ -162,6 +161,7 @@ export default function DeepTime({ base, worlds, chapters, now }: Props) {
         </div>
       </dl>
 
+      <div className="dt-sticky">
       <div className="dt-toolbar">
         <div className="dt-sort" role="group" aria-label={uiT('deepTime.sort', locale)}>
           <span className="dt-sort__label" aria-hidden="true">
@@ -188,6 +188,7 @@ export default function DeepTime({ base, worlds, chapters, now }: Props) {
         </label>
       </div>
 
+      </div>
       <Legend locale={locale} />
 
       <div className={`dt-layout${active && picked ? ' has-panel' : ''}`}>
@@ -238,19 +239,6 @@ export default function DeepTime({ base, worlds, chapters, now }: Props) {
                   </g>
                 );
               })}
-              {!compact
-                ? YARDSTICKS.map((ys) => {
-                    const y = Y(ys.years);
-                    return (
-                      <g key={ys.key} className="dt-yard">
-                        <line x1={g.gutter - 6} x2={g.gutter + 2} y1={y} y2={y} />
-                        <text x={6} y={y + 3.5} fontSize={g.label - 0.5}>
-                          {uiT(ys.key, locale)}
-                        </text>
-                      </g>
-                    );
-                  })
-                : null}
               <text className="dt-scale__label dt-scale__myth" x={g.gutter - 12} y={g.top + MYTH_TOP + 20} textAnchor="end" fontSize={g.label}>
                 {uiT(compact ? 'deepTime.mythShort' : 'deepTime.myth', locale)}
               </text>
@@ -329,7 +317,7 @@ export default function DeepTime({ base, worlds, chapters, now }: Props) {
                   <g className="dt-drill" style={{ transformOrigin: `0px ${g.top}px`, animationDelay: `${layout.sorted.indexOf(w) * 22}ms` }}>
                   {/* vrstvy dějin */}
                   {layers.map(([a, b], i) => (
-                    <rect key={i} className={`dt-layer${i % 2 ? ' is-alt' : ''}`} x={0} y={a} width={g.col} height={b - a} />
+                    <rect key={i} className="dt-layer" x={0} y={a} width={g.col} height={b - a} />
                   ))}
                   {deepRange ? (
                     <rect x={0} y={solidEnd} width={g.col} height={Math.max(yEnd - solidEnd, 1)} fill={`url(#dt-fade-${w.id})`} />
@@ -419,7 +407,6 @@ function Legend({ locale }: { locale: Locale }) {
     ['unsure', 'deepTime.legendUnsure'],
     ['myth', 'deepTime.legendMyth'],
     ['cycle', 'deepTime.legendCycle'],
-    ['yard', 'deepTime.legendYard'],
   ];
   return (
     <div className="dt-legend">
