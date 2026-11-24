@@ -10,7 +10,7 @@ import { TRAIL_SLUGS, type TrailId } from './trails';
 export type TrailImage = { src: string; ink?: string; mask: string };
 
 /** Putování, která už obrázky mají: počet obrázků (první pod citátem, další rovnoměrně textem). */
-const READY: Record<TrailId, number> = {
+export const READY: Record<TrailId, number> = {
   'gods-burden': 2,
   house: 2,
   'indifferent-stars': 2,

@@ -4,12 +4,18 @@
  *   public/og/site.jpg            obecná karta webu (noční modř, obloha, znak)
  *   public/og/worlds/<id>.jpg     karta každého publikovaného světa (papír, barva archetypu)
  *   public/og/compare.jpg         karta stránky Srovnání (noční, stupnice s kosočtverci v barvách srovnání)
+ *   public/og/putovani.jpg        karta rejstříku putování (papír, čtyři kresby jako tabule atlasu)
+ *   public/og/putovani/<slug>.jpg karta každého putování: kresba (když je v READY), název, otázka eseje
+ *                                 a trasa světů jako na titulní straně; bez kresby čistě typografická
  *
  * Spuštění: `npm run og` (po přidání nebo úpravě světa). Jen vybrané karty:
- * `npm run og -- compare`, `npm run og -- site`, `npm run og -- <id světa>`.
+ * `npm run og -- compare`, `npm run og -- site`, `npm run og -- <id světa>`,
+ * `npm run og -- putovani` (rejstřík a všechna putování) nebo `npm run og -- <slug putování>`.
+ * Po přidání obrázku k putování spusť `npm run og -- <slug putování> putovani`.
  * Potřebuje Playwright s Chromiem: `npx playwright install chromium` (jednou).
  * Písma bere z Google Fonts; bez sítě lze podstrčit vlastní CSS přes HBW_OG_FONT_CSS
- * (soubor s @font-face, url() jako cesty k souborům na disku).
+ * (soubor s @font-face, url() jako cesty k souborům na disku). Vlastní Chromium: HBW_OG_CHROMIUM=<cesta>.
+ * Běží přes tsx (`npm run og`), protože čte putování z src/lib/trails.ts a src/lib/trail-images.ts.
  */
 import { createRequire } from 'node:module';
 import { mkdirSync, readFileSync, existsSync } from 'node:fs';
@@ -27,6 +33,8 @@ try {
   process.exit(1);
 }
 
+const { TRAILS, TRAIL_SLUGS } = await import('../src/lib/trails.ts');
+const { READY } = await import('../src/lib/trail-images.ts');
 const worlds = JSON.parse(readFileSync(join(root, 'data/worlds.json'), 'utf8')).worlds.filter((w) => !w.draft);
 const chapters = JSON.parse(readFileSync(join(root, 'data/meta/chapters.json'), 'utf8')).chapters;
 const cs = (v) => (v ? v.cs || v.en || '' : '');
@@ -157,6 +165,106 @@ function compareHtml() {
 </div>`;
 }
 
+/* --- putování ------------------------------------------------------------- */
+
+const IMG_DIR = join(root, 'public/putovani-obrazky');
+const dataUrl = (file, type) => `data:${type};base64,${readFileSync(file).toString('base64')}`;
+
+/** Esej putování: název, otázka a doba čtení (200 slov za minutu jako v trail-pages.ts). */
+function trailEssay(slug) {
+  const raw = readFileSync(join(root, 'content/trails', `${slug}.md`), 'utf8');
+  const fm = raw.match(/^---\r?\n([\s\S]*?)\r?\n---\s*/);
+  const meta = (key) => (fm ? new RegExp(`^${key}:\\s*(.+?)\\s*$`, 'm').exec(fm[1])?.[1]?.trim() : undefined);
+  const body = fm ? raw.slice(fm[0].length) : raw;
+  const words = body.replace(/[#>*_`|[\]()-]+/g, ' ').split(/\s+/).filter(Boolean).length;
+  return { title: meta('title') ?? slug, tagline: meta('tagline') ?? '', minutes: Math.max(1, Math.round(words / 200)) };
+}
+
+const hueOf = (worldId) => {
+  const w = worlds.find((x) => x.id === worldId);
+  return chapters.find((c) => c.id === w?.chapterId)?.accent?.light ?? '#57534D';
+};
+
+/** Trasa světů jako Putování dne na titulní straně: tečky v barvě archetypu, linka s přechodem barev, jména pod tečkami. */
+function route(members, { width = 1040 } = {}) {
+  const list = members.filter((id) => worlds.some((w) => w.id === id));
+  const slot = width / list.length;
+  const xs = list.map((_, i) => slot * i + slot / 2);
+  const segs = list
+    .slice(1)
+    .map((id, i) => `<div style="position:absolute;top:9px;left:${xs[i]}px;width:${xs[i + 1] - xs[i]}px;height:3px;background:linear-gradient(to right,${hueOf(list[i])},${hueOf(id)})"></div>`)
+    .join('');
+  const stops = list
+    .map((id, i) => {
+      const w = worlds.find((x) => x.id === id);
+      return `<div style="position:absolute;top:0;left:${xs[i] - slot / 2}px;width:${slot}px;text-align:center">
+<span style="display:inline-block;width:21px;height:21px;border-radius:50%;background:${hueOf(id)};box-shadow:0 0 0 4px #F4F2EE"></span>
+<span class="rn" style="display:block;margin:12px auto 0;max-width:${slot - 14}px;font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:19px;line-height:1.15;color:#17161A">${esc(cs(w.gameTitle))}</span></div>`;
+    })
+    .join('');
+  return `<div style="position:relative;height:84px;width:${width}px">${segs}${stops}</div>`;
+}
+
+const brand = () =>
+  `<span style="display:flex;align-items:center;gap:14px">${badge('#E5BE7E', 46)}<span class="word" style="font-size:26px">Here <em>Be</em> Worlds</span></span>`;
+
+function trailHtml(trail) {
+  const slug = TRAIL_SLUGS[trail.id];
+  const essay = trailEssay(slug);
+  const img = join(IMG_DIR, `${slug}-1.jpg`);
+  const mask = join(IMG_DIR, 'maska', `${slug}-1-light.png`);
+  const kicker = `Putování atlasem · esej ${essay.minutes} min`;
+  if ((READY[trail.id] ?? 0) > 0 && existsSync(img)) {
+    const m = existsSync(mask) ? `-webkit-mask-image:url(${dataUrl(mask, 'image/png')});-webkit-mask-size:100% 100%;` : '';
+    return `<div class="card" style="background:#F4F2EE;color:#17161A">
+<img src="${dataUrl(img, 'image/jpeg')}" style="position:absolute;right:-6px;top:26px;width:790px;height:441px;object-fit:cover;mix-blend-mode:multiply;filter:brightness(1.06) saturate(.8);${m}">
+<div style="position:absolute;left:80px;top:56px">${brand()}</div>
+<div style="position:absolute;left:80px;top:150px;width:400px">
+<p class="mono" style="margin:0;font-size:14px;color:#57534D">${esc(kicker)}</p>
+<h1 id="tt" style="margin:18px 0 0;font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:56px;line-height:1;letter-spacing:-.025em">${esc(essay.title)}</h1>
+<p id="tq" style="margin:20px 0 0;font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:24px;line-height:1.3;color:#2B2A2E">${esc(essay.tagline)}</p>
+</div>
+<div style="position:absolute;left:80px;bottom:30px;padding-top:24px;border-top:1px solid #D6D1C8">${route(trail.members)}</div>
+</div>`;
+  }
+  return `<div class="card" style="background:#F4F2EE;color:#17161A">
+<div style="position:absolute;left:80px;right:80px;top:56px;display:flex;justify-content:space-between;align-items:center">${brand()}<span class="mono" style="font-size:15px;color:#57534D">${esc(kicker)}</span></div>
+<div style="position:absolute;left:80px;top:184px;width:1040px">
+<h1 id="t" style="margin:0;font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:96px;line-height:.98;letter-spacing:-.025em;white-space:nowrap">${esc(essay.title)}</h1>
+<p id="c" style="margin:24px 0 0;max-width:960px;font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:30px;line-height:1.3">${esc(essay.tagline)}</p>
+</div>
+<div style="position:absolute;left:80px;bottom:30px;padding-top:24px;border-top:1px solid #D6D1C8">${route(trail.members)}</div>
+</div>`;
+}
+
+/** Rejstřík putování: čtyři kresby jako tabule atlasu. */
+function trailsIndexHtml() {
+  const withImg = TRAILS.filter((t) => (READY[t.id] ?? 0) > 0 && existsSync(join(IMG_DIR, `${TRAIL_SLUGS[t.id]}-1.jpg`)));
+  const pick = ['god-corpse', 'knows-you-play', 'dead-speak', 'house'].map((id) => withImg.find((t) => t.id === id)).filter(Boolean);
+  for (const t of withImg) if (pick.length < 4 && !pick.includes(t)) pick.push(t);
+  const cells = pick
+    .map((t, i) => {
+      const slug = TRAIL_SLUGS[t.id];
+      const mask = join(IMG_DIR, 'maska', `${slug}-1-light.png`);
+      const m = existsSync(mask) ? `-webkit-mask-image:url(${dataUrl(mask, 'image/png')});-webkit-mask-size:100% 100%;` : '';
+      const x = (i % 2) * 316;
+      const y = Math.floor(i / 2) * 236;
+      return `<img src="${dataUrl(join(IMG_DIR, `${slug}-1.jpg`), 'image/jpeg')}" style="position:absolute;left:${x}px;top:${y}px;width:380px;height:212px;object-fit:cover;mix-blend-mode:multiply;filter:brightness(1.06) saturate(.8);${m}">`;
+    })
+    .join('');
+  const n = TRAILS.length;
+  return `<div class="card" style="background:#F4F2EE;color:#17161A">
+<div style="position:absolute;right:24px;top:52px;width:696px;height:460px">${cells}</div>
+<div style="position:absolute;left:80px;top:56px">${brand()}</div>
+<div style="position:absolute;left:80px;top:168px;width:390px">
+<p class="mono" style="margin:0;font-size:14px;color:#57534D">${n} esejí · ${worlds.length} světů</p>
+<h1 style="margin:18px 0 0;font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:76px;line-height:.96;letter-spacing:-.025em">Putování světy</h1>
+<p style="margin:22px 0 0;font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:26px;line-height:1.3">Otázky, které si herní světy kladou – a cesty, kterými na ně odpovídají.</p>
+</div>
+<p class="mono" style="position:absolute;left:80px;right:80px;bottom:44px;margin:0;padding-top:14px;border-top:1px solid #D6D1C8;display:flex;justify-content:space-between;font-size:14px;color:#57534D"><span>Eseje · světy na cestě · prameny</span><span>Atlas herních světů</span></p>
+</div>`;
+}
+
 /** Název na jeden řádek (zmenšit do 64 px), jádro nanejvýš na tři řádky. */
 function fitText() {
   const t = document.getElementById('t');
@@ -164,6 +272,22 @@ function fitText() {
     let size = 104;
     while (t.scrollWidth > 1040 && size > 64) t.style.fontSize = `${(size -= 2)}px`;
     if (t.scrollWidth > 1040) t.style.whiteSpace = 'normal';
+  }
+  // putování s kresbou: název nanejvýš na tři řádky, otázka tak, aby se vešla nad trasu
+  const tt = document.getElementById('tt');
+  const tq = document.getElementById('tq');
+  if (tt) {
+    let size = 56;
+    while (tt.scrollHeight > 3 * size + 4 && size > 40) tt.style.fontSize = `${(size -= 2)}px`;
+  }
+  if (tt && tq) {
+    let size = 24;
+    while (tq.getBoundingClientRect().bottom > 458 && size > 17) tq.style.fontSize = `${(size -= 1)}px`;
+  }
+  // jména světů na trase nanejvýš na dva řádky
+  for (const rn of document.querySelectorAll('.rn')) {
+    let size = 19;
+    while (rn.scrollHeight > 2 * 1.15 * size + 2 && size > 14) rn.style.fontSize = `${(size -= 1)}px`;
   }
   const c = document.getElementById('c');
   if (c) {
@@ -175,7 +299,7 @@ function fitText() {
 async function main() {
   const outDir = join(root, 'public/og');
   mkdirSync(join(outDir, 'worlds'), { recursive: true });
-  const browser = await chromium.launch();
+  const browser = await chromium.launch(process.env.HBW_OG_CHROMIUM ? { executablePath: process.env.HBW_OG_CHROMIUM } : {});
   const page = await browser.newPage({ viewport: { width: 1200, height: 630 } });
   await page.setContent(`<!doctype html><html lang="cs"><head><meta charset="utf-8">${fontHead()}<style>${BASE_CSS}</style></head><body><div id="root"></div></body></html>`, { waitUntil: 'networkidle' });
 
@@ -202,6 +326,18 @@ async function main() {
   for (const w of worlds) {
     if (!want(w.id)) continue;
     await render(worldHtml(w), join(outDir, 'worlds', `${w.id}.jpg`));
+    done++;
+  }
+  if (want('putovani')) {
+    await render(trailsIndexHtml(), join(outDir, 'putovani.jpg'));
+    done++;
+  }
+  mkdirSync(join(outDir, 'putovani'), { recursive: true });
+  for (const t of TRAILS) {
+    const slug = TRAIL_SLUGS[t.id];
+    if (!want(slug) && !want('putovani')) continue;
+    if (!existsSync(join(root, 'content/trails', `${slug}.md`))) continue;
+    await render(trailHtml(t), join(outDir, 'putovani', `${slug}.jpg`));
     done++;
   }
   await browser.close();

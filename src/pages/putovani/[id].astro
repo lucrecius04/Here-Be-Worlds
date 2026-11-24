@@ -1,4 +1,5 @@
 ---
+import { existsSync } from 'node:fs';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import EssayPage from '../../components/essay/EssayPage';
 import { trailBySlug } from '../../lib/trails';
@@ -48,6 +49,8 @@ const pendingMarkdown = [
 <BaseLayout
   title={`${essay?.title ?? name} — Here Be Worlds`}
   description={essay?.description ?? desc}
+  ogImage={existsSync(`public/og/putovani/${id}.jpg`) ? `/og/putovani/${id}.jpg` : undefined}
+  ogImageAlt={`${essay?.title ?? name} – putování atlasem Here Be Worlds`}
 >
   <EssayPage
     client:load

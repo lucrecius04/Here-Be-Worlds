@@ -33,6 +33,8 @@ Naposledy aktualizováno: 2026-11-22.
 
 ## Čeká na rozhodnutí majitele
 
+- **Nápady na rozšíření** (analýza 2026-11-24) jsou v `docs/napady-rozsireni.md` i s domluveným pořadím; první bod (karty pro sdílení putování) hotový 2026-11-24.
+
 - **Nápady, které padly a nikdo je nerozhodl:**
   - stáhnout hlavičku spisu na telefonu otočeném na šířku;
   - kratší popisek záložky „Anatomie vyprávění“ na telefonu;
