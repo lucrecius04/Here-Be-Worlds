@@ -18,8 +18,8 @@ type Props = {
 const hue = (accent: { light: string; dark: string }) =>
   ({ '--dt-hue-l': accent.light, '--dt-hue-d': accent.dark }) as CSSProperties;
 
-/** Řády minulosti (do 10^10,2 let, kvůli vzniku vesmíru) a budoucnosti (do 10^4,7 ≈ 50 000 let). */
-const PAST = 10.2;
+/** Řády minulosti (do 10^9,8 let, kvůli vzniku Země) a budoucnosti (do 10^4,7 ≈ 50 000 let). */
+const PAST = 9.8;
 const FUTURE = 4.7;
 /** Stejné měřítko jako vrty nahoře: každý řád (×10) má stejnou šířku v minulosti i budoucnosti. */
 const PAST_TICKS = [1, 2, 3, 6, 9];

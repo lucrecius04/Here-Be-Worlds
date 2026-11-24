@@ -4,6 +4,7 @@
 .dt-core,
 .dt-group,
 .dt-world,
+.dt-only button,
 .dt-fade-0,
 .dt-fade-1 {
   --dt-hue: var(--dt-hue-l, var(--color-ink-muted));
@@ -12,6 +13,7 @@
 html[data-theme='dark'] .dt-core,
 html[data-theme='dark'] .dt-group,
 html[data-theme='dark'] .dt-world,
+html[data-theme='dark'] .dt-only button,
 html[data-theme='dark'] .dt-fade-0,
 html[data-theme='dark'] .dt-fade-1 {
   --dt-hue: var(--dt-hue-d, var(--color-ink-muted));
@@ -1027,4 +1029,54 @@ html[data-theme='dark'] .dt-ours__row * {
 .dt-world__top .dt-world__facts dd,
 .dt-world__top .dt-world__facts dt {
   background: transparent;
+}
+
+/* telefon: jen jeden archetyp (řazení podle archetypu) */
+.dt-only {
+  display: flex;
+  gap: 0.35rem 1.1rem;
+  margin: 0.15rem calc(-1 * var(--gutter)) 0;
+  padding: 0 var(--gutter) 0.1rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.dt-only::-webkit-scrollbar {
+  display: none;
+}
+
+.dt-only button {
+  appearance: none;
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 2.25rem;
+  padding: 0.3rem 0;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: none;
+  font: 500 0.8125rem var(--font-sans);
+  color: var(--color-ink-muted);
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.dt-only button[aria-pressed='true'] {
+  color: var(--color-ink);
+  border-bottom-color: var(--color-ink);
+}
+
+.dt-only__dot {
+  width: 0.55rem;
+  height: 0.55rem;
+  background: var(--dt-hue);
+}
+
+@media (max-width: 1100px) {
+  .dt-layout.has-panel .dt-panel {
+    margin-top: 2.75rem;
+    padding-top: 1.75rem;
+    border-top: 1px solid var(--color-line);
+  }
 }

@@ -121,7 +121,6 @@ export const YARDSTICKS: Array<{ year: number; key: string; when: string }> = [
   { year: -300000, key: 'deepTime.yardSapiens', when: 'deepTime.yardSapiensWhen' },
   { year: -66000000, key: 'deepTime.yardDinosaurs', when: 'deepTime.yardDinosaursWhen' },
   { year: -4540000000, key: 'deepTime.yardEarth', when: 'deepTime.yardEarthWhen' },
-  { year: -13800000000, key: 'deepTime.yardUniverse', when: 'deepTime.yardUniverseWhen' },
 ];
 
 /* ---------- slovy ---------- */

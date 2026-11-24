@@ -27,8 +27,15 @@ type Sort = 'depth' | 'archetype';
 const hue = (accent: { light: string; dark: string }) =>
   ({ '--dt-hue-l': accent.light, '--dt-hue-d': accent.dark }) as CSSProperties;
 
-/** Rozměry grafu: na počítači se jmény světů, na telefonu úzké vrty bez jmen. */
-function geometry(compact: boolean) {
+/**
+ * Rozměry grafu: na počítači se jmény světů, na telefonu úzké vrty bez jmen.
+ * Na telefonu s jediným archetypem (`focusCount`) širší vrty a jména jako na počítači.
+ */
+function geometry(compact: boolean, focusCount = 0) {
+  if (compact && focusCount) {
+    const pitch = Math.min(34, (390 - 58 - 8) / focusCount);
+    return { gutter: 58, pitch, col: Math.round(pitch * 0.5), top: 140, groupGap: 0, label: 10, decade: 40 };
+  }
   return compact
     ? { gutter: 58, pitch: 7.6, col: 5, top: 14, groupGap: 5, label: 9.5, decade: 40 }
     : { gutter: 132, pitch: 19, col: 11, top: 150, groupGap: 14, label: 10.5, decade: SCALE.decade };
@@ -72,8 +79,9 @@ function KindMark({ kind }: { kind: DeepKind }) {
 export default function DeepTime({ base, worlds, chapters, now }: Props) {
   const locale = useLocale();
   const compact = useCompact();
-  const g = geometry(compact);
   const [sort, setSort] = useState<Sort>('depth');
+  // Na telefonu: jen jeden archetyp, aby byly vrty širší a se jmény.
+  const [only, setOnly] = useState<string | null>(null);
   const [hover, setHover] = useState<string | null>(null);
   const [picked, setPicked] = useState<string | null>(null);
   const panelRef = useRef<HTMLElement>(null);
@@ -91,11 +99,14 @@ export default function DeepTime({ base, worlds, chapters, now }: Props) {
   }, [picked]);
 
   const items = useMemo(() => worlds.map((w) => ({ ...w, sum: summarize(w.deep) })), [worlds]);
+  const focusOn = compact && sort === 'archetype' && only ? only : null;
+  const shown = useMemo(() => (focusOn ? items.filter((w) => w.chapterId === focusOn) : items), [items, focusOn]);
+  const g = useMemo(() => geometry(compact, focusOn ? shown.length : 0), [compact, focusOn, shown.length]);
   const chapterOrder = useMemo(() => new Map(chapters.map((c, i) => [c.id, i])), [chapters]);
 
   // Pořadí a vodorovné polohy vrtů (při přeřazení se vrty přesunou plynule).
   const layout = useMemo(() => {
-    const sorted = [...items].sort((a, b) =>
+    const sorted = [...shown].sort((a, b) =>
       sort === 'depth'
         ? b.sum.deepestMid - a.sum.deepestMid || Number(b.sum.hasMyth) - Number(a.sum.hasMyth) || a.number - b.number
         : (chapterOrder.get(a.chapterId) ?? 0) - (chapterOrder.get(b.chapterId) ?? 0) || b.sum.deepestMid - a.sum.deepestMid,
@@ -113,7 +124,7 @@ export default function DeepTime({ base, worlds, chapters, now }: Props) {
       prev = w.chapterId;
     }
     return { sorted, xs, groups, width: x + 8 };
-  }, [items, sort, g, chapterOrder]);
+  }, [shown, sort, g, chapterOrder]);
 
   const MEASURED_HEIGHT = measuredHeight(g.decade);
   const MYTH_TOP = mythTop(g.decade);
@@ -193,7 +204,19 @@ export default function DeepTime({ base, worlds, chapters, now }: Props) {
           </select>
         </label>
       </div>
-
+      {compact && sort === 'archetype' ? (
+        <div className="dt-only" role="group" aria-label={uiT('deepTime.onlyLabel', locale)}>
+          <button type="button" aria-pressed={!only} onClick={() => setOnly(null)}>
+            {uiT('deepTime.onlyAll', locale)}
+          </button>
+          {chapters.map((c) => (
+            <button key={c.id} type="button" aria-pressed={only === c.id} style={hue(c.accent)} onClick={() => setOnly(only === c.id ? null : c.id)}>
+              <span className="dt-only__dot" aria-hidden="true" />
+              {t(c.short, locale)}
+            </button>
+          ))}
+        </div>
+      ) : null}
       </div>
       <Legend locale={locale} />
 
@@ -315,7 +338,7 @@ export default function DeepTime({ base, worlds, chapters, now }: Props) {
                   }}
                 >
                   <rect className="dt-hit" x={-(g.pitch - g.col) / 2} y={0} width={g.pitch} height={height} />
-                  {!compact ? (
+                  {!compact || focusOn ? (
                     <text className="dt-name" transform={`translate(${g.col / 2 + 3.5}, ${g.top - 10}) rotate(-90)`} fontSize={g.label + 0.5}>
                       {t(w.title, locale)}
                     </text>
