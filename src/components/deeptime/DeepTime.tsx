@@ -279,8 +279,7 @@ export default function DeepTime({ base, worlds, chapters, now }: Props) {
                     <text
                       className="dt-scale__label"
                       x={g.gutter - 12}
-                      // u zlomu leží popisky přesně na přetržených linkách (horní 100 000, dolní milion)
-                      y={y + (d === SCALE.detailLog ? 6.5 : d === SCALE.abyssLog ? 0.5 : 3.5)}
+                      y={y + 3.5}
                       textAnchor="end"
                       fontSize={g.label}
                     >
@@ -298,6 +297,29 @@ export default function DeepTime({ base, worlds, chapters, now }: Props) {
                 </text>
               ) : null}
             </g>
+
+            {/* zlom stupnice u 100 000 let: přetržená mapa za vrty, vrty pokračují bez přerušení */}
+            {(() => {
+              const [b0] = breakZone(g.decade);
+              const y0 = g.top + b0 - 3;
+              const y1 = g.top + b0 + 3;
+              const x0 = g.gutter - 6;
+              const x1 = layout.width;
+              const step = compact ? 8 : 12;
+              const amp = compact ? 2.5 : 3.5;
+              const zig = (y: number) => {
+                const pts: string[] = [];
+                for (let x = x0, i = 0; x <= x1 + step; x += step, i++) pts.push(`${x},${y + (i % 2 ? amp : -amp)}`);
+                return pts.join(' ');
+              };
+              return (
+                <g className="dt-break" aria-hidden="true">
+                  <polygon className="dt-break__gap" points={`${zig(y0)} ${zig(y1).split(' ').reverse().join(' ')}`} />
+                  <polyline className="dt-break__edge" points={zig(y0)} />
+                  <polyline className="dt-break__edge" points={zig(y1)} />
+                </g>
+              );
+            })()}
 
             {/* skupiny archetypů */}
             {sort === 'archetype' && !compact
@@ -430,29 +452,6 @@ export default function DeepTime({ base, worlds, chapters, now }: Props) {
                 </g>
               );
             })}
-
-            {/* zlom stupnice: přetržená mapa mezi podrobnou částí a propastí */}
-            {(() => {
-              const [b0, b1] = breakZone(g.decade);
-              const y0 = g.top + b0 + 3;
-              const y1 = g.top + b1 - 3;
-              const x0 = g.gutter - 6;
-              const x1 = layout.width;
-              const step = compact ? 8 : 12;
-              const amp = compact ? 2.5 : 3.5;
-              const zig = (y: number) => {
-                const pts: string[] = [];
-                for (let x = x0, i = 0; x <= x1 + step; x += step, i++) pts.push(`${x},${y + (i % 2 ? amp : -amp)}`);
-                return pts.join(' ');
-              };
-              return (
-                <g className="dt-break" aria-hidden="true">
-                  <polygon className="dt-break__gap" points={`${zig(y0)} ${zig(y1).split(' ').reverse().join(' ')}`} />
-                  <polyline className="dt-break__edge" points={zig(y0)} />
-                  <polyline className="dt-break__edge" points={zig(y1)} />
-                </g>
-              );
-            })()}
 
             {/* hladina: teď */}
             <line className="dt-surface" x1={g.gutter - 6} x2={layout.width} y1={g.top} y2={g.top} />

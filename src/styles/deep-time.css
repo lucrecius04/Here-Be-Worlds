@@ -305,7 +305,8 @@ html[data-theme='dark'] .dt-abyss-1 {
 
 .dt-fade-0 {
   stop-color: var(--dt-hue);
-  stop-opacity: 0.45;
+  /* stejně bledé jako vrstvy dějin, ať odhad nepůsobí jako třetí tón */
+  stop-opacity: 0.32;
 }
 
 .dt-fade-1 {
