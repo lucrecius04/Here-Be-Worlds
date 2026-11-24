@@ -1,6 +1,7 @@
 import MiniSearch from 'minisearch';
 import type { World } from '../schemas/world';
 import { buildSearchText } from './worlds';
+import { STEM_MARK, czStem } from './cz-stem';
 
 export type SearchDocument = {
   id: string;
@@ -27,8 +28,40 @@ export const SEARCH_OPTIONS = {
   fuzzy: (term: string) => (term.length >= 6 ? 0.2 : false),
 };
 
+/** Do rejstříku jde celé slovo i jeho kmen se značkou (ohýbání češtiny: boha ↔ bůh). */
+export function indexTerms(term: string): string[] | null {
+  const word = normalizeTerm(term);
+  if (!word) return null;
+  const stem = czStem(term);
+  return stem ? [word, `${STEM_MARK}${stem}`] : [word];
+}
+
+const stemTerm = (term: string) => {
+  const stem = czStem(term);
+  return stem ? `${STEM_MARK}${stem}` : null;
+};
+
+/**
+ * Dotaz: každé slovo musí sedět (AND), a to buď začátkem slova / s překlepem jako dřív,
+ * nebo celým kmenem (jiný pád téhož slova). Kmen se porovnává celý, bez začátku a překlepu.
+ */
+export function buildQuery(query: string) {
+  const words = query.split(/[\s\p{P}]+/u).filter(Boolean);
+  return {
+    combineWith: 'AND' as const,
+    queries: words.map((w) => ({
+      combineWith: 'OR' as const,
+      queries: [
+        { queries: [w], processTerm: normalizeTerm, prefix: SEARCH_OPTIONS.prefix, fuzzy: SEARCH_OPTIONS.fuzzy },
+        { queries: [w], processTerm: stemTerm, prefix: false, fuzzy: false },
+      ],
+    })),
+  };
+}
+
 export function searchWorldIds(index: MiniSearch<SearchDocument>, query: string): Set<string> {
-  return new Set(index.search(query, SEARCH_OPTIONS).map((hit) => hit.id as string));
+  if (!query.trim()) return new Set();
+  return new Set(index.search(buildQuery(query)).map((hit) => hit.id as string));
 }
 
 export function createWorldIndex(worlds: World[]) {
@@ -43,7 +76,7 @@ export function createWorldIndex(worlds: World[]) {
   const mini = new MiniSearch<SearchDocument>({
     fields: ['title', 'body', 'themes'],
     storeFields: ['id', 'chapterId', 'themes'],
-    processTerm: normalizeTerm,
+    processTerm: indexTerms,
   });
   mini.addAll(docs);
   return mini;

@@ -8,6 +8,7 @@
  *  - /search/texts/doc/<dokument>.json — texty oddílů jednoho dokumentu (pro úryvek).
  * Prohlížeč si tak stáhne jen to, co dotaz potřebuje. Slova jsou malými písmeny bez diakritiky.
  */
+import { foldCz } from './cz-stem';
 import { worlds, chapters } from './worlds';
 import { TRAILS, trailSlug } from './trails';
 import { trailEssays } from './trail-pages';
@@ -119,8 +120,17 @@ export function foldWord(text: string): string {
   return text.toLowerCase().normalize('NFD').replace(/\p{M}/gu, '');
 }
 
+/** Slova textu bez diakritiky; slovo s ů navíc i s o (bůh → buh i boh), aby „boha“ našlo „bůh“. */
 function tokens(text: string): string[] {
-  return foldWord(text).split(/[^a-z0-9]+/).filter((w) => w.length >= 2);
+  const out: string[] = [];
+  for (const raw of text.split(/[^\p{L}\p{N}]+/u)) {
+    for (const w of foldWord(raw).split(/[^a-z0-9]+/)) if (w.length >= 2) out.push(w);
+    if (/ů/i.test(raw)) {
+      const alt = foldCz(raw).replace(/[^a-z0-9]/g, '');
+      if (alt.length >= 2) out.push(alt);
+    }
+  }
+  return out;
 }
 
 export type TextIndexBuild = {

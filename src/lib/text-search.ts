@@ -6,6 +6,7 @@
  */
 import { withBase } from './base-url';
 import { matchRanges } from './site-search';
+import { czStem } from './cz-stem';
 
 export type TextPart = 'chronicle' | 'appendices' | 'analysis' | 'essay';
 
@@ -120,15 +121,24 @@ export function snippetAround(text: string, query: string, before = 70, after = 
 export async function searchTexts(base: string, query: string, limit = 5): Promise<TextResult> {
   const words = foldQueryWords(query);
   if (!words.some((w) => w.length >= 3)) return { total: 0, hits: [] };
-  const [meta, ...shards] = await Promise.all([loadMeta(base), ...words.map((w) => loadShard(base, w.slice(0, 2)))]);
+  // kmen každého slova z původního dotazu (s diakritikou kvůli ů → o): jiný pád téhož slova
+  const rawWords = query.split(/[^\p{L}\p{N}]+/u).filter((w) => foldQueryWords(w).length);
+  const stems = words.map((_, i) => czStem(rawWords[i] ?? words[i]));
+  const shardKeys = words.map((w, i) => [...new Set([w.slice(0, 2), stems[i].slice(0, 2)].filter((k) => k.length === 2))]);
+  const [meta, ...shardLists] = await Promise.all([
+    loadMeta(base),
+    ...shardKeys.map((keys) => Promise.all(keys.map((k) => loadShard(base, k)))),
+  ]);
 
-  // Pro každé slovo dotazu: oddíl → počet výskytů (slovo celé, nebo od 3 písmen i začátkem).
+  // Pro každé slovo dotazu: oddíl → počet výskytů (slovo celé, od 3 písmen i začátkem, nebo stejný kmen).
   let scores: Map<number, number> | null = null;
   words.forEach((w, i) => {
-    const shard = shards[i];
+    const shard = Object.assign({}, ...shardLists[i]) as Record<string, number[]>;
+    const stem = stems[i];
     const local = new Map<number, number>();
     for (const [word, postings] of Object.entries(shard)) {
-      if (word !== w && !(w.length >= 3 && word.startsWith(w))) continue;
+      const prefix = word === w || (w.length >= 3 && word.startsWith(w));
+      if (!prefix && !(stem && czStem(word) === stem)) continue;
       const exact = word === w ? 2 : 1;
       for (let k = 0; k < postings.length; k += 2) {
         local.set(postings[k], (local.get(postings[k]) ?? 0) + postings[k + 1] * exact);

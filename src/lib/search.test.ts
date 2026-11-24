@@ -19,4 +19,9 @@ describe('hledání v katalogu', () => {
   it('dlouhé slovo snese jeden překlep', () => {
     expect(searchWorldIds(index, 'cyberpnuk').has('cyberpunk-2077')).toBe(true);
   });
+
+  it('najde jiný pád téhož slova', () => {
+    expect(searchWorldIds(index, 'zaklinace').has('the-witcher')).toBe(true);
+    expect(searchWorldIds(index, 'halo').has('half-life')).toBe(false);
+  });
 });

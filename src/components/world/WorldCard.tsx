@@ -4,6 +4,7 @@ import type { LocalizedString, World } from '../../schemas/world';
 import { t, uiT } from '../../lib/i18n';
 import type { TriadAnchor } from '../../lib/chronicle-toc';
 import { GALLERY_PATH, UNKNOWN_PATH, mysteryAnchor, triadTypesOf } from '../../lib/triad-types';
+import { themePath } from '../../lib/themes';
 import { useLocale } from '../../lib/locale-store';
 import FiveAxes from './FiveAxes';
 import narrationData from '../../../data/meta/narration-taxonomy.json';
@@ -72,7 +73,7 @@ export default function WorldCard({
           <ul className="wc-lex__list">
             {world.themes.map((slug) => (
               <li key={slug}>
-                <a className="wc-lex__link" href={`${baseUrl}/atlas/?theme=${encodeURIComponent(slug)}`}>
+                <a className="wc-lex__link" href={`${baseUrl}${themePath(slug)}`}>
                   {themeLabels[slug] ? t(themeLabels[slug], locale) : slug}
                 </a>
               </li>

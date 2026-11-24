@@ -46,7 +46,7 @@ Naposledy aktualizováno: 2026-11-22.
 
 ## Známá omezení
 
-- **Hledání v textech** neohýbá češtinu: „bůh“ nenajde „boha“. Funguje začátek slova („boh“). Kdyby to vadilo, další krok je jednoduché odřezávání koncovek.
+- **Ohýbání češtiny v hledání** (2026-11-24, `src/lib/cz-stem.ts`) je jednoduché odřezávání koncovek: běžné pády najde, střídání uvnitř kmene kromě ů → o (otec – otce, pes – psa) ne. Kdyby něco chybělo, doplnit koncovku nebo střídání a test `cz-stem.test.ts`.
 - **Obsah kroniky:** přeskakování po kliknutí způsobovaly líně načtené obrázky bez rozměrů a souboj dorovnávání při rychlém klikání (obojí opraveno 2026-11-22). Při testu klikat rychle za sebou, ne s pauzou: s pauzou se chyba neukáže. Kdyby se to vrátilo, zeptat se na svět, kapitolu a zařízení a zkontrolovat, jestli kronika nemá obrázek mimo PNG nebo mimo svou složku (hlídá test `chronicle-images.test.ts`).
 
 ## Tipy k prostředí (cloud)

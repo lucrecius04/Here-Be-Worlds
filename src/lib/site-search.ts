@@ -2,10 +2,11 @@
  * Hledání v hlavičce webu (lupa): typy rejstříku, index a skupiny výsledků.
  * Rejstřík skládá při sestavení `site-search-index.ts` (/search-index.json);
  * tady se jen načte a prohledává. Pravidla dotazu jsou stejná jako v katalogu
- * (`SEARCH_OPTIONS`): všechna slova, bez diakritiky, začátek slova, překlep od šesti písmen.
+ * (`buildQuery`): všechna slova, bez diakritiky, začátek slova, překlep od šesti písmen, jiný pád (kmen).
  */
 import MiniSearch from 'minisearch';
-import { normalizeTerm, SEARCH_OPTIONS } from './search';
+import { buildQuery, indexTerms } from './search';
+import { czStem } from './cz-stem';
 
 type Pair = { cs: string; en: string };
 
@@ -46,7 +47,7 @@ export function createSiteIndex(entries: SearchEntry[]): SiteIndex {
     idField: 'key',
     fields: ['titleCs', 'titleEn', 'sub', 'keys'],
     storeFields: ['key'],
-    processTerm: normalizeTerm,
+    processTerm: indexTerms,
     searchOptions: { boost: { titleCs: 4, titleEn: 3, sub: 1, keys: 1.5 } },
   });
   mini.addAll(
@@ -68,7 +69,7 @@ export type SearchGroup = { kind: SearchKind; items: SearchEntry[]; total: numbe
 export function searchSite(index: SiteIndex, query: string): SearchGroup[] {
   const q = query.trim();
   if (!q) return [];
-  const hits = index.mini.search(q, SEARCH_OPTIONS);
+  const hits = index.mini.search(buildQuery(q));
   const groups = new Map<SearchKind, SearchEntry[]>();
   for (const hit of hits) {
     const entry = index.byKey.get(hit.id as string);
@@ -105,12 +106,20 @@ export function matchRanges(text: string, query: string): Array<[number, number]
     .split(/[^\p{L}\p{N}]+/u)
     .filter((w) => w.length >= 1);
   if (!words.length) return [];
+  // kmeny slov dotazu: jiný pád téhož slova se podtrhne také (boha ↔ Bůh)
+  const stems = new Set(
+    query
+      .split(/[^\p{L}\p{N}]+/u)
+      .map(czStem)
+      .filter(Boolean),
+  );
   const chars = [...text];
   const folded = foldChars(text);
   const ranges: Array<[number, number]> = [];
   for (let i = 0; i < chars.length; i += 1) {
     const atWordStart = i === 0 || !/[\p{L}\p{N}]/u.test(chars[i - 1]);
     if (!atWordStart) continue;
+    const before = ranges.length;
     for (const w of words) {
       let j = i;
       let k = 0;
@@ -122,6 +131,11 @@ export function matchRanges(text: string, query: string): Array<[number, number]
         ranges.push([i, j]);
         break;
       }
+    }
+    if (ranges.length === before && stems.size) {
+      let end = i;
+      while (end < chars.length && /[\p{L}\p{N}]/u.test(chars[end])) end += 1;
+      if (stems.has(czStem(chars.slice(i, end).join('')))) ranges.push([i, end]);
     }
   }
   return ranges;
