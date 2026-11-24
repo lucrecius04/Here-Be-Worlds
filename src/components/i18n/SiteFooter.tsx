@@ -44,6 +44,9 @@ export default function SiteFooter({ base }: Props) {
           <a className="site-footer__link" href={withBase(base, '/temata/')}>
             {uiT('footer.themes', locale)}
           </a>
+          <a className="site-footer__link" href={withBase(base, '/hlubina-casu/')}>
+            {uiT('footer.deepTime', locale)}
+          </a>
           <a className="site-footer__link" href={withBase(base, '/galerie-triad/')}>
             {uiT('triads.title', locale)}
           </a>

@@ -1,0 +1,742 @@
+/* Hlubina času (/hlubina-casu/): světy jako vrty od hladiny (teď) do hlubiny dějin.
+   Barva archetypu jen ve vrtech (vrstvy, hratelná vrstva, mýtické kroužky), zbytek tuš a papír. */
+
+.dt-core,
+.dt-group,
+.dt-world,
+.dt-fade-0,
+.dt-fade-1 {
+  --dt-hue: var(--dt-hue-l, var(--color-ink-muted));
+}
+
+html[data-theme='dark'] .dt-core,
+html[data-theme='dark'] .dt-group,
+html[data-theme='dark'] .dt-world,
+html[data-theme='dark'] .dt-fade-0,
+html[data-theme='dark'] .dt-fade-1 {
+  --dt-hue: var(--dt-hue-d, var(--color-ink-muted));
+}
+
+/* ---------- rekordy ---------- */
+.dt-records {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 0 0 2rem;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.dt-records > div {
+  padding: 0.25rem 1.75rem 1.25rem;
+  border-left: 1px solid var(--color-line);
+}
+
+.dt-records > div:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+
+.dt-records dt {
+  font: 500 0.6875rem var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+.dt-records dd {
+  margin: 0;
+}
+
+.dt-records__value {
+  margin-top: 0.35rem !important;
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+}
+
+.dt-records__who {
+  margin-top: 0.4rem !important;
+  font: 400 0.875rem var(--font-sans);
+  line-height: 1.45;
+  color: var(--color-ink-muted);
+}
+
+/* ---------- ovládání ---------- */
+.dt-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 2rem;
+  margin: 0 0 1rem;
+}
+
+.dt-sort {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.15rem 1.25rem;
+}
+
+.dt-sort__label {
+  margin-right: 0.25rem;
+  font: 500 0.6875rem var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+.dt-sort button {
+  appearance: none;
+  min-height: 2.25rem;
+  padding: 0.3rem 0;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: none;
+  font: 500 0.875rem var(--font-sans);
+  color: var(--color-ink-muted);
+  cursor: pointer;
+}
+
+.dt-sort button:hover,
+.dt-sort button[aria-pressed='true'] {
+  color: var(--color-ink);
+}
+
+.dt-sort button[aria-pressed='true'] {
+  border-bottom-color: var(--color-ink);
+}
+
+.dt-pick select {
+  appearance: none;
+  min-width: 14rem;
+  min-height: 2.25rem;
+  padding: 0.3rem 1.75rem 0.3rem 0;
+  border: 0;
+  border-bottom: 1px solid var(--color-ink);
+  border-radius: 0;
+  background: transparent
+    linear-gradient(45deg, transparent 50%, currentColor 50%) right 0.5rem center / 5px 5px no-repeat;
+  font: 400 0.9375rem var(--font-sans);
+  color: var(--color-ink);
+  cursor: pointer;
+}
+
+.dt-pick option {
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+
+/* ---------- rozvržení: graf a panel ---------- */
+.dt-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 20rem;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.dt-chart {
+  margin: 0;
+  min-width: 0;
+}
+
+.dt-chart svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  user-select: none;
+}
+
+/* hlubina */
+.dt-abyss-0 {
+  stop-color: var(--color-ink);
+  stop-opacity: 0;
+}
+
+.dt-abyss-1 {
+  stop-color: var(--color-ink);
+  stop-opacity: 0.1;
+}
+
+html[data-theme='dark'] .dt-abyss-0 {
+  stop-color: black;
+  stop-opacity: 0;
+}
+
+html[data-theme='dark'] .dt-abyss-1 {
+  stop-color: black;
+  stop-opacity: 0.45;
+}
+
+.dt-subyear {
+  fill: var(--color-band);
+  opacity: 0.6;
+}
+
+.dt-myth-band {
+  fill: var(--color-band);
+}
+
+.dt-fog-line {
+  stroke: var(--color-ink);
+  stroke-opacity: 0.09;
+  stroke-width: 1;
+}
+
+.dt-grid {
+  stroke: var(--color-line);
+  stroke-width: 1;
+  stroke-dasharray: 2 4;
+}
+
+.dt-scale__label {
+  font-family: var(--font-mono);
+  fill: var(--color-ink-muted);
+}
+
+.dt-scale__myth {
+  font-style: italic;
+}
+
+.dt-scale__now {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  fill: var(--color-ink);
+}
+
+.dt-surface {
+  stroke: var(--color-ink);
+  stroke-width: 2;
+}
+
+.dt-yard line {
+  stroke: var(--color-ink-muted);
+  stroke-width: 1;
+  opacity: 0.6;
+}
+
+.dt-yard text {
+  font-family: var(--font-text);
+  font-style: italic;
+  fill: var(--color-ink-muted);
+  opacity: 0.8;
+}
+
+.dt-group line {
+  stroke: var(--dt-hue);
+  stroke-width: 3;
+}
+
+.dt-group text {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  fill: var(--color-ink-muted);
+}
+
+/* vrty */
+.dt-core {
+  cursor: pointer;
+  outline: none;
+  transition:
+    transform 0.75s cubic-bezier(0.2, 0.7, 0.2, 1),
+    opacity 0.2s ease;
+}
+
+.dt-chart svg.has-focus .dt-core:not(.is-focus) {
+  opacity: 0.26;
+}
+
+.dt-hit {
+  fill: transparent;
+}
+
+.dt-name {
+  font-family: var(--font-sans);
+  fill: var(--color-ink);
+}
+
+.dt-core.is-focus .dt-name {
+  font-weight: 700;
+}
+
+.dt-core:focus-visible .dt-name {
+  fill: var(--color-accent);
+}
+
+.dt-layer {
+  fill: var(--dt-hue);
+  opacity: 0.24;
+}
+
+.dt-layer.is-alt {
+  opacity: 0.4;
+}
+
+.dt-fade-0 {
+  stop-color: var(--dt-hue);
+  stop-opacity: 0.45;
+}
+
+.dt-fade-1 {
+  stop-color: var(--dt-hue);
+  stop-opacity: 0;
+}
+
+.dt-unsure-line {
+  stroke: var(--color-paper);
+  stroke-width: 1.3;
+}
+
+.dt-played {
+  fill: var(--dt-hue);
+}
+
+.dt-crack {
+  stroke: var(--color-paper);
+  stroke-width: 0.9;
+}
+
+.dt-seam {
+  fill: var(--color-ink);
+}
+
+.dt-thread {
+  stroke: var(--dt-hue);
+  stroke-width: 1.4;
+  stroke-dasharray: 1 3.2;
+  stroke-linecap: round;
+}
+
+.dt-myth {
+  fill: var(--color-band);
+  stroke: var(--dt-hue);
+  stroke-width: 1.5;
+}
+
+.dt-cycle {
+  fill: none;
+  stroke: var(--dt-hue);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.dt-tip line {
+  stroke: var(--color-accent);
+  stroke-width: 1;
+  stroke-dasharray: 3 3;
+}
+
+.dt-tip text {
+  font: 600 11px var(--font-mono);
+  fill: var(--color-accent);
+  paint-order: stroke;
+  stroke: var(--color-paper);
+  stroke-width: 5px;
+  stroke-linejoin: round;
+}
+
+/* ---------- panel ---------- */
+.dt-panel {
+  position: sticky;
+  top: calc(var(--site-header-height) + 1rem);
+  max-height: calc(100vh - var(--site-header-height) - 2rem);
+  overflow: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+}
+
+.dt-panel__kicker {
+  margin: 0;
+  font: 500 0.6875rem var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+.dt-legend {
+  padding-top: 0.9rem;
+  border-top: 2px solid var(--color-ink);
+}
+
+.dt-legend ul {
+  list-style: none;
+  margin: 0.9rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.7rem;
+}
+
+.dt-legend li {
+  display: grid;
+  grid-template-columns: 1.6rem minmax(0, 1fr);
+  align-items: center;
+  gap: 0.6rem;
+  font: 400 0.875rem var(--font-sans);
+  line-height: 1.4;
+}
+
+.dt-legend__hint {
+  margin: 1.25rem 0 0;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--color-line);
+  font: 400 0.875rem var(--font-sans);
+  color: var(--color-ink-muted);
+}
+
+/* glyfy legendy (neutrální tuš) */
+.dt-glyph {
+  position: relative;
+  display: inline-block;
+  width: 0.7rem;
+  height: 1.3rem;
+  justify-self: center;
+}
+
+.dt-glyph--played {
+  background: var(--color-ink);
+}
+
+.dt-glyph--layers {
+  background: linear-gradient(
+    var(--color-ink-muted) 0 33%,
+    color-mix(in srgb, var(--color-ink-muted) 55%, transparent) 33% 66%,
+    var(--color-ink-muted) 66%
+  );
+  opacity: 0.6;
+}
+
+.dt-glyph--seam {
+  background: color-mix(in srgb, var(--color-ink-muted) 45%, transparent);
+}
+
+.dt-glyph--seam::after {
+  content: '';
+  position: absolute;
+  left: -3px;
+  right: -3px;
+  top: calc(50% - 1.5px);
+  height: 3px;
+  background: var(--color-ink);
+}
+
+.dt-glyph--unsure {
+  background: repeating-linear-gradient(-45deg, var(--color-ink-muted) 0 2px, transparent 2px 4px);
+  opacity: 0.7;
+}
+
+.dt-glyph--myth {
+  width: 0.7rem;
+  background: radial-gradient(circle, var(--color-ink-muted) 1px, transparent 1.5px) center top / 4px 4px repeat-y;
+}
+
+.dt-glyph--myth::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -1px;
+  width: 7px;
+  height: 7px;
+  margin-left: -4.5px;
+  border: 1.5px solid var(--color-ink);
+  border-radius: 50%;
+  background: var(--color-paper);
+}
+
+.dt-glyph--cycle {
+  width: 0.95rem;
+  height: 0.95rem;
+  border: 1.5px solid var(--color-ink);
+  border-right-color: transparent;
+  border-radius: 50%;
+  transform: rotate(35deg);
+}
+
+.dt-glyph--yard {
+  width: 1rem;
+  height: 1px;
+  background: var(--color-ink-muted);
+}
+
+/* svět v panelu */
+.dt-world {
+  padding-top: 0.9rem;
+  border-top: 3px solid var(--dt-hue);
+}
+
+.dt-world__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dt-world__close {
+  appearance: none;
+  width: 2rem;
+  height: 2rem;
+  margin: -0.4rem -0.4rem 0 0;
+  border: 0;
+  background: none;
+  font: 400 1.4rem/1 var(--font-sans);
+  color: var(--color-ink-muted);
+  cursor: pointer;
+}
+
+.dt-world__close:hover,
+.dt-world__close:focus-visible {
+  color: var(--color-accent);
+}
+
+.dt-world__name {
+  margin: 0.25rem 0 0;
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.dt-world__name a {
+  color: var(--color-ink);
+  text-decoration: none;
+}
+
+.dt-world__name a:hover,
+.dt-world__name a:focus-visible {
+  color: var(--color-accent);
+}
+
+.dt-world__facts {
+  margin: 0.9rem 0 0;
+  border-top: 1px solid var(--color-line);
+}
+
+.dt-world__facts > div {
+  display: grid;
+  grid-template-columns: 7.5rem minmax(0, 1fr);
+  gap: 0.75rem;
+  padding: 0.45rem 0;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.dt-world__facts dt {
+  font: 500 0.6875rem var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+  padding-top: 0.15rem;
+}
+
+.dt-world__facts dd {
+  margin: 0;
+  font: 500 0.9375rem var(--font-sans);
+}
+
+.dt-world__cycle {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  margin: 0.9rem 0 0;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.975rem;
+  line-height: 1.4;
+}
+
+.dt-world__cycle .dt-glyph--cycle {
+  flex: none;
+  border-color: var(--dt-hue);
+  border-right-color: transparent;
+}
+
+.dt-world__sub {
+  margin: 1.25rem 0 0.4rem;
+  font: 500 0.6875rem var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+.dt-events {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-left: 1px solid var(--color-line);
+}
+
+.dt-ev {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.1rem;
+  padding: 0.5rem 0 0.55rem 0.85rem;
+  position: relative;
+}
+
+.dt-ev::before {
+  content: '';
+  position: absolute;
+  left: -1px;
+  top: 0.85rem;
+  width: 0.5rem;
+  height: 1px;
+  background: var(--color-line);
+}
+
+.dt-ev__depth {
+  font: 600 0.75rem var(--font-mono);
+  letter-spacing: 0.02em;
+  color: var(--color-ink);
+}
+
+.dt-ev__when {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font: 400 0.75rem var(--font-sans);
+  color: var(--color-ink-muted);
+}
+
+.dt-ev__text {
+  display: block;
+  margin-top: 0.1rem;
+  font-family: var(--font-text);
+  font-size: 0.9375rem;
+  line-height: 1.4;
+}
+
+.dt-ev.is-myth .dt-ev__depth,
+.dt-ev.is-undated .dt-ev__depth {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--color-ink-muted);
+}
+
+.dt-ev--catastrophe .dt-ev__text {
+  font-weight: 600;
+}
+
+.dt-kind {
+  display: inline-block;
+  flex: none;
+  width: 0.55rem;
+  height: 0.55rem;
+}
+
+.dt-kind--game {
+  background: var(--dt-hue);
+}
+
+.dt-kind--catastrophe {
+  height: 3px;
+  width: 0.7rem;
+  background: var(--color-ink);
+}
+
+.dt-kind--origin {
+  border: 1.5px solid var(--dt-hue);
+  border-radius: 50%;
+}
+
+.dt-kind--turn {
+  width: 0.55rem;
+  height: 1px;
+  background: var(--color-ink-muted);
+}
+
+.dt-world__more {
+  margin: 1rem 0 0;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--color-line);
+  font: 500 0.875rem var(--font-sans);
+}
+
+.dt-world__more a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.dt-world__more a:hover,
+.dt-world__more a:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 0.16em;
+}
+
+/* ---------- menší displeje ---------- */
+@media (max-width: 1100px) {
+  .dt-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .dt-panel {
+    position: static;
+    max-height: none;
+    overflow: visible;
+  }
+}
+
+@media (max-width: 760px) {
+  .dt-records {
+    grid-template-columns: minmax(0, 1fr);
+    border-bottom: 0;
+  }
+
+  .dt-records > div {
+    padding: 0.75rem 0;
+    border-left: 0;
+    border-bottom: 1px solid var(--color-line);
+  }
+
+  .dt-pick,
+  .dt-pick select {
+    width: 100%;
+  }
+}
+
+/* vrty se při načtení provrtají od hladiny dolů */
+.dt-drill {
+  transform-box: view-box;
+  animation: dt-drill 1.15s cubic-bezier(0.25, 0.8, 0.25, 1) both;
+}
+
+@keyframes dt-drill {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dt-drill {
+    animation: none;
+  }
+
+  .dt-core {
+    transition: opacity 0.2s ease;
+  }
+}
+
+.dt-late {
+  animation: dt-late 0.6s ease both;
+}
+
+@keyframes dt-late {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dt-late {
+    animation: none;
+  }
+}

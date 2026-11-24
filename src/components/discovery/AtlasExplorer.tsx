@@ -226,6 +226,7 @@ export default function AtlasExplorer({
       <nav className="atlas-page__more" aria-label={uiT('atlasPage.more', locale)}>
         <span className="atlas-page__more-label">{uiT('atlasPage.more', locale)}</span>
         <a href={withBase(baseUrl, '/temata/')}>{uiT('themesPage.title', locale)}</a>
+        <a href={withBase(baseUrl, '/hlubina-casu/')}>{uiT('deepTime.title', locale)}</a>
         <a href={withBase(baseUrl, '/galerie-triad/')}>{uiT('triads.title', locale)}</a>
         <a href={withBase(baseUrl, '/mapa-neznama/')}>{uiT('unknown.title', locale)}</a>
         <a href={withBase(baseUrl, '/map/')}>{uiT('nav.map', locale)}</a>
