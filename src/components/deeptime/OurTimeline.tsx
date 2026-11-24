@@ -27,8 +27,16 @@ const FUTURE = 4.7;
  */
 const PAST_UNITS =
   SCALE.detailLog + SCALE.breakShare + (PAST - SCALE.abyssLog) * SCALE.abyssShare;
-const PAST_TICKS = [1, 2, 3, 4, 6, 9];
-const FUTURE_TICKS = [1, 2, 3, 4];
+/** Kulaté roky na stupnici (na telefonu jen čtyři) a v propasti vzdálenost slovy. */
+const TICK_YEARS = [-8000, 1000, 1900, 2000, 2050, 2100, 3000, 12000];
+const TICK_YEARS_COMPACT = [-8000, 1900, 2100, 12000];
+const DEEP_TICKS = [6, 9];
+
+/** Rok na stupnici: „1900“, „12 000“, „−8 000“. */
+function yearLabel(year: number, locale: Locale): string {
+  if (year < 0) return `−${nf(-year, locale)}`;
+  return year >= 10000 ? nf(year, locale) : String(year);
+}
 /** Vzdálenost od dneška (řády) jako vodorovný posun v jednotkách řádu. */
 function pastUnits(log: number): number {
   const l = Math.min(log, PAST);
@@ -82,13 +90,26 @@ export default function OurTimeline({ worlds, now, locale, compact, picked, onPi
   );
   const height = g.top + rows.length * g.row + g.bottom;
   // Od nejstaršího (zleva) k nejmladšímu.
-  const yards = [...YARDSTICKS].sort((a, b) => a.year - b.year);
+  // Značky pod grafem: éry z našeho světa a zlom stupnice (éra člověka rozumného leží uvnitř zlomu,
+  // proto ji nahrazuje popisek zlomu). Zleva doprava.
+  const marks = [
+    ...YARDSTICKS.filter((ys) => ys.year < -(10 ** SCALE.abyssLog) || ys.year > -(10 ** SCALE.detailLog)).map((ys) => ({
+      key: ys.key,
+      when: ys.when,
+      x: X(ys.year),
+      isBreak: false,
+    })),
+    {
+      key: 'deepTime.yardBreak',
+      when: 'deepTime.yardBreakWhen',
+      x: (X(now - 10 ** SCALE.detailLog) + X(now - 10 ** SCALE.abyssLog)) / 2,
+      isBreak: true,
+    },
+  ].sort((a, b) => a.x - b.x);
   // Ztlumit ostatní jen tehdy, když vybraný svět na této ose leží.
   const focusRaw = picked ?? hover;
   const focus = focusRaw && rows.some((w) => w.id === focusRaw) ? focusRaw : hover;
 
-  const pastLabel = (p: number) => tickLabel(now - 10 ** p, locale);
-  const futureLabel = (p: number) => tickLabel(now + 10 ** p, locale);
 
   return (
     <section className="dt-ours" aria-labelledby="dt-ours-h">
@@ -117,8 +138,9 @@ export default function OurTimeline({ worlds, now, locale, compact, picked, onPi
           </text>
 
           {/* stupnice: roky našeho letopočtu */}
-          {[...PAST_TICKS.map((p) => ({ x: X(now - 10 ** p), label: pastLabel(p), p })), ...FUTURE_TICKS.map((p) => ({ x: X(now + 10 ** p), label: futureLabel(p), p }))]
-            .filter((tk) => (tk.x < center ? !compact || [2, 4].includes(tk.p) : !compact || tk.p % 2 === 0))
+          {(compact ? TICK_YEARS_COMPACT : TICK_YEARS)
+            .map((year) => ({ x: X(year), label: yearLabel(year, locale) }))
+            .concat(compact ? [] : DEEP_TICKS.map((p) => ({ x: X(now - 10 ** p), label: tickLabel(now - 10 ** p, locale) })))
             .map((tk, i) => (
               <g key={i} className="dt-ours__tick">
                 <line x1={tk.x} x2={tk.x} y1={g.top - 8} y2={g.top + rows.length * g.row + 8} />
@@ -129,15 +151,15 @@ export default function OurTimeline({ worlds, now, locale, compact, picked, onPi
             ))}
 
           {/* délky z našeho světa: tady opravdu leží na ose */}
-          {yards.map((ys, i) => {
-            const x = X(ys.year);
+          {marks.map((m, i) => {
+            const x = m.x;
             const base = g.top + rows.length * g.row;
             if (compact) {
               // Na telefonu jen číslo, popisky jsou v seznamu pod grafem.
               const y = base + 14 + (i % 2) * 14;
               return (
-                <g key={ys.key} className="dt-ours__yard">
-                  <line x1={x} x2={x} y1={g.top - 8} y2={y - 6} />
+                <g key={m.key} className={`dt-ours__yard${m.isBreak ? ' is-break' : ''}`}>
+                  {m.isBreak ? null : <line x1={x} x2={x} y1={g.top - 8} y2={y - 6} />}
                   <circle className="dt-ours__yard-dot" cx={x} cy={y} r={5.5} />
                   <text className="dt-ours__yard-num" x={x} y={y + 2.6} textAnchor="middle" fontSize={7}>
                     {i + 1}
@@ -147,13 +169,13 @@ export default function OurTimeline({ worlds, now, locale, compact, picked, onPi
             }
             const y = base + 22 + (i % 2) * 28;
             return (
-              <g key={ys.key} className="dt-ours__yard">
-                <line x1={x} x2={x} y1={g.top - 8} y2={y - 9} />
+              <g key={m.key} className={`dt-ours__yard${m.isBreak ? ' is-break' : ''}`}>
+                {m.isBreak ? null : <line x1={x} x2={x} y1={g.top - 8} y2={y - 9} />}
                 <text x={x} y={y} textAnchor="middle" fontSize={g.label - 1}>
-                  {uiT(ys.key, locale)}
+                  {uiT(m.key, locale)}
                 </text>
                 <text className="dt-ours__yard-when" x={x} y={y + g.label + 1} textAnchor="middle" fontSize={g.label - 1.5}>
-                  {uiT(ys.when, locale)}
+                  {uiT(m.when, locale)}
                 </text>
               </g>
             );
@@ -295,9 +317,9 @@ export default function OurTimeline({ worlds, now, locale, compact, picked, onPi
         </svg>
         {compact ? (
           <ol className="dt-ours__yards">
-            {yards.map((ys) => (
-              <li key={ys.key}>
-                {uiT(ys.key, locale)} <span>{uiT(ys.when, locale)}</span>
+            {marks.map((m) => (
+              <li key={m.key}>
+                {uiT(m.key, locale)} <span>{uiT(m.when, locale)}</span>
               </li>
             ))}
           </ol>
