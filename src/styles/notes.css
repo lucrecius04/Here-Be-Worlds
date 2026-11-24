@@ -189,3 +189,22 @@
   text-transform: none;
   color: var(--color-ink-muted);
 }
+
+/* Triáda: typy z Galerie triád a Mapy neznáma */
+.notes-section__intro--after {
+  margin: 2.5rem 0 0;
+}
+
+.notes-list__term--icon {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding-top: 0.125rem;
+}
+
+.notes-holder-icon {
+  flex: none;
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--color-ink);
+}

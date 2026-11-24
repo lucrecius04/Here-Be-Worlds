@@ -11,6 +11,16 @@ import {
   noteScale,
 } from '../../../data/meta/notes';
 import axesMeta from '../../../data/meta/axes.json';
+import {
+  DILEMMA_TYPES,
+  GALLERY_PATH,
+  MYSTERY_HOLDERS,
+  MYSTERY_KINDS,
+  SIN_TYPES,
+  UNKNOWN_PATH,
+  type TriadType,
+} from '../../lib/triad-types';
+import { HolderIcon } from '../triads/HolderIcon';
 import '../../styles/notes.css';
 
 type Props = { base: string };
@@ -101,11 +111,11 @@ export default function NotesPage({ base }: Props) {
         <dl className="notes-list">
           {(
             [
-              ['card.originalSin', 'card.triadHelpOriginalSin', 'prvotni-hrich'],
-              ['card.centralDilemma', 'card.triadHelpCentralDilemma', 'ustredni-otazka'],
-              ['card.ultimateMystery', 'card.triadHelpUltimateMystery', 'rizena-mezera'],
+              ['card.originalSin', 'card.triadHelpOriginalSin', 'prvotni-hrich', `${GALLERY_PATH}#prvotni-hrichy`, 'notes.triadSinIn'],
+              ['card.centralDilemma', 'card.triadHelpCentralDilemma', 'ustredni-otazka', `${GALLERY_PATH}#velka-dilemata`, 'notes.triadDilemmaIn'],
+              ['card.ultimateMystery', 'card.triadHelpUltimateMystery', 'rizena-mezera', UNKNOWN_PATH, 'notes.triadMysteryIn'],
             ] as const
-          ).map(([term, help, anchor]) => (
+          ).map(([term, help, anchor, view, viewLabel]) => (
             <div className="notes-list__row" key={term}>
               <dt className="notes-list__term">{uiT(term, locale)}</dt>
               <dd className="notes-list__body">
@@ -113,10 +123,27 @@ export default function NotesPage({ base }: Props) {
                 <p className="notes-list__more">
                   <a href={withBase(base, `/anatomie-herniho-lore/#${anchor}`)}>{uiT('card.triadHelpMore', locale)} →</a>
                 </p>
+                <p className="notes-list__more">
+                  <a href={withBase(base, view)}>{uiT(viewLabel, locale)} →</a>
+                </p>
               </dd>
             </div>
           ))}
         </dl>
+
+        <div className="doc-prose notes-section__intro notes-section__intro--after">
+          <p>{uiT('notes.triadTypesIntro', locale)}</p>
+        </div>
+        <TypeList title={uiT('notes.triadSinTypes', locale)} types={SIN_TYPES} locale={locale} />
+        <TypeList title={uiT('notes.triadDilemmaTypes', locale)} types={DILEMMA_TYPES} locale={locale} />
+        <p className="notes-list__more notes-section__foot">
+          <a href={withBase(base, GALLERY_PATH)}>{uiT('notes.triadToGallery', locale)} →</a>
+        </p>
+        <TypeList title={uiT('notes.triadMysteryKinds', locale)} types={MYSTERY_KINDS} locale={locale} />
+        <TypeList title={uiT('notes.triadHolders', locale)} types={MYSTERY_HOLDERS} locale={locale} icons />
+        <p className="notes-list__more notes-section__foot">
+          <a href={withBase(base, UNKNOWN_PATH)}>{uiT('notes.triadToUnknown', locale)} →</a>
+        </p>
       </section>
 
       <section className="notes-section" id="pribuznost">
@@ -181,5 +208,37 @@ export default function NotesPage({ base }: Props) {
         </div>
       </section>
     </article>
+  );
+}
+
+/** Seznam typů triády (název vlevo, věta výkladu vpravo); texty z data/meta/triad-types.json. */
+function TypeList({
+  title,
+  types,
+  locale,
+  icons = false,
+}: {
+  title: string;
+  types: TriadType[];
+  locale: ReturnType<typeof useLocale>;
+  icons?: boolean;
+}) {
+  return (
+    <>
+      <h3 className="doc-kicker notes-section__sub">{title}</h3>
+      <dl className="notes-list">
+        {types.map((type) => (
+          <div className="notes-list__row" key={type.id}>
+            <dt className={`notes-list__term${icons ? ' notes-list__term--icon' : ''}`}>
+              {icons && <HolderIcon id={type.id} className="notes-holder-icon" />}
+              {t(type.label, locale)}
+            </dt>
+            <dd className="notes-list__body">
+              <p className="notes-list__help">{t(type.desc, locale)}</p>
+            </dd>
+          </div>
+        ))}
+      </dl>
+    </>
   );
 }

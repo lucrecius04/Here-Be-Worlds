@@ -9,6 +9,7 @@ import { publishedEssayFor } from './trail-pages';
 import { uiT } from './i18n';
 import { noteFields, noteKinshipPillars } from '../../data/meta/notes';
 import axesMeta from '../../data/meta/axes.json';
+import { MYSTERY_HOLDERS, MYSTERY_KINDS } from './triad-types';
 import type { SearchEntry } from './site-search';
 
 const both = (key: string) => ({ cs: uiT(key, 'cs'), en: uiT(key, 'en') });
@@ -119,6 +120,9 @@ export function buildSearchEntries(): SearchEntry[] {
   term('original-sin', both('card.originalSin'), 'triada', 'triáda triad');
   term('central-dilemma', both('card.centralDilemma'), 'triada', 'triáda triad');
   term('ultimate-mystery', both('card.ultimateMystery'), 'triada', 'triáda triad');
+  // Druhy tajemství a kdo drží mezeru (typy hříchů a dilemat vedou do Galerie triád přes stránku).
+  for (const x of [...MYSTERY_KINDS, ...MYSTERY_HOLDERS])
+    term(`triad-${x.id}`, loc(x.label)!, 'triada', 'tajemství mystery mezera gap mapa neznáma');
   term('kinship', both('notes.kinshipTitle'), 'pribuznost', 'příbuznost kinship index sourozenci blízcí příbuzní spříznění vzdálení cizí');
   noteKinshipPillars.forEach((p, i) => term(`pillar-${i}`, loc(p.term)!, 'pribuznost', 'pilíř pillar příbuznost'));
   term('compass', both('notes.compassTitle'), 'kompas', 'kompas compass ladění otisk');
