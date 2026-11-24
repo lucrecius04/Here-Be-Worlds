@@ -215,8 +215,6 @@ html[data-theme='dark'] .tg-filter__btn[aria-pressed='true'] {
 
 .tg-type__head {
   align-self: start;
-  position: sticky;
-  top: calc(var(--site-header-height) + 4.25rem);
 }
 
 .tg-type__name {
@@ -474,34 +472,25 @@ html[data-theme='dark'] .tg-filter__btn[aria-pressed='true'] {
   opacity: 0.32;
 }
 
-/* značka „kdo drží mezeru“: tvar, ne barva (barvy patří archetypům) */
-.un-mark {
-  display: inline-block;
+/* ikona „kdo drží mezeru“: zámek, přesýpací hodiny, odemčený zámek (tvar, ne barva – barvy patří archetypům) */
+.un-icon {
   flex: none;
-  width: 0.7rem;
-  height: 0.7rem;
-  box-sizing: border-box;
-  border: 1.5px solid var(--color-ink);
+  width: 1.2rem;
+  height: 1.2rem;
+  color: var(--color-ink);
 }
 
-.un-mark--zamceno-tvurci {
-  background: var(--color-ink);
+.un-grid__col-name .un-icon {
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
-.un-mark--ceka-na-pokracovani {
-  border-style: dashed;
-  background: linear-gradient(to top, var(--color-ink) 50%, transparent 50%);
-}
-
-.un-mark--otevreno-vykladu {
-  background: transparent;
+.un-item__holder .un-icon {
+  width: 1.1rem;
+  height: 1.1rem;
 }
 
 /* ---------- Mapa neznáma: rejstřík ---------- */
-.un-register .tg-type__head {
-  top: calc(var(--site-header-height) + 4.25rem);
-}
-
 .un-item {
   scroll-margin-top: var(--tg-scroll);
 }
@@ -572,10 +561,6 @@ html[data-theme='dark'] .tg-filter__btn[aria-pressed='true'] {
   .tg-type {
     grid-template-columns: minmax(0, 1fr);
     row-gap: 1.25rem;
-  }
-
-  .tg-type__head {
-    position: static;
   }
 
   .tg-overview__row {

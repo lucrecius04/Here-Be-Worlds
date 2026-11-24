@@ -1,5 +1,5 @@
 {
-  "_note": "Roztřídění triád světů (Galerie triád /galerie-triad/ a Mapa neznáma /mapa-neznama/). Schváleno majitelem 2026-11-24. Každý publikovaný svět má jeden hlavní typ; `sinAlso` = hraniční případ, ukáže se jako „také: …“. Kdo drží mezeru ověřeno proti oddílu 4. Nosná mezera v kronikách: Zamčeno tvůrci jen tam, kde autoři odpověď výslovně odmítli nebo dílo záměrně nikdy neodhalí.",
+  "_note": "Roztřídění triád světů (Galerie triád /galerie-triad/ a Mapa neznáma /mapa-neznama/). Schváleno majitelem 2026-11-24 (typ „Lež v základech“ přejmenován na „Zatajená pravda“, aby se nepletl s „Krví v základech“). Každý publikovaný svět má jeden hlavní typ; `sinAlso` = hraniční případ, ukáže se jako „také: …“. Kdo drží mezeru ověřeno proti oddílu 4. Nosná mezera v kronikách: Zamčeno tvůrci jen tam, kde autoři odpověď výslovně odmítli nebo dílo záměrně nikdy neodhalí.",
   "sinTypes": [
     {
       "id": "zadrzeny-konec",
@@ -17,8 +17,8 @@
       "desc": { "cs": "U kořene světa leží vražda, oběť nevinného nebo znesvěcení posvátného.", "en": "At the root of the world lies a murder, an innocent sacrificed or something sacred defiled." }
     },
     {
-      "id": "lez-v-zakladech",
-      "label": { "cs": "Lež v základech", "en": "A lie in the foundations" },
+      "id": "zatajena-pravda",
+      "label": { "cs": "Zatajená pravda", "en": "The hidden truth" },
       "desc": { "cs": "Řád stojí na zatajené pravdě a drží jen, dokud ji nikdo neodhalí.", "en": "The order rests on a hidden truth and holds only until someone uncovers it." }
     },
     {
@@ -119,8 +119,8 @@
     "diablo": { "sin": "lek-horsi-nez-nemoc", "dilemma": "svoboda-nebo-spravce", "mystery": "za-koncem", "holder": "otevreno-vykladu" },
     "dragon-age": { "sin": "lek-horsi-nez-nemoc", "dilemma": "pravda-nebo-mytus", "mystery": "sila-bez-jmena", "holder": "zamceno-tvurci" },
     "elden-ring": { "sin": "zadrzeny-konec", "dilemma": "udrzet-nebo-skoncit", "mystery": "postava-bez-tvare", "holder": "otevreno-vykladu" },
-    "elder-scrolls": { "sin": "lez-v-zakladech", "dilemma": "pravda-nebo-mytus", "mystery": "ztracena-udalost", "holder": "zamceno-tvurci" },
-    "hades": { "sin": "lez-v-zakladech", "dilemma": "vina-a-zmena", "mystery": "za-koncem", "holder": "otevreno-vykladu" },
+    "elder-scrolls": { "sin": "zatajena-pravda", "dilemma": "pravda-nebo-mytus", "mystery": "ztracena-udalost", "holder": "zamceno-tvurci" },
+    "hades": { "sin": "zatajena-pravda", "dilemma": "vina-a-zmena", "mystery": "za-koncem", "holder": "otevreno-vykladu" },
     "path-of-exile": { "sin": "lek-horsi-nez-nemoc", "dilemma": "moc-a-laskavost", "mystery": "postava-bez-tvare", "holder": "otevreno-vykladu" },
     "pathfinder": { "sin": "tvor-jako-nastroj", "dilemma": "svoboda-nebo-spravce", "mystery": "ztracena-udalost", "holder": "zamceno-tvurci" },
     "warcraft": { "sin": "lek-horsi-nez-nemoc", "dilemma": "zopakuje-se-to", "mystery": "sila-bez-jmena", "holder": "ceka-na-pokracovani" },
@@ -134,16 +134,16 @@
     "xenoblade": { "sin": "lek-horsi-nez-nemoc", "dilemma": "svoboda-nebo-spravce", "mystery": "sila-bez-jmena", "holder": "otevreno-vykladu" },
     "death-stranding": { "sin": "zadrzeny-konec", "dilemma": "vina-a-zmena", "mystery": "za-koncem", "holder": "otevreno-vykladu" },
     "fallout": { "sin": "tvor-jako-nastroj", "sinAlso": "moc-a-zisk", "dilemma": "zopakuje-se-to", "mystery": "ztracena-udalost", "holder": "zamceno-tvurci" },
-    "horizon": { "sin": "lez-v-zakladech", "dilemma": "zopakuje-se-to", "mystery": "sila-bez-jmena", "holder": "otevreno-vykladu" },
-    "metro": { "sin": "lez-v-zakladech", "sinAlso": "moc-a-zisk", "dilemma": "zopakuje-se-to", "mystery": "za-koncem", "holder": "otevreno-vykladu" },
-    "nier-automata": { "sin": "lez-v-zakladech", "dilemma": "co-je-clovek", "mystery": "postava-bez-tvare", "holder": "otevreno-vykladu" },
+    "horizon": { "sin": "zatajena-pravda", "dilemma": "zopakuje-se-to", "mystery": "sila-bez-jmena", "holder": "otevreno-vykladu" },
+    "metro": { "sin": "zatajena-pravda", "sinAlso": "moc-a-zisk", "dilemma": "zopakuje-se-to", "mystery": "za-koncem", "holder": "otevreno-vykladu" },
+    "nier-automata": { "sin": "zatajena-pravda", "dilemma": "co-je-clovek", "mystery": "postava-bez-tvare", "holder": "otevreno-vykladu" },
     "bloodborne": { "sin": "krev-v-zakladech", "dilemma": "vina-a-zmena", "mystery": "ztracena-udalost", "holder": "otevreno-vykladu" },
     "resident-evil": { "sin": "krev-v-zakladech", "sinAlso": "moc-a-zisk", "dilemma": "vina-a-zmena", "mystery": "postava-bez-tvare", "holder": "otevreno-vykladu" },
     "silent-hill": { "sin": "krev-v-zakladech", "dilemma": "vina-a-zmena", "mystery": "za-koncem", "holder": "zamceno-tvurci" },
     "soma": { "sin": "lek-horsi-nez-nemoc", "dilemma": "co-je-clovek", "mystery": "sila-bez-jmena", "holder": "otevreno-vykladu" },
     "assassins-creed": { "sin": "tvor-jako-nastroj", "dilemma": "svoboda-nebo-spravce", "mystery": "postava-bez-tvare", "holder": "ceka-na-pokracovani" },
     "disco-elysium": { "sin": "moc-a-zisk", "dilemma": "vina-a-zmena", "mystery": "sila-bez-jmena", "holder": "otevreno-vykladu" },
-    "pentiment": { "sin": "lez-v-zakladech", "dilemma": "pravda-nebo-mytus", "mystery": "ztracena-udalost", "holder": "zamceno-tvurci" },
+    "pentiment": { "sin": "zatajena-pravda", "dilemma": "pravda-nebo-mytus", "mystery": "ztracena-udalost", "holder": "zamceno-tvurci" },
     "bioshock": { "sin": "tvor-jako-nastroj", "dilemma": "svoboda-nebo-spravce", "mystery": "sila-bez-jmena", "holder": "otevreno-vykladu" },
     "cyberpunk-2077": { "sin": "moc-a-zisk", "dilemma": "udrzet-nebo-skoncit", "mystery": "postava-bez-tvare", "holder": "ceka-na-pokracovani" },
     "deus-ex": { "sin": "moc-a-zisk", "dilemma": "svoboda-nebo-spravce", "mystery": "postava-bez-tvare", "holder": "otevreno-vykladu" },
@@ -156,6 +156,6 @@
     "planescape-torment": { "sin": "zadrzeny-konec", "dilemma": "vina-a-zmena", "mystery": "postava-bez-tvare", "holder": "zamceno-tvurci" },
     "tides-of-numenera": { "sin": "zadrzeny-konec", "dilemma": "co-je-clovek", "mystery": "sila-bez-jmena", "holder": "zamceno-tvurci" },
     "undertale": { "sin": "lek-horsi-nez-nemoc", "dilemma": "moc-a-laskavost", "mystery": "postava-bez-tvare", "holder": "ceka-na-pokracovani" },
-    "pillars-of-eternity": { "sin": "lez-v-zakladech", "dilemma": "pravda-nebo-mytus", "mystery": "sila-bez-jmena", "holder": "otevreno-vykladu" }
+    "pillars-of-eternity": { "sin": "zatajena-pravda", "dilemma": "pravda-nebo-mytus", "mystery": "sila-bez-jmena", "holder": "otevreno-vykladu" }
   }
 }
