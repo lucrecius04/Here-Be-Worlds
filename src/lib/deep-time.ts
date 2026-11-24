@@ -14,6 +14,8 @@ export type DeepEvent = {
   after?: number | [number, number];
   when: string;
   kind: DeepKind;
+  /** Název hry (jen u druhu `game`): popisek dílu v grafech. */
+  game?: string;
   text: string;
 };
 export type DeepWorld = { present: string; presentYear?: number; cycle?: string; events: DeepEvent[] };
@@ -28,13 +30,53 @@ export const agoMid = (ago: DeepAgo | undefined): number | null =>
 export const agoMax = (ago: DeepAgo | undefined): number | null =>
   typeof ago === 'number' ? ago : isRange(ago) ? ago[1] : null;
 
+/** Odstup pozdějšího dílu od přítomnosti (u odhadu geometrický střed). */
+export const afterMid = (after: DeepEvent['after']): number | null =>
+  typeof after === 'number' ? after : Array.isArray(after) ? Math.sqrt(Math.max(after[0], 1e-6) * after[1]) : null;
+
+/** Hraný díl s datem: `ago` = hloubka pod přítomností (u odhadu střed), přítomnost má 0. */
+export type GamePart = { e: DeepEvent; ago: number };
+/** Pozdější díl nebo událost po přítomnosti: `after` = roky po přítomnosti. */
+export type LaterPart = { e: DeepEvent; after: number; isGame: boolean };
+
+/**
+ * Hrané díly pod hladinou (události druhu `game` s datem), od nejstaršího po přítomnost.
+ * Oba grafy je kreslí jako zářezy v období her; díly bez data (Dark Souls I–II) tu nejsou.
+ */
+export function gameParts(world: DeepWorld): GamePart[] {
+  return world.events
+    .filter((e) => e.kind === 'game' && e.after === undefined && agoMid(e.ago) !== null)
+    .map((e) => ({ e, ago: agoMid(e.ago)! }))
+    .sort((a, b) => b.ago - a.ago);
+}
+
+/** Popis dílu bez opakovaného názvu hry: „Fallout 3: Projekt Čistota“ → „Projekt Čistota“. */
+export function partDetail(e: DeepEvent): string {
+  const game = e.game;
+  if (!game) return '';
+  if (e.text === game) return '';
+  if (e.text.startsWith(`${game}: `)) return e.text.slice(game.length + 2);
+  const i = e.text.indexOf(': ');
+  // „Odyssey: …“ u hry „Assassin's Creed Odyssey“
+  if (i > 0 && game.endsWith(e.text.slice(0, i))) return e.text.slice(i + 2);
+  return e.text;
+}
+
+/** Díly a události po přítomnosti, od nejbližšího. Hry jsou plný kroužek, ostatní (seriál, epilog) prázdný. */
+export function laterParts(world: DeepWorld): LaterPart[] {
+  return world.events
+    .filter((e) => afterMid(e.after) !== null)
+    .map((e) => ({ e, after: afterMid(e.after)!, isGame: e.kind === 'game' }))
+    .sort((a, b) => a.after - b.after);
+}
+
 export type DeepSummary = {
   /** Nejhlubší umístěná událost (u odhadu horní mez). */
   deepest: number;
   /** Totéž pro řazení (u odhadu geometrický střed). */
   deepestMid: number;
   deepestEvent: DeepEvent | null;
-  /** Hratelná vrstva: od přítomnosti po nejstarší událost, která je hrou. */
+  /** Období her: od přítomnosti po nejstarší datovaný díl (u odhadu střed, jako jeho zářez). */
   played: number;
   hasMyth: boolean;
   /** Žádné přesné datum kromě přítomnosti (jen odhady a mýtus). */
@@ -45,7 +87,6 @@ export function summarize(world: DeepWorld): DeepSummary {
   let deepest = 0;
   let deepestMid = 0;
   let deepestEvent: DeepEvent | null = null;
-  let played = 0;
   for (const e of world.events) {
     const max = agoMax(e.ago);
     const mid = agoMid(e.ago);
@@ -55,8 +96,8 @@ export function summarize(world: DeepWorld): DeepSummary {
       deepest = max;
       deepestEvent = e;
     }
-    if (e.kind === 'game') played = Math.max(played, max);
   }
+  const played = Math.max(0, ...gameParts(world).map((p) => p.ago));
   return {
     deepest,
     deepestMid,

@@ -1,9 +1,10 @@
-import { useMemo, useState, type CSSProperties } from 'react';
+import { useMemo, useRef, useState, type CSSProperties } from 'react';
 import { t, uiT, type Locale } from '../../lib/i18n';
-import { SCALE, YARDSTICKS, eventYear, formatYear, isRange, nf, summarize } from '../../lib/deep-time';
+import { SCALE, YARDSTICKS, eventYear, formatYear, isRange, nf, summarize, type GamePart, type LaterPart } from '../../lib/deep-time';
 import type { DeepTimeWorld } from '../../lib/deep-time-pages';
+import PartTip, { markOf, tipFor, type PartMark, type TipState } from './PartTip';
 
-type Item = DeepTimeWorld & { sum: ReturnType<typeof summarize> };
+type Item = DeepTimeWorld & { sum: ReturnType<typeof summarize>; parts: GamePart[]; later: LaterPart[] };
 type Props = {
   worlds: Item[];
   now: number;
@@ -62,9 +63,13 @@ function tickLabel(year: number, locale: Locale): string {
  */
 export default function OurTimeline({ worlds, now, locale, compact, picked, onPick, chapterOrder }: Props) {
   const [hover, setHover] = useState<string | null>(null);
+  const [tip, setTip] = useState<TipState | null>(null);
+  const svgRef = useRef<SVGSVGElement>(null);
+  const figRef = useRef<HTMLElement>(null);
+  // `ear` = přesah zářezu dílu nad a pod vrt (jako u vrtů nahoře), `ring` = kroužek pozdějšího dílu.
   const g = compact
-    ? { width: 390, gutter: 100, top: 54, row: 19, bar: 4, label: 8.5, zone: 6, bottom: 40 }
-    : { width: 1000, gutter: 156, top: 52, row: 24, bar: 6, label: 11, zone: 10, bottom: 84 };
+    ? { width: 390, gutter: 100, top: 54, row: 19, bar: 4, label: 8.5, zone: 6, bottom: 40, ear: 2, ring: 2 }
+    : { width: 1000, gutter: 156, top: 52, row: 24, bar: 6, label: 11, zone: 10, bottom: 84, ear: 3, ring: 3 };
   const plot = g.width - g.gutter - 12;
   const decade = (plot - 2 * g.zone) / (PAST_UNITS + FUTURE);
   const center = g.gutter + g.zone + PAST_UNITS * decade;
@@ -135,10 +140,20 @@ export default function OurTimeline({ worlds, now, locale, compact, picked, onPi
             </li>
           ))}
         </ul>
-        <p className="dt-legend__hint">{uiT('deepTime.oursHint', locale)}</p>
+        <p className="dt-legend__hint">
+          <span className="dt-hint--hover">{uiT('deepTime.oursHintHover', locale)}</span>
+          <span className="dt-hint--touch">{uiT('deepTime.oursHint', locale)}</span>
+        </p>
       </div>
-      <figure className="dt-ours__chart" onMouseLeave={() => setHover(null)}>
-        <svg viewBox={`0 0 ${g.width} ${height}`} className={focus ? 'has-focus' : undefined} role="group" aria-label={uiT('deepTime.oursTitle', locale)}>
+      <figure
+        className="dt-ours__chart"
+        ref={figRef}
+        onMouseLeave={() => {
+          setHover(null);
+          setTip(null);
+        }}
+      >
+        <svg ref={svgRef} viewBox={`0 0 ${g.width} ${height}`} className={focus ? 'has-focus' : undefined} role="group" aria-label={uiT('deepTime.oursTitle', locale)}>
           <defs>
             {rows.map((w) => (
               <linearGradient key={w.id} id={`dt-ours-fade-${w.id}`} x1="0" y1="0" x2="1" y2="0">
@@ -213,9 +228,7 @@ export default function OurTimeline({ worlds, now, locale, compact, picked, onPi
                 from: isRange(e.ago) ? py - e.ago[1] : py - (e.ago as number),
                 to: isRange(e.ago) ? py - e.ago[0] : py - (e.ago as number),
               }));
-            const later = w.deep.events
-              .filter((e) => typeof e.after === 'number')
-              .map((e) => ({ e, year: py + (e.after as number) }));
+            const later = w.later.map((l) => ({ ...l, year: py + l.after }));
             // Nejhlubší událost jako u vrtu nahoře (u odhadu podle středu), její starší mez = začátek pruhu.
             const deepest = placed.reduce<(typeof placed)[number] | null>((m, d) => (!m || d.mid < m.mid ? d : m), null);
             const oldest = deepest ? deepest.from : py;
@@ -232,7 +245,14 @@ export default function OurTimeline({ worlds, now, locale, compact, picked, onPi
               edge = bnd;
             }
             if (edge - solidFrom > 0) layers.push([solidFrom, edge]);
+            // Období her: od nejstaršího datovaného dílu po přítomnost; praskliny (události) jen v bledých dějinách před ním.
             const playedFrom = py - w.sum.played;
+            const cracks = bounds.filter((bnd) => bnd < playedFrom - 1e-6);
+            const marks: PartMark[] = [
+              ...w.parts.map((p, k) => markOf(`p${k}`, X(py - p.ago), p.e, false)),
+              ...later.map((d, k) => markOf(`l${k}`, X(d.year), d.e, true)),
+            ];
+            const tipKeys = tip?.id === w.id ? tip.keys : [];
             const isFocus = focus === w.id;
             const label = `${t(w.title, locale)}: ${formatYear(oldest, locale)} – ${formatYear(py, locale)}`;
             const hb = g.bar + 2;
@@ -248,6 +268,12 @@ export default function OurTimeline({ worlds, now, locale, compact, picked, onPi
                 onMouseEnter={() => setHover(w.id)}
                 onFocus={() => setHover(w.id)}
                 onBlur={() => setHover(null)}
+                onPointerMove={(ev) => {
+                  if (ev.pointerType !== 'mouse' || !svgRef.current || !figRef.current) return;
+                  const next = tipFor(w.id, marks, ev.clientX, svgRef.current, figRef.current, 'h', { y: y - hb / 2 - g.ear - 5 });
+                  setTip((prev) => (prev && next && prev.id === next.id && prev.keys.join() === next.keys.join() ? prev : next));
+                }}
+                onPointerLeave={() => setTip(null)}
                 onClick={() => onPick(picked === w.id ? null : w.id)}
                 onKeyDown={(ev) => {
                   if (ev.key === 'Enter' || ev.key === ' ') {
@@ -273,20 +299,36 @@ export default function OurTimeline({ worlds, now, locale, compact, picked, onPi
                   .map((d, k) => (
                     <rect key={`u${k}`} x={X(d.from)} y={y - hb / 2} width={Math.max(X(d.to) - X(d.from), 1)} height={hb} fill="url(#dt-unsure)" />
                   ))}
-                {/* hratelná vrstva */}
+                {/* období her */}
                 {w.sum.played > 0 ? (
                   <rect className="dt-played" x={X(playedFrom)} y={y - hb / 2} width={Math.max(X(py) - X(playedFrom), 1.5)} height={hb} />
                 ) : null}
-                {/* praskliny mezi vrstvami */}
-                {bounds.map((bnd, k) => (
+                {/* praskliny mezi vrstvami (jen před obdobím her) */}
+                {cracks.map((bnd, k) => (
                   <line key={`c${k}`} className="dt-crack" x1={X(bnd)} x2={X(bnd)} y1={y - hb / 2} y2={y + hb / 2} />
                 ))}
-                {/* pozdější díly */}
+                {/* hrané díly: zářez s přesahem, uvnitř tenká linka (stejně jako ve vrtech nahoře) */}
+                {w.parts.map((p, k) => {
+                  const year = py - p.ago;
+                  const ear = g.ear + (tipKeys.includes(`p${k}`) ? 2.5 : 0);
+                  const x0 = Math.min(X(year) - 1.3, X(py) - 2.6);
+                  return (
+                    <g key={`p${k}`} className="dt-part">
+                      <rect x={x0} y={y - hb / 2 - ear} width={2.6} height={hb + 2 * ear} />
+                      {p.ago > 0 ? <line x1={x0 + 1.3} x2={x0 + 1.3} y1={y - hb / 2} y2={y + hb / 2} /> : null}
+                    </g>
+                  );
+                })}
+                {/* pozdější díly: čárkovaně od přítomnosti, plný kroužek = hra */}
+                {later.length ? <line className="dt-later" x1={X(py)} x2={X(later[later.length - 1].year) - g.ring} y1={y} y2={y} /> : null}
                 {later.map((d, k) => (
-                  <g key={k}>
-                    <line className="dt-ours__later" x1={X(py)} x2={X(d.year)} y1={y} y2={y} />
-                    <circle className="dt-ours__later-end" cx={X(d.year)} cy={y} r={compact ? 2 : 3} />
-                  </g>
+                  <circle
+                    key={`l${k}`}
+                    className={`dt-later-end${d.isGame ? ' is-game' : ''}`}
+                    cx={X(d.year)}
+                    cy={y}
+                    r={g.ring + (tipKeys.includes(`l${k}`) ? 1.2 : 0)}
+                  />
                 ))}
                 {/* zlomy */}
                 {placed
@@ -296,7 +338,7 @@ export default function OurTimeline({ worlds, now, locale, compact, picked, onPi
                   ))}
                 {/* přítomnost světa */}
                 <rect className="dt-ours__now" x={X(py) - 3.5} y={y - 3.5} width={7} height={7} transform={`rotate(45 ${X(py)} ${y})`} />
-                {isFocus && !compact ? (
+                {isFocus && !compact && tip?.id !== w.id ? (
                   // U světů vpravo by popisek přetekl z grafu (do průřezu), proto jde nad vrt a končí u přítomnosti.
                   <text
                     className="dt-ours__tip"
@@ -358,6 +400,7 @@ export default function OurTimeline({ worlds, now, locale, compact, picked, onPi
             {uiT('deepTime.today', locale)} · {now}
           </text>
         </svg>
+        {tip ? <PartTip tip={tip} locale={locale} accent={rows.find((w) => w.id === tip.id)?.accent} /> : null}
         {compact ? (
           <ol className="dt-ours__yards">
             {marks.map((m) => (

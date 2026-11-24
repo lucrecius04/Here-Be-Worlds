@@ -14,12 +14,17 @@ import {
   formatDuration,
   isRange,
   summarize,
+  gameParts,
+  laterParts,
   type DeepEvent,
   type DeepKind,
+  type GamePart,
+  type LaterPart,
 } from '../../lib/deep-time';
 import type { DeepTimeWorld } from '../../lib/deep-time-pages';
 import type { ThemeChapter } from '../../lib/theme-pages';
 import OurTimeline from './OurTimeline';
+import PartTip, { markOf, tipFor, type PartMark, type TipState } from './PartTip';
 import '../../styles/deep-time.css';
 
 type Props = { base: string; worlds: DeepTimeWorld[]; chapters: ThemeChapter[]; now: number };
@@ -31,18 +36,37 @@ const hue = (accent: { light: string; dark: string }) =>
 /**
  * Rozměry grafu: na počítači se jmény světů, na telefonu úzké vrty bez jmen.
  * Na telefonu s jediným archetypem (`focusCount`) širší vrty a jména jako na počítači.
+ * `lz` = pásmo nad hladinou pro pozdější díly (pod jmény), `ear` = přesah zářezu dílu, `ring` = kroužek pozdějšího dílu.
  */
-function geometry(compact: boolean, focusCount = 0, longestName = 0) {
+function geometry(compact: boolean, focusCount = 0, longestName = 0, hasLater = true) {
   if (compact && focusCount) {
     // Nejvýš o kousek širší než u Fantasy (12 světů), aby se málo světů nezvětšilo přes celý displej.
     const pitch = Math.min(40, (390 - 80 - 8) / focusCount);
-    // Nad hladinou jen tolik místa, kolik potřebuje nejdelší jméno.
-    const top = Math.round(18 + longestName * 7.4);
-    return { gutter: 80, pitch, col: Math.round(pitch * 0.5), top, groupGap: 0, label: 12.5, decade: 68 };
+    const lz = hasLater ? 34 : 0;
+    // Nad hladinou jen tolik místa, kolik potřebuje nejdelší jméno (a pozdější díly).
+    const top = Math.round(18 + longestName * 7.4) + lz;
+    return { gutter: 80, pitch, col: Math.round(pitch * 0.5), top, groupGap: 0, label: 12.5, decade: 68, lz, ear: 3, ring: 2.6 };
   }
+  // V přehledu na telefonu se přesah zářezu mezi úzké vrty nevejde: díl je jen tenká linka uvnitř období her.
   return compact
-    ? { gutter: 58, pitch: 7.6, col: 5, top: 14, groupGap: 5, label: 9.5, decade: 58 }
-    : { gutter: 132, pitch: 19, col: 11, top: 150, groupGap: 14, label: 10.5, decade: SCALE.decade };
+    ? { gutter: 58, pitch: 7.6, col: 5, top: 36, groupGap: 5, label: 9.5, decade: 58, lz: 22, ear: 0, ring: 2 }
+    : { gutter: 132, pitch: 19, col: 11, top: 200, groupGap: 14, label: 10.5, decade: SCALE.decade, lz: 50, ear: 3, ring: 3 };
+}
+
+/**
+ * Výšky kroužků pozdějších dílů nad hladinou: logaritmicky podle odstupu od přítomnosti
+ * (malé měřítko jen pro pořadí a řád), kroužky se nepřekrývají.
+ */
+function laterHeights(afters: number[], lz: number, ring: number) {
+  const out: number[] = [];
+  let last = -Infinity;
+  for (const a of afters) {
+    let h = Math.min(lz - ring - 2, lz * 0.18 + lz * 0.22 * Math.log10(1 + a));
+    if (h < last + 2 * ring + 1.5) h = last + 2 * ring + 1.5;
+    out.push(h);
+    last = h;
+  }
+  return out;
 }
 
 const DECADE_KEYS = [
@@ -102,11 +126,22 @@ export default function DeepTime({ base, worlds, chapters, now }: Props) {
     window.scrollTo({ top: panel.getBoundingClientRect().top + window.scrollY - cover, behavior: reduce ? 'auto' : 'smooth' });
   }, [picked]);
 
-  const items = useMemo(() => worlds.map((w) => ({ ...w, sum: summarize(w.deep) })), [worlds]);
+  const items = useMemo(
+    () => worlds.map((w) => ({ ...w, sum: summarize(w.deep), parts: gameParts(w.deep), later: laterParts(w.deep) })),
+    [worlds],
+  );
   const focusOn = compact && sort === 'archetype' && only ? only : null;
   const shown = useMemo(() => (focusOn ? items.filter((w) => w.chapterId === focusOn) : items), [items, focusOn]);
   const longestName = focusOn ? Math.max(...shown.map((w) => t(w.title, locale).length)) : 0;
-  const g = useMemo(() => geometry(compact, focusOn ? shown.length : 0, longestName), [compact, focusOn, shown.length, longestName]);
+  const hasLater = shown.some((w) => w.later.length > 0);
+  const g = useMemo(
+    () => geometry(compact, focusOn ? shown.length : 0, longestName, hasLater),
+    [compact, focusOn, shown.length, longestName, hasLater],
+  );
+  const svgRef = useRef<SVGSVGElement>(null);
+  const figRef = useRef<HTMLElement>(null);
+  // Popisek dílu u kurzoru (jen myš; na dotyku otevře klepnutí průřez se všemi díly).
+  const [tip, setTip] = useState<TipState | null>(null);
   const chapterOrder = useMemo(() => new Map(chapters.map((c, i) => [c.id, i])), [chapters]);
 
   // Pořadí a vodorovné polohy vrtů (při přeřazení se vrty přesunou plynule).
@@ -235,8 +270,16 @@ export default function DeepTime({ base, worlds, chapters, now }: Props) {
 
       <div className={`dt-layout${active && picked ? ' has-panel' : ''}`}>
         <div className="dt-main">
-        <figure className="dt-chart" onMouseLeave={() => setHover(null)}>
+        <figure
+          className="dt-chart"
+          ref={figRef}
+          onMouseLeave={() => {
+            setHover(null);
+            setTip(null);
+          }}
+        >
           <svg
+            ref={svgRef}
             viewBox={`0 0 ${layout.width} ${height}`}
             className={focus ? 'has-focus' : undefined}
             role="group"
@@ -297,6 +340,11 @@ export default function DeepTime({ base, worlds, chapters, now }: Props) {
                   {uiT('deepTime.cycles', locale)}
                 </text>
               ) : null}
+              {g.lz ? (
+                <text className="dt-scale__label dt-scale__later" x={g.gutter - 12} y={g.top - Math.max(g.lz / 2, 15) + 3.5} textAnchor="end" fontSize={g.label}>
+                  {uiT('deepTime.laterInline', locale)}
+                </text>
+              ) : null}
             </g>
 
             {/* skupiny archetypů */}
@@ -334,6 +382,15 @@ export default function DeepTime({ base, worlds, chapters, now }: Props) {
               }
               if (solidEnd > from + 0.4) layers.push([from, solidEnd]);
               const myths = w.deep.events.filter((e) => e.ago === 'myth');
+              // Období her: od přítomnosti po nejstarší datovaný díl; praskliny (události) jen v bledých dějinách pod ním.
+              const frameEnd = w.sum.played > 0 ? Y(w.sum.played) : g.top;
+              const cracks = bounds.filter((b) => b > frameEnd + 0.5);
+              const heights = laterHeights(w.later.map((l) => l.after), g.lz, g.ring);
+              const marks: PartMark[] = [
+                ...w.parts.map((p, i) => markOf(`p${i}`, p.ago > 0 ? Y(p.ago) : g.top, p.e, false)),
+                ...w.later.map((l, i) => markOf(`l${i}`, g.top - heights[i], l.e, true)),
+              ];
+              const tipKeys = tip?.id === w.id ? tip.keys : [];
               const label = `${t(w.title, locale)}: ${
                 w.sum.noDates ? uiT('deepTime.noDatesShort', locale) : deepLabel(w.sum, locale)
               }`;
@@ -350,6 +407,15 @@ export default function DeepTime({ base, worlds, chapters, now }: Props) {
                   onMouseEnter={() => setHover(w.id)}
                   onFocus={() => setHover(w.id)}
                   onBlur={() => setHover(null)}
+                  onPointerMove={(ev) => {
+                    if (ev.pointerType !== 'mouse' || !svgRef.current || !figRef.current) return;
+                    const next = tipFor(w.id, marks, ev.clientY, svgRef.current, figRef.current, 'v', {
+                      after: x + g.col + g.ear + 7,
+                      before: x - g.ear - 7,
+                    });
+                    setTip((prev) => (prev && next && prev.id === next.id && prev.keys.join() === next.keys.join() ? prev : next));
+                  }}
+                  onPointerLeave={() => setTip(null)}
                   onClick={() => setPicked(picked === w.id ? null : w.id)}
                   onKeyDown={(e) => {
                     if (e.key === 'Enter' || e.key === ' ') {
@@ -360,7 +426,7 @@ export default function DeepTime({ base, worlds, chapters, now }: Props) {
                 >
                   <rect className="dt-hit" x={-(g.pitch - g.col) / 2} y={0} width={g.pitch} height={height} />
                   {!compact || focusOn ? (
-                    <text className="dt-name" transform={`translate(${g.col / 2 + 3.5}, ${g.top - 10}) rotate(-90)`} fontSize={g.label + 0.5}>
+                    <text className="dt-name" transform={`translate(${g.col / 2 + 3.5}, ${g.top - 10 - g.lz}) rotate(-90)`} fontSize={g.label + 0.5}>
                       {t(w.title, locale)}
                     </text>
                   ) : null}
@@ -379,12 +445,24 @@ export default function DeepTime({ base, worlds, chapters, now }: Props) {
                       const [lo, hi] = e.ago as [number, number];
                       return <rect key={`u${i}`} x={0} y={Y(lo)} width={g.col} height={Math.max(Y(hi) - Y(lo), 1)} fill="url(#dt-unsure)" />;
                     })}
-                  {/* hratelná vrstva */}
-                  {w.sum.played > 0 ? <rect className="dt-played" x={0} y={g.top} width={g.col} height={Math.max(Y(w.sum.played) - g.top, 1.5)} /> : null}
-                  {/* praskliny mezi vrstvami */}
-                  {bounds.map((b, i) => (
+                  {/* období her */}
+                  {w.sum.played > 0 ? <rect className="dt-played" x={0} y={g.top} width={g.col} height={frameEnd - g.top} /> : null}
+                  {/* praskliny mezi vrstvami (jen pod obdobím her) */}
+                  {cracks.map((b, i) => (
                     <line key={`c${i}`} className="dt-crack" x1={0} x2={g.col} y1={b} y2={b} />
                   ))}
+                  {/* hrané díly: zářez s přesahem, uvnitř tenká linka */}
+                  {w.parts.map((p, i) => {
+                    const at = p.ago > 0 ? Y(p.ago) : g.top;
+                    const ear = g.ear + (tipKeys.includes(`p${i}`) ? 2.5 : 0);
+                    const y0 = Math.max(g.top, at - 1.3);
+                    return (
+                      <g key={`p${i}`} className="dt-part">
+                        <rect x={-ear} y={y0} width={g.col + 2 * ear} height={2.6} />
+                        {p.ago > 0 ? <line x1={0} x2={g.col} y1={y0 + 1.3} y2={y0 + 1.3} /> : null}
+                      </g>
+                    );
+                  })}
                   {/* zlomy */}
                   {placed
                     .filter((e) => e.kind === 'catastrophe' && (agoMid(e.ago) ?? 0) > 0)
@@ -394,6 +472,19 @@ export default function DeepTime({ base, worlds, chapters, now }: Props) {
                     })}
                   </g>
                   <g className="dt-late" style={{ animationDelay: `${900 + layout.sorted.indexOf(w) * 22}ms` }}>
+                  {/* pozdější díly nad hladinou */}
+                  {w.later.length ? (
+                    <line className="dt-later" x1={g.col / 2} x2={g.col / 2} y1={g.top - 1} y2={g.top - heights[heights.length - 1] + g.ring} />
+                  ) : null}
+                  {w.later.map((l, i) => (
+                    <circle
+                      key={`l${i}`}
+                      className={`dt-later-end${l.isGame ? ' is-game' : ''}`}
+                      cx={g.col / 2}
+                      cy={g.top - heights[i]}
+                      r={g.ring + (tipKeys.includes(`l${i}`) ? 1.2 : 0)}
+                    />
+                  ))}
                   {/* mýtický čas */}
                   {myths.length || w.sum.noDates ? (
                     <line
@@ -419,7 +510,7 @@ export default function DeepTime({ base, worlds, chapters, now }: Props) {
                   ) : null}
                   </g>
                   {/* hloubka u kurzoru */}
-                  {isFocus && !compact ? (
+                  {isFocus && !compact && tip?.id !== w.id ? (
                     <g className="dt-tip" aria-hidden="true">
                       <line x1={-6 - x + g.gutter} x2={0} y1={yEnd} y2={yEnd} />
                       <text x={g.col + 6} y={Math.max(yEnd, g.top + 12) + 4}>
@@ -477,6 +568,7 @@ export default function DeepTime({ base, worlds, chapters, now }: Props) {
               {uiT('deepTime.now', locale)}
             </text>
           </svg>
+          {tip ? <PartTip tip={tip} locale={locale} accent={items.find((w) => w.id === tip.id)?.accent} /> : null}
         </figure>
         <OurTimeline worlds={items} chapterOrder={sort === 'archetype' ? chapterOrder : undefined} now={now} locale={locale} compact={compact} picked={picked} onPick={setPicked} />
         </div>
@@ -497,6 +589,7 @@ function Legend({ locale }: { locale: Locale }) {
     ['layers', 'deepTime.legendLayers'],
     ['seam', 'deepTime.legendSeam'],
     ['unsure', 'deepTime.legendUnsure'],
+    ['later', 'deepTime.legendLater'],
     ['myth', 'deepTime.legendMyth'],
     ['cycle', 'deepTime.legendCycle'],
   ];
@@ -511,7 +604,10 @@ function Legend({ locale }: { locale: Locale }) {
           </li>
         ))}
       </ul>
-      <p className="dt-legend__hint">{uiT('deepTime.hint', locale)}</p>
+      <p className="dt-legend__hint">
+        <span className="dt-hint--hover">{uiT('deepTime.hintHover', locale)}</span>
+        <span className="dt-hint--touch">{uiT('deepTime.hint', locale)}</span>
+      </p>
     </div>
   );
 }
@@ -524,7 +620,7 @@ function WorldPanel({
   pinned,
   onClose,
 }: {
-  world: DeepTimeWorld & { sum: ReturnType<typeof summarize> };
+  world: DeepTimeWorld & { sum: ReturnType<typeof summarize>; parts: GamePart[]; later: LaterPart[] };
   base: string;
   locale: Locale;
   chapters: ThemeChapter[];
@@ -532,7 +628,15 @@ function WorldPanel({
   onClose: () => void;
 }) {
   const chapter = chapters.find((c) => c.id === world.chapterId);
-  const later = world.deep.events.filter((e) => e.after !== undefined);
+  const later = world.later.map((l) => l.e);
+  // Hry se odehrávají: od nejstaršího datovaného dílu po přítomnost, pak pozdější hry.
+  const parts = world.parts;
+  const playedText = !parts.length
+    ? uiT('deepTime.noGames', locale)
+    : parts.length === 1
+      ? parts[0].e.when
+      : `${parts[0].e.when} – ${parts[parts.length - 1].e.when}`;
+  const laterGames = world.later.filter((l) => l.isGame);
   // Od hladiny dolů: přítomnost nahoře, nejstarší dole (jako vrt).
   const down = world.deep.events.filter((e) => e.after === undefined).slice().reverse();
   const row = (e: DeepEvent, i: number) => (
@@ -574,7 +678,14 @@ function WorldPanel({
         </div>
         <div>
           <dt>{uiT('deepTime.played', locale)}</dt>
-          <dd>{world.sum.played > 0 ? formatDuration(world.sum.played, locale) : uiT('deepTime.playedNow', locale)}</dd>
+          <dd>
+            {playedText}
+            {laterGames.length ? (
+              <span className="dt-world__then">
+                {uiT('deepTime.laterInline', locale)} {laterGames.map((l) => l.e.when).join(', ')}
+              </span>
+            ) : null}
+          </dd>
         </div>
       </dl>
       {world.deep.cycle ? (

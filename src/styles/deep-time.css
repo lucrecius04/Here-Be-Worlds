@@ -1,11 +1,12 @@
 /* Hlubina času (/hlubina-casu/): světy jako vrty od hladiny (teď) do hlubiny dějin.
-   Barva archetypu jen ve vrtech (vrstvy, hratelná vrstva, mýtické kroužky), zbytek tuš a papír. */
+   Barva archetypu jen ve vrtech (vrstvy, období her se zářezy dílů, pozdější díly, mýtické kroužky), zbytek tuš a papír. */
 
 .dt-core,
 .dt-group,
 .dt-world,
 .dt-only button,
 .dt-break__mark,
+.dt-tipbox,
 .dt-fade-0,
 .dt-fade-1 {
   --dt-hue: var(--dt-hue-l, var(--color-ink-muted));
@@ -16,6 +17,7 @@ html[data-theme='dark'] .dt-group,
 html[data-theme='dark'] .dt-world,
 html[data-theme='dark'] .dt-only button,
 html[data-theme='dark'] .dt-break__mark,
+html[data-theme='dark'] .dt-tipbox,
 html[data-theme='dark'] .dt-fade-0,
 html[data-theme='dark'] .dt-fade-1 {
   --dt-hue: var(--dt-hue-d, var(--color-ink-muted));
@@ -168,6 +170,7 @@ html[data-theme='dark'] .dt-fade-1 {
 }
 
 .dt-chart {
+  position: relative;
   margin: 0;
   min-width: 0;
 }
@@ -227,7 +230,8 @@ html[data-theme='dark'] .dt-abyss-1 {
   fill: var(--color-ink-muted);
 }
 
-.dt-scale__myth {
+.dt-scale__myth,
+.dt-scale__later {
   font-style: italic;
 }
 
@@ -328,6 +332,111 @@ html[data-theme='dark'] .dt-abyss-1 {
 .dt-crack {
   stroke: var(--color-paper);
   stroke-width: 0.9;
+}
+
+/* hraný díl: zářez v barvě archetypu přesahující vrt, uvnitř tenká linka papíru */
+.dt-part rect {
+  fill: var(--dt-hue);
+}
+
+.dt-part line {
+  stroke: var(--color-paper);
+  stroke-width: 1;
+}
+
+/* pozdější díl: čárkovaně od přítomnosti, plný kroužek = hra, prázdný = událost mimo hry */
+.dt-later {
+  stroke: var(--dt-hue);
+  stroke-width: 1.3;
+  stroke-dasharray: 2 2.4;
+}
+
+.dt-later-end {
+  fill: var(--color-paper);
+  stroke: var(--dt-hue);
+  stroke-width: 1.4;
+}
+
+.dt-later-end.is-game {
+  fill: var(--dt-hue);
+}
+
+/* popisek dílu u kurzoru (oba grafy) */
+.dt-tipbox {
+  position: absolute;
+  z-index: 5;
+  width: max-content;
+  max-width: 17rem;
+  padding: 0.45rem 0.65rem 0.5rem;
+  background: var(--color-paper);
+  border: 1px solid var(--color-ink);
+  border-left: 3px solid var(--dt-hue);
+  pointer-events: none;
+}
+
+.dt-tipbox--right {
+  transform: translateY(-50%);
+}
+
+.dt-tipbox--left {
+  transform: translate(-100%, -50%);
+}
+
+.dt-tipbox--above-start {
+  transform: translate(-0.6rem, -100%);
+}
+
+.dt-tipbox--above-end {
+  transform: translate(calc(-100% + 0.6rem), -100%);
+}
+
+.dt-tipbox ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.dt-tipbox li {
+  display: grid;
+  gap: 0.05rem;
+}
+
+.dt-tipbox li + li {
+  padding-top: 0.35rem;
+  border-top: 1px solid var(--color-line);
+}
+
+.dt-tipbox__title {
+  font: 600 0.875rem/1.25 var(--font-sans);
+  color: var(--color-ink);
+}
+
+.dt-tipbox__when {
+  font: 500 0.6875rem var(--font-mono);
+  letter-spacing: 0.02em;
+  color: var(--color-ink-muted);
+}
+
+.dt-tipbox__text {
+  font: 400 0.8125rem/1.3 var(--font-sans);
+  color: var(--color-ink-muted);
+}
+
+/* nápověda: s myší najetí, na dotyku klepnutí */
+.dt-hint--touch {
+  display: none;
+}
+
+@media (hover: none) {
+  .dt-hint--hover {
+    display: none;
+  }
+
+  .dt-hint--touch {
+    display: inline;
+  }
 }
 
 .dt-seam {
@@ -436,6 +545,71 @@ html[data-theme='dark'] .dt-abyss-1 {
 
 .dt-glyph--played {
   background: var(--color-ink);
+}
+
+/* zářez dílu: přesah v tuši a uvnitř tenká linka papíru */
+.dt-glyph--played::before,
+.dt-glyph--played::after,
+.dt-glyph--h-played::before,
+.dt-glyph--h-played::after {
+  content: '';
+  position: absolute;
+}
+
+.dt-glyph--played::after {
+  left: -3px;
+  right: -3px;
+  top: calc(55% - 1.5px);
+  height: 3px;
+  background: var(--color-ink);
+}
+
+.dt-glyph--played::before {
+  z-index: 1;
+  left: 0;
+  right: 0;
+  top: calc(55% - 0.5px);
+  height: 1px;
+  background: var(--color-paper);
+}
+
+.dt-glyph--h-played::after {
+  top: -3px;
+  bottom: -3px;
+  left: calc(55% - 1.5px);
+  width: 3px;
+  background: var(--color-ink);
+}
+
+.dt-glyph--h-played::before {
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  left: calc(55% - 0.5px);
+  width: 1px;
+  background: var(--color-paper);
+}
+
+.dt-glyph--later {
+  width: 0.7rem;
+  background: linear-gradient(var(--color-ink-muted) 50%, transparent 50%) center bottom / 1.5px 4px repeat-y;
+}
+
+.dt-glyph--later::after,
+.dt-glyph--h-later::after {
+  content: '';
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border: 1.5px solid var(--color-ink);
+  border-radius: 50%;
+  background: var(--color-ink);
+}
+
+.dt-glyph--later::after {
+  left: 50%;
+  top: -2px;
+  margin-left: -5px;
 }
 
 .dt-glyph--layers {
@@ -563,6 +737,14 @@ html[data-theme='dark'] .dt-abyss-1 {
 .dt-world__facts dd {
   margin: 0;
   font: 500 0.9375rem var(--font-sans);
+}
+
+/* pozdější hry pod obdobím her */
+.dt-world__then {
+  display: block;
+  margin-top: 0.15rem;
+  font-weight: 400;
+  color: var(--color-ink-muted);
 }
 
 .dt-world__cycle {
@@ -813,6 +995,7 @@ html[data-theme='dark'] .dt-abyss-1 {
 }
 
 .dt-ours__chart {
+  position: relative;
   margin: 0;
 }
 
@@ -900,17 +1083,6 @@ html[data-theme='dark'] .dt-abyss-1 {
   stroke-opacity: 1;
 }
 
-.dt-ours__later {
-  stroke: var(--dt-hue);
-  stroke-width: 1.2;
-  stroke-dasharray: 2 3;
-}
-
-.dt-ours__later-end {
-  fill: var(--color-paper);
-  stroke: var(--dt-hue);
-  stroke-width: 1.4;
-}
 
 .dt-ours__seam {
   stroke: var(--color-ink);
@@ -1186,14 +1358,7 @@ html[data-theme='dark'] .dt-ours__row * {
 }
 
 .dt-glyph--h-later::after {
-  content: '';
-  position: absolute;
   right: -2px;
   top: 50%;
-  width: 7px;
-  height: 7px;
   margin-top: -4.5px;
-  border: 1.5px solid var(--color-ink);
-  border-radius: 50%;
-  background: var(--color-paper);
 }
