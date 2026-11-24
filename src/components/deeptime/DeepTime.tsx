@@ -35,10 +35,10 @@ const hue = (accent: { light: string; dark: string }) =>
 function geometry(compact: boolean, focusCount = 0, longestName = 0) {
   if (compact && focusCount) {
     // Nejvýš o kousek širší než u Fantasy (12 světů), aby se málo světů nezvětšilo přes celý displej.
-    const pitch = Math.min(30, (390 - 64 - 8) / focusCount);
+    const pitch = Math.min(40, (390 - 80 - 8) / focusCount);
     // Nad hladinou jen tolik místa, kolik potřebuje nejdelší jméno.
-    const top = Math.round(18 + longestName * 6.2);
-    return { gutter: 64, pitch, col: Math.round(pitch * 0.5), top, groupGap: 0, label: 10.5, decade: 58 };
+    const top = Math.round(18 + longestName * 7.4);
+    return { gutter: 80, pitch, col: Math.round(pitch * 0.5), top, groupGap: 0, label: 12.5, decade: 68 };
   }
   return compact
     ? { gutter: 58, pitch: 7.6, col: 5, top: 14, groupGap: 5, label: 9.5, decade: 58 }
@@ -279,8 +279,8 @@ export default function DeepTime({ base, worlds, chapters, now }: Props) {
                     <text
                       className="dt-scale__label"
                       x={g.gutter - 12}
-                      // u zlomu odsunout popisky od přetržené linky: 100 000 nad ni, milion pod ni
-                      y={y + (d === SCALE.detailLog ? -2 : d === SCALE.abyssLog ? 9 : 3.5)}
+                      // u zlomu leží popisky přesně na přetržených linkách (horní 100 000, dolní milion)
+                      y={y + (d === SCALE.detailLog ? 6.5 : d === SCALE.abyssLog ? 0.5 : 3.5)}
                       textAnchor="end"
                       fontSize={g.label}
                     >
