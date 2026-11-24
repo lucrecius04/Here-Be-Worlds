@@ -28,6 +28,8 @@ import { withBase } from '../lib/base-url';
 const base = import.meta.env.BASE_URL;
 // Karty pro sdílení (public/og/, generuje `npm run og`) potřebují absolutní adresu.
 const ogImageUrl = new URL(withBase(base, ogImage), Astro.site ?? Astro.url).href;
+// Adresa stránky pro og:url (Facebook a Messenger podle ní párují náhled se stránkou).
+const pageUrl = new URL(Astro.url.pathname, Astro.site ?? Astro.url).href;
 const published = worlds
   .filter((world) => !world.draft)
   .map((world) => ({ id: world.id, gameTitle: world.gameTitle }));
@@ -43,6 +45,7 @@ const published = worlds
     <meta property="og:site_name" content="Here Be Worlds" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
+    <meta property="og:url" content={pageUrl} />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="cs_CZ" />
     <meta property="og:image" content={ogImageUrl} />
