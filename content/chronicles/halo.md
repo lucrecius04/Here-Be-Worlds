@@ -204,10 +204,13 @@ V říjnu roku 2024 však Microsoft a vedení studia oznámily historický přer
 | 852 př. n. l. | Mír a spojení mezi Proroky (San'Shyuum) a Elitáři (Sangheili) dá vzniknout teokratickému impériu Smlouvy (The Covenant), hledajícímu prstence Halo pro Velkou pouť. |
 | 2517 n. l. | Doktorka Catherine Halseyová unese 75 šestiletých dětí (včetně Johna-117), nahradí je umírajícími klony a na planetě Reach zahájí program SPARTAN-II k potlačení lidských koloniálních rebelií. |
 | Únor 2525 | První kontakt na planetě Harvest; Proroci Pravdy, Slitování a Lítosti zjistí od AI, že lidé jsou Navrátilci (dědicové bohů), a aby utajili kolaps svého náboženství, vyhlásí válku za vyhlazení lidstva. |
+| 2531 | (Halo Wars) Posádka lodi UNSC Spirit of Fire pod velením kapitána Jamese Cuttera brání kolonii Harvest a planetu Arcadia před Smlouvou; na štítovém světě Předchůdců zničí flotilu prastarých lodí, o kterou Smlouva usiluje, a sama se ztratí v podprostoru. |
 | Srpen–Září 2552 | (Halo: Reach & Halo: CE) Pád planety Reach (oběť týmu Noble); křižník Pillar of Autumn s Master Chiefem a Cortanou objeví Instalaci 04, vypuštění Potopy a Chiefovo zničení prstence výbuchem reaktorů. |
 | Říjen–Prosinec 2552 | (Halo 2 & Halo 3) Útok Smlouvy na Zemi, objevení Delta Halo a vypuknutí Velkého schizmatu; Arbiter Thel 'Vadam se spojí s Chiefem, na Arše zabijí Proroka Pravdy a výbuchem nového prstence zničí Potopu i Graveminda. |
+| Říjen 2552 | (Halo 3: ODST) Výsadkoví vojáci ODST jsou po seskoku rozptýleni v okupované Nové Mombase; nováček s pomocí městské umělé inteligence Superintendenta najde stopy svého oddílu, který pak doprovodí z města Inženýra s klíčovými informacemi o Halo. |
 | Červenec 2557 | (Halo 4) Po 4 letech spánku probudí umírající Cortana Chiefa u světa Requiem; nechtěné osvobození Didacta, útok Skladatelem na Zemi a oběť Cortany při zničení Didactovy lodi. |
 | Říjen 2558 | (Halo 5: Guardians) Fragmenty Cortany přežijí v síti Doména; vyléčená, leč totalitní Cortana zahájí vzpouru umělých inteligencí (Stvoření), probudí obří Strážce a převezme kontrolu nad galaxií. |
+| 2559 | (Halo Wars 2) Spirit of Fire se po 28 letech v podprostoru probudí u Archy, kde narazí na Vyhnance (Banished) vedené Brutem Atrioxem, a posádka se jim v bojích o Archu postaví, odříznutá od domova. |
 | 2559–Květen 2560 | (Halo Infinite) Cortana zničí domovskou planetu Brutů Doisac; Atriox a Vyhnanci porazí u Zeta Halo lidskou flotilu, Cortana v pokání obětuje život k roztržení prstence a Master Chief s novou AI Zbraní čelí probuzení Nekonečných. |
 
 ![Graf 2: Hlavní milníky vesmíru Halo (rozestupy nejsou v měřítku)](/chronicles/halo/fig_casova_osa.png)

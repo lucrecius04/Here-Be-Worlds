@@ -53,9 +53,13 @@ describe('hlubina času', () => {
       [7, true],
     ]);
     expect(laterParts(DEEP_TIME['fallout'])[0].isGame).toBe(false);
-    // každá hra má název (popisek dílu v grafech), události mimo hry ho nemají
+    // každá hra má název (popisek dílu v grafech); katastrofa nebo předěl ho mají, když jsou zároveň dílem
     for (const [id, deep] of Object.entries(DEEP_TIME))
-      for (const e of deep.events) expect(Boolean(e.game), `${id}: ${e.when}`).toBe(e.kind === 'game');
+      for (const e of deep.events) if (e.kind === 'game') expect(e.game, `${id}: ${e.when}`).toBeTruthy();
+    expect(gameParts(DEEP_TIME['resident-evil']).map((p) => p.e.game)).toContain('Resident Evil 2 a 3');
+    // díly, které chyběly (2026-11-25): mezi hrami jsou i ty, které jsou zároveň zlomem
+    expect(gameParts(DEEP_TIME['elder-scrolls']).length).toBe(6);
+    expect(gameParts(DEEP_TIME['halo']).length).toBe(7);
     const fo3 = DEEP_TIME['fallout'].events.find((e) => e.when === '2277')!;
     expect(partDetail(fo3)).toBe('Projekt Čistota');
     const ody = DEEP_TIME['assassins-creed'].events.find((e) => e.game === "Assassin's Creed Odyssey")!;

@@ -1,5 +1,5 @@
 {
-  "_note": "Hlubina času (/hlubina-casu/): časové osy kronik (Faktografie) převedené na hloubku v letech před přítomností světa. ago = číslo (roky), [od, do] = odhad (z textu kroniky, např. 'po tisíce let'), \"myth\" = mýtický čas bez letopočtu, null = kronika datum neuvádí (jen v seznamu). after = roky po přítomnosti (pozdější díly). presentYear = rok přítomnosti v našem letopočtu (jen světy, které počítají roky jako my; graf Na naší časové ose). kind: origin · turn · catastrophe · game. Přítomnost = čas hlavní hry série (pozdější odbočky jako after). Každý údaj ověřený proti časové ose kroniky; odhady jen tam, kde je opora v textu kroniky.",
+  "_note": "Hlubina času (/hlubina-casu/): časové osy kronik (Faktografie) převedené na hloubku v letech před přítomností světa. ago = číslo (roky), [od, do] = odhad (z textu kroniky, např. 'po tisíce let'), \"myth\" = mýtický čas bez letopočtu, null = kronika datum neuvádí (jen v seznamu). after = roky po přítomnosti (pozdější díly). presentYear = rok přítomnosti v našem letopočtu (jen světy, které počítají roky jako my; graf Na naší časové ose). kind: origin · turn · catastrophe · game. game = název hry: hraný díl (zářez v grafech); může ho mít i katastrofa nebo předěl, který je zároveň dílem (pád Raccoon City = Resident Evil 2 a 3). Přítomnost = čas hlavní hry série (pozdější odbočky jako after). Každý údaj ověřený proti časové ose kroniky; odhady jen tam, kde je opora v textu kroniky.",
   "worlds": {
     "assassins-creed": {
       "presentYear": 2020,
@@ -11,9 +11,10 @@
         { "ago": 1150, "when": "861–878 n. l.", "kind": "game", "game": "Assassin's Creed Mirage a Valhalla", "text": "Mirage a Valhalla: Basim a Eivor, Loki uvězněn v Yggdrasilu" },
         { "ago": 829, "when": "1191", "kind": "game", "game": "Assassin's Creed", "text": "Assassin's Creed: Altaïr a třetí křížová výprava" },
         { "ago": 530, "when": "1476–1512", "kind": "game", "game": "Assassin's Creed II, Brotherhood a Revelations", "text": "Ezio buduje Bratrstvo v Itálii a Konstantinopoli" },
+        { "ago": 439.5, "when": "1579–1582", "kind": "game", "game": "Assassin's Creed Shadows", "text": "Shadows: Naoe a Jasuke v Japonsku éry Sengoku" },
         { "ago": 270, "when": "1715–1783", "kind": "game", "game": "Assassin's Creed IV Black Flag, Rogue a III", "text": "Sága Kenwayů v Americe" },
         { "ago": 190, "when": "1789–1868", "kind": "game", "game": "Assassin's Creed Unity a Syndicate", "text": "Unity a Syndicate: revoluční Paříž, viktoriánský Londýn" },
-        { "ago": 8, "when": "21. 12. 2012", "kind": "catastrophe", "text": "Desmond obětuje život, aby odvrátil sluneční erupci" },
+        { "ago": 8, "when": "21. 12. 2012", "kind": "catastrophe", "game": "Assassin's Creed I–III (současnost)", "text": "Desmond obětuje život, aby odvrátil sluneční erupci" },
         { "ago": 0, "when": "2017–2020", "kind": "game", "game": "Assassin's Creed Origins, Odyssey a Valhalla (současnost)", "text": "Layla s Hůlí Herma, Basim vchází do současnosti" }
       ]
     },
@@ -26,6 +27,7 @@
         { "ago": 424, "when": "cca 1068 DR", "kind": "turn", "text": "Balduran staví hradby přístavu" },
         { "ago": 134, "when": "1358 DR", "kind": "catastrophe", "text": "Čas nesnází: bohové svrženi na zem, Bhaal plodí potomky" },
         { "ago": 124, "when": "1368 DR", "kind": "game", "game": "Baldur's Gate", "text": "Baldur's Gate: Gorionova smrt a porážka Sarevoka" },
+        { "ago": 124, "when": "1368 DR", "kind": "game", "game": "Baldur's Gate: Siege of Dragonspear", "text": "Siege of Dragonspear: tažení Caelar Argentové na Dragonspear" },
         { "ago": 123, "when": "1369 DR", "kind": "game", "game": "Baldur's Gate II a Throne of Bhaal", "text": "Baldur's Gate II a Throne of Bhaal" },
         { "ago": 10, "when": "1482 DR", "kind": "turn", "text": "Smrt posledních Bhaalových dětí, Bhaal se vrací" },
         { "ago": 0, "when": "1492 DR", "kind": "game", "game": "Baldur's Gate 3", "text": "Pád Elturelu, Kult Absolutna a bitva o Baldur's Gate" }
@@ -39,7 +41,7 @@
         { "ago": 75, "when": "1893", "kind": "turn", "text": "Columbia stoupá k obloze" },
         { "ago": 56, "when": "Červenec 1912", "kind": "game", "game": "BioShock Infinite", "text": "BioShock Infinite: Booker, Elizabeth a utopení u křtu" },
         { "ago": 22, "when": "1946", "kind": "turn", "text": "Andrew Ryan začíná stavět Rapture" },
-        { "ago": 10, "when": "31. 12. 1958", "kind": "catastrophe", "text": "Silvestrovský útok rozpoutá v Rapture občanskou válku" },
+        { "ago": 10, "when": "31. 12. 1958", "kind": "catastrophe", "game": "BioShock Infinite: Burial at Sea", "text": "Silvestrovský útok rozpoutá v Rapture občanskou válku" },
         { "ago": 8, "when": "1960", "kind": "game", "game": "BioShock", "text": "BioShock: Jack sestupuje do Rapture" },
         { "ago": 0, "when": "1968", "kind": "game", "game": "BioShock 2", "text": "BioShock 2: Subjekt Delta a Eleanor" }
       ]
@@ -133,7 +135,8 @@
         { "ago": 3136, "when": "cca −1800", "kind": "catastrophe", "text": "Hříšná válka a Uldyssianova oběť" },
         { "ago": 372, "when": "964", "kind": "turn", "text": "Temné vyhnanství, Horadrimové a Kameny duší" },
         { "ago": 73, "when": "1263", "kind": "game", "game": "Diablo", "text": "Diablo: probuzení pod Tristramem" },
-        { "ago": 71, "when": "1264–1265", "kind": "catastrophe", "text": "Diablo II: Tyrael zničí Kámen světa" },
+        { "ago": 71, "when": "1264–1265", "kind": "catastrophe", "game": "Diablo II a Lord of Destruction", "text": "Diablo II: Tyrael zničí Kámen světa" },
+        { "ago": 66, "when": "1270", "kind": "game", "game": "Diablo Immortal", "text": "Diablo Immortal: honba za úlomky Kamene světa" },
         { "ago": 51, "when": "1285–1286", "kind": "game", "game": "Diablo III", "text": "Diablo III: Malthael a genocida lidstva" },
         { "ago": 0, "when": "1336", "kind": "game", "game": "Diablo IV", "text": "Diablo IV: návrat Lilith" },
         { "after": 100, "when": "cca 1436", "kind": "game", "game": "Diablo V (ohlášeno)", "text": "Diablo V (ohlášeno): svět, v němž Diablo zvítězil" }
@@ -160,6 +163,7 @@
         { "ago": null, "when": "Založení Opatství a Impéria", "kind": "turn", "text": "Válka čtyř ostrovů, sjednocení Ostrovní říše" },
         { "ago": 35, "when": "cca 1800–1835", "kind": "turn", "text": "Velrybí olej a průmyslová revoluce v Dunwallu" },
         { "ago": 16, "when": "Měsíc deště 1836", "kind": "catastrophe", "text": "Vražda císařovny Jessamine, morové krysy" },
+        { "ago": 15.5, "when": "1836–1837", "kind": "game", "game": "The Knife of Dunwall a The Brigmore Witches", "text": "Daud pátrá po jménu Delilah" },
         { "ago": 15, "when": "1837", "kind": "game", "game": "Dishonored", "text": "Dishonored: Corvo svrhne regenta" },
         { "ago": 3, "when": "1849", "kind": "turn", "text": "Rituál vytáhne Delilah z Prázdnoty" },
         { "ago": 0, "when": "1852", "kind": "game", "game": "Dishonored 2 a Death of the Outsider", "text": "Dishonored 2 a Death of the Outsider: Cizinec znovu smrtelný" },
@@ -189,7 +193,7 @@
         { "ago": 1022, "when": "−170 Starověku", "kind": "turn", "text": "Andraste, Oltář a kalendář Věků" },
         { "ago": [53, 851], "when": "1:01 – 8:99", "kind": "catastrophe", "text": "Druhá až Čtvrtá Nákaza, pád Dales" },
         { "ago": 22, "when": "9:30 Dračího věku", "kind": "game", "game": "Dragon Age: Origins", "text": "Origins: Pátá Nákaza ve Fereldenu" },
-        { "ago": 15, "when": "9:37", "kind": "catastrophe", "text": "Dragon Age II: výbuch katedrály v Kirkwallu" },
+        { "ago": 15, "when": "9:37", "kind": "catastrophe", "game": "Dragon Age II", "text": "Dragon Age II: výbuch katedrály v Kirkwallu" },
         { "ago": 11, "when": "9:41", "kind": "game", "game": "Dragon Age: Inquisition", "text": "Inquisition: Trhlina na nebesích" },
         { "ago": 0, "when": "9:52", "kind": "game", "game": "Dragon Age: The Veilguard", "text": "The Veilguard: Závoj vydrží" }
       ]
@@ -217,7 +221,9 @@
         { "ago": 948, "when": "2E 582", "kind": "game", "game": "The Elder Scrolls Online", "text": "The Elder Scrolls Online: Bezvládí" },
         { "ago": 634, "when": "2E 896", "kind": "turn", "text": "Tiber Septim sjednotí Tamriel" },
         { "ago": 245, "when": "3E 389", "kind": "game", "game": "The Elder Scrolls: Arena", "text": "Arena: Vězeň osvobodí císaře" },
-        { "ago": 201, "when": "3E 433", "kind": "catastrophe", "text": "Oblivion: Brány Zapomnění, konec Třetího věku" },
+        { "ago": 217, "when": "3E 417", "kind": "game", "game": "The Elder Scrolls II: Daggerfall", "text": "Daggerfall: Numidium a Zázrak míru" },
+        { "ago": 207, "when": "3E 427", "kind": "game", "game": "The Elder Scrolls III: Morrowind", "text": "Morrowind: Nerevarin a pád Tribunálu" },
+        { "ago": 201, "when": "3E 433", "kind": "catastrophe", "game": "The Elder Scrolls IV: Oblivion", "text": "Oblivion: Brány Zapomnění, konec Třetího věku" },
         { "ago": 196, "when": "4E 5", "kind": "catastrophe", "text": "Rudý rok: výbuch Rudé hory" },
         { "ago": 30, "when": "4E 171", "kind": "catastrophe", "text": "Velká válka a Bělozlatý konkordát" },
         { "ago": 0, "when": "4E 201", "kind": "game", "game": "The Elder Scrolls V: Skyrim", "text": "Skyrim: návrat Alduina" }
@@ -258,7 +264,7 @@
         { "ago": "myth", "when": "Pradávná minulost", "kind": "origin", "text": "Combine ničí domovský svět Nihilantha" },
         { "ago": 78, "when": "1943–1947", "kind": "turn", "text": "Cave Johnson zakládá Aperture" },
         { "ago": 52, "when": "1971", "kind": "turn", "text": "Loď Borealis beze stopy mizí" },
-        { "ago": [14, 23], "when": "16.–18. května „200-“", "kind": "catastrophe", "text": "Incident v Black Mesa: rezonanční kaskáda" },
+        { "ago": [14, 23], "when": "16.–18. května „200-“", "kind": "catastrophe", "game": "Half-Life, Opposing Force, Blue Shift a Decay", "text": "Incident v Black Mesa: rezonanční kaskáda" },
         { "ago": [13, 22], "when": "Krátce po roce „200-“", "kind": "catastrophe", "text": "Sedmihodinová válka, Země kapituluje před Combine" },
         { "ago": 13, "when": "Kolem roku 2010", "kind": "game", "game": "Portal", "text": "Portal: Chell a GLaDOS" },
         { "ago": 5, "when": "Kolem roku 2018", "kind": "game", "game": "Half-Life: Alyx", "text": "Half-Life: Alyx" },
@@ -275,8 +281,12 @@
         { "ago": 100005, "when": "97 445 př. n. l.", "kind": "catastrophe", "text": "Sedm prstenců Halo vyhubí život v galaxii" },
         { "ago": 3412, "when": "852 př. n. l.", "kind": "turn", "text": "Vzniká Smlouva" },
         { "ago": 35, "when": "Únor 2525", "kind": "catastrophe", "text": "První kontakt na Harvestu, válka za vyhlazení lidstva" },
+        { "ago": 29, "when": "2531", "kind": "game", "game": "Halo Wars", "text": "Halo Wars: Spirit of Fire u Harvestu a Arcadie" },
         { "ago": 8, "when": "2552", "kind": "game", "game": "Halo: Reach a Combat Evolved", "text": "Halo: Reach a Combat Evolved" },
+        { "ago": 7.5, "when": "Říjen–Prosinec 2552", "kind": "game", "game": "Halo 2, Halo 3: ODST a Halo 3", "text": "Smlouva útočí na Zemi, Velké schizma a Archa" },
         { "ago": 3, "when": "2557", "kind": "game", "game": "Halo 4", "text": "Halo 4: Didact a Cortanina oběť" },
+        { "ago": 1.2, "when": "Říjen 2558", "kind": "game", "game": "Halo 5: Guardians", "text": "Halo 5: Cortana a vzpoura umělých inteligencí" },
+        { "ago": 1, "when": "2559", "kind": "game", "game": "Halo Wars 2", "text": "Halo Wars 2: Spirit of Fire u Archy proti Vyhnancům" },
         { "ago": 0, "when": "2559–2560", "kind": "game", "game": "Halo Infinite", "text": "Halo Infinite: Zeta Halo" }
       ]
     },
@@ -333,6 +343,7 @@
         { "ago": 23, "when": "6. 7. 2013", "kind": "catastrophe", "text": "Soudný den: jaderný úder na Moskvu" },
         { "ago": 20, "when": "2014–2018", "kind": "turn", "text": "Arťom poprvé splyne s Temnými" },
         { "ago": 10, "when": "2025–2028", "kind": "turn", "text": "Podzemní státy a válka s Hanzou" },
+        { "ago": 8, "when": "2028", "kind": "game", "game": "Metro Awakening", "text": "Metro Awakening: lékař Serdar a zrod Chána" },
         { "ago": 3, "when": "Listopad 2033", "kind": "game", "game": "Metro 2033", "text": "Metro 2033: rakety na Botanickou zahradu" },
         { "ago": 2, "when": "Jaro 2034", "kind": "game", "game": "Metro: Last Light", "text": "Metro: Last Light" },
         { "ago": 0, "when": "2035–2036", "kind": "game", "game": "Metro Exodus", "text": "Metro Exodus: pouť Aurory k Bajkalu" }
@@ -342,7 +353,7 @@
       "presentYear": 11945,
       "present": "Březen 11945 · NieR: Automata",
       "events": [
-        { "ago": 9942, "when": "Červen 2003", "kind": "catastrophe", "text": "Drakengard: rudý drak nad Tokiem, svět zaplaví Maso" },
+        { "ago": 9942, "when": "Červen 2003", "kind": "catastrophe", "game": "Drakengard (konec E)", "text": "Drakengard: rudý drak nad Tokiem, svět zaplaví Maso" },
         { "ago": [9892, 9941], "when": "2004 – 2053", "kind": "catastrophe", "text": "Syndrom bílého chlorování, Projekt Gestalt" },
         { "ago": 8579, "when": "3366", "kind": "game", "game": "NieR Replicant", "text": "NieR Replicant: smrt Stínového pána" },
         { "ago": 7747, "when": "4198", "kind": "catastrophe", "text": "Umírá poslední Gestalt, lidstvo vyhyne" },
@@ -375,6 +386,7 @@
         { "ago": 1619, "when": "Rok 1 V. I.", "kind": "turn", "text": "Veruso zakládá Věčné impérium" },
         { "ago": 286, "when": "1334 V. I.", "kind": "catastrophe", "text": "Kataklyzma promění Wraeclast v říši nemrtvých" },
         { "ago": 20, "when": "1600 V. I.", "kind": "game", "game": "Path of Exile", "text": "Path of Exile: Vyhnanec zabije Bestii" },
+        { "ago": 18, "when": "cca 1601–1603 V. I.", "kind": "game", "game": "Path of Exile: Atlas světů", "text": "Atlas světů: Vyhnanec porazí Tvůrce i Staršího" },
         { "ago": 0, "when": "cca 1620 V. I.", "kind": "game", "game": "Path of Exile 2", "text": "Path of Exile 2: Semeno zkázy" }
       ]
     },
@@ -408,7 +420,7 @@
         { "ago": [1240, 1540], "when": "1.–4. stol. n. l.", "kind": "turn", "text": "Římané, akvadukt a Mithrova svatyně" },
         { "ago": [540, 1040], "when": "Raný středověk", "kind": "turn", "text": "Misionáři přepisují legendy, vzniká Kiersau" },
         { "ago": 25, "when": "1518", "kind": "game", "game": "Pentiment, I. dějství", "text": "I. dějství: vražda barona Rothvogela" },
-        { "ago": 18, "when": "1525", "kind": "catastrophe", "text": "II. dějství: selské povstání, klášter vyhoří" },
+        { "ago": 18, "when": "1525", "kind": "catastrophe", "game": "Pentiment, II. dějství", "text": "II. dějství: selské povstání, klášter vyhoří" },
         { "ago": 0, "when": "1543", "kind": "game", "game": "Pentiment, III. dějství", "text": "III. dějství: Magdalene a freska na radnici" }
       ]
     },
@@ -445,8 +457,11 @@
         { "ago": 60, "when": "Prosinec 1966", "kind": "turn", "text": "Objev viru Progenitor" },
         { "ago": 58, "when": "1968", "kind": "turn", "text": "Vzniká korporace Umbrella" },
         { "ago": 28, "when": "Červenec 1998", "kind": "game", "game": "Resident Evil", "text": "Resident Evil: Arklayské sídlo" },
-        { "ago": 28, "when": "1. 10. 1998", "kind": "catastrophe", "text": "Zničení Raccoon City" },
+        { "ago": 28, "when": "1. 10. 1998", "kind": "catastrophe", "game": "Resident Evil 2 a 3", "text": "Zničení Raccoon City" },
+        { "ago": 27.8, "when": "Prosinec 1998", "kind": "game", "game": "Resident Evil – Code: Veronica", "text": "Claire na ostrově Rockfort, Alexia a virus T-Veronica" },
         { "ago": 22, "when": "2004", "kind": "game", "game": "Resident Evil 4", "text": "Resident Evil 4" },
+        { "ago": 17, "when": "2009", "kind": "game", "game": "Resident Evil 5", "text": "Chris a Sheva zastaví Weskerův virus Uroboros" },
+        { "ago": 13.5, "when": "2012–2013", "kind": "game", "game": "Resident Evil 6", "text": "Globální útok C-virem" },
         { "ago": 9, "when": "2017", "kind": "game", "game": "Resident Evil 7", "text": "Resident Evil 7: Bakerovi" },
         { "ago": 5, "when": "2021", "kind": "game", "game": "Resident Evil Village", "text": "Village: Ethanova oběť" },
         { "ago": 0, "when": "Říjen 2026", "kind": "game", "game": "Resident Evil Requiem", "text": "Requiem: návrat do Raccoon City" }
@@ -460,9 +475,13 @@
         { "ago": 310, "when": "Konec 17. stol.", "kind": "catastrophe", "text": "Osadu založenou osadníky vylidní epidemie" },
         { "ago": 140, "when": "1861 – 1865", "kind": "catastrophe", "text": "Zajatecký tábor Toluca" },
         { "ago": 85, "when": "Listopad 1918", "kind": "turn", "text": "V mlze mizí parník Little Baroness" },
-        { "ago": [23, 33], "when": "70. léta", "kind": "catastrophe", "text": "Dahlia upálí Alessu, aby probudila Božstvo" },
+        { "ago": [34, 43], "when": "60. léta", "kind": "game", "game": "Silent Hill f", "text": "Silent Hill f: Hinako v mlze japonského Ebisugaoka" },
+        { "ago": [23, 33], "when": "70. léta", "kind": "catastrophe", "game": "Silent Hill: Origins", "text": "Dahlia upálí Alessu, aby probudila Božstvo" },
         { "ago": [13, 23], "when": "80. léta", "kind": "game", "game": "Silent Hill", "text": "Silent Hill: Harry Mason a Cheryl" },
+        { "ago": 7, "when": "1996", "kind": "game", "game": "Silent Hill: Townfall", "text": "Townfall: Simon Ordell na skotském ostrově St. Amelia" },
         { "ago": [3, 13], "when": "90. léta", "kind": "game", "game": "Silent Hill 2", "text": "Silent Hill 2: James Sunderland" },
+        { "ago": null, "when": "Datum neuvedeno", "kind": "game", "game": "Silent Hill: Homecoming", "text": "Homecoming: voják Alex Shepherd se vrací do Shepherd's Glen" },
+        { "ago": null, "when": "Datum neuvedeno", "kind": "game", "game": "Silent Hill: Downpour", "text": "Downpour: trestanec Murphy Pendleton po havárii vězeňského autobusu" },
         { "ago": 0, "when": "Počátek 21. stol.", "kind": "game", "game": "Silent Hill 3 a 4", "text": "Silent Hill 3 a 4" }
       ]
     },
@@ -487,7 +506,9 @@
         { "ago": 249, "when": "2259", "kind": "turn", "text": "Vězeňské archy přistávají v Koprulu" },
         { "ago": 19, "when": "2489", "kind": "catastrophe", "text": "Konfederace zničí Korhal jadernými střelami" },
         { "ago": 9, "when": "2499", "kind": "game", "game": "StarCraft", "text": "StarCraft: Královna čepelí" },
+        { "ago": 8, "when": "2500", "kind": "game", "game": "StarCraft: Brood War", "text": "Brood War: Válka krve a Královna čepelí vládne sektoru" },
         { "ago": 4, "when": "2504", "kind": "game", "game": "StarCraft II: Wings of Liberty", "text": "Wings of Liberty" },
+        { "ago": 3, "when": "2505", "kind": "game", "game": "StarCraft II: Heart of the Swarm", "text": "Heart of the Swarm: Kerriganová přijme moc Prvotních Zergů" },
         { "ago": 2, "when": "2506", "kind": "game", "game": "StarCraft II: Legacy of the Void", "text": "Legacy of the Void: probuzení Amona" },
         { "ago": 0, "when": "2508", "kind": "game", "game": "Legacy of the Void: Into the Void", "text": "Kerriganová se stává Xel'Nagou" }
       ]
@@ -501,6 +522,7 @@
         { "ago": 105, "when": "cca 1160–1180", "kind": "catastrophe", "text": "Linie Starší krve, vyplenění Kaer Morhen" },
         { "ago": 15, "when": "1252–1268", "kind": "turn", "text": "Knižní sága a války s Nilfgaardem" },
         { "ago": 5, "when": "1270", "kind": "game", "game": "Zaklínač", "text": "Zaklínač" },
+        { "ago": 4, "when": "1271", "kind": "game", "game": "Zaklínač 2: Vrahové králů", "text": "Vrahové králů: Letho a vražda Foltesta" },
         { "ago": 3, "when": "1272", "kind": "game", "game": "Zaklínač 3: Divoký hon", "text": "Zaklínač 3: Divoký hon" },
         { "ago": 0, "when": "1275", "kind": "game", "game": "Zaklínač 3: O víně a krvi", "text": "O víně a krvi: Corvo Bianco" }
       ]
@@ -536,9 +558,11 @@
         { "ago": 10040, "when": "−10 000 let", "kind": "catastrophe", "text": "Válka prastarých a Velké rozdělení kontinentů" },
         { "ago": null, "when": "Pád Draenoru", "kind": "catastrophe", "text": "Orkové vypijí krev démona a zničí svou planetu" },
         { "ago": 40, "when": "Rok 0", "kind": "game", "game": "Warcraft I a II", "text": "Warcraft: Temný portál" },
-        { "ago": 20, "when": "Rok 20", "kind": "catastrophe", "text": "Warcraft III: Arthas a Pohroma" },
-        { "ago": 12, "when": "Rok 28", "kind": "catastrophe", "text": "Cataclysm: Deathwing roztrhá svět" },
+        { "ago": 20, "when": "Rok 20", "kind": "catastrophe", "game": "Warcraft III a The Frozen Throne", "text": "Warcraft III: Arthas a Pohroma" },
+        { "ago": 14, "when": "Rok 25–27", "kind": "game", "game": "World of Warcraft, The Burning Crusade a Wrath of the Lich King", "text": "Illidan v Outlandu a pád Krále lichů" },
+        { "ago": 12, "when": "Rok 28", "kind": "catastrophe", "game": "World of Warcraft: Cataclysm, Mists of Pandaria a Warlords of Draenor", "text": "Cataclysm: Deathwing roztrhá svět" },
         { "ago": 8, "when": "Rok 32", "kind": "game", "game": "World of Warcraft: Legion", "text": "Legion: poslední invaze Plamenné legie" },
+        { "ago": 5.5, "when": "Rok 33–36", "kind": "game", "game": "World of Warcraft: Battle for Azeroth a Shadowlands", "text": "Čtvrtá válka a rozlomení koruny Krále lichů" },
         { "ago": 0, "when": "Rok 40", "kind": "game", "game": "World of Warcraft: Midnight", "text": "Midnight: Xal'atath a síly Prázdnoty" }
       ]
     },
@@ -561,7 +585,7 @@
       "events": [
         { "ago": [1000000, 10000000], "when": "Před miliony let", "kind": "origin", "text": "Éteričtí prchají před neznámou hrozbou" },
         { "ago": 73, "when": "1962", "kind": "game", "game": "The Bureau: XCOM Declassified", "text": "The Bureau: XCOM Declassified" },
-        { "ago": 20, "when": "1. 3. 2015", "kind": "catastrophe", "text": "Mimozemská invaze, XCOM prohrává" },
+        { "ago": 20, "when": "1. 3. 2015", "kind": "catastrophe", "game": "XCOM: Enemy Unknown a Enemy Within", "text": "Mimozemská invaze, XCOM prohrává" },
         { "ago": 0.75, "when": "1. 3. 2035", "kind": "game", "game": "XCOM 2", "text": "XCOM 2: osvobození Velitele" },
         { "ago": 0, "when": "Zima 2035", "kind": "game", "game": "XCOM 2", "text": "Pravda o klinikách, smrt Starších" },
         { "after": 5, "when": "2040", "kind": "game", "game": "XCOM: Chimera Squad", "text": "Chimera Squad: Město 31" }
@@ -572,7 +596,7 @@
       "cycle": "V Aioniu se životy Noaha a Mio po deseti letech znovu a znovu rodí",
       "events": [
         { "ago": [1100, 11000], "when": "21. století (Země)", "kind": "catastrophe", "text": "Klausův experiment roztrhne realitu na dva vesmíry; Klaus pak tisíce let v samotě" },
-        { "ago": [600, 1500], "when": "Před 500 lety (Alrest)", "kind": "catastrophe", "text": "Torna: Válka Aegisů" },
+        { "ago": [600, 1500], "when": "Před 500 lety (Alrest)", "kind": "catastrophe", "game": "Xenoblade Chronicles 2: Torna – The Golden Country", "text": "Torna: Válka Aegisů" },
         { "ago": [100, 1000], "when": "Souběžný rok", "kind": "game", "game": "Xenoblade Chronicles 1 a 2", "text": "Xenoblade 1 a 2: Shulk a Rex osvobodí své světy" },
         { "ago": null, "when": "Zrození Aioniosu", "kind": "catastrophe", "text": "Moebius zmrazí čas v okamžiku srážky světů" },
         { "ago": null, "when": "Staletí v Aioniu", "kind": "turn", "text": "Nekonečný koloběh reinkarnací" },

@@ -147,11 +147,16 @@ Obrat nastal až v posledních letech, kdy se Konami rozhodlo sérii vzkřísit.
 | 1810 – 1840 | Osada je přejmenována na Silent Hill; vzniká věznice a později nemocnice Brookhaven pro oběti dalších epidemií. |
 | 1861 – 1865 | Během americké občanské války funguje u jezera zajatecký tábor Toluca, dějiště masových poprav a týrání. |
 | Listopad 1918 | Na jezeře Toluca v mlze beze stopy mizí výletní parník Little Baroness se 14 lidmi na palubě. |
+| 60. léta 20. stol. | (Silent Hill f) Japonské horské městečko Ebisugaoka zahalí mlha a rudé lilie; dospívající Hinako Šimizu prchá před příšerami i před sňatkem, který jí chystá rodina. |
 | 70. léta 20. stol. | Dahlia Gillespie zaživa upálí svou sedmiletou dceru Alessu, aby v ní probudila Božstvo; Alessa rozdělí svou duši a vzniká nemluvně Cheryl. |
+| 70. léta 20. stol. | (Silent Hill: Origins) Řidič kamionu Travis Grady vytáhne z hořícího domu popálenou Alessu; v mlze a Jiném světě pak čelí Řádu, Dahlii i vlastním vzpomínkám na rodiče. Odehrává se sedm let před prvním dílem. |
 | 80. léta 20. stol. | (Silent Hill 1) Harry Mason přijíždí s Cheryl do města; po porážce zárodku boha odchází s reinkarnovaným dítětem (Heather). |
 | 90. léta 20. stol. | (Silent Hill 2) James Sunderland udusí svou nemocnou ženu Mary a přijíždí do města veden přeludem dopisu. |
+| 1996 | (Silent Hill: Townfall) Mlha zahalí skotský ostrov St. Amelia; Simon Ordell pátrá v jeho opuštěném městě s kapesní televizí, která zachytí i to, co oči nevidí. |
 | Počátek 21. stol. | (Silent Hill 3) Sedmnáctiletá Heather Mason je vypátrána sektou; po vraždě Harryho se vrací do města a definitivně zničí zárodek boha. |
 | Počátek 21. stol. | (Silent Hill 4) Henry Townshend je uvězněn v bytě 302 v Ashfieldu a čelí rituálu 21 svátostí mrtvého Waltera Sullivana. |
+| Datum neuvedeno | (Silent Hill: Homecoming) Voják Alex Shepherd se vrací do rodného Shepherd's Glen u Silent Hillu hledat zmizelého bratra Joshuu a odhalí, že zakládající rodiny města obětují Řádu své děti. |
+| Datum neuvedeno | (Silent Hill: Downpour) Trestanec Murphy Pendleton unikne z havarovaného vězeňského autobusu nedaleko Silent Hillu; město ho nutí čelit vlastní vině a pomstě za zavražděného syna Charlieho. |
 
 ### Vrstvy reality a frakce Řádu
 

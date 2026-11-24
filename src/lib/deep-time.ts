@@ -14,7 +14,10 @@ export type DeepEvent = {
   after?: number | [number, number];
   when: string;
   kind: DeepKind;
-  /** Název hry (jen u druhu `game`): popisek dílu v grafech. */
+  /**
+   * Název hry: událost je hraný díl (zářez v grafech, popisek). Má ho každá událost druhu `game`
+   * a může ho mít i katastrofa nebo předěl, který je zároveň dílem (pád Raccoon City = Resident Evil 2 a 3).
+   */
   game?: string;
   text: string;
 };
@@ -40,12 +43,12 @@ export type GamePart = { e: DeepEvent; ago: number };
 export type LaterPart = { e: DeepEvent; after: number; isGame: boolean };
 
 /**
- * Hrané díly pod hladinou (události druhu `game` s datem), od nejstaršího po přítomnost.
+ * Hrané díly pod hladinou (události s názvem hry a datem), od nejstaršího po přítomnost.
  * Oba grafy je kreslí jako zářezy v období her; díly bez data (Dark Souls I–II) tu nejsou.
  */
 export function gameParts(world: DeepWorld): GamePart[] {
   return world.events
-    .filter((e) => e.kind === 'game' && e.after === undefined && agoMid(e.ago) !== null)
+    .filter((e) => Boolean(e.game) && e.after === undefined && agoMid(e.ago) !== null)
     .map((e) => ({ e, ago: agoMid(e.ago)! }))
     .sort((a, b) => b.ago - a.ago);
 }
@@ -66,7 +69,7 @@ export function partDetail(e: DeepEvent): string {
 export function laterParts(world: DeepWorld): LaterPart[] {
   return world.events
     .filter((e) => afterMid(e.after) !== null)
-    .map((e) => ({ e, after: afterMid(e.after)!, isGame: e.kind === 'game' }))
+    .map((e) => ({ e, after: afterMid(e.after)!, isGame: Boolean(e.game) }))
     .sort((a, b) => a.after - b.after);
 }
 

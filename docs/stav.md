@@ -6,6 +6,7 @@ Naposledy aktualizováno: 2026-11-22.
 
 ## Co se dělalo naposledy (2026-11-21 až 22)
 
+- **Úplnost her v Hlubině a Faktografii** (2026-11-25): doplněno 40 dílů napříč 22 světy (14 událostí, které díly už byly jako katastrofa či předěl, dostalo název hry; 26 nových), do Faktografie řádky Halo Wars, Halo 3: ODST, Halo Wars 2, Siege of Dragonspear, Code: Veronica a Silent Hill f, Origins, Townfall, Homecoming, Downpour. Hranice = Rozsah kánonu kroniky; mimo něj zůstaly odbočky (seznam v CLAUDE.md u `deep-time.json`), majitel může rozsah rozšířit.
 - **Hlubina času: období her se zářezy dílů** (2026-11-25, majitel vybral variantu F z náhledu A–G): oba grafy stejně, pozdější díly i nahoře, popisek dílu při najetí, v průřezu „Hry se odehrávají“; ke každé hře doplněn název (`game`), Mass Effect 3 opraven na hru, Edgerunners (anime) na událost. Návratový bod se souvislou hratelnou vrstvou: commit `d987791`.
 - **O atlasu** má pás hlavičky a začíná stejně vysoko jako ostatní stránky (se souhlasem majitele 2026-11-22).
 - **Mapa souřadnic přestavěná** podle návrhů C a A (majitel vybral C nahoru, A pod něj): Pět pásů s výběrem dvou světů a kartami vpravo, výraznější průměr, Zkřiž dvě souřadnice s Deseti mapami. Stará `AxisGridMap` (příbuznost, „Kde leží tvůj svět“, Atlas dvojic) je pryč. „Otevřít spis“ je všude „Prozkoumat svět“. Kolo drobností (2026-11-22): pevná místa Svět 1 / Svět 2, Zrušit vše, bez vět u souřadnic, bez jádra v kartách, bez textu u Deseti map, přihrádky místo vodítek, posouvání panelu, tmavé výběry, vybrané světy se archetypem neztlumí.
