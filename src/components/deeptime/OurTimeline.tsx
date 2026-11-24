@@ -11,6 +11,8 @@ type Props = {
   compact: boolean;
   picked: string | null;
   onPick: (id: string | null) => void;
+  /** Při řazení podle archetypu: pořadí archetypů. */
+  chapterOrder?: Map<string, number>;
 };
 
 const hue = (accent: { light: string; dark: string }) =>
@@ -38,7 +40,7 @@ function tickLabel(year: number, locale: Locale): string {
  * Vlevo minulost, vpravo budoucnost, obojí logaritmicky podle vzdálenosti od dneška;
  * každý svět je vodorovný vrt od nejstarší datované události po svou přítomnost.
  */
-export default function OurTimeline({ worlds, now, locale, compact, picked, onPick }: Props) {
+export default function OurTimeline({ worlds, now, locale, compact, picked, onPick, chapterOrder }: Props) {
   const [hover, setHover] = useState<string | null>(null);
   const g = compact
     ? { width: 390, gutter: 100, top: 40, row: 19, bar: 4, label: 8.5, zone: 6, bottom: 74 }
@@ -59,8 +61,12 @@ export default function OurTimeline({ worlds, now, locale, compact, picked, onPi
     () =>
       worlds
         .filter((w) => typeof w.deep.presentYear === 'number')
-        .sort((a, b) => (a.deep.presentYear ?? 0) - (b.deep.presentYear ?? 0)),
-    [worlds],
+        .sort(
+          (a, b) =>
+            (chapterOrder ? (chapterOrder.get(a.chapterId) ?? 0) - (chapterOrder.get(b.chapterId) ?? 0) : 0) ||
+            (a.deep.presentYear ?? 0) - (b.deep.presentYear ?? 0),
+        ),
+    [worlds, chapterOrder],
   );
   const height = g.top + rows.length * g.row + g.bottom;
   // Ztlumit ostatní jen tehdy, když vybraný svět na této ose leží.

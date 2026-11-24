@@ -354,8 +354,10 @@ export default function DeepTime({ base, worlds, chapters, now }: Props) {
                       y2={myths.length ? mythY(0) - 4 : g.top + MYTH_TOP - 4}
                     />
                   ) : null}
-                  {myths.map((_, i) => (
-                    <circle key={`m${i}`} className="dt-myth" cx={g.col / 2} cy={mythY(i)} r={compact ? 2.2 : 3.4} />
+                  {myths.map((e, i) => (
+                    <circle key={`m${i}`} className="dt-myth" cx={g.col / 2} cy={mythY(i)} r={compact ? 2.2 : 3.4}>
+                      <title>{e.text}</title>
+                    </circle>
                   ))}
                   {/* cyklus */}
                   {w.deep.cycle ? (
@@ -386,7 +388,7 @@ export default function DeepTime({ base, worlds, chapters, now }: Props) {
             </text>
           </svg>
         </figure>
-        <OurTimeline worlds={items} now={now} locale={locale} compact={compact} picked={picked} onPick={setPicked} />
+        <OurTimeline worlds={items} chapterOrder={sort === 'archetype' ? chapterOrder : undefined} now={now} locale={locale} compact={compact} picked={picked} onPick={setPicked} />
         </div>
 
         <aside className="dt-panel" aria-live="polite" ref={panelRef}>
