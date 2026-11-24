@@ -1,6 +1,6 @@
 import { useMemo, useState, type CSSProperties } from 'react';
 import { t, uiT, type Locale } from '../../lib/i18n';
-import { YARDSTICKS, eventYear, formatYear, isRange, nf, summarize } from '../../lib/deep-time';
+import { SCALE, YARDSTICKS, eventYear, formatYear, isRange, nf, summarize } from '../../lib/deep-time';
 import type { DeepTimeWorld } from '../../lib/deep-time-pages';
 
 type Item = DeepTimeWorld & { sum: ReturnType<typeof summarize> };
@@ -21,9 +21,21 @@ const hue = (accent: { light: string; dark: string }) =>
 /** Řády minulosti (do 10^9,8 let, kvůli vzniku Země) a budoucnosti (do 10^4,7 ≈ 50 000 let). */
 const PAST = 9.8;
 const FUTURE = 4.7;
-/** Stejné měřítko jako vrty nahoře: každý řád (×10) má stejnou šířku v minulosti i budoucnosti. */
-const PAST_TICKS = [1, 2, 3, 6, 9];
+/**
+ * Minulost má stejný zlom jako vrty nahoře: do 100 000 let od dneška podrobně po řádech,
+ * pak přetržená linka a stlačená propast od milionu let (vzdálené světy a éry našeho světa).
+ */
+const PAST_UNITS =
+  SCALE.detailLog + SCALE.breakShare + (PAST - SCALE.abyssLog) * SCALE.abyssShare;
+const PAST_TICKS = [1, 2, 3, 4, 6, 9];
 const FUTURE_TICKS = [1, 2, 3, 4];
+/** Vzdálenost od dneška (řády) jako vodorovný posun v jednotkách řádu. */
+function pastUnits(log: number): number {
+  const l = Math.min(log, PAST);
+  if (l <= SCALE.detailLog) return l;
+  if (l < SCALE.abyssLog) return SCALE.detailLog + ((l - SCALE.detailLog) / (SCALE.abyssLog - SCALE.detailLog)) * SCALE.breakShare;
+  return SCALE.detailLog + SCALE.breakShare + (l - SCALE.abyssLog) * SCALE.abyssShare;
+}
 
 /** Krátký popisek roku na stupnici: zaokrouhlený na dvě platné číslice u let před n. l. */
 function tickLabel(year: number, locale: Locale): string {
@@ -46,14 +58,14 @@ export default function OurTimeline({ worlds, now, locale, compact, picked, onPi
     ? { width: 390, gutter: 100, top: 54, row: 19, bar: 4, label: 8.5, zone: 6, bottom: 40 }
     : { width: 1000, gutter: 156, top: 52, row: 24, bar: 6, label: 11, zone: 10, bottom: 84 };
   const plot = g.width - g.gutter - 12;
-  const decade = (plot - 2 * g.zone) / (PAST + FUTURE);
-  const center = g.gutter + g.zone + PAST * decade;
+  const decade = (plot - 2 * g.zone) / (PAST_UNITS + FUTURE);
+  const center = g.gutter + g.zone + PAST_UNITS * decade;
   const X = (year: number) => {
     const d = year - now;
     const a = Math.abs(d);
     if (a < 1) return center + Math.sign(d) * g.zone * a;
     const log = Math.log10(a);
-    const off = g.zone + Math.min(log, d < 0 ? PAST : FUTURE) * decade;
+    const off = g.zone + (d < 0 ? pastUnits(log) : Math.min(log, FUTURE)) * decade;
     return d < 0 ? center - off : center + off;
   };
 
@@ -106,7 +118,7 @@ export default function OurTimeline({ worlds, now, locale, compact, picked, onPi
 
           {/* stupnice: roky našeho letopočtu */}
           {[...PAST_TICKS.map((p) => ({ x: X(now - 10 ** p), label: pastLabel(p), p })), ...FUTURE_TICKS.map((p) => ({ x: X(now + 10 ** p), label: futureLabel(p), p }))]
-            .filter((tk) => !compact || [2, 6, 9].includes(tk.p) || (tk.x > center && tk.p % 2 === 0))
+            .filter((tk) => (tk.x < center ? !compact || [2, 4].includes(tk.p) : !compact || tk.p % 2 === 0))
             .map((tk, i) => (
               <g key={i} className="dt-ours__tick">
                 <line x1={tk.x} x2={tk.x} y1={g.top - 8} y2={g.top + rows.length * g.row + 8} />
@@ -250,6 +262,30 @@ export default function OurTimeline({ worlds, now, locale, compact, picked, onPi
               </g>
             );
           })}
+
+          {/* zlom stupnice: 100 000 let – milion let od dneška */}
+          {(() => {
+            const xa = X(now - 10 ** SCALE.detailLog) - 2.5;
+            const xb = X(now - 10 ** SCALE.abyssLog) + 2.5;
+            const y0 = g.top - 8;
+            const y1 = g.top + rows.length * g.row + 8;
+            const step = compact ? 7 : 10;
+            const amp = compact ? 2 : 3;
+            const zig = (x: number) => {
+              const pts: string[] = [];
+              for (let y = y0, i = 0; y <= y1 + step; y += step, i++) pts.push(`${x + (i % 2 ? amp : -amp)},${Math.min(y, y1)}`);
+              return pts;
+            };
+            const a = zig(xa);
+            const b = zig(xb);
+            return (
+              <g className="dt-break" aria-hidden="true">
+                <polygon className="dt-break__gap" points={`${a.join(' ')} ${b.reverse().join(' ')}`} />
+                <polyline className="dt-break__edge" points={zig(xa).join(' ')} />
+                <polyline className="dt-break__edge" points={zig(xb).join(' ')} />
+              </g>
+            );
+          })()}
 
           {/* dnes */}
           <line className="dt-ours__today" x1={center} x2={center} y1={compact ? 16 : g.top - 26} y2={g.top + rows.length * g.row + 8} />
