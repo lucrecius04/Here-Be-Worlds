@@ -195,6 +195,7 @@ export default function DeepTime({ base, worlds, chapters, now }: Props) {
             </button>
           ))}
         </div>
+        <div className="dt-pickrow">
         <label className="dt-pick">
           <span className="visually-hidden">{uiT('deepTime.pick', locale)}</span>
           <select value={picked ?? ''} onChange={(e) => setPicked(e.target.value || null)}>
@@ -208,6 +209,12 @@ export default function DeepTime({ base, worlds, chapters, now }: Props) {
               ))}
           </select>
         </label>
+        {picked ? (
+          <button type="button" className="dt-clear" onClick={() => setPicked(null)}>
+            {uiT('deepTime.clearPick', locale)}
+          </button>
+        ) : null}
+        </div>
       </div>
       {compact && sort === 'archetype' ? (
         <div className="dt-only" role="group" aria-label={uiT('deepTime.onlyLabel', locale)}>
