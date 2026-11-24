@@ -39,6 +39,7 @@ Naposledy aktualizováno: 2026-11-22.
   - stáhnout hlavičku spisu na telefonu otočeném na šířku;
   - kratší popisek záložky „Anatomie vyprávění“ na telefonu;
   - malá mapa souřadnic vedle Příbuzenstva.
+- **Hlubina času: jak kreslit hrané díly** (otevřeno 2026-11-24). Dnes je hratelná vrstva souvislý sytý pruh od nejstaršího dílu po přítomnost (`summarize().played`) a pozdější díly (`after`) jsou jen ve spodním grafu a v průřezu. Majitel chce zvážit věrnější zobrazení (díly zvlášť, rámec hraní, pozdější díly stejně v obou grafech). Současný stav je commit `d987791` (lokální značka `hlubina-souvisla-vrstva`; značky na GitHub prostředí neodešle), k němu se dá vrátit. Varianty A–E byly nakreslené jako náhled z dat, rozhodnutí čeká.
 - **Kontaktní formulář** zatím nic neodesílá (`CONTACT_EMAIL` prázdné). Plán je Web3Forms nebo Formspree s klíčem majitele.
 - **Obrázky k putováním:** jediné místo na webu s obrázky, styl se teprve bude ladit.
 - **Postupné odkrývání světů:** viz `docs/odkryvani.md`.
