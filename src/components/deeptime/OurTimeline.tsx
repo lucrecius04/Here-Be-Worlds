@@ -19,12 +19,9 @@ const hue = (accent: { light: string; dark: string }) =>
 /** Řády minulosti (do 10^10,2 let, kvůli vzniku vesmíru) a budoucnosti (do 10^4,7 ≈ 50 000 let). */
 const PAST = 10.2;
 const FUTURE = 4.7;
-/** Hluboká minulost (nad 10 000 let) má poloviční šířku řádu, aby zbylo místo kolem dneška. */
-const DEEP_FROM = 4;
-const DEEP_WEIGHT = 0.5;
-const PAST_TICKS = [1, 2, 3, 4, 7, 9];
+/** Stejné měřítko jako vrty nahoře: každý řád (×10) má stejnou šířku v minulosti i budoucnosti. */
+const PAST_TICKS = [1, 2, 3, 6, 9];
 const FUTURE_TICKS = [1, 2, 3, 4];
-const pastSpan = (log: number) => Math.min(log, DEEP_FROM) + Math.max(0, log - DEEP_FROM) * DEEP_WEIGHT;
 
 /** Krátký popisek roku na stupnici: zaokrouhlený na dvě platné číslice u let před n. l. */
 function tickLabel(year: number, locale: Locale): string {
@@ -47,17 +44,16 @@ export default function OurTimeline({ worlds, now, locale, compact, picked, onPi
     ? { width: 390, gutter: 100, top: 40, row: 19, bar: 4, label: 8.5, zone: 6, bottom: 62 }
     : { width: 1000, gutter: 156, top: 52, row: 24, bar: 6, label: 11, zone: 10, bottom: 64 };
   const plot = g.width - g.gutter - 12;
-  const decade = (plot - 2 * g.zone) / (pastSpan(PAST) + FUTURE);
-  const center = g.gutter + g.zone + pastSpan(PAST) * decade;
+  const decade = (plot - 2 * g.zone) / (PAST + FUTURE);
+  const center = g.gutter + g.zone + PAST * decade;
   const X = (year: number) => {
     const d = year - now;
     const a = Math.abs(d);
     if (a < 1) return center + Math.sign(d) * g.zone * a;
     const log = Math.log10(a);
-    const off = g.zone + (d < 0 ? pastSpan(Math.min(log, PAST)) : Math.min(log, FUTURE)) * decade;
+    const off = g.zone + Math.min(log, d < 0 ? PAST : FUTURE) * decade;
     return d < 0 ? center - off : center + off;
   };
-  const breakX = X(now - 10 ** (DEEP_FROM + 1));
 
   const rows = useMemo(
     () =>
@@ -80,6 +76,15 @@ export default function OurTimeline({ worlds, now, locale, compact, picked, onPi
       <p className="dt-ours__lead">{uiT('deepTime.oursLead', locale)}</p>
       <figure className="dt-ours__chart" onMouseLeave={() => setHover(null)}>
         <svg viewBox={`0 0 ${g.width} ${height}`} className={focus ? 'has-focus' : undefined} role="group" aria-label={uiT('deepTime.oursTitle', locale)}>
+          <defs>
+            {rows.map((w) => (
+              <linearGradient key={w.id} id={`dt-ours-fade-${w.id}`} x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" className="dt-fade-1" style={hue(w.accent)} />
+                <stop offset="1" className="dt-fade-0" style={hue(w.accent)} />
+              </linearGradient>
+            ))}
+          </defs>
+
           {/* minulost a budoucnost */}
           <rect className="dt-ours__past" x={g.gutter} y={g.top - 8} width={center - g.gutter} height={rows.length * g.row + 16} />
           <text className="dt-ours__side" x={g.gutter} y={14} fontSize={g.label}>
@@ -91,7 +96,7 @@ export default function OurTimeline({ worlds, now, locale, compact, picked, onPi
 
           {/* stupnice: roky našeho letopočtu */}
           {[...PAST_TICKS.map((p) => ({ x: X(now - 10 ** p), label: pastLabel(p), p })), ...FUTURE_TICKS.map((p) => ({ x: X(now + 10 ** p), label: futureLabel(p), p }))]
-            .filter((tk) => !compact || [2, 4, 9].includes(tk.p) || (tk.x > center && tk.p % 2 === 0))
+            .filter((tk) => !compact || [2, 6, 9].includes(tk.p) || (tk.x > center && tk.p % 2 === 0))
             .map((tk, i) => (
               <g key={i} className="dt-ours__tick">
                 <line x1={tk.x} x2={tk.x} y1={g.top - 8} y2={g.top + rows.length * g.row + 8} />
@@ -100,13 +105,6 @@ export default function OurTimeline({ worlds, now, locale, compact, picked, onPi
                 </text>
               </g>
             ))}
-
-          {/* zlom stupnice: hlubší minulost má poloviční řády */}
-          <path
-            className="dt-ours__break"
-            d={`M${breakX - 4} ${g.top - 2} l3 -6 l3 6 l3 -6`}
-            aria-hidden="true"
-          />
 
           {/* délky z našeho světa: tady opravdu leží na ose */}
           {YARDSTICKS.map((ys, i) => {
@@ -126,17 +124,38 @@ export default function OurTimeline({ worlds, now, locale, compact, picked, onPi
           {rows.map((w, i) => {
             const py = w.deep.presentYear!;
             const y = g.top + i * g.row + g.row / 2;
-            const dated = w.deep.events
-              .map((e) => ({ e, year: eventYear(e, py) }))
-              .filter((d): d is { e: (typeof w.deep.events)[number]; year: number } => d.year !== null);
-            const past = dated.filter((d) => d.e.after === undefined);
-            const later = dated.filter((d) => d.e.after !== undefined);
-            const oldest = past.reduce((m, d) => Math.min(m, d.year), py);
-            const oldestRange = past.find((d) => d.year === oldest && isRange(d.e.ago));
-            const oldestSolid = oldestRange ? py - (oldestRange.e.ago as [number, number])[0] : oldest;
+            // Události jako roky našeho letopočtu: přesné datum, nebo odhad [od, do] jako dva roky.
+            const placed = w.deep.events
+              .filter((e) => e.after === undefined && (typeof e.ago === 'number' || isRange(e.ago)))
+              .map((e) => ({
+                e,
+                mid: eventYear(e, py)!,
+                from: isRange(e.ago) ? py - e.ago[1] : py - (e.ago as number),
+                to: isRange(e.ago) ? py - e.ago[0] : py - (e.ago as number),
+              }));
+            const later = w.deep.events
+              .filter((e) => typeof e.after === 'number')
+              .map((e) => ({ e, year: py + (e.after as number) }));
+            // Nejhlubší událost jako u vrtu nahoře (u odhadu podle středu), její starší mez = začátek pruhu.
+            const deepest = placed.reduce<(typeof placed)[number] | null>((m, d) => (!m || d.mid < m.mid ? d : m), null);
+            const oldest = deepest ? deepest.from : py;
+            const solidFrom = deepest ? deepest.to : py;
+            const deepRange = deepest && isRange(deepest.e.ago);
+            // Hranice vrstev: středy událostí od přítomnosti do minulosti (stejně jako praskliny ve vrtu).
+            const bounds = [...new Set(placed.map((d) => d.mid).filter((v) => v < py))]
+              .sort((p, q) => q - p)
+              .map((v) => Math.max(v, solidFrom));
+            const layers: Array<[number, number]> = [];
+            let edge = py;
+            for (const bnd of bounds) {
+              if (edge - bnd > 0) layers.push([bnd, edge]);
+              edge = bnd;
+            }
+            if (edge - solidFrom > 0) layers.push([solidFrom, edge]);
             const playedFrom = py - w.sum.played;
             const isFocus = focus === w.id;
             const label = `${t(w.title, locale)}: ${formatYear(oldest, locale)} – ${formatYear(py, locale)}`;
+            const hb = g.bar + 2;
             return (
               <g
                 key={w.id}
@@ -161,14 +180,27 @@ export default function OurTimeline({ worlds, now, locale, compact, picked, onPi
                 <text className="dt-ours__name" x={g.gutter - 10} y={y + g.label * 0.35} textAnchor="end" fontSize={g.label}>
                   {t(w.title, locale)}
                 </text>
-                {/* dějiny světa: nejstarší datovaná událost → přítomnost */}
-                {oldestRange ? (
-                  <line className="dt-ours__fade" x1={X(oldest)} x2={X(oldestSolid)} y1={y} y2={y} strokeWidth={g.bar} />
+                {/* vrstvy dějin (střídavé tóny), nejhlubší odhad do ztracena */}
+                {layers.map(([x0, x1], k) => (
+                  <rect key={`l${k}`} className={`dt-layer${k % 2 ? ' is-alt' : ''}`} x={X(x0)} y={y - hb / 2} width={Math.max(X(x1) - X(x0), 0.8)} height={hb} />
+                ))}
+                {deepRange ? (
+                  <rect x={X(oldest)} y={y - hb / 2} width={Math.max(X(solidFrom) - X(oldest), 1)} height={hb} fill={`url(#dt-ours-fade-${w.id})`} />
                 ) : null}
-                <line className="dt-ours__span" x1={X(oldestSolid)} x2={X(py)} y1={y} y2={y} strokeWidth={g.bar} />
+                {/* nejisté vrstvy (odhady nad nejhlubší událostí) */}
+                {placed
+                  .filter((d) => d !== deepest && isRange(d.e.ago))
+                  .map((d, k) => (
+                    <rect key={`u${k}`} x={X(d.from)} y={y - hb / 2} width={Math.max(X(d.to) - X(d.from), 1)} height={hb} fill="url(#dt-unsure)" />
+                  ))}
+                {/* hratelná vrstva */}
                 {w.sum.played > 0 ? (
-                  <line className="dt-ours__played" x1={X(playedFrom)} x2={X(py)} y1={y} y2={y} strokeWidth={g.bar} />
+                  <rect className="dt-played" x={X(playedFrom)} y={y - hb / 2} width={Math.max(X(py) - X(playedFrom), 1.5)} height={hb} />
                 ) : null}
+                {/* praskliny mezi vrstvami */}
+                {bounds.map((bnd, k) => (
+                  <line key={`c${k}`} className="dt-crack" x1={X(bnd)} x2={X(bnd)} y1={y - hb / 2} y2={y + hb / 2} />
+                ))}
                 {/* pozdější díly */}
                 {later.map((d, k) => (
                   <g key={k}>
@@ -177,10 +209,10 @@ export default function OurTimeline({ worlds, now, locale, compact, picked, onPi
                   </g>
                 ))}
                 {/* zlomy */}
-                {past
-                  .filter((d) => d.e.kind === 'catastrophe')
+                {placed
+                  .filter((d) => d.e.kind === 'catastrophe' && d.mid < py)
                   .map((d, k) => (
-                    <line key={k} className="dt-ours__seam" x1={X(d.year)} x2={X(d.year)} y1={y - g.bar} y2={y + g.bar} />
+                    <rect key={k} className="dt-seam" x={X(Math.max(d.mid, solidFrom)) - 1.25} y={y - hb / 2 - 2} width={2.5} height={hb + 4} />
                   ))}
                 {/* přítomnost světa */}
                 <rect className="dt-ours__now" x={X(py) - 3.5} y={y - 3.5} width={7} height={7} transform={`rotate(45 ${X(py)} ${y})`} />
