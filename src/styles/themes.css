@@ -784,8 +784,13 @@ html[data-theme='dark'] .th-journey__img img {
     grid-row: 2;
   }
 
+  /* na telefonu obrázek putování přes celou šířku obrazovky, text pod ním */
   .th-journey.has-image {
-    grid-template-columns: 6.5rem minmax(0, 1fr);
-    gap: 1rem;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.75rem;
+  }
+
+  .th-journey__img {
+    margin: 0 calc(-1 * var(--gutter));
   }
 }
