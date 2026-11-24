@@ -1,6 +1,7 @@
 ---
 title: Křehká hranice svobodné vůle
 approved: true
+published: 2026-11-22
 trail: free-will
 kicker: Putování atlasem
 tagline: Co zbude ze svobodné vůle ve chvíli, kdy člověk zjistí, že jeho rozhodnutí řídil cizí příkaz, parazit nebo předem napsaný osud?

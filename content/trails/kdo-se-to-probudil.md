@@ -1,6 +1,7 @@
 ---
 title: Kdo se to probudil?
 approved: true
+published: 2026-11-22
 trail: who-woke-up
 kicker: Putování atlasem
 tagline: Kým je ten, kdo se probudí bez paměti, v cizím těle nebo uprostřed cizího příběhu?

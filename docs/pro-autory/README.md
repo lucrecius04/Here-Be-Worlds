@@ -185,4 +185,4 @@ Esej pak projde kontrolou proti kronikám a majitel ji schválí. Teprve potom s
 
 ## Po schválení
 
-Esej se na webu ukáže až po schválení majitelem: do frontmatteru přibude `approved: true`. Do té doby je jen náhled na `/putovani/navrh/<slug>/` a stránka stezky ukazuje světy a prameny s poznámkou, že esej připravujeme. Soubor eseje se jmenuje podle české adresy stezky (`TRAIL_SLUGS` v `src/lib/trails.ts`), test to hlídá.
+Esej se na webu ukáže až po schválení majitelem: do frontmatteru přibude `approved: true` a `published: RRRR-MM-DD` (den zveřejnění; podle něj esej ohlásí kanál novinek `/rss.xml`, test hlídá, že datum nechybí). Do té doby je jen náhled na `/putovani/navrh/<slug>/` a stránka stezky ukazuje světy a prameny s poznámkou, že esej připravujeme. Soubor eseje se jmenuje podle české adresy stezky (`TRAIL_SLUGS` v `src/lib/trails.ts`), test to hlídá.

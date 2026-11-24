@@ -1,6 +1,7 @@
 ---
 title: Netvor v zrcadle
 approved: true
+published: 2026-11-22
 trail: monster-mirror
 kicker: Putování atlasem
 tagline: Co se stane s hrdinstvím a vinou, když se netvor na konci cesty ukáže být naším vlastním odrazem?

@@ -1,6 +1,7 @@
 ---
 title: Logo nad troskami
 approved: true
+published: 2026-11-22
 trail: corporate
 kicker: Putování atlasem
 tagline: Co zbude z člověka a ze světa, když korporace přeroste stát a promění tělo, smrt i vlastní katastrofu v obchodní model?

@@ -1,6 +1,7 @@
 ---
 title: Uvězněni v kruhu
 approved: true
+published: 2026-11-22
 trail: loops
 kicker: Putování atlasem
 tagline: Co drží čas v kruhu – a jakou cenu musí svět zaplatit, aby se znovu rozběhl?

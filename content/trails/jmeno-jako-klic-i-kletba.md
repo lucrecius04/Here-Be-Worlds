@@ -1,6 +1,7 @@
 ---
 title: Jméno jako klíč i kletba
 approved: true
+published: 2026-11-22
 trail: true-names
 kicker: Putování atlasem
 tagline: Proč má jméno moc nad tím, kdo ho nese – a co se stane, když zazní, skryje se za maskou či číslem, nebo se úplně ztratí?

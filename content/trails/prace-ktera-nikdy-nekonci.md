@@ -1,6 +1,7 @@
 ---
 title: Práce, která nikdy nekončí
 approved: true
+published: 2026-11-22
 trail: endless-work
 kicker: Putování atlasem
 tagline: Kdy je práce smyslem a kdy trestem – a co z ní zbude, když nikdy neskončí?

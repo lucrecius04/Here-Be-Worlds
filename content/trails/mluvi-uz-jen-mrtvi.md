@@ -1,6 +1,7 @@
 ---
 title: Mluví už jen mrtví
 approved: true
+published: 2026-11-22
 trail: dead-speak
 kicker: Putování atlasem
 tagline: K čemu je živým pravda, kterou museli složit ze záznamů a hlasů mrtvých?

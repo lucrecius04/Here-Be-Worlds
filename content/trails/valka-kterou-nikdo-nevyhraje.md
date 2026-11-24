@@ -1,6 +1,7 @@
 ---
 title: Válka, kterou nikdo nevyhraje
 approved: true
+published: 2026-11-22
 trail: endless-war
 kicker: Putování atlasem
 tagline: Co pohání válku, která přežila své důvody, a za jakou cenu se z ní dá vystoupit?

@@ -1,6 +1,7 @@
 ---
 title: Ráj, který se nepovedl
 approved: true
+published: 2026-11-22
 trail: failed-paradise
 kicker: Putování atlasem
 tagline: Proč se sen o dokonalé společnosti v herních světech obrací proti lidem, které měl zachránit – a co ze světa zbude, když jeho zdi prasknou?

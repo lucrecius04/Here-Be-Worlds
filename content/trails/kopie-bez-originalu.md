@@ -1,6 +1,7 @@
 ---
 title: Kopie bez originálu
 approved: true
+published: 2026-11-22
 trail: copies
 kicker: Putování atlasem
 tagline: Kde začíná duše bytosti, kterou někdo vyrobil, a co zbude z originálu, když existuje kopie?

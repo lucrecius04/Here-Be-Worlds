@@ -1,6 +1,7 @@
 ---
 title: Kdo drží kroniku
 approved: true
+published: 2026-11-22
 trail: chronicle-keepers
 kicker: Putování atlasem
 tagline: Kdo smí rozhodnout, která verze minulosti platí – a co se stane s tím, kdo nahlédne za vrchní zápis?

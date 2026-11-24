@@ -39,4 +39,5 @@ Zásada výběru: nejznámější tituly hned na startu (přivedou návštěvnos
 - Počty na webu (Atlas v číslech, kicker, patička) se počítají ze zveřejněných světů. `addedAt` = `publishAt`, takže „Nově zmapováno“ ukáže poslední odkrytý svět.
 - Příbuznost a Příbuzenstvo jen mezi zveřejněnými světy; odkazy na skryté se vynechají.
 - „Co se chystá“ může automaticky ukázat příští svět a jeho datum.
+- Kanál novinek `/rss.xml` (`src/lib/feed.ts`, od 2026-11-24) už bere `publishAt` (jinak `addedAt`) a položky s datem v budoucnosti vynechává: s pravidelným sestavením ohlásí odkrytý svět sám.
 - Pozor: ve veřejném repozitáři jsou skryté kroniky čitelné ve zdrojích. Na webu nebudou.

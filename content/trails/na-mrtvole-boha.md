@@ -1,6 +1,7 @@
 ---
 title: Na mrtvole boha
 approved: true
+published: 2026-11-22
 trail: god-corpse
 kicker: Putování atlasem
 tagline: Co si svět počne se svým mrtvým bohem?

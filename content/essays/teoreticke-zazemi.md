@@ -1,5 +1,6 @@
 ---
 title: Teoretické zázemí
+published: 2026-11-22
 kicker: Prameny atlasu
 tagline: Na jakých knihách a myšlenkách stojí metoda Here Be Worlds
 description: Odborné prameny atlasu Here Be Worlds – teorie fikčních světů, fantastiky, herních studií, hororu, mýtu a paměti. Co v každé knize je a kde ji v atlasu používáme.

@@ -91,6 +91,9 @@ export default function SiteFooter({ base }: Props) {
           <a className="site-footer__link" href={withBase(base, '/contact/')}>
             {uiT('footer.contact', locale)}
           </a>
+          <a className="site-footer__link" href={withBase(base, '/rss.xml')} type="application/rss+xml">
+            {uiT('footer.rss', locale)}
+          </a>
         </nav>
       </div>
       <div className="site-footer__bottom">

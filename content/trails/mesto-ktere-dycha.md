@@ -1,6 +1,7 @@
 ---
 title: Město, které dýchá
 approved: true
+published: 2026-11-22
 trail: living-city
 kicker: Putování atlasem
 tagline: Kdy přestává být město pouhou kulisou a stává se živou postavou – a co to udělá s člověkem, který uvnitř ní žije?

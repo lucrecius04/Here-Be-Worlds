@@ -1,6 +1,7 @@
 ---
 title: Kdo za to může?
 approved: true
+published: 2026-11-22
 trail: scapegoat
 kicker: Putování atlasem
 tagline: Co se stane s pravdou a s člověkem, když společnost v krizi potřebuje viníka víc než řešení?

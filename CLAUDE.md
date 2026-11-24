@@ -48,6 +48,7 @@ Příkazy: `npm run dev` · `npm run build` · `npm test` · `npm run import:chr
 | `docs/prameny/*.md` | Studijní výtahy z odborných knih (Doležel, Fisher, Clute, Otto…): pojmy, převyprávění, co plyne pro atlas, kde je pramen použitý. Rozcestník `docs/prameny/README.md`. **Před psaním eseje nebo stezky projít; knihy se znovu nečtou.** |
 | `docs/pro-autory/` | Příručka pro autory esejí ke stezkám (i pro jiné modely, např. Gemini): stavba eseje, styl, formát, kontrolní seznam, co odevzdat (`README.md`), a zadání ke studiu dalších knih (`studium-knih.md`). Balíčky skládá `scripts/trail-bundle.mjs`. Odkaz z `AGENTS.md`. Esej od jiného autora vždy zkontrolovat proti kronikám, než se publikuje. |
 | `public/og/` | Karty pro sdílení (výstup `scripts/og-images.mjs`, commitují se). |
+| `/rss.xml` | Kanál novinek RSS 2.0 (`src/pages/rss.xml.ts`, `src/lib/feed.ts`, 2026-11-24): zveřejněné světy (datum `publishAt` až přibude, jinak `addedAt`), schválená putování (`published` ve frontmatteru eseje, doplnit při schválení; test `feed.test.ts`) a eseje z `content/essays/` s `published` (adresa `/<soubor>/`); položky s datem v budoucnosti se vynechají, řazení od nejnovější, nejvýš 100. Odkaz v patičce (O atlasu → Novinky (RSS)) a `<link rel="alternate">` v `BaseLayout`. Nový druh obsahu = nový zdroj v `feedItems`. |
 
 Kroniky a eseje **nejsou** v `data/`.
 

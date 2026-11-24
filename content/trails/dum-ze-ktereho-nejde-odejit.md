@@ -1,6 +1,7 @@
 ---
 title: Dům, ze kterého nejde odejít
 approved: true
+published: 2026-11-22
 trail: house
 kicker: Putování atlasem
 tagline: Kdy se prostor, který měl člověka chránit, změní ve vězení – a kdo v tu chvíli drží klíče?

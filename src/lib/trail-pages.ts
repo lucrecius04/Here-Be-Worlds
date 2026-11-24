@@ -33,6 +33,8 @@ export type TrailEssay = {
   description?: string;
   markdown: string;
   approved: boolean;
+  /** Datum zveřejnění (YYYY-MM-DD), doplnit při schválení: podle něj jde esej do RSS. */
+  published?: string;
   minutes: number;
 };
 
@@ -64,6 +66,7 @@ export const trailEssays: TrailEssay[] = Object.entries(essayFiles).map(([path, 
     description: meta('description'),
     markdown,
     approved: meta('approved') === 'true',
+    published: meta('published'),
     minutes: readingMinutes(markdown),
   };
 });

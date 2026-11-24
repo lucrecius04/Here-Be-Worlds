@@ -1,5 +1,6 @@
 ---
 title: Anatomie herního lore
+published: 2026-11-22
 kicker: Esej o metodě atlasu
 tagline: Proč některá herní univerza žijí desítky let a jiná zůstanou jen kulisou?
 description: Co dělá herní lore silným? Rozbor 43 herních světů – ústřední otázka, prvotní hřích, vrstvy pravdy, řízená mezera a teorie, na které stojí atlas Here Be Worlds.

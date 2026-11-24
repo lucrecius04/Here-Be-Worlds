@@ -1,6 +1,7 @@
 ---
 title: Hra ví, že ji hraješ
 approved: true
+published: 2026-11-22
 trail: knows-you-play
 kicker: Putování atlasem
 tagline: Co se stane se světem a s hráčem ve chvíli, kdy hra zboří čtvrtou stěnu a obrátí pohled k člověku za obrazovkou?

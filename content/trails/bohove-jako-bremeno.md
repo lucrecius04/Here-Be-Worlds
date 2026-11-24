@@ -1,6 +1,7 @@
 ---
 title: Bohové jako břemeno
 approved: true
+published: 2026-11-22
 trail: gods-burden
 kicker: Putování atlasem
 tagline: Co se musí stát s bohy, aby smrtelníci přestali být jejich pěšáky?

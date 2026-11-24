@@ -1,6 +1,7 @@
 ---
 title: Prokleté dědictví
 approved: true
+published: 2026-11-22
 trail: cursed-legacy
 kicker: Putování atlasem
 tagline: Kdy se dá dávný hřích předků vůbec splatit – a kdy každá záchrana světa dluh jen prohloubí?
