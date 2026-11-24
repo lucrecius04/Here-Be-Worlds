@@ -8,7 +8,7 @@ Analýza z 2026-11-24 (Claude na žádost majitele): co by na webu mohlo přibý
 
 1. **Karty pro sdílení s obrázky putování.** Hotovo 2026-11-24: `public/og/putovani/<slug>.jpg` a `public/og/putovani.jpg`.
 2. **Mapa neznáma a Galerie triád.** Hotovo 2026-11-24: `/mapa-neznama/`, `/galerie-triad/`, odkazy pod triádou na kartě světa, řádek Další pohledy na atlasu. Typy v `data/meta/triad-types.json` (majitel: „dyztak je upravíme“).
-3. **Stránky témat.**
+3. **Stránky témat.** Hotovo 2026-11-24: `/temata/` (rejstřík a mřížka potkávání témat) a `/temata/<slug>/` (obloha s trasou světů tématu, světy, archetypy, souřadnice proti průměru atlasu, putování, sousední témata). Otázky témat v `theme-taxonomy.json` napsal Claude, majitel je může upravit.
 4. **Hlubina času.**
 5. **Tvoje obloha + RSS.**
 

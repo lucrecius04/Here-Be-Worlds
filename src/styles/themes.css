@@ -1,0 +1,791 @@
+/* Stránky témat (/temata/, /temata/<slug>/).
+   Stejný rejstříkový jazyk jako Galerie triád: tmavá linka, mono popisek, Fraunces a Source Serif.
+   Barva archetypu jen jako značka (hvězda, čtvereček, linka u záznamu). */
+
+.th-world,
+.th-dot,
+.th-arch__row,
+.th-route li,
+.th-sky__star,
+.th-sky__lit {
+  --th-hue: var(--th-hue-l, var(--color-ink-muted));
+}
+
+html[data-theme='dark'] .th-world,
+html[data-theme='dark'] .th-dot,
+html[data-theme='dark'] .th-arch__row,
+html[data-theme='dark'] .th-route li,
+html[data-theme='dark'] .th-sky__star,
+html[data-theme='dark'] .th-sky__lit {
+  --th-hue: var(--th-hue-d, var(--color-ink-muted));
+}
+
+/* ---------- hlavička s oblohou ---------- */
+.th-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+  gap: 1.5rem 3.5rem;
+  align-items: center;
+  margin-bottom: 0;
+}
+
+.th-head .doc-kicker a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.th-head .doc-kicker a:hover,
+.th-head .doc-kicker a:focus-visible {
+  color: var(--color-accent);
+}
+
+.th-head__question {
+  margin: 0;
+  max-width: 30ch;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.25rem, 2vw, 1.625rem);
+  line-height: 1.3;
+  text-wrap: balance;
+}
+
+.th-head__stats {
+  margin: 1.25rem 0 0;
+  font: 500 0.75rem var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+/* obloha v tuši */
+.th-sky {
+  margin: 0;
+}
+
+.th-sky svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.th-sky__lines line {
+  stroke: var(--color-ink);
+  stroke-opacity: 0.14;
+  stroke-width: 1.2;
+}
+
+.th-sky__groups text {
+  font: 500 15px var(--font-mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  fill: var(--color-ink-muted);
+  opacity: 0.75;
+}
+
+.th-sky__star {
+  fill: var(--th-hue);
+  opacity: 0.32;
+}
+
+.th-sky__route {
+  fill: none;
+  stroke: var(--color-ink);
+  stroke-width: 1.6;
+  stroke-dasharray: 5 7;
+  stroke-linecap: round;
+  opacity: 0.7;
+}
+
+.th-sky__lit {
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.th-sky__halo {
+  fill: var(--th-hue);
+  fill-opacity: 0.2;
+  transition: fill-opacity 0.2s ease;
+}
+
+.th-sky__dot {
+  fill: var(--th-hue);
+  stroke: var(--color-band);
+  stroke-width: 2;
+}
+
+.th-sky__lit.is-hover .th-sky__halo,
+.th-sky__lit:focus-visible .th-sky__halo {
+  fill-opacity: 0.45;
+}
+
+.th-sky__lit:focus-visible {
+  outline: none;
+}
+
+.th-sky__lit:focus-visible .th-sky__dot {
+  stroke: var(--color-accent);
+  stroke-width: 3;
+}
+
+.th-sky svg.has-focus .th-sky__lit:not(.is-hover) {
+  opacity: 0.3;
+}
+
+.th-sky__name {
+  font: 600 22px var(--font-sans);
+  fill: var(--color-ink);
+  paint-order: stroke;
+  stroke: var(--color-band);
+  stroke-width: 6px;
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+
+/* ---------- oddíly ---------- */
+.th-section {
+  margin-top: 3.5rem;
+}
+
+.th-section__title {
+  margin: 0 0 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 2px solid var(--color-ink);
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 2.8vw, 2.25rem);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.th-section--first {
+  margin-top: 2.5rem;
+}
+
+.th-section--first .th-section__title {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.th-sub {
+  margin: 0 0 0.75rem;
+  font: 500 0.6875rem var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+/* světy */
+.th-worlds {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.75rem 2.5rem;
+}
+
+.th-world {
+  padding-top: 0.75rem;
+  border-top: 3px solid var(--th-hue);
+  transition: opacity 0.2s ease;
+}
+
+.th-world.is-dim {
+  opacity: 0.55;
+}
+
+.th-world__name {
+  margin: 0;
+}
+
+.th-world__name a {
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 600;
+  color: var(--color-ink);
+  text-decoration: none;
+}
+
+.th-world__name a:hover,
+.th-world__name a:focus-visible {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.th-world__arch {
+  margin: 0.2rem 0 0;
+  font: 500 0.6875rem var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+.th-world__core {
+  margin: 0.45rem 0 0;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1rem;
+  line-height: 1.45;
+  text-wrap: pretty;
+}
+
+/* podoba tématu */
+.th-shape__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 2rem 4rem;
+  align-items: start;
+}
+
+.th-arch {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--color-line);
+}
+
+.th-arch__row {
+  display: grid;
+  grid-template-columns: 8.5rem minmax(0, 1fr) 3.5rem;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.55rem 0;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.th-arch__name {
+  font: 500 0.875rem var(--font-sans);
+  color: var(--color-ink);
+}
+
+.th-arch__row.is-empty .th-arch__name,
+.th-arch__row.is-empty .th-arch__n {
+  color: var(--color-ink-muted);
+}
+
+.th-arch__cells,
+.th-neigh__cells {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+}
+
+.th-arch__cells i,
+.th-neigh__cells i {
+  width: 0.8rem;
+  height: 0.8rem;
+  background: var(--color-bar);
+}
+
+.th-arch__cells i.is-on {
+  background: var(--th-hue);
+}
+
+.th-arch__n,
+.th-neigh__n {
+  text-align: right;
+  font: 500 0.8125rem var(--font-mono);
+  color: var(--color-ink-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.th-range {
+  --chapter-hue: var(--color-ink);
+  padding: 0.6rem 0 0.25rem;
+  border-top: 1px solid var(--color-line);
+}
+
+.th-range .axis-range__band {
+  background: color-mix(in srgb, var(--color-ink) 14%, transparent);
+}
+
+.th-legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.5rem;
+  margin: 1rem 0 0;
+  font: 400 0.8125rem var(--font-sans);
+  color: var(--color-ink-muted);
+}
+
+.th-legend__mark,
+.th-legend__ref {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-left: 0.25rem;
+  transform: rotate(45deg);
+}
+
+.th-legend__mark {
+  margin-left: 0;
+  background: var(--color-ink);
+}
+
+.th-legend__ref {
+  margin-left: 0.75rem;
+  border: 1.5px solid var(--color-ink-muted);
+}
+
+.th-legend a {
+  margin-left: auto;
+  font-weight: 500;
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.th-legend a:hover,
+.th-legend a:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 0.16em;
+}
+
+/* putování */
+.th-journeys {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.25rem 3rem;
+}
+
+.th-journey {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  border-top: 1px solid var(--color-ink);
+  padding-top: 1rem;
+}
+
+.th-journey.has-image {
+  grid-template-columns: 9.5rem minmax(0, 1fr);
+  gap: 1.25rem;
+}
+
+.th-journey__img {
+  display: block;
+  align-self: start;
+}
+
+.th-journey__img img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  -webkit-mask-image: var(--pv-mask);
+  mask-image: var(--pv-mask);
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+html:not([data-theme='dark']) .th-journey__img img {
+  mix-blend-mode: multiply;
+}
+
+html:not([data-theme='dark']) .th-journey__img img.has-ink {
+  -webkit-mask-image: var(--pv-mask), var(--pv-mask-ink-light, var(--pv-mask-ink));
+  mask-image: var(--pv-mask), var(--pv-mask-ink-light, var(--pv-mask-ink));
+  -webkit-mask-size: 100% 100%, cover;
+  mask-size: 100% 100%, cover;
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+  filter: brightness(1.06) saturate(0.8);
+}
+
+html[data-theme='dark'] .th-journey__img img {
+  filter: brightness(0.8);
+}
+
+.th-journey__name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.3125rem;
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.th-journey__name a {
+  color: var(--color-ink);
+  text-decoration: none;
+}
+
+.th-journey__name a:hover,
+.th-journey__name a:focus-visible {
+  color: var(--color-accent);
+}
+
+.th-journey__q {
+  margin: 0.4rem 0 0;
+  font-family: var(--font-text);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--color-ink-muted);
+}
+
+.th-route {
+  list-style: none;
+  margin: 0.75rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.9rem;
+}
+
+.th-route li {
+  padding-top: 0.3rem;
+  border-top: 2px solid var(--th-hue);
+  font: 400 0.8125rem var(--font-sans);
+}
+
+.th-route li.is-own {
+  font-weight: 600;
+}
+
+.th-route a {
+  color: var(--color-ink);
+  text-decoration: none;
+}
+
+.th-route a:hover,
+.th-route a:focus-visible {
+  color: var(--color-accent);
+}
+
+.th-journey__min {
+  margin: 0.75rem 0 0;
+  font: 500 0.75rem var(--font-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+/* sousední témata */
+.th-neigh {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-width: 52rem;
+  border-top: 1px solid var(--color-line);
+}
+
+.th-neigh__row {
+  display: grid;
+  grid-template-columns: 15rem minmax(0, 1fr) 4.5rem;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.55rem 0;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.th-neigh__name {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-ink);
+  text-decoration: none;
+}
+
+.th-neigh__name:hover,
+.th-neigh__name:focus-visible {
+  color: var(--color-accent);
+}
+
+.th-neigh__cells i.is-on {
+  background: var(--color-ink);
+}
+
+/* odkazy na konci */
+.th-foot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 2.5rem;
+  margin-top: 3.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--color-line);
+}
+
+.th-foot a {
+  font: 500 0.9375rem var(--font-sans);
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.th-foot a:hover,
+.th-foot a:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 0.16em;
+}
+
+/* ---------- rejstřík témat ---------- */
+.th-sort {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.15rem 1.25rem;
+  margin: 0 0 1.5rem;
+}
+
+.th-sort__label {
+  margin-right: 0.25rem;
+  font: 500 0.6875rem var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+.th-sort button {
+  appearance: none;
+  min-height: 2.25rem;
+  padding: 0.3rem 0;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: none;
+  font: 500 0.875rem var(--font-sans);
+  color: var(--color-ink-muted);
+  cursor: pointer;
+}
+
+.th-sort button:hover,
+.th-sort button[aria-pressed='true'] {
+  color: var(--color-ink);
+}
+
+.th-sort button[aria-pressed='true'] {
+  border-bottom-color: var(--color-ink);
+}
+
+.th-register {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem 3.5rem;
+}
+
+.th-entry {
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--color-ink);
+}
+
+.th-entry__name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.th-entry__name a {
+  color: var(--color-ink);
+  text-decoration: none;
+}
+
+.th-entry__name a:hover,
+.th-entry__name a:focus-visible {
+  color: var(--color-accent);
+}
+
+.th-entry__q {
+  margin: 0.35rem 0 0;
+  font-family: var(--font-text);
+  font-style: italic;
+  font-size: 1.0625rem;
+  line-height: 1.45;
+  color: var(--color-ink-muted);
+}
+
+.th-entry__print {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+  margin: 0.8rem 0 0;
+}
+
+.th-dot {
+  display: inline-block;
+  width: 0.7rem;
+  height: 0.7rem;
+  background: var(--th-hue);
+}
+
+.th-entry__meta {
+  margin: 0.55rem 0 0;
+  font: 500 0.6875rem var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+/* matice potkávání */
+.th-matrix {
+  margin-top: 4.5rem;
+}
+
+.th-matrix__info {
+  min-height: 1.5em;
+  margin: 0 0 1rem;
+  font: 500 0.9375rem var(--font-sans);
+  color: var(--color-ink-muted);
+}
+
+.th-matrix__wrap {
+  overflow-x: auto;
+}
+
+.th-matrix__table {
+  border-collapse: collapse;
+}
+
+.th-matrix__col {
+  height: 11.5rem;
+  padding: 0 0 0.5rem;
+  vertical-align: bottom;
+  font: 400 0.8125rem var(--font-sans);
+  color: var(--color-ink-muted);
+}
+
+.th-matrix__col span {
+  display: inline-block;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  white-space: nowrap;
+}
+
+.th-matrix__row {
+  padding: 0 0.85rem 0 0;
+  text-align: right;
+  white-space: nowrap;
+  font: 400 0.875rem var(--font-sans);
+}
+
+.th-matrix__row a {
+  color: var(--color-ink);
+  text-decoration: none;
+}
+
+.th-matrix__row a:hover,
+.th-matrix__row a:focus-visible {
+  color: var(--color-accent);
+}
+
+.th-matrix__col.is-on,
+.th-matrix__row.is-on a {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.th-matrix__cell,
+.th-matrix__void {
+  width: 2.1rem;
+  height: 2.1rem;
+  padding: 0;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.th-matrix__cell {
+  border: 1px solid var(--color-line);
+}
+
+.th-matrix__cell.is-zero {
+  background: repeating-linear-gradient(135deg, transparent 0 3px, color-mix(in srgb, var(--color-line) 70%, transparent) 3px 4px);
+}
+
+.th-matrix__dot {
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 50%;
+  background: var(--color-ink);
+}
+
+.th-matrix__table.has-focus .th-matrix__dot {
+  opacity: 0.4;
+}
+
+.th-matrix__cell.is-on {
+  background: color-mix(in srgb, var(--color-accent) 14%, transparent);
+}
+
+.th-matrix__table.has-focus .th-matrix__cell.is-on .th-matrix__dot {
+  opacity: 1;
+  background: var(--color-accent);
+}
+
+/* ---------- menší displeje ---------- */
+@media (max-width: 1080px) {
+  .th-worlds {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .th-journeys {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .th-head {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .th-shape__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 760px) {
+  .th-worlds,
+  .th-register {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .th-sky__groups,
+  .th-sky__name {
+    display: none;
+  }
+
+  /* na úzkém displeji větší hvězdy, jinak by v malé obloze zanikly */
+  .th-sky__star {
+    r: 7px;
+  }
+
+  .th-sky__dot {
+    r: 12px;
+  }
+
+  .th-sky__halo {
+    r: 22px;
+  }
+
+  .th-sky__lines line,
+  .th-sky__route {
+    stroke-width: 2.4;
+  }
+
+  .th-matrix {
+    display: none;
+  }
+
+  .th-neigh__row,
+  .th-arch__row {
+    grid-template-columns: minmax(0, 1fr) auto;
+    row-gap: 0.4rem;
+  }
+
+  .th-neigh__cells,
+  .th-arch__cells {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .th-journey.has-image {
+    grid-template-columns: 6.5rem minmax(0, 1fr);
+    gap: 1rem;
+  }
+}

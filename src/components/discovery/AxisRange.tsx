@@ -4,7 +4,12 @@ import type { AxisSpread } from '../../lib/chapter-portrait';
 import axesMeta from '../../../data/meta/axes.json';
 import { axisPoleLabel } from './MiniAxes';
 
-type Props = { spread: AxisSpread; locale: Locale };
+type Props = {
+  spread: AxisSpread;
+  locale: Locale;
+  /** Volitelné srovnání (např. průměr celého atlasu na stránce tématu): prázdný kosočtverec. */
+  reference?: Record<string, number>;
+};
 
 const pos = (value: number) => `${((value - 1) / 4) * 100}%`;
 
@@ -12,7 +17,7 @@ const pos = (value: number) => `${((value - 1) / 4) * 100}%`;
  * Profil skupiny světů na stupnici 1–5: kosočtverec = průměr, pás = rozpětí od nejnižšího
  * po nejvyšší svět. Stejný jazyk jako srovnání (poloha na stupnici), ne pruh jednoho světa.
  */
-export default function AxisRange({ spread, locale }: Props) {
+export default function AxisRange({ spread, locale, reference }: Props) {
   return (
     <div className="axis-range" role="group" aria-label={uiT('chapterPage.portrait', locale)}>
       {AXIS_KEYS.map((key) => {
@@ -37,6 +42,9 @@ export default function AxisRange({ spread, locale }: Props) {
               ))}
               {max > min ? (
                 <span className="axis-range__band" style={{ left: pos(min), width: `calc(${pos(max)} - ${pos(min)})` }} />
+              ) : null}
+              {reference?.[key] !== undefined ? (
+                <span className="axis-range__ref" style={{ left: pos(reference[key]) }} />
               ) : null}
               <span className="axis-range__mark" style={{ left: pos(mean) }} />
             </span>

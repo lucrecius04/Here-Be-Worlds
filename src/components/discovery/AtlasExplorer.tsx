@@ -17,6 +17,7 @@ import {
 import narrationData from '../../../data/meta/narration-taxonomy.json';
 import CatalogWorldCard from './CatalogWorldCard';
 import { withBase } from '../../lib/base-url';
+import { themePath } from '../../lib/themes';
 
 const narrationOptions: FieldOption[] = narrationData.narration.map((item) => ({ en: item.label.en, cs: item.label.cs }));
 const narrationSlugByEn = Object.fromEntries(narrationData.narration.map((item) => [item.label.en, item.slug]));
@@ -224,6 +225,7 @@ export default function AtlasExplorer({
       </p>
       <nav className="atlas-page__more" aria-label={uiT('atlasPage.more', locale)}>
         <span className="atlas-page__more-label">{uiT('atlasPage.more', locale)}</span>
+        <a href={withBase(baseUrl, '/temata/')}>{uiT('themesPage.title', locale)}</a>
         <a href={withBase(baseUrl, '/galerie-triad/')}>{uiT('triads.title', locale)}</a>
         <a href={withBase(baseUrl, '/mapa-neznama/')}>{uiT('unknown.title', locale)}</a>
         <a href={withBase(baseUrl, '/map/')}>{uiT('nav.map', locale)}</a>
@@ -447,6 +449,13 @@ export default function AtlasExplorer({
             </>
           ) : null}
         </p>
+        {theme && themeLabels[theme] ? (
+          <p className="catalog-status__theme">
+            <a href={withBase(baseUrl, themePath(theme))}>
+              {uiT('atlasPage.aboutTheme', locale).replace('{name}', t(themeLabels[theme], locale))} →
+            </a>
+          </p>
+        ) : null}
         {activeTrailDef ? (
           <p className="catalog-status__trail">
             <span>{uiT(activeTrailDef.nameKey, locale)}</span> {uiT(activeTrailDef.descKey, locale)}

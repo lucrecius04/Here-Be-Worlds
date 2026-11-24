@@ -10,6 +10,7 @@ import { uiT } from './i18n';
 import { noteFields, noteKinshipPillars } from '../../data/meta/notes';
 import axesMeta from '../../data/meta/axes.json';
 import { MYSTERY_HOLDERS, MYSTERY_KINDS } from './triad-types';
+import { themePath } from './themes';
 import type { SearchEntry } from './site-search';
 
 const both = (key: string) => ({ cs: uiT(key, 'cs'), en: uiT(key, 'en') });
@@ -77,7 +78,7 @@ export function buildSearchEntries(): SearchEntry[] {
       kind: 'theme',
       id: th.slug,
       title: loc(th.label)!,
-      href: `/atlas/?theme=${th.slug}`,
+      href: themePath(th.slug),
       altHref: trailThemes.has(th.slug) ? `/putovani/?tema=${th.slug}` : undefined,
       count,
       keys: [th.label.en, th.label.cs].filter(Boolean).join(' · '),
@@ -134,6 +135,7 @@ export function buildSearchEntries(): SearchEntry[] {
   page('trails', both('trailsPage.title'), '/putovani/', 'putování journeys stezky eseje');
   page('compare', both('compare.title'), '/compare/', 'srovnání compare porovnat příbuznost');
   page('map', both('nav.map'), '/map/', 'mapa souřadnic coordinate map');
+  page('themes', both('themesPage.title'), '/temata/', 'témata themes otázky');
   page('triads', both('triads.title'), '/galerie-triad/', 'galerie triád triáda prvotní hřích hříchy ústřední dilema dilemata original sin dilemma');
   page('unknown', both('unknown.title'), '/mapa-neznama/', 'mapa neznáma tajemství tajemstvi záhady nosná mezera řízená mezera mystery unknown');
   page('essay', { cs: 'Anatomie herního lore', en: 'Anatomy of game lore' }, '/anatomie-herniho-lore/', 'esej essay metoda method');

@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ThemesIndex from '../../components/themes/ThemesIndex';
+import { themesIndexData } from '../../lib/theme-pages';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const { themes, matrix } = themesIndexData();
+---
+
+<BaseLayout
+  title="Témata · Here Be Worlds"
+  description={`${themes.length} témat, ke kterým se herní světy vracejí: bohové, vina a vykoupení, smrt a nesmrtelnost, cyklické dějiny… Ke každému světy, putování a podoba tématu.`}
+>
+  <ThemesIndex client:load base={base} themes={themes} matrix={matrix} />
+</BaseLayout>

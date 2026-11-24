@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ThemePage from '../../components/themes/ThemePage';
+import { THEMES, themePageSlug } from '../../lib/themes';
+import { worlds } from '../../lib/worlds';
+import { atlasMean, themeChapters, themePageData } from '../../lib/theme-pages';
+
+export function getStaticPaths() {
+  return THEMES.filter((th) => worlds.some((w) => !w.draft && w.themes.includes(th.slug))).map((th) => ({
+    params: { slug: themePageSlug(th.slug) },
+    props: { themeSlug: th.slug },
+  }));
+}
+
+const { themeSlug } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const data = themePageData(themeSlug, base);
+const label = data.theme.label.cs ?? data.theme.label.en;
+const names = data.worlds.slice(0, 4).map((w) => w.title.cs ?? w.title.en).join(', ');
+---
+
+<BaseLayout
+  title={`${label} · Témata · Here Be Worlds`}
+  description={`${data.theme.question.cs} Téma ${label.toLowerCase()} v herních světech atlasu: ${names}${data.worlds.length > 4 ? ' a další' : ''}.`}
+>
+  <ThemePage
+    client:load
+    base={base}
+    theme={data.theme}
+    worlds={data.worlds}
+    chapters={themeChapters}
+    sky={data.sky}
+    spread={data.spread}
+    atlasMean={atlasMean}
+    journeys={data.journeys}
+    neighbours={data.neighbours}
+  />
+</BaseLayout>

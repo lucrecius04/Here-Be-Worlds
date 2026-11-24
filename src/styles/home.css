@@ -1119,3 +1119,21 @@ html[data-theme='dark'] .catalog-group {
 .compass--inline .compass__card:first-child {
   padding-top: 0;
 }
+
+.catalog-status__theme {
+  margin: 0.375rem 0 0;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+
+.catalog-status__theme a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.catalog-status__theme a:hover,
+.catalog-status__theme a:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
