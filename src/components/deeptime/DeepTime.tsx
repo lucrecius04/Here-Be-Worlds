@@ -7,6 +7,7 @@ import {
   SCALE,
   measuredHeight,
   mythTop,
+  breakZone,
   agoMid,
   depthY,
   formatAgo,
@@ -37,10 +38,10 @@ function geometry(compact: boolean, focusCount = 0, longestName = 0) {
     const pitch = Math.min(30, (390 - 64 - 8) / focusCount);
     // Nad hladinou jen tolik místa, kolik potřebuje nejdelší jméno.
     const top = Math.round(18 + longestName * 6.2);
-    return { gutter: 64, pitch, col: Math.round(pitch * 0.5), top, groupGap: 0, label: 10.5, decade: 40 };
+    return { gutter: 64, pitch, col: Math.round(pitch * 0.5), top, groupGap: 0, label: 10.5, decade: 58 };
   }
   return compact
-    ? { gutter: 58, pitch: 7.6, col: 5, top: 14, groupGap: 5, label: 9.5, decade: 40 }
+    ? { gutter: 58, pitch: 7.6, col: 5, top: 14, groupGap: 5, label: 9.5, decade: 58 }
     : { gutter: 132, pitch: 19, col: 11, top: 150, groupGap: 14, label: 10.5, decade: SCALE.decade };
 }
 
@@ -269,12 +270,20 @@ export default function DeepTime({ base, worlds, chapters, now }: Props) {
             <g className="dt-scale" aria-hidden="true">
               <rect className="dt-subyear" x={g.gutter - 6} y={g.top} width={layout.width - g.gutter + 6} height={SCALE.subYear} />
               {DECADES.map((d) => {
-                if (compact && d % 3 !== 0) return null;
+                // V propasti na telefonu jen milion a miliarda.
+                if (compact && d > SCALE.detailLog && d !== 6 && d !== 9) return null;
                 const y = Y(10 ** d);
                 return (
                   <g key={d}>
                     <line className="dt-grid" x1={g.gutter - 6} x2={layout.width} y1={y} y2={y} />
-                    <text className="dt-scale__label" x={g.gutter - 12} y={y + 3.5} textAnchor="end" fontSize={g.label}>
+                    <text
+                      className="dt-scale__label"
+                      x={g.gutter - 12}
+                      // u zlomu odsunout popisky od přetržené linky: 100 000 nad ni, milion pod ni
+                      y={y + (d === SCALE.detailLog ? -2 : d === SCALE.abyssLog ? 9 : 3.5)}
+                      textAnchor="end"
+                      fontSize={g.label}
+                    >
                       {uiT(compact ? `${DECADE_KEYS[d]}s` : DECADE_KEYS[d], locale)}
                     </text>
                   </g>
@@ -421,6 +430,29 @@ export default function DeepTime({ base, worlds, chapters, now }: Props) {
                 </g>
               );
             })}
+
+            {/* zlom stupnice: přetržená mapa mezi podrobnou částí a propastí */}
+            {(() => {
+              const [b0, b1] = breakZone(g.decade);
+              const y0 = g.top + b0 + 3;
+              const y1 = g.top + b1 - 3;
+              const x0 = g.gutter - 6;
+              const x1 = layout.width;
+              const step = compact ? 8 : 12;
+              const amp = compact ? 2.5 : 3.5;
+              const zig = (y: number) => {
+                const pts: string[] = [];
+                for (let x = x0, i = 0; x <= x1 + step; x += step, i++) pts.push(`${x},${y + (i % 2 ? amp : -amp)}`);
+                return pts.join(' ');
+              };
+              return (
+                <g className="dt-break" aria-hidden="true">
+                  <polygon className="dt-break__gap" points={`${zig(y0)} ${zig(y1).split(' ').reverse().join(' ')}`} />
+                  <polyline className="dt-break__edge" points={zig(y0)} />
+                  <polyline className="dt-break__edge" points={zig(y1)} />
+                </g>
+              );
+            })()}
 
             {/* hladina: teď */}
             <line className="dt-surface" x1={g.gutter - 6} x2={layout.width} y1={g.top} y2={g.top} />

@@ -1116,3 +1116,15 @@ html[data-theme='dark'] .dt-ours__row * {
     min-width: 0;
   }
 }
+
+/* zlom stupnice mezi 100 000 lety a milionem */
+.dt-break__gap {
+  fill: var(--color-paper);
+}
+
+.dt-break__edge {
+  fill: none;
+  stroke: var(--color-ink);
+  stroke-width: 1.1;
+  stroke-linejoin: miter;
+}

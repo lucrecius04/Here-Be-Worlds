@@ -72,8 +72,16 @@ export function summarize(world: DeepWorld): DeepSummary {
 export const SCALE = {
   /** výška pásma pod jeden rok (odmocnina) */
   subYear: 34,
-  /** výška jednoho řádu (×10) */
-  decade: 58,
+  /** výška jednoho řádu (×10) v podrobné části (1 rok – 100 000 let) */
+  decade: 85,
+  /** poslední řád podrobné části: 10^5 = 100 000 let (35 ze 43 světů nesahá hlouběji) */
+  detailLog: 5,
+  /** začátek stlačené propasti: 10^6 = milion let (mezi 100 000 a milionem žádný svět neleží) */
+  abyssLog: 6,
+  /** výška zlomu stupnice jako podíl řádu */
+  breakShare: 0.4,
+  /** výška řádu v propasti jako podíl řádu */
+  abyssShare: 0.33,
   /** nejhlubší řád na stupnici (10^9,4 ≈ 2,5 miliardy let; nejhlubší svět sahá na miliardu) */
   maxLog: 9.4,
   /** mezera mezi měřitelným a mýtickým časem */
@@ -82,14 +90,26 @@ export const SCALE = {
   myth: 92,
 };
 
-/** Svislá poloha pod hladinou (0 = teď) v jednotkách SVG. */
+/**
+ * Svislá poloha pod hladinou (0 = teď) v jednotkách SVG.
+ * Stupnice se zlomem: pod rok odmocnina, 1 rok – 100 000 let po řádech podrobně,
+ * pak zlom (100 000 let – milion, kde žádný svět neleží) a stlačená propast milion – miliarda.
+ */
 export function depthY(years: number, decade = SCALE.decade): number {
   if (years <= 0) return 0;
   if (years < 1) return SCALE.subYear * Math.sqrt(years);
-  return SCALE.subYear + Math.min(Math.log10(years), SCALE.maxLog) * decade;
+  const l = Math.min(Math.log10(years), SCALE.maxLog);
+  const detail = SCALE.subYear + Math.min(l, SCALE.detailLog) * decade;
+  if (l <= SCALE.detailLog) return detail;
+  const brk = decade * SCALE.breakShare;
+  if (l < SCALE.abyssLog) return detail + ((l - SCALE.detailLog) / (SCALE.abyssLog - SCALE.detailLog)) * brk;
+  return detail + brk + (l - SCALE.abyssLog) * decade * SCALE.abyssShare;
 }
 
-export const measuredHeight = (decade = SCALE.decade) => SCALE.subYear + SCALE.maxLog * decade;
+/** Zlom stupnice: od–do v jednotkách SVG pod hladinou. */
+export const breakZone = (decade = SCALE.decade) => [depthY(10 ** SCALE.detailLog, decade), depthY(10 ** SCALE.abyssLog, decade)] as const;
+
+export const measuredHeight = (decade = SCALE.decade) => depthY(10 ** SCALE.maxLog, decade);
 export const mythTop = (decade = SCALE.decade) => measuredHeight(decade) + SCALE.gap;
 
 /** Řády na stupnici: 1 rok … miliarda let. */
