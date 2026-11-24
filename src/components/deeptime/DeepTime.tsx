@@ -33,8 +33,9 @@ const hue = (accent: { light: string; dark: string }) =>
  */
 function geometry(compact: boolean, focusCount = 0) {
   if (compact && focusCount) {
-    const pitch = Math.min(34, (390 - 58 - 8) / focusCount);
-    return { gutter: 58, pitch, col: Math.round(pitch * 0.5), top: 140, groupGap: 0, label: 10, decade: 40 };
+    // Nejvýš tak široké jako u Fantasy (12 světů), aby se málo světů nezvětšilo přes celý displej.
+    const pitch = Math.min(27, (390 - 64 - 8) / focusCount);
+    return { gutter: 64, pitch, col: Math.round(pitch * 0.5), top: 140, groupGap: 0, label: 9.5, decade: 40 };
   }
   return compact
     ? { gutter: 58, pitch: 7.6, col: 5, top: 14, groupGap: 5, label: 9.5, decade: 40 }
@@ -123,8 +124,9 @@ export default function DeepTime({ base, worlds, chapters, now }: Props) {
       x += g.pitch;
       prev = w.chapterId;
     }
-    return { sorted, xs, groups, width: x + 8 };
-  }, [shown, sort, g, chapterOrder]);
+    // Na telefonu s jedním archetypem drží graf šířku displeje, takže se nezvětšuje.
+    return { sorted, xs, groups, width: compact && focusOn ? Math.max(x + 8, 390) : x + 8 };
+  }, [shown, sort, g, chapterOrder, compact, focusOn]);
 
   const MEASURED_HEIGHT = measuredHeight(g.decade);
   const MYTH_TOP = mythTop(g.decade);
