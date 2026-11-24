@@ -16,7 +16,7 @@ export type DeepEvent = {
   kind: DeepKind;
   text: string;
 };
-export type DeepWorld = { present: string; cycle?: string; events: DeepEvent[] };
+export type DeepWorld = { present: string; presentYear?: number; cycle?: string; events: DeepEvent[] };
 
 export const DEEP_TIME: Record<string, DeepWorld> = (raw as unknown as { worlds: Record<string, DeepWorld> }).worlds;
 
@@ -96,6 +96,25 @@ export const mythTop = (decade = SCALE.decade) => measuredHeight(decade) + SCALE
 export const DECADES = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 /** Délky z našeho světa pro měřítko (šedé značky u stupnice). */
+/* ---------- naše časová osa (světy s naším letopočtem) ---------- */
+
+/** Rok události v našem letopočtu (u odhadu střed), nebo null. */
+export function eventYear(e: DeepEvent, presentYear: number): number | null {
+  if (e.after !== undefined) return typeof e.after === 'number' ? presentYear + e.after : null;
+  const mid = agoMid(e.ago);
+  return mid === null ? null : presentYear - mid;
+}
+
+/** Rok slovy: „1543“, „852 př. n. l.“, „před 60 miliony let“. */
+export function formatYear(year: number, locale: Loc): string {
+  const y = Math.round(year);
+  if (y >= 1) return y >= 10000 ? nf(y, locale) : String(y);
+  const bc = 1 - y;
+  if (bc < 1e6) return locale === 'cs' ? `${nf(bc, locale)} př. n. l.` : `${nf(bc, locale)} BC`;
+  if (bc < 1e9) return locale === 'cs' ? `${nf(Number((bc / 1e6).toPrecision(2)), locale, 1)} mil. let př. n. l.` : `${nf(Number((bc / 1e6).toPrecision(2)), locale, 1)} million years BC`;
+  return locale === 'cs' ? `${nf(Number((bc / 1e9).toPrecision(2)), locale, 1)} mld. let př. n. l.` : `${nf(Number((bc / 1e9).toPrecision(2)), locale, 1)} billion years BC`;
+}
+
 export const YARDSTICKS: Array<{ years: number; key: string }> = [
   { years: 5000, key: 'deepTime.yardWriting' },
   { years: 300000, key: 'deepTime.yardSapiens' },
@@ -107,7 +126,7 @@ export const YARDSTICKS: Array<{ years: number; key: string }> = [
 /* ---------- slovy ---------- */
 
 type Loc = 'cs' | 'en';
-const nf = (n: number, locale: Loc, digits = 0) =>
+export const nf = (n: number, locale: Loc, digits = 0) =>
   n.toLocaleString(locale === 'cs' ? 'cs-CZ' : 'en-GB', { maximumFractionDigits: digits });
 const csPlural = (n: number, one: string, few: string, many: string) =>
   n === 1 ? one : n >= 2 && n <= 4 && Number.isInteger(n) ? few : many;

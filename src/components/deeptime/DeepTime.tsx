@@ -19,9 +19,10 @@ import {
 } from '../../lib/deep-time';
 import type { DeepTimeWorld } from '../../lib/deep-time-pages';
 import type { ThemeChapter } from '../../lib/theme-pages';
+import OurTimeline from './OurTimeline';
 import '../../styles/deep-time.css';
 
-type Props = { base: string; worlds: DeepTimeWorld[]; chapters: ThemeChapter[] };
+type Props = { base: string; worlds: DeepTimeWorld[]; chapters: ThemeChapter[]; now: number };
 type Sort = 'depth' | 'archetype';
 
 const hue = (accent: { light: string; dark: string }) =>
@@ -69,7 +70,7 @@ function KindMark({ kind }: { kind: DeepKind }) {
   return <span className={`dt-kind dt-kind--${kind}`} aria-hidden="true" />;
 }
 
-export default function DeepTime({ base, worlds, chapters }: Props) {
+export default function DeepTime({ base, worlds, chapters, now }: Props) {
   const locale = useLocale();
   const compact = useCompact();
   const g = geometry(compact);
@@ -190,6 +191,7 @@ export default function DeepTime({ base, worlds, chapters }: Props) {
       <Legend locale={locale} />
 
       <div className={`dt-layout${active && picked ? ' has-panel' : ''}`}>
+        <div className="dt-main">
         <figure className="dt-chart" onMouseLeave={() => setHover(null)}>
           <svg
             viewBox={`0 0 ${layout.width} ${height}`}
@@ -396,6 +398,8 @@ export default function DeepTime({ base, worlds, chapters }: Props) {
             </text>
           </svg>
         </figure>
+        <OurTimeline worlds={items} now={now} locale={locale} compact={compact} picked={picked} onPick={setPicked} />
+        </div>
 
         <aside className="dt-panel" aria-live="polite" ref={panelRef}>
           {active && picked ? (

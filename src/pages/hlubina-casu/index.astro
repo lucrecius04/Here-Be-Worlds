@@ -4,11 +4,12 @@ import DeepTime from '../../components/deeptime/DeepTime';
 import { deepTimeChapters, deepTimeWorlds } from '../../lib/deep-time-pages';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const now = new Date().getFullYear();
 ---
 
 <BaseLayout
   title="Hlubina času · Here Be Worlds"
   description="Jak hluboko sahá paměť herních světů: všech 43 světů atlasu jako vrty od přítomnosti do nejstarších dějin, od dvanácti dní Pathologicu po miliardu let Mass Effectu."
 >
-  <DeepTime client:load base={base} worlds={deepTimeWorlds} chapters={deepTimeChapters} />
+  <DeepTime client:load base={base} worlds={deepTimeWorlds} chapters={deepTimeChapters} now={now} />
 </BaseLayout>

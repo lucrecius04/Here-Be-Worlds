@@ -1,7 +1,8 @@
 {
-  "_note": "Hlubina času (/hlubina-casu/): časové osy kronik (Faktografie) převedené na hloubku v letech před přítomností světa. ago = číslo (roky), [od, do] = odhad (z textu kroniky, např. 'po tisíce let'), \"myth\" = mýtický čas bez letopočtu, null = kronika datum neuvádí (jen v seznamu). after = roky po přítomnosti (pozdější díly, jen v seznamu). kind: origin · turn · catastrophe · game. Přítomnost = čas hlavní hry série (pozdější odbočky jako after). Každý údaj ověřený proti časové ose kroniky; odhady jen tam, kde je opora v textu kroniky.",
+  "_note": "Hlubina času (/hlubina-casu/): časové osy kronik (Faktografie) převedené na hloubku v letech před přítomností světa. ago = číslo (roky), [od, do] = odhad (z textu kroniky, např. 'po tisíce let'), \"myth\" = mýtický čas bez letopočtu, null = kronika datum neuvádí (jen v seznamu). after = roky po přítomnosti (pozdější díly). presentYear = rok přítomnosti v našem letopočtu (jen světy, které počítají roky jako my; graf Na naší časové ose). kind: origin · turn · catastrophe · game. Přítomnost = čas hlavní hry série (pozdější odbočky jako after). Každý údaj ověřený proti časové ose kroniky; odhady jen tam, kde je opora v textu kroniky.",
   "worlds": {
     "assassins-creed": {
+      "presentYear": 2020,
       "present": "2020 · moderní linka Valhally",
       "events": [
         { "ago": 77000, "when": "cca 75 000 př. n. l.", "kind": "catastrophe", "text": "Isu vládnou lidem jako otrokům; erupce Toby zničí jejich civilizaci" },
@@ -31,6 +32,7 @@
       ]
     },
     "bioshock": {
+      "presentYear": 1968,
       "present": "1968 · BioShock 2",
       "events": [
         { "ago": 78, "when": "Prosinec 1890", "kind": "origin", "text": "Wounded Knee; u křtu vzniká Prorok Comstock" },
@@ -56,6 +58,7 @@
       ]
     },
     "control": {
+      "presentYear": 2019,
       "present": "2019 · Control",
       "events": [
         { "ago": null, "when": "Před rokem 1964", "kind": "origin", "text": "Tajný Úřad pro kontrolu sbírá první Pozměněné předměty" },
@@ -68,6 +71,7 @@
       ]
     },
     "cyberpunk-2077": {
+      "presentYear": 2077,
       "present": "2077 · Cyberpunk 2077",
       "events": [
         { "ago": 87, "when": "1990–1996", "kind": "catastrophe", "text": "Krach: pád americké ekonomiky a rozpad USA" },
@@ -110,6 +114,7 @@
       ]
     },
     "deus-ex": {
+      "presentYear": 2072,
       "present": "2072 · Invisible War",
       "events": [
         { "ago": 296, "when": "1776", "kind": "origin", "text": "Adam Weishaupt zakládá Ilumináty" },
@@ -162,6 +167,7 @@
       ]
     },
     "doom": {
+      "presentYear": 2163,
       "present": "2163 · DOOM Eternal",
       "events": [
         { "ago": "myth", "when": "Úsvit stvoření", "kind": "origin", "text": "Davoth vládne Jekkadu a stvoří Maykry" },
@@ -218,6 +224,7 @@
       ]
     },
     "fallout": {
+      "presentYear": 2287,
       "present": "2287 · Fallout 4",
       "events": [
         { "ago": 342, "when": "Po r. 1945", "kind": "origin", "text": "Odklon: svět jaderné fyziky a elektronek" },
@@ -245,6 +252,7 @@
       ]
     },
     "half-life": {
+      "presentYear": 2023,
       "present": "Kolem roku 2023 · Half-Life 2",
       "events": [
         { "ago": "myth", "when": "Pradávná minulost", "kind": "origin", "text": "Combine ničí domovský svět Nihilantha" },
@@ -259,6 +267,7 @@
       ]
     },
     "halo": {
+      "presentYear": 2560,
       "present": "2560 · Halo Infinite",
       "events": [
         { "ago": [10000000, 100000000], "when": "Před > 10 miliony let", "kind": "catastrophe", "text": "Stvořitelé vyhladí Předchůdce" },
@@ -272,6 +281,7 @@
       ]
     },
     "horizon": {
+      "presentYear": 3041,
       "present": "3041 · Forbidden West",
       "events": [
         { "ago": 1001, "when": "2040–2048", "kind": "origin", "text": "Velké zotavení: Sobecková zachrání klima" },
@@ -285,6 +295,7 @@
       ]
     },
     "inscryption": {
+      "presentYear": 2020,
       "present": "Lukeovo hraní (kolem roku 2020)",
       "events": [
         { "ago": [470, 570], "when": "15. století", "kind": "origin", "text": "V Bavorsku vzniká karetní hra Karnöffel" },
@@ -296,6 +307,7 @@
       ]
     },
     "mass-effect": {
+      "presentYear": 2186,
       "present": "2186 · Mass Effect 3",
       "cycle": "Smrťáci sklízejí vyspělé civilizace každých 50 000 let",
       "events": [
@@ -314,6 +326,7 @@
       ]
     },
     "metro": {
+      "presentYear": 2036,
       "present": "Prosinec 2036 · Metro Exodus",
       "events": [
         { "ago": [56, 106], "when": "30.–80. léta 20. stol.", "kind": "origin", "text": "Stavba metra a tajné sítě Metro-2" },
@@ -326,6 +339,7 @@
       ]
     },
     "nier-automata": {
+      "presentYear": 11945,
       "present": "Březen 11945 · NieR: Automata",
       "events": [
         { "ago": 9942, "when": "Červen 2003", "kind": "catastrophe", "text": "Drakengard: rudý drak nad Tokiem, svět zaplaví Maso" },
@@ -387,6 +401,7 @@
       ]
     },
     "pentiment": {
+      "presentYear": 1543,
       "present": "1543 · III. dějství",
       "events": [
         { "ago": [1600, 2600], "when": "Předřímská doba", "kind": "origin", "text": "Keltové uctívají lesní božstva u pramenů" },
@@ -423,6 +438,7 @@
       ]
     },
     "resident-evil": {
+      "presentYear": 2026,
       "present": "Říjen 2026 · Requiem",
       "events": [
         { "ago": 107, "when": "1919", "kind": "origin", "text": "Miranda objeví plíseň Megamycete" },
@@ -437,6 +453,7 @@
       ]
     },
     "silent-hill": {
+      "presentYear": 2003,
       "present": "Počátek 21. stol. · Silent Hill 3 a 4",
       "events": [
         { "ago": [400, 1000], "when": "Před 17. stol.", "kind": "origin", "text": "Domorodci uctívají Místo tichých duchů" },
@@ -450,6 +467,7 @@
       ]
     },
     "soma": {
+      "presentYear": 2104,
       "present": "Květen 2104 · SOMA",
       "events": [
         { "ago": 89, "when": "Květen 2015", "kind": "origin", "text": "Sken mozku Simona Jarretta" },
@@ -460,6 +478,7 @@
       ]
     },
     "starcraft": {
+      "presentYear": 2508,
       "present": "2508 · Into the Void",
       "cycle": "Xel'Naga udržují Nekonečný cyklus, který chce Amon zničit",
       "events": [
@@ -524,6 +543,7 @@
       ]
     },
     "warhammer-40k": {
+      "presentYear": 41999,
       "present": "999.M41 · Éra Indomitus",
       "events": [
         { "ago": 60042000, "when": "~ 60 000 000 př. n. l.", "kind": "catastrophe", "text": "Válka v Nebesích, zrození prvních Bohů Chaosu" },
@@ -536,6 +556,7 @@
       ]
     },
     "xcom": {
+      "presentYear": 2040,
       "present": "2040 · Chimera Squad",
       "events": [
         { "ago": [1000000, 10000000], "when": "Před miliony let", "kind": "origin", "text": "Éteričtí prchají před neznámou hrozbou" },
