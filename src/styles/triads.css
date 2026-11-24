@@ -17,7 +17,7 @@ html[data-theme='dark'] .un-cell li {
 }
 
 .tg-page {
-  --tg-scroll: calc(var(--site-header-height) + 4.5rem);
+  --tg-scroll: calc(var(--site-header-height) + 7.5rem);
 }
 
 /* ---------- hlavička ---------- */
@@ -44,16 +44,21 @@ html[data-theme='dark'] .un-cell li {
   opacity: 0.6;
 }
 
-/* ---------- skok na oddíl ---------- */
+/* ---------- skok na oddíl (v lepivém pruhu, zvýrazní oddíl, který čteš) ---------- */
 .tg-jump {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.25rem 1.75rem;
-  margin: 0 0 0.25rem;
+  align-items: center;
+  gap: 0.15rem 1.75rem;
 }
 
 .tg-jump a {
-  font: 500 0.75rem var(--font-mono);
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.25rem;
+  padding: 0.3rem 0;
+  border-bottom: 2px solid transparent;
+  font: 600 0.75rem var(--font-mono);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--color-ink-muted);
@@ -63,6 +68,11 @@ html[data-theme='dark'] .un-cell li {
 .tg-jump a:hover,
 .tg-jump a:focus-visible {
   color: var(--color-accent);
+}
+
+.tg-jump a[aria-current='location'] {
+  color: var(--color-ink);
+  border-bottom-color: var(--color-ink);
 }
 
 /* ---------- lepivý filtr ---------- */
@@ -215,6 +225,14 @@ html[data-theme='dark'] .tg-filter__btn[aria-pressed='true'] {
 
 .tg-type__head {
   align-self: start;
+}
+
+.tg-type__kicker {
+  margin: 0 0 0.35rem;
+  font: 500 0.6875rem var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
 }
 
 .tg-type__name {
@@ -599,4 +617,26 @@ html[data-theme='dark'] .tg-filter__btn[aria-pressed='true'] {
   .un-grid__col {
     transition: none;
   }
+}
+
+/* Mapa neznáma: archetyp zvýrazní své světy v mřížce i v rejstříku */
+.un-cell li.is-dim {
+  opacity: 0.3;
+}
+
+.un-item.is-dim {
+  opacity: 0.32;
+}
+
+.tg-sticky > .tg-jump + .tg-filter,
+.tg-sticky > .tg-filter + .tg-filter {
+  margin-top: 0.15rem;
+  padding-top: 0.15rem;
+  border-top: 1px solid var(--color-line);
+}
+
+
+/* Mapa neznáma má v pruhu dva řádky filtrů */
+.un-page {
+  --tg-scroll: calc(var(--site-header-height) + 7.5rem);
 }

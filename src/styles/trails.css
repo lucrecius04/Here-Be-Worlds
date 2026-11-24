@@ -163,6 +163,8 @@ html[data-theme='dark'] .trails-cross__dot {
 }
 
 .trails-row__world {
+  display: inline-block;
+  text-decoration: none;
   appearance: none;
   padding: 0.3125rem 0 0;
   border: 0;

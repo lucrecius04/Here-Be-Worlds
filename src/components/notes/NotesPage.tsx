@@ -112,7 +112,7 @@ export default function NotesPage({ base }: Props) {
           {(
             [
               ['card.originalSin', 'card.triadHelpOriginalSin', 'prvotni-hrich', `${GALLERY_PATH}#prvotni-hrichy`, 'notes.triadSinIn'],
-              ['card.centralDilemma', 'card.triadHelpCentralDilemma', 'ustredni-otazka', `${GALLERY_PATH}#velka-dilemata`, 'notes.triadDilemmaIn'],
+              ['card.centralDilemma', 'card.triadHelpCentralDilemma', 'ustredni-otazka', `${GALLERY_PATH}#ustredni-dilemata`, 'notes.triadDilemmaIn'],
               ['card.ultimateMystery', 'card.triadHelpUltimateMystery', 'rizena-mezera', UNKNOWN_PATH, 'notes.triadMysteryIn'],
             ] as const
           ).map(([term, help, anchor, view, viewLabel]) => (

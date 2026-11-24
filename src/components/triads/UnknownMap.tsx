@@ -9,7 +9,7 @@ import {
   WORLD_TRIAD_TYPES,
   mysteryAnchor,
 } from '../../lib/triad-types';
-import { hueVars, type TriadChapter, type TriadWorld } from './TriadGallery';
+import { ArchetypeFilter, hueVars, type TriadChapter, type TriadWorld } from './TriadGallery';
 import { HolderIcon } from './HolderIcon';
 import '../../styles/triads.css';
 
@@ -20,6 +20,8 @@ export { HolderIcon };
 export default function UnknownMap({ base, worlds, chapters }: Props) {
   const locale = useLocale();
   const [holder, setHolder] = useState<string | null>(null);
+  const [arch, setArch] = useState<string | null>(null);
+  const archDim = (w: TriadWorld) => arch !== null && w.chapterId !== arch;
   const order = useMemo(() => new Map(chapters.map((c, i) => [c.id, i])), [chapters]);
   const sorted = useMemo(
     () =>
@@ -74,6 +76,7 @@ export default function UnknownMap({ base, worlds, chapters }: Props) {
             </button>
           ))}
         </div>
+        <ArchetypeFilter chapters={chapters} value={arch} onChange={setArch} label={uiT('unknown.archetype', locale)} />
       </div>
 
       {/* Mřížka: druh tajemství × kdo drží mezeru (na telefonu skrytá, stačí rejstřík) */}
@@ -115,7 +118,7 @@ export default function UnknownMap({ base, worlds, chapters }: Props) {
                       {list.length ? (
                         <ul>
                           {list.map((w) => (
-                            <li key={w.id} style={hueVars(w.accent)}>
+                            <li key={w.id} style={hueVars(w.accent)} className={archDim(w) ? 'is-dim' : undefined}>
                               <a href={`#${mysteryAnchor(w.id)}`} tabIndex={off ? -1 : undefined}>
                                 <span className="tg-dot" aria-hidden="true" />
                                 {t(w.title, locale)}
@@ -158,7 +161,7 @@ export default function UnknownMap({ base, worlds, chapters }: Props) {
                   const h = WORLD_TRIAD_TYPES[w.id].holder;
                   const analysis = withBase(base, `/worlds/${w.id}/?view=analysis${w.mysteryAnchor ? `#${w.mysteryAnchor}` : ''}`);
                   return (
-                    <li key={w.id} id={mysteryAnchor(w.id)} className="tg-entry un-item" style={hueVars(w.accent)}>
+                    <li key={w.id} id={mysteryAnchor(w.id)} className={`tg-entry un-item${archDim(w) ? ' is-dim' : ''}`} style={hueVars(w.accent)}>
                       <p className="tg-entry__world">
                         <a href={withBase(base, `/worlds/${w.id}/`)}>{t(w.title, locale)}</a>
                       </p>

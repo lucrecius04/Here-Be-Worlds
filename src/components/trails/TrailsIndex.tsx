@@ -207,16 +207,13 @@ export default function TrailsIndex({ base, trails, worlds, themeLabels, images,
                     const w = byId.get(id);
                     return (
                       <li key={id}>
-                        <button
-                          type="button"
+                        <a
                           className={`trails-row__world${id === world ? ' is-pick' : ''}`}
                           style={w ? hue(w.accent) : undefined}
-                          title={uiT('trailsPage.pickWorld', locale)}
-                          aria-pressed={id === world}
-                          onClick={() => pick(id)}
+                          href={withBase(base, `/worlds/${id}/`)}
                         >
                           {title(id).replace(/(\d) (\d)/g, '$1\u00a0$2')}
-                        </button>
+                        </a>
                       </li>
                     );
                   })}

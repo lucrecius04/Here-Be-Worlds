@@ -1,4 +1,4 @@
-import { useMemo, useState, type CSSProperties } from 'react';
+import { useEffect, useMemo, useState, type CSSProperties } from 'react';
 import type { LocalizedString } from '../../schemas/world';
 import { t, uiT, worldCountLabel } from '../../lib/i18n';
 import { useLocale } from '../../lib/locale-store';
@@ -83,8 +83,23 @@ export default function TriadGallery({ base, worlds, chapters }: Props) {
 
   const sections: { id: string; title: string; types: TriadType[]; key: 'sin' | 'dilemma'; text: 'originalSin' | 'centralDilemma' }[] = [
     { id: 'prvotni-hrichy', title: uiT('triads.sinsTitle', locale), types: SIN_TYPES, key: 'sin', text: 'originalSin' },
-    { id: 'velka-dilemata', title: uiT('triads.dilemmasTitle', locale), types: DILEMMA_TYPES, key: 'dilemma', text: 'centralDilemma' },
+    { id: 'ustredni-dilemata', title: uiT('triads.dilemmasTitle', locale), types: DILEMMA_TYPES, key: 'dilemma', text: 'centralDilemma' },
   ];
+
+  // Který oddíl právě čteš: zvýrazní se v lepivém pruhu.
+  const [current, setCurrent] = useState<string>('prvotni-hrichy');
+  useEffect(() => {
+    const els = ['prvotni-hrichy', 'ustredni-dilemata'].map((id) => document.getElementById(id)).filter(Boolean) as HTMLElement[];
+    const onScroll = () => {
+      const line = window.innerHeight * 0.35;
+      let id = els[0]?.id ?? 'prvotni-hrichy';
+      for (const el of els) if (el.getBoundingClientRect().top <= line) id = el.id;
+      setCurrent(id);
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   const membersOf = (key: 'sin' | 'dilemma', typeId: string) => sorted.filter((w) => WORLD_TRIAD_TYPES[w.id]?.[key] === typeId);
   const dim = (w: TriadWorld) => arch !== null && w.chapterId !== arch;
@@ -104,15 +119,14 @@ export default function TriadGallery({ base, worlds, chapters }: Props) {
         </p>
       </header>
 
-      <nav className="tg-jump" aria-label={uiT('triads.onPage', locale)}>
-        {sections.map((s) => (
-          <a key={s.id} href={`#${s.id}`}>
-            {s.title}
-          </a>
-        ))}
-      </nav>
-
       <div className="tg-sticky">
+        <nav className="tg-jump" aria-label={uiT('triads.onPage', locale)}>
+          {sections.map((s) => (
+            <a key={s.id} href={`#${s.id}`} aria-current={current === s.id ? 'location' : undefined}>
+              {s.title}
+            </a>
+          ))}
+        </nav>
         <ArchetypeFilter chapters={chapters} value={arch} onChange={setArch} label={uiT('triads.filter', locale)} />
       </div>
 
@@ -151,6 +165,7 @@ export default function TriadGallery({ base, worlds, chapters }: Props) {
             return (
               <section key={type.id} className="tg-type" id={type.id} aria-labelledby={`${type.id}-h`}>
                 <div className="tg-type__head">
+                  <p className="tg-type__kicker">{uiT(s.key === 'sin' ? 'card.originalSin' : 'card.centralDilemma', locale)}</p>
                   <h3 className="tg-type__name" id={`${type.id}-h`}>
                     {t(type.label, locale)}
                   </h3>
