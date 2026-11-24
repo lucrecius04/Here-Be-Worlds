@@ -76,10 +76,10 @@ export const SCALE = {
   decade: 85,
   /** poslední řád podrobné části: 10^5 = 100 000 let (35 ze 43 světů nesahá hlouběji) */
   detailLog: 5,
-  /** začátek stlačené propasti: hned za 100 000 lety (Halo i Outer Wilds tam mají události, proto žádná mezera) */
-  abyssLog: 5,
-  /** výška mezery zlomu jako podíl řádu (0: zlom je jen značka, sloupce pokračují bez přerušení) */
-  breakShare: 0,
+  /** začátek stlačené propasti: 10^6 = milion let (mezi 100 000 a milionem žádný svět neleží) */
+  abyssLog: 6,
+  /** výška zlomu stupnice jako podíl řádu */
+  breakShare: 0.4,
   /** výška řádu v propasti jako podíl řádu */
   abyssShare: 0.33,
   /** nejhlubší řád na stupnici (10^9,4 ≈ 2,5 miliardy let; nejhlubší svět sahá na miliardu) */
@@ -93,7 +93,7 @@ export const SCALE = {
 /**
  * Svislá poloha pod hladinou (0 = teď) v jednotkách SVG.
  * Stupnice se zlomem: pod rok odmocnina, 1 rok – 100 000 let po řádech podrobně,
- * pak stlačená propast 100 000 let – miliarda (třetinové řády).
+ * pak zlom (100 000 let – milion, kde žádný svět neleží) a stlačená propast milion – miliarda.
  */
 export function depthY(years: number, decade = SCALE.decade): number {
   if (years <= 0) return 0;
@@ -102,8 +102,7 @@ export function depthY(years: number, decade = SCALE.decade): number {
   const detail = SCALE.subYear + Math.min(l, SCALE.detailLog) * decade;
   if (l <= SCALE.detailLog) return detail;
   const brk = decade * SCALE.breakShare;
-  if (l < SCALE.abyssLog && SCALE.abyssLog > SCALE.detailLog)
-    return detail + ((l - SCALE.detailLog) / (SCALE.abyssLog - SCALE.detailLog)) * brk;
+  if (l < SCALE.abyssLog) return detail + ((l - SCALE.detailLog) / (SCALE.abyssLog - SCALE.detailLog)) * brk;
   return detail + brk + (l - SCALE.abyssLog) * decade * SCALE.abyssShare;
 }
 

@@ -41,8 +41,7 @@ function yearLabel(year: number, locale: Locale): string {
 function pastUnits(log: number): number {
   const l = Math.min(log, PAST);
   if (l <= SCALE.detailLog) return l;
-  if (l < SCALE.abyssLog && SCALE.abyssLog > SCALE.detailLog)
-    return SCALE.detailLog + ((l - SCALE.detailLog) / (SCALE.abyssLog - SCALE.detailLog)) * SCALE.breakShare;
+  if (l < SCALE.abyssLog) return SCALE.detailLog + ((l - SCALE.detailLog) / (SCALE.abyssLog - SCALE.detailLog)) * SCALE.breakShare;
   return SCALE.detailLog + SCALE.breakShare + (l - SCALE.abyssLog) * SCALE.abyssShare;
 }
 
@@ -91,10 +90,10 @@ export default function OurTimeline({ worlds, now, locale, compact, picked, onPi
   );
   const height = g.top + rows.length * g.row + g.bottom;
   // Od nejstaršího (zleva) k nejmladšímu.
-  // Značky pod grafem: éry z našeho světa a zlom stupnice (éra člověka rozumného leží těsně za zlomem
-  // a značky by se překrývaly, proto ji nahrazuje popisek zlomu). Zleva doprava.
+  // Značky pod grafem: éry z našeho světa a zlom stupnice (éra člověka rozumného leží uvnitř zlomu,
+  // proto ji nahrazuje popisek zlomu). Zleva doprava.
   const marks = [
-    ...YARDSTICKS.filter((ys) => ys.key !== 'deepTime.yardSapiens').map((ys) => ({
+    ...YARDSTICKS.filter((ys) => ys.year < -(10 ** SCALE.abyssLog) || ys.year > -(10 ** SCALE.detailLog)).map((ys) => ({
       key: ys.key,
       when: ys.when,
       x: X(ys.year),
@@ -103,7 +102,7 @@ export default function OurTimeline({ worlds, now, locale, compact, picked, onPi
     {
       key: 'deepTime.yardBreak',
       when: 'deepTime.yardBreakWhen',
-      x: X(now - 10 ** SCALE.detailLog),
+      x: (X(now - 10 ** SCALE.detailLog) + X(now - 10 ** SCALE.abyssLog)) / 2,
       isBreak: true,
     },
   ].sort((a, b) => a.x - b.x);
@@ -150,31 +149,6 @@ export default function OurTimeline({ worlds, now, locale, compact, picked, onPi
                 </text>
               </g>
             ))}
-
-          {/* zlom stupnice u 100 000 let: značka za vrty, vrty pokračují bez přerušení */}
-          {(() => {
-            const xm = X(now - 10 ** SCALE.detailLog);
-            const xa = xm + 3;
-            const xb = xm - 3;
-            const y0 = g.top - 8;
-            const y1 = g.top + rows.length * g.row + 8;
-            const step = compact ? 7 : 10;
-            const amp = compact ? 2 : 3;
-            const zig = (x: number) => {
-              const pts: string[] = [];
-              for (let y = y0, i = 0; y <= y1 + step; y += step, i++) pts.push(`${x + (i % 2 ? amp : -amp)},${Math.min(y, y1)}`);
-              return pts;
-            };
-            const a = zig(xa);
-            const b = zig(xb);
-            return (
-              <g className="dt-break" aria-hidden="true">
-                <polygon className="dt-break__gap" points={`${a.join(' ')} ${b.reverse().join(' ')}`} />
-                <polyline className="dt-break__edge" points={zig(xa).join(' ')} />
-                <polyline className="dt-break__edge" points={zig(xb).join(' ')} />
-              </g>
-            );
-          })()}
 
           {/* délky z našeho světa: tady opravdu leží na ose */}
           {marks.map((m, i) => {
@@ -310,6 +284,47 @@ export default function OurTimeline({ worlds, now, locale, compact, picked, onPi
               </g>
             );
           })}
+
+          {/* zlom stupnice: 100 000 let – milion let od dneška */}
+          {(() => {
+            const xa = X(now - 10 ** SCALE.detailLog) - 2.5;
+            const xb = X(now - 10 ** SCALE.abyssLog) + 2.5;
+            const y0 = g.top - 8;
+            const y1 = g.top + rows.length * g.row + 8;
+            const step = compact ? 7 : 10;
+            const amp = compact ? 2 : 3;
+            const zig = (x: number) => {
+              const pts: string[] = [];
+              for (let y = y0, i = 0; y <= y1 + step; y += step, i++) pts.push(`${x + (i % 2 ? amp : -amp)},${Math.min(y, y1)}`);
+              return pts;
+            };
+            const a = zig(xa);
+            const b = zig(xb);
+            return (
+              <g className="dt-break" aria-hidden="true">
+                <polygon className="dt-break__gap" points={`${a.join(' ')} ${b.reverse().join(' ')}`} />
+                <polyline className="dt-break__edge" points={zig(xa).join(' ')} />
+                <polyline className="dt-break__edge" points={zig(xb).join(' ')} />
+                {/* události, které padnou do zlomu: zlom jako tušová spára, jiné jako linka v barvě archetypu */}
+                {rows.flatMap((w, i) => {
+                  const py = w.deep.presentYear!;
+                  const y = g.top + i * g.row + g.row / 2;
+                  const hb = g.bar + 2;
+                  return w.deep.events
+                    .filter((e) => e.after === undefined && (typeof e.ago === 'number' || isRange(e.ago)))
+                    .map((e) => ({ e, year: eventYear(e, py)! }))
+                    .filter(({ year }) => now - year > 10 ** SCALE.detailLog && now - year < 10 ** SCALE.abyssLog)
+                    .map(({ e, year }, k) =>
+                      e.kind === 'catastrophe' ? (
+                        <rect key={`${w.id}-${k}`} className="dt-seam" x={X(year) - 1.25} y={y - hb / 2 - 2} width={2.5} height={hb + 4} />
+                      ) : (
+                        <line key={`${w.id}-${k}`} className="dt-break__mark" style={hue(w.accent)} x1={X(year)} x2={X(year)} y1={y - hb / 2} y2={y + hb / 2} />
+                      ),
+                    );
+                })}
+              </g>
+            );
+          })()}
 
           {/* dnes */}
           <line className="dt-ours__today" x1={center} x2={center} y1={compact ? 16 : g.top - 26} y2={g.top + rows.length * g.row + 8} />

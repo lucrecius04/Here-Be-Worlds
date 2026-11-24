@@ -5,6 +5,7 @@
 .dt-group,
 .dt-world,
 .dt-only button,
+.dt-break__mark,
 .dt-fade-0,
 .dt-fade-1 {
   --dt-hue: var(--dt-hue-l, var(--color-ink-muted));
@@ -14,6 +15,7 @@ html[data-theme='dark'] .dt-core,
 html[data-theme='dark'] .dt-group,
 html[data-theme='dark'] .dt-world,
 html[data-theme='dark'] .dt-only button,
+html[data-theme='dark'] .dt-break__mark,
 html[data-theme='dark'] .dt-fade-0,
 html[data-theme='dark'] .dt-fade-1 {
   --dt-hue: var(--dt-hue-d, var(--color-ink-muted));
@@ -1128,4 +1130,9 @@ html[data-theme='dark'] .dt-ours__row * {
   stroke: var(--color-ink);
   stroke-width: 1.1;
   stroke-linejoin: miter;
+}
+
+.dt-break__mark {
+  stroke: var(--dt-hue);
+  stroke-width: 2;
 }
