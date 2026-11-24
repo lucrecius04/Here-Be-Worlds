@@ -18,6 +18,7 @@ const READY: Record<TrailId, number> = {
   'living-city': 2,
   loops: 3,
   'dead-speak': 3,
+  'monster-mirror': 1,
 };
 
 const DIR = 'putovani-obrazky';
