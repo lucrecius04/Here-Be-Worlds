@@ -101,7 +101,7 @@ Opačný pohled k tabulce výše (22 stezek): co číst před psaním eseje ke s
 
 ## Prameny k metodice vyprávění
 
-Pro stránku Jak světy vyprávějí a návrh metodiky (`docs/metodika-vypraveni.md`, 2026-11-25): *Ludotopia* (od majitele, z PDF), Pearce, Carson, Jenkins (2004), Fernández-Vara, Aarseth (2012), Koenitz a INDCOR, Ryanová (2005), Galloway, Schröter a Thon, Arjoranta, Domsch, Calleja (2017 i *In-Game*), k tomu dřívější Juul (*Half-Real*), Bogost, Murrayová, Aarseth (*Cybertext*), Doležel, Iser. Nové výtahy vznikly přes nástroj pro čtení webu z podrobného shrnutí celých textů: doslovné citace a strany před použitím v eseji ověřit v originálu.
+Pro stránku Jak světy vyprávějí a návrh metodiky (`docs/metodika-vypraveni.md`, 2026-11-25). Z knih od majitele: *Ludotopia*, Jørgensenová, Salen a Zimmerman, Ryanová (*Avatars of Story*), Thon, Juul (*The Art of Failure*, *Half-Real* doplněný). Z volně dostupných textů: Pearce, Carson, Jenkins (2004), Fernández-Vara, Aarseth (2012), Koenitz a INDCOR, Ryanová (2005), Galloway, Schröter a Thon, Arjoranta, Domsch, Calleja (2017 i *In-Game*), k tomu dřívější Juul (*Half-Real*), Bogost, Murrayová, Aarseth (*Cybertext*), Doležel, Iser. Výtahy z volně dostupných textů vznikly přes nástroj pro čtení webu z podrobného shrnutí celých textů: doslovné citace a strany před použitím v eseji ověřit v originálu.
 
 ## Čeká na dodání (od majitele)
 
