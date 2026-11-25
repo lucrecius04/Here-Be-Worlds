@@ -1,6 +1,6 @@
 # Metodika: Jak světy vyprávějí
 
-**Stav:** návrh 0.2 ke konzultaci s majitelem (2026-11-25). Nahrazuje verzi 0.1 (sedm rejstříků → šest nosičů × tři režimy). Stránka `/jak-svety-vypraveji/` i data `data/meta/narrative-tools.json` zůstávají beze změny, dokud majitel model neschválí. Zkušební zařazení všech 160 nástrojů je v příloze `docs/metodika-vypraveni-zarazeni.md`.
+**Stav:** návrh 0.2 ke konzultaci s majitelem (2026-11-25; názvy „kruh“ a „Zákulisí“ schválené týž den). Nahrazuje verzi 0.1 (sedm rejstříků → šest nosičů × tři režimy). Stránka `/jak-svety-vypraveji/` i data `data/meta/narrative-tools.json` zůstávají beze změny, dokud majitel model neschválí. Zkušební zařazení všech 160 nástrojů je v příloze `docs/metodika-vypraveni-zarazeni.md`.
 
 Dokument popisuje model, podle kterého atlas třídí nástroje vyprávění, jeho slovník, opory v pramenech a zkoušku na datech. Výtahy z pramenů jsou v `docs/prameny/` (rozcestník `README.md`).
 
@@ -10,8 +10,8 @@ Dokument popisuje model, podle kterého atlas třídí nástroje vyprávění, j
 
 1. Každý nástroj vyprávění má **pointu**: to, kvůli čemu ho kronika vyzdvihla.
 2. Model se ptá na jediné: **co potřebuje pointa ze hry, aby přežila?** Odpověď dává šest **kruhů** od slova k hráči:
-   **Slovo a stavba · Obraz a zvuk · Prostor a stopy · Čin · Soustrojí · Hráč.**
-3. První tři kruhy unese i kniha, film nebo místo (literatura, film, architektura a archiv). Další tři vznikají z hraní. Přesně odpovídají třem věcem, které Juulův test převyprávění vylučuje: **pravidlům** (Čin), **herním rekvizitám** (Soustrojí) a **skutečné situaci, ve které se hraje** (Hráč).
+   **Slovo a stavba · Obraz a zvuk · Prostor a stopy · Čin · Zákulisí · Hráč.**
+3. První tři kruhy unese i kniha, film nebo místo (literatura, film, architektura a archiv). Další tři vznikají z hraní. Přesně odpovídají třem věcem, které Juulův test převyprávění vylučuje: **pravidlům** (Čin), **herním rekvizitám** (Zákulisí) a **skutečné situaci, ve které se hraje** (Hráč).
 4. Čím dál od středu, tím víc ze situace hraní nástroj potřebuje. Kruhy nejsou stupnice hodnoty.
 5. Režimy (vložený, inscenovaný, vznikající) přestávají být druhou osou stránky. Na datech je z 86 % předpoví kruh. Zůstávají jako pomocná značka a nástroj rozboru.
 6. Do kruhů nepatří vlastnosti světa (čtyři nástroje) ani běžné herní konvence.
@@ -33,7 +33,7 @@ Dokument popisuje model, podle kterého atlas třídí nástroje vyprávění, j
 
 **Návrh metodické poznámky na začátek stránky** (ke schválení, autorský text majitele má přednost):
 
-> Každá hra vypráví slovem, obrazem, zvukem, prostorem i pravidly. Tady nehledáme, čím svět vypráví, ale čím vyniká: nástroje, které kronika každého světa vyzdvihla jako hlavní. Řadíme je do šesti kruhů podle toho, co z hraní potřebují. První tři by unesla i kniha, film nebo procházka místem. Další tři umí jen hra: stojí na pravidlech, na samotném soustrojí hry, nebo na tobě. Kruhy nejsou žebříček. Rozdělení je pracovní nástroj atlasu a jako každé třídění věci zjednodušuje.
+> Každá hra vypráví slovem, obrazem, zvukem, prostorem i pravidly. Tady nehledáme, čím svět vypráví, ale čím vyniká: nástroje, které kronika každého světa vyzdvihla jako hlavní. Řadíme je do šesti kruhů podle toho, co z hraní potřebují. První tři by unesla i kniha, film nebo procházka místem. Další tři umí jen hra: stojí na pravidlech, na zákulisí hry (smrt, uložení, rozhraní), nebo na tobě. Kruhy nejsou žebříček. Rozdělení je pracovní nástroj atlasu a jako každé třídění věci zjednodušuje.
 
 ---
 
@@ -68,7 +68,7 @@ Juul (*Half-Real*, kap. 4) zkouší soudržnost herního světa neformálním te
 | obraz, zvuk, střih | 2 Obraz a zvuk |
 | místo, kterým se prochází, a stopy v něm | 3 Prostor a stopy |
 | **pravidla** a hráčovo jednání ve světě | 4 Čin |
-| **herní rekvizity**: smrt a návrat, uložení, další průchod, rozhraní, herní konvence | 5 Soustrojí |
+| **herní rekvizity**: smrt a návrat, uložení, další průchod, rozhraní, herní konvence | 5 Zákulisí |
 | **skutečnou situaci hraní**: hráče samého nebo jiné skutečné lidi | 6 Hráč |
 
 Stejné trojí členění má Galloway (*Gaming*): hru tvoří stroj, software a operátor. Činy uvnitř fikce (kruh 4), činy stroje a nastavení mimo fikci (kruh 5) a metalepse, která sahá na operátora (kruh 6).
@@ -83,18 +83,18 @@ Přenesení Juulova testu na nástroje a čtení jeho tří výluk jako kruhů j
 | **2 Obraz a zvuk** | dívá se a poslouchá | film, malba, hudba | Hudba a ticho (10) · Film a režie (7) · Výtvarný jazyk (6) |
 | **3 Prostor a stopy** | prochází a skládá | architektura, muzeum, archiv | Krajina jako výraz (10) · Zápisky a záznamy (9) · Stopy v prostoru (6) · Hlasy mrtvých a svědků (5) · Vrstvy a sestup (4) · Předměty a popisky (4) |
 | **4 Čin** | jedná podle pravidel | jen hra (a hry vůbec) | Volba a následky (13) · Pravidla, která vyprávějí (9) · Slovo jako čin (4) |
-| **5 Soustrojí** | umírá, ukládá, hraje znovu, čte rozhraní | jen hra | Rozhraní uvnitř příběhu (6) · Paměť hry (5) · Smrt a návrat (4) · Převrácené konvence (2) |
+| **5 Zákulisí** | umírá, ukládá, hraje znovu, čte rozhraní | jen hra | Rozhraní uvnitř příběhu (6) · Paměť hry (5) · Smrt a návrat (4) · Převrácené konvence (2) |
 | **6 Hráč** | je sám sebou, hráčem | jen hra | Hrdina jako maska (7) · Záměna rolí (3) · Průnik (3) · Spoluvina (2) · Cizí hráči (2) |
 
 Celkem 156 nástrojů v kruzích a 4 mimo ně (oddíl 6). Kruhy 1 až 3 nesou 96 nástrojů, kruhy 4 až 6 nesou 60.
 
 ### 3.3 Proč kruhy
 
-Uprostřed stojí vyprávěný příběh. Každý další kruh vtahuje víc ze situace hraní: oči, nohy, ruce na ovladači, soustrojí hry, nakonec člověka, který hraje. Šestý kruh sahá za hranici, které herní studia podle Huizingy říkají magický kruh (pojem rozšířili Salen a Zimmerman). Průnik ji překročí, spoluvina ji zatíží.
+Uprostřed stojí vyprávěný příběh. Každý další kruh vtahuje víc ze situace hraní: oči, nohy, ruce na ovladači, zákulisí hry, nakonec člověka, který hraje. Šestý kruh sahá za hranici, které herní studia podle Huizingy říkají magický kruh (pojem rozšířili Salen a Zimmerman). Průnik ji překročí, spoluvina ji zatíží.
 
 Model je obrácená cibule Ryanové. Ta jde od okraje (rozhraní kolem příběhu) ke středu (příběh tvořený za běhu). Atlas jde od středu (příběh, který se říká) ven ke skutečnému hráči. Obě stavby popisují totéž z opačných stran a obě odmítají hodnotit podle hloubky.
 
-Pořadí prvních tří kruhů odpovídá tomu, kolik pohybu nástroj od hráče chce: číst, dívat se, procházet. Pořadí dalších tří tomu, jak daleko za fikci sahá: pravidla ve fikci, soustrojí kolem fikce, člověk za ní.
+Pořadí prvních tří kruhů odpovídá tomu, kolik pohybu nástroj od hráče chce: číst, dívat se, procházet. Pořadí dalších tří tomu, jak daleko za fikci sahá: pravidla ve fikci, zákulisí kolem fikce, člověk za ní.
 
 ### 3.4 Prostor jako pantový kruh
 
@@ -157,9 +157,11 @@ Příklady jsou ze zkušebního zařazení (příloha). U každého kruhu je ot�
 
 Dosavadní způsob **Příběhy, které napíše hráč** se rozpouští: není to způsob, ale vznikající režim. XCOM patří k Pravidlům, která vyprávějí, Death Stranding k Cizím hráčům.
 
-### Kruh 5: Soustrojí
+### Kruh 5: Zákulisí
 
-*Otázka: Musí převyprávění zmínit smrt ve hře, uložení, nový průchod, rozhraní nebo herní konvenci?* Kruh zfikčnění (oddíl 3.5). Herní konvence se tu nestydí za to, že je konvence. Stala se materiálem příběhu.
+*Otázka: Musí převyprávění zmínit smrt ve hře, uložení, nový průchod, rozhraní nebo herní konvenci?* Kruh zfikčnění (oddíl 3.5).
+
+**Proč Zákulisí** (název zvolen 2026-11-25, dřív pracovně Soustrojí): smrt a nové nahrání, ukládání, menu a ukazatele jsou to, co hra běžně drží za scénou. Nástroje tohoto kruhu je vynášejí na jeviště a dělají z nich příběh. „Mechanika“ by splývala s kruhem 4, protože pravidla, která vyprávějí, jsou právě herní mechaniky. Herní konvence se tu nestydí za to, že je konvence. Stala se materiálem příběhu.
 
 - **Smrt a návrat**: smrt není konec hry, ale krok příběhu. Hades, Planescape: Torment, kráter ve světě Death Stranding, labyrint mysli v Tides of Numenera. Juul (*The Art of Failure*: mírnější tresty udělaly ze smrti vyprávěcí materiál), Galloway (smrt jako znemožňující čin stroje).
 - **Paměť hry**: uložení, návrat na začátek, další průchod a přenos mezi díly jako součást příběhu. Undertale pamatuje, že jsi hru nahrál znovu. NieR: Automata staví příběh z cest A až E. Dračí zlom v Elder Scrolls kanonizuje všechny konce. Mass Effect přenáší rozhodnutí mezi díly, Resident Evil propojuje scénáře A a B. Koenitz (problém mnoha průchodů), Murrayová (mnohotvarý příběh), Galloway (ukládání a nahrávání jako hráčův čin mimo fikci).
@@ -190,7 +192,7 @@ Režim říká, **kdo napsal výsledek a kdy**: autor dřív a rozmístil to (**
 | 2 Obraz a zvuk | 0 | 23 | 0 |
 | 3 Prostor a stopy | 36 | 2 | 0 |
 | 4 Čin | 1 | 20 | 5 |
-| 5 Soustrojí | 2 | 12 | 3 |
+| 5 Zákulisí | 2 | 12 | 3 |
 | 6 Hráč | 0 | 15 | 2 |
 
 Kdo zná kruh, uhodne režim ve 134 ze 156 případů (86 %). U stylu (hudba, výtvarný jazyk) režim nic nerozlišuje. Vznikajících nástrojů je jen 10. To odpovídá Ryanové: většina světů atlasu stojí na předem daném příběhu s variantami a ostrůvky vznikání. Je to fakt o žánru, ne nedostatek.
@@ -237,7 +239,7 @@ Kdo zná kruh, uhodne režim ve 134 ze 156 případů (86 %). U stylu (hudba, v�
 - Popisky předmětů v Dark Souls: text, ale pointou je skládání dějin z útržků → kruh 3, vložený.
 - Chůze s nákladem v Death Stranding: převyprávění musí říct, že hráč balancuje a padá → kruh 4, vznikající.
 - Smrt v Hadovi: princ se vrací Styxem domů. V knize by to šlo, ztratila by se ale pointa: každé hráčovo selhání je princova smrt a hra z herní smyčky udělala příběh → kruh 5.
-- Databáze replik v Hadovi: postavy komentují, co se právě stalo. V knize by to šlo (smrti jsou ve fikci), pointou jsou postavy → kruh 1, hraniční („také: Soustrojí“ by šlo zvážit).
+- Databáze replik v Hadovi: postavy komentují, co se právě stalo. V knize by to šlo (smrti jsou ve fikci), pointou jsou postavy → kruh 1, hraniční („také: Zákulisí“ by šlo zvážit).
 - Neviditelné volby v Silent Hillu: hra sleduje, co hráč dělá s fotografií Mary → kruh 4, „také: Hráč“.
 
 ---
@@ -259,7 +261,7 @@ Kdo zná kruh, uhodne režim ve 134 ze 156 případů (86 %). U stylu (hudba, v�
 | vlastnost světa | world property | co se vypráví, ne jak (zákony, novum) | Doležel, Suvin, Pearce |
 | vypravěčský podpis | narrative signature | kombinace kruhů a způsobů u jednoho světa | – |
 
-Slovo **rejstřík** z dosavadní stránky by nahradil **kruh**. „Nosič“ z verze 0.1 se nepoužije.
+Slovo **rejstřík** z dosavadní stránky nahradí **kruh** (schváleno 2026-11-25, „okruh“ zamítnut). „Nosič“ z verze 0.1 se nepoužije.
 
 ---
 
@@ -294,7 +296,7 @@ Slovo **rejstřík** z dosavadní stránky by nahradil **kruh**. „Nosič“ z 
 
 **Slabá místa, která zná:**
 - Kruhy 1 a 2 se v herní praxi prolínají (namluvený dialog je slovo i zvuk). Rozhoduje pointa, ne médium, a hraniční případy dostanou „také“.
-- Hranice mezi kruhy 4 a 5 je nejjemnější: smrt je ve fikci i v soustrojí. Pravidlo: když pointou je, že *konvence* (návrat po smrti, uložení, rozhraní) dostala příběh, je to kruh 5.
+- Hranice mezi kruhy 4 a 5 je nejjemnější: smrt je ve fikci i v zákulisí. Pravidlo: když pointou je, že *konvence* (návrat po smrti, uložení, rozhraní) dostala příběh, je to kruh 5.
 - Hrdina jako maska stojí na pomezí kruhů 1 a 6: román ve druhé osobě existuje. Pointou masky je ale prázdné místo vyplněné hráčovým jednáním, ne gramatická osoba.
 
 ---
@@ -321,8 +323,8 @@ Všech 160 nástrojů dostalo zkusmo místo (příloha `docs/metodika-vypraveni-
 | Slovo (Dialogy, Knihy a dokumenty, Nespolehliví vypravěči, Vypravěčský rámec, Zrcadlení a ozvěny, Zákony světa) | **Slovo a stavba**: totéž bez Zákonů světa, navíc Víc pohledů |
 | Obraz a zvuk | **Obraz a zvuk** beze změny |
 | Prostor + Stopy | **Prostor a stopy**: znovu spojené, protože stopy jsou postavení hráče, ne materiál; z Prostorového vyprávění se oddělila Krajina jako výraz; Svět, který se mění se rozešel do Krajiny jako výrazu (mysl) a Volby a následků (hráčovy činy) |
-| Pravidla | **Čin**: Pravidla, která vyprávějí, Volba a následky, nově Slovo jako čin; Rozhraní uvnitř příběhu odešlo do Soustrojí, Příběhy, které napíše hráč, se rozpustily v režimu |
-| Opakování | **Soustrojí**: Smrt a návrat, Paměť hry, Rozhraní uvnitř příběhu, Převrácené konvence |
+| Pravidla | **Čin**: Pravidla, která vyprávějí, Volba a následky, nově Slovo jako čin; Rozhraní uvnitř příběhu odešlo do Zákulisí, Příběhy, které napíše hráč, se rozpustily v režimu |
+| Opakování | **Zákulisí**: Smrt a návrat, Paměť hry, Rozhraní uvnitř příběhu, Převrácené konvence |
 | Hráč | **Hráč**: Hrdina jako maska, Průnik (dřív Čtvrtá stěna), nově Záměna rolí, Spoluvina, Cizí hráči |
 
 Úsek stránky „Od slova ke hře“ by se jmenoval **„Od slova k hráči“**.
@@ -373,8 +375,8 @@ Zbylé způsoby (Krajina jako výraz, Předměty a popisky, Vrstvy a sestup, Hrd
 ## 14. Otevřené otázky pro majitele
 
 1. **Model šesti kruhů:** sedí základní otázka (co pointa potřebuje ze hry) a pořadí kruhů?
-2. **Názvy kruhů:** Slovo a stavba · Obraz a zvuk · Prostor a stopy · Čin · Soustrojí · Hráč. Hlavně „Soustrojí“ (alternativy: Herní konvence, Hra sama, Stroj hry) a „Čin“ (alternativa: Pravidla).
-3. **Slovo „kruh“** místo „rejstřík“ na stránce? A „Od slova k hráči“ místo „Od slova ke hře“?
+2. **Názvy kruhů:** Slovo a stavba · Obraz a zvuk · Prostor a stopy · Čin · Zákulisí · Hráč. Rozhodnuto 2026-11-25: „Zákulisí“ místo pracovního „Soustrojí“ (majitel navrhl Mechaniku, ta by splývala s kruhem 4). Zbývá „Čin“ (alternativa: Pravidla).
+3. **Slovo „kruh“:** rozhodnuto 2026-11-25 se souhlasem majitele, „kruh“, ne „okruh“. Okruh zní jako tematický okruh nebo okruh přátel a ztrácí obraz soustředných kruhů od příběhu k hráči i ozvěnu magického kruhu. Na stránce tedy kruhy místo rejstříků a úsek „Od slova k hráči“.
 4. **Režim:** souhlas, že na stránce nebude mřížka 6 × 3, nanejvýš značka „vzniká při hraní“?
 5. **Vlastnosti světa:** čtyři nástroje (Pillars, Zaklínač, Warhammer, Xenoblade) by ze stránky odešly a zůstaly jen v kronikách. Souhlas, nebo pro ně najít místo (třeba okraj stránky „Svět jako výpověď“)?
 6. **Nové způsoby:** Krajina jako výraz, Slovo jako čin, Záměna rolí, Spoluvina. A dva kandidáti na hraně pravidla (Cizí hráči, Převrácené konvence): nechat, nebo počkat na další světy?

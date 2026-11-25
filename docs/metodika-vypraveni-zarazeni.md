@@ -12,7 +12,7 @@ Sloupce: svět · nástroj (název z kroniky) · režim · „také“ (druhý k
 | Obraz a zvuk | 23 |
 | Prostor a stopy | 38 |
 | Čin | 26 |
-| Soustrojí | 17 |
+| Zákulisí | 17 |
 | Hráč | 17 |
 | Mimo kruhy: vlastnost světa | 4 |
 
@@ -22,7 +22,7 @@ Sloupce: svět · nástroj (název z kroniky) · režim · „také“ (druhý k
 
 | Svět | Nástroj | Režim | Také | Dříve |
 |---|---|---|---|---|
-| Assassin's Creed | Bílá komora zpovědi (Memory Corridor) | inscenovaný | Soustrojí | dialogue |
+| Assassin's Creed | Bílá komora zpovědi (Memory Corridor) | inscenovaný | Zákulisí | dialogue |
 | Cyberpunk 2077 | Teze „Loď Théseova“ promítnutá do dialogů | inscenovaný |  | dialogue |
 | Disco Elysium | Chór rozštěpené mysli (24 aspektů osobnosti) | inscenovaný |  | dialogue |
 | Dragon Age | Dynamika družiny a stranické hašteření (Party Banter) | inscenovaný |  | dialogue |
@@ -39,7 +39,7 @@ Sloupce: svět · nástroj (název z kroniky) · režim · „také“ (druhý k
 |---|---|---|---|---|
 | Baldur's Gate | Sny jako bojiště o duši | inscenovaný |  | frame |
 | Disco Elysium | Vertikální pás textového sloupce (Střet literatury s Twitterem) | inscenovaný |  | frame |
-| Metro | Deník psaný v načítacích obrazovkách | inscenovaný | Soustrojí | frame |
+| Metro | Deník psaný v načítacích obrazovkách | inscenovaný | Zákulisí | frame |
 | Path of Exile | Labyrint a komentář císaře Izara | inscenovaný |  | frame |
 | Pentiment | Typografie jako zrcadlo mysli | inscenovaný |  | frame |
 | Pillars of Eternity | Ilustrované skriptové interakce (Kniha s doprovodnými kresbami) | inscenovaný |  | frame |
@@ -81,7 +81,7 @@ Sloupce: svět · nástroj (název z kroniky) · režim · „také“ (druhý k
 | Svět | Nástroj | Režim | Také | Dříve |
 |---|---|---|---|---|
 | Dragon Age | Střídání protagonisty jako změna historické optiky | inscenovaný |  | multiple-playthroughs |
-| Pathologic | Opakování a variace | inscenovaný | Soustrojí | multiple-playthroughs |
+| Pathologic | Opakování a variace | inscenovaný | Zákulisí | multiple-playthroughs |
 
 ## 2. Obraz a zvuk
 
@@ -93,7 +93,7 @@ Sloupce: svět · nástroj (název z kroniky) · režim · „také“ (druhý k
 | Cyberpunk 2077 | Choreografie scény v reálném čase (Interactive Scene System) | inscenovaný |  | cinematics |
 | Diablo | Paralelní filmové vyprávění (Cinematic framing) | inscenovaný |  | cinematics |
 | Half-Life | Skriptované sekvence v reálném čase a mikro-příběhy v dialozích | inscenovaný |  | cinematics |
-| NieR: Automata | Proměny kamery a žánru uprostřed akce | inscenovaný | Soustrojí | cinematics |
+| NieR: Automata | Proměny kamery a žánru uprostřed akce | inscenovaný | Zákulisí | cinematics |
 | StarCraft | Vyprávění uprostřed strategické bitvy (In-mission storytelling) | inscenovaný |  | cinematics |
 | Warcraft | Multimediální transmediální přenos | inscenovaný |  | cinematics |
 
@@ -236,7 +236,7 @@ Sloupce: svět · nástroj (název z kroniky) · režim · „také“ (druhý k
 | Tides of Numenera | Krize (Crises) jako přeměna souboje v dialog a hádanku | inscenovaný |  | mechanics-as-meaning |
 | Undertale | Bojové rozhraní jako psychologický dialog | inscenovaný |  | mechanics-as-meaning |
 
-## 5. Soustrojí
+## 5. Zákulisí
 
 ### Smrt a návrat (4)
 
