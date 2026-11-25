@@ -4,26 +4,20 @@
  * Rejstříky jdou od toho, co umí i kniha, po to, co umí jen hra. Skládá se při sestavení.
  */
 import type { LocalizedString, World } from '../schemas/world';
-import raw from '../../data/meta/narrative-tools.json';
-import { worlds as allWorlds, chapters, narrationTaxonomy } from './worlds';
+import { worlds as allWorlds, chapters } from './worlds';
+import { NARR_ASSIGNMENTS, NARR_FAMILIES, familyIndex, techniqueOf } from './narrative-taxonomy';
+
+export {
+  NARR_ASSIGNMENTS,
+  NARR_FAMILIES,
+  NARR_TECHNIQUES,
+  familyIndex,
+  techniqueOf,
+  worldTechniques,
+  type NarrFamily,
+  type NarrTechnique,
+} from './narrative-taxonomy';
 import { slugifyChronicleHeading } from './chronicle-toc';
-
-export type NarrFamily = {
-  id: string;
-  short: LocalizedString;
-  label: LocalizedString;
-  kin: LocalizedString;
-  desc: LocalizedString;
-};
-
-export type NarrTechnique = {
-  id: string;
-  family: string;
-  label: LocalizedString;
-  desc: LocalizedString;
-  /** Putování, které se tomuto způsobu věnuje (id z trails.ts). */
-  trail?: string;
-};
 
 /** Jeden nástroj z kroniky: název (bez anglické závorky), závorka zvlášť, celý odstavec. */
 export type NarrTool = {
@@ -43,28 +37,6 @@ export type NarrWorld = {
   /** Kotva oddílu Hlavní nástroje vyprávění v Anatomii vyprávění. */
   anchor: string;
 };
-
-type Raw = {
-  families: NarrFamily[];
-  techniques: Array<{ id: string; family: string; trail?: string; label?: LocalizedString; desc: LocalizedString }>;
-  assignments: Record<string, string[]>;
-};
-
-const data = raw as unknown as Raw;
-
-export const NARR_FAMILIES: NarrFamily[] = data.families;
-
-/** Způsoby; ty se stejným slugem jako štítky „Jak svět vypráví“ berou název odtamtud. */
-export const NARR_TECHNIQUES: NarrTechnique[] = data.techniques.map((tech) => {
-  const shared = narrationTaxonomy.find((n) => n.slug === tech.id)?.label as LocalizedString | undefined;
-  return { id: tech.id, family: tech.family, label: shared ?? tech.label ?? { en: tech.id }, desc: tech.desc, trail: tech.trail };
-});
-
-export const NARR_ASSIGNMENTS: Record<string, string[]> = data.assignments;
-
-/** Pořadí rejstříku (0 = jako kniha … 6 = hráč); slouží k řazení světů od slova ke hře. */
-export const familyIndex = (familyId: string) => NARR_FAMILIES.findIndex((f) => f.id === familyId);
-export const techniqueOf = (id: string) => NARR_TECHNIQUES.find((t) => t.id === id);
 
 const TOOLS_HEADING = /^##\s+5\.\s+Hlavní nástroje vyprávění\s*$/m;
 

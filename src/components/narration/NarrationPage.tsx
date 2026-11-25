@@ -141,7 +141,7 @@ export default function NarrationPage({ base, families, techniques, tools, world
           {toolsLabel(tools.length, locale)} · {worldCountLabel(worlds.length, locale)} · {techLabel(techniques.length, locale)}
         </p>
         <p className="nv-head__links">
-          <a href={withBase(base, '/anatomie-herniho-lore/')}>{uiT('narrPage.method', locale)}</a>
+          <a href={withBase(base, '/anatomie-herniho-lore/#jak-svety-vypraveji')}>{uiT('narrPage.method', locale)}</a>
           <span className="nv-head__sep" aria-hidden="true">
             ·
           </span>

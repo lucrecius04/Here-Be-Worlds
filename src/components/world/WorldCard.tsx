@@ -7,11 +7,10 @@ import { GALLERY_PATH, UNKNOWN_PATH, mysteryAnchor, triadTypesOf } from '../../l
 import { themePath } from '../../lib/themes';
 import { useLocale } from '../../lib/locale-store';
 import FiveAxes from './FiveAxes';
-import narrationData from '../../../data/meta/narration-taxonomy.json';
+import { NARR_TECHNIQUES, worldTechniques } from '../../lib/narrative-taxonomy';
 
-const NARRATION_LABELS: Record<string, LocalizedString> = Object.fromEntries(
-  narrationData.narration.map((item) => [item.slug, item.label]),
-);
+/** „Jak svět vypráví“: způsoby podle nástrojů kroniky, stejné jako na stránce Jak světy vyprávějí a ve filtru atlasu. */
+const NARRATION_LABELS: Record<string, LocalizedString> = Object.fromEntries(NARR_TECHNIQUES.map((t) => [t.id, t.label]));
 import '../../styles/world-card.css';
 
 type MetadataField = World['metadata'][keyof World['metadata']];
@@ -34,6 +33,7 @@ export default function WorldCard({
 }: Props) {
   const locale = useLocale();
   const actors = t(world.metadata.keyActors, locale);
+  const narration = worldTechniques(world.id);
 
   const meta: Array<[string, MetadataField]> = [
     ['card.atmosphere', world.metadata.atmosphere],
@@ -81,7 +81,7 @@ export default function WorldCard({
           </ul>
         </section>
 
-        {world.narration?.length ? (
+        {narration.length ? (
           <section className="wc-lex" aria-labelledby="wc-narration">
             <h2 id="wc-narration" className="wc-label">
               <a href={`${baseUrl}/jak-svety-vypraveji/`}>
@@ -89,7 +89,7 @@ export default function WorldCard({
               </a>
             </h2>
             <ul className="wc-lex__list">
-              {world.narration.map((slug) => (
+              {narration.map((slug) => (
                 <li key={slug}>
                   <a className="wc-lex__link" href={`${baseUrl}/jak-svety-vypraveji/#${slug}`}>
                     {NARRATION_LABELS[slug] ? t(NARRATION_LABELS[slug], locale) : slug}

@@ -14,13 +14,19 @@ import {
   spatialScopeOptions,
   type FieldOption,
 } from '../../../data/meta/field-options';
-import narrationData from '../../../data/meta/narration-taxonomy.json';
+import { NARR_FAMILIES, NARR_TECHNIQUES, worldTechniques } from '../../lib/narrative-taxonomy';
 import CatalogWorldCard from './CatalogWorldCard';
 import { withBase } from '../../lib/base-url';
 import { themePath } from '../../lib/themes';
 
-const narrationOptions: FieldOption[] = narrationData.narration.map((item) => ({ en: item.label.en, cs: item.label.cs }));
-const narrationSlugByEn = Object.fromEntries(narrationData.narration.map((item) => [item.label.en, item.slug]));
+/** Filtr „Jak svět vypráví“: všech 23 způsobů ze stránky Jak světy vyprávějí, po rejstřících. */
+const narrationOption = (t: (typeof NARR_TECHNIQUES)[number]): FieldOption => ({ en: t.label.en, cs: t.label.cs ?? t.label.en });
+const narrationGroups = NARR_FAMILIES.map((f) => ({
+  label: f.label,
+  options: NARR_TECHNIQUES.filter((t) => t.family === f.id).map(narrationOption),
+}));
+const narrationOptions: FieldOption[] = NARR_TECHNIQUES.map(narrationOption);
+const narrationSlugByEn = Object.fromEntries(NARR_TECHNIQUES.map((t) => [t.label.en, t.id]));
 import WorldCompass from './WorldCompass';
 import { TRAILS, trailById, type TrailId } from '../../lib/trails';
 import { latestAdded } from '../../lib/atlas-news';
@@ -174,7 +180,7 @@ export default function AtlasExplorer({
       if (societalOrder && !fieldMatchesOption(w.metadata.societalOrder, societalOrder)) return false;
       if (sourceOfPower && !fieldMatchesOption(w.metadata.sourceOfPower, sourceOfPower)) return false;
       if (perspective && !fieldMatchesOption(w.metadata.protagonistPerspective, perspective)) return false;
-      if (narration && !(w.narration ?? []).includes(narrationSlugByEn[narration])) return false;
+      if (narration && !worldTechniques(w.id).includes(narrationSlugByEn[narration])) return false;
       return true;
     });
   }, [
@@ -405,8 +411,8 @@ export default function AtlasExplorer({
               value={narration}
               onChange={setNarration}
               options={narrationOptions}
+              groups={narrationGroups}
               locale={locale}
-              sort
             />
           </div>
         ) : null}
@@ -513,6 +519,7 @@ function FieldFilter({
   options,
   locale,
   sort = false,
+  groups,
 }: {
   id: string;
   label: string;
@@ -522,6 +529,8 @@ function FieldFilter({
   options: FieldOption[];
   locale: Locale;
   sort?: boolean;
+  /** Možnosti ve skupinách (optgroup); pořadí zůstává, jak přišlo. */
+  groups?: Array<{ label: LocalizedString; options: FieldOption[] }>;
 }) {
   const items = sort
     ? [...options].sort((a, b) => t(a, locale).localeCompare(t(b, locale), locale))
@@ -539,11 +548,21 @@ function FieldFilter({
         className="field-input"
       >
         <option value="">{allLabel}</option>
-        {items.map((option) => (
-          <option key={option.en} value={option.en}>
-            {t(option, locale)}
-          </option>
-        ))}
+        {groups
+          ? groups.map((group) => (
+              <optgroup key={group.label.en} label={t(group.label, locale)}>
+                {group.options.map((option) => (
+                  <option key={option.en} value={option.en}>
+                    {t(option, locale)}
+                  </option>
+                ))}
+              </optgroup>
+            ))
+          : items.map((option) => (
+              <option key={option.en} value={option.en}>
+                {t(option, locale)}
+              </option>
+            ))}
       </select>
     </div>
   );

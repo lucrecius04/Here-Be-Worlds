@@ -108,7 +108,7 @@ export const ui: Record<Locale, UiTree> = {
     narrPage: {
       title: 'Jak světy vyprávějí',
       lead: 'Román vypráví slovy, film obrazem a střihem. Hra si od obou půjčuje a navíc vypráví pravidly, opakováním a samotným hráčem. Tady jsou vypravěčské nástroje všech světů atlasu, seřazené od toho, co umí i kniha, po to, co umí jen hra.',
-      method: 'Jak čteme vyprávění',
+      method: 'Jak chápeme vyprávění',
       theory: 'Teoretické zázemí',
       onPage: 'Na této stránce',
       spectrumTitle: 'Od slova ke hře',
@@ -852,7 +852,7 @@ Berte prosím tento atlas jako skromnou poctu všem scenáristům, designérům 
     narrPage: {
       title: 'How worlds tell their stories',
       lead: 'A novel tells with words, a film with images and cuts. A game borrows from both and also tells through rules, repetition and the player. Here are the storytelling tools of every world in the atlas, ordered from what a book can do as well to what only a game can do.',
-      method: 'How we read storytelling',
+      method: 'How we understand storytelling',
       theory: 'Theoretical background',
       onPage: 'On this page',
       spectrumTitle: 'From word to game',

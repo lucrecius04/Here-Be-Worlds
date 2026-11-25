@@ -165,7 +165,7 @@ Hra nemůže příběh jen vykládat, musí ho rozložit do prostoru a do činno
 
 > **Na kartě světa**
 >
-> Každá karta má řádek **Jak svět vypráví** s jedním až třemi nástroji z této tabulky. V katalogu podle něj lze světy filtrovat. Všechny vypravěčské nástroje všech světů, i ty mimo tabulku, jsou seřazené na stránce [Jak světy vyprávějí](/jak-svety-vypraveji/).
+> Každá karta má řádek **Jak svět vypráví** se způsoby, kterými svět vypráví podle oddílu Hlavní nástroje vyprávění ve své kronice. Kromě devíti způsobů z této tabulky jich atlas rozlišuje dalších čtrnáct; všechny jsou seřazené na stránce [Jak světy vyprávějí](/jak-svety-vypraveji/) a podle všech lze světy filtrovat i v katalogu.
 
 ### Dramaturgie odhalování
 
