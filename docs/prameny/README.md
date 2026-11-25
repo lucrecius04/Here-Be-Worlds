@@ -67,6 +67,7 @@ Pravidla:
 | Katie Salen, Eric Zimmerman: *Rules of Play* (2003) | [salen-zimmerman-rules-of-play.md](salen-zimmerman-rules-of-play.md) | z PDF: kap. 26 celá, z kap. 27 omyl ponoření | ne zda, ale jak; Millerova definice vyprávění (situace, postava, forma); vložené × vznikající vyprávění (LeBlanc, Church); cíle, konflikt, nejistota, jádrová mechanika a prostor jako stavební kameny; příběhové deskriptory; převyprávěná hra; omyl ponoření, dvojí vědomí hry, postava jako persona i loutka |
 | Marie-Laure Ryanová: *Avatars of Story* (2006) | [ryan-avatars-of-story.md](ryan-avatars-of-story.md) | z PDF: kap. 1, 5, 8 a 9 v klíčových částech | vyprávění jako kognitivní konstrukt s mírou (osm podmínek ve čtyřech rozměrech), módy vyprávění (reprezentační × simulační, diegetický × mimetický, napsaný × vznikající, přijímací × participativní, doslovný × metaforický), čtyři typy interaktivity, hra jako stroj na příběhy, instrumentální mód, příběhy postupu, vznikání a objevování, program funkčního ludonarativismu, rétorická × ontologická metalepse |
 | Jan-Noël Thon: *Transmedial Narratology and Contemporary Media Culture* (2016) | [thon-transmedial-narratology.md](thon-transmedial-narratology.md) | z PDF: oddíly o videohrách v kap. 3, 5 a 7, spor o vypravěče z kap. 4 | příběhový svět jako intersubjektivní konstrukt, vyprávěcí zobrazení × interaktivní simulace a jejich souhra, princip shovívavosti specifický pro médium, vypravěč není nutný, hypotetický autor a postavy-autoři, typy herních vypravěčů a jejich herní funkce, rámec výslechu, nespolehliví vypravěči uvnitř světa, prostorové hledisko a subjektivní zobrazení ve hrách |
+| Jesper Juul: *The Art of Failure* (2013; čteno v německém překladu *Die Kunst des Scheiterns*) | [juul-art-of-failure.md](juul-art-of-failure.md) | z EPUB: úvod, kap. 4–6, kap. 2–3 podle přehledu | paradox selhání a paradox tragédie, hry jako umění selhání, selhání × trest (plíživá smrt game overu), dovednost, štěstí a práce, pomíjivé, dosažitelné a zlepšovací cíle, zrcadlení hráče a protagonisty, herní tragédie (sebezničení postavy, spoluvina skrze klam), odpovědnost hráče × bezpečí čtenáře |
 | Drobné prameny: mýty o stvoření z těla boha, Eliade, Nietzsche, prameny Anatomie, prameny k metodice vyprávění | [drobne-prameny.md](drobne-prameny.md) | přes sekundární zdroje | Ymir, Tiamat, Puruša, deus otiosus, Bůh je mrtev, Iser, Jenkins, Aarseth, Tolkien, Suvin, LeBlanc (vložené a vznikající vyprávění), Conway (čtvrtá stěna), Juul (*The Art of Failure*), Jørgensenová, Ryanová (*Avatars of Story*) |
 
 ## Prameny podle stezek
@@ -105,6 +106,5 @@ Pro stránku Jak světy vyprávějí a návrh metodiky (`docs/metodika-vypraveni
 ## Čeká na dodání (od majitele)
 
 Pro metodiku vyprávění (majitel shání, 2026-11-25):
-- Jesper Juul, *The Art of Failure* (2013)
 - Alexander R. Galloway, *Gaming* (2006), celá kniha
 - Espen Aarseth, „A Narrative Theory of Games“ (2012), originál z ACM (máme jen překlad)

@@ -80,12 +80,13 @@ Co hra dovolí, zakáže, odmění a vynutí.
 
 Opakování, selhání, smyčky a průchody, tedy to, že se hra hraje znovu a jinak. Dosavadní název Opakování je užší, proto návrh na přejmenování.
 - **Dnešní způsoby:** Smrt a návrat · Víc průchodů a pohledů.
-- **Prameny:** Juul (*Half-Real*: projekce herního času do fikčního, čas ve hrách skoro vždy chronologický, interaktivní ohlédnutí jako problém stroje času; *The Art of Failure*, zatím z druhé ruky), Murrayová (kaleidoskopické a mnohotvaré vyprávění), Koenitz (otázka, kolik průchodů je jedno dílo), Galloway (smrt a konec hry jako čin stroje), Domsch (vnitřní hodiny světa).
+- **Prameny:** Juul (*The Art of Failure*: hlavní kniha nosiče, hry jako umění selhání, mírnější tresty a neomezené pokusy jako předpoklad toho, že se smrt a návrat staly vyprávěním; *Half-Real*: projekce herního času do fikčního, čas ve hrách skoro vždy chronologický, interaktivní ohlédnutí jako problém stroje času), Murrayová (kaleidoskopické a mnohotvaré vyprávění), Koenitz (otázka, kolik průchodů je jedno dílo), Galloway (smrt a konec hry jako čin stroje), Domsch (vnitřní hodiny světa).
 
 ### 3.6 Hráč (vzniká z hraní)
 
 Role, tělo, maska a hranice mezi hrou a tím, kdo ji hraje.
 - **Dnešní způsoby:** Hrdina jako maska · Čtvrtá stěna.
+- **Kandidát na nový způsob: spoluvina** (Juul, *The Art of Failure*): hráč se dodatečně dozví, k čemu se propůjčil. Podle Juula zážitek, který umějí jen hry. V kronikách výslovně u BioShocku a NieR: Automata. Zavést jako způsob, pokud se v kronikách opakuje.
 - **Čtvrtá stěna** (doplněno po Jørgensenové): oslovování hráče je ve hrách běžná konvence (metareference), mezi hráčem a světem je pružná membrána, ne zeď. Nástrojem vyprávění je metareference jen tam, kde hra poruší vlastní premisu nebo z hranice mezi hráčem a světem udělá téma. Přesněji podle Ryanové: rétorická metalepse (návod v ústech postavy, okénko, které se zase zavře) je konvence; ontologická metalepse (svět prosákne k hráči: plukovník v Metal Gear Solid 2 velí vypnout konzoli, NieR: Automata chce obětovat hráčovu uloženou hru) je nástroj.
 - **Prameny:** Ryanová (vnitřní a vnější účast), Dubbelman v *Ludotopii* (hráč hrdinou je × hrdinu řídí), Pearce (napůl prázdný avatar), Arjoranta (ztělesněná fokalizace), Calleja (začlenění, alterbiografie), Galloway (metalepse, Psycho Mantis), Conway (čtvrtá stěna přemístěná za hráče, z druhé ruky), Jørgensenová (metareference jako konvence, pružná membrána, avatar jako liminální bytost).
 
@@ -187,6 +188,8 @@ Kandidáti z přečtených pramenů (před zveřejněním ověřit):
 | Nespolehlivý vypravěč v pravidlech | Call of Juarez: Gunslinger (2013) | Arjoranta | |
 | Rámec výslechu (hraní jako převyprávění postavy) | Hitman: Blood Money, Zaklínač 2, Dragon Age II | Thon | ověřit proti kronikám |
 | Nespolehlivý vypravěč uvnitř světa | Atlas (BioShock), 343 Guilty Spark (Halo), GLaDOS (Portal) | Thon | ověřit proti kronikám |
+| Spoluvina skrze klam | Shadow of the Colossus (2005), deskovka Train (2009); opuštění spojence bez volby už Planetfall (1983) a Final Fantasy VII (1997) | Juul (*The Art of Failure*) | |
+| Smrt protagonisty jako podmínka pokračování | Red Dead Redemption (2010) | Juul (*The Art of Failure*) | |
 | Quick time events | Dragon's Lair (1983), pojem ze Shenmue | Domsch | ověřit obojí |
 | Rozhovory se stromem voleb | Fallout, Mass Effect | Domsch | starší RPG |
 
@@ -198,12 +201,11 @@ Zbylé způsoby (Popisky předmětů, Vrstvy a sestup, Rozhraní uvnitř příb�
 
 **Přečtené** (výtahy v `docs/prameny/`):
 - dřívější: Juul *Half-Real*, Bogost, Murrayová, Aarseth *Cybertext*, Ryanová *Narrative as Virtual Reality* (část), Calleja *In-Game*, Jenkins *Convergence Culture*, Iser, Doležel, Wolf;
-- nové (2026-11-25): Pearce 2004, Carson 2000, Jenkins 2004, Fernández-Vara 2011, Aarseth 2012 (přes překlad), Koenitz a INDCOR, Ryanová 2005, Galloway (kap. 1), Schröter a Thon 2014, Arjoranta 2017, Domsch 2013 (kap. 1–3), Calleja 2017, sborník *Ludotopia* 2019 (Domsch, Schrape o Lotmanovi, Dubbelman, Aarseth, Vella, Mukherjee; z PDF), Jørgensenová *Gameworld Interfaces* 2013 (z PDF), Salen a Zimmerman *Rules of Play* 2003, kap. 26 a omyl ponoření z kap. 27 (z PDF), Ryanová *Avatars of Story* 2006, kap. 1, 5, 8 a 9 (z PDF), Thon *Transmedial Narratology* 2016, oddíly o videohrách (z PDF), Juul *Half-Real* doplněný z knihy.
+- nové (2026-11-25): Pearce 2004, Carson 2000, Jenkins 2004, Fernández-Vara 2011, Aarseth 2012 (přes překlad), Koenitz a INDCOR, Ryanová 2005, Galloway (kap. 1), Schröter a Thon 2014, Arjoranta 2017, Domsch 2013 (kap. 1–3), Calleja 2017, sborník *Ludotopia* 2019 (Domsch, Schrape o Lotmanovi, Dubbelman, Aarseth, Vella, Mukherjee; z PDF), Jørgensenová *Gameworld Interfaces* 2013 (z PDF), Salen a Zimmerman *Rules of Play* 2003, kap. 26 a omyl ponoření z kap. 27 (z PDF), Ryanová *Avatars of Story* 2006, kap. 1, 5, 8 a 9 (z PDF), Thon *Transmedial Narratology* 2016, oddíly o videohrách (z PDF), Juul *Half-Real* doplněný z knihy, Juul *The Art of Failure* 2013 (německý překlad, z EPUB).
 
 Nové výtahy vznikly přes nástroj pro čtení webu z podrobného shrnutí celých textů, ne z vlastního čtení stránka po stránce. Doslovné citace a čísla stran se před použitím v eseji musí ověřit v originálu.
 
 **Z druhé ruky** (`docs/prameny/drobne-prameny.md`), stojí za sehnání:
-- Jesper Juul, *The Art of Failure* (2013): Čas hraní, selhání jako zážitek;
 - Alexander Galloway, *Gaming* (2006), kap. 2–5;
 - Sebastian Domsch, *Storyplaying*, kap. 4–7 (volně dostupné, dočíst);
 - Steven Conway, „A Circular Wall?“ (2009, článek, dočíst);
