@@ -53,7 +53,7 @@ Nosič je materiál, který nese význam nástroje. Seznam se kryje s Juulovými
 
 Co a jak se řekne nebo napíše a jak je příběh poskládaný.
 - **Dnešní způsoby:** Dialogy · Knihy a dokumenty · Nespolehliví vypravěči · Vypravěčský rámec · Zrcadlení a ozvěny · Popisky předmětů a Nahrávky a deníky (dosud ve Stopách; slovo psané nebo nesené hlasem).
-- **Prameny:** klasická naratologie (Genette, Stanzel podle Arjoranty), Aarseth 2012 (postava jako nejsilnější autorský nástroj), Iser (prázdná místa), Doležel (autentizace: kdo smí tvrdit fakta).
+- **Prameny:** Thon (*Transmedial Narratology*: typy herních vypravěčů a jejich herní funkce, rámec výslechu, nespolehliví vypravěči uvnitř světa, vypravěč není nutný), klasická naratologie (Genette, Stanzel podle Arjoranty), Aarseth 2012 (postava jako nejsilnější autorský nástroj), Iser (prázdná místa), Doležel (autentizace: kdo smí tvrdit fakta).
 
 ### 3.2 Obraz a zvuk (sdílí s filmem, malířstvím a hudbou)
 
@@ -157,7 +157,7 @@ Na stránce test zatím rozhodoval celý rejstřík. Nově rozhoduje u každého
 
 1. **Jeden nosič:** ten, který nese význam nástroje. Nahrávka je Slovo (i když zní), protože vypráví obsahem řeči. Hudba, která prozradí spojitost, je Obraz a zvuk.
 2. **Jeden režim:** podle otázky z oddílu 4 (kdo napsal výsledek a kdy).
-3. **Konvence nejsou nástroje.** Postava, která hlásí plný inventář, nebo HUD zdůvodněný přilbou jsou běžná řeč her (Jørgensenová), ne hlavní nástroj vyprávění. Zařazuje se jen to, co konvenci překročí nebo ji obrátí v příběh.
+3. **Konvence nejsou nástroje.** Postava, která hlásí plný inventář, nebo HUD zdůvodněný přilbou jsou běžná řeč her (Jørgensenová), ne hlavní nástroj vyprávění. Hráči podle Thona sami poznají, co do příběhového světa nepatří (princip shovívavosti). Zařazuje se jen to, co konvenci překročí nebo ji obrátí v příběh.
 4. **Hraniční případ** dostane poznámku „také: …“, jako v Galerii triád. Příklad: nespolehlivý vypravěč, jehož nespolehlivost se projeví pravidly (svět se mění podle toho, co vypravěč tvrdí), patří k Pravidlům, „také: Slovo“.
 5. **Díl ságy:** když se nástroj týká jen některého dílu, uvést ho.
 6. **Text kroniky se nemění.** Zařazení se ověřuje proti odstavci kroniky. Když odstavec nestačí na rozhodnutí, zařadí se podle Anatomie vyprávění a sporný případ se zapíše do `docs/stav.md`.
@@ -185,6 +185,8 @@ Kandidáti z přečtených pramenů (před zveřejněním ověřit):
 | Vypravěč komentuje hráčovy činy | Bastion (Supergiant 2011), týž tým pak Hades | Arjoranta | |
 | Trvalá smrt a jedno uložení | režim Ironman v XCOM: Enemy Unknown (2012) | Arjoranta | starší tradice roguelike |
 | Nespolehlivý vypravěč v pravidlech | Call of Juarez: Gunslinger (2013) | Arjoranta | |
+| Rámec výslechu (hraní jako převyprávění postavy) | Hitman: Blood Money, Zaklínač 2, Dragon Age II | Thon | ověřit proti kronikám |
+| Nespolehlivý vypravěč uvnitř světa | Atlas (BioShock), 343 Guilty Spark (Halo), GLaDOS (Portal) | Thon | ověřit proti kronikám |
 | Quick time events | Dragon's Lair (1983), pojem ze Shenmue | Domsch | ověřit obojí |
 | Rozhovory se stromem voleb | Fallout, Mass Effect | Domsch | starší RPG |
 
@@ -196,14 +198,13 @@ Zbylé způsoby (Popisky předmětů, Vrstvy a sestup, Rozhraní uvnitř příb�
 
 **Přečtené** (výtahy v `docs/prameny/`):
 - dřívější: Juul *Half-Real*, Bogost, Murrayová, Aarseth *Cybertext*, Ryanová *Narrative as Virtual Reality* (část), Calleja *In-Game*, Jenkins *Convergence Culture*, Iser, Doležel, Wolf;
-- nové (2026-11-25): Pearce 2004, Carson 2000, Jenkins 2004, Fernández-Vara 2011, Aarseth 2012 (přes překlad), Koenitz a INDCOR, Ryanová 2005, Galloway (kap. 1), Schröter a Thon 2014, Arjoranta 2017, Domsch 2013 (kap. 1–3), Calleja 2017, sborník *Ludotopia* 2019 (Domsch, Schrape o Lotmanovi, Dubbelman, Aarseth, Vella, Mukherjee; z PDF), Jørgensenová *Gameworld Interfaces* 2013 (z PDF), Salen a Zimmerman *Rules of Play* 2003, kap. 26 a omyl ponoření z kap. 27 (z PDF), Ryanová *Avatars of Story* 2006, kap. 1, 5, 8 a 9 (z PDF).
+- nové (2026-11-25): Pearce 2004, Carson 2000, Jenkins 2004, Fernández-Vara 2011, Aarseth 2012 (přes překlad), Koenitz a INDCOR, Ryanová 2005, Galloway (kap. 1), Schröter a Thon 2014, Arjoranta 2017, Domsch 2013 (kap. 1–3), Calleja 2017, sborník *Ludotopia* 2019 (Domsch, Schrape o Lotmanovi, Dubbelman, Aarseth, Vella, Mukherjee; z PDF), Jørgensenová *Gameworld Interfaces* 2013 (z PDF), Salen a Zimmerman *Rules of Play* 2003, kap. 26 a omyl ponoření z kap. 27 (z PDF), Ryanová *Avatars of Story* 2006, kap. 1, 5, 8 a 9 (z PDF), Thon *Transmedial Narratology* 2016, oddíly o videohrách (z PDF), Juul *Half-Real* doplněný z knihy.
 
 Nové výtahy vznikly přes nástroj pro čtení webu z podrobného shrnutí celých textů, ne z vlastního čtení stránka po stránce. Doslovné citace a čísla stran se před použitím v eseji musí ověřit v originálu.
 
 **Z druhé ruky** (`docs/prameny/drobne-prameny.md`), stojí za sehnání:
 - Jesper Juul, *The Art of Failure* (2013): Čas hraní, selhání jako zážitek;
 - Alexander Galloway, *Gaming* (2006), kap. 2–5;
-- Jan-Noël Thon, *Transmedial Narratology and Contemporary Media Culture* (2016): vypravěč a subjektivita ve hrách;
 - Sebastian Domsch, *Storyplaying*, kap. 4–7 (volně dostupné, dočíst);
 - Steven Conway, „A Circular Wall?“ (2009, článek, dočíst);
 - Marc LeBlanc, přednáška na GDC (1999/2000), známá přes Salen a Zimmermana.

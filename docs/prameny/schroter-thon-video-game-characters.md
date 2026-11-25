@@ -21,7 +21,7 @@
 - **Vyprávění × simulace je hranice „půjčené × jen hra“ v naratologickém jazyce.** Nosiče Slovo, Obraz a zvuk a Prostor pracují převážně vyprávěním (předem daným zobrazením), Pravidla a Čas hraní simulací. Juulův test převyprávění a Schröterova s Thonem dvojice se navzájem podpírají. Metodika může uvést obojí.
 - **Pozor na nepřesnou dvojici:** podle autorů může simulace nést příběh. Proto metodika nesmí tvrdit, že „jen hra“ znamená „méně příběhu“. Je to jiný nosič téhož příběhu.
 - **Komunikace mezi hráči** atlas měří jen výjimečně (zprávy v Dark Souls, Death Stranding). Patří do vznikajícího režimu a do nosiče Hráč. V metodice pojmenovat jako okraj, ne jako samostatný nosič.
-- **Jan-Noël Thon** napsal knihu *Transmedial Narratology and Contemporary Media Culture* (2016) s rozborem vypravěčů ve hrách. Atlas ji zná jen podle názvu, zařadit do knih, které stojí za sehnání.
+- **Jan-Noël Thon** napsal knihu *Transmedial Narratology and Contemporary Media Culture* (2016) s rozborem vypravěčů ve hrách. Od 2026-11-25 čtena z knihy, viz [thon-transmedial-narratology.md](thon-transmedial-narratology.md).
 
 ## Kde už je použito
 
