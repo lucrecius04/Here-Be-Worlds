@@ -106,11 +106,6 @@ export function familyCounts(worldId: string, tools: NarrTool[] = narrTools): nu
   return counts;
 }
 
-/** Těžiště vyprávění světa: 0 = vypráví jako kniha, 6 = vypráví jen jako hra (průměr rejstříků). */
-export function centroid(counts: number[]): number {
-  const total = counts.reduce((a, b) => a + b, 0);
-  return total ? counts.reduce((sum, n, i) => sum + n * i, 0) / total : 0;
-}
 
 export const narrChapters = chapters.map((c) => ({
   id: c.id,

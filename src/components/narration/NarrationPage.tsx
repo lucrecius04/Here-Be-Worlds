@@ -28,7 +28,6 @@ export type NarrPageWorld = {
   accent: { light: string; dark: string };
   anchor: string;
   counts: number[];
-  centroid: number;
 };
 export type NarrPageChapter = { id: string; title: LocalizedString; short?: LocalizedString };
 
@@ -41,7 +40,17 @@ type Props = {
   chapters: NarrPageChapter[];
 };
 
-type Sort = 'centroid' | 'archetype' | 'alpha';
+type Sort = 'share' | 'archetype' | 'alpha';
+
+/** Kolik nástrojů světa umí jen hra: žádný · menšina · polovina · většina. */
+type Bucket = 'none' | 'few' | 'half' | 'most';
+const BUCKETS: Bucket[] = ['none', 'few', 'half', 'most'];
+function bucketOf(own: number, total: number): Bucket {
+  if (own === 0) return 'none';
+  if (own * 2 < total) return 'few';
+  if (own * 2 === total) return 'half';
+  return 'most';
+}
 
 const hue = (accent: { light: string; dark: string }) =>
   ({ '--nv-hue-l': accent.light, '--nv-hue-d': accent.dark }) as CSSProperties;
@@ -84,7 +93,11 @@ export default function NarrationPage({ base, families, techniques, tools, world
   const familyTools = (familyId: string) => orderedTools.filter((tool) => techFamily.get(tool.technique) === familyId);
   const firstOwn = families.findIndex((f) => f.own);
 
-  const [sort, setSort] = useState<Sort>('centroid');
+  // Kolik nástrojů světa umí jen hra (rejstříky Pravidla, Opakování, Hráč) z kolika.
+  const ownOf = (w: NarrPageWorld) => w.counts.reduce((sum, n, i) => (families[i]?.own ? sum + n : sum), 0);
+  const totalOf = (w: NarrPageWorld) => w.counts.reduce((sum, n) => sum + n, 0);
+
+  const [sort, setSort] = useState<Sort>('share');
   const sortedWorlds = useMemo(() => {
     const name = (w: NarrPageWorld) => t(w.title, locale);
     const list = [...worlds];
@@ -93,8 +106,55 @@ export default function NarrationPage({ base, families, techniques, tools, world
       return list.sort(
         (a, b) => (chapterOrder.get(a.chapterId) ?? 0) - (chapterOrder.get(b.chapterId) ?? 0) || name(a).localeCompare(name(b), locale),
       );
-    return list.sort((a, b) => a.centroid - b.centroid || name(a).localeCompare(name(b), locale));
-  }, [worlds, sort, chapterOrder, locale]);
+    // Podle podílu: skupiny od „jen půjčené“ po „většina jen hra“, uvnitř podle podílu a počtu nástrojů.
+    return list.sort(
+      (a, b) =>
+        BUCKETS.indexOf(bucketOf(ownOf(a), totalOf(a))) - BUCKETS.indexOf(bucketOf(ownOf(b), totalOf(b))) ||
+        ownOf(a) / totalOf(a) - ownOf(b) / totalOf(b) ||
+        ownOf(a) - ownOf(b) ||
+        name(a).localeCompare(name(b), locale),
+    );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [worlds, sort, chapterOrder, locale, families]);
+
+  /** Nadpis skupiny v tabulce (u řazení podle podílu a podle archetypu), jinak null. */
+  const groupOf = (w: NarrPageWorld): { key: string; label: string; meta: string } | null => {
+    if (sort === 'share') {
+      const b = bucketOf(ownOf(w), totalOf(w));
+      const n = worlds.filter((x) => bucketOf(ownOf(x), totalOf(x)) === b).length;
+      return { key: b, label: uiT(`narrPage.bucket_${b}`, locale), meta: worldCountLabel(n, locale) };
+    }
+    if (sort === 'archetype') {
+      const members = worlds.filter((x) => x.chapterId === w.chapterId);
+      const own = members.reduce((sum, x) => sum + ownOf(x), 0);
+      const total = members.reduce((sum, x) => sum + totalOf(x), 0);
+      return {
+        key: w.chapterId,
+        label: chapterName(w.chapterId),
+        meta: uiT('narrPage.ownOfTools', locale).replace('{own}', String(own)).replace('{total}', toolsLabel(total, locale)),
+      };
+    }
+    return null;
+  };
+
+  // Zjištění nad tabulkou: kolik světů má aspoň jeden nástroj, který umí jen hra, a nejčastější poměr.
+  const finding = useMemo(() => {
+    const withOwn = worlds.filter((w) => ownOf(w) > 0).length;
+    const ratios = new Map<string, number>();
+    for (const w of worlds) {
+      const key = `${ownOf(w)}/${totalOf(w)}`;
+      ratios.set(key, (ratios.get(key) ?? 0) + 1);
+    }
+    const [mode] = [...ratios.entries()].sort((a, b) => b[1] - a[1])[0] ?? ['0/0'];
+    const [o, n] = mode.split('/');
+    return uiT('narrPage.finding', locale)
+      .replace('{a}', String(withOwn))
+      .replace('{b}', String(worlds.length))
+      .replace('{o}', o)
+      .replace('{n}', n)
+      .replace('{none}', worldCountLabel(worlds.length - withOwn, locale));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [worlds, families, locale]);
 
   // Oddíl, který právě čteš: zvýrazní se v lepivém pruhu.
   const jumpIds = useMemo(() => [SPECTRUM_ID, ...families.map((f) => f.id), WORLDS_ID], [families]);
@@ -283,13 +343,14 @@ export default function NarrationPage({ base, families, techniques, tools, world
             {uiT('narrPage.worldsTitle', locale)}
           </h2>
           <div className="nv-sort" role="group" aria-label={uiT('narrPage.sortLabel', locale)}>
-            {(['centroid', 'archetype', 'alpha'] as Sort[]).map((s) => (
+            {(['share', 'archetype', 'alpha'] as Sort[]).map((s) => (
               <button key={s} type="button" aria-pressed={sort === s} onClick={() => setSort(s)}>
                 {uiT(`narrPage.sort${s[0].toUpperCase()}${s.slice(1)}`, locale)}
               </button>
             ))}
           </div>
         </div>
+        <p className="nv-finding">{finding}</p>
 
         <table className="nv-matrix">
           <colgroup>
@@ -297,7 +358,7 @@ export default function NarrationPage({ base, families, techniques, tools, world
             {families.map((f) => (
               <col key={f.id} />
             ))}
-            <col className="nv-matrix__c-cg" />
+            <col className="nv-matrix__c-own" />
           </colgroup>
           <thead>
             <tr className="nv-matrix__bands" aria-hidden="true">
@@ -308,7 +369,7 @@ export default function NarrationPage({ base, families, techniques, tools, world
               <th colSpan={families.length - firstOwn} className="nv-matrix__band nv-matrix__band--own">
                 {uiT('narrPage.ownOnly', locale)}
               </th>
-              <th className="nv-matrix__cg-col" />
+              <th className="nv-matrix__own-col" />
             </tr>
             <tr>
               <th scope="col" className="nv-matrix__corner">
@@ -319,16 +380,30 @@ export default function NarrationPage({ base, families, techniques, tools, world
                   <a href={`#${f.id}`}>{t(f.short, locale)}</a>
                 </th>
               ))}
-              <th scope="col" className="nv-matrix__cg-col" title={uiT('narrPage.centroidHint', locale)}>
-                {uiT('narrPage.centroid', locale)}
+              <th scope="col" className="nv-matrix__own-col">
+                {uiT('narrPage.ownCol', locale)}
               </th>
             </tr>
           </thead>
           <tbody>
-            {sortedWorlds.map((w, row) => {
-              const newChapter = sort === 'archetype' && row > 0 && sortedWorlds[row - 1].chapterId !== w.chapterId;
-              return (
-                <tr key={w.id} style={hue(w.accent)} className={newChapter ? 'is-chapter-start' : undefined}>
+            {sortedWorlds.flatMap((w, row) => {
+              const group = groupOf(w);
+              const prev = row > 0 ? groupOf(sortedWorlds[row - 1]) : null;
+              const own = ownOf(w);
+              const total = totalOf(w);
+              const rows = [];
+              if (group && group.key !== prev?.key) {
+                rows.push(
+                  <tr key={`g-${group.key}`} className="nv-matrix__group">
+                    <th scope="rowgroup" colSpan={families.length + 2}>
+                      <span className="nv-matrix__group-name">{group.label}</span>
+                      <span className="nv-matrix__group-meta">{group.meta}</span>
+                    </th>
+                  </tr>,
+                );
+              }
+              rows.push(
+                <tr key={w.id} style={hue(w.accent)}>
                   <th scope="row" className="nv-matrix__world">
                     <a href={withBase(base, `/worlds/${w.id}/?view=analysis#${w.anchor}`)}>{t(w.title, locale)}</a>
                   </th>
@@ -352,14 +427,21 @@ export default function NarrationPage({ base, families, techniques, tools, world
                       </td>
                     );
                   })}
-                  <td className="nv-matrix__cg-col">
-                    <span className="nv-cg" aria-hidden="true">
-                      <span className="nv-cg__track" />
-                      <span className="nv-cg__mark" style={{ left: `${(w.centroid / (families.length - 1)) * 100}%` }} />
+                  <td className="nv-matrix__own-col">
+                    <span className="nv-own" aria-label={uiT('narrPage.ownAria', locale).replace('{own}', String(own)).replace('{total}', String(total))}>
+                      <span className="nv-own__strip" aria-hidden="true">
+                        {Array.from({ length: total }, (_, k) => (
+                          <i key={k} className={k >= total - own ? 'is-own' : undefined} />
+                        ))}
+                      </span>
+                      <span className="nv-own__n" aria-hidden="true">
+                        {uiT('narrPage.ownOf', locale).replace('{own}', String(own)).replace('{total}', String(total))}
+                      </span>
                     </span>
                   </td>
-                </tr>
+                </tr>,
               );
+              return rows;
             })}
           </tbody>
         </table>

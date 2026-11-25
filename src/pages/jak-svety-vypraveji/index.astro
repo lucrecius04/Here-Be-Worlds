@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import NarrationPage from '../../components/narration/NarrationPage';
-import { NARR_FAMILIES, NARR_TECHNIQUES, narrTools, narrWorlds, narrChapters, familyCounts, centroid } from '../../lib/narrative-tools';
+import { NARR_FAMILIES, NARR_TECHNIQUES, narrTools, narrWorlds, narrChapters, familyCounts } from '../../lib/narrative-tools';
 import { TRAILS, trailSlug } from '../../lib/trails';
 import { uiT } from '../../lib/i18n';
 
@@ -20,8 +20,7 @@ const techniques = NARR_TECHNIQUES.map((tech) => {
 });
 
 const worlds = narrWorlds.map((w) => {
-  const counts = familyCounts(w.id);
-  return { id: w.id, title: w.title, chapterId: w.chapterId, accent: w.accent, anchor: w.anchor, counts, centroid: centroid(counts) };
+  return { id: w.id, title: w.title, chapterId: w.chapterId, accent: w.accent, anchor: w.anchor, counts: familyCounts(w.id) };
 });
 ---
 

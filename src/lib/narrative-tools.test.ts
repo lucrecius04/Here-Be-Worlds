@@ -4,7 +4,6 @@ import {
   NARR_ASSIGNMENTS,
   NARR_FAMILIES,
   NARR_TECHNIQUES,
-  centroid,
   chronicleTools,
   familyCounts,
   narrTools,
@@ -52,11 +51,9 @@ describe('Jak světy vyprávějí', () => {
     ]);
   });
 
-  it('těžiště leží mezi prvním a posledním rejstříkem', () => {
+  it('každý svět má v rejstřících tolik nástrojů, kolik jich má kronika', () => {
     for (const w of narrWorlds) {
-      const c = centroid(familyCounts(w.id));
-      expect(c).toBeGreaterThanOrEqual(0);
-      expect(c).toBeLessThanOrEqual(NARR_FAMILIES.length - 1);
+      expect(familyCounts(w.id).reduce((a, b) => a + b, 0), w.id).toBe(NARR_ASSIGNMENTS[w.id].length);
     }
   });
 });

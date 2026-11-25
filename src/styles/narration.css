@@ -531,7 +531,7 @@ html[data-theme='dark'] .nv-matrix tbody tr {
   width: 14rem;
 }
 
-.nv-matrix__c-cg {
+.nv-matrix__c-own {
   width: 8.5rem;
 }
 
@@ -612,7 +612,7 @@ html[data-theme='dark'] .nv-matrix tbody tr {
   background: var(--nv-own-bg);
 }
 
-.nv-matrix__cg-col {
+.nv-matrix__own-col {
   padding: 0 0 0 1.25rem !important;
   text-align: left;
   vertical-align: bottom;
@@ -622,16 +622,16 @@ html[data-theme='dark'] .nv-matrix tbody tr {
   color: var(--color-ink-muted);
 }
 
-thead .nv-matrix__cg-col {
+thead .nv-matrix__own-col {
   padding-bottom: 0.6rem !important;
   border-bottom: 2px solid var(--color-ink);
 }
 
-.nv-matrix__bands .nv-matrix__cg-col {
+.nv-matrix__bands .nv-matrix__own-col {
   border-bottom: 0;
 }
 
-tbody .nv-matrix__cg-col {
+tbody .nv-matrix__own-col {
   vertical-align: middle;
 }
 
@@ -642,10 +642,6 @@ tbody .nv-matrix__cg-col {
 
 .nv-matrix tbody tr:hover {
   background: color-mix(in srgb, var(--color-band) 45%, transparent);
-}
-
-.nv-matrix tbody tr.is-chapter-start {
-  border-top: 1px solid var(--color-ink);
 }
 
 .nv-matrix__world {
@@ -707,29 +703,78 @@ tbody .nv-matrix__cg-col {
   vertical-align: middle;
 }
 
-/* těžiště: kosočtverec na stupnici od slova ke hře (poloha, jako u souřadnic) */
-.nv-cg {
-  position: relative;
+/* jen hra: čtverečky za všechny nástroje světa, plné jsou ty, které umí jen hra */
+.nv-own {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.nv-own__strip {
+  display: inline-flex;
+  gap: 3px;
+}
+
+.nv-own__strip i {
   display: block;
-  height: 0.75rem;
-  margin-right: 0.35rem;
+  width: 0.625rem;
+  height: 0.625rem;
+  box-shadow: inset 0 0 0 1px var(--color-ink-muted);
 }
 
-.nv-cg__track {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  border-top: 1px solid var(--color-line);
-}
-
-.nv-cg__mark {
-  position: absolute;
-  top: 50%;
-  width: 0.5625rem;
-  height: 0.5625rem;
+.nv-own__strip i.is-own {
   background: var(--color-ink);
-  transform: translate(-50%, -50%) rotate(45deg);
+  box-shadow: none;
+}
+
+.nv-own__n {
+  font: 500 0.75rem var(--font-mono);
+  letter-spacing: 0.02em;
+  text-transform: none;
+  color: var(--color-ink-muted);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* nadpis skupiny v tabulce */
+.nv-matrix__group th {
+  padding: 1.5rem 0 0.45rem !important;
+  text-align: left;
+  border-bottom: 1px solid var(--color-ink);
+}
+
+.nv-matrix tbody .nv-matrix__group:first-child th {
+  padding-top: 0.9rem !important;
+}
+
+.nv-matrix__group-name {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+}
+
+.nv-matrix__group-meta {
+  margin-left: 0.85rem;
+  font: 500 0.6875rem var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+.nv-matrix tbody tr.nv-matrix__group:hover {
+  background: none;
+}
+
+/* zjištění nad tabulkou */
+.nv-finding {
+  max-width: 46rem;
+  margin: -0.25rem 0 2rem;
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  font-weight: 400;
+  line-height: 1.4;
+  text-wrap: pretty;
 }
 
 /* ---------- užší displej ---------- */
@@ -855,8 +900,8 @@ tbody .nv-matrix__cg-col {
     width: 8.5rem;
   }
 
-  .nv-matrix__c-cg {
-    width: 0;
+  .nv-matrix__c-own {
+    width: 3.5rem;
   }
 
   .nv-matrix__fam {
@@ -877,8 +922,27 @@ tbody .nv-matrix__cg-col {
     letter-spacing: 0.06em;
   }
 
-  .nv-matrix__cg-col {
+  .nv-matrix__own-col {
+    padding-left: 0.5rem !important;
+    font-size: 0.5625rem;
+  }
+
+  .nv-own__strip {
     display: none;
+  }
+
+  .nv-own__n {
+    font-size: 0.6875rem;
+    color: var(--color-ink);
+  }
+
+  .nv-finding {
+    font-size: 1.125rem;
+  }
+
+  .nv-matrix__group-meta {
+    display: block;
+    margin: 0.2rem 0 0;
   }
 
   .nv-matrix__world a {
