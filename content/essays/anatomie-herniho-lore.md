@@ -149,7 +149,7 @@ V nejlepších dílech je každý společník jednou odpovědí na ústřední o
 
 ## Jak světy vyprávějí
 
-Hra nemůže příběh jen vykládat, musí ho rozložit do prostoru a do činnosti. Opakuje se devět hlavních nástrojů a nejlepší díla jich kombinují několik.
+Hra nemůže příběh jen vykládat, musí ho rozložit do prostoru a do činnosti. Nejčastěji se opakuje devět nástrojů a nejlepší díla jich kombinují několik.
 
 | Nástroj | Jak funguje | Vzorové dílo | Riziko |
 |---|---|---|---|
@@ -162,6 +162,8 @@ Hra nemůže příběh jen vykládat, musí ho rozložit do prostoru a do činno
 | Víc průchodů a pohledů | Tatáž hra z jiného úhlu odhalí jinou pravdu | NieR, Pathologic, Undertale | Hráč musí mít důvod hrát znovu |
 | Filmové scény | Příběh nesou režírované scény mezi hraním | Halo, Xenoblade, StarCraft, Diablo | Hráč se dívá, místo aby hrál |
 | Mechanika jako význam | Pravidla hry sama nesou téma | Undertale, NieR, BioShock, Pathologic | Když mechanika tématu odporuje, vzniká nesoulad |
+
+Tabulka ukazuje nejčastější nástroje, ne jejich hranice. Na stránce [Jak světy vyprávějí](/jak-svety-vypraveji/) řadíme všechny nástroje z kronik do sedmi rejstříků podle toho, s kterým uměním je hra sdílí. **Slovo** umí i literatura, **obraz a zvuk** film, **prostor** architektura a **stopy** archiv. Zbylé tři rejstříky umí jen hra: **pravidla**, **opakování** a **hráč** sám. Hranici mezi nimi kreslíme testem převyprávění, který navrhl Jesper Juul: nástroj umí jen hra tehdy, když po převyprávění do knihy nebo filmu ztratí smysl. Archeologii mezer v Dark Souls kniha unese, Vyhasínání, které postihne nemrtvého ve chvíli, kdy to vzdá hráč u ovladače, ne. Z kronik vychází, že naprostá většina světů vypráví aspoň jedním nástrojem, který umí jen hra, obvykle ale jen jedním ze čtyř. I herní světy si většinu vyprávění půjčují.
 
 > **Na kartě světa**
 >
