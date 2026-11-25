@@ -9,6 +9,7 @@ import '../styles/home-page.css';
 import '../styles/chapter.css';
 import '../styles/compare.css';
 import '../styles/map.css';
+import '../styles/print.css';
 import SiteHeader from '../components/i18n/SiteHeader';
 import SiteFooter from '../components/i18n/SiteFooter';
 import LocaleBridge from '../components/i18n/LocaleBridge';
@@ -77,6 +78,33 @@ const published = worlds
           th = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
         }
         document.documentElement.setAttribute('data-theme', th);
+      })();
+    </script>
+    <script is:inline>
+      // Tisk a uložení do PDF: na papír vždy světlý motiv (i barvy archetypů), rozbalené spoilery
+      // a načtené obrázky; po tisku se vše vrátí. Vzhled stránky na papíře řeší print.css.
+      (function () {
+        var saved = null;
+        var opened = [];
+        window.addEventListener('beforeprint', function () {
+          var root = document.documentElement;
+          saved = root.getAttribute('data-theme');
+          root.setAttribute('data-theme', 'light');
+          opened = Array.prototype.filter.call(document.querySelectorAll('details:not([open])'), function (d) {
+            d.setAttribute('open', '');
+            return true;
+          });
+          Array.prototype.forEach.call(document.querySelectorAll('img[loading="lazy"]'), function (img) {
+            img.loading = 'eager';
+          });
+        });
+        window.addEventListener('afterprint', function () {
+          if (saved) document.documentElement.setAttribute('data-theme', saved);
+          opened.forEach(function (d) {
+            d.removeAttribute('open');
+          });
+          opened = [];
+        });
       })();
     </script>
   </head>

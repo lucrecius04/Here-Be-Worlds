@@ -98,6 +98,8 @@ Atlas má pod úvodem řádek **Další pohledy** (Témata · Hlubina času · G
 
 Layout: `src/layouts/BaseLayout.astro` — header/footer (znak + nápis z `BrandMark.tsx`), meta Open Graph (`ogImage`), ikony, theme/lang FOUC, globální `CompareTray`.
 
+**Tisk a PDF (2026-11-25):** `src/styles/print.css` (načítá se v `BaseLayout` jako poslední) tiskne kroniky (každá záložka zvlášť: Kronika, Faktografie, Anatomie vyprávění), eseje putování, Anatomii herního lore a Teoretické zázemí: A4, okraje 20/24/22 mm, číslo stránky dole uprostřed (Plex Mono), text 11 pt Source Serif, bílý papír a černá tuš; bez hlavičky a patičky webu, záložek, obsahu, drobečků, zásobníku srovnání a tlačítek; hlavička spisu nebo eseje nahoře s linkou pod sebou; rám obrazovky (flex, `overflow: hidden/clip`) se pro tisk ruší, jinak by text skončil po první obrazovce. Každá kniha kroniky začíná na nové stránce (`.chronicle-book-label`), nadpisy se neodtrhnou od textu, obrázky a řádky tabulek se nedělí, tabulky ano (hlavička se opakuje), vnější odkazy v textu dostanou adresu v závorce. Skript v `BaseLayout` při `beforeprint` dočasně přepne na světlý motiv (aby i barvy archetypů měly světlou podobu), rozbalí spoilery (`details`) a načte líné obrázky; `afterprint` vše vrátí.
+
 ### Karta světa vs záložky
 
 - Hlavička spisu (`WorldPageMasthead`): drobečky Atlas / archetyp, záložka archetypu s profilem archetypu, velký název, název kroniky, údaje Studio · Roky · Vesmír · Rozsah kánonu. Stažená podoba (`is-compact`) je pruh, který se vrací po odjetí plné hlavičky (viz níže).
@@ -133,7 +135,7 @@ Layout: `src/layouts/BaseLayout.astro` — header/footer (znak + nápis z `Brand
 | `src/lib/chronicle-toc.ts` | Části/kapitoly kroniky; regex `Kapitola I` v **těle kroniky** je správně. |
 | `src/lib/theme-store.ts` / `locale-store.ts` | `hbw_theme` / `hbw_lang`. |
 
-Styly: `src/styles/tokens.css`, `layout.css`, `typography.css`, `home-page.css` (titulní strana + hlavička `/atlas/`), `home.css` (katalog, stezky, kompas, zásobník), `world-card.css` (spis světa), `compare.css`, `chronicle.css`, `map.css`, `chapter.css`, `about.css`, `notes.css`, `contact.css`, `essay.css`, `trails.css`, `site-search.css` (lupa a panel hledání), `triads.css` (Galerie triád a Mapa neznáma), `themes.css` (stránky témat), `deep-time.css` (Hlubina času).
+Styly: `src/styles/tokens.css`, `layout.css`, `typography.css`, `home-page.css` (titulní strana + hlavička `/atlas/`), `home.css` (katalog, stezky, kompas, zásobník), `world-card.css` (spis světa), `compare.css`, `chronicle.css`, `map.css`, `chapter.css`, `about.css`, `notes.css`, `contact.css`, `essay.css`, `trails.css`, `site-search.css` (lupa a panel hledání), `triads.css` (Galerie triád a Mapa neznáma), `themes.css` (stránky témat), `deep-time.css` (Hlubina času), `print.css` (tisk a PDF, poslední).
 
 ---
 

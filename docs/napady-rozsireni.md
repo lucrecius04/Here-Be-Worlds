@@ -37,7 +37,7 @@ Analýza z 2026-11-24 (Claude na žádost majitele): co by na webu mohlo přibý
 
 - **Karty pro sdílení s obrázky putování.** Kresba, název, otázka eseje. Malá práce, generátor existuje.
 - **Atlas jako skutečná mapa.** Světy jako ostrovy, archetypy kraje, putování námořní trasy, bílá místa „here be dragons“; poloha z pěti souřadnic promítnutých do roviny (poctivá poznámka o zkreslení). Velká práce, signaturní kus.
-- **Drobnosti:** ohýbání češtiny v hledání (známé omezení v `docs/stav.md`), tiskový styl kronik a esejí, anglické verze esejí (největší dosah, nejvíc práce).
+- **Drobnosti:** ohýbání češtiny v hledání (známé omezení v `docs/stav.md`), tiskový styl kronik a esejí (hotovo 2026-11-25), anglické verze esejí (největší dosah, nejvíc práce).
 
 ## Výhrada k datové analýze
 

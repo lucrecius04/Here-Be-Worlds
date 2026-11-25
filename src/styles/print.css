@@ -1,0 +1,308 @@
+/*
+ * Tiskový styl (a uložení do PDF): kroniky (Kronika, Faktografie, Anatomie vyprávění), eseje putování,
+ * Anatomie herního lore a Teoretické zázemí. Bílý papír a černá tuš i v tmavém motivu (BaseLayout při
+ * tisku dočasně přepne na světlý motiv, aby i barvy archetypů měly světlou podobu), bez hlavičky webu,
+ * lišt, obsahu a tlačítek. Kniha kroniky začíná na nové stránce. Načítá se jako poslední styl.
+ */
+
+@page {
+  size: A4;
+  margin: 20mm 24mm 22mm;
+
+  @bottom-center {
+    content: counter(page);
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 8pt;
+    color: #6b6760;
+  }
+}
+
+@media print {
+  :root,
+  html[data-theme='dark'] {
+    --color-paper: #fff;
+    --color-tile: #fff;
+    --color-band: transparent;
+    --color-desk: #fff;
+    --color-ink: #111;
+    --color-ink-muted: #55524c;
+    --color-line: #c9c4ba;
+    --color-accent: #111;
+    --color-chip: #f1efea;
+    --color-chip-line: #c9c4ba;
+    --color-bar: #e2ded6;
+    --frame-pad-y: 0;
+    --frame-pad-x: 0;
+    --site-header-height: 0px;
+    --wp-bar-h: 0px;
+    font-size: 9pt;
+  }
+
+  html,
+  body {
+    background: #fff !important;
+    color: #111;
+  }
+
+  /* Rám obrazovky (flex sloupce, oříznutí, výška okna) by na papíře text uřízl za první stránkou. */
+  html,
+  body,
+  .site-main,
+  .world-card--page,
+  .world-page__masthead,
+  .world-page__pane,
+  .world-page__pane-scroll,
+  .chronicle-layout,
+  .chronicle-scroll,
+  .essay,
+  .essay-layout {
+    display: block !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  /* ---------- co na papír nepatří ---------- */
+
+  .site-header,
+  .site-footer,
+  .site-search,
+  .site-menu,
+  .compare-tray,
+  .wp-tabs,
+  .wp-head__crumbs,
+  .chronicle-toc,
+  .chronicle-resume,
+  .essay-toc,
+  .rtoc,
+  .essay-spoiler__hint,
+  .world-page__masthead-spacer,
+  .wp-head.is-floating,
+  button {
+    display: none !important;
+  }
+
+  /* Lepivé a plovoucí prvky stojí na papíře na svém místě. */
+  .world-page__masthead,
+  .world-page__pane,
+  .chronicle-layout,
+  .essay__top,
+  .essay-layout,
+  .page-band {
+    position: static !important;
+    top: auto !important;
+    transform: none !important;
+  }
+
+  .page-band::before {
+    display: none !important;
+  }
+
+  .page-band {
+    padding-bottom: 0;
+  }
+
+  .site-main {
+    margin: 0 !important;
+    padding: 0 !important;
+    max-width: none !important;
+  }
+
+  .world-page__wrap,
+  .world-card--page,
+  .world-page__pane,
+  .essay {
+    margin: 0 !important;
+    padding: 0 !important;
+    max-width: none !important;
+    width: auto !important;
+    min-height: 0 !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  /* Obsah vlevo pryč: text jde přes celou šířku stránky. */
+  .chronicle-layout,
+  .essay-layout {
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    max-width: none !important;
+  }
+
+  .chronicle-scroll {
+    overflow: visible !important;
+    height: auto !important;
+    padding: 0 !important;
+  }
+
+  /* ---------- hlavička spisu a eseje ---------- */
+
+  .wp-head {
+    margin: 0 0 6mm;
+    padding: 0 0 4mm;
+    border-bottom: 0.5pt solid #111;
+  }
+
+  .wp-head__tab {
+    display: inline-block;
+    margin-bottom: 2mm;
+    padding: 0;
+    background: none !important;
+    color: #55524c !important;
+  }
+
+  .essay__top {
+    margin: 0 0 6mm !important;
+    padding: 0 0 4mm !important;
+    border-bottom: 0.5pt solid #111;
+  }
+
+  .essay__title {
+    font-size: 26pt !important;
+  }
+
+  .trail-cast,
+  .trail-themes {
+    margin-top: 3mm !important;
+  }
+
+  .essay-hero {
+    background: none;
+    break-inside: avoid;
+  }
+
+  .essay-hero img {
+    max-height: 85mm;
+  }
+
+  /* ---------- text ---------- */
+
+  .chronicle-prose,
+  .chronicle-prose--narrative,
+  .chronicle-prose--analysis,
+  .chronicle-prose--appendices,
+  .essay-prose,
+  .essay-prose > * {
+    max-width: none !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .chronicle-prose--body,
+  .essay-prose {
+    font-size: 11pt;
+    line-height: 1.5;
+  }
+
+  .chronicle-prose p,
+  .essay-prose p,
+  .chronicle-prose li,
+  .essay-prose li {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  .chronicle-book-label,
+  .chronicle-chapter,
+  .chronicle-subhead,
+  .chronicle-part,
+  .essay-chapter,
+  .essay-subhead,
+  .essay-callout__label {
+    break-after: avoid;
+    break-inside: avoid;
+  }
+
+  .chronicle-epigraph,
+  .chronicle-italic {
+    break-after: avoid;
+  }
+
+  /* Tabulky se smějí rozdělit (hlavička se zopakuje), řádek ne. */
+  img,
+  figure,
+  tr,
+  .chronicle-prose p:has(> img.chronicle-figure),
+  .essay-callout,
+  .trail-world,
+  .trail-axis__row {
+    break-inside: avoid;
+  }
+
+  img {
+    max-width: 100% !important;
+  }
+
+  .chronicle-prose img.chronicle-figure {
+    max-height: 150mm;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  table {
+    font-size: 8.5pt !important;
+  }
+
+  .essay-table {
+    overflow: visible !important;
+  }
+
+  .essay-table table,
+  .chronicle-prose--body table {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  /* Kniha kroniky (štítek „Kniha druhá“ s nadpisem kapitoly) začíná na nové stránce. */
+  .chronicle-prose--narrative .chronicle-book-label {
+    break-before: page;
+    margin-top: 0 !important;
+  }
+
+  .chronicle-ornament,
+  .chronicle-rule {
+    break-after: avoid;
+  }
+
+  /* Rozbalovací spoilery v esejích jsou na papíře otevřené (BaseLayout je při tisku rozbalí). */
+  .essay-spoiler {
+    border: 0.5pt solid #c9c4ba !important;
+  }
+
+  /* ---------- odkazy ---------- */
+
+  a {
+    color: inherit !important;
+    text-decoration: none !important;
+  }
+
+  /* Vnější odkaz v textu dostane adresu, aby se dal dohledat i z papíru. */
+  .chronicle-prose a[href^='http']::after,
+  .essay-prose a[href^='http']::after {
+    content: ' (' attr(href) ')';
+    font-family: var(--font-mono);
+    font-size: 7.5pt;
+    color: #55524c;
+    word-break: break-all;
+  }
+
+  /* Animace a přechody na papíře nemají co dělat. */
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    box-shadow: none !important;
+  }
+}
