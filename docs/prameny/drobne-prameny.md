@@ -32,7 +32,7 @@ Prameny, které eseje citují krátce. Nečetli jsme je jako celé knihy, ale p�
 Citované v *Anatomii herního lore* dřív, než vznikla tato složka, a čtené jen přes sekundární zdroje uvedené v eseji:
 
 - **Wolfgang Iser:** prázdná místa textu (estetika recepce). Doležel s ním polemizuje (viz [dolezel-heterocosmica.md](dolezel-heterocosmica.md)). *Der implizite Leser* má od 2026-11-20 vlastní výtah: [iser-implizite-leser.md](iser-implizite-leser.md).
-- **Henry Jenkins:** *Game Design as Narrative Architecture* (2004). Herní svět jako paměťový palác, prostorové vyprávění.
+- **Henry Jenkins:** *Game Design as Narrative Architecture* (2004). Herní svět jako paměťový palác, prostorové vyprávění. Od 2026-11-25 čteno celé, viz [jenkins-narrative-architecture.md](jenkins-narrative-architecture.md).
 - **Espen Aarseth:** *Cybertext* (1997). Ergodická literatura. Od 2026-11-20 čteno z knihy, viz [aarseth-cybertext.md](aarseth-cybertext.md).
 - **J. R. R. Tolkien:** *O pohádkách* (1939). Druhotný svět, subkreace. K tomu dopis z roku 1954 o nevysvětlených věcech. Od 2026-11-20 čteno z textu, viz [tolkien-o-pohadkach.md](tolkien-o-pohadkach.md).
 - **Darko Suvin:** *Metamorphoses of Science Fiction* (1979). Novum. Od 2026-11-20 vlastní výtah: [suvin-metamorphoses-of-science-fiction.md](suvin-metamorphoses-of-science-fiction.md).
@@ -48,3 +48,14 @@ Citované v *Anatomii herního lore* dřív, než vznikla tato složka, a čten�
 - Esej ke stezce Ráj, který se nepovedl (`content/trails/raj-ktery-se-nepovedl.md`): Proč hry dokážou ráj usvědčit (Jenkins: prostorové vyprávění; Hocking: ludonarativní nesoulad na BioShocku)
 - Esej ke stezce Logo nad troskami (`content/trails/logo-nad-troskami.md`): Proč hry umějí číst firemní složky (Jenkins: paměťový palác, terminály a deníky)
 - Esej ke stezce Město, které dýchá (`content/trails/mesto-ktere-dycha.md`): Proč hry dokážou město oživit (Jenkins: narativní architektura; Smith a Worch: prostorové vyprávění v Rapture, Dunwallu a Night City).
+
+## Prameny k metodice vyprávění (z druhé ruky)
+
+Doplněno 2026-11-25 při studiu pro `docs/metodika-vypraveni.md`. Původní text jsme nečetli, jen shrnutí a citace u jiných autorů.
+
+- **Marc LeBlanc:** přednáška *Formal Design Tools* (GDC 2000). Zavedl dvojici **vložené vyprávění** (embedded: příběhové bloky, které do hry vloží autoři) a **vznikající vyprávění** (emergent: příběh, který vzniká z hraní). Žádná hra není jen jedním z nich. Zdroj: Ernest Adams, *Fundamentals of Game Design* (oddíl Emergent Narrative), Salen a Zimmerman, *Rules of Play* (kap. 26), Fernández-Vara 2011. Rozlišení vloženého a vznikajícího příběhu zmiňuje už Doug Church (*Formal Abstract Design Tools*, Gamasutra 1999; podle shrnutí v učebnici *Creating Games*, Plymouth State University).
+- **Steven Conway:** „A Circular Wall? Reformulating the Fourth Wall for Video Games“, *Gamasutra*, 22. 7. 2009. Hra čtvrtou stěnu často neboří, ale **přemístí ji za hráče**: hráč se stává součástí fikce. Příklady: Evidence: The Last Ritual (2006) posílá hráči e-maily na skutečnou adresu a míchá skutečné a fiktivní weby; Naomi Hunter v Metal Gear Solid požádá hráče, aby si přiložil vibrující ovladač na krk. Zdroj: shrnutí na gamedeveloper.com (2009) a citace u Van de Mosselaerové („Breaking the Fourth Wall in Videogames“, 2021). Celý článek nečten (odkaz vyžadoval schválení), dočíst.
+- **Jesper Juul:** *The Art of Failure* (2013). Hry jako umění selhání: jediná forma, která nás na selhání připraví a nechá nás si ho vyzkoušet. Zdroj: anotace MIT Press a recenze. Kniha nečtena, majitel shání.
+- **Kristine Jørgensenová:** *Gameworld Interfaces* (2013). Herní světy rozhraní nemají, samy jsou rozhraním herních systémů. Zdroj: anotace MIT Press. Kniha nečtena, majitel shání.
+- **Marie-Laure Ryanová:** *Avatars of Story* (2006). Vyprávění jako kognitivní konstrukt s více módy narativity (mimo jiné participativní, vznikající, simulační) a typologie interaktivity ze dvou dvojic (vnitřní/vnější, průzkumná/ontologická). Zdroj: recenze v Project MUSE a anotace University of Minnesota Press. Typologii popisuje i přečtený článek, viz [ryan-peeling-the-onion.md](ryan-peeling-the-onion.md). Kniha nečtena, majitel shání.
+
