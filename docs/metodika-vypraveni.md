@@ -74,7 +74,7 @@ Co se vyčte z místa a z cesty jím.
 
 Co hra dovolí, zakáže, odmění a vynutí.
 - **Dnešní způsoby:** Pravidla, která vyprávějí · Rozhraní uvnitř příběhu · Volba a následky · Příběhy, které napíše hráč · Hlasy mrtvých a svědků (schopnost vyslechnout mrtvé je pravidlo: Baldur's Gate, Dishonored, Pillars of Eternity, SOMA, Bloodborne).
-- **Prameny:** Bogost (procedurální rétorika), Juul (Half-Real), Murrayová (procedurální autorství), Koenitz a INDCOR (pravidlové systémy jsou součástí protopříběhu), Calleja (pravidla jako stroj skutečnosti, který příběh tvoří), Schröter a Thon (simulace), Arjoranta (výběrová simulace), Galloway (umožňující činy převlečené do fikce), Jørgensenová (herní svět jako rozhraní; Rozhraní uvnitř příběhu = ludická informace povýšená na fikční, do nosiče patří, jen když povýšení nese příběh).
+- **Prameny:** Bogost (procedurální rétorika), Juul (Half-Real), Murrayová (procedurální autorství), Koenitz a INDCOR (pravidlové systémy jsou součástí protopříběhu), Calleja (pravidla jako stroj skutečnosti, který příběh tvoří), Schröter a Thon (simulace), Arjoranta (výběrová simulace), Galloway (umožňující činy převlečené do fikce; hrát hru = hrát její algoritmus), Jørgensenová (herní svět jako rozhraní; Rozhraní uvnitř příběhu = ludická informace povýšená na fikční, do nosiče patří, jen když povýšení nese příběh).
 
 ### 3.5 Čas hraní (vzniká z hraní)
 
@@ -88,7 +88,7 @@ Role, tělo, maska a hranice mezi hrou a tím, kdo ji hraje.
 - **Dnešní způsoby:** Hrdina jako maska · Čtvrtá stěna.
 - **Kandidát na nový způsob: spoluvina** (Juul, *The Art of Failure*): hráč se dodatečně dozví, k čemu se propůjčil. Podle Juula zážitek, který umějí jen hry. V kronikách výslovně u BioShocku a NieR: Automata. Zavést jako způsob, pokud se v kronikách opakuje.
 - **Čtvrtá stěna** (doplněno po Jørgensenové): oslovování hráče je ve hrách běžná konvence (metareference), mezi hráčem a světem je pružná membrána, ne zeď. Nástrojem vyprávění je metareference jen tam, kde hra poruší vlastní premisu nebo z hranice mezi hráčem a světem udělá téma. Přesněji podle Ryanové: rétorická metalepse (návod v ústech postavy, okénko, které se zase zavře) je konvence; ontologická metalepse (svět prosákne k hráči: plukovník v Metal Gear Solid 2 velí vypnout konzoli, NieR: Automata chce obětovat hráčovu uloženou hru) je nástroj.
-- **Prameny:** Ryanová (vnitřní a vnější účast), Dubbelman v *Ludotopii* (hráč hrdinou je × hrdinu řídí), Pearce (napůl prázdný avatar), Arjoranta (ztělesněná fokalizace), Calleja (začlenění, alterbiografie), Galloway (metalepse, Psycho Mantis), Conway (čtvrtá stěna přemístěná za hráče, z druhé ruky), Jørgensenová (metareference jako konvence, pružná membrána, avatar jako liminální bytost).
+- **Prameny:** Ryanová (vnitřní a vnější účast), Dubbelman v *Ludotopii* (hráč hrdinou je × hrdinu řídí), Pearce (napůl prázdný avatar), Arjoranta (ztělesněná fokalizace), Calleja (začlenění, alterbiografie), Galloway (metalepse, Psycho Mantis; první osoba jako aktivní vidění, které film odsunul na okraj), Conway (čtvrtá stěna přemístěná za hráče, z druhé ruky), Jørgensenová (metareference jako konvence, pružná membrána, avatar jako liminální bytost).
 
 ### Co se mění oproti sedmi rejstříkům
 
@@ -201,12 +201,11 @@ Zbylé způsoby (Popisky předmětů, Vrstvy a sestup, Rozhraní uvnitř příb�
 
 **Přečtené** (výtahy v `docs/prameny/`):
 - dřívější: Juul *Half-Real*, Bogost, Murrayová, Aarseth *Cybertext*, Ryanová *Narrative as Virtual Reality* (část), Calleja *In-Game*, Jenkins *Convergence Culture*, Iser, Doležel, Wolf;
-- nové (2026-11-25): Pearce 2004, Carson 2000, Jenkins 2004, Fernández-Vara 2011, Aarseth 2012 (přes překlad), Koenitz a INDCOR, Ryanová 2005, Galloway (kap. 1), Schröter a Thon 2014, Arjoranta 2017, Domsch 2013 (kap. 1–3), Calleja 2017, sborník *Ludotopia* 2019 (Domsch, Schrape o Lotmanovi, Dubbelman, Aarseth, Vella, Mukherjee; z PDF), Jørgensenová *Gameworld Interfaces* 2013 (z PDF), Salen a Zimmerman *Rules of Play* 2003, kap. 26 a omyl ponoření z kap. 27 (z PDF), Ryanová *Avatars of Story* 2006, kap. 1, 5, 8 a 9 (z PDF), Thon *Transmedial Narratology* 2016, oddíly o videohrách (z PDF), Juul *Half-Real* doplněný z knihy, Juul *The Art of Failure* 2013 (německý překlad, z EPUB).
+- nové (2026-11-25): Pearce 2004, Carson 2000, Jenkins 2004, Fernández-Vara 2011, Aarseth 2012 (přes překlad), Koenitz a INDCOR, Ryanová 2005, Galloway (kap. 1, později celá kniha), Schröter a Thon 2014, Arjoranta 2017, Domsch 2013 (kap. 1–3), Calleja 2017, sborník *Ludotopia* 2019 (Domsch, Schrape o Lotmanovi, Dubbelman, Aarseth, Vella, Mukherjee; z PDF), Jørgensenová *Gameworld Interfaces* 2013 (z PDF), Salen a Zimmerman *Rules of Play* 2003, kap. 26 a omyl ponoření z kap. 27 (z PDF), Ryanová *Avatars of Story* 2006, kap. 1, 5, 8 a 9 (z PDF), Thon *Transmedial Narratology* 2016, oddíly o videohrách (z PDF), Juul *Half-Real* doplněný z knihy, Juul *The Art of Failure* 2013 (německý překlad, z EPUB), Galloway *Gaming* 2006 celý (z PDF).
 
 Nové výtahy vznikly přes nástroj pro čtení webu z podrobného shrnutí celých textů, ne z vlastního čtení stránka po stránce. Doslovné citace a čísla stran se před použitím v eseji musí ověřit v originálu.
 
 **Z druhé ruky** (`docs/prameny/drobne-prameny.md`), stojí za sehnání:
-- Alexander Galloway, *Gaming* (2006), kap. 2–5;
 - Sebastian Domsch, *Storyplaying*, kap. 4–7 (volně dostupné, dočíst);
 - Steven Conway, „A Circular Wall?“ (2009, článek, dočíst);
 - Marc LeBlanc, přednáška na GDC (1999/2000), známá přes Salen a Zimmermana.
