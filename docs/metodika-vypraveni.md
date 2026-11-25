@@ -65,8 +65,9 @@ Co se ukáže a jak to zní.
 
 Co se vyčte z místa a z cesty jím.
 - **Dnešní způsoby:** Prostorové vyprávění · Vrstvy a sestup · Svět, který se mění.
-- **Prameny:** Carson (pojem prostorového vyprávění ze zábavních parků Disney), Jenkins (vypravěčská architektura, paměťový palác), Fernández-Vara (indexy), Aarseth 2012 (topologie světa), Bachelard, Ryanová (průzkumná interaktivita: smíš chodit, ale děj neměníš).
+- **Prameny:** Carson (pojem prostorového vyprávění ze zábavních parků Disney), Jenkins (vypravěčská architektura, paměťový palác), Fernández-Vara (indexy), Aarseth 2012 (topologie světa; svět a předměty jako rozměry hráčova jednání), Bachelard, Ryanová (průzkumná interaktivita: smíš chodit, ale děj neměníš).
 - **Co přidává hra:** předmětů se dá dotknout a prostor může odpovídat na hráče (Jenkins).
+- **Prostor sám příběhovost nenese** (Aarseth 2012): svět a předměty jsou rozměry hráčova jednání, lineární svět není „příběhovější“ než otevřený. Prostor vypráví tím, co do něj autor vloží a co v něm hráč udělá. Na stránce se proto Prostor nehodnotí podle otevřenosti světa.
 - **Pantový nosič** (doplněno po *Ludotopii*): Domsch považuje prostorové vyprávění za hlavní vlastní přínos her. Smíření: prostor, kterým se prochází a čte (vložený a inscenovaný režim), sdílí hra s architekturou. Prostor, který odpovídá (krajina zrcadlí volby, fyzika nese hráčovy stopy, mapa roste s průzkumem; vznikající režim), vzniká z hraní. U Prostoru proto o hranici „z hraní“ rozhoduje režim, ne nosič.
 - **Další opora:** Lotmanova sémantika prostoru podle Schrapeho (událost = překročení hranice, hrdina jako pohyblivá postava, topologie × sémantika × topografie) pro Vrstvy a sestup; Aarseth (topologie vládne hernímu světu, ludoforming).
 
@@ -113,6 +114,8 @@ Režim říká, **kdo napsal výsledek a kdy**. Dvojici vložený a vznikající
 **Souhrnný pramen:** Ryanová (*Avatars of Story*, kap. 8) staví vedle sebe tři strukturní typy herního vyprávění: příběhy objevování (Jenkins), postupu (Juul) a vznikání (Salen a Zimmerman). Odpovídají třem režimům atlasu.
 
 **Rozlišovací otázka:** kdo napsal to, co hráč uvidí? Autor předem a rozmístil to (vložený), autor předem a spustí to teď (inscenovaný), nebo nikdo konkrétně, vzešlo to ze systému (vznikající). Volba a následky tak bývá inscenovaná, protože větve napsal autor (Mass Effect, Dragon Age). Vznikající je jen tam, kde důsledky skládá systém (trvalá smrt v XCOM, nákaza v Pathologic).
+
+**Námitka, se kterou metodika počítá.** Aarseth (2012) i Juul (*Half-Real*) kritizují Jenkinsovo prostorové, vložené a vznikající vyprávění. Podle nich rozmělňuje pojem vyprávění tak, že jím je každý zajímavý zážitek. Režimy atlasu proto neříkají, *že* je něco vyprávěním: to rozhodla kronika, která nástroj vyzdvihla. Říkají jen, *kdo napsal výsledek* a kdy. Vznikající režim je vymezený úzce: výsledek nenapsal autor, vzešel z pravidel a hráčova jednání.
 
 **Evokativní prostor** (Jenkins: místo připomene příběh, který hráč zná) není režim. Je to odkaz na jiný příběh (mýtus, žánr, předlohu) a v atlasu ho nesou Témata a Putování.
 
@@ -201,7 +204,7 @@ Zbylé způsoby (Popisky předmětů, Vrstvy a sestup, Rozhraní uvnitř příb�
 
 **Přečtené** (výtahy v `docs/prameny/`):
 - dřívější: Juul *Half-Real*, Bogost, Murrayová, Aarseth *Cybertext*, Ryanová *Narrative as Virtual Reality* (část), Calleja *In-Game*, Jenkins *Convergence Culture*, Iser, Doležel, Wolf;
-- nové (2026-11-25): Pearce 2004, Carson 2000, Jenkins 2004, Fernández-Vara 2011, Aarseth 2012 (přes překlad), Koenitz a INDCOR, Ryanová 2005, Galloway (kap. 1, později celá kniha), Schröter a Thon 2014, Arjoranta 2017, Domsch 2013 (kap. 1–3), Calleja 2017, sborník *Ludotopia* 2019 (Domsch, Schrape o Lotmanovi, Dubbelman, Aarseth, Vella, Mukherjee; z PDF), Jørgensenová *Gameworld Interfaces* 2013 (z PDF), Salen a Zimmerman *Rules of Play* 2003, kap. 26 a omyl ponoření z kap. 27 (z PDF), Ryanová *Avatars of Story* 2006, kap. 1, 5, 8 a 9 (z PDF), Thon *Transmedial Narratology* 2016, oddíly o videohrách (z PDF), Juul *Half-Real* doplněný z knihy, Juul *The Art of Failure* 2013 (německý překlad, z EPUB), Galloway *Gaming* 2006 celý (z PDF).
+- nové (2026-11-25): Pearce 2004, Carson 2000, Jenkins 2004, Fernández-Vara 2011, Aarseth 2012 (nejdřív přes překlad, pak z originálu), Koenitz a INDCOR, Ryanová 2005, Galloway (kap. 1, později celá kniha), Schröter a Thon 2014, Arjoranta 2017, Domsch 2013 (kap. 1–3), Calleja 2017, sborník *Ludotopia* 2019 (Domsch, Schrape o Lotmanovi, Dubbelman, Aarseth, Vella, Mukherjee; z PDF), Jørgensenová *Gameworld Interfaces* 2013 (z PDF), Salen a Zimmerman *Rules of Play* 2003, kap. 26 a omyl ponoření z kap. 27 (z PDF), Ryanová *Avatars of Story* 2006, kap. 1, 5, 8 a 9 (z PDF), Thon *Transmedial Narratology* 2016, oddíly o videohrách (z PDF), Juul *Half-Real* doplněný z knihy, Juul *The Art of Failure* 2013 (německý překlad, z EPUB), Galloway *Gaming* 2006 celý (z PDF), Aarseth 2012 z originálu (PDF).
 
 Nové výtahy vznikly přes nástroj pro čtení webu z podrobného shrnutí celých textů, ne z vlastního čtení stránka po stránce. Doslovné citace a čísla stran se před použitím v eseji musí ověřit v originálu.
 
