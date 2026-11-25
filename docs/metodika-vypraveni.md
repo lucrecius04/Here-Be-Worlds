@@ -99,11 +99,11 @@ Role, tělo, maska a hranice mezi hrou a tím, kdo ji hraje.
 
 ## 4. Osa B: kdy se příběh odehrál vůči hraní (tři režimy)
 
-Režim říká, **kdo napsal výsledek a kdy**. Dvojici vložený a vznikající zavedl návrhář Marc LeBlanc (GDC 2000), Jenkins ji doplnil o odehraný příběh. Žádná hra není jen jedním režimem.
+Režim říká, **kdo napsal výsledek a kdy**. Dvojici vložený a vznikající zavedl návrhář Marc LeBlanc (přednáška na GDC; Salen a Zimmerman v *Rules of Play* uvádějí rok 1999, jinde se uvádí 2000), Jenkins ji doplnil o odehraný příběh. LeBlancovo „vložené“ zahrnuje i předem napsané scény a repliky. Rozdělení na vložený a inscenovaný režim je zpřesnění atlasu podle Jenkinse a Domsche. Žádná hra není jen jedním režimem.
 
 | Režim | Kdo napsal výsledek | Prameny |
 |---|---|---|
-| **Vložený** | Stalo se dřív, autor to rozmístil po světě a hráč to skládá. | LeBlanc, Jenkins (vložené příběhy, paměťový palác), Fernández-Vara (dějiny světa), Domsch (nalezené texty), Calleja (napsaný příběh) |
+| **Vložený** | Stalo se dřív, autor to rozmístil po světě a hráč to skládá. | LeBlanc (přes Salen a Zimmermana), Jenkins (vložené příběhy, paměťový palác), Fernández-Vara (dějiny světa), Domsch (nalezené texty), Calleja (napsaný příběh) |
 | **Inscenovaný** | Děje se teď a autor to řídí: scény, rozhovory, spouštěče, napsané větve. | Jenkins (odehrané příběhy, mikropříběhy), Domsch (pasivní a aktivně uzlové formy), Schröter a Thon (vyprávění), Aarseth (pevná jádra, napsaná dynamická jádra) |
 | **Vznikající** | Rodí se z pravidel a hráčova jednání, autor napsal jen pravidla. | LeBlanc, Jenkins (vznikající příběhy), Pearce (prožitý příběh, příběhový systém), Fernández-Vara (dějiny hráče), Calleja (alterbiografie), Domsch (dynamické formy), Ryanová (tvorba příběhu za běhu) |
 
@@ -174,7 +174,7 @@ Kandidáti z přečtených pramenů (před zveřejněním ověřit):
 | Spouštěče událostí v prostoru | Half-Life (Valve 1998) z nich udělal základ | Domsch | |
 | Zprávy a skvrny cizích hráčů | Demon's Souls (FromSoftware 2009), pak Dark Souls | Fernández-Vara | |
 | Nahrávky a deníky | BioShock (2007) jako vzorový příklad | Fernández-Vara | starší System Shock a Looking Glass |
-| Vznikající příběh | The Sims (Maxis 2000); pojem LeBlanc 2000 | Pearce, Jenkins, Ryanová | |
+| Vznikající příběh | The Sims (Maxis 2000); pojem LeBlanc (GDC 1999/2000), souběžně Doug Church | Pearce, Jenkins, Ryanová, Salen a Zimmerman | |
 | Čtvrtá stěna (metalepse) | Psycho Mantis v Metal Gear Solid (1998) | Galloway, Conway | |
 | Vypravěč komentuje hráčovy činy | Bastion (Supergiant 2011), týž tým pak Hades | Arjoranta | |
 | Trvalá smrt a jedno uložení | režim Ironman v XCOM: Enemy Unknown (2012) | Arjoranta | starší tradice roguelike |
@@ -190,7 +190,7 @@ Zbylé způsoby (Popisky předmětů, Vrstvy a sestup, Rozhraní uvnitř příb�
 
 **Přečtené** (výtahy v `docs/prameny/`):
 - dřívější: Juul *Half-Real*, Bogost, Murrayová, Aarseth *Cybertext*, Ryanová *Narrative as Virtual Reality* (část), Calleja *In-Game*, Jenkins *Convergence Culture*, Iser, Doležel, Wolf;
-- nové (2026-11-25): Pearce 2004, Carson 2000, Jenkins 2004, Fernández-Vara 2011, Aarseth 2012 (přes překlad), Koenitz a INDCOR, Ryanová 2005, Galloway (kap. 1), Schröter a Thon 2014, Arjoranta 2017, Domsch 2013 (kap. 1–3), Calleja 2017, sborník *Ludotopia* 2019 (Domsch, Schrape o Lotmanovi, Dubbelman, Aarseth, Vella, Mukherjee; z PDF), Jørgensenová *Gameworld Interfaces* 2013 (z PDF).
+- nové (2026-11-25): Pearce 2004, Carson 2000, Jenkins 2004, Fernández-Vara 2011, Aarseth 2012 (přes překlad), Koenitz a INDCOR, Ryanová 2005, Galloway (kap. 1), Schröter a Thon 2014, Arjoranta 2017, Domsch 2013 (kap. 1–3), Calleja 2017, sborník *Ludotopia* 2019 (Domsch, Schrape o Lotmanovi, Dubbelman, Aarseth, Vella, Mukherjee; z PDF), Jørgensenová *Gameworld Interfaces* 2013 (z PDF), Salen a Zimmerman *Rules of Play* 2003, kap. 26 a omyl ponoření z kap. 27 (z PDF).
 
 Nové výtahy vznikly přes nástroj pro čtení webu z podrobného shrnutí celých textů, ne z vlastního čtení stránka po stránce. Doslovné citace a čísla stran se před použitím v eseji musí ověřit v originálu.
 
@@ -201,7 +201,7 @@ Nové výtahy vznikly přes nástroj pro čtení webu z podrobného shrnutí cel
 - Jan-Noël Thon, *Transmedial Narratology and Contemporary Media Culture* (2016): vypravěč a subjektivita ve hrách;
 - Sebastian Domsch, *Storyplaying*, kap. 4–7 (volně dostupné, dočíst);
 - Steven Conway, „A Circular Wall?“ (2009, článek, dočíst);
-- Marc LeBlanc, *Formal Design Tools* (GDC 2000) a Salen a Zimmerman, *Rules of Play* (2003), kap. 26.
+- Marc LeBlanc, přednáška na GDC (1999/2000), známá přes Salen a Zimmermana.
 
 **Teoretické zázemí** (`content/essays/teoreticke-zazemi.md`) se doplní o nové autory, až majitel metodiku schválí, spolu s přestavbou stránky. Do té doby se veřejné stránky nemění.
 
