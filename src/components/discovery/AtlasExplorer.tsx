@@ -14,18 +14,18 @@ import {
   spatialScopeOptions,
   type FieldOption,
 } from '../../../data/meta/field-options';
-import { NARR_FAMILIES, NARR_TECHNIQUES, worldTechniques } from '../../lib/narrative-taxonomy';
+import { NARR_RINGS, NARR_TECHNIQUES, worldTechniques } from '../../lib/narrative-taxonomy';
 import CatalogWorldCard from './CatalogWorldCard';
 import { withBase } from '../../lib/base-url';
 import { themePath } from '../../lib/themes';
 
-/** Filtr „Jak svět vypráví“: všech 23 způsobů ze stránky Jak světy vyprávějí, po rejstřících. */
+/** Filtr „Jak svět vypráví“: způsoby ze stránky Jak světy vyprávějí po šesti kruzích (bez vlastností světa). */
 const narrationOption = (t: (typeof NARR_TECHNIQUES)[number]): FieldOption => ({ en: t.label.en, cs: t.label.cs ?? t.label.en });
-const narrationGroups = NARR_FAMILIES.map((f) => ({
+const narrationGroups = NARR_RINGS.map((f) => ({
   label: f.label,
   options: NARR_TECHNIQUES.filter((t) => t.family === f.id).map(narrationOption),
 }));
-const narrationOptions: FieldOption[] = NARR_TECHNIQUES.map(narrationOption);
+const narrationOptions: FieldOption[] = narrationGroups.flatMap((g) => g.options);
 const narrationSlugByEn = Object.fromEntries(NARR_TECHNIQUES.map((t) => [t.label.en, t.id]));
 import WorldCompass from './WorldCompass';
 import { TRAILS, trailById, type TrailId } from '../../lib/trails';

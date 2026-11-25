@@ -10,6 +10,7 @@ export type NarrPageFamily = {
   short: LocalizedString;
   label: LocalizedString;
   kin: LocalizedString;
+  question: LocalizedString;
   desc: LocalizedString;
   own: boolean;
 };
@@ -20,7 +21,16 @@ export type NarrPageTechnique = {
   desc: LocalizedString;
   trail?: { slug: string; label: LocalizedString };
 };
-export type NarrPageTool = { world: string; technique: string; title: string; aside?: string; text: string };
+export type NarrPageTool = {
+  world: string;
+  index: number;
+  technique: string;
+  mode?: 'V' | 'I' | 'E';
+  also?: string;
+  title: string;
+  aside?: string;
+  text: string;
+};
 export type NarrPageWorld = {
   id: string;
   title: LocalizedString;
@@ -33,50 +43,88 @@ export type NarrPageChapter = { id: string; title: LocalizedString; short?: Loca
 
 type Props = {
   base: string;
-  families: NarrPageFamily[];
+  /** Šest kruhů od slova k hráči. */
+  rings: NarrPageFamily[];
+  /** Skupina mimo kruhy (vlastnosti světa). */
+  outside: NarrPageFamily;
   techniques: NarrPageTechnique[];
   tools: NarrPageTool[];
   worlds: NarrPageWorld[];
   chapters: NarrPageChapter[];
 };
 
-type Sort = 'share' | 'archetype' | 'alpha';
-
-/** Kolik nástrojů světa umí jen hra: žádný · menšina · polovina · většina. */
-type Bucket = 'none' | 'few' | 'half' | 'most';
-const BUCKETS: Bucket[] = ['none', 'few', 'half', 'most'];
-function bucketOf(own: number, total: number): Bucket {
-  if (own === 0) return 'none';
-  if (own * 2 < total) return 'few';
-  if (own * 2 === total) return 'half';
-  return 'most';
-}
+type Sort = 'archetype' | 'alpha';
 
 const hue = (accent: { light: string; dark: string }) =>
   ({ '--nv-hue-l': accent.light, '--nv-hue-d': accent.dark }) as CSSProperties;
 
 function plural(n: number, locale: Locale, one: string, few: string, many: string): string {
-  const word =
-    locale === 'en' ? (n === 1 ? uiT(`narrPage.${one}`, locale) : uiT(`narrPage.${many}`, locale)) : n === 1 ? uiT(`narrPage.${one}`, locale) : n >= 2 && n <= 4 ? uiT(`narrPage.${few}`, locale) : uiT(`narrPage.${many}`, locale);
-  return `${n} ${word}`;
+  const key = locale === 'en' ? (n === 1 ? one : many) : n === 1 ? one : n >= 2 && n <= 4 ? few : many;
+  return `${n} ${uiT(`narrPage.${key}`, locale)}`;
 }
 const toolsLabel = (n: number, locale: Locale) => plural(n, locale, 'toolOne', 'toolFew', 'toolMany');
 const techLabel = (n: number, locale: Locale) => plural(n, locale, 'techOne', 'techFew', 'techMany');
+const ringLabel = (n: number, locale: Locale) => plural(n, locale, 'ringOne', 'ringFew', 'ringMany');
 
-const SPECTRUM_ID = 'od-slova-ke-hre';
+const SPECTRUM_ID = 'od-slova-k-hraci';
 const WORLDS_ID = 'svety';
+const toolId = (tool: { world: string; index: number }) => `n-${tool.world}-${tool.index}`;
 
-export default function NarrationPage({ base, families, techniques, tools, worlds, chapters }: Props) {
+/* ---------- geometrie mapy kruhů ---------- */
+const W = 1000;
+const CX = 500;
+const CY = 508;
+const R0 = 92;
+const BAND = 68;
+const rIn = (k: number) => R0 + k * BAND;
+const rOut = (k: number) => rIn(k) + BAND;
+const pt = (r: number, a: number) => [CX + r * Math.cos(a), CY - r * Math.sin(a)] as const;
+const f1 = (n: number) => Math.round(n * 10) / 10;
+/** Horní půlkruh poloměru r zleva doprava (pro popisek po oblouku). */
+const arcPath = (r: number) => `M ${f1(CX - r)} ${CY} A ${r} ${r} 0 0 1 ${f1(CX + r)} ${CY}`;
+/** Půlmezikruží kruhu k (plocha pro najetí a podklad). */
+const bandPath = (k: number) => {
+  const a = rOut(k);
+  const b = rIn(k);
+  return `M ${CX - a} ${CY} A ${a} ${a} 0 0 1 ${CX + a} ${CY} L ${CX + b} ${CY} A ${b} ${b} 0 0 0 ${CX - b} ${CY} Z`;
+};
+
+type Placed = { tool: NarrPageTool; x: number; y: number; rot: number };
+
+/** Čtverečky nástrojů po oblouku kruhu: shluky po způsobech, uprostřed nahoře, s mezerou mezi způsoby. */
+function placeRing(list: NarrPageTool[], k: number): Placed[] {
+  const r = rOut(k) - 15;
+  const groups = list.reduce((n, tool, i) => n + (i > 0 && tool.technique !== list[i - 1].technique ? 1 : 0), 0);
+  let step = 11.5;
+  const gap = 7;
+  const need = (s: number) => list.length * s + groups * gap;
+  const room = Math.PI * r * 0.94;
+  if (need(step) > room) step = (room - groups * gap) / list.length;
+  let a = Math.PI / 2 + need(step) / 2 / r - step / 2 / r;
+  return list.map((tool, i) => {
+    if (i > 0) a -= (step + (tool.technique !== list[i - 1].technique ? gap : 0)) / r;
+    const [x, y] = pt(r, a);
+    return { tool, x: f1(x), y: f1(y), rot: f1(90 - (a * 180) / Math.PI) };
+  });
+}
+
+export default function NarrationPage({ base, rings, outside, techniques, tools, worlds, chapters }: Props) {
   const locale = useLocale();
   const byWorld = useMemo(() => new Map(worlds.map((w) => [w.id, w])), [worlds]);
-  const techFamily = useMemo(() => new Map(techniques.map((x) => [x.id, x.family])), [techniques]);
+  const techById = useMemo(() => new Map(techniques.map((x) => [x.id, x])), [techniques]);
   const chapterOrder = useMemo(() => new Map(chapters.map((c, i) => [c.id, i])), [chapters]);
+  const ringIndex = useMemo(() => new Map(rings.map((r, i) => [r.id, i])), [rings]);
+  const ownFrom = rings.findIndex((f) => f.own);
   const chapterName = (id: string) => {
     const c = chapters.find((x) => x.id === id);
     return c ? t(c.short ?? c.title, locale) : id;
   };
+  const ringName = (id: string) => {
+    const r = rings.find((x) => x.id === id);
+    return r ? t(r.label, locale) : id;
+  };
 
-  // Nástroje v pořadí atlasu (archetyp, název), aby byl rejstřík v každém způsobu stejně řazený.
+  // Nástroje v pořadí atlasu (archetyp, název světa), aby byl rejstřík v každém způsobu stejně řazený.
   const orderedTools = useMemo(
     () =>
       [...tools].sort((a, b) => {
@@ -84,80 +132,34 @@ export default function NarrationPage({ base, families, techniques, tools, world
         const wb = byWorld.get(b.world);
         return (
           (chapterOrder.get(wa?.chapterId ?? '') ?? 0) - (chapterOrder.get(wb?.chapterId ?? '') ?? 0) ||
-          t(wa?.title ?? { en: '' }, locale).localeCompare(t(wb?.title ?? { en: '' }, locale), locale)
+          t(wa?.title ?? { en: '' }, locale).localeCompare(t(wb?.title ?? { en: '' }, locale), locale) ||
+          a.index - b.index
         );
       }),
     [tools, byWorld, chapterOrder, locale],
   );
 
-  const familyTools = (familyId: string) => orderedTools.filter((tool) => techFamily.get(tool.technique) === familyId);
-  const firstOwn = families.findIndex((f) => f.own);
+  const familyOf = (tool: NarrPageTool) => techById.get(tool.technique)?.family ?? '';
+  const familyTools = (familyId: string) => orderedTools.filter((tool) => familyOf(tool) === familyId);
+  const worldsInFamily = (familyId: string) => new Set(familyTools(familyId).map((x) => x.world)).size;
+  const ringToolCount = rings.reduce((n, r) => n + familyTools(r.id).length, 0);
 
-  // Kolik nástrojů světa umí jen hra (rejstříky Pravidla, Opakování, Hráč) z kolika.
-  const ownOf = (w: NarrPageWorld) => w.counts.reduce((sum, n, i) => (families[i]?.own ? sum + n : sum), 0);
-  const totalOf = (w: NarrPageWorld) => w.counts.reduce((sum, n) => sum + n, 0);
-
-  const [sort, setSort] = useState<Sort>('share');
-  const sortedWorlds = useMemo(() => {
-    const name = (w: NarrPageWorld) => t(w.title, locale);
-    const list = [...worlds];
-    if (sort === 'alpha') return list.sort((a, b) => name(a).localeCompare(name(b), locale));
-    if (sort === 'archetype')
-      return list.sort(
-        (a, b) => (chapterOrder.get(a.chapterId) ?? 0) - (chapterOrder.get(b.chapterId) ?? 0) || name(a).localeCompare(name(b), locale),
-      );
-    // Podle podílu: skupiny od „jen půjčené“ po „většina jen hra“, uvnitř podle podílu a počtu nástrojů.
-    return list.sort(
-      (a, b) =>
-        BUCKETS.indexOf(bucketOf(ownOf(a), totalOf(a))) - BUCKETS.indexOf(bucketOf(ownOf(b), totalOf(b))) ||
-        ownOf(a) / totalOf(a) - ownOf(b) / totalOf(b) ||
-        ownOf(a) - ownOf(b) ||
-        name(a).localeCompare(name(b), locale),
-    );
+  // Mapa kruhů: v každém kruhu nástroje seřazené po způsobech (pořadí z dat), uvnitř podle atlasu.
+  const placed = useMemo(
+    () =>
+      rings.map((ring, k) => {
+        const order = techniques.filter((x) => x.family === ring.id).map((x) => x.id);
+        const list = order.flatMap((id) => orderedTools.filter((tool) => tool.technique === id));
+        return placeRing(list, k);
+      }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [worlds, sort, chapterOrder, locale, families]);
-
-  /** Nadpis skupiny v tabulce (u řazení podle podílu a podle archetypu), jinak null. */
-  const groupOf = (w: NarrPageWorld): { key: string; label: string; meta: string } | null => {
-    if (sort === 'share') {
-      const b = bucketOf(ownOf(w), totalOf(w));
-      const n = worlds.filter((x) => bucketOf(ownOf(x), totalOf(x)) === b).length;
-      return { key: b, label: uiT(`narrPage.bucket_${b}`, locale), meta: worldCountLabel(n, locale) };
-    }
-    if (sort === 'archetype') {
-      const members = worlds.filter((x) => x.chapterId === w.chapterId);
-      const own = members.reduce((sum, x) => sum + ownOf(x), 0);
-      const total = members.reduce((sum, x) => sum + totalOf(x), 0);
-      return {
-        key: w.chapterId,
-        label: chapterName(w.chapterId),
-        meta: uiT('narrPage.ownOfTools', locale).replace('{own}', String(own)).replace('{total}', toolsLabel(total, locale)),
-      };
-    }
-    return null;
-  };
-
-  // Zjištění nad tabulkou: kolik světů má aspoň jeden nástroj, který umí jen hra, a nejčastější poměr.
-  const finding = useMemo(() => {
-    const withOwn = worlds.filter((w) => ownOf(w) > 0).length;
-    const ratios = new Map<string, number>();
-    for (const w of worlds) {
-      const key = `${ownOf(w)}/${totalOf(w)}`;
-      ratios.set(key, (ratios.get(key) ?? 0) + 1);
-    }
-    const [mode] = [...ratios.entries()].sort((a, b) => b[1] - a[1])[0] ?? ['0/0'];
-    const [o, n] = mode.split('/');
-    return uiT('narrPage.finding', locale)
-      .replace('{a}', String(withOwn))
-      .replace('{b}', String(worlds.length))
-      .replace('{o}', o)
-      .replace('{n}', n)
-      .replace('{none}', worldCountLabel(worlds.length - withOwn, locale));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [worlds, families, locale]);
+    [rings, techniques, orderedTools],
+  );
+  const [hover, setHover] = useState<NarrPageTool | null>(null);
+  const [hoverRing, setHoverRing] = useState<string | null>(null);
 
   // Oddíl, který právě čteš: zvýrazní se v lepivém pruhu.
-  const jumpIds = useMemo(() => [SPECTRUM_ID, ...families.map((f) => f.id), WORLDS_ID], [families]);
+  const jumpIds = useMemo(() => [SPECTRUM_ID, ...rings.map((f) => f.id), outside.id, WORLDS_ID], [rings, outside]);
   const [current, setCurrent] = useState(SPECTRUM_ID);
   useEffect(() => {
     const els = jumpIds.map((id) => document.getElementById(id)).filter(Boolean) as HTMLElement[];
@@ -182,15 +184,151 @@ export default function NarrationPage({ base, families, techniques, tools, world
       nav.scrollTo({ left: Math.max(0, left - 16), behavior: 'smooth' });
   }, [current]);
 
-  // Kotva na způsob (#dialogue z karty světa): po načtení na něj sjede a zvýrazní ho.
+  // Kotva na způsob (#postavy-a-rozhovory z karty světa) nebo na nástroj (#n-svet-2 z mapy kruhů):
+  // sjede na ni; nástroj se rozbalí.
   useEffect(() => {
-    const id = decodeURIComponent(location.hash.slice(1));
-    if (!id) return;
-    const el = document.getElementById(id);
-    if (el) requestAnimationFrame(() => el.scrollIntoView({ block: 'start' }));
+    const go = () => {
+      const id = decodeURIComponent(location.hash.slice(1));
+      if (!id) return;
+      const el = document.getElementById(id);
+      if (!el) return;
+      const details = el.querySelector('details');
+      if (details) details.open = true;
+      requestAnimationFrame(() => el.scrollIntoView({ block: id.startsWith('n-') ? 'center' : 'start' }));
+    };
+    go();
+    window.addEventListener('hashchange', go);
+    return () => window.removeEventListener('hashchange', go);
   }, []);
 
-  const worldsInFamily = (familyId: string) => new Set(familyTools(familyId).map((x) => x.world)).size;
+  const [sort, setSort] = useState<Sort>('archetype');
+  const sortedWorlds = useMemo(() => {
+    const name = (w: NarrPageWorld) => t(w.title, locale);
+    const list = [...worlds];
+    if (sort === 'alpha') return list.sort((a, b) => name(a).localeCompare(name(b), locale));
+    return list.sort(
+      (a, b) => (chapterOrder.get(a.chapterId) ?? 0) - (chapterOrder.get(b.chapterId) ?? 0) || name(a).localeCompare(name(b), locale),
+    );
+  }, [worlds, sort, chapterOrder, locale]);
+
+  const ownOf = (w: NarrPageWorld) => w.counts.reduce((sum, n, i) => (i >= ownFrom ? sum + n : sum), 0);
+  const finding = useMemo(() => {
+    const withOwn = worlds.filter((w) => ownOf(w) > 0).length;
+    return uiT('narrPage.finding', locale)
+      .replace('{a}', String(withOwn))
+      .replace('{b}', String(worlds.length))
+      .replace('{none}', worldCountLabel(worlds.length - withOwn, locale));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [worlds, locale]);
+
+  const renderTools = (list: NarrPageTool[]) => (
+    <ul className="nv-tools">
+      {list.map((tool) => {
+        const w = byWorld.get(tool.world);
+        if (!w) return null;
+        return (
+          <li key={toolId(tool)} id={toolId(tool)} className="nv-tool" style={hue(w.accent)}>
+            <details>
+              <summary>
+                <span className="nv-tool__world">
+                  {t(w.title, locale)}
+                  <span className="nv-tool__arch">{chapterName(w.chapterId)}</span>
+                </span>
+                <span className="nv-tool__title">
+                  {tool.title}
+                  {tool.aside ? <span className="nv-tool__aside"> ({tool.aside})</span> : null}
+                </span>
+                {tool.also || tool.mode === 'E' ? (
+                  <span className="nv-tool__tags">
+                    {tool.mode === 'E' ? (
+                      <span className="nv-tool__tag nv-tool__tag--emergent" title={uiT('narrPage.emergentTitle', locale)}>
+                        {uiT('narrPage.emergent', locale)}
+                      </span>
+                    ) : null}
+                    {tool.also ? (
+                      <span className="nv-tool__tag">
+                        {uiT('narrPage.also', locale)}: {ringName(tool.also)}
+                      </span>
+                    ) : null}
+                  </span>
+                ) : null}
+              </summary>
+              <div className="nv-tool__body">
+                <p>{tool.text}</p>
+                <a href={withBase(base, `/worlds/${w.id}/?view=analysis#${w.anchor}`)}>{uiT('narrPage.readAnalysis', locale)} →</a>
+              </div>
+            </details>
+          </li>
+        );
+      })}
+    </ul>
+  );
+
+  const renderFamily = (f: NarrPageFamily, k: number | null) => {
+    const famTechniques = techniques.filter((x) => x.family === f.id);
+    const count = familyTools(f.id).length;
+    const isOutside = k === null;
+    return (
+      <section
+        key={f.id}
+        className={`nv-family${f.own ? ' is-own' : ''}${isOutside ? ' is-outside' : ''}`}
+        id={f.id}
+        aria-labelledby={`${f.id}-h`}
+      >
+        <header className="nv-family__head">
+          <div className="nv-family__lead">
+            <p className="nv-family__kin">{isOutside ? t(f.kin, locale) : `${uiT(`narrPage.ordinal${k! + 1}`, locale)} · ${t(f.kin, locale)}`}</p>
+            <h2 className="nv-family__name" id={`${f.id}-h`}>
+              {t(f.label, locale)}
+            </h2>
+            {t(f.question, locale) ? <p className="nv-family__question">{t(f.question, locale)}</p> : null}
+          </div>
+          <div className="nv-family__aside">
+            {!isOutside ? <RingGlyph active={k!} own={ownFrom} /> : null}
+            <p className="nv-family__desc">{t(f.desc, locale)}</p>
+            <p className="nv-family__count">
+              {toolsLabel(count, locale)} · {worldCountLabel(worldsInFamily(f.id), locale)}
+              {famTechniques.length > 1 ? ` · ${techLabel(famTechniques.length, locale)}` : ''}
+            </p>
+          </div>
+        </header>
+
+        {famTechniques.map((tech) => {
+          const list = orderedTools.filter((tool) => tool.technique === tech.id);
+          return (
+            <section key={tech.id} className="nv-tech" id={tech.id} aria-labelledby={`${tech.id}-h`}>
+              <div className="nv-tech__head">
+                <h3 className="nv-tech__name" id={`${tech.id}-h`}>
+                  {t(tech.label, locale)}
+                </h3>
+                <p className="nv-tech__desc">{t(tech.desc, locale)}</p>
+                <p className="nv-tech__count">
+                  <span className="nv-tech__squares" aria-hidden="true">
+                    {list.map((tool) => {
+                      const w = byWorld.get(tool.world);
+                      return w ? <i key={toolId(tool)} style={hue(w.accent)} /> : null;
+                    })}
+                  </span>
+                  {toolsLabel(list.length, locale)}
+                  {tech.trail ? (
+                    <>
+                      <br />
+                      <a href={withBase(base, `/putovani/${tech.trail.slug}/`)}>
+                        {uiT('narrPage.trail', locale)}: {t(tech.trail.label, locale)} →
+                      </a>
+                    </>
+                  ) : null}
+                </p>
+              </div>
+              {renderTools(list)}
+            </section>
+          );
+        })}
+      </section>
+    );
+  };
+
+  const hoverWorld = hover ? byWorld.get(hover.world) : undefined;
 
   return (
     <div className="nv-page">
@@ -198,14 +336,15 @@ export default function NarrationPage({ base, families, techniques, tools, world
         <h1 className="atlas-page__title display">{uiT('narrPage.title', locale)}</h1>
         <p className="atlas-page__lead">{uiT('narrPage.lead', locale)}</p>
         <p className="nv-head__meta">
-          {toolsLabel(tools.length, locale)} · {worldCountLabel(worlds.length, locale)} · {techLabel(techniques.length, locale)}
+          {toolsLabel(ringToolCount, locale)} · {worldCountLabel(worlds.length, locale)} · {ringLabel(rings.length, locale)} ·{' '}
+          {techLabel(techniques.filter((x) => x.family !== outside.id).length, locale)}
         </p>
         <p className="nv-head__links">
           <a href={withBase(base, '/anatomie-herniho-lore/#jak-svety-vypraveji')}>{uiT('narrPage.method', locale)}</a>
           <span className="nv-head__sep" aria-hidden="true">
             ·
           </span>
-          <a href={withBase(base, '/teoreticke-zazemi/')}>{uiT('narrPage.theory', locale)}</a>
+          <a href={withBase(base, '/teoreticke-zazemi/#herni-vypraveni-sest-kruhu')}>{uiT('narrPage.theory', locale)}</a>
         </p>
       </header>
 
@@ -215,135 +354,198 @@ export default function NarrationPage({ base, families, techniques, tools, world
             {uiT('narrPage.spectrumTitle', locale)}
           </a>
           <span className="nv-jump__group">
-            {families.map((f, i) => (
+            {rings.map((f, i) => (
               <a
                 key={f.id}
                 href={`#${f.id}`}
-                className={i === firstOwn ? 'is-own-start' : undefined}
+                className={i === ownFrom ? 'is-own-start' : undefined}
                 aria-current={current === f.id ? 'location' : undefined}
               >
                 {t(f.short, locale)}
               </a>
             ))}
           </span>
+          <a href={`#${outside.id}`} aria-current={current === outside.id ? 'location' : undefined}>
+            {uiT('narrPage.outsideJump', locale)}
+          </a>
           <a href={`#${WORLDS_ID}`} aria-current={current === WORLDS_ID ? 'location' : undefined}>
             {uiT('narrPage.worldsJump', locale)}
           </a>
         </nav>
       </div>
 
-      {/* ---------- Od slova ke hře: sedm rejstříků vedle sebe ---------- */}
-      <section className="nv-spectrum" id={SPECTRUM_ID} aria-labelledby={`${SPECTRUM_ID}-h`}>
-        <h2 className="visually-hidden" id={`${SPECTRUM_ID}-h`}>
+      {/* ---------- Od slova k hráči: mapa šesti kruhů ---------- */}
+      <section className="nv-rings" id={SPECTRUM_ID} aria-labelledby={`${SPECTRUM_ID}-h`}>
+        <h2 className="nv-rings__title" id={`${SPECTRUM_ID}-h`}>
           {uiT('narrPage.spectrumTitle', locale)}
         </h2>
-        <div className="nv-spectrum__grid" style={{ '--nv-n': families.length } as CSSProperties}>
-          <p className="nv-spectrum__band nv-spectrum__band--borrowed" style={{ gridColumn: `1 / ${firstOwn + 1}` }}>
-            <span>{uiT('narrPage.borrowed', locale)}</span>
-          </p>
-          <p className="nv-spectrum__band nv-spectrum__band--own" style={{ gridColumn: `${firstOwn + 1} / -1` }}>
-            <span>{uiT('narrPage.ownOnly', locale)}</span>
-          </p>
-          {families.map((f, i) => {
-            const list = familyTools(f.id);
-            return (
-              <a key={f.id} className={`nv-col${i === firstOwn ? ' is-own-start' : ''}${f.own ? ' is-own' : ''}`} href={`#${f.id}`}>
-                <span className="nv-col__kin">{t(f.kin, locale)}</span>
-                <span className="nv-col__name">{t(f.label, locale)}</span>
-                <span className="nv-col__n">
-                  <b>{list.length}</b> {toolsLabel(list.length, locale).replace(/^\d+\s/, '')}
-                </span>
-                <span className="nv-col__squares" aria-hidden="true">
-                  {list.map((tool, k) => {
-                    const w = byWorld.get(tool.world);
-                    return w ? <i key={k} style={hue(w.accent)} title={t(w.title, locale)} /> : null;
-                  })}
-                </span>
-              </a>
-            );
-          })}
-        </div>
-      </section>
 
-      {/* ---------- Rejstříky ---------- */}
-      {families.map((f) => {
-        const famTechniques = techniques.filter((x) => x.family === f.id);
-        const count = familyTools(f.id).length;
-        return (
-          <section key={f.id} className={`nv-family${f.own ? ' is-own' : ''}`} id={f.id} aria-labelledby={`${f.id}-h`}>
-            <header className="nv-family__head">
-              <p className="nv-family__kin">{t(f.kin, locale)}</p>
-              <h2 className="nv-family__name" id={`${f.id}-h`}>
-                {t(f.label, locale)}
-              </h2>
-              <p className="nv-family__desc">{t(f.desc, locale)}</p>
-              <p className="nv-family__count">
-                {toolsLabel(count, locale)} · {worldCountLabel(worldsInFamily(f.id), locale)}
-              </p>
-            </header>
+        <figure className="nv-rings__figure">
+          <svg
+            className={`nv-map${hover ? ' has-hover' : ''}${hoverRing ? ' has-ring' : ''}`}
+            viewBox={`0 0 ${W} 540`}
+            role="img"
+            aria-label={uiT('narrPage.ringsAria', locale)}
+            onMouseLeave={() => {
+              setHover(null);
+              setHoverRing(null);
+            }}
+          >
+            <defs>
+              {rings.map((r, k) => (
+                <path key={r.id} id={`nv-arc-${r.id}`} d={arcPath(rIn(k) + 23)} />
+              ))}
+            </defs>
 
-            {famTechniques.map((tech) => {
-              const list = orderedTools.filter((tool) => tool.technique === tech.id);
+            {/* kruhy od vnějšího: podklad, popisek po oblouku */}
+            {[...rings].reverse().map((r) => {
+              const k = ringIndex.get(r.id)!;
               return (
-                <section key={tech.id} className="nv-tech" id={tech.id} aria-labelledby={`${tech.id}-h`}>
-                  <div className="nv-tech__head">
-                    <h3 className="nv-tech__name" id={`${tech.id}-h`}>
-                      {t(tech.label, locale)}
-                    </h3>
-                    <p className="nv-tech__desc">{t(tech.desc, locale)}</p>
-                    <p className="nv-tech__count">
-                      {toolsLabel(list.length, locale)}
-                      {tech.trail ? (
-                        <>
-                          <br />
-                          <a href={withBase(base, `/putovani/${tech.trail.slug}/`)}>
-                            {uiT('narrPage.trail', locale)}: {t(tech.trail.label, locale)} →
-                          </a>
-                        </>
-                      ) : null}
-                    </p>
-                  </div>
-                  <ul className="nv-tools">
-                    {list.map((tool, k) => {
-                      const w = byWorld.get(tool.world);
-                      if (!w) return null;
-                      return (
-                        <li key={`${tool.world}-${k}`} className="nv-tool" style={hue(w.accent)}>
-                          <details>
-                            <summary>
-                              <span className="nv-tool__world">
-                                {t(w.title, locale)}
-                                <span className="nv-tool__arch">{chapterName(w.chapterId)}</span>
-                              </span>
-                              <span className="nv-tool__title">
-                                {tool.title}
-                                {tool.aside ? <span className="nv-tool__aside"> ({tool.aside})</span> : null}
-                              </span>
-                            </summary>
-                            <div className="nv-tool__body">
-                              <p>{tool.text}</p>
-                              <a href={withBase(base, `/worlds/${w.id}/?view=analysis#${w.anchor}`)}>{uiT('narrPage.readAnalysis', locale)} →</a>
-                            </div>
-                          </details>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </section>
+                <a
+                  key={r.id}
+                  href={`#${r.id}`}
+                  className={`nv-map__ring${r.own ? ' is-own' : ''}${hoverRing === r.id ? ' is-hover' : ''}`}
+                  onMouseEnter={() => setHoverRing(r.id)}
+                  onFocus={() => setHoverRing(r.id)}
+                  aria-label={`${t(r.label, locale)}: ${toolsLabel(familyTools(r.id).length, locale)}`}
+                >
+                  <path className="nv-map__band" d={bandPath(k)} />
+                  <text className="nv-map__label">
+                    <textPath href={`#nv-arc-${r.id}`} startOffset="50%" textAnchor="middle">
+                      {t(r.label, locale)}
+                    </textPath>
+                  </text>
+                </a>
               );
             })}
-          </section>
-        );
-      })}
 
-      {/* ---------- Jak vypráví který svět ---------- */}
+            {/* hranice „umí jen hra“ mezi třetím a čtvrtým kruhem */}
+            <path className="nv-map__threshold" d={arcPath(rOut(ownFrom - 1))} />
+            <line className="nv-map__base" x1={CX - rOut(rings.length - 1)} y1={CY} x2={CX + rOut(rings.length - 1)} y2={CY} />
+
+            {/* nástroje: čtvereček v barvě archetypu světa */}
+            {placed.map((ring, k) =>
+              ring.map(({ tool, x, y, rot }) => {
+                const w = byWorld.get(tool.world);
+                if (!w) return null;
+                const isHover = hover === tool;
+                const dim = (hoverRing && hoverRing !== rings[k].id) || (hover && hover.world !== tool.world);
+                return (
+                  <a
+                    key={toolId(tool)}
+                    href={`#${toolId(tool)}`}
+                    className={`nv-map__tool${isHover ? ' is-hover' : ''}${dim ? ' is-dim' : ''}${hover && !isHover && hover.world === tool.world ? ' is-kin' : ''}`}
+                    style={hue(w.accent)}
+                    onMouseEnter={() => {
+                      setHover(tool);
+                      setHoverRing(null);
+                    }}
+                    onFocus={() => setHover(tool)}
+                    aria-label={`${t(w.title, locale)}: ${tool.title}`}
+                  >
+                    <rect x={-4.5} y={-4.5} width={9} height={9} transform={`translate(${x} ${y}) rotate(${rot})`} />
+                  </a>
+                );
+              }),
+            )}
+
+            <text className="nv-map__core" x={CX} y={CY - 26} textAnchor="middle">
+              {uiT('narrPage.core', locale)}
+            </text>
+            <text className="nv-map__caption" x={CX} y={CY + 22} textAnchor="middle">
+              {uiT('narrPage.borrowed', locale)}
+            </text>
+            {[-1, 1].map((side) => (
+              <text
+                key={side}
+                className="nv-map__caption is-own"
+                x={CX + side * ((rOut(ownFrom - 1) + rOut(rings.length - 1)) / 2)}
+                y={CY + 22}
+                textAnchor="middle"
+              >
+                {uiT('narrPage.ownOnly', locale)}
+              </text>
+            ))}
+          </svg>
+
+          <figcaption className="nv-rings__readout" aria-live="polite">
+            {hover && hoverWorld ? (
+              <span className="nv-readout" style={hue(hoverWorld.accent)}>
+                <span className="nv-readout__world">
+                  {t(hoverWorld.title, locale)}
+                  <span className="nv-readout__arch">{chapterName(hoverWorld.chapterId)}</span>
+                </span>
+                <span className="nv-readout__title">{hover.title}</span>
+                <span className="nv-readout__where">
+                  {ringName(familyOf(hover))} · {t(techById.get(hover.technique)?.label ?? { en: '' }, locale)}
+                </span>
+              </span>
+            ) : hoverRing ? (
+              (() => {
+                const r = rings.find((x) => x.id === hoverRing)!;
+                return (
+                  <span className="nv-readout">
+                    <span className="nv-readout__world">{t(r.label, locale)}</span>
+                    <span className="nv-readout__title">{t(r.question, locale)}</span>
+                    <span className="nv-readout__where">
+                      {toolsLabel(familyTools(r.id).length, locale)} · {worldCountLabel(worldsInFamily(r.id), locale)}
+                    </span>
+                  </span>
+                );
+              })()
+            ) : (
+              <span className="nv-readout nv-readout--hint">{uiT('narrPage.ringsHint', locale)}</span>
+            )}
+          </figcaption>
+        </figure>
+
+        {/* telefon: kruhy jako seznam */}
+        <ol className="nv-ringlist">
+          {rings.map((r, k) => {
+            const list = familyTools(r.id);
+            return (
+              <li key={r.id} className={`${r.own ? 'is-own' : ''}${k === ownFrom ? ' is-own-start' : ''}`}>
+                <a href={`#${r.id}`}>
+                  <span className="nv-ringlist__kin">{t(r.kin, locale)}</span>
+                  <span className="nv-ringlist__name">{t(r.label, locale)}</span>
+                  <span className="nv-ringlist__n">{list.length}</span>
+                  <span className="nv-ringlist__squares" aria-hidden="true">
+                    {list.map((tool) => {
+                      const w = byWorld.get(tool.world);
+                      return w ? <i key={toolId(tool)} style={hue(w.accent)} /> : null;
+                    })}
+                  </span>
+                </a>
+              </li>
+            );
+          })}
+        </ol>
+      </section>
+
+      {/* ---------- Kruhy ---------- */}
+      {rings.map((f, k) => (
+        <div key={f.id} className="nv-ring-wrap">
+          {k === ownFrom ? (
+            <div className="nv-threshold" role="separator">
+              <p className="nv-threshold__title">{uiT('narrPage.threshold', locale)}</p>
+              <p className="nv-threshold__sub">{uiT('narrPage.thresholdSub', locale)}</p>
+            </div>
+          ) : null}
+          {renderFamily(f, k)}
+        </div>
+      ))}
+
+      {/* ---------- Mimo kruhy ---------- */}
+      {renderFamily(outside, null)}
+
+      {/* ---------- Vypravěčský podpis světů ---------- */}
       <section className="nv-worlds" id={WORLDS_ID} aria-labelledby={`${WORLDS_ID}-h`}>
         <div className="nv-worlds__head">
           <h2 className="nv-worlds__title" id={`${WORLDS_ID}-h`}>
             {uiT('narrPage.worldsTitle', locale)}
           </h2>
           <div className="nv-sort" role="group" aria-label={uiT('narrPage.sortLabel', locale)}>
-            {(['share', 'archetype', 'alpha'] as Sort[]).map((s) => (
+            {(['archetype', 'alpha'] as Sort[]).map((s) => (
               <button key={s} type="button" aria-pressed={sort === s} onClick={() => setSort(s)}>
                 {uiT(`narrPage.sort${s[0].toUpperCase()}${s.slice(1)}`, locale)}
               </button>
@@ -355,70 +557,70 @@ export default function NarrationPage({ base, families, techniques, tools, world
         <table className="nv-matrix">
           <colgroup>
             <col className="nv-matrix__c-world" />
-            {families.map((f) => (
+            <col className="nv-matrix__c-sig" />
+            {rings.map((f) => (
               <col key={f.id} />
             ))}
-            <col className="nv-matrix__c-own" />
           </colgroup>
           <thead>
             <tr className="nv-matrix__bands" aria-hidden="true">
-              <th />
-              <th colSpan={firstOwn} className="nv-matrix__band">
+              <th colSpan={2} />
+              <th colSpan={ownFrom} className="nv-matrix__band">
                 {uiT('narrPage.borrowed', locale)}
               </th>
-              <th colSpan={families.length - firstOwn} className="nv-matrix__band nv-matrix__band--own">
+              <th colSpan={rings.length - ownFrom} className="nv-matrix__band nv-matrix__band--own">
                 {uiT('narrPage.ownOnly', locale)}
               </th>
-              <th className="nv-matrix__own-col" />
             </tr>
             <tr>
               <th scope="col" className="nv-matrix__corner">
                 {uiT('narrPage.world', locale)}
               </th>
-              {families.map((f, i) => (
-                <th key={f.id} scope="col" className={`nv-matrix__fam${f.own ? ' is-own' : ''}${i === firstOwn ? ' is-own-start' : ''}`}>
+              <th scope="col" className="nv-matrix__corner nv-matrix__corner--sig">
+                {uiT('narrPage.signature', locale)}
+              </th>
+              {rings.map((f, i) => (
+                <th key={f.id} scope="col" className={`nv-matrix__fam${f.own ? ' is-own' : ''}${i === ownFrom ? ' is-own-start' : ''}`}>
                   <a href={`#${f.id}`}>{t(f.short, locale)}</a>
                 </th>
               ))}
-              <th scope="col" className="nv-matrix__own-col">
-                {uiT('narrPage.ownCol', locale)}
-              </th>
             </tr>
           </thead>
           <tbody>
             {sortedWorlds.flatMap((w, row) => {
-              const group = groupOf(w);
-              const prev = row > 0 ? groupOf(sortedWorlds[row - 1]) : null;
-              const own = ownOf(w);
-              const total = totalOf(w);
-              const rows = [];
-              if (group && group.key !== prev?.key) {
-                rows.push(
-                  <tr key={`g-${group.key}`} className="nv-matrix__group">
-                    <th scope="rowgroup" colSpan={families.length + 2}>
-                      <span className="nv-matrix__group-name">{group.label}</span>
-                      <span className="nv-matrix__group-meta">{group.meta}</span>
+              const prev = row > 0 ? sortedWorlds[row - 1] : null;
+              const rowsOut = [];
+              if (sort === 'archetype' && w.chapterId !== prev?.chapterId) {
+                const n = worlds.filter((x) => x.chapterId === w.chapterId).length;
+                rowsOut.push(
+                  <tr key={`g-${w.chapterId}`} className="nv-matrix__group">
+                    <th scope="rowgroup" colSpan={rings.length + 2}>
+                      <span className="nv-matrix__group-name">{chapterName(w.chapterId)}</span>
+                      <span className="nv-matrix__group-meta">{worldCountLabel(n, locale)}</span>
                     </th>
                   </tr>,
                 );
               }
-              rows.push(
+              rowsOut.push(
                 <tr key={w.id} style={hue(w.accent)}>
                   <th scope="row" className="nv-matrix__world">
                     <a href={withBase(base, `/worlds/${w.id}/?view=analysis#${w.anchor}`)}>{t(w.title, locale)}</a>
                   </th>
-                  {families.map((f, i) => {
+                  <td className="nv-matrix__sig">
+                    <SignatureGlyph counts={w.counts} own={ownFrom} />
+                  </td>
+                  {rings.map((f, i) => {
                     const n = w.counts[i];
                     return (
                       <td
                         key={f.id}
-                        className={`nv-matrix__cell${f.own ? ' is-own' : ''}${i === firstOwn ? ' is-own-start' : ''}`}
+                        className={`nv-matrix__cell${f.own ? ' is-own' : ''}${i === ownFrom ? ' is-own-start' : ''}`}
                         aria-label={`${t(f.label, locale)}: ${n}`}
                       >
                         {n > 0 ? (
                           <span className="nv-matrix__marks" aria-hidden="true">
-                            {Array.from({ length: n }, (_, k) => (
-                              <i key={k} />
+                            {Array.from({ length: n }, (_, j) => (
+                              <i key={j} />
                             ))}
                           </span>
                         ) : (
@@ -427,25 +629,55 @@ export default function NarrationPage({ base, families, techniques, tools, world
                       </td>
                     );
                   })}
-                  <td className="nv-matrix__own-col">
-                    <span className="nv-own" aria-label={uiT('narrPage.ownAria', locale).replace('{own}', String(own)).replace('{total}', String(total))}>
-                      <span className="nv-own__strip" aria-hidden="true">
-                        {Array.from({ length: total }, (_, k) => (
-                          <i key={k} className={k >= total - own ? 'is-own' : undefined} />
-                        ))}
-                      </span>
-                      <span className="nv-own__n" aria-hidden="true">
-                        {uiT('narrPage.ownOf', locale).replace('{own}', String(own)).replace('{total}', String(total))}
-                      </span>
-                    </span>
-                  </td>
                 </tr>,
               );
-              return rows;
+              return rowsOut;
             })}
           </tbody>
         </table>
       </section>
     </div>
+  );
+}
+
+/** Malý znak kruhu v hlavičce oddílu: šest půlkruhů, tento kruh vyplněný. */
+function RingGlyph({ active, own }: { active: number; own: number }) {
+  const cx = 40;
+  const cy = 38;
+  return (
+    <svg className="nv-glyph" viewBox="0 0 80 42" aria-hidden="true">
+      {Array.from({ length: 6 }, (_, k) => {
+        const r = 7 + k * 5.6;
+        return (
+          <path
+            key={k}
+            className={`${k === active ? 'is-active' : ''}${k === own ? ' is-own-start' : ''}`}
+            d={`M ${cx - r} ${cy} A ${r} ${r} 0 0 1 ${cx + r} ${cy}`}
+          />
+        );
+      })}
+      <line x1={2} y1={cy} x2={78} y2={cy} />
+    </svg>
+  );
+}
+
+/** Vypravěčský podpis světa: šest půlkruhů, kruhy s nástroji v barvě archetypu, tloušťka podle počtu. */
+function SignatureGlyph({ counts, own }: { counts: number[]; own: number }) {
+  const cx = 30;
+  const cy = 27;
+  return (
+    <svg className="nv-sig" viewBox="0 0 60 30" aria-hidden="true">
+      {counts.map((n, k) => {
+        const r = 4.5 + k * 4.2;
+        return (
+          <path
+            key={k}
+            className={n > 0 ? 'is-on' : k >= own ? 'is-own-off' : undefined}
+            style={n > 0 ? { strokeWidth: Math.min(1.4 + n * 0.9, 3.6) } : undefined}
+            d={`M ${cx - r} ${cy} A ${r} ${r} 0 0 1 ${cx + r} ${cy}`}
+          />
+        );
+      })}
+    </svg>
   );
 }

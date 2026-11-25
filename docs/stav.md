@@ -39,7 +39,7 @@ Naposledy aktualizováno: 2026-11-25.
 
 ## Čeká na rozhodnutí majitele
 
-- **Metodika vyprávění:** verze 0.2 (model šesti kruhů) čeká na majitele, otevřené otázky v `docs/metodika-vypraveni.md`, oddíl 14 (model a pořadí, názvy kruhů hlavně Zákulisí, slovo „kruh“, režim jen jako značka, čtyři vlastnosti světa mimo stránku, nové způsoby, hraniční případy, Vypravěčský podpis). Po schválení: zařazení do `narrative-tools.json`, přestavba stránky, Teoretické zázemí a Anatomie.
+- **Metodika vyprávění:** model šesti kruhů je od 2026-11-25 na webu (stránka, data, filtr, karta, Anatomie, Teoretické zázemí). Zbývá z oddílu 14 metodiky: název „Čin“ (alternativa Pravidla), hraniční případy (Hades databáze replik, Metro deník, Arbiter v Halo 2…), kandidáti Cizí hráči a Převrácené konvence (zatím po dvou nástrojích), dohledat „Odkud to známe“, případně na stránce ukázat výklad zfikčnění a průniku.
 - **Nápady na rozšíření** (analýza 2026-11-24) jsou v `docs/napady-rozsireni.md` i s domluveným pořadím; první dva body (karty pro sdílení putování; Galerie triád a Mapa neznáma) hotové 2026-11-24.
 
 - **Nápady, které padly a nikdo je nerozhodl:**

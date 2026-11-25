@@ -1,20 +1,23 @@
 /**
  * Jak světy vyprávějí (/jak-svety-vypraveji/): vypravěčské nástroje z oddílu „5. Hlavní nástroje
- * vyprávění“ v kronikách, zařazené do způsobů a rejstříků z data/meta/narrative-tools.json.
- * Rejstříky jdou od toho, co umí i kniha, po to, co umí jen hra. Skládá se při sestavení.
+ * vyprávění“ v kronikách, zařazené do způsobů a šesti kruhů z data/meta/narrative-tools.json.
+ * Kruhy jdou od slova k hráči (model v docs/metodika-vypraveni.md). Skládá se při sestavení.
  */
 import type { LocalizedString, World } from '../schemas/world';
 import { worlds as allWorlds, chapters } from './worlds';
-import { NARR_ASSIGNMENTS, NARR_FAMILIES, familyIndex, techniqueOf } from './narrative-taxonomy';
+import { NARR_ASSIGNMENTS, NARR_RINGS, familyIndex, techniqueOf, type NarrMode } from './narrative-taxonomy';
 
 export {
   NARR_ASSIGNMENTS,
   NARR_FAMILIES,
+  NARR_RINGS,
   NARR_TECHNIQUES,
+  OWN_FROM,
   familyIndex,
   techniqueOf,
   worldTechniques,
   type NarrFamily,
+  type NarrMode,
   type NarrTechnique,
 } from './narrative-taxonomy';
 import { slugifyChronicleHeading } from './chronicle-toc';
@@ -22,7 +25,12 @@ import { slugifyChronicleHeading } from './chronicle-toc';
 /** Jeden nástroj z kroniky: název (bez anglické závorky), závorka zvlášť, celý odstavec. */
 export type NarrTool = {
   world: string;
+  /** Pořadí nástroje v kronice (od 0), pro kotvu `n-<svět>-<pořadí>`. */
+  index: number;
   technique: string;
+  mode?: NarrMode;
+  /** Druhý kruh u hraničního případu. */
+  also?: string;
   title: string;
   aside?: string;
   text: string;
@@ -91,17 +99,19 @@ export const narrWorlds: NarrWorld[] = published.map((w) => ({
 export const narrTools: NarrTool[] = published.flatMap((w) => {
   const assigned = NARR_ASSIGNMENTS[w.id] ?? [];
   return chronicleTools(chronicleOf(w)).flatMap((tool, i) =>
-    assigned[i] ? [{ world: w.id, technique: assigned[i], ...tool }] : [],
+    assigned[i]
+      ? [{ world: w.id, index: i, technique: assigned[i].t, mode: assigned[i].m, also: assigned[i].also, ...tool }]
+      : [],
   );
 });
 
-/** Počet nástrojů světa v každém rejstříku (pořadí jako NARR_FAMILIES). */
+/** Počet nástrojů světa v každém kruhu (pořadí jako NARR_RINGS); vlastnosti světa se nepočítají. */
 export function familyCounts(worldId: string, tools: NarrTool[] = narrTools): number[] {
-  const counts = NARR_FAMILIES.map(() => 0);
+  const counts = NARR_RINGS.map(() => 0);
   for (const tool of tools) {
     if (tool.world !== worldId) continue;
-    const tech = techniqueOf(tool.technique);
-    if (tech) counts[familyIndex(tech.family)] += 1;
+    const ring = familyIndex(techniqueOf(tool.technique)?.family ?? '');
+    if (ring >= 0) counts[ring] += 1;
   }
   return counts;
 }

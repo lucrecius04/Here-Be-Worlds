@@ -1,14 +1,20 @@
-/* Jak světy vyprávějí (/jak-svety-vypraveji/).
-   Sedm rejstříků od slova ke hře: první čtyři si hra půjčuje od jiných umění, poslední tři umí jen ona.
-   Ty tři leží na jemném tónu pásu a odděluje je silná linka; jinak rejstříková podoba jako Galerie triád. */
+/* Jak světy vyprávějí (/jak-svety-vypraveji/): model šesti kruhů od slova k hráči.
+   Nahoře mapa kruhů (každý nástroj čtvereček v barvě archetypu), pod ní kruhy s rejstříkem způsobů
+   jako Galerie triád. Tři kruhy, které umí jen hra, leží na jemném tónu pásu za silnou linkou. */
 
-.nv-col__squares i,
+.nv-map__tool,
+.nv-readout,
+.nv-tech__squares i,
+.nv-ringlist__squares i,
 .nv-tool,
 .nv-matrix tbody tr {
   --nv-hue: var(--nv-hue-l, var(--color-ink-muted));
 }
 
-html[data-theme='dark'] .nv-col__squares i,
+html[data-theme='dark'] .nv-map__tool,
+html[data-theme='dark'] .nv-readout,
+html[data-theme='dark'] .nv-tech__squares i,
+html[data-theme='dark'] .nv-ringlist__squares i,
 html[data-theme='dark'] .nv-tool,
 html[data-theme='dark'] .nv-matrix tbody tr {
   --nv-hue: var(--nv-hue-d, var(--color-ink-muted));
@@ -112,136 +118,288 @@ html[data-theme='dark'] .nv-matrix tbody tr {
   border-left: 2px solid var(--color-ink);
 }
 
-/* ---------- Od slova ke hře ---------- */
-.nv-spectrum {
-  margin-top: 2.25rem;
+/* ---------- Od slova k hráči: mapa šesti kruhů ---------- */
+.nv-rings {
+  margin-top: 2.5rem;
   scroll-margin-top: var(--nv-scroll);
 }
 
-.nv-spectrum__grid {
-  display: grid;
-  grid-template-columns: repeat(var(--nv-n), minmax(0, 1fr));
-  grid-template-rows: auto auto;
+.nv-rings__title {
+  margin: 0 0 0.5rem;
+  text-align: center;
+  font: 600 0.75rem var(--font-mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
 }
 
-.nv-spectrum__band {
-  grid-row: 1;
-  margin: 0 0 0.75rem;
-  padding-top: 0.5rem;
-  border-top: 1px solid var(--color-ink-muted);
-  font: 500 0.6875rem var(--font-mono);
+.nv-rings__figure {
+  margin: 0 auto;
+  max-width: 64rem;
+}
+
+.nv-map {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.nv-map__band {
+  fill: transparent;
+  stroke: var(--color-line);
+  stroke-width: 1;
+  transition: fill 0.18s ease;
+}
+
+.nv-map__ring.is-own .nv-map__band {
+  fill: var(--nv-own-bg);
+}
+
+.nv-map__ring:hover .nv-map__band,
+.nv-map__ring:focus-visible .nv-map__band,
+.nv-map__ring.is-hover .nv-map__band {
+  fill: color-mix(in srgb, var(--color-accent) 9%, transparent);
+}
+
+.nv-map__ring:focus-visible {
+  outline: none;
+}
+
+.nv-map__label {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  fill: var(--color-ink);
+  pointer-events: none;
+  transition: fill 0.18s ease;
+}
+
+.nv-map__ring:hover .nv-map__label,
+.nv-map__ring.is-hover .nv-map__label {
+  fill: var(--color-accent);
+}
+
+.nv-map__threshold {
+  fill: none;
+  stroke: var(--color-ink);
+  stroke-width: 2;
+  pointer-events: none;
+}
+
+.nv-map__base {
+  stroke: var(--color-ink);
+  stroke-width: 1;
+}
+
+.nv-map__tool rect {
+  fill: var(--nv-hue);
+  stroke: transparent;
+  stroke-width: 0;
+  transition: opacity 0.18s ease, stroke-width 0.12s ease;
+}
+
+.nv-map__tool:focus-visible {
+  outline: none;
+}
+
+.nv-map__tool.is-dim rect {
+  opacity: 0.2;
+}
+
+.nv-map__tool.is-kin rect {
+  stroke: var(--color-ink);
+  stroke-width: 1;
+}
+
+.nv-map__tool.is-hover rect,
+.nv-map__tool:focus-visible rect {
+  stroke: var(--color-ink);
+  stroke-width: 2.5;
+}
+
+.nv-map__core {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-style: italic;
+  fill: var(--color-ink-muted);
+}
+
+.nv-map__caption {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  fill: var(--color-ink-muted);
+}
+
+.nv-map__caption.is-own {
+  font-weight: 600;
+  fill: var(--color-ink);
+}
+
+/* čtení pod mapou: co je pod kurzorem */
+.nv-rings__readout {
+  display: flex;
+  justify-content: center;
+  min-height: 6.25rem;
+  margin-top: 0.75rem;
+}
+
+.nv-readout {
+  display: grid;
+  justify-items: center;
+  gap: 0.25rem;
+  max-width: 36rem;
+  padding-top: 0.6rem;
+  border-top: 3px solid var(--nv-hue);
+  text-align: center;
+}
+
+.nv-readout--hint {
+  border-top-color: var(--color-line);
+  font: 500 0.75rem var(--font-mono);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--color-ink-muted);
 }
 
-.nv-spectrum__band--borrowed {
-  margin-right: 1rem;
-}
-
-.nv-spectrum__band--own {
-  border-top: 2px solid var(--color-ink);
-  color: var(--color-ink);
-  font-weight: 600;
-}
-
-.nv-col {
-  grid-row: 2;
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-  min-width: 0;
-  padding: 1rem 1rem 1.25rem;
-  border-left: 1px solid var(--color-line);
-  color: var(--color-ink);
-  text-decoration: none;
-}
-
-.nv-col:first-of-type {
-  border-left: 0;
-  padding-left: 0;
-}
-
-.nv-col.is-own {
-  background: var(--nv-own-bg);
-}
-
-.nv-col.is-own-start {
-  border-left: 2px solid var(--color-ink);
-}
-
-.nv-col.is-own .nv-col__kin {
-  visibility: hidden;
-}
-
-.nv-col__kin {
-  font: 500 0.625rem var(--font-mono);
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-  color: var(--color-ink-muted);
-}
-
-.nv-col__name {
-  font-family: var(--font-display);
-  font-size: 1.375rem;
-  font-weight: 600;
-  line-height: 1.1;
-  letter-spacing: -0.01em;
-  transition: color 0.15s ease;
-}
-
-.nv-col:hover .nv-col__name,
-.nv-col:focus-visible .nv-col__name {
-  color: var(--color-accent);
-}
-
-.nv-col:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 2px;
-}
-
-.nv-col__n {
-  font: 500 0.6875rem var(--font-mono);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--color-ink-muted);
-}
-
-.nv-col__n b {
-  margin-right: 0.15rem;
-  font-family: var(--font-display);
-  font-size: 1.75rem;
-  font-weight: 500;
-  letter-spacing: 0;
-  line-height: 1;
-  color: var(--color-ink);
-  font-variant-numeric: lining-nums;
-}
-
-.nv-col__squares {
-  display: flex;
+.nv-readout__world {
+  display: inline-flex;
   flex-wrap: wrap;
-  gap: 3px;
-  margin-top: 0.5rem;
+  justify-content: center;
+  align-items: baseline;
+  gap: 0.1rem 0.6rem;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.2;
 }
 
-.nv-col__squares i {
-  display: block;
-  width: 0.625rem;
-  height: 0.625rem;
-  background: var(--nv-hue);
+.nv-readout__arch,
+.nv-readout__where {
+  font: 500 0.6875rem var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
 }
 
-/* ---------- rejstřík ---------- */
+.nv-readout__title {
+  font-family: var(--font-text);
+  font-size: 1.0625rem;
+  font-style: italic;
+  line-height: 1.4;
+  text-wrap: balance;
+}
+
+/* telefon: kruhy jako seznam (na počítači skryté) */
+.nv-ringlist {
+  display: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* práh: odtud umí vyprávět jen hra */
+.nv-threshold {
+  margin: 5rem calc(50% - 50vw) 0;
+  padding: 1.9rem var(--gutter) 1.75rem;
+  background: var(--color-band);
+  text-align: center;
+}
+
+.nv-threshold__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  font-weight: 600;
+  font-style: italic;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+}
+
+.nv-threshold__sub {
+  margin: 0.4rem 0 0;
+  font-family: var(--font-text);
+  font-size: 1.0625rem;
+  color: var(--color-ink-muted);
+}
+
+.nv-threshold + .nv-family {
+  margin-top: 2.5rem;
+}
+
+/* ---------- kruh ---------- */
 .nv-family {
   margin-top: 4.5rem;
   scroll-margin-top: var(--nv-scroll);
 }
 
 .nv-family__head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  column-gap: 3rem;
+  align-items: start;
   padding-top: 1.25rem;
   border-top: 2px solid var(--color-ink);
   margin-bottom: 0.5rem;
+}
+
+.nv-family.is-outside .nv-family__head {
+  border-top-style: dashed;
+}
+
+.nv-family__question {
+  margin: 0.6rem 0 0;
+  font-family: var(--font-display);
+  font-size: 1.3125rem;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.3;
+  color: var(--color-ink-muted);
+}
+
+.nv-family__aside {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  column-gap: 1.25rem;
+  align-items: start;
+}
+
+.nv-family__aside .nv-family__desc,
+.nv-family__aside .nv-family__count {
+  grid-column: 2;
+}
+
+.nv-family.is-outside .nv-family__aside .nv-family__desc,
+.nv-family.is-outside .nv-family__aside .nv-family__count {
+  grid-column: 1 / -1;
+}
+
+/* znak kruhu: šest půlkruhů, tento vyplněný */
+.nv-glyph {
+  grid-row: 1 / span 2;
+  width: 5rem;
+  height: auto;
+  margin-top: 0.35rem;
+}
+
+.nv-glyph path,
+.nv-glyph line {
+  fill: none;
+  stroke: var(--color-line);
+  stroke-width: 1.2;
+}
+
+.nv-glyph line {
+  stroke: var(--color-ink-muted);
+}
+
+.nv-glyph path.is-active {
+  stroke: var(--color-ink);
+  stroke-width: 4.2;
 }
 
 .nv-family__kin {
@@ -268,7 +426,7 @@ html[data-theme='dark'] .nv-matrix tbody tr {
 
 .nv-family__desc {
   max-width: 40rem;
-  margin: 0.75rem 0 0;
+  margin: 0.2rem 0 0;
   font-family: var(--font-text);
   font-size: 1.1875rem;
   line-height: 1.5;
@@ -333,6 +491,25 @@ html[data-theme='dark'] .nv-matrix tbody tr {
   line-height: 1.7;
   text-transform: uppercase;
   color: var(--color-ink-muted);
+}
+
+.nv-tech__squares {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+  margin-bottom: 0.45rem;
+}
+
+.nv-tech__squares i {
+  display: block;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: var(--nv-hue);
+}
+
+.nv-tech:target .nv-tech__squares i {
+  width: 0.625rem;
+  height: 0.625rem;
 }
 
 .nv-tech__count a {
@@ -436,6 +613,33 @@ html[data-theme='dark'] .nv-matrix tbody tr {
   color: var(--color-ink-muted);
 }
 
+.nv-tool:target {
+  border-top-width: 5px;
+}
+
+.nv-tool__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 1rem;
+  margin-top: 0.15rem;
+}
+
+.nv-tool__tag {
+  font: 500 0.625rem var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+.nv-tool__tag--emergent {
+  color: var(--color-accent);
+}
+
+.nv-tool__tag--emergent::before {
+  content: '↻ ';
+  letter-spacing: 0;
+}
+
 .nv-tool__body {
   padding: 0.5rem 0 0.35rem;
 }
@@ -531,8 +735,8 @@ html[data-theme='dark'] .nv-matrix tbody tr {
   width: 14rem;
 }
 
-.nv-matrix__c-own {
-  width: 8.5rem;
+.nv-matrix__c-sig {
+  width: 5rem;
 }
 
 .nv-matrix th,
@@ -612,29 +816,6 @@ html[data-theme='dark'] .nv-matrix tbody tr {
   background: var(--nv-own-bg);
 }
 
-.nv-matrix__own-col {
-  padding: 0 0 0 1.25rem !important;
-  text-align: left;
-  vertical-align: bottom;
-  font: 500 0.625rem var(--font-mono);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--color-ink-muted);
-}
-
-thead .nv-matrix__own-col {
-  padding-bottom: 0.6rem !important;
-  border-bottom: 2px solid var(--color-ink);
-}
-
-.nv-matrix__bands .nv-matrix__own-col {
-  border-bottom: 0;
-}
-
-tbody .nv-matrix__own-col {
-  vertical-align: middle;
-}
-
 .nv-matrix tbody tr {
   border-bottom: 1px solid var(--color-line);
   transition: background-color 0.12s ease;
@@ -703,37 +884,32 @@ tbody .nv-matrix__own-col {
   vertical-align: middle;
 }
 
-/* jen hra: čtverečky za všechny nástroje světa, plné jsou ty, které umí jen hra */
-.nv-own {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
+/* vypravěčský podpis: šest půlkruhů, kruhy s nástroji v barvě archetypu */
+.nv-matrix__corner--sig {
+  text-align: center;
 }
 
-.nv-own__strip {
-  display: inline-flex;
-  gap: 3px;
+.nv-matrix__sig {
+  padding: 0.3rem 0.5rem !important;
+  text-align: center;
+  vertical-align: middle;
 }
 
-.nv-own__strip i {
-  display: block;
-  width: 0.625rem;
-  height: 0.625rem;
-  box-shadow: inset 0 0 0 1px var(--color-ink-muted);
+.nv-sig {
+  display: inline-block;
+  width: 3.25rem;
+  height: auto;
+  vertical-align: middle;
 }
 
-.nv-own__strip i.is-own {
-  background: var(--color-ink);
-  box-shadow: none;
+.nv-sig path {
+  fill: none;
+  stroke: var(--color-line);
+  stroke-width: 1;
 }
 
-.nv-own__n {
-  font: 500 0.75rem var(--font-mono);
-  letter-spacing: 0.02em;
-  text-transform: none;
-  color: var(--color-ink-muted);
-  font-variant-numeric: tabular-nums;
-  white-space: nowrap;
+.nv-sig path.is-on {
+  stroke: var(--nv-hue);
 }
 
 /* nadpis skupiny v tabulce */
@@ -778,21 +954,12 @@ tbody .nv-matrix__own-col {
 }
 
 /* ---------- užší displej ---------- */
-@media (max-width: 1100px) {
-  .nv-spectrum__grid {
-    column-gap: 0;
-  }
-
-  .nv-col {
-    padding: 0.85rem 0.6rem 1rem;
-  }
-
-  .nv-col__name {
-    font-size: 1.125rem;
-  }
-}
-
 @media (max-width: 900px) {
+  .nv-family__head {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 1rem;
+  }
+
   .nv-tech {
     grid-template-columns: minmax(0, 1fr);
     row-gap: 1.25rem;
@@ -820,66 +987,77 @@ tbody .nv-matrix__own-col {
     display: none;
   }
 
-  /* spektrum jako seznam: sedm řádků, hranice „umí jen hra“ silnou linkou */
-  .nv-spectrum__grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .nv-spectrum__band {
+  /* kruhy jako seznam místo mapy */
+  .nv-rings__figure {
     display: none;
   }
 
-  .nv-col {
-    grid-row: auto;
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    column-gap: 1rem;
-    padding: 0.8rem 0 0.9rem;
-    border-left: 0;
+  .nv-ringlist {
+    display: block;
+  }
+
+  .nv-ringlist li {
     border-top: 1px solid var(--color-line);
   }
 
-  .nv-col.is-own {
+  .nv-ringlist li.is-own {
     margin: 0 calc(-1 * var(--gutter));
-    padding-left: var(--gutter);
-    padding-right: var(--gutter);
+    padding: 0 var(--gutter);
+    background: var(--nv-own-bg);
   }
 
-  .nv-col.is-own-start {
-    border-left: 0;
+  .nv-ringlist li.is-own-start {
     border-top: 2px solid var(--color-ink);
   }
 
-  .nv-col__kin {
+  .nv-ringlist a {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: 1rem;
+    padding: 0.75rem 0 0.85rem;
+    color: var(--color-ink);
+    text-decoration: none;
+  }
+
+  .nv-ringlist__kin {
     grid-column: 1 / -1;
+    font: 500 0.625rem var(--font-mono);
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--color-ink-muted);
   }
 
-  .nv-col.is-own .nv-col__kin {
-    visibility: visible;
-  }
-
-  .nv-col__name {
+  .nv-ringlist__name {
+    font-family: var(--font-display);
     font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.15;
   }
 
-  .nv-col__n {
-    grid-column: 2;
-    grid-row: 2;
-    align-self: baseline;
-  }
-
-  .nv-col__n b {
+  .nv-ringlist__n {
+    font-family: var(--font-display);
     font-size: 1.375rem;
+    line-height: 1.1;
   }
 
-  .nv-col__squares {
+  .nv-ringlist__squares {
     grid-column: 1 / -1;
-    margin-top: 0.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+    margin-top: 0.4rem;
   }
 
-  .nv-col__squares i {
+  .nv-ringlist__squares i {
+    display: block;
     width: 0.5rem;
     height: 0.5rem;
+    background: var(--nv-hue);
+  }
+
+  .nv-threshold {
+    margin-top: 3.5rem;
+    padding: 1.35rem var(--gutter);
   }
 
   .nv-family {
@@ -895,13 +1073,17 @@ tbody .nv-matrix__own-col {
     gap: 1rem;
   }
 
-  /* mřížka: názvy rejstříků svisle, bez těžiště */
+  /* mřížka: názvy kruhů svisle */
   .nv-matrix__c-world {
     width: 8.5rem;
   }
 
-  .nv-matrix__c-own {
-    width: 3.5rem;
+  .nv-matrix__c-sig {
+    width: 3rem;
+  }
+
+  .nv-sig {
+    width: 2.25rem;
   }
 
   .nv-matrix__fam {
@@ -920,20 +1102,6 @@ tbody .nv-matrix__own-col {
     font-size: 0.5625rem;
     padding: 0.3rem 0.35rem 0 !important;
     letter-spacing: 0.06em;
-  }
-
-  .nv-matrix__own-col {
-    padding-left: 0.5rem !important;
-    font-size: 0.5625rem;
-  }
-
-  .nv-own__strip {
-    display: none;
-  }
-
-  .nv-own__n {
-    font-size: 0.6875rem;
-    color: var(--color-ink);
   }
 
   .nv-finding {

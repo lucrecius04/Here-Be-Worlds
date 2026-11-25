@@ -1,6 +1,6 @@
 # Metodika: Jak světy vyprávějí
 
-**Stav:** návrh 0.2 ke konzultaci s majitelem (2026-11-25; názvy „kruh“ a „Zákulisí“ schválené týž den). Nahrazuje verzi 0.1 (sedm rejstříků → šest nosičů × tři režimy). Stránka `/jak-svety-vypraveji/` i data `data/meta/narrative-tools.json` zůstávají beze změny, dokud majitel model neschválí. Zkušební zařazení všech 160 nástrojů je v příloze `docs/metodika-vypraveni-zarazeni.md`.
+**Stav:** verze 0.2 (2026-11-25; názvy „kruh“ a „Zákulisí“ schválené týž den). **Na webu od 2026-11-25** (majitel: „implementuj na web“): stránka `/jak-svety-vypraveji/`, data `data/meta/narrative-tools.json`, filtr atlasu, karta světa, Anatomie herního lore a Teoretické zázemí. Zařazení podle přílohy `docs/metodika-vypraveni-zarazeni.md` beze změny; čtyři vlastnosti světa stojí na stránce v oddílu Mimo kruhy (Svět jako výpověď), režim se ukazuje jen jako značka „vzniká při hraní“. Otevřené otázky z oddílu 14, které zbývají: název „Čin“, hraniční případy, nové způsoby a kandidáti.
 
 Dokument popisuje model, podle kterého atlas třídí nástroje vyprávění, jeho slovník, opory v pramenech a zkoušku na datech. Výtahy z pramenů jsou v `docs/prameny/` (rozcestník `README.md`).
 
