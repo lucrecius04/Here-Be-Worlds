@@ -74,7 +74,7 @@ Co se vyčte z místa a z cesty jím.
 
 Co hra dovolí, zakáže, odmění a vynutí.
 - **Dnešní způsoby:** Pravidla, která vyprávějí · Rozhraní uvnitř příběhu · Volba a následky · Příběhy, které napíše hráč · Hlasy mrtvých a svědků (schopnost vyslechnout mrtvé je pravidlo: Baldur's Gate, Dishonored, Pillars of Eternity, SOMA, Bloodborne).
-- **Prameny:** Bogost (procedurální rétorika), Juul (Half-Real), Murrayová (procedurální autorství), Koenitz a INDCOR (pravidlové systémy jsou součástí protopříběhu), Calleja (pravidla jako stroj skutečnosti, který příběh tvoří), Schröter a Thon (simulace), Arjoranta (výběrová simulace), Galloway (umožňující činy převlečené do fikce).
+- **Prameny:** Bogost (procedurální rétorika), Juul (Half-Real), Murrayová (procedurální autorství), Koenitz a INDCOR (pravidlové systémy jsou součástí protopříběhu), Calleja (pravidla jako stroj skutečnosti, který příběh tvoří), Schröter a Thon (simulace), Arjoranta (výběrová simulace), Galloway (umožňující činy převlečené do fikce), Jørgensenová (herní svět jako rozhraní; Rozhraní uvnitř příběhu = ludická informace povýšená na fikční, do nosiče patří, jen když povýšení nese příběh).
 
 ### 3.5 Čas hraní (vzniká z hraní)
 
@@ -86,7 +86,8 @@ Opakování, selhání, smyčky a průchody, tedy to, že se hra hraje znovu a j
 
 Role, tělo, maska a hranice mezi hrou a tím, kdo ji hraje.
 - **Dnešní způsoby:** Hrdina jako maska · Čtvrtá stěna.
-- **Prameny:** Ryanová (vnitřní a vnější účast), Dubbelman v *Ludotopii* (hráč hrdinou je × hrdinu řídí), Pearce (napůl prázdný avatar), Arjoranta (ztělesněná fokalizace), Calleja (začlenění, alterbiografie), Galloway (metalepse, Psycho Mantis), Conway (čtvrtá stěna přemístěná za hráče, z druhé ruky), Jørgensenová (svět jako rozhraní, z druhé ruky).
+- **Čtvrtá stěna** (doplněno po Jørgensenové): oslovování hráče je ve hrách běžná konvence (metareference), mezi hráčem a světem je pružná membrána, ne zeď. Nástrojem vyprávění je metareference jen tam, kde hra poruší vlastní premisu nebo z hranice mezi hráčem a světem udělá téma.
+- **Prameny:** Ryanová (vnitřní a vnější účast), Dubbelman v *Ludotopii* (hráč hrdinou je × hrdinu řídí), Pearce (napůl prázdný avatar), Arjoranta (ztělesněná fokalizace), Calleja (začlenění, alterbiografie), Galloway (metalepse, Psycho Mantis), Conway (čtvrtá stěna přemístěná za hráče, z druhé ruky), Jørgensenová (metareference jako konvence, pružná membrána, avatar jako liminální bytost).
 
 ### Co se mění oproti sedmi rejstříkům
 
@@ -150,10 +151,11 @@ Juulův test zatím rozhodoval celý rejstřík. Nově rozhoduje u každého ná
 
 1. **Jeden nosič:** ten, který nese význam nástroje. Nahrávka je Slovo (i když zní), protože vypráví obsahem řeči. Hudba, která prozradí spojitost, je Obraz a zvuk.
 2. **Jeden režim:** podle otázky z oddílu 4 (kdo napsal výsledek a kdy).
-3. **Hraniční případ** dostane poznámku „také: …“, jako v Galerii triád. Příklad: nespolehlivý vypravěč, jehož nespolehlivost se projeví pravidly (svět se mění podle toho, co vypravěč tvrdí), patří k Pravidlům, „také: Slovo“.
-4. **Díl ságy:** když se nástroj týká jen některého dílu, uvést ho.
-5. **Text kroniky se nemění.** Zařazení se ověřuje proti odstavci kroniky. Když odstavec nestačí na rozhodnutí, zařadí se podle Anatomie vyprávění a sporný případ se zapíše do `docs/stav.md`.
-6. **Způsoby (podkategorie)** zůstávají, dokud mají aspoň dva nástroje. Nový způsob vznikne, jen když se v kronikách opakuje.
+3. **Konvence nejsou nástroje.** Postava, která hlásí plný inventář, nebo HUD zdůvodněný přilbou jsou běžná řeč her (Jørgensenová), ne hlavní nástroj vyprávění. Zařazuje se jen to, co konvenci překročí nebo ji obrátí v příběh.
+4. **Hraniční případ** dostane poznámku „také: …“, jako v Galerii triád. Příklad: nespolehlivý vypravěč, jehož nespolehlivost se projeví pravidly (svět se mění podle toho, co vypravěč tvrdí), patří k Pravidlům, „také: Slovo“.
+5. **Díl ságy:** když se nástroj týká jen některého dílu, uvést ho.
+6. **Text kroniky se nemění.** Zařazení se ověřuje proti odstavci kroniky. Když odstavec nestačí na rozhodnutí, zařadí se podle Anatomie vyprávění a sporný případ se zapíše do `docs/stav.md`.
+7. **Způsoby (podkategorie)** zůstávají, dokud mají aspoň dva nástroje. Nový způsob vznikne, jen když se v kronikách opakuje.
 
 ---
 
@@ -188,13 +190,12 @@ Zbylé způsoby (Popisky předmětů, Vrstvy a sestup, Rozhraní uvnitř příb�
 
 **Přečtené** (výtahy v `docs/prameny/`):
 - dřívější: Juul *Half-Real*, Bogost, Murrayová, Aarseth *Cybertext*, Ryanová *Narrative as Virtual Reality* (část), Calleja *In-Game*, Jenkins *Convergence Culture*, Iser, Doležel, Wolf;
-- nové (2026-11-25): Pearce 2004, Carson 2000, Jenkins 2004, Fernández-Vara 2011, Aarseth 2012 (přes překlad), Koenitz a INDCOR, Ryanová 2005, Galloway (kap. 1), Schröter a Thon 2014, Arjoranta 2017, Domsch 2013 (kap. 1–3), Calleja 2017, sborník *Ludotopia* 2019 (Domsch, Schrape o Lotmanovi, Dubbelman, Aarseth, Vella, Mukherjee; z PDF).
+- nové (2026-11-25): Pearce 2004, Carson 2000, Jenkins 2004, Fernández-Vara 2011, Aarseth 2012 (přes překlad), Koenitz a INDCOR, Ryanová 2005, Galloway (kap. 1), Schröter a Thon 2014, Arjoranta 2017, Domsch 2013 (kap. 1–3), Calleja 2017, sborník *Ludotopia* 2019 (Domsch, Schrape o Lotmanovi, Dubbelman, Aarseth, Vella, Mukherjee; z PDF), Jørgensenová *Gameworld Interfaces* 2013 (z PDF).
 
 Nové výtahy vznikly přes nástroj pro čtení webu z podrobného shrnutí celých textů, ne z vlastního čtení stránka po stránce. Doslovné citace a čísla stran se před použitím v eseji musí ověřit v originálu.
 
 **Z druhé ruky** (`docs/prameny/drobne-prameny.md`), stojí za sehnání:
 - Jesper Juul, *The Art of Failure* (2013): Čas hraní, selhání jako zážitek;
-- Kristine Jørgensenová, *Gameworld Interfaces* (2013): Rozhraní uvnitř příběhu, nosič Hráč;
 - Marie-Laure Ryanová, *Avatars of Story* (2006): módy narativity, typologie interaktivity;
 - Alexander Galloway, *Gaming* (2006), kap. 2–5;
 - Jan-Noël Thon, *Transmedial Narratology and Contemporary Media Culture* (2016): vypravěč a subjektivita ve hrách;

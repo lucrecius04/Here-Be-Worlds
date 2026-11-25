@@ -63,6 +63,7 @@ Pravidla:
 | Sebastian Domsch: *Storyplaying* (2013) | [domsch-storyplaying.md](domsch-storyplaying.md) | Úvod, kap. 2 a část kap. 3 přes nástroj pro čtení webu (výtah Claude); kap. 4–7 dočíst | uzlová situace, příběhová náchylnost (ne estetické hodnocení), sémantický přebytek, čtyři druhy informace, pasivní, aktivně uzlové a dynamické formy, spouštěče událostí, architektura, průchod a protokol |
 | Gordon Calleja: „Game Narrative: An Alternate Genealogy“ (kol. 2017) | [calleja-game-narrative-genealogy.md](calleja-game-narrative-genealogy.md) | čteno celé přes nástroj pro čtení webu (výtah Claude) | druhý rodokmen herního vyprávění (hra a představivost), napsaný příběh, pravidla jako stroj skutečnosti, syntéza vnímání a představivosti |
 | Espen Aarseth, Stephan Günzel (eds.): *Ludotopia* (2019) | [aarseth-gunzel-ludotopia.md](aarseth-gunzel-ludotopia.md) | z PDF: úvod, Domsch, Schrape, Aarseth celé; Dubbelman, Vella, Mukherjee podstatné části; zbytek jen podle úvodu | vyprávění sledu × prostorové vyprávění, vizuální stopy, krajina duše, spouštěče, zdvojené vnímání (prostor a mapa); Lotmanova hranice a událost, pohyblivý hrdina, topologie × sémantika × topografie; prezentační × reprezentační logika; ludoforming; hestiální × hermetické přebývání, nostos; pustina jako ne-místo |
+| Kristine Jørgensen: *Gameworld Interfaces* (2013) | [jorgensen-gameworld-interfaces.md](jorgensen-gameworld-interfaces.md) | z PDF: úvod a klíčové oddíly kap. 2–5 | herní svět jako rozhraní a obsah, trojice rozhraní, začleněná × překrytá, ekologická × zdůrazňující, fikční × ludická informace, herní svět ≠ fikční svět ani diegeze, fikce jako metafora, rámce (Goffman), metareference jako konvence, pružná membrána místo čtvrté stěny, liminální avatar |
 | Drobné prameny: mýty o stvoření z těla boha, Eliade, Nietzsche, prameny Anatomie, prameny k metodice vyprávění | [drobne-prameny.md](drobne-prameny.md) | přes sekundární zdroje | Ymir, Tiamat, Puruša, deus otiosus, Bůh je mrtev, Iser, Jenkins, Aarseth, Tolkien, Suvin, LeBlanc (vložené a vznikající vyprávění), Conway (čtvrtá stěna), Juul (*The Art of Failure*), Jørgensenová, Ryanová (*Avatars of Story*) |
 
 ## Prameny podle stezek
@@ -102,7 +103,6 @@ Pro stránku Jak světy vyprávějí a návrh metodiky (`docs/metodika-vypraveni
 
 Pro metodiku vyprávění (majitel shání, 2026-11-25):
 - Jesper Juul, *The Art of Failure* (2013)
-- Kristine Jørgensenová, *Gameworld Interfaces* (2013)
 - Marie-Laure Ryanová, *Avatars of Story* (2006)
 - Alexander R. Galloway, *Gaming* (2006), celá kniha
 - Jan-Noël Thon, *Transmedial Narratology and Contemporary Media Culture* (2016)
