@@ -21,6 +21,7 @@ export const READY: Record<TrailId, number> = {
   'monster-mirror': 1,
   'god-corpse': 3,
   'knows-you-play': 3,
+  scapegoat: 3,
 };
 
 const DIR = 'putovani-obrazky';
