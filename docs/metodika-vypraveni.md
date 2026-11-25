@@ -47,7 +47,7 @@ Stránka se týká vyprávění, systému a procesu. Svět a příběh patří k
 
 ## 3. Osa A: čím se vypráví (šest nosičů)
 
-Nosič je materiál, který nese význam nástroje. První tři sdílí hra s jinými uměními. Další tři vznikají z hraní (Calleja: druhý rodokmen herního vyprávění vede od hry a představivosti, od domečku pro panenky a stolních her, ne od románu a filmu).
+Nosič je materiál, který nese význam nástroje. Seznam se kryje s Juulovými způsoby, jimiž hra vytváří fikční svět (*Half-Real*, kap. 4: text, grafika, zvuk, filmové scény, haptika, pravidla, činy hráče a čas), jen Prostor atlas vyčleňuje zvlášť. První tři sdílí hra s jinými uměními. Další tři vznikají z hraní (Calleja: druhý rodokmen herního vyprávění vede od hry a představivosti, od domečku pro panenky a stolních her, ne od románu a filmu).
 
 ### 3.1 Slovo a stavba příběhu (sdílí s literaturou)
 
@@ -80,7 +80,7 @@ Co hra dovolí, zakáže, odmění a vynutí.
 
 Opakování, selhání, smyčky a průchody, tedy to, že se hra hraje znovu a jinak. Dosavadní název Opakování je užší, proto návrh na přejmenování.
 - **Dnešní způsoby:** Smrt a návrat · Víc průchodů a pohledů.
-- **Prameny:** Juul (*The Art of Failure*, zatím z druhé ruky), Murrayová (kaleidoskopické a mnohotvaré vyprávění), Koenitz (otázka, kolik průchodů je jedno dílo), Galloway (smrt a konec hry jako čin stroje), Domsch (vnitřní hodiny světa).
+- **Prameny:** Juul (*Half-Real*: projekce herního času do fikčního, čas ve hrách skoro vždy chronologický, interaktivní ohlédnutí jako problém stroje času; *The Art of Failure*, zatím z druhé ruky), Murrayová (kaleidoskopické a mnohotvaré vyprávění), Koenitz (otázka, kolik průchodů je jedno dílo), Galloway (smrt a konec hry jako čin stroje), Domsch (vnitřní hodiny světa).
 
 ### 3.6 Hráč (vzniká z hraní)
 
@@ -106,6 +106,8 @@ Režim říká, **kdo napsal výsledek a kdy**. Dvojici vložený a vznikající
 | **Vložený** | Stalo se dřív, autor to rozmístil po světě a hráč to skládá. | LeBlanc (přes Salen a Zimmermana), Jenkins (vložené příběhy, paměťový palác), Fernández-Vara (dějiny světa), Domsch (nalezené texty), Calleja (napsaný příběh) |
 | **Inscenovaný** | Děje se teď a autor to řídí: scény, rozhovory, spouštěče, napsané větve. | Jenkins (odehrané příběhy, mikropříběhy), Domsch (pasivní a aktivně uzlové formy), Schröter a Thon (vyprávění), Aarseth (pevná jádra, napsaná dynamická jádra), Ryanová (příběhy postupu) |
 | **Vznikající** | Rodí se z pravidel a hráčova jednání, autor napsal jen pravidla. | LeBlanc, Jenkins (vznikající příběhy), Pearce (prožitý příběh, příběhový systém), Fernández-Vara (dějiny hráče), Calleja (alterbiografie), Domsch (dynamické formy), Ryanová (tvorba příběhu za běhu, příběhy vznikání) |
+
+**Praktická pomůcka** (Juul, *Half-Real*, kap. 3): test herního průvodce. Dal by se nástroj popsat návodem krok za krokem? Pak je inscenovaný. Dá se k němu dát jen strategická rada? Pak je vznikající. Juul zároveň varuje, že „vznikající vyprávění“ bez upřesnění je téměř prázdný pojem. Proto ho metodika vymezuje úzce otázkou, kdo napsal výsledek.
 
 **Souhrnný pramen:** Ryanová (*Avatars of Story*, kap. 8) staví vedle sebe tři strukturní typy herního vyprávění: příběhy objevování (Jenkins), postupu (Juul) a vznikání (Salen a Zimmerman). Odpovídají třem režimům atlasu.
 
@@ -136,12 +138,12 @@ Prázdné buňky nic neznamenají (oddíl 1). Mřížka je mapa toho, čeho si k
 
 **Hlavní opora: tři módy vyprávění** (Ryanová, *Avatars of Story*): diegetický (vyprávění slovy), mimetický (předvedení) a simulační (stroj, který z pravidel vytváří mnoho průběhů; typický pro hry). Nosič Slovo odpovídá diegezi, Obraz a zvuk mimezi, Pravidla, Čas hraní a Hráč simulaci a participaci. Prostor stojí napříč (architektura vypráví podle Ryanové jen metaforicky, hra ho zabydlí světem a bytostmi).
 
-**Test.** Nástroj patří k nosičům, které vznikají z hraní (Pravidla, Čas hraní, Hráč), když jeho účinek **nejde převyprávět bez odkazu na pravidla nebo na hráčovo jednání**. Je to Juulův test převyprávění (*Half-Real*). Podpírají ho:
+**Test.** Nástroj patří k nosičům, které vznikají z hraní (Pravidla, Čas hraní, Hráč), když jeho účinek **nejde převyprávět bez odkazu na pravidla nebo na hráčovo jednání**. Je to **volné přenesení** Juulova testu převyprávění (*Half-Real*, kap. 4). Juul jím neformálně zkouší soudržnost světa celé hry (dá se popsat, co se ve hře doopravdy stalo, bez odkazu na pravidla, herní rekvizity nebo situaci u ovladače?), ne jednotlivé nástroje. Přenesení na nástroje je výklad atlasu a metodika to musí říkat. Podpírají ho:
 - Aarseth 2012: rozdíl mezi ludickým (hratelným) a mimoludickým obsahem,
 - Schröter a Thon: rozdíl mezi vyprávěním (předem daným) a simulací (pravidly, kde události nejsou dané předem),
 - Calleja 2017: pravidla příběh netlumí, ale vytvářejí.
 
-Juulův test zatím rozhodoval celý rejstřík. Nově rozhoduje u každého nástroje. Popisky předmětů v Dark Souls se dají převyprávět jako text, takže patří ke Slovu. Krvavá skvrna, která přehraje smrt cizího hráče, už ne.
+Na stránce test zatím rozhodoval celý rejstřík. Nově rozhoduje u každého nástroje. Popisky předmětů v Dark Souls se dají převyprávět jako text, takže patří ke Slovu. Krvavá skvrna, která přehraje smrt cizího hráče, už ne.
 
 **Návrh pojmenování:** místo „umí i literatura“ a „umí jen hra“ psát **„z umění vyprávění“** a **„z hraní“**. Je to přesnější (hra prostor nesdílí jen s literaturou) a nezní to jako hodnocení.
 
