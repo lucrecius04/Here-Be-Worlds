@@ -62,6 +62,7 @@ Pravidla:
 | Jonne Arjoranta: „Narrative Tools for Games“ (2017) | [arjoranta-narrative-tools.md](arjoranta-narrative-tools.md) | preprint celý přes nástroj pro čtení webu (výtah Claude) | významový účinek, fokalizace a ztělesněná fokalizace, vypravěč a reflektor, nespolehlivý vypravěč, zrnitost a výběrová simulace |
 | Sebastian Domsch: *Storyplaying* (2013) | [domsch-storyplaying.md](domsch-storyplaying.md) | Úvod, kap. 2 a část kap. 3 přes nástroj pro čtení webu (výtah Claude); kap. 4–7 dočíst | uzlová situace, příběhová náchylnost (ne estetické hodnocení), sémantický přebytek, čtyři druhy informace, pasivní, aktivně uzlové a dynamické formy, spouštěče událostí, architektura, průchod a protokol |
 | Gordon Calleja: „Game Narrative: An Alternate Genealogy“ (kol. 2017) | [calleja-game-narrative-genealogy.md](calleja-game-narrative-genealogy.md) | čteno celé přes nástroj pro čtení webu (výtah Claude) | druhý rodokmen herního vyprávění (hra a představivost), napsaný příběh, pravidla jako stroj skutečnosti, syntéza vnímání a představivosti |
+| Espen Aarseth, Stephan Günzel (eds.): *Ludotopia* (2019) | [aarseth-gunzel-ludotopia.md](aarseth-gunzel-ludotopia.md) | z PDF: úvod, Domsch, Schrape, Aarseth celé; Dubbelman, Vella, Mukherjee podstatné části; zbytek jen podle úvodu | vyprávění sledu × prostorové vyprávění, vizuální stopy, krajina duše, spouštěče, zdvojené vnímání (prostor a mapa); Lotmanova hranice a událost, pohyblivý hrdina, topologie × sémantika × topografie; prezentační × reprezentační logika; ludoforming; hestiální × hermetické přebývání, nostos; pustina jako ne-místo |
 | Drobné prameny: mýty o stvoření z těla boha, Eliade, Nietzsche, prameny Anatomie, prameny k metodice vyprávění | [drobne-prameny.md](drobne-prameny.md) | přes sekundární zdroje | Ymir, Tiamat, Puruša, deus otiosus, Bůh je mrtev, Iser, Jenkins, Aarseth, Tolkien, Suvin, LeBlanc (vložené a vznikající vyprávění), Conway (čtvrtá stěna), Juul (*The Art of Failure*), Jørgensenová, Ryanová (*Avatars of Story*) |
 
 ## Prameny podle stezek
@@ -95,7 +96,7 @@ Opačný pohled k tabulce výše (22 stezek): co číst před psaním eseje ke s
 
 ## Prameny k metodice vyprávění
 
-Pro stránku Jak světy vyprávějí a návrh metodiky (`docs/metodika-vypraveni.md`, 2026-11-25): Pearce, Carson, Jenkins (2004), Fernández-Vara, Aarseth (2012), Koenitz a INDCOR, Ryanová (2005), Galloway, Schröter a Thon, Arjoranta, Domsch, Calleja (2017 i *In-Game*), k tomu dřívější Juul (*Half-Real*), Bogost, Murrayová, Aarseth (*Cybertext*), Doležel, Iser. Nové výtahy vznikly přes nástroj pro čtení webu z podrobného shrnutí celých textů: doslovné citace a strany před použitím v eseji ověřit v originálu.
+Pro stránku Jak světy vyprávějí a návrh metodiky (`docs/metodika-vypraveni.md`, 2026-11-25): *Ludotopia* (od majitele, z PDF), Pearce, Carson, Jenkins (2004), Fernández-Vara, Aarseth (2012), Koenitz a INDCOR, Ryanová (2005), Galloway, Schröter a Thon, Arjoranta, Domsch, Calleja (2017 i *In-Game*), k tomu dřívější Juul (*Half-Real*), Bogost, Murrayová, Aarseth (*Cybertext*), Doležel, Iser. Nové výtahy vznikly přes nástroj pro čtení webu z podrobného shrnutí celých textů: doslovné citace a strany před použitím v eseji ověřit v originálu.
 
 ## Čeká na dodání (od majitele)
 

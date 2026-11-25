@@ -67,6 +67,8 @@ Co se vyčte z místa a z cesty jím.
 - **Dnešní způsoby:** Prostorové vyprávění · Vrstvy a sestup · Svět, který se mění.
 - **Prameny:** Carson (pojem prostorového vyprávění ze zábavních parků Disney), Jenkins (vypravěčská architektura, paměťový palác), Fernández-Vara (indexy), Aarseth 2012 (topologie světa), Bachelard, Ryanová (průzkumná interaktivita: smíš chodit, ale děj neměníš).
 - **Co přidává hra:** předmětů se dá dotknout a prostor může odpovídat na hráče (Jenkins).
+- **Pantový nosič** (doplněno po *Ludotopii*): Domsch považuje prostorové vyprávění za hlavní vlastní přínos her. Smíření: prostor, kterým se prochází a čte (vložený a inscenovaný režim), sdílí hra s architekturou. Prostor, který odpovídá (krajina zrcadlí volby, fyzika nese hráčovy stopy, mapa roste s průzkumem; vznikající režim), vzniká z hraní. U Prostoru proto o hranici „z hraní“ rozhoduje režim, ne nosič.
+- **Další opora:** Lotmanova sémantika prostoru podle Schrapeho (událost = překročení hranice, hrdina jako pohyblivá postava, topologie × sémantika × topografie) pro Vrstvy a sestup; Aarseth (topologie vládne hernímu světu, ludoforming).
 
 ### 3.4 Pravidla (vzniká z hraní)
 
@@ -84,7 +86,7 @@ Opakování, selhání, smyčky a průchody, tedy to, že se hra hraje znovu a j
 
 Role, tělo, maska a hranice mezi hrou a tím, kdo ji hraje.
 - **Dnešní způsoby:** Hrdina jako maska · Čtvrtá stěna.
-- **Prameny:** Ryanová (vnitřní a vnější účast), Pearce (napůl prázdný avatar), Arjoranta (ztělesněná fokalizace), Calleja (začlenění, alterbiografie), Galloway (metalepse, Psycho Mantis), Conway (čtvrtá stěna přemístěná za hráče, z druhé ruky), Jørgensenová (svět jako rozhraní, z druhé ruky).
+- **Prameny:** Ryanová (vnitřní a vnější účast), Dubbelman v *Ludotopii* (hráč hrdinou je × hrdinu řídí), Pearce (napůl prázdný avatar), Arjoranta (ztělesněná fokalizace), Calleja (začlenění, alterbiografie), Galloway (metalepse, Psycho Mantis), Conway (čtvrtá stěna přemístěná za hráče, z druhé ruky), Jørgensenová (svět jako rozhraní, z druhé ruky).
 
 ### Co se mění oproti sedmi rejstříkům
 
@@ -186,7 +188,7 @@ Zbylé způsoby (Popisky předmětů, Vrstvy a sestup, Rozhraní uvnitř příb�
 
 **Přečtené** (výtahy v `docs/prameny/`):
 - dřívější: Juul *Half-Real*, Bogost, Murrayová, Aarseth *Cybertext*, Ryanová *Narrative as Virtual Reality* (část), Calleja *In-Game*, Jenkins *Convergence Culture*, Iser, Doležel, Wolf;
-- nové (2026-11-25): Pearce 2004, Carson 2000, Jenkins 2004, Fernández-Vara 2011, Aarseth 2012 (přes překlad), Koenitz a INDCOR, Ryanová 2005, Galloway (kap. 1), Schröter a Thon 2014, Arjoranta 2017, Domsch 2013 (kap. 1–3), Calleja 2017.
+- nové (2026-11-25): Pearce 2004, Carson 2000, Jenkins 2004, Fernández-Vara 2011, Aarseth 2012 (přes překlad), Koenitz a INDCOR, Ryanová 2005, Galloway (kap. 1), Schröter a Thon 2014, Arjoranta 2017, Domsch 2013 (kap. 1–3), Calleja 2017, sborník *Ludotopia* 2019 (Domsch, Schrape o Lotmanovi, Dubbelman, Aarseth, Vella, Mukherjee; z PDF).
 
 Nové výtahy vznikly přes nástroj pro čtení webu z podrobného shrnutí celých textů, ne z vlastního čtení stránka po stránce. Doslovné citace a čísla stran se před použitím v eseji musí ověřit v originálu.
 
@@ -209,7 +211,7 @@ Nové výtahy vznikly přes nástroj pro čtení webu z podrobného shrnutí cel
 1. **Šest nosičů:** sedí jejich vymezení i názvy? Hlavně „Čas hraní“ místo „Opakování“ a „Slovo a stavba příběhu“ místo „Slovo“.
 2. **Pojmenování dvou skupin:** „z umění vyprávění“ a „z hraní“, nebo zůstat u „umí i …“ a „umí jen hra“?
 3. **Mřížka 6 × 3** na stránce, nebo jen v metodice? Jak ukázat režim u nástroje: štítek, barva, nebo vůbec?
-4. **Svět, který se mění:** zůstane v Prostoru (prostor je nosič, odpověď na hráče je režim), nebo patří k Pravidlům?
+4. **Svět, který se mění:** návrh po *Ludotopii*: zůstane v Prostoru a hranici „z hraní“ rozhodne režim (vznikající, když prostor odpovídá na hráče). Souhlas?
 5. **Zákony světa:** souhlas s postupem z oddílu 6 (přesunout do Pravidel, nebo vyřadit, podle světa)?
 6. **Poslední část stránky** (dnes Jak vypráví který svět): přejmenovat na Vypravěčský podpis světů, bez skupin podle podílu a bez sloupce Jen hra, řazení jen podle archetypu a abecedy. Dohodnuto v zásadě, čeká na novou osu.
 7. **Knihy:** po jejich přečtení projít oddíly 3–6 znovu.
