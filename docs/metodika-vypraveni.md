@@ -86,7 +86,7 @@ Opakování, selhání, smyčky a průchody, tedy to, že se hra hraje znovu a j
 
 Role, tělo, maska a hranice mezi hrou a tím, kdo ji hraje.
 - **Dnešní způsoby:** Hrdina jako maska · Čtvrtá stěna.
-- **Čtvrtá stěna** (doplněno po Jørgensenové): oslovování hráče je ve hrách běžná konvence (metareference), mezi hráčem a světem je pružná membrána, ne zeď. Nástrojem vyprávění je metareference jen tam, kde hra poruší vlastní premisu nebo z hranice mezi hráčem a světem udělá téma.
+- **Čtvrtá stěna** (doplněno po Jørgensenové): oslovování hráče je ve hrách běžná konvence (metareference), mezi hráčem a světem je pružná membrána, ne zeď. Nástrojem vyprávění je metareference jen tam, kde hra poruší vlastní premisu nebo z hranice mezi hráčem a světem udělá téma. Přesněji podle Ryanové: rétorická metalepse (návod v ústech postavy, okénko, které se zase zavře) je konvence; ontologická metalepse (svět prosákne k hráči: plukovník v Metal Gear Solid 2 velí vypnout konzoli, NieR: Automata chce obětovat hráčovu uloženou hru) je nástroj.
 - **Prameny:** Ryanová (vnitřní a vnější účast), Dubbelman v *Ludotopii* (hráč hrdinou je × hrdinu řídí), Pearce (napůl prázdný avatar), Arjoranta (ztělesněná fokalizace), Calleja (začlenění, alterbiografie), Galloway (metalepse, Psycho Mantis), Conway (čtvrtá stěna přemístěná za hráče, z druhé ruky), Jørgensenová (metareference jako konvence, pružná membrána, avatar jako liminální bytost).
 
 ### Co se mění oproti sedmi rejstříkům
@@ -104,8 +104,10 @@ Režim říká, **kdo napsal výsledek a kdy**. Dvojici vložený a vznikající
 | Režim | Kdo napsal výsledek | Prameny |
 |---|---|---|
 | **Vložený** | Stalo se dřív, autor to rozmístil po světě a hráč to skládá. | LeBlanc (přes Salen a Zimmermana), Jenkins (vložené příběhy, paměťový palác), Fernández-Vara (dějiny světa), Domsch (nalezené texty), Calleja (napsaný příběh) |
-| **Inscenovaný** | Děje se teď a autor to řídí: scény, rozhovory, spouštěče, napsané větve. | Jenkins (odehrané příběhy, mikropříběhy), Domsch (pasivní a aktivně uzlové formy), Schröter a Thon (vyprávění), Aarseth (pevná jádra, napsaná dynamická jádra) |
-| **Vznikající** | Rodí se z pravidel a hráčova jednání, autor napsal jen pravidla. | LeBlanc, Jenkins (vznikající příběhy), Pearce (prožitý příběh, příběhový systém), Fernández-Vara (dějiny hráče), Calleja (alterbiografie), Domsch (dynamické formy), Ryanová (tvorba příběhu za běhu) |
+| **Inscenovaný** | Děje se teď a autor to řídí: scény, rozhovory, spouštěče, napsané větve. | Jenkins (odehrané příběhy, mikropříběhy), Domsch (pasivní a aktivně uzlové formy), Schröter a Thon (vyprávění), Aarseth (pevná jádra, napsaná dynamická jádra), Ryanová (příběhy postupu) |
+| **Vznikající** | Rodí se z pravidel a hráčova jednání, autor napsal jen pravidla. | LeBlanc, Jenkins (vznikající příběhy), Pearce (prožitý příběh, příběhový systém), Fernández-Vara (dějiny hráče), Calleja (alterbiografie), Domsch (dynamické formy), Ryanová (tvorba příběhu za běhu, příběhy vznikání) |
+
+**Souhrnný pramen:** Ryanová (*Avatars of Story*, kap. 8) staví vedle sebe tři strukturní typy herního vyprávění: příběhy objevování (Jenkins), postupu (Juul) a vznikání (Salen a Zimmerman). Odpovídají třem režimům atlasu.
 
 **Rozlišovací otázka:** kdo napsal to, co hráč uvidí? Autor předem a rozmístil to (vložený), autor předem a spustí to teď (inscenovaný), nebo nikdo konkrétně, vzešlo to ze systému (vznikající). Volba a následky tak bývá inscenovaná, protože větve napsal autor (Mass Effect, Dragon Age). Vznikající je jen tam, kde důsledky skládá systém (trvalá smrt v XCOM, nákaza v Pathologic).
 
@@ -131,6 +133,8 @@ Prázdné buňky nic neznamenají (oddíl 1). Mřížka je mapa toho, čeho si k
 ---
 
 ## 6. Hranice „umí jen hra“ a co mezi nástroje nepatří
+
+**Hlavní opora: tři módy vyprávění** (Ryanová, *Avatars of Story*): diegetický (vyprávění slovy), mimetický (předvedení) a simulační (stroj, který z pravidel vytváří mnoho průběhů; typický pro hry). Nosič Slovo odpovídá diegezi, Obraz a zvuk mimezi, Pravidla, Čas hraní a Hráč simulaci a participaci. Prostor stojí napříč (architektura vypráví podle Ryanové jen metaforicky, hra ho zabydlí světem a bytostmi).
 
 **Test.** Nástroj patří k nosičům, které vznikají z hraní (Pravidla, Čas hraní, Hráč), když jeho účinek **nejde převyprávět bez odkazu na pravidla nebo na hráčovo jednání**. Je to Juulův test převyprávění (*Half-Real*). Podpírají ho:
 - Aarseth 2012: rozdíl mezi ludickým (hratelným) a mimoludickým obsahem,
@@ -190,13 +194,12 @@ Zbylé způsoby (Popisky předmětů, Vrstvy a sestup, Rozhraní uvnitř příb�
 
 **Přečtené** (výtahy v `docs/prameny/`):
 - dřívější: Juul *Half-Real*, Bogost, Murrayová, Aarseth *Cybertext*, Ryanová *Narrative as Virtual Reality* (část), Calleja *In-Game*, Jenkins *Convergence Culture*, Iser, Doležel, Wolf;
-- nové (2026-11-25): Pearce 2004, Carson 2000, Jenkins 2004, Fernández-Vara 2011, Aarseth 2012 (přes překlad), Koenitz a INDCOR, Ryanová 2005, Galloway (kap. 1), Schröter a Thon 2014, Arjoranta 2017, Domsch 2013 (kap. 1–3), Calleja 2017, sborník *Ludotopia* 2019 (Domsch, Schrape o Lotmanovi, Dubbelman, Aarseth, Vella, Mukherjee; z PDF), Jørgensenová *Gameworld Interfaces* 2013 (z PDF), Salen a Zimmerman *Rules of Play* 2003, kap. 26 a omyl ponoření z kap. 27 (z PDF).
+- nové (2026-11-25): Pearce 2004, Carson 2000, Jenkins 2004, Fernández-Vara 2011, Aarseth 2012 (přes překlad), Koenitz a INDCOR, Ryanová 2005, Galloway (kap. 1), Schröter a Thon 2014, Arjoranta 2017, Domsch 2013 (kap. 1–3), Calleja 2017, sborník *Ludotopia* 2019 (Domsch, Schrape o Lotmanovi, Dubbelman, Aarseth, Vella, Mukherjee; z PDF), Jørgensenová *Gameworld Interfaces* 2013 (z PDF), Salen a Zimmerman *Rules of Play* 2003, kap. 26 a omyl ponoření z kap. 27 (z PDF), Ryanová *Avatars of Story* 2006, kap. 1, 5, 8 a 9 (z PDF).
 
 Nové výtahy vznikly přes nástroj pro čtení webu z podrobného shrnutí celých textů, ne z vlastního čtení stránka po stránce. Doslovné citace a čísla stran se před použitím v eseji musí ověřit v originálu.
 
 **Z druhé ruky** (`docs/prameny/drobne-prameny.md`), stojí za sehnání:
 - Jesper Juul, *The Art of Failure* (2013): Čas hraní, selhání jako zážitek;
-- Marie-Laure Ryanová, *Avatars of Story* (2006): módy narativity, typologie interaktivity;
 - Alexander Galloway, *Gaming* (2006), kap. 2–5;
 - Jan-Noël Thon, *Transmedial Narratology and Contemporary Media Culture* (2016): vypravěč a subjektivita ve hrách;
 - Sebastian Domsch, *Storyplaying*, kap. 4–7 (volně dostupné, dočíst);

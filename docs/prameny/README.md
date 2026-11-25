@@ -65,6 +65,7 @@ Pravidla:
 | Espen Aarseth, Stephan Günzel (eds.): *Ludotopia* (2019) | [aarseth-gunzel-ludotopia.md](aarseth-gunzel-ludotopia.md) | z PDF: úvod, Domsch, Schrape, Aarseth celé; Dubbelman, Vella, Mukherjee podstatné části; zbytek jen podle úvodu | vyprávění sledu × prostorové vyprávění, vizuální stopy, krajina duše, spouštěče, zdvojené vnímání (prostor a mapa); Lotmanova hranice a událost, pohyblivý hrdina, topologie × sémantika × topografie; prezentační × reprezentační logika; ludoforming; hestiální × hermetické přebývání, nostos; pustina jako ne-místo |
 | Kristine Jørgensen: *Gameworld Interfaces* (2013) | [jorgensen-gameworld-interfaces.md](jorgensen-gameworld-interfaces.md) | z PDF: úvod a klíčové oddíly kap. 2–5 | herní svět jako rozhraní a obsah, trojice rozhraní, začleněná × překrytá, ekologická × zdůrazňující, fikční × ludická informace, herní svět ≠ fikční svět ani diegeze, fikce jako metafora, rámce (Goffman), metareference jako konvence, pružná membrána místo čtvrté stěny, liminální avatar |
 | Katie Salen, Eric Zimmerman: *Rules of Play* (2003) | [salen-zimmerman-rules-of-play.md](salen-zimmerman-rules-of-play.md) | z PDF: kap. 26 celá, z kap. 27 omyl ponoření | ne zda, ale jak; Millerova definice vyprávění (situace, postava, forma); vložené × vznikající vyprávění (LeBlanc, Church); cíle, konflikt, nejistota, jádrová mechanika a prostor jako stavební kameny; příběhové deskriptory; převyprávěná hra; omyl ponoření, dvojí vědomí hry, postava jako persona i loutka |
+| Marie-Laure Ryanová: *Avatars of Story* (2006) | [ryan-avatars-of-story.md](ryan-avatars-of-story.md) | z PDF: kap. 1, 5, 8 a 9 v klíčových částech | vyprávění jako kognitivní konstrukt s mírou (osm podmínek ve čtyřech rozměrech), módy vyprávění (reprezentační × simulační, diegetický × mimetický, napsaný × vznikající, přijímací × participativní, doslovný × metaforický), čtyři typy interaktivity, hra jako stroj na příběhy, instrumentální mód, příběhy postupu, vznikání a objevování, program funkčního ludonarativismu, rétorická × ontologická metalepse |
 | Drobné prameny: mýty o stvoření z těla boha, Eliade, Nietzsche, prameny Anatomie, prameny k metodice vyprávění | [drobne-prameny.md](drobne-prameny.md) | přes sekundární zdroje | Ymir, Tiamat, Puruša, deus otiosus, Bůh je mrtev, Iser, Jenkins, Aarseth, Tolkien, Suvin, LeBlanc (vložené a vznikající vyprávění), Conway (čtvrtá stěna), Juul (*The Art of Failure*), Jørgensenová, Ryanová (*Avatars of Story*) |
 
 ## Prameny podle stezek
@@ -104,7 +105,6 @@ Pro stránku Jak světy vyprávějí a návrh metodiky (`docs/metodika-vypraveni
 
 Pro metodiku vyprávění (majitel shání, 2026-11-25):
 - Jesper Juul, *The Art of Failure* (2013)
-- Marie-Laure Ryanová, *Avatars of Story* (2006)
 - Alexander R. Galloway, *Gaming* (2006), celá kniha
 - Jan-Noël Thon, *Transmedial Narratology and Contemporary Media Culture* (2016)
 - Espen Aarseth, „A Narrative Theory of Games“ (2012), originál z ACM (máme jen překlad)
