@@ -159,13 +159,13 @@ Hra nemůže příběh jen vykládat, musí ho rozložit do prostoru a do činno
 | Nahrávky a deníky | Hlasy mrtvých, děj se odvíjí zpětně | BioShock, SOMA, Horizon | Klišé, pokud nenese emoci |
 | Dialogy | Rozvětvený rozhovor nese děj i téma | Planescape, Disco Elysium, Numenera | Vyžaduje špičkový text |
 | Nespolehliví vypravěči | Zdroje si odporují, pravdu skládá hráč | Elder Scrolls, Pathologic, Dragon Age | Bez základní pravdy je to chaos |
-| Vícenásobné průchody | Tatáž hra z jiného úhlu odhalí jinou pravdu | NieR, Pathologic, Undertale | Hráč musí mít důvod hrát znovu |
+| Víc průchodů a pohledů | Tatáž hra z jiného úhlu odhalí jinou pravdu | NieR, Pathologic, Undertale | Hráč musí mít důvod hrát znovu |
 | Filmové scény | Příběh nesou režírované scény mezi hraním | Halo, Xenoblade, StarCraft, Diablo | Hráč se dívá, místo aby hrál |
 | Mechanika jako význam | Pravidla hry sama nesou téma | Undertale, NieR, BioShock, Pathologic | Když mechanika tématu odporuje, vzniká nesoulad |
 
 > **Na kartě světa**
 >
-> Každá karta má řádek **Jak svět vypráví** s jedním až třemi nástroji z této tabulky. V katalogu podle něj lze světy filtrovat.
+> Každá karta má řádek **Jak svět vypráví** s jedním až třemi nástroji z této tabulky. V katalogu podle něj lze světy filtrovat. Všechny vypravěčské nástroje všech světů, i ty mimo tabulku, jsou seřazené na stránce [Jak světy vyprávějí](/jak-svety-vypraveji/).
 
 ### Dramaturgie odhalování
 

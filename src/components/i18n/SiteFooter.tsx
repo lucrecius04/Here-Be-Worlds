@@ -50,6 +50,9 @@ export default function SiteFooter({ base }: Props) {
           <a className="site-footer__link" href={withBase(base, '/galerie-triad/')}>
             {uiT('triads.title', locale)}
           </a>
+          <a className="site-footer__link" href={withBase(base, '/jak-svety-vypraveji/')}>
+            {uiT('narrPage.title', locale)}
+          </a>
         </nav>
         <nav className="site-footer__col site-footer__col--chapters" aria-label={uiT('footer.chapters', locale)}>
           <h2 className="site-footer__heading">{uiT('footer.chapters', locale)}</h2>

@@ -84,13 +84,17 @@ export default function WorldCard({
         {world.narration?.length ? (
           <section className="wc-lex" aria-labelledby="wc-narration">
             <h2 id="wc-narration" className="wc-label">
-              <a href={`${baseUrl}/anatomie-herniho-lore/#jak-svety-vypraveji`}>
+              <a href={`${baseUrl}/jak-svety-vypraveji/`}>
                 {uiT('card.narrationHeading', locale)}
               </a>
             </h2>
             <ul className="wc-lex__list">
               {world.narration.map((slug) => (
-                <li key={slug}>{NARRATION_LABELS[slug] ? t(NARRATION_LABELS[slug], locale) : slug}</li>
+                <li key={slug}>
+                  <a className="wc-lex__link" href={`${baseUrl}/jak-svety-vypraveji/#${slug}`}>
+                    {NARRATION_LABELS[slug] ? t(NARRATION_LABELS[slug], locale) : slug}
+                  </a>
+                </li>
               ))}
             </ul>
           </section>

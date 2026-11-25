@@ -1,0 +1,902 @@
+/* Jak světy vyprávějí (/jak-svety-vypraveji/).
+   Sedm rejstříků od slova ke hře: první čtyři si hra půjčuje od jiných umění, poslední tři umí jen ona.
+   Ty tři leží na jemném tónu pásu a odděluje je silná linka; jinak rejstříková podoba jako Galerie triád. */
+
+.nv-col__squares i,
+.nv-tool,
+.nv-matrix tbody tr {
+  --nv-hue: var(--nv-hue-l, var(--color-ink-muted));
+}
+
+html[data-theme='dark'] .nv-col__squares i,
+html[data-theme='dark'] .nv-tool,
+html[data-theme='dark'] .nv-matrix tbody tr {
+  --nv-hue: var(--nv-hue-d, var(--color-ink-muted));
+}
+
+.nv-page {
+  --nv-scroll: calc(var(--site-header-height) + 4.25rem);
+  --nv-own-bg: color-mix(in srgb, var(--color-band) 60%, transparent);
+}
+
+/* ---------- hlavička ---------- */
+.nv-head__meta {
+  margin: 1.1rem 0 0;
+  font: 500 0.75rem var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+.nv-head__links {
+  margin: 0.6rem 0 0;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+}
+
+.nv-head__links a {
+  color: var(--color-accent);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--color-accent) 35%, transparent);
+}
+
+.nv-head__links a:hover,
+.nv-head__links a:focus-visible {
+  border-bottom-color: currentColor;
+}
+
+.nv-head__sep {
+  margin: 0 0.6rem;
+  color: var(--color-ink-muted);
+}
+
+/* ---------- lepivý pruh se skokem na oddíl ---------- */
+.nv-sticky {
+  position: sticky;
+  top: var(--site-header-height);
+  z-index: 20;
+  margin: 0 calc(-1 * var(--gutter));
+  padding: 0.35rem var(--gutter);
+  background: var(--color-paper);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.nv-jump,
+.nv-jump__group {
+  display: flex;
+  align-items: center;
+  gap: 0 1.5rem;
+}
+
+.nv-jump {
+  flex-wrap: wrap;
+  gap: 0 2.25rem;
+}
+
+.nv-jump a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.25rem;
+  padding: 0.3rem 0;
+  border-bottom: 2px solid transparent;
+  font: 600 0.75rem var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--color-ink-muted);
+  text-decoration: none;
+}
+
+.nv-jump a:hover,
+.nv-jump a:focus-visible {
+  color: var(--color-accent);
+}
+
+.nv-jump a[aria-current='location'] {
+  color: var(--color-ink);
+  border-bottom-color: var(--color-ink);
+}
+
+/* hranice „umí jen hra“ i v pruhu */
+.nv-jump__group a.is-own-start {
+  position: relative;
+  margin-left: 0.25rem;
+}
+
+.nv-jump__group a.is-own-start::before {
+  content: '';
+  position: absolute;
+  left: -1rem;
+  top: 0.55rem;
+  bottom: 0.55rem;
+  border-left: 2px solid var(--color-ink);
+}
+
+/* ---------- Od slova ke hře ---------- */
+.nv-spectrum {
+  margin-top: 2.25rem;
+  scroll-margin-top: var(--nv-scroll);
+}
+
+.nv-spectrum__grid {
+  display: grid;
+  grid-template-columns: repeat(var(--nv-n), minmax(0, 1fr));
+  grid-template-rows: auto auto;
+}
+
+.nv-spectrum__band {
+  grid-row: 1;
+  margin: 0 0 0.75rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--color-ink-muted);
+  font: 500 0.6875rem var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+.nv-spectrum__band--borrowed {
+  margin-right: 1rem;
+}
+
+.nv-spectrum__band--own {
+  border-top: 2px solid var(--color-ink);
+  color: var(--color-ink);
+  font-weight: 600;
+}
+
+.nv-col {
+  grid-row: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 0;
+  padding: 1rem 1rem 1.25rem;
+  border-left: 1px solid var(--color-line);
+  color: var(--color-ink);
+  text-decoration: none;
+}
+
+.nv-col:first-of-type {
+  border-left: 0;
+  padding-left: 0;
+}
+
+.nv-col.is-own {
+  background: var(--nv-own-bg);
+}
+
+.nv-col.is-own-start {
+  border-left: 2px solid var(--color-ink);
+}
+
+.nv-col.is-own .nv-col__kin {
+  visibility: hidden;
+}
+
+.nv-col__kin {
+  font: 500 0.625rem var(--font-mono);
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+.nv-col__name {
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  transition: color 0.15s ease;
+}
+
+.nv-col:hover .nv-col__name,
+.nv-col:focus-visible .nv-col__name {
+  color: var(--color-accent);
+}
+
+.nv-col:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.nv-col__n {
+  font: 500 0.6875rem var(--font-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+.nv-col__n b {
+  margin-right: 0.15rem;
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1;
+  color: var(--color-ink);
+  font-variant-numeric: lining-nums;
+}
+
+.nv-col__squares {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+  margin-top: 0.5rem;
+}
+
+.nv-col__squares i {
+  display: block;
+  width: 0.625rem;
+  height: 0.625rem;
+  background: var(--nv-hue);
+}
+
+/* ---------- rejstřík ---------- */
+.nv-family {
+  margin-top: 4.5rem;
+  scroll-margin-top: var(--nv-scroll);
+}
+
+.nv-family__head {
+  padding-top: 1.25rem;
+  border-top: 2px solid var(--color-ink);
+  margin-bottom: 0.5rem;
+}
+
+.nv-family__kin {
+  margin: 0 0 0.4rem;
+  font: 500 0.6875rem var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+.nv-family.is-own .nv-family__kin {
+  color: var(--color-ink);
+  font-weight: 600;
+}
+
+.nv-family__name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.4vw, 2.75rem);
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+}
+
+.nv-family__desc {
+  max-width: 40rem;
+  margin: 0.75rem 0 0;
+  font-family: var(--font-text);
+  font-size: 1.1875rem;
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+
+.nv-family__count {
+  margin: 0.75rem 0 0;
+  font: 500 0.75rem var(--font-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+/* způsob: vlevo název a výklad, vpravo nástroje ve dvou sloupcích */
+.nv-tech {
+  display: grid;
+  grid-template-columns: 16rem minmax(0, 1fr);
+  column-gap: 3rem;
+  padding: 1.75rem 0 2rem;
+  border-top: 1px solid var(--color-line);
+  scroll-margin-top: var(--nv-scroll);
+}
+
+.nv-family__head + .nv-tech {
+  margin-top: 1.25rem;
+  border-top-color: var(--color-ink);
+}
+
+.nv-tech:target .nv-tech__name {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
+}
+
+.nv-tech__head {
+  align-self: start;
+}
+
+.nv-tech__name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.4375rem;
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+}
+
+.nv-tech__desc {
+  margin: 0.55rem 0 0;
+  font-family: var(--font-text);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--color-ink-muted);
+  text-wrap: pretty;
+}
+
+.nv-tech__count {
+  margin: 0.85rem 0 0;
+  font: 500 0.75rem var(--font-mono);
+  letter-spacing: 0.06em;
+  line-height: 1.7;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+.nv-tech__count a {
+  text-transform: none;
+  letter-spacing: 0;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.nv-tech__count a:hover,
+.nv-tech__count a:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.nv-tools {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem 2.5rem;
+  align-items: start;
+}
+
+.nv-tool {
+  border-top: 3px solid var(--nv-hue);
+}
+
+.nv-tool summary {
+  position: relative;
+  display: grid;
+  gap: 0.2rem;
+  padding: 0.65rem 2rem 0.15rem 0;
+  list-style: none;
+  cursor: pointer;
+}
+
+.nv-tool summary::-webkit-details-marker {
+  display: none;
+}
+
+/* plus / minus vpravo nahoře */
+.nv-tool summary::after {
+  content: '+';
+  position: absolute;
+  top: 0.55rem;
+  right: 0.1rem;
+  font: 400 1.25rem/1 var(--font-sans);
+  color: var(--color-ink-muted);
+  transition: color 0.15s ease;
+}
+
+.nv-tool details[open] > summary::after {
+  content: '−';
+}
+
+.nv-tool summary:hover::after,
+.nv-tool summary:focus-visible::after {
+  color: var(--color-accent);
+}
+
+.nv-tool summary:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.nv-tool__world {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.1rem 0.6rem;
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.nv-tool__arch {
+  font: 500 0.625rem var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+.nv-tool__title {
+  font-family: var(--font-text);
+  font-size: 1.0625rem;
+  line-height: 1.4;
+  text-wrap: pretty;
+}
+
+.nv-tool summary:hover .nv-tool__title {
+  color: var(--color-accent);
+}
+
+.nv-tool__aside {
+  font-style: italic;
+  color: var(--color-ink-muted);
+}
+
+.nv-tool__body {
+  padding: 0.5rem 0 0.35rem;
+}
+
+.nv-tool__body p {
+  margin: 0;
+  font-family: var(--font-text);
+  font-size: 1rem;
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+
+.nv-tool__body a {
+  display: inline-block;
+  margin-top: 0.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.nv-tool__body a:hover,
+.nv-tool__body a:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ---------- Jak vypráví který svět ---------- */
+.nv-worlds {
+  margin-top: 5rem;
+  padding-top: 1.25rem;
+  border-top: 2px solid var(--color-ink);
+  scroll-margin-top: var(--nv-scroll);
+}
+
+.nv-worlds__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.nv-worlds__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.4vw, 2.75rem);
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+}
+
+.nv-sort {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1.25rem;
+}
+
+.nv-sort button {
+  appearance: none;
+  min-height: 2.25rem;
+  padding: 0.3rem 0;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: none;
+  font: 500 0.875rem var(--font-sans);
+  color: var(--color-ink-muted);
+  cursor: pointer;
+}
+
+.nv-sort button:hover,
+.nv-sort button[aria-pressed='true'] {
+  color: var(--color-ink);
+}
+
+.nv-sort button[aria-pressed='true'] {
+  border-bottom-color: var(--color-ink);
+}
+
+.nv-sort button:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.nv-matrix {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.nv-matrix__c-world {
+  width: 14rem;
+}
+
+.nv-matrix__c-cg {
+  width: 8.5rem;
+}
+
+.nv-matrix th,
+.nv-matrix td {
+  padding: 0;
+  font-weight: inherit;
+}
+
+.nv-matrix__bands th {
+  height: 1.75rem;
+}
+
+.nv-matrix__band {
+  padding: 0.35rem 0.75rem 0 !important;
+  border-top: 1px solid var(--color-ink-muted);
+  text-align: left;
+  vertical-align: top;
+  font: 500 0.625rem var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+.nv-matrix__band:first-of-type {
+  padding-left: 0 !important;
+}
+
+.nv-matrix__band--own {
+  border-top: 2px solid var(--color-ink);
+  border-left: 2px solid var(--color-ink);
+  background: var(--nv-own-bg);
+  color: var(--color-ink);
+  font-weight: 600;
+}
+
+.nv-matrix__corner {
+  padding: 0.5rem 0 0.6rem !important;
+  text-align: left;
+  vertical-align: bottom;
+  font: 500 0.625rem var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+  border-bottom: 2px solid var(--color-ink);
+}
+
+.nv-matrix__fam {
+  padding: 0.5rem 0.25rem 0.6rem !important;
+  vertical-align: bottom;
+  text-align: center;
+  border-bottom: 2px solid var(--color-ink);
+}
+
+.nv-matrix__fam a {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-ink);
+  text-decoration: none;
+}
+
+.nv-matrix__fam a:hover,
+.nv-matrix__fam a:focus-visible {
+  color: var(--color-accent);
+}
+
+.nv-matrix__fam:nth-child(n + 2) {
+  border-left: 1px solid var(--color-line);
+}
+
+.nv-matrix .is-own-start {
+  border-left: 2px solid var(--color-ink) !important;
+}
+
+/* sloupce „umí jen hra“ na tónu */
+.nv-matrix .is-own {
+  background: var(--nv-own-bg);
+}
+
+.nv-matrix__cg-col {
+  padding: 0 0 0 1.25rem !important;
+  text-align: left;
+  vertical-align: bottom;
+  font: 500 0.625rem var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+thead .nv-matrix__cg-col {
+  padding-bottom: 0.6rem !important;
+  border-bottom: 2px solid var(--color-ink);
+}
+
+.nv-matrix__bands .nv-matrix__cg-col {
+  border-bottom: 0;
+}
+
+tbody .nv-matrix__cg-col {
+  vertical-align: middle;
+}
+
+.nv-matrix tbody tr {
+  border-bottom: 1px solid var(--color-line);
+  transition: background-color 0.12s ease;
+}
+
+.nv-matrix tbody tr:hover {
+  background: color-mix(in srgb, var(--color-band) 45%, transparent);
+}
+
+.nv-matrix tbody tr.is-chapter-start {
+  border-top: 1px solid var(--color-ink);
+}
+
+.nv-matrix__world {
+  padding: 0.5rem 0.75rem 0.5rem 0.85rem !important;
+  text-align: left;
+  position: relative;
+}
+
+.nv-matrix__world::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.45rem;
+  bottom: 0.45rem;
+  width: 3px;
+  background: var(--nv-hue);
+}
+
+.nv-matrix__world a {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--color-ink);
+  text-decoration: none;
+}
+
+.nv-matrix__world a:hover,
+.nv-matrix__world a:focus-visible {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.nv-matrix__cell {
+  height: 2.5rem;
+  text-align: center;
+  vertical-align: middle;
+  border-left: 1px solid var(--color-line);
+}
+
+.nv-matrix__marks {
+  display: inline-flex;
+  gap: 3px;
+}
+
+.nv-matrix__marks i {
+  display: block;
+  width: 0.625rem;
+  height: 0.625rem;
+  background: var(--nv-hue);
+}
+
+.nv-matrix__none {
+  display: inline-block;
+  width: 0.625rem;
+  height: 1px;
+  background: var(--color-line);
+  vertical-align: middle;
+}
+
+/* těžiště: kosočtverec na stupnici od slova ke hře (poloha, jako u souřadnic) */
+.nv-cg {
+  position: relative;
+  display: block;
+  height: 0.75rem;
+  margin-right: 0.35rem;
+}
+
+.nv-cg__track {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  border-top: 1px solid var(--color-line);
+}
+
+.nv-cg__mark {
+  position: absolute;
+  top: 50%;
+  width: 0.5625rem;
+  height: 0.5625rem;
+  background: var(--color-ink);
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+/* ---------- užší displej ---------- */
+@media (max-width: 1100px) {
+  .nv-spectrum__grid {
+    column-gap: 0;
+  }
+
+  .nv-col {
+    padding: 0.85rem 0.6rem 1rem;
+  }
+
+  .nv-col__name {
+    font-size: 1.125rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .nv-tech {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 1.25rem;
+  }
+
+  .nv-tech__head {
+    max-width: 38rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .nv-page {
+    --nv-scroll: calc(var(--site-header-height) + 3.25rem);
+  }
+
+  /* pruh jedním řádkem posuvným do strany */
+  .nv-jump {
+    flex-wrap: nowrap;
+    gap: 0 1.5rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .nv-jump::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* spektrum jako seznam: sedm řádků, hranice „umí jen hra“ silnou linkou */
+  .nv-spectrum__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .nv-spectrum__band {
+    display: none;
+  }
+
+  .nv-col {
+    grid-row: auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: 1rem;
+    padding: 0.8rem 0 0.9rem;
+    border-left: 0;
+    border-top: 1px solid var(--color-line);
+  }
+
+  .nv-col.is-own {
+    margin: 0 calc(-1 * var(--gutter));
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+  }
+
+  .nv-col.is-own-start {
+    border-left: 0;
+    border-top: 2px solid var(--color-ink);
+  }
+
+  .nv-col__kin {
+    grid-column: 1 / -1;
+  }
+
+  .nv-col.is-own .nv-col__kin {
+    visibility: visible;
+  }
+
+  .nv-col__name {
+    font-size: 1.25rem;
+  }
+
+  .nv-col__n {
+    grid-column: 2;
+    grid-row: 2;
+    align-self: baseline;
+  }
+
+  .nv-col__n b {
+    font-size: 1.375rem;
+  }
+
+  .nv-col__squares {
+    grid-column: 1 / -1;
+    margin-top: 0.25rem;
+  }
+
+  .nv-col__squares i {
+    width: 0.5rem;
+    height: 0.5rem;
+  }
+
+  .nv-family {
+    margin-top: 3.5rem;
+  }
+
+  .nv-family__desc {
+    font-size: 1.0625rem;
+  }
+
+  .nv-tools {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+  }
+
+  /* mřížka: názvy rejstříků svisle, bez těžiště */
+  .nv-matrix__c-world {
+    width: 8.5rem;
+  }
+
+  .nv-matrix__c-cg {
+    width: 0;
+  }
+
+  .nv-matrix__fam {
+    height: 6.25rem;
+    padding: 0 0 0.5rem !important;
+  }
+
+  .nv-matrix__fam a {
+    display: inline-block;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: 0.875rem;
+  }
+
+  .nv-matrix__band {
+    font-size: 0.5625rem;
+    padding: 0.3rem 0.35rem 0 !important;
+    letter-spacing: 0.06em;
+  }
+
+  .nv-matrix__cg-col {
+    display: none;
+  }
+
+  .nv-matrix__world a {
+    font-size: 0.9375rem;
+  }
+
+  .nv-matrix__marks {
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .nv-matrix__marks i {
+    width: 0.5rem;
+    height: 0.5rem;
+  }
+
+  .nv-matrix__cell {
+    height: auto;
+    padding: 0.45rem 0 !important;
+  }
+}

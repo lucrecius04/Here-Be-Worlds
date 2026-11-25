@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import NarrationPage from '../../components/narration/NarrationPage';
+import { NARR_FAMILIES, NARR_TECHNIQUES, narrTools, narrWorlds, narrChapters, familyCounts, centroid } from '../../lib/narrative-tools';
+import { TRAILS, trailSlug } from '../../lib/trails';
+import { uiT } from '../../lib/i18n';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+// Rejstříky od čtvrtého dál umí jen hra (pravidla, opakování, hráč).
+const ownFrom = NARR_FAMILIES.findIndex((f) => f.id === 'pravidla');
+const families = NARR_FAMILIES.map((f, i) => ({ ...f, own: i >= ownFrom }));
+
+const techniques = NARR_TECHNIQUES.map((tech) => {
+  const trail = tech.trail ? TRAILS.find((x) => x.id === tech.trail) : undefined;
+  return {
+    ...tech,
+    trail: trail ? { slug: trailSlug(trail.id), label: { cs: uiT(trail.nameKey, 'cs'), en: uiT(trail.nameKey, 'en') } } : undefined,
+  };
+});
+
+const worlds = narrWorlds.map((w) => {
+  const counts = familyCounts(w.id);
+  return { id: w.id, title: w.title, chapterId: w.chapterId, accent: w.accent, anchor: w.anchor, counts, centroid: centroid(counts) };
+});
+---
+
+<BaseLayout
+  title="Jak světy vyprávějí · Here Be Worlds"
+  description="Vypravěčské nástroje všech herních světů atlasu: od toho, co umí i kniha a film (dialogy, kroniky, hudba, prostor), po to, co umí jen hra (pravidla, smrt a návrat, čtvrtá stěna)."
+>
+  <NarrationPage client:load base={base} families={families} techniques={techniques} tools={narrTools} worlds={worlds} chapters={narrChapters} />
+</BaseLayout>

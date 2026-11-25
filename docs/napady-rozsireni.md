@@ -19,7 +19,7 @@ Analýza z 2026-11-24 (Claude na žádost majitele): co by na webu mohlo přibý
 - **Galerie triád.** Všechny prvotní hříchy vedle sebe, pak dilemata a tajemství, ručně seskupené do typů (pýcha tvůrců, útěk před smrtí, zrada, nevědomost, obchod s mocí…). Malá až střední práce.
 - **Stránky témat.** 20 témat jako stránky po vzoru archetypu: světy, putování, průměr a rozpětí souřadnic, sousední témata. Malá práce, pomůže i vyhledávačům.
 - **Cesta mezi dvěma světy.** Nejkratší řetěz přes nejbližší příbuzné (index jen z `compare.ts`, bez procent), u každého kroku co mají světy společného. Hravé, sdílitelné. Malá práce.
-- **Jak světy vyprávějí.** Mřížka světy × způsoby vyprávění (prostředí, deníky a nahrávky, nespolehlivý vypravěč, smyčka, fragmenty) z `narration` a z Hlavních nástrojů vyprávění. Vrstva specifická pro hry. Střední práce (sjednotit pojmenování).
+- **Jak světy vyprávějí.** Hotovo 2026-11-25: `/jak-svety-vypraveji/`, 160 nástrojů z kronik ve 23 způsobech a 7 rejstřících od slova ke hře, tabulka světů s těžištěm.
 
 ## 2. Důvody se vracet
 

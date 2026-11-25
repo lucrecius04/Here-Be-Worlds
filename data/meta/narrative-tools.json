@@ -1,0 +1,323 @@
+{
+  "_note": "Jak světy vyprávějí (/jak-svety-vypraveji/). Rejstříky (families) jdou od toho, co umí i kniha, po to, co umí jen hra. Způsoby (techniques) se stejným slugem jako v narration-taxonomy.json berou název odtamtud. assignments: pro každý svět způsob každého nástroje z oddílu „5. Hlavní nástroje vyprávění“ jeho kroniky, ve stejném pořadí (odstavce začínající **názvem**). Po úpravě toho oddílu v kronice upravit i sem; test narrative-tools.test.ts hlídá počty.",
+  "families": [
+    {
+      "id": "slovo",
+      "short": { "cs": "Slovo", "en": "Word" },
+      "label": { "cs": "Slovo", "en": "Word" },
+      "kin": { "cs": "umí i literatura", "en": "literature can do it too" },
+      "desc": {
+        "cs": "Příběh nesou slova: rozhovory, knihy, vypravěči a stavba textu. Tohle hra umí stejně jako román.",
+        "en": "Words carry the story: conversations, books, narrators and the shape of the text. A game does this just as a novel does."
+      }
+    },
+    {
+      "id": "obraz-a-zvuk",
+      "short": { "cs": "Obraz", "en": "Image" },
+      "label": { "cs": "Obraz a zvuk", "en": "Image and sound" },
+      "kin": { "cs": "umí i film", "en": "film can do it too" },
+      "desc": {
+        "cs": "Střih, kamera, barva a hudba vyprávějí dřív, než padne první slovo.",
+        "en": "Cuts, camera, colour and music tell the story before a word is spoken."
+      }
+    },
+    {
+      "id": "prostor",
+      "short": { "cs": "Prostor", "en": "Space" },
+      "label": { "cs": "Prostor", "en": "Space" },
+      "kin": { "cs": "umí i architektura", "en": "architecture can do it too" },
+      "desc": {
+        "cs": "Svět se čte očima i nohama: co kde stojí, co leží pod čím a jak se místo proměňuje.",
+        "en": "The world is read with eyes and feet: what stands where, what lies beneath what, and how a place changes."
+      }
+    },
+    {
+      "id": "stopy",
+      "short": { "cs": "Stopy", "en": "Traces" },
+      "label": { "cs": "Stopy", "en": "Traces" },
+      "kin": { "cs": "umí i archiv", "en": "an archive can do it too" },
+      "desc": {
+        "cs": "Příběh se už stal. Zbyly po něm deníky, nahrávky, popisky a hlasy mrtvých a ty si ho z nich skládáš.",
+        "en": "The story has already happened. Diaries, recordings, item texts and the voices of the dead remain, and you piece it together."
+      }
+    },
+    {
+      "id": "pravidla",
+      "short": { "cs": "Pravidla", "en": "Rules" },
+      "label": { "cs": "Pravidla", "en": "Rules" },
+      "kin": { "cs": "umí jen hra", "en": "only a game can do it" },
+      "desc": {
+        "cs": "Co smíš, co musíš a co nemůžeš, je samo výpověď. Román tohle neumí: jeho čtenář nic nedělá.",
+        "en": "What you may, must and cannot do is itself a statement. A novel cannot do this: its reader does nothing."
+      }
+    },
+    {
+      "id": "opakovani",
+      "short": { "cs": "Opakování", "en": "Repetition" },
+      "label": { "cs": "Opakování", "en": "Repetition" },
+      "kin": { "cs": "umí jen hra", "en": "only a game can do it" },
+      "desc": {
+        "cs": "Smrt, návrat a další průchod: příběh se mění tím, že ho hraješ znovu.",
+        "en": "Death, return and another playthrough: the story changes because you play it again."
+      }
+    },
+    {
+      "id": "hrac",
+      "short": { "cs": "Hráč", "en": "Player" },
+      "label": { "cs": "Hráč", "en": "Player" },
+      "kin": { "cs": "umí jen hra", "en": "only a game can do it" },
+      "desc": {
+        "cs": "Hrdina jako maska, do které vstoupíš, a hra, která ví, že ji někdo hraje.",
+        "en": "The hero as a mask you step into, and a game that knows someone is playing it."
+      }
+    }
+  ],
+  "techniques": [
+    {
+      "id": "dialogue",
+      "family": "slovo",
+      "desc": {
+        "cs": "Rozhovory, hádky družiny i vnitřní hlasy. Postavy se odhalují tím, co a jak říkají.",
+        "en": "Conversations, party banter and inner voices. Characters reveal themselves by what they say and how."
+      }
+    },
+    {
+      "id": "books-and-documents",
+      "family": "slovo",
+      "desc": {
+        "cs": "Texty psané uvnitř světa pro jeho obyvatele: oběžníky, kodexy, citáty, encyklopedie.",
+        "en": "Texts written inside the world for its inhabitants: memos, codices, epigraphs, encyclopaedias."
+      }
+    },
+    {
+      "id": "unreliable-narrators",
+      "family": "slovo",
+      "desc": {
+        "cs": "Dějiny vypráví někdo zaujatý: kronikář, církev, propaganda. Pravda leží mezi verzemi.",
+        "en": "History is told by someone with a stake in it: a chronicler, a church, propaganda. The truth lies between the versions."
+      }
+    },
+    {
+      "id": "frame",
+      "family": "slovo",
+      "label": { "cs": "Vypravěčský rámec", "en": "Narrative frame" },
+      "desc": {
+        "cs": "Kdo vypráví a v jaké podobě: deník hrdiny, komentující básník, sny, sazba písma, povídková stavba.",
+        "en": "Who tells the story and in what form: the hero's diary, a commenting bard, dreams, typography, a short-story structure."
+      }
+    },
+    {
+      "id": "mirroring",
+      "family": "slovo",
+      "label": { "cs": "Zrcadlení a ozvěny", "en": "Mirrors and echoes" },
+      "desc": {
+        "cs": "Motivy, dvojníci a situace, které se vracejí v obměnách a navzájem se vykládají.",
+        "en": "Motifs, doubles and situations that return in variations and explain one another."
+      }
+    },
+    {
+      "id": "world-laws",
+      "family": "slovo",
+      "label": { "cs": "Zákony světa", "en": "Laws of the world" },
+      "desc": {
+        "cs": "Fyzika a metafyzika, z nichž příběh vyrůstá: víra mění skutečnost, duše je energie, klišé žánru jsou převrácená.",
+        "en": "The physics and metaphysics the story grows from: belief reshapes reality, the soul is energy, genre clichés are turned inside out."
+      }
+    },
+    {
+      "id": "cinematics",
+      "family": "obraz-a-zvuk",
+      "desc": {
+        "cs": "Filmová řeč: předrenderované filmy, režie kamery, scény hrané v reálném čase, přechody mezi médii.",
+        "en": "The language of film: pre-rendered cinematics, camera direction, scenes played in real time, crossings between media."
+      }
+    },
+    {
+      "id": "music",
+      "family": "obraz-a-zvuk",
+      "label": { "cs": "Hudba a ticho", "en": "Music and silence" },
+      "desc": {
+        "cs": "Leitmotiv, který prozradí spojitost, ticho, které děsí, a píseň, která zazní přesně ve chvíli, kdy na ní záleží.",
+        "en": "A leitmotif that gives away a connection, a silence that frightens, and a song that plays exactly when it matters."
+      }
+    },
+    {
+      "id": "visual",
+      "family": "obraz-a-zvuk",
+      "label": { "cs": "Výtvarný jazyk", "en": "Visual language" },
+      "desc": {
+        "cs": "Barva, malířský styl a podoba tvorů vykládají svět ještě před prvním řádkem textu.",
+        "en": "Colour, painterly style and the shape of creatures interpret the world before the first line of text."
+      }
+    },
+    {
+      "id": "environmental",
+      "family": "prostor",
+      "desc": {
+        "cs": "Kostra ve vaně, plakát nad troskami, uspořádání stanice: příběh, který čteš z místa.",
+        "en": "A skeleton in the bathtub, a poster above the ruins, the layout of a station: a story read from a place."
+      }
+    },
+    {
+      "id": "strata",
+      "family": "prostor",
+      "label": { "cs": "Vrstvy a sestup", "en": "Strata and descent" },
+      "desc": {
+        "cs": "Svět postavený do pater: čím hlouběji jdeš, tím starší a temnější dějiny nacházíš.",
+        "en": "A world built in layers: the deeper you go, the older and darker the history you find."
+      }
+    },
+    {
+      "id": "responsive-world",
+      "family": "prostor",
+      "label": { "cs": "Svět, který se mění", "en": "A world that changes" },
+      "desc": {
+        "cs": "Prostor odpovídá na tvoje činy nebo na stav hrdinovy mysli: zamořuje se, kroutí, krvácí.",
+        "en": "Space answers your actions or the hero's state of mind: it festers, twists, bleeds."
+      }
+    },
+    {
+      "id": "item-descriptions",
+      "family": "stopy",
+      "desc": {
+        "cs": "Pár řádků u zbraně nebo prstenu. Z útržků si dějiny domýšlíš sám.",
+        "en": "A few lines on a weapon or a ring. From the fragments you infer the history yourself."
+      }
+    },
+    {
+      "id": "recordings-and-logs",
+      "trail": "dead-speak",
+      "family": "stopy",
+      "desc": {
+        "cs": "Hlasy a zápisky lidí, kteří tu žili před tebou: audiodeníky, terminály, kazety, e-maily, nápisy na zdech.",
+        "en": "Voices and notes of people who lived here before you: audio diaries, terminals, tapes, e-mails, writing on walls."
+      }
+    },
+    {
+      "id": "witnesses",
+      "family": "stopy",
+      "label": { "cs": "Hlasy mrtvých a svědků", "en": "Voices of the dead and of witnesses" },
+      "desc": {
+        "cs": "Schopnost vyslechnout ty, kdo by jinak mlčeli: mrtvé, zvířata, duše, posledních deset vteřin života.",
+        "en": "The power to hear those who would otherwise stay silent: the dead, animals, souls, the last ten seconds of a life."
+      }
+    },
+    {
+      "id": "mechanics-as-meaning",
+      "family": "pravidla",
+      "desc": {
+        "cs": "Herní pravidlo, které samo vypráví: chůze s nákladem, vědění místo klíče, ztráta naděje jako ztráta duše.",
+        "en": "A game rule that tells the story itself: walking under a load, knowledge instead of keys, losing hope as losing one's soul."
+      }
+    },
+    {
+      "id": "diegetic-interface",
+      "family": "pravidla",
+      "label": { "cs": "Rozhraní uvnitř příběhu", "en": "The interface inside the story" },
+      "desc": {
+        "cs": "Ukazatele, menu a deník jsou součástí fikce: čipy v mozku androida, synchronizace s pamětí předka, hod kostkou na obrazovce.",
+        "en": "Gauges, menus and logs belong to the fiction: chips in an android's brain, synchronisation with an ancestor's memory, a die roll on screen."
+      }
+    },
+    {
+      "id": "choice",
+      "family": "pravidla",
+      "label": { "cs": "Volba a následky", "en": "Choice and consequence" },
+      "desc": {
+        "cs": "Rozhodnutí, která svět opravdu promění, často až po letech nebo bez varování.",
+        "en": "Decisions that truly change the world, often years later or without warning."
+      }
+    },
+    {
+      "id": "emergent",
+      "family": "pravidla",
+      "label": { "cs": "Příběhy, které napíše hráč", "en": "Stories the player writes" },
+      "desc": {
+        "cs": "Scenárista dodá pravidla a příběh vznikne sám: padlý voják, kterého jsi pojmenoval, žebřík od cizího hráče.",
+        "en": "The writer supplies the rules and the story writes itself: a fallen soldier you named, a ladder left by a stranger."
+      }
+    },
+    {
+      "id": "death-and-return",
+      "trail": "loops",
+      "family": "opakovani",
+      "label": { "cs": "Smrt a návrat", "en": "Death and return" },
+      "desc": {
+        "cs": "Smrt není konec hry, ale krok příběhu: návrat domů, ztráta paměti, kráter ve světě.",
+        "en": "Death is not the end of the game but a step in the story: a return home, lost memory, a crater in the world."
+      }
+    },
+    {
+      "id": "multiple-playthroughs",
+      "family": "opakovani",
+      "desc": {
+        "cs": "Tentýž příběh z jiné strany: další průchod, druhý hrdina, nepřítel, za kterého najednou hraješ.",
+        "en": "The same story from another side: another playthrough, a second hero, the enemy you suddenly play as."
+      }
+    },
+    {
+      "id": "silent-hero",
+      "family": "hrac",
+      "label": { "cs": "Hrdina jako maska", "en": "The hero as a mask" },
+      "desc": {
+        "cs": "Mlčící hrdina bez tváře, pohled z vlastních očí, vězeň bez minulosti: prázdné místo, do kterého vstoupíš ty.",
+        "en": "A silent, faceless hero, the view through your own eyes, a prisoner with no past: an empty place you step into."
+      }
+    },
+    {
+      "id": "fourth-wall",
+      "trail": "knows-you-play",
+      "family": "hrac",
+      "label": { "cs": "Čtvrtá stěna", "en": "The fourth wall" },
+      "desc": {
+        "cs": "Hra ví, že ji hraješ, a obrátí to proti tobě: poslušnost hráče, smazaný uložený soubor, soubory v tvém počítači.",
+        "en": "The game knows you are playing and turns it against you: the player's obedience, a deleted save, files on your computer."
+      }
+    }
+  ],
+  "assignments": {
+    "assassins-creed": ["diegetic-interface", "dialogue", "unreliable-narrators"],
+    "baldurs-gate": ["mirroring", "diegetic-interface", "frame", "witnesses"],
+    "bioshock": ["fourth-wall", "environmental", "recordings-and-logs", "music"],
+    "bloodborne": ["mechanics-as-meaning", "strata", "witnesses", "music"],
+    "control": ["books-and-documents", "cinematics", "responsive-world"],
+    "cyberpunk-2077": ["silent-hero", "cinematics", "dialogue", "environmental"],
+    "dark-souls": ["item-descriptions", "mechanics-as-meaning", "strata", "music"],
+    "death-stranding": ["mechanics-as-meaning", "emergent", "music", "death-and-return", "fourth-wall"],
+    "deus-ex": ["choice", "recordings-and-logs", "dialogue", "visual"],
+    "diablo": ["strata", "unreliable-narrators", "cinematics", "mirroring"],
+    "disco-elysium": ["dialogue", "frame", "mechanics-as-meaning", "visual"],
+    "dishonored": ["responsive-world", "witnesses", "choice", "environmental"],
+    "doom": ["silent-hero", "silent-hero", "environmental", "music"],
+    "dragon-age": ["multiple-playthroughs", "unreliable-narrators", "dialogue"],
+    "elden-ring": ["visual", "strata", "item-descriptions", "mirroring"],
+    "elder-scrolls": ["unreliable-narrators", "multiple-playthroughs", "silent-hero"],
+    "fallout": ["environmental", "visual", "recordings-and-logs", "choice"],
+    "hades": ["death-and-return", "dialogue", "music"],
+    "half-life": ["silent-hero", "environmental", "unreliable-narrators", "cinematics", "mirroring"],
+    "halo": ["silent-hero", "multiple-playthroughs", "recordings-and-logs", "environmental"],
+    "horizon": ["recordings-and-logs", "environmental", "dialogue"],
+    "inscryption": ["diegetic-interface", "fourth-wall", "recordings-and-logs"],
+    "mass-effect": ["choice", "choice", "dialogue", "books-and-documents", "fourth-wall"],
+    "metro": ["diegetic-interface", "environmental", "frame"],
+    "nier-automata": ["multiple-playthroughs", "diegetic-interface", "cinematics", "fourth-wall"],
+    "outer-wilds": ["mechanics-as-meaning", "recordings-and-logs", "diegetic-interface", "music"],
+    "path-of-exile": ["mechanics-as-meaning", "item-descriptions", "mirroring", "frame"],
+    "pathfinder": ["multiple-playthroughs", "choice", "dialogue"],
+    "pathologic": ["environmental", "dialogue", "multiple-playthroughs", "fourth-wall"],
+    "pentiment": ["frame", "mechanics-as-meaning", "visual"],
+    "pillars-of-eternity": ["witnesses", "frame", "choice", "world-laws"],
+    "planescape-torment": ["death-and-return", "world-laws", "world-laws"],
+    "resident-evil": ["recordings-and-logs", "environmental", "multiple-playthroughs", "recordings-and-logs"],
+    "silent-hill": ["visual", "music", "choice", "responsive-world"],
+    "soma": ["silent-hero", "choice", "witnesses", "multiple-playthroughs"],
+    "starcraft": ["cinematics", "environmental", "dialogue"],
+    "the-witcher": ["choice", "frame", "world-laws", "frame"],
+    "tides-of-numenera": ["choice", "mechanics-as-meaning", "death-and-return", "world-laws"],
+    "undertale": ["death-and-return", "mechanics-as-meaning", "music"],
+    "warcraft": ["multiple-playthroughs", "environmental", "cinematics"],
+    "warhammer-40k": ["unreliable-narrators", "books-and-documents", "environmental", "world-laws"],
+    "xcom": ["emergent", "environmental", "choice"],
+    "xenoblade": ["environmental", "mechanics-as-meaning", "death-and-return", "music"]
+  }
+}

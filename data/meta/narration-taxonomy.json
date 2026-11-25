@@ -6,7 +6,7 @@
     { "slug": "recordings-and-logs", "label": { "en": "Recordings and logs", "cs": "Nahrávky a deníky" } },
     { "slug": "dialogue", "label": { "en": "Dialogue", "cs": "Dialogy" } },
     { "slug": "unreliable-narrators", "label": { "en": "Unreliable narrators", "cs": "Nespolehliví vypravěči" } },
-    { "slug": "multiple-playthroughs", "label": { "en": "Multiple playthroughs", "cs": "Vícenásobné průchody" } },
+    { "slug": "multiple-playthroughs", "label": { "en": "Multiple playthroughs and viewpoints", "cs": "Víc průchodů a pohledů" } },
     { "slug": "cinematics", "label": { "en": "Cinematic scenes", "cs": "Filmové scény" } },
     { "slug": "mechanics-as-meaning", "label": { "en": "Mechanics as meaning", "cs": "Mechanika jako význam" } }
   ]
