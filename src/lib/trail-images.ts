@@ -23,6 +23,7 @@ export const READY: Record<TrailId, number> = {
   'knows-you-play': 3,
   scapegoat: 3,
   'who-woke-up': 3,
+  'cursed-legacy': 3,
 };
 
 const DIR = 'putovani-obrazky';
