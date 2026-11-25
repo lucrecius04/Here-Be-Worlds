@@ -4,6 +4,8 @@ import { withBase } from '../../lib/base-url';
 import {
   noteCanon,
   noteCompass,
+  noteDeepTimeIntro,
+  noteDeepTimeTerms,
   noteFields,
   noteKinshipIntro,
   noteKinshipLevels,
@@ -34,6 +36,7 @@ export default function NotesPage({ base }: Props) {
     { id: 'triada', label: uiT('notes.triadTitle', locale) },
     { id: 'pribuznost', label: uiT('notes.kinshipTitle', locale) },
     { id: 'kompas', label: uiT('notes.compassTitle', locale) },
+    { id: 'hlubina', label: uiT('notes.deepTimeTitle', locale) },
     { id: 'kanon', label: uiT('notes.canonTitle', locale) },
   ];
 
@@ -193,6 +196,26 @@ export default function NotesPage({ base }: Props) {
               <p key={para.slice(0, 48)}>{para}</p>
             ))}
         </div>
+      </section>
+
+      <section className="notes-section" id="hlubina">
+        <h2 className="doc-h2">{uiT('notes.deepTimeTitle', locale)}</h2>
+        <div className="doc-prose notes-section__intro">
+          <p>{t(noteDeepTimeIntro, locale)}</p>
+        </div>
+        <dl className="notes-list">
+          {noteDeepTimeTerms.map((term) => (
+            <div className="notes-list__row" key={term.term.cs}>
+              <dt className="notes-list__term">{t(term.term, locale)}</dt>
+              <dd className="notes-list__body">
+                <p className="notes-list__help">{t(term.help, locale)}</p>
+              </dd>
+            </div>
+          ))}
+        </dl>
+        <p className="notes-list__more notes-section__foot">
+          <a href={withBase(base, '/hlubina-casu/')}>{uiT('notes.deepTimeLink', locale)} →</a>
+        </p>
       </section>
 
       <section className="notes-section" id="kanon">

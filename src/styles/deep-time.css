@@ -424,21 +424,6 @@ html[data-theme='dark'] .dt-abyss-1 {
   color: var(--color-ink-muted);
 }
 
-/* nápověda: s myší najetí, na dotyku klepnutí */
-.dt-hint--touch {
-  display: none;
-}
-
-@media (hover: none) {
-  .dt-hint--hover {
-    display: none;
-  }
-
-  .dt-hint--touch {
-    display: inline;
-  }
-}
-
 .dt-seam {
   fill: var(--color-ink);
 }
@@ -528,12 +513,6 @@ html[data-theme='dark'] .dt-abyss-1 {
   color: var(--color-ink);
 }
 
-.dt-legend__hint {
-  margin: 0 0 0 auto;
-  font: 500 0.8125rem var(--font-sans);
-  color: var(--color-ink-muted);
-}
-
 /* glyfy legendy (neutrální tuš) */
 .dt-glyph {
   position: relative;
@@ -583,7 +562,7 @@ html[data-theme='dark'] .dt-abyss-1 {
   top: -2px;
   width: 7px;
   height: 7px;
-  margin-left: -5px;
+  transform: translateX(-50%);
   border: 1.5px solid var(--color-ink);
   border-radius: 50%;
   background: var(--color-ink);
@@ -637,7 +616,8 @@ html[data-theme='dark'] .dt-abyss-1 {
   bottom: -1px;
   width: 7px;
   height: 7px;
-  margin-left: -4.5px;
+  /* box-sizing: border-box, takže střed kroužku přesně na tečkované linii */
+  transform: translateX(-50%);
   border: 1.5px solid var(--color-ink);
   border-radius: 50%;
   background: var(--color-paper);
@@ -881,10 +861,6 @@ html[data-theme='dark'] .dt-abyss-1 {
   .dt-layout.has-panel {
     grid-template-columns: minmax(0, 1fr);
     column-gap: 0;
-  }
-
-  .dt-legend__hint {
-    margin-left: 0;
   }
 
   .dt-panel {

@@ -616,10 +616,6 @@ function Legend({ locale }: { locale: Locale }) {
         ))}
       </ul>
       <p className="dt-legend__note">{uiT('deepTime.legendLog', locale)}</p>
-      <p className="dt-legend__hint">
-        <span className="dt-hint--hover">{uiT('deepTime.hintHover', locale)}</span>
-        <span className="dt-hint--touch">{uiT('deepTime.hint', locale)}</span>
-      </p>
     </div>
   );
 }

@@ -177,3 +177,54 @@ Protože zadáváš jen souřadnice, kompas příbuznost nepočítá. Archetyp, 
 
 Because you only enter coordinates, the compass does not calculate kinship. Archetype, world character and themes play no part in it, so its result can differ from the degrees of kinship in the comparison.`,
 };
+
+/** Hlubina času: jak číst vrty a naši časovou osu (stránka /hlubina-casu/). */
+export const noteDeepTimeIntro: LocalizedString = {
+  cs: 'Hlubina času převádí časové osy z Faktografie kronik na hloubku v letech. Každý svět je jeden vrt a čím hlouběji sahá, tím starší událost si jeho dějiny pamatují.',
+  en: 'Deep time turns the timelines from the chronicles’ Factography into depth in years. Each world is one drill core, and the deeper it reaches, the older the event its history remembers.',
+};
+
+export const noteDeepTimeTerms: NoteField[] = [
+  {
+    term: { cs: 'Vrt a hladina', en: 'Drill core and surface' },
+    help: {
+      cs: 'Hladina je přítomnost světa, tedy poslední díl hlavní linie. Od ní se měří hloubka dolů k nejstarší události, o které kronika ví. Díly, které se odehrávají později, stojí nad hladinou.',
+      en: 'The surface is the present of the world, the latest game of the main line. Depth is measured from it down to the oldest event the chronicle knows. Games set later stand above the surface.',
+    },
+  },
+  {
+    term: { cs: 'Období her a rysky', en: 'Period of the games and ticks' },
+    help: {
+      cs: 'Sytá barva vede od nejstaršího datovaného dílu po přítomnost a každý díl je v ní ryska. Díly, které kronika spojuje do jednoho řádku, jsou jedna ryska; díly bez data jsou jen v detailu světa.',
+      en: 'The full colour runs from the earliest dated game to the present and each game is a tick in it. Games the chronicle joins in one row are one tick; undated games appear only in the world detail.',
+    },
+  },
+  {
+    term: { cs: 'Dějiny a fundamentální události', en: 'History and fundamental events' },
+    help: {
+      cs: 'Bledé vrstvy jsou dějiny před hrami, tenká mezera v nich je významná událost časové osy. Tušová spára je fundamentální událost světa, která ho rozlomí; někdy je zároveň dílem.',
+      en: 'Pale layers are the history before the games, a thin gap marks a major event of the timeline. An ink seam is a fundamental event that breaks the world; sometimes it is also a game.',
+    },
+  },
+  {
+    term: { cs: 'Odhad, mýtus a cyklus', en: 'Estimate, myth and cycle' },
+    help: {
+      cs: 'Šrafování je odhad, kde kronika udává jen přibližné období. Události bez letopočtu leží pod měřitelným časem jako kroužky mýtického času a smyčka označuje světy, jejichž dějiny se opakují.',
+      en: 'Hatching is an estimate where the chronicle gives only an approximate period. Events without a date lie below measurable time as rings of mythic time, and a loop marks worlds whose history repeats.',
+    },
+  },
+  {
+    term: { cs: 'Stupnice', en: 'Scale' },
+    help: {
+      cs: 'Stupnice je logaritmická: každý řád (1, 10, 100 let…) má stejnou výšku, takže blízká minulost je roztažená a hluboká stlačená. Mezi sto tisíci a milionem let je zlom a propast pod milionem je ještě stlačenější.',
+      en: 'The scale is logarithmic: every order of magnitude (1, 10, 100 years…) has the same height, so the recent past is stretched and the deep past compressed. Between a hundred thousand and a million years the scale breaks, and the abyss below a million is compressed further.',
+    },
+  },
+  {
+    term: { cs: 'Na naší časové ose', en: 'On our timeline' },
+    help: {
+      cs: 'Druhý graf ukazuje jen světy, které počítají roky jako my, kolem dnešního roku: vlevo minulost, vpravo budoucnost. Měří se od dneška, ne od přítomnosti světa.',
+      en: 'The second chart shows only worlds that count years as we do, around the present year: the past on the left, the future on the right. It is measured from today, not from the present of the world.',
+    },
+  },
+];
