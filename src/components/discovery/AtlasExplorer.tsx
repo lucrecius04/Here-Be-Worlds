@@ -228,7 +228,6 @@ export default function AtlasExplorer({
         <a href={withBase(baseUrl, '/temata/')}>{uiT('themesPage.title', locale)}</a>
         <a href={withBase(baseUrl, '/hlubina-casu/')}>{uiT('deepTime.title', locale)}</a>
         <a href={withBase(baseUrl, '/galerie-triad/')}>{uiT('triads.title', locale)}</a>
-        <a href={withBase(baseUrl, '/mapa-neznama/')}>{uiT('unknown.title', locale)}</a>
         <a href={withBase(baseUrl, '/map/')}>{uiT('nav.map', locale)}</a>
       </nav>
     </header>

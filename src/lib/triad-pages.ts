@@ -4,7 +4,7 @@
  */
 import { worlds, chapters } from './worlds';
 import { findAnalysisHeadingId, splitChronicleMarkdown } from './chronicle-toc';
-import type { TriadChapter, TriadWorld } from '../components/triads/TriadGallery';
+import type { TriadChapter, TriadWorld } from '../components/triads/shared';
 
 const CHRONICLES = import.meta.glob('../../content/chronicles/*.md', {
   query: '?raw',

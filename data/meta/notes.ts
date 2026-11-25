@@ -178,15 +178,15 @@ Protože zadáváš jen souřadnice, kompas příbuznost nepočítá. Archetyp, 
 Because you only enter coordinates, the compass does not calculate kinship. Archetype, world character and themes play no part in it, so its result can differ from the degrees of kinship in the comparison.`,
 };
 
-/** Hlubina času: jak číst vrty a naši časovou osu (stránka /hlubina-casu/). */
+/** Hlubina času: jak číst sloupce a naši časovou osu (stránka /hlubina-casu/). */
 export const noteDeepTimeIntro: LocalizedString = {
-  cs: 'Hlubina času převádí časové osy z Faktografie kronik na hloubku v letech. Každý svět je jeden vrt a čím hlouběji sahá, tím starší událost si jeho dějiny pamatují.',
-  en: 'Deep time turns the timelines from the chronicles’ Factography into depth in years. Each world is one drill core, and the deeper it reaches, the older the event its history remembers.',
+  cs: 'Hlubina času převádí časové osy z Faktografie kronik na hloubku v letech. Každý svět je jeden sloupec a čím hlouběji sahá, tím starší událost si jeho dějiny pamatují.',
+  en: 'Deep time turns the timelines from the chronicles’ Factography into depth in years. Each world is one column, and the deeper it reaches, the older the event its history remembers.',
 };
 
 export const noteDeepTimeTerms: NoteField[] = [
   {
-    term: { cs: 'Vrt a hladina', en: 'Drill core and surface' },
+    term: { cs: 'Sloupec a hladina', en: 'Column and surface' },
     help: {
       cs: 'Hladina je přítomnost světa, tedy poslední díl hlavní linie. Od ní se měří hloubka dolů k nejstarší události, o které kronika ví. Díly, které se odehrávají později, stojí nad hladinou.',
       en: 'The surface is the present of the world, the latest game of the main line. Depth is measured from it down to the oldest event the chronicle knows. Games set later stand above the surface.',

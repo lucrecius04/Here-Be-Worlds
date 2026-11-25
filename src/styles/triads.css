@@ -636,7 +636,38 @@ html[data-theme='dark'] .tg-filter__btn[aria-pressed='true'] {
 }
 
 
-/* Mapa neznáma má v pruhu dva řádky filtrů */
-.un-page {
-  --tg-scroll: calc(var(--site-header-height) + 7.5rem);
+/* Hlavní tajemství (třetí oddíl galerie): filtr Kdo mezeru drží nad mřížkou, mřížka Mapa neznáma, rejstřík */
+.un-holders {
+  margin: 0 0 1.75rem;
+  padding: 0.5rem 0;
+  border-top: 1px solid var(--color-line);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.un-grid__kicker {
+  margin: 0;
+}
+
+.un-grid__kicker + .un-grid-wrap {
+  margin-top: 0.5rem;
+}
+
+.un-register {
+  margin-top: 3rem;
+}
+
+.un-register__title {
+  margin: 0 0 0.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-line);
+}
+
+@media (max-width: 760px) {
+  .un-grid__kicker {
+    display: none;
+  }
+
+  .un-register {
+    margin-top: 0;
+  }
 }

@@ -1,18 +1,26 @@
 /* Vysvětlivky: rejstříkový seznam pojmů (štítek vlevo, výklad vpravo), oddíly dělené linkami. */
+/* Obsah oddílů: lepí se pod hlavičku, ať jde mezi oddíly přepínat i hluboko na stránce. */
 .notes-toc {
+  position: sticky;
+  top: var(--site-header-height);
+  z-index: 20;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem 1.75rem;
-  margin: -1rem 0 3.5rem;
-  padding: 0.875rem 0;
-  border-top: 1px solid var(--color-line);
+  gap: 0.15rem 1.75rem;
+  margin: -1rem calc(-1 * var(--gutter)) 3.5rem;
+  padding: 0.35rem var(--gutter);
+  background: var(--color-paper);
   border-bottom: 1px solid var(--color-line);
   font-family: var(--font-sans);
   font-size: 0.9375rem;
 }
 
 .notes-toc a {
-  color: var(--color-ink);
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.25rem;
+  border-bottom: 2px solid transparent;
+  color: var(--color-ink-muted);
   text-decoration: none;
 }
 
@@ -21,9 +29,31 @@
   color: var(--color-accent);
 }
 
+.notes-toc a[aria-current='location'] {
+  color: var(--color-ink);
+  border-bottom-color: var(--color-ink);
+}
+
 .notes-section {
   margin-bottom: 4rem;
-  scroll-margin-top: calc(var(--site-header-height) + 1.5rem);
+  scroll-margin-top: calc(var(--site-header-height) + 4.5rem);
+}
+
+/* Na telefonu jeden řádek, který se dá posouvat do strany. */
+@media (max-width: 760px) {
+  .notes-toc {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .notes-toc::-webkit-scrollbar {
+    display: none;
+  }
+
+  .notes-toc a {
+    flex: none;
+  }
 }
 
 .notes-list {

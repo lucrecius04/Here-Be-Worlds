@@ -5,8 +5,10 @@
  */
 interface Props {
   to: string;
+  /** Kotva, když stará adresa žádnou nemá (např. oddíl, do kterého se stránka přesunula). */
+  defaultHash?: string;
 }
-const { to } = Astro.props;
+const { to, defaultHash = '' } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const target = `${base}${to}`;
 const absolute = new URL(target, Astro.site ?? 'https://lucrecius04.github.io').href;
@@ -19,9 +21,9 @@ const absolute = new URL(target, Astro.site ?? 'https://lucrecius04.github.io').
     <title>Here Be Worlds</title>
     <meta name="robots" content="noindex" />
     <link rel="canonical" href={absolute} />
-    <meta http-equiv="refresh" content={`0; url=${target}`} />
-    <script is:inline define:vars={{ target }}>
-      location.replace(target + location.search + location.hash);
+    <meta http-equiv="refresh" content={`0; url=${target}${defaultHash}`} />
+    <script is:inline define:vars={{ target, defaultHash }}>
+      location.replace(target + location.search + (location.hash || defaultHash));
     </script>
   </head>
   <body>

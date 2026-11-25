@@ -1,14 +1,6 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import UnknownMap from '../../components/triads/UnknownMap';
-import { triadChapters, triadWorlds } from '../../lib/triad-pages';
-
-const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+// Stará adresa: Mapa neznáma je od 2026-11-25 oddíl Hlavní tajemství v Galerii triád.
+import RedirectPage from '../../layouts/RedirectPage.astro';
 ---
 
-<BaseLayout
-  title="Mapa neznáma · Here Be Worlds"
-  description="Velká tajemství všech herních světů atlasu: co zůstává nevyřčeno a kdo tu mezeru drží zavřenou – tvůrci, pokračování, nebo hráči."
->
-  <UnknownMap client:load base={base} worlds={triadWorlds} chapters={triadChapters} />
-</BaseLayout>
+<RedirectPage to="/galerie-triad/" defaultHash="#hlavni-tajemstvi" />

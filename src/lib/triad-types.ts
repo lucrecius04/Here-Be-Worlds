@@ -37,4 +37,6 @@ export function triadTypesOf(worldId: string) {
 export const mysteryAnchor = (worldId: string) => `t-${worldId}`;
 
 export const GALLERY_PATH = '/galerie-triad/';
-export const UNKNOWN_PATH = '/mapa-neznama/';
+/** Hlavní tajemství jsou od 2026-11-25 třetí oddíl Galerie triád (dřív samostatná Mapa neznáma). */
+export const UNKNOWN_PATH = '/galerie-triad/';
+export const MYSTERIES_ANCHOR = 'hlavni-tajemstvi';

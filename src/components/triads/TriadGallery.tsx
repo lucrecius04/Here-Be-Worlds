@@ -1,29 +1,15 @@
-import { useEffect, useMemo, useState, type CSSProperties } from 'react';
-import type { LocalizedString } from '../../schemas/world';
+import { useEffect, useMemo, useState } from 'react';
 import { t, uiT, worldCountLabel } from '../../lib/i18n';
 import { useLocale } from '../../lib/locale-store';
 import { withBase } from '../../lib/base-url';
-import { DILEMMA_TYPES, SIN_TYPES, UNKNOWN_PATH, WORLD_TRIAD_TYPES, type TriadType } from '../../lib/triad-types';
+import { DILEMMA_TYPES, SIN_TYPES, WORLD_TRIAD_TYPES, type TriadType } from '../../lib/triad-types';
+import MysterySection, { MYSTERIES_ID } from './MysterySection';
+import { hueVars, type TriadChapter, type TriadWorld } from './shared';
 import '../../styles/triads.css';
 
-export type TriadWorld = {
-  id: string;
-  title: LocalizedString;
-  chapterId: string;
-  accent: { light: string; dark: string };
-  originalSin: LocalizedString;
-  centralDilemma: LocalizedString;
-  ultimateMystery: LocalizedString;
-  /** Kotva oddílu Nosná mezera v Anatomii vyprávění (pro Mapu neznáma). */
-  mysteryAnchor?: string | null;
-};
-
-export type TriadChapter = { id: string; title: LocalizedString; short?: LocalizedString; accent: { light: string; dark: string } };
+export type { TriadChapter, TriadWorld };
 
 type Props = { base: string; worlds: TriadWorld[]; chapters: TriadChapter[] };
-
-export const hueVars = (accent: { light: string; dark: string }) =>
-  ({ '--tg-hue-l': accent.light, '--tg-hue-d': accent.dark }) as CSSProperties;
 
 /** Archetypová legenda jako na mapě souřadnic: zvýrazní světy jednoho archetypu, ostatní ztlumí. */
 export function ArchetypeFilter({
@@ -86,10 +72,12 @@ export default function TriadGallery({ base, worlds, chapters }: Props) {
     { id: 'ustredni-dilemata', title: uiT('triads.dilemmasTitle', locale), types: DILEMMA_TYPES, key: 'dilemma', text: 'centralDilemma' },
   ];
 
+  const jumps = [...sections.map((s) => ({ id: s.id, title: s.title })), { id: MYSTERIES_ID, title: uiT('triads.mysteriesTitle', locale) }];
+
   // Který oddíl právě čteš: zvýrazní se v lepivém pruhu.
   const [current, setCurrent] = useState<string>('prvotni-hrichy');
   useEffect(() => {
-    const els = ['prvotni-hrichy', 'ustredni-dilemata'].map((id) => document.getElementById(id)).filter(Boolean) as HTMLElement[];
+    const els = ['prvotni-hrichy', 'ustredni-dilemata', MYSTERIES_ID].map((id) => document.getElementById(id)).filter(Boolean) as HTMLElement[];
     const onScroll = () => {
       const line = window.innerHeight * 0.35;
       let id = els[0]?.id ?? 'prvotni-hrichy';
@@ -110,18 +98,13 @@ export default function TriadGallery({ base, worlds, chapters }: Props) {
         <h1 className="atlas-page__title display">{uiT('triads.title', locale)}</h1>
         <p className="atlas-page__lead">{uiT('triads.lead', locale)}</p>
         <p className="tg-head__links">
-          {uiT('triads.leadUnknown', locale)}{' '}
-          <a href={withBase(base, UNKNOWN_PATH)}>{uiT('unknown.title', locale)} →</a>
-          <span className="tg-head__sep" aria-hidden="true">
-            ·
-          </span>
           <a href={withBase(base, '/notes/#triada')}>{uiT('triads.method', locale)}</a>
         </p>
       </header>
 
       <div className="tg-sticky">
         <nav className="tg-jump" aria-label={uiT('triads.onPage', locale)}>
-          {sections.map((s) => (
+          {jumps.map((s) => (
             <a key={s.id} href={`#${s.id}`} aria-current={current === s.id ? 'location' : undefined}>
               {s.title}
             </a>
@@ -208,6 +191,8 @@ export default function TriadGallery({ base, worlds, chapters }: Props) {
           })}
         </section>
       ))}
+
+      <MysterySection base={base} sorted={sorted} arch={arch} title={uiT('triads.mysteriesTitle', locale)} />
     </div>
   );
 }

@@ -138,7 +138,7 @@ export function buildSearchEntries(): SearchEntry[] {
   page('themes', both('themesPage.title'), '/temata/', 'témata themes otázky');
   page('deep-time', both('deepTime.title'), '/hlubina-casu/', 'hlubina času deep time časová osa timeline dějiny stáří světa');
   page('triads', both('triads.title'), '/galerie-triad/', 'galerie triád triáda prvotní hřích hříchy ústřední dilema dilemata original sin dilemma');
-  page('unknown', both('unknown.title'), '/mapa-neznama/', 'mapa neznáma tajemství tajemstvi záhady nosná mezera řízená mezera mystery unknown');
+  page('unknown', both('triads.mysteriesTitle'), '/galerie-triad/#hlavni-tajemstvi', 'hlavní tajemství mapa neznáma tajemstvi záhady nosná mezera řízená mezera mystery unknown');
   page('essay', { cs: 'Anatomie herního lore', en: 'Anatomy of game lore' }, '/anatomie-herniho-lore/', 'esej essay metoda method');
   page('theory', both('footer.theory'), '/teoreticke-zazemi/', 'prameny literatura sources teorie theory');
   page('notes', notes, '/notes/', 'vysvětlivky notes metoda pojmy glossary');

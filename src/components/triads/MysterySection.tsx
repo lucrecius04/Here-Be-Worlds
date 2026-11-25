@@ -1,37 +1,31 @@
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 import { t, uiT } from '../../lib/i18n';
 import { useLocale } from '../../lib/locale-store';
 import { withBase } from '../../lib/base-url';
 import {
-  GALLERY_PATH,
   MYSTERY_HOLDERS,
   MYSTERY_KINDS,
   WORLD_TRIAD_TYPES,
   mysteryAnchor,
 } from '../../lib/triad-types';
-import { ArchetypeFilter, hueVars, type TriadChapter, type TriadWorld } from './TriadGallery';
+import { hueVars, type TriadWorld } from './shared';
 import { HolderIcon } from './HolderIcon';
 import '../../styles/triads.css';
 
-type Props = { base: string; worlds: TriadWorld[]; chapters: TriadChapter[] };
+/**
+ * Hlavní tajemství (dřív samostatná Mapa neznáma, od 2026-11-25 třetí oddíl Galerie triád):
+ * mřížka druh tajemství × kdo drží mezeru a rejstřík tajemství. Filtr archetypu je společný pro celou galerii.
+ */
+type Props = { base: string; sorted: TriadWorld[]; arch: string | null; title: string };
 
 export { HolderIcon };
 
-export default function UnknownMap({ base, worlds, chapters }: Props) {
+export const MYSTERIES_ID = 'hlavni-tajemstvi';
+
+export default function MysterySection({ base, sorted, arch, title }: Props) {
   const locale = useLocale();
   const [holder, setHolder] = useState<string | null>(null);
-  const [arch, setArch] = useState<string | null>(null);
   const archDim = (w: TriadWorld) => arch !== null && w.chapterId !== arch;
-  const order = useMemo(() => new Map(chapters.map((c, i) => [c.id, i])), [chapters]);
-  const sorted = useMemo(
-    () =>
-      [...worlds].sort(
-        (a, b) =>
-          (order.get(a.chapterId) ?? 0) - (order.get(b.chapterId) ?? 0) ||
-          t(a.title, locale).localeCompare(t(b.title, locale), locale),
-      ),
-    [worlds, order, locale],
-  );
   const cell = (kind: string, h: string) =>
     sorted.filter((w) => WORLD_TRIAD_TYPES[w.id]?.mystery === kind && WORLD_TRIAD_TYPES[w.id]?.holder === h);
   const holderLabel = (id: string) => {
@@ -41,44 +35,32 @@ export default function UnknownMap({ base, worlds, chapters }: Props) {
   const visible = sorted.filter((w) => holder === null || WORLD_TRIAD_TYPES[w.id]?.holder === holder);
 
   return (
-    <div className="tg-page un-page">
-      <header className="atlas-page__head page-band tg-head">
-        <h1 className="atlas-page__title display">{uiT('unknown.title', locale)}</h1>
-        <p className="atlas-page__lead">{uiT('unknown.lead', locale)}</p>
-        <p className="tg-head__links">
-          {uiT('unknown.leadGallery', locale)}{' '}
-          <a href={withBase(base, GALLERY_PATH)}>{uiT('triads.title', locale).toLowerCase()} →</a>
-          <span className="tg-head__sep" aria-hidden="true">
-            ·
-          </span>
-          <a href={withBase(base, '/anatomie-herniho-lore/#rizena-mezera')}>{uiT('unknown.method', locale)}</a>
-        </p>
-      </header>
-
-      <div className="tg-sticky">
-        <div className="tg-filter" role="group" aria-label={uiT('unknown.filter', locale)}>
-          <span className="tg-filter__label" aria-hidden="true">
-            {uiT('unknown.filter', locale)}
-          </span>
-          <button type="button" className="tg-filter__btn" aria-pressed={holder === null} onClick={() => setHolder(null)}>
-            {uiT('unknown.all', locale)}
+    <section className="tg-section un-section" id={MYSTERIES_ID} aria-labelledby={`${MYSTERIES_ID}-h`}>
+      <h2 className="tg-section__title" id={`${MYSTERIES_ID}-h`}>
+        {title}
+      </h2>
+      <div className="tg-filter un-holders" role="group" aria-label={uiT('unknown.filter', locale)}>
+        <span className="tg-filter__label" aria-hidden="true">
+          {uiT('unknown.filter', locale)}
+        </span>
+        <button type="button" className="tg-filter__btn" aria-pressed={holder === null} onClick={() => setHolder(null)}>
+          {uiT('unknown.all', locale)}
+        </button>
+        {MYSTERY_HOLDERS.map((h) => (
+          <button
+            key={h.id}
+            type="button"
+            className="tg-filter__btn"
+            aria-pressed={holder === h.id}
+            onClick={() => setHolder(holder === h.id ? null : h.id)}
+          >
+            <HolderIcon id={h.id} />
+            {t(h.label, locale)}
           </button>
-          {MYSTERY_HOLDERS.map((h) => (
-            <button
-              key={h.id}
-              type="button"
-              className="tg-filter__btn"
-              aria-pressed={holder === h.id}
-              onClick={() => setHolder(holder === h.id ? null : h.id)}
-            >
-              <HolderIcon id={h.id} />
-              {t(h.label, locale)}
-            </button>
-          ))}
-        </div>
-        <ArchetypeFilter chapters={chapters} value={arch} onChange={setArch} label={uiT('unknown.archetype', locale)} />
+        ))}
       </div>
 
+      <p className="tg-type__kicker un-grid__kicker">{uiT('unknown.title', locale)}</p>
       {/* Mřížka: druh tajemství × kdo drží mezeru (na telefonu skrytá, stačí rejstřík) */}
       <div className="un-grid-wrap">
         <table className={`un-grid${holder ? ' has-focus' : ''}`}>
@@ -138,10 +120,10 @@ export default function UnknownMap({ base, worlds, chapters }: Props) {
         </table>
       </div>
 
-      <section className="tg-section un-register" aria-labelledby="rejstrik-tajemstvi">
-        <h2 className="tg-section__title" id="rejstrik-tajemstvi">
+      <div className="un-register" aria-labelledby="rejstrik-tajemstvi">
+        <h3 className="tg-type__kicker un-register__title" id="rejstrik-tajemstvi">
           {uiT('unknown.registerTitle', locale)}
-        </h2>
+        </h3>
         <p className="visually-hidden" aria-live="polite">
           {uiT('unknown.shown', locale).replace('{n}', String(visible.length))}
         </p>
@@ -182,7 +164,7 @@ export default function UnknownMap({ base, worlds, chapters }: Props) {
             </section>
           );
         })}
-      </section>
-    </div>
+      </div>
+    </section>
   );
 }

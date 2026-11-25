@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { t, uiT } from '../../lib/i18n';
 import { useLocale } from '../../lib/locale-store';
 import { withBase } from '../../lib/base-url';
@@ -20,6 +21,7 @@ import {
   MYSTERY_KINDS,
   SIN_TYPES,
   UNKNOWN_PATH,
+  MYSTERIES_ANCHOR,
   type TriadType,
 } from '../../lib/triad-types';
 import { HolderIcon } from '../triads/HolderIcon';
@@ -40,6 +42,24 @@ export default function NotesPage({ base }: Props) {
     { id: 'kanon', label: uiT('notes.canonTitle', locale) },
   ];
 
+  // Oddíl, který právě čteš: zvýrazní se v lepivém obsahu.
+  const [current, setCurrent] = useState('charakter');
+  useEffect(() => {
+    const ids = ['charakter', 'stupnice', 'triada', 'pribuznost', 'kompas', 'hlubina', 'kanon'];
+    const onScroll = () => {
+      const els = ids.map((id) => document.getElementById(id)).filter(Boolean) as HTMLElement[];
+      const line = window.innerHeight * 0.3;
+      let id = ids[0];
+      for (const el of els) if (el.getBoundingClientRect().top <= line) id = el.id;
+      // na konci stránky patří zvýraznění poslednímu oddílu
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) id = ids[ids.length - 1];
+      setCurrent(id);
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
   return (
     <article className="doc notes-page">
       <header className="doc-head page-band">
@@ -52,7 +72,7 @@ export default function NotesPage({ base }: Props) {
 
       <nav className="notes-toc" aria-label={uiT('essay.toc', locale)}>
         {sections.map((section) => (
-          <a key={section.id} href={`#${section.id}`}>
+          <a key={section.id} href={`#${section.id}`} aria-current={current === section.id ? 'location' : undefined}>
             {section.label}
           </a>
         ))}
@@ -116,7 +136,7 @@ export default function NotesPage({ base }: Props) {
             [
               ['card.originalSin', 'card.triadHelpOriginalSin', 'prvotni-hrich', `${GALLERY_PATH}#prvotni-hrichy`, 'notes.triadSinIn'],
               ['card.centralDilemma', 'card.triadHelpCentralDilemma', 'ustredni-otazka', `${GALLERY_PATH}#ustredni-dilemata`, 'notes.triadDilemmaIn'],
-              ['card.ultimateMystery', 'card.triadHelpUltimateMystery', 'rizena-mezera', UNKNOWN_PATH, 'notes.triadMysteryIn'],
+              ['card.ultimateMystery', 'card.triadHelpUltimateMystery', 'rizena-mezera', `${UNKNOWN_PATH}#${MYSTERIES_ANCHOR}`, 'notes.triadMysteryIn'],
             ] as const
           ).map(([term, help, anchor, view, viewLabel]) => (
             <div className="notes-list__row" key={term}>
@@ -145,7 +165,7 @@ export default function NotesPage({ base }: Props) {
         <TypeList title={uiT('notes.triadMysteryKinds', locale)} types={MYSTERY_KINDS} locale={locale} />
         <TypeList title={uiT('notes.triadHolders', locale)} types={MYSTERY_HOLDERS} locale={locale} icons />
         <p className="notes-list__more notes-section__foot">
-          <a href={withBase(base, UNKNOWN_PATH)}>{uiT('notes.triadToUnknown', locale)} →</a>
+          <a href={withBase(base, `${UNKNOWN_PATH}#${MYSTERIES_ANCHOR}`)}>{uiT('notes.triadToUnknown', locale)} →</a>
         </p>
       </section>
 
