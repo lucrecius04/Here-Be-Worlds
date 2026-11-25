@@ -8,6 +8,7 @@ import { TRAILS, dailyTrails, trailSlug } from '../../lib/trails';
 import { latestAdded, mostRecentAdded } from '../../lib/atlas-news';
 import AxisBars from './AxisBars';
 import DailyMystery from './DailyMystery';
+import type { RiddleCounts } from '../../lib/riddle-day';
 import ReaderDesk from './ReaderDesk';
 import WorldCompass from './WorldCompass';
 import { buildSky, windingPath } from '../../lib/sky';
@@ -32,6 +33,8 @@ type Props = {
   chapters: ChapterCardData[];
   worlds: World[];
   journeys?: JourneyInfo[];
+  /** Počet hádanek dne po druzích (zásobník skládá riddles.ts při sestavení). */
+  riddleCounts?: RiddleCounts;
   base: string;
 };
 
@@ -66,7 +69,7 @@ function routeVars(
 }
 
 
-export default function HomeIntro({ chapters, worlds = [], journeys = [], base }: Props) {
+export default function HomeIntro({ chapters, worlds = [], journeys = [], riddleCounts = {}, base }: Props) {
   const locale = useLocale();
   const [today, setToday] = useState<Date | null>(null);
   const [litGroup, setLitGroup] = useState<string | null>(null);
@@ -372,7 +375,7 @@ export default function HomeIntro({ chapters, worlds = [], journeys = [], base }
             <div className="hp-featured hp-featured--placeholder" aria-hidden="true" />
           )}
           <div className="hp-riddle">
-            {today ? <DailyMystery catalog={worlds} locale={locale} base={base} today={today} /> : null}
+            {today ? <DailyMystery catalog={worlds} counts={riddleCounts} locale={locale} base={base} today={today} /> : null}
           </div>
         </section>
 

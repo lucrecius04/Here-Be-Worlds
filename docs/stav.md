@@ -2,10 +2,11 @@
 
 Předávka mezi konverzacemi s Claudem. Co je hotové a jak to funguje, popisuje `CLAUDE.md`. Tady je jen to, co z něj nevyčteš: rozpracované a odložené věci, nápady čekající na rozhodnutí a tipy k prostředí. Po větším kusu práce soubor aktualizovat, hotové položky mazat.
 
-Naposledy aktualizováno: 2026-11-22.
+Naposledy aktualizováno: 2026-11-25.
 
-## Co se dělalo naposledy (2026-11-21 až 22)
+## Co se dělalo naposledy (2026-11-21 až 25)
 
+- **Hádanka dne: zásobník 17 druhů** (2026-11-25, majitel chtěl „pool spousty hádanek, které se točí“): zhruba 960 hádanek skládaných při sestavení, každá jako statický JSON, prohlížeč stáhne jen dnešní. Popis v CLAUDE.md u titulní strany. Možná další kola: váhy druhů (teď stejné), anglická mota, hádanka „ze kterého putování je tento citát eseje“.
 - **Úplnost her v Hlubině a Faktografii** (2026-11-25): doplněno 38 dílů ve 20 světech (14 událostí, které díly už byly jako katastrofa či předěl, dostalo název hry; 24 nových), do Faktografie řádky Halo Wars, Halo 3: ODST, Halo Wars 2, Siege of Dragonspear, Code: Veronica a Silent Hill f, Origins, Townfall, Homecoming, Downpour. Hranice = Rozsah kánonu kroniky; mimo něj zůstaly odbočky (seznam v CLAUDE.md u `deep-time.json`), majitel může rozsah rozšířit.
 - **Hlubina času: období her se zářezy dílů** (2026-11-25, majitel vybral variantu F z náhledu A–G): oba grafy stejně, pozdější díly i nahoře, popisek dílu při najetí, v průřezu „Hry se odehrávají“; ke každé hře doplněn název (`game`), Mass Effect 3 opraven na hru, Edgerunners (anime) na událost. Návratový bod se souvislou hratelnou vrstvou: commit `d987791`.
 - **O atlasu** má pás hlavičky a začíná stejně vysoko jako ostatní stránky (se souhlasem majitele 2026-11-22).

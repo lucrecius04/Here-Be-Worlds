@@ -702,6 +702,183 @@
   color: var(--color-wrong);
 }
 
+/* Druhy hádanek: světy v zadání, nadpis, řádky s popiskem, témata, údaj po odpovědi. */
+.hp-mystery[aria-busy='true'] {
+  min-height: 18rem;
+}
+
+.hp-mystery__loading {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: var(--color-ink-muted);
+}
+
+.hp-mystery__worlds {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.5rem;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  list-style: none;
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  line-height: 1.3;
+}
+
+.hp-mystery__worlds li {
+  --hm-hue: var(--hm-hue-l, var(--color-ink));
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+html[data-theme='dark'] .hp-mystery__worlds li {
+  --hm-hue: var(--hm-hue-d, var(--color-ink));
+}
+
+.hp-mystery__worlds li::before {
+  content: '';
+  flex: none;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--hm-hue);
+  transform: translateY(-0.12em);
+}
+
+.hp-mystery__heading {
+  margin: 0 0 0.375rem;
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.hp-mystery__heading + .hp-mystery__clue {
+  font-size: 1.1875rem;
+}
+
+.hp-mystery__lines {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0 0 1.5rem;
+}
+
+.hp-mystery__lines div {
+  display: grid;
+  grid-template-columns: 9.5rem minmax(0, 1fr);
+  gap: 1rem;
+  align-items: baseline;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--color-line);
+}
+
+.hp-mystery__lines div:first-child {
+  padding-top: 0;
+  border-top: none;
+}
+
+.hp-mystery__lines dt {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+.hp-mystery__lines dd {
+  margin: 0;
+  font-family: var(--font-text);
+  font-size: 1.125rem;
+  line-height: 1.4;
+}
+
+.hp-mystery__tags {
+  margin: 0 0 1.5rem;
+  padding: 0;
+  list-style: none;
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  line-height: 1.45;
+}
+
+.hp-mystery__tags li {
+  display: inline;
+}
+
+.hp-mystery__tags li + li::before {
+  content: ' · ';
+  color: var(--color-ink-muted);
+}
+
+.hp-mystery__scale {
+  margin: 0 0 0.375rem;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-align: right;
+  color: var(--color-ink-muted);
+}
+
+.hp-mystery__body {
+  display: grid;
+  gap: 0.2rem;
+  min-width: 0;
+  margin-right: auto;
+}
+
+.hp-mystery__note {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+.hp-mystery__cells {
+  flex: none;
+  display: grid;
+  grid-template-columns: repeat(5, 0.875rem);
+  gap: 3px;
+  align-self: center;
+}
+
+.hp-mystery__cells i {
+  display: block;
+  height: 8px;
+  background: var(--color-bar);
+}
+
+.hp-mystery__cells i.is-on {
+  background: var(--color-ink);
+}
+
+.hp-mystery__more {
+  margin: 1rem 0 0;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+}
+
+.hp-mystery__more a {
+  color: var(--color-accent);
+}
+
+@media (max-width: 720px) {
+  .hp-mystery__lines div {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.25rem;
+  }
+
+  .hp-mystery__worlds,
+  .hp-mystery__tags,
+  .hp-mystery__heading {
+    font-size: 1.1875rem;
+  }
+}
+
 /* ---------- Rejstřík světů ---------- */
 
 .hp-index {

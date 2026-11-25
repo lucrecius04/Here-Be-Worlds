@@ -26,7 +26,7 @@ Analýza z 2026-11-24 (Claude na žádost majitele): co by na webu mohlo přibý
 - **Tvoje obloha.** Hvězdy světů s přečtenou kronikou na titulní obloze svítí, ostatní tlumeně; prošlá putování jako trasa. Žádné body ani odznaky. Data jen v prohlížeči (jako `hbw_reader_desk`). Střední práce.
 - **RSS** nových světů a putování (statický soubor při sestavení), k plánovanému postupnému odkrývání (`docs/odkryvani.md`). Později zpravodaj přes stejnou službu jako kontaktní formulář. Malá práce.
 - **Dvojportrét.** Kratší pravidelný formát: dva světy, jedna otázka, ~1 500 slov, jednou za dva týdny (např. Gwyn a Andrew Ryan: kdo ze dvou zakladatelů nese větší vinu). Průběžné psaní.
-- **Varianty hádanky.** Podle citátu z kroniky, prvotního hříchu nebo profilu souřadnic; bez sérií a skóre (herní jazyk). Malá práce.
+- **Varianty hádanky.** Hotovo 2026-11-25: zásobník 17 druhů a zhruba 960 hádanek (viz CLAUDE.md, titulní strana); bez sérií a skóre.
 
 ## 3. Teoretická vrstva
 
