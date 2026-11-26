@@ -33,6 +33,7 @@ export const READY: Record<TrailId, number> = {
   'chronicle-keepers': 3,
   copies: 3,
   'endless-work': 3,
+  'true-names': 3,
 };
 
 const DIR = 'putovani-obrazky';
