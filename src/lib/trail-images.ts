@@ -27,7 +27,7 @@ export const READY: Record<TrailId, number> = {
   'free-will': 3,
   'failed-paradise': 3,
   corporate: 3,
-  laughter: 2,
+  laughter: 3,
 };
 
 const DIR = 'putovani-obrazky';
