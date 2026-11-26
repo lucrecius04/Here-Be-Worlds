@@ -923,3 +923,14 @@ html[data-theme='dark'] .essay-hero--live img.has-ink {
 .essay-hero--mid.essay-hero--live + .essay-chapter {
   margin-top: 0;
 }
+
+/* Obrázek s variantou pro tmavý motiv (<soubor>-dark.jpg, trail-images.ts): ve světlém motivu originál s maskou podle tuše,
+   v tmavém varianta s papírem u okraje přebarveným do mlhy (jinak by krémový lem prosvítal). */
+html[data-theme='dark'] .essay-hero img.is-light-only,
+html:not([data-theme='dark']) .essay-hero img.is-dark-only {
+  display: none;
+}
+
+html[data-theme='dark'] .essay-hero img.is-dark-only {
+  filter: brightness(0.8);
+}

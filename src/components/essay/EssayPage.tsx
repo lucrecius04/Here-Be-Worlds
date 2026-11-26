@@ -35,11 +35,11 @@ type Props = {
   /** Stránka stezky bez schválené eseje: bez doby čtení. */
   pending?: boolean;
   /** Obrázek stezky (zatím jen náhled): široký pás pod hlavičkou, nebo na začátku textu. */
-  hero?: { src: string; alt: string; ink?: string; inkLight?: string; mask?: string };
+  hero?: { src: string; alt: string; dark?: string; ink?: string; inkLight?: string; mask?: string };
   /** Druhý obrázek stezky (náhled): uprostřed textu, před nadpisem nejblíž polovině. */
-  hero2?: { src: string; alt: string; ink?: string; inkLight?: string; mask?: string };
+  hero2?: { src: string; alt: string; dark?: string; ink?: string; inkLight?: string; mask?: string };
   /** Další obrázky stezky (po prvním): rozložené rovnoměrně textem, každý před nadpisem ##. Má přednost před hero2. */
-  heroMore?: { src: string; alt: string; ink?: string; inkLight?: string; mask?: string }[];
+  heroMore?: { src: string; alt: string; dark?: string; ink?: string; inkLight?: string; mask?: string }[];
   /** Skutečná stránka (ne náhled): obrázky jen pod citátem a uprostřed, s maskami. */
   heroLive?: boolean;
 };
@@ -104,7 +104,7 @@ function splitSources(markdown: string): [string, string] {
 }
 
 /** Masky obrázku stezky jako proměnné CSS (fresková maska, v tmavém motivu maska podle tuše). */
-function heroImgProps(h: { ink?: string; inkLight?: string; mask?: string }) {
+function heroImgProps(h: { ink?: string; inkLight?: string; mask?: string }, extraClass?: string) {
   const style: Record<string, string> = {};
   if (h.mask) style['--pv-mask'] = `url("${h.mask}")`;
   if (h.ink) {
@@ -112,7 +112,8 @@ function heroImgProps(h: { ink?: string; inkLight?: string; mask?: string }) {
     // širší maska pro světlý motiv (papír tam multiply schová, maska jen nesmí sníst slabé tahy)
     style['--pv-mask-ink-light'] = `url("${h.inkLight ?? h.ink.replace(/\.png$/, '-light.png')}")`;
   }
-  return { style: style as CSSProperties, className: h.ink ? 'has-ink' : undefined };
+  const cls = [h.ink ? 'has-ink' : '', extraClass ?? ''].filter(Boolean).join(' ');
+  return { style: style as CSSProperties, className: cls || undefined };
 }
 
 export default function EssayPage({ base, markdown, title, kicker, tagline, worlds, trail, pending, hero, hero2, heroMore, heroLive }: Props) {
@@ -310,8 +311,18 @@ export default function EssayPage({ base, markdown, title, kicker, tagline, worl
                       alt={extras[k].alt}
                       decoding="async"
                       loading="lazy"
-                      {...heroImgProps(extras[k])}
+                      {...heroImgProps(extras[k], extras[k].dark ? 'is-light-only' : undefined)}
                     />
+                    {extras[k].dark ? (
+                      <img
+                        className="is-dark-only"
+                        src={extras[k].dark}
+                        alt={extras[k].alt}
+                        decoding="async"
+                        loading="lazy"
+                        style={{ '--pv-mask': `url("${extras[k].mask}")` } as CSSProperties}
+                      />
+                    ) : null}
                   </figure>
                   <ReactMarkdown remarkPlugins={[remarkGfm]} components={mdComponents}>
                     {part}

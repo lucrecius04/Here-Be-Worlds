@@ -8,7 +8,8 @@ import { existsSync, readFileSync } from 'node:fs';
 import { withBase } from './base-url';
 import { TRAIL_SLUGS, type TrailId } from './trails';
 
-export type TrailImage = { src: string; ink?: string; inkLight?: string; mask: string };
+/** dark: volitelná varianta pro tmavý motiv (<soubor>-dark.jpg), když tuš sahá k okraji papíru a krémový lem by v noci prosvítal. */
+export type TrailImage = { src: string; dark?: string; ink?: string; inkLight?: string; mask: string };
 
 /** Putování, která už obrázky mají: počet obrázků (první pod citátem, další rovnoměrně textem). */
 export const READY: Record<TrailId, number> = {
@@ -44,8 +45,10 @@ function versioned(base: string, path: string): string {
 function image(base: string, file: string): TrailImage {
   const ink = `${DIR}/maska/${file.replace(/\.jpg$/, '.png')}`;
   const inkLight = ink.replace(/\.png$/, '-light.png');
+  const dark = `${DIR}/${file.replace(/\.jpg$/, '-dark.jpg')}`;
   return {
     src: versioned(base, `${DIR}/${file}`),
+    dark: existsSync(`public/${dark}`) ? versioned(base, dark) : undefined,
     ink: existsSync(`public/${ink}`) ? versioned(base, ink) : undefined,
     inkLight: existsSync(`public/${inkLight}`) ? versioned(base, inkLight) : undefined,
     mask: withBase(base, `/${DIR}/maska/freska.png`),
