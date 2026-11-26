@@ -253,11 +253,13 @@ html[data-theme='dark'] .trails-cross__dot {
   display: block;
 }
 
+/* Obrázek v kartě (majitel 2026-11-26): v obou motivech stejně velký, celý 16 : 9 bez ořezu, na 90 % šířky karty
+   s odstupem nahoře a dole; světlý motiv ukáže rozkreslené okraje (maska podle tuše), tmavý jen mlhu do ztracena. */
 .trails-row__img img {
   display: block;
-  width: 100%;
-  aspect-ratio: 3 / 2;
-  object-fit: cover;
+  width: 90%;
+  margin: 1.25rem auto;
+  aspect-ratio: auto;
   transition: transform 0.6s ease;
 }
 
@@ -299,13 +301,8 @@ html:not([data-theme='dark']) .trails-row__img img {
   mask-composite: intersect;
 }
 
-/* Světlý motiv (majitel 2026-11-26): celý obrázek 16 : 9 bez ořezu a jen široká maska podle tuše, aby byly vidět
-   rozkreslené okraje jako v eseji (dřív výřez 3 : 2 a fresková maska navíc, která okraje ořízla). */
+/* Světlý motiv: jen široká maska podle tuše, aby byly vidět rozkreslené okraje jako v eseji. */
 html:not([data-theme='dark']) .trails-row__img img.has-ink {
-  aspect-ratio: auto;
-  object-fit: contain;
-  width: 78%;
-  margin-inline: auto;
   -webkit-mask-image: var(--pv-mask-ink-light, var(--pv-mask-ink));
   mask-image: var(--pv-mask-ink-light, var(--pv-mask-ink));
   -webkit-mask-size: 100% 100%;
