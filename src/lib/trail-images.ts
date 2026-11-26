@@ -4,7 +4,7 @@
  * Masky: maska/<soubor>.png podle tuše pro tmavý motiv (scripts/ink-masks.py), maska/freska.png obecná.
  */
 import { createHash } from 'node:crypto';
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { withBase } from './base-url';
 import { TRAIL_SLUGS, type TrailId } from './trails';
 
@@ -67,5 +67,31 @@ export function trailImages(base: string, id: TrailId): TrailImage[] {
 export function trailThumbs(base: string): Record<string, TrailImage> {
   return Object.fromEntries(
     Object.keys(READY).map((id) => [id, trailImages(base, id)[0]]),
+  );
+}
+
+/**
+ * Zkušební sada v jiném stylu (rytina à la Doré, 2026-11-26): public/putovani-obrazky/rytina/<soubor>.jpg
+ * se stejnými jmény jako původní obrázky, masky v rytina/maska/. Původní obrázky zůstávají; přepínač v BaseLayout
+ * (?obrazky=rytina | puvodni | vypnout, localStorage hbw_obrazky) prohodí adresy v prohlížeči.
+ */
+export function engravingManifest(base: string): Record<string, { src: string; ink?: string; inkLight?: string }> {
+  const dir = `public/${DIR}/rytina`;
+  if (!existsSync(dir)) return {};
+  return Object.fromEntries(
+    readdirSync(dir)
+      .filter((f) => f.endsWith('.jpg'))
+      .map((f) => {
+        const ink = `${DIR}/rytina/maska/${f.replace(/\.jpg$/, '.png')}`;
+        const inkLight = ink.replace(/\.png$/, '-light.png');
+        return [
+          f,
+          {
+            src: versioned(base, `${DIR}/rytina/${f}`),
+            ink: existsSync(`public/${ink}`) ? versioned(base, ink) : undefined,
+            inkLight: existsSync(`public/${inkLight}`) ? versioned(base, inkLight) : undefined,
+          },
+        ];
+      }),
   );
 }

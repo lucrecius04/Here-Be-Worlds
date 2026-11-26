@@ -15,6 +15,7 @@ import SiteFooter from '../components/i18n/SiteFooter';
 import LocaleBridge from '../components/i18n/LocaleBridge';
 import CompareTray from '../components/discovery/CompareTray';
 import { worlds } from '../lib/worlds';
+import { engravingManifest } from '../lib/trail-images';
 
 const {
   title = 'Here Be Worlds',
@@ -31,6 +32,8 @@ const base = import.meta.env.BASE_URL;
 const ogImageUrl = new URL(withBase(base, ogImage), Astro.site ?? Astro.url).href;
 // Adresa stránky pro og:url (Facebook a Messenger podle ní párují náhled se stránkou).
 const pageUrl = new URL(Astro.url.pathname, Astro.site ?? Astro.url).href;
+// Zkušební rytiny k putováním (přepínač ?obrazky=rytina, viz trail-images.ts).
+const engravings = engravingManifest(base);
 const published = worlds
   .filter((world) => !world.draft)
   .map((world) => ({ id: world.id, gameTitle: world.gameTitle }));
@@ -116,5 +119,66 @@ const published = worlds
     </main>
     <SiteFooter client:load base={base} />
     <CompareTray client:load worlds={published} base={base.replace(/\/$/, '')} />
+    {Object.keys(engravings).length ? (
+      <script type="application/json" id="hbw-rytina" set:html={JSON.stringify(engravings)} />
+    ) : null}
+    <script is:inline>
+      /* Zkušební přepínač stylu obrázků k putováním: ?obrazky=rytina | puvodni | vypnout (hbw_obrazky). */
+      (function () {
+        var KEY = 'hbw_obrazky';
+        var el = document.getElementById('hbw-rytina');
+        if (!el) return;
+        var M = JSON.parse(el.textContent || '{}');
+        var q = new URLSearchParams(location.search).get('obrazky');
+        var mode = null;
+        try {
+          if (q === 'rytina' || q === 'puvodni') localStorage.setItem(KEY, q);
+          else if (q === 'vypnout') localStorage.removeItem(KEY);
+          mode = localStorage.getItem(KEY);
+        } catch (e) {}
+        if (!mode) return;
+        var RE = /\/putovani-obrazky\/([a-z0-9-]+?)(-dark)?\.jpg/;
+        function apply(img) {
+          var src = img.getAttribute('src') || '';
+          if (src.indexOf('/rytina/') >= 0) return;
+          var m = RE.exec(src);
+          if (!m) return;
+          var e = M[m[1] + '.jpg'];
+          if (!e) return;
+          img.setAttribute('src', e.src);
+          var st = img.style;
+          if (e.ink && st.getPropertyValue('--pv-mask-ink')) st.setProperty('--pv-mask-ink', 'url("' + e.ink + '")');
+          if (e.inkLight && st.getPropertyValue('--pv-mask-ink-light')) st.setProperty('--pv-mask-ink-light', 'url("' + e.inkLight + '")');
+        }
+        function all() {
+          if (mode === 'rytina') document.querySelectorAll('img[src*="/putovani-obrazky/"]').forEach(apply);
+        }
+        function button() {
+          if (document.getElementById('hbw-img-toggle') || !document.querySelector('img[src*="/putovani-obrazky/"]')) return;
+          var b = document.createElement('button');
+          b.id = 'hbw-img-toggle';
+          b.type = 'button';
+          b.textContent = 'Obrázky: ' + (mode === 'rytina' ? 'rytina' : 'původní') + ' ⇄';
+          b.title = 'Zkušební přepínač stylu obrázků (?obrazky=vypnout ho schová)';
+          b.style.cssText = 'position:fixed;left:12px;bottom:12px;z-index:60;font:12px/1 var(--font-mono);padding:8px 10px;background:var(--color-paper);color:var(--color-ink, currentColor);border:1px solid var(--color-line);cursor:pointer';
+          b.onclick = function () {
+            try { localStorage.setItem(KEY, mode === 'rytina' ? 'puvodni' : 'rytina'); } catch (e) {}
+            location.reload();
+          };
+          document.body.appendChild(b);
+        }
+        function init() {
+          all();
+          button();
+          if (mode === 'rytina') {
+            new MutationObserver(function () { all(); button(); }).observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['src'] });
+          } else {
+            new MutationObserver(button).observe(document.body, { childList: true, subtree: true });
+          }
+        }
+        if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+        else init();
+      })();
+    </script>
   </body>
 </html>

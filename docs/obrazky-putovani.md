@@ -46,3 +46,9 @@ Avoid: text, letters, signatures, frames, video game characters, logos, religiou
 ## Slepé uličky (nezkoušet znovu)
 
 Mezzotinta a mědiryt (uhlazené), papírová rytina (dětská kniha), šin-hanga (tapeta, komiks), symbolistní uhel (v náhledu zmizí), kyanotypie (švy, kýč), krakeláž a omítka (filtr, prach), plochý „setřený“ obdélník (prompt s válečkem a hadrem), doslovné scény (obr s městem na hrudi).
+
+## Zkušební sada: rytina à la Doré (2026-11-26, rozpracované)
+
+Majitel zkouší převést obrázky do hybridu: předmět jako jemná rytina à la Gustave Doré, okolí dál mlhavá monotypie (Gemini, obrázek + prompt „Redraw the attached image in a refined technique… hybrid of two techniques…“). Původní obrázky zůstávají na místě; převody leží v `public/putovani-obrazky/rytina/<stejné jméno>.jpg`, masky v `rytina/maska/` (`scripts/ink-masks.py`). Přepínač v `BaseLayout` (`engravingManifest` v `src/lib/trail-images.ts`): `?obrazky=rytina` nebo `?obrazky=puvodni` zapne v prohlížeči tlačítko „Obrázky: …“ vlevo dole (localStorage `hbw_obrazky`), `?obrazky=vypnout` ho schová; bez parametru web ukazuje původní obrázky a tlačítko nevidí nikdo. Karty pro sdílení se nemění.
+
+Převedeno 31 z 60. Známé vady převodů: křížek na koruně u kolébky (proklete-dedictvi-1), u psacího stroje (kdo-drzi-kroniku-3) papír už nenavazuje na cestu; převody jsou v průměru tmavší než originály (u vybraných putování jsme originály právě zesvětlovali), zesvětlení na jas originálu umí `scripts/lighten-trail-image.py` s gamou 0,6–0,9. Zbývá převést: bohove-jako-bremeno-1, hra-vi-ze-ji-hrajes-2 a -3, jmeno-jako-klic-i-kletba-1 až -3, kdo-se-to-probudil-3, kdo-za-to-muze-1 a -3, kopie-bez-originalu-2 a -3, logo-nad-troskami-1 a -2, mesto-ktere-dycha-2, mluvi-uz-jen-mrtvi-2 a -3, na-mrtvole-boha-2 a -3, nakaza-s-vlastni-vuli-1 až -3, prace-ktera-nikdy-nekonci-1 až -3, proklete-dedictvi-3, raj-ktery-se-nepovedl-3, smich-nad-propasti-2, uvezneni-v-kruhu-2 a -3.
