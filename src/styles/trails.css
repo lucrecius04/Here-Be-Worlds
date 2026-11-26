@@ -544,9 +544,10 @@ html[data-theme='dark'] .trails-row__img img.has-ink {
 
 /* Tmavé kresby (INDEX_LIFT v trail-images.ts) se v náhledu lehce zesvětlí. */
 html:not([data-theme='dark']) .trails-row__img img.is-lifted {
-  filter: brightness(1.16) saturate(0.8);
+  filter: brightness(1.1) saturate(0.8);
+  opacity: 0.8;
 }
 
 html[data-theme='dark'] .trails-row__img img.is-lifted {
-  filter: brightness(0.92);
+  filter: brightness(1.15) contrast(0.85);
 }
