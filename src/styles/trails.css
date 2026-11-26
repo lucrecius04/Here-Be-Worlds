@@ -299,9 +299,15 @@ html:not([data-theme='dark']) .trails-row__img img {
   mask-composite: intersect;
 }
 
+/* Světlý motiv (majitel 2026-11-26): celý obrázek 16 : 9 bez ořezu a jen široká maska podle tuše, aby byly vidět
+   rozkreslené okraje jako v eseji (dřív výřez 3 : 2 a fresková maska navíc, která okraje ořízla). */
 html:not([data-theme='dark']) .trails-row__img img.has-ink {
-  -webkit-mask-image: var(--pv-mask), var(--pv-mask-ink-light, var(--pv-mask-ink));
-  mask-image: var(--pv-mask), var(--pv-mask-ink-light, var(--pv-mask-ink));
+  aspect-ratio: auto;
+  object-fit: contain;
+  -webkit-mask-image: var(--pv-mask-ink-light, var(--pv-mask-ink));
+  mask-image: var(--pv-mask-ink-light, var(--pv-mask-ink));
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
   filter: brightness(1.06) saturate(0.8);
 }
 
