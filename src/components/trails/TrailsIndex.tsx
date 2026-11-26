@@ -29,7 +29,7 @@ type Props = {
   worlds: TrailsIndexWorld[];
   themeLabels: Record<string, { en: string; cs?: string }>;
   /** Náhled obrázků (zatím jen skrytá stránka): id stezky → adresa obrázku. */
-  images?: Record<string, { src: string; ink?: string; mask?: string }>;
+  images?: Record<string, { src: string; ink?: string; inkLight?: string; mask?: string; lift?: boolean }>;
   /** Kam vedou odkazy na stránky stezek (výchozí /putovani/). */
   trailHref?: string;
 };
@@ -252,7 +252,7 @@ export default function TrailsIndex({ base, trails, worlds, themeLabels, images,
                       alt=""
                       loading="lazy"
                       decoding="async"
-                      className={images[tr.id].ink ? 'has-ink' : undefined}
+                      className={[images[tr.id].ink ? 'has-ink' : '', images[tr.id].lift ? 'is-lifted' : ''].filter(Boolean).join(' ') || undefined}
                       style={
                         {
                           ...(images[tr.id].mask ? { '--pv-mask': `url("${images[tr.id].mask}")` } : {}),
