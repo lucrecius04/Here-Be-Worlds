@@ -3,11 +3,12 @@
  * <slug>-1.jpg pod úvodním citátem eseje a jako náhled v rejstříku, <slug>-2.jpg (a -3.jpg…) rozložené textem eseje.
  * Masky: maska/<soubor>.png podle tuše pro tmavý motiv (scripts/ink-masks.py), maska/freska.png obecná.
  */
-import { existsSync } from 'node:fs';
+import { createHash } from 'node:crypto';
+import { existsSync, readFileSync } from 'node:fs';
 import { withBase } from './base-url';
 import { TRAIL_SLUGS, type TrailId } from './trails';
 
-export type TrailImage = { src: string; ink?: string; mask: string };
+export type TrailImage = { src: string; ink?: string; inkLight?: string; mask: string };
 
 /** Putování, která už obrázky mají: počet obrázků (první pod citátem, další rovnoměrně textem). */
 export const READY: Record<TrailId, number> = {
@@ -34,11 +35,19 @@ export const READY: Record<TrailId, number> = {
 
 const DIR = 'putovani-obrazky';
 
+/** Adresa s otiskem obsahu (?v=…): po výměně obrázku pod stejným jménem prohlížeč nesmíchá starý obrázek s novou maskou. */
+function versioned(base: string, path: string): string {
+  const v = createHash('md5').update(readFileSync(`public/${path}`)).digest('hex').slice(0, 8);
+  return `${withBase(base, `/${path}`)}?v=${v}`;
+}
+
 function image(base: string, file: string): TrailImage {
   const ink = `${DIR}/maska/${file.replace(/\.jpg$/, '.png')}`;
+  const inkLight = ink.replace(/\.png$/, '-light.png');
   return {
-    src: withBase(base, `/${DIR}/${file}`),
-    ink: existsSync(`public/${ink}`) ? withBase(base, `/${ink}`) : undefined,
+    src: versioned(base, `${DIR}/${file}`),
+    ink: existsSync(`public/${ink}`) ? versioned(base, ink) : undefined,
+    inkLight: existsSync(`public/${inkLight}`) ? versioned(base, inkLight) : undefined,
     mask: withBase(base, `/${DIR}/maska/freska.png`),
   };
 }

@@ -35,11 +35,11 @@ type Props = {
   /** Stránka stezky bez schválené eseje: bez doby čtení. */
   pending?: boolean;
   /** Obrázek stezky (zatím jen náhled): široký pás pod hlavičkou, nebo na začátku textu. */
-  hero?: { src: string; alt: string; ink?: string; mask?: string };
+  hero?: { src: string; alt: string; ink?: string; inkLight?: string; mask?: string };
   /** Druhý obrázek stezky (náhled): uprostřed textu, před nadpisem nejblíž polovině. */
-  hero2?: { src: string; alt: string; ink?: string; mask?: string };
+  hero2?: { src: string; alt: string; ink?: string; inkLight?: string; mask?: string };
   /** Další obrázky stezky (po prvním): rozložené rovnoměrně textem, každý před nadpisem ##. Má přednost před hero2. */
-  heroMore?: { src: string; alt: string; ink?: string; mask?: string }[];
+  heroMore?: { src: string; alt: string; ink?: string; inkLight?: string; mask?: string }[];
   /** Skutečná stránka (ne náhled): obrázky jen pod citátem a uprostřed, s maskami. */
   heroLive?: boolean;
 };
@@ -104,13 +104,13 @@ function splitSources(markdown: string): [string, string] {
 }
 
 /** Masky obrázku stezky jako proměnné CSS (fresková maska, v tmavém motivu maska podle tuše). */
-function heroImgProps(h: { ink?: string; mask?: string }) {
+function heroImgProps(h: { ink?: string; inkLight?: string; mask?: string }) {
   const style: Record<string, string> = {};
   if (h.mask) style['--pv-mask'] = `url("${h.mask}")`;
   if (h.ink) {
     style['--pv-mask-ink'] = `url("${h.ink}")`;
     // širší maska pro světlý motiv (papír tam multiply schová, maska jen nesmí sníst slabé tahy)
-    style['--pv-mask-ink-light'] = `url("${h.ink.replace(/\.png$/, '-light.png')}")`;
+    style['--pv-mask-ink-light'] = `url("${h.inkLight ?? h.ink.replace(/\.png$/, '-light.png')}")`;
   }
   return { style: style as CSSProperties, className: h.ink ? 'has-ink' : undefined };
 }

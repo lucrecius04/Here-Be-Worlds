@@ -168,7 +168,7 @@ export default function ThemePage({ base, theme, worlds, chapters, sky, spread, 
                             ...(j.image.ink
                               ? {
                                   '--pv-mask-ink': `url("${j.image.ink}")`,
-                                  '--pv-mask-ink-light': `url("${j.image.ink.replace(/\.png$/, '-light.png')}")`,
+                                  '--pv-mask-ink-light': `url("${j.image.inkLight ?? j.image.ink.replace(/\.png$/, '-light.png')}")`,
                                 }
                               : {}),
                           } as CSSProperties

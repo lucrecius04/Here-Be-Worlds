@@ -259,7 +259,7 @@ export default function TrailsIndex({ base, trails, worlds, themeLabels, images,
                           ...(images[tr.id].ink
                             ? {
                                 '--pv-mask-ink': `url("${images[tr.id].ink}")`,
-                                '--pv-mask-ink-light': `url("${images[tr.id].ink!.replace(/\.png$/, '-light.png')}")`,
+                                '--pv-mask-ink-light': `url("${images[tr.id].inkLight ?? images[tr.id].ink!.replace(/\.png$/, '-light.png')}")`,
                               }
                             : {}),
                         } as CSSProperties
