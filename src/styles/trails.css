@@ -304,6 +304,8 @@ html:not([data-theme='dark']) .trails-row__img img {
 html:not([data-theme='dark']) .trails-row__img img.has-ink {
   aspect-ratio: auto;
   object-fit: contain;
+  width: 78%;
+  margin-inline: auto;
   -webkit-mask-image: var(--pv-mask-ink-light, var(--pv-mask-ink));
   mask-image: var(--pv-mask-ink-light, var(--pv-mask-ink));
   -webkit-mask-size: 100% 100%;
