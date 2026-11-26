@@ -9,10 +9,7 @@ import { withBase } from './base-url';
 import { TRAIL_SLUGS, type TrailId } from './trails';
 
 /** dark: volitelná varianta pro tmavý motiv (<soubor>-dark.jpg), když tuš sahá k okraji papíru a krémový lem by v noci prosvítal. */
-export type TrailImage = { src: string; dark?: string; ink?: string; inkLight?: string; mask: string; lift?: boolean };
-
-/** Tmavé kresby, které se v náhledu rejstříku lehce zesvětlí (jen náhled, esej a karta pro sdílení zůstávají; majitel 2026-11-26). */
-export const INDEX_LIFT: ReadonlySet<TrailId> = new Set<TrailId>(['endless-work', 'house', 'endless-war', 'cursed-legacy', 'gods-burden']);
+export type TrailImage = { src: string; dark?: string; ink?: string; inkLight?: string; mask: string };
 
 /** Putování, která už obrázky mají: počet obrázků (první pod citátem, další rovnoměrně textem). */
 export const READY: Record<TrailId, number> = {
@@ -69,6 +66,6 @@ export function trailImages(base: string, id: TrailId): TrailImage[] {
 /** Náhledy do rejstříku putování: id → první obrázek. */
 export function trailThumbs(base: string): Record<string, TrailImage> {
   return Object.fromEntries(
-    Object.keys(READY).map((id) => [id, { ...trailImages(base, id as TrailId)[0], lift: INDEX_LIFT.has(id as TrailId) }]),
+    Object.keys(READY).map((id) => [id, trailImages(base, id)[0]]),
   );
 }
