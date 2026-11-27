@@ -1008,8 +1008,7 @@ html[data-theme='dark'] .cmp-slot__option {
 }
 
 /* cíle vláken: oddíl nesmí zajet pod hlavičku webu a lepivý pruh se jmény */
-.cmp-section[id],
-.cmp-narr {
+.cmp-section[id] {
   scroll-margin-top: calc(var(--site-header-height) + 4.5rem);
 }
 
@@ -1054,25 +1053,7 @@ html[data-theme='dark'] .cmp-slot__option {
   content: '≡';
 }
 
-/* způsoby vyprávění pod triádou */
-.cmp-narr {
-  margin-top: 2.25rem;
-}
-
-.cmp-narr__head {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 0.5rem 1.5rem;
-  padding-top: 0.85rem;
-  border-top: 1px solid var(--color-line);
-}
-
-.cmp-narr__head .cmp-kicker {
-  color: var(--color-ink);
-}
-
+/* kruh pod názvem způsobu vyprávění */
 .cmp-narr__ring {
   display: block;
   margin-top: 0.1rem;
@@ -1733,4 +1714,63 @@ html[data-theme='dark'] .cmp-slot__option {
 .cmp-top + * > .cmp-section:first-of-type > .cmp-section__head {
   padding-top: 0;
   border-top: 0;
+}
+
+/* --- Příbuznost patří k deskám (2026-11-27): pás hlavičky pokračuje přes verdikt a vlákna,
+   papír začíná až u podrobností. Co leží na pásu, je shrnutí; co na papíře, ho rozvádí. --- */
+.cmp-top + * > .cmp-section.cmp-kin {
+  --kin-gap: 1rem;
+  /* linky a prázdné dílky musí být na tónu pásu vidět */
+  --color-line: color-mix(in srgb, var(--color-ink) 20%, var(--color-band));
+  position: relative;
+  z-index: 1;
+  margin-top: var(--kin-gap);
+  padding-bottom: 3.25rem;
+}
+
+.cmp-top + * > .cmp-section.cmp-kin::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: calc(-1 * var(--kin-gap) - 1px);
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--color-band);
+  box-shadow: 0 0 0 100vmax var(--color-band);
+  clip-path: inset(0 -100vmax);
+  pointer-events: none;
+}
+
+/* verdikt od spisů světů dělí tenká linka uvnitř pásu */
+.cmp-top + * > .cmp-section.cmp-kin > .cmp-section__head {
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-line);
+}
+
+.cmp-kin .cmp-thread__ev {
+  background: var(--color-band);
+}
+
+.cmp-kin .cmp-pair.is-on {
+  background: color-mix(in srgb, var(--color-accent) 10%, var(--color-band));
+}
+
+/* první oddíl podrobností pod pásem nemá linku nahoře (hranici dělá pás) */
+.cmp-kin + .cmp-section {
+  margin-top: 2.75rem;
+}
+
+.cmp-kin + .cmp-section > .cmp-section__head {
+  padding-top: 0;
+  border-top: 0;
+}
+
+/* lepivý pruh se jmény je kus desek, stejně jako stažený pruh spisu světa */
+.cmp-sticky {
+  background: var(--color-band);
+}
+
+.cmp-sticky .cmp-sticky__world {
+  background: color-mix(in srgb, var(--slot-hue) var(--cmp-wash), var(--color-band));
 }

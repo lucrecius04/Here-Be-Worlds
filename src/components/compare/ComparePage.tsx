@@ -812,15 +812,19 @@ export default function ComparePage({ worlds, chapters, themeLabels, kinLabels, 
 
           <Section id="cmp-triada" title={uiT('compare.triadTitle', locale)}>
             <FactRows rows={triadRows} filled={filled} prose locale={locale} />
-            {narrationRows.length ? (
-              <div id="cmp-vypraveni" className="cmp-narr">
-                <div className="cmp-narr__head">
-                  <h3 className="cmp-kicker">{uiT('compare.narrationTitle', locale)}</h3>
-                  <a className="cmp-textlink" href={withBase(base, '/jak-svety-vypraveji/')}>
-                    {uiT('compare.narrationAll', locale)}
-                  </a>
-                </div>
-                <div className="cmp-rows cmp-themes">
+          </Section>
+
+          {narrationRows.length ? (
+            <Section
+              id="cmp-vypraveni"
+              title={uiT('compare.narrationTitle', locale)}
+              tools={
+                <a className="cmp-textlink" href={withBase(base, '/jak-svety-vypraveji/')}>
+                  {uiT('compare.narrationAll', locale)}
+                </a>
+              }
+            >
+              <div className="cmp-rows cmp-themes">
                   {narrationRows.map((row) => {
                     const all = row.owners.length === selected.length;
                     const info = kinLabels.technique[row.id];
@@ -846,10 +850,9 @@ export default function ComparePage({ worlds, chapters, themeLabels, kinLabels, 
                       </div>
                     );
                   })}
-                </div>
               </div>
-            ) : null}
-          </Section>
+            </Section>
+          ) : null}
 
           <div className="cmp-grid cmp-links">
             <div className="cmp-grid__label" aria-hidden="true" />
