@@ -12,6 +12,7 @@ import {
 import { t } from '../../lib/i18n';
 import { TRAILS, trailSlug } from '../../lib/trails';
 import { publishedEssayFor } from '../../lib/trail-pages';
+import { trailImages } from '../../lib/trail-images';
 import { chronicleImageSizes } from '../../lib/chronicle-images';
 
 export function getStaticPaths() {
@@ -44,6 +45,8 @@ const journeys = TRAILS.filter((tr) => tr.members.includes(world.id)).map((tr) =
       .map((id) => worlds.find((w) => w.id === id))
       .filter((w): w is NonNullable<typeof w> => Boolean(w && !w.draft))
       .map((w) => ({ id: w.id, title: w.gameTitle, accent: accentOf(w.chapterId) })),
+    // první kresba putování jako náhled (obrázky se ukazují jen u schválené eseje)
+    image: essay ? trailImages(base, tr.id)[0] : undefined,
   };
 });
 

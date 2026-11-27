@@ -12,6 +12,7 @@ export type WorldJourney = {
   tagline?: string;
   minutes: number | null;
   members: Array<{ id: string; title: LocalizedString; accent: { light: string; dark: string } }>;
+  image?: { src: string; ink?: string; inkLight?: string; mask: string };
 };
 
 type Props = {
@@ -30,7 +31,30 @@ export default function WorldJourneys({ worldId, journeys, base }: Props) {
           const href = withBase(base, `/putovani/${journey.slug}/`);
           const question = locale === 'cs' && journey.tagline ? journey.tagline : uiT(journey.descKey, locale);
           return (
-            <li key={journey.id} className="wj-item">
+            <li key={journey.id} className={`wj-item${journey.image ? ' has-image' : ''}`}>
+              {journey.image ? (
+                <a className="wj-item__img" href={href} tabIndex={-1} aria-hidden="true">
+                  <img
+                    src={journey.image.src}
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                    className={journey.image.ink ? 'has-ink' : undefined}
+                    style={
+                      {
+                        '--pv-mask': `url("${journey.image.mask}")`,
+                        ...(journey.image.ink
+                          ? {
+                              '--pv-mask-ink': `url("${journey.image.ink}")`,
+                              '--pv-mask-ink-light': `url("${journey.image.inkLight ?? journey.image.ink}")`,
+                            }
+                          : {}),
+                      } as CSSProperties
+                    }
+                  />
+                </a>
+              ) : null}
+              <div className="wj-item__body">
               <div className="wj-item__head">
                 <h2 className="wj-item__name display">
                   <a href={href}>{uiT(journey.nameKey, locale)}</a>
@@ -60,6 +84,7 @@ export default function WorldJourneys({ worldId, journeys, base }: Props) {
               <a className="wj-item__go" href={href}>
                 {uiT('home2.journeyGo', locale)} →
               </a>
+              </div>
             </li>
           );
         })}

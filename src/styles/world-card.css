@@ -1017,6 +1017,64 @@ a.related-worlds__card:focus-visible .related-worlds__name {
   border-top-color: var(--color-ink);
 }
 
+/* první kresba putování vlevo jako náhled (2026-11-27), stejné zpracování jako v rejstříku putování */
+.wj-item.has-image {
+  display: grid;
+  grid-template-columns: minmax(12rem, 19rem) minmax(0, 1fr);
+  gap: 2rem;
+  align-items: start;
+}
+
+.wj-item__body {
+  min-width: 0;
+}
+
+.wj-item__img {
+  display: block;
+}
+
+.wj-item__img img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  -webkit-mask-image: var(--pv-mask);
+  mask-image: var(--pv-mask);
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+html:not([data-theme='dark']) .wj-item__img img {
+  mix-blend-mode: multiply;
+}
+
+html:not([data-theme='dark']) .wj-item__img img.has-ink {
+  -webkit-mask-image: var(--pv-mask), var(--pv-mask-ink-light, var(--pv-mask-ink));
+  mask-image: var(--pv-mask), var(--pv-mask-ink-light, var(--pv-mask-ink));
+  -webkit-mask-size: 100% 100%, cover;
+  mask-size: 100% 100%, cover;
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+  filter: brightness(1.06) saturate(0.8);
+}
+
+html[data-theme='dark'] .wj-item__img img {
+  filter: brightness(0.8);
+}
+
+@media (max-width: 720px) {
+  .wj-item.has-image {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.75rem;
+  }
+
+  .wj-item__img img {
+    aspect-ratio: 16 / 9;
+  }
+}
+
 .wj-item__head {
   display: flex;
   flex-wrap: wrap;
