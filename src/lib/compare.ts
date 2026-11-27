@@ -335,13 +335,40 @@ export function affinityPercent(a: World, b: World): number {
 
 /* ---------- Stupně příbuznosti ----------
  * Index (affinityPercent) slouží jen k řazení a na webu se nezobrazuje.
- * Všechny dvojice publikovaných světů seřadíme podle indexu a rozdělíme podle podílu:
- * nejbližší 3 % = Sourozenci, dalších 9 % = Blízcí příbuzní, dalších 23 % = Spříznění,
- * dalších 30 % = Vzdálení příbuzní, zbytek = Cizí. Při úpravě výpočtu se stupně jen přeskupí.
- * Ruční výjimky: data/meta/kinship-overrides.json.
+ *
+ * Stupeň je vlastnost dvojice, ne místo v žebříčku (rozhodnutí majitele 2026-11-28): dává ho
+ * PEVNÁ hranice bodů, takže se nezmění, když do atlasu přibudou další světy, a sada nepodobných
+ * světů žádné Sourozence nevytvoří. Dřív (do 2026-11-28) se dvojice dělily podle podílu v žebříčku
+ * (3 / 9 / 23 / 30 / 35 %); tehdejší hranice ležely na 60,5 / 51 / 39,5 / 30 bodech, odtud kalibrace.
+ *
+ * Celkový stupeň (body ze 100): 60 Sourozenci · 50 Blízcí příbuzní · 40 Spříznění · 30 Vzdálení
+ * příbuzní · méně Cizí.
+ * Pojistka pro nejvyšší stupeň: Sourozenci musí mít aspoň čtyři ze šesti pilířů s výraznou nebo
+ * silnou shodou (`pillarStrength`), jinak jsou Blízcí příbuzní. Verdikt se tak dá ověřit pohledem
+ * na vlákna ve Srovnání (dvojice nesená jen dvěma těžkými pilíři Sourozenci není). Stejná pojistka
+ * platí uvnitř trojice: „podobou sourozenci“ nebo „povahou sourozenci“ chce aspoň dvě ze tří vláken
+ * výrazná nebo silná.
+ * Podoba (ze 62): stejné podíly jako celek, tedy 60 / 50 / 40 / 30 % maxima.
+ * Povaha (ze 38): body jsou hrubé (témata 9 / 16 / 22), proto vlastní hranice podle složení:
+ *   28 = tři společná témata a k tomu zřetelná shoda v triádě nebo poetice,
+ *   22 = tři společná témata (nebo dvě témata a silná triáda),
+ *   16 = dvě společná témata (nebo totéž jinak), 11 = jedno téma a něco k tomu.
+ *
+ * PO ZMĚNĚ KOEFICIENTŮ (`KIN_POINTS`) JE NUTNÉ HRANICE VĚDOMĚ PŘEKALIBROVAT: přeměřit rozložení
+ * všech dvojic a upravit čísla tady; test v compare.test.ts hlídá, že stupně zůstávají rozumně
+ * obsazené. Ruční výjimky: data/meta/kinship-overrides.json.
  */
 export type KinshipLevel = 1 | 2 | 3 | 4 | 5;
-export const KINSHIP_SHARES = [0.03, 0.12, 0.35, 0.65] as const;
+/** Pevné hranice pro stupně 5, 4, 3, 2 (sestupně). */
+export const KINSHIP_CUTOFFS: Record<'percent' | KinHalf, readonly number[]> = {
+  percent: [60, 50, 40, 30],
+  look: [37.2, 31, 24.8, 18.6],
+  nature: [28, 22, 16, 11],
+};
+/** Kolik pilířů musí mít výraznou nebo silnou shodu, aby dvojice směla být Sourozenci. */
+export const SIBLING_MIN_STRONG_PILLARS = 4;
+/** Totéž uvnitř jedné trojice (Podoba, Povaha): aspoň dva ze tří pilířů. */
+export const HALF_SIBLING_MIN_STRONG_PILLARS = 2;
 
 type Override = { a: string; b: string; level: number };
 const OVERRIDES = new Map<string, KinshipLevel>(
@@ -352,48 +379,45 @@ function pairId(a: string, b: string): string {
   return a < b ? `${a}|${b}` : `${b}|${a}`;
 }
 
-const cutoffCache = new Map<string, number[]>();
-
-function cutoffsFor(all: World[], measure: 'percent' | KinHalf): number[] {
-  const pool = all.filter((w) => !w.draft);
-  const key = `${measure}:${pool.map((w) => w.id).sort().join(',')}`;
-  const hit = cutoffCache.get(key);
-  if (hit) return hit;
-  const scores: number[] = [];
-  for (let i = 0; i < pool.length; i++)
-    for (let j = i + 1; j < pool.length; j++) scores.push(affinityBreakdown(pool[i], pool[j])[measure]);
-  scores.sort((a, b) => b - a);
-  const cut = KINSHIP_SHARES.map((share) => scores[Math.min(scores.length - 1, Math.floor(share * scores.length))] ?? 0);
-  cutoffCache.set(key, cut);
-  return cut;
+/** Prahy indexu pro stupně 5, 4, 3, 2 (sestupně). Pevné, na složení atlasu nezávisí. */
+export function kinshipCutoffs(_all?: World[]): number[] {
+  return [...KINSHIP_CUTOFFS.percent];
 }
 
-/** Prahy indexu pro stupně 5, 4, 3, 2 (sestupně) nad všemi dvojicemi daných světů. */
-export function kinshipCutoffs(all: World[]): number[] {
-  return cutoffsFor(all, 'percent');
+/** Počet pilířů s výraznou nebo silnou shodou (vlákna, která čtenář vidí jako plná); volitelně jen v jedné trojici. */
+export function strongPillarCount(a: World, b: World, half?: KinHalf): number {
+  const score = affinityBreakdown(a, b);
+  return PILLARS.filter((pillar) => {
+    if (half && pillar.half !== half) return false;
+    const strength = pillarStrength(score[pillar.key], pillar.max);
+    return strength === 'Strong' || strength === 'Marked';
+  }).length;
 }
 
 /**
- * Stupeň podoby a stupeň povahy: každá trojice pilířů se seřadí přes všechny dvojice stejně jako
- * celý index a dostane stejných pět stupňů. Slouží jen k větě o druhu příbuznosti na Srovnání.
+ * Stupeň podoby a stupeň povahy: každá trojice pilířů má vlastní pevné hranice (viz výše).
+ * Slouží k větě o druhu příbuznosti na Srovnání a ke Skrytým příbuzným.
  */
-export function kinshipHalves(a: World, b: World, all: World[]): Record<KinHalf, KinshipLevel> {
+export function kinshipHalves(a: World, b: World, _all?: World[]): Record<KinHalf, KinshipLevel> {
   const score = affinityBreakdown(a, b);
-  return {
-    look: levelFromPercent(score.look, cutoffsFor(all, 'look')),
-    nature: levelFromPercent(score.nature, cutoffsFor(all, 'nature')),
+  const half = (key: KinHalf): KinshipLevel => {
+    const computed = levelFromPercent(score[key], KINSHIP_CUTOFFS[key]);
+    /* stejná pojistka jako u celku: nejvyšší stupeň trojice chce aspoň dvě ze tří vláken výrazná nebo silná */
+    return computed === 5 && strongPillarCount(a, b, key) < HALF_SIBLING_MIN_STRONG_PILLARS ? 4 : computed;
   };
+  return { look: half('look'), nature: half('nature') };
 }
 
-export function levelFromPercent(percent: number, cutoffs: number[]): KinshipLevel {
+export function levelFromPercent(percent: number, cutoffs: readonly number[]): KinshipLevel {
   for (let i = 0; i < cutoffs.length; i++) if (percent >= cutoffs[i]) return (5 - i) as KinshipLevel;
   return 1;
 }
 
-export function kinshipLevel(a: World, b: World, all: World[]): KinshipLevel {
+export function kinshipLevel(a: World, b: World, _all?: World[]): KinshipLevel {
   const manual = OVERRIDES.get(pairId(a.id, b.id));
   if (manual) return manual;
-  const computed = levelFromPercent(affinityPercent(a, b), kinshipCutoffs(all));
+  const computed = levelFromPercent(affinityPercent(a, b), KINSHIP_CUTOFFS.percent);
+  if (computed === 5 && strongPillarCount(a, b) < SIBLING_MIN_STRONG_PILLARS) return 4;
   return computed;
 }
 

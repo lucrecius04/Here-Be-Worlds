@@ -148,8 +148,8 @@ At the same time we fully understand that living fictional universes cannot be m
 
 /** Příbuznost světů: šest pilířů ve dvou trojicích a pět stupňů (slovy, bez procent; počítá compare.ts). */
 export const noteKinshipIntro: LocalizedString = {
-  cs: 'Příbuznost dvou světů skládáme ze šesti pilířů ve dvou trojicích: podoba říká, jak svět vypadá a zní, povaha, z čeho je postaven. Počítáme jen z údajů atlasu; nejvíc váží charakter, souřadnice a témata, nejméně vyprávění. Všechny dvojice pak seřadíme od nejbližší po nejvzdálenější a rozdělíme do pěti stupňů.',
-  en: 'We build the kinship of two worlds from six pillars in two groups of three: look says how a world appears and sounds, nature what it is built from. We compute it from the atlas data alone; character, coordinates and themes weigh the most, narration the least. Then we rank every pair from closest to farthest and split them into five degrees.',
+  cs: 'Příbuznost dvou světů skládáme ze šesti pilířů ve dvou trojicích: podoba říká, jak svět vypadá a zní, povaha, z čeho je postaven. Počítáme jen z údajů atlasu; nejvíc váží charakter, souřadnice a témata, nejméně poetika. Stupňů je pět a každý má pevnou hranici: nezáleží na pořadí mezi ostatními dvojicemi, takže se stupeň nezmění, ani když do atlasu přibudou další světy.',
+  en: 'We build the kinship of two worlds from six pillars in two groups of three: look says how a world appears and sounds, nature what it is built from. We compute it from the atlas data alone; character, coordinates and themes weigh the most, poetics the least. There are five degrees and each has a fixed threshold: rank among the other pairs does not matter, so a degree does not change even when more worlds join the atlas.',
 };
 
 export const noteKinshipPillars: NoteField[] = [
@@ -192,7 +192,7 @@ export const noteKinshipPillars: NoteField[] = [
 ];
 
 export const noteKinshipLevels: { level: 1 | 2 | 3 | 4 | 5; help: LocalizedString }[] = [
-  { level: 5, help: { cs: 'Nejvzácnější stupeň. Světy, které se shodují podobou i povahou.', en: 'The rarest degree. Worlds that agree in both look and nature.' } },
+  { level: 5, help: { cs: 'Nejvzácnější stupeň. Světy, které se shodují podobou i povahou. Nestačí k němu dost bodů: aspoň čtyři ze šesti pilířů musí mít výraznou nebo silnou shodu, jinak jsou světy Blízcí příbuzní.', en: 'The rarest degree. Worlds that agree in both look and nature. Enough points are not sufficient: at least four of the six pillars must show a marked or strong match, otherwise the worlds are Close kin.' } },
   { level: 4, help: { cs: 'Shodují se ve většině pilířů a liší se spíš v detailech.', en: 'They agree on most pillars and differ mostly in detail.' } },
   { level: 3, help: { cs: 'Mají společný základ, ale každý jde vlastní cestou.', en: 'They share a common ground, but each goes its own way.' } },
   { level: 2, help: { cs: 'Potkají se jen v jednom dvou rysech.', en: 'They meet in only one or two traits.' } },

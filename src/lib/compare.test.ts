@@ -1,7 +1,11 @@
 import { describe, expect, it } from 'vitest';
 import {
   HALF_MAX,
+  KINSHIP_CUTOFFS,
   PILLARS,
+  SIBLING_MIN_STRONG_PILLARS,
+  kinshipCutoffs,
+  strongPillarCount,
   affinityBreakdown,
   affinityPercent,
   kinshipEvidence,
@@ -316,16 +320,50 @@ describe('příbuznost nad daty atlasu', () => {
     expect(ev.narration.rings.length).toBeGreaterThan(0);
   });
 
-  it('stupně drží podíly 3 / 9 / 23 / 30 / 35 % všech dvojic', () => {
+  it('stupně mají pevné hranice: přidání světů stupeň dvojice nezmění', () => {
+    const a = W('dark-souls');
+    const b = W('elden-ring');
+    const c = W('death-stranding');
+    const d = W('tides-of-numenera');
+    /* stejný výsledek nad celým atlasem, nad dvojicí samotnou i nad atlasem plným kopií jednoho světa */
+    const clones = Array.from({ length: 30 }, (_, i) => ({ ...a, id: `klon-${i}` })) as World[];
+    for (const pool of [kinPublished, [a, b], [...kinPublished, ...clones]]) {
+      expect(kinshipLevel(a, b, pool)).toBe(5);
+      expect(kinshipLevel(c, d, pool)).toBe(4);
+      expect(kinshipHalves(c, d, pool)).toEqual(kinshipHalves(c, d, kinPublished));
+    }
+    expect(kinshipCutoffs(kinPublished)).toEqual([...KINSHIP_CUTOFFS.percent]);
+  });
+
+  it('pojistka: Sourozenci mají aspoň čtyři pilíře s výraznou nebo silnou shodou', () => {
+    /* Death Stranding × Tides of Numenera: bodů na Sourozence dost, ale nesou je jen dva pilíře */
+    const c = W('death-stranding');
+    const d = W('tides-of-numenera');
+    expect(affinityPercent(c, d)).toBeGreaterThanOrEqual(KINSHIP_CUTOFFS.percent[0]);
+    expect(strongPillarCount(c, d)).toBeLessThan(SIBLING_MIN_STRONG_PILLARS);
+    expect(kinshipLevel(c, d)).toBe(4);
+    expect(kinshipLevel(W('cyberpunk-2077'), W('deus-ex'))).toBe(5);
+    /* totéž uvnitř trojice: podoba nesená jediným silným vláknem není „podobou sourozenci“ */
+    expect(strongPillarCount(c, d, 'look')).toBe(1);
+    expect(kinshipHalves(c, d).look).toBe(4);
+    for (let i = 0; i < kinPublished.length; i += 1)
+      for (let j = i + 1; j < kinPublished.length; j += 1)
+        if (kinshipLevel(kinPublished[i], kinPublished[j]) === 5)
+          expect(strongPillarCount(kinPublished[i], kinPublished[j])).toBeGreaterThanOrEqual(SIBLING_MIN_STRONG_PILLARS);
+  });
+
+  it('kalibrace hranic: stupně zůstávají rozumně obsazené (po změně koeficientů přeměřit)', () => {
     const counts = [0, 0, 0, 0, 0, 0];
     for (let i = 0; i < kinPublished.length; i += 1)
-      for (let j = i + 1; j < kinPublished.length; j += 1) counts[kinshipLevel(kinPublished[i], kinPublished[j], kinPublished)] += 1;
-    const total = counts.reduce((a, b) => a + b, 0);
+      for (let j = i + 1; j < kinPublished.length; j += 1) counts[kinshipLevel(kinPublished[i], kinPublished[j])] += 1;
+    const total = counts.reduce((x, y) => x + y, 0);
     const share = (level: number) => counts[level] / total;
-    expect(share(5)).toBeGreaterThan(0.02);
-    expect(share(5)).toBeLessThan(0.06);
-    expect(share(5) + share(4)).toBeLessThan(0.16);
-    expect(share(1)).toBeGreaterThan(0.28);
+    expect(share(5)).toBeGreaterThan(0.01);
+    expect(share(5)).toBeLessThan(0.05);
+    expect(share(5) + share(4)).toBeLessThan(0.18);
+    expect(share(3)).toBeGreaterThan(0.12);
+    expect(share(1)).toBeGreaterThan(0.25);
+    expect(share(1)).toBeLessThan(0.5);
   });
 });
 

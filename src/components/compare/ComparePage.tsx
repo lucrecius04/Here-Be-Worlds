@@ -417,7 +417,11 @@ export default function ComparePage({ worlds, chapters, themeLabels, kinLabels, 
   const verdictLevel: KinshipLevel | null = ready
     ? selected.length === 2
       ? pairLevel(selected[0], selected[1])
-      : levelFromPercent(kinshipPercent(selected), cutoffs)
+      : /* tři světy: průměr dvojic; Sourozenci jen tehdy, když jsou jimi všechny dvojice */
+        (Math.min(
+          levelFromPercent(kinshipPercent(selected), cutoffs),
+          pairScores.every((pair) => pairLevel(selected[pair.left], selected[pair.right]) === 5) ? 5 : 4,
+        ) as KinshipLevel)
     : null;
 
   const factRows: FactRow[] = ready
