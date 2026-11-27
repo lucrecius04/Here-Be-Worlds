@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import EssayPage from '../../components/essay/EssayPage';
 import raw from '../../../content/essays/anatomie-herniho-lore.md?raw';
 import { worlds } from '../../lib/worlds';
+import { anatomyImage } from '../../lib/trail-images';
 
 const base = import.meta.env.BASE_URL;
 
@@ -31,5 +32,7 @@ const worldLinks = worlds
     kicker={meta('kicker')}
     tagline={meta('tagline')}
     worlds={worldLinks}
+    hero={{ ...anatomyImage(base), alt: '' }}
+    heroLive
   />
 </BaseLayout>

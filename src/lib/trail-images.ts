@@ -57,6 +57,11 @@ function image(base: string, file: string): TrailImage {
   };
 }
 
+/** Obrázek eseje Anatomie herního lore (kalamář, 2026-11-27): stejný styl, složka i masky jako u putování. */
+export function anatomyImage(base: string): TrailImage {
+  return image(base, 'anatomie-herniho-lore-1.jpg');
+}
+
 export function trailImages(base: string, id: TrailId): TrailImage[] {
   const n = READY[id] ?? 0;
   const slug = TRAIL_SLUGS[id];

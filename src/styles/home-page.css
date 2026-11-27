@@ -1067,6 +1067,41 @@ a.hp-tab:focus-visible {
   color: var(--color-accent);
 }
 
+/* Obrázek eseje (kalamář, 2026-11-27): stejné zpracování jako kresby putování, okraj do ztracena. */
+.hp-essay__img {
+  flex: 1 1 22rem;
+  min-width: 0;
+  align-self: center;
+  display: block;
+}
+
+.hp-essay__img img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  -webkit-mask-image: var(--pv-mask);
+  mask-image: var(--pv-mask);
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+html:not([data-theme='dark']) .hp-essay__img img {
+  mix-blend-mode: multiply;
+}
+
+html:not([data-theme='dark']) .hp-essay__img img.has-ink {
+  -webkit-mask-image: var(--pv-mask-ink-light, var(--pv-mask-ink));
+  mask-image: var(--pv-mask-ink-light, var(--pv-mask-ink));
+  filter: brightness(1.06) saturate(0.8);
+}
+
+html[data-theme='dark'] .hp-essay__img img {
+  filter: brightness(0.8);
+}
+
 .hp-essay__lead {
   margin: 0 0 1.375rem;
   max-width: 38ch;

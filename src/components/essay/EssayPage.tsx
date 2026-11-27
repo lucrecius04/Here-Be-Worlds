@@ -175,9 +175,11 @@ export default function EssayPage({ base, markdown, title, kicker, tagline, worl
   // nejblíž rovnoměrnému rozložení dalších obrázků (jeden = polovina, dva = třetiny…).
   const quoteSplit = useMemo<string[] | null>(() => {
     if (!hero) return null;
-    const m = /^##[^\n]*\n+(\*[^\n]*(?:\n\*[^\n]*)*)\n/m.exec(mainMd);
-    if (!m) return null;
-    const end = m.index + m[0].length;
+    const m = /^## [^\n]*\n+(\*[^*\n][^\n]*(?:\n\*[^\n]*)*)\n/m.exec(mainMd);
+    // (jen kapitola ## a kurzíva s jednou hvězdičkou: ### a tučný odstavec **…** nejsou úvodní citát)
+    // Esej bez úvodního citátu (Anatomie herního lore): obrázek stojí na samém začátku textu.
+    if (!m && !heroLive) return null;
+    const end = m ? m.index + m[0].length : 0;
     const head = mainMd.slice(0, end);
     const rest = mainMd.slice(end);
     const heads = [...rest.matchAll(/^## /gm)].map((h) => h.index ?? 0).filter((i) => i > 0);
@@ -196,7 +198,7 @@ export default function EssayPage({ base, markdown, title, kicker, tagline, worl
     }
     parts.push(rest.slice(from));
     return parts;
-  }, [hero, extras, mainMd]);
+  }, [hero, heroLive, extras, mainMd]);
 
   const mdComponents: Components = {
               h2: ({ children }) => {

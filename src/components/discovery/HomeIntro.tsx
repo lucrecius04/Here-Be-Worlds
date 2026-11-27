@@ -35,6 +35,8 @@ type Props = {
   journeys?: JourneyInfo[];
   /** Počet hádanek dne po druzích (zásobník skládá riddles.ts při sestavení). */
   riddleCounts?: RiddleCounts;
+  /** Obrázek eseje Anatomie herního lore v posledním pásu (src a masky jako u putování). */
+  essayImage?: { src: string; ink?: string; inkLight?: string; mask: string };
   base: string;
 };
 
@@ -69,7 +71,7 @@ function routeVars(
 }
 
 
-export default function HomeIntro({ chapters, worlds = [], journeys = [], riddleCounts = {}, base }: Props) {
+export default function HomeIntro({ chapters, worlds = [], journeys = [], riddleCounts = {}, essayImage, base }: Props) {
   const locale = useLocale();
   const [today, setToday] = useState<Date | null>(null);
   const [litGroup, setLitGroup] = useState<string | null>(null);
@@ -448,6 +450,28 @@ export default function HomeIntro({ chapters, worlds = [], journeys = [], riddle
               {uiT('essay.homeCta', locale)} →
             </a>
           </article>
+          {essayImage ? (
+            <a className="hp-essay__img" href={withBase(base, '/anatomie-herniho-lore/')} tabIndex={-1} aria-hidden="true">
+              <img
+                src={essayImage.src}
+                alt=""
+                loading="lazy"
+                decoding="async"
+                className={essayImage.ink ? 'has-ink' : undefined}
+                style={
+                  {
+                    '--pv-mask': `url("${essayImage.mask}")`,
+                    ...(essayImage.ink
+                      ? {
+                          '--pv-mask-ink': `url("${essayImage.ink}")`,
+                          '--pv-mask-ink-light': `url("${essayImage.inkLight ?? essayImage.ink}")`,
+                        }
+                      : {}),
+                  } as CSSProperties
+                }
+              />
+            </a>
+          ) : null}
         </section>
       </div>
     </div>
