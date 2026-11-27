@@ -703,44 +703,341 @@ html[data-theme='dark'] .cmp-slot__option {
   color: var(--color-accent);
 }
 
-.cmp-pillars {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1.25rem 2rem;
-  margin-top: 1.75rem;
+/* --- šest vláken příbuznosti (2026-11-27) --------------------------------------------------
+   Každý pilíř je vlákno natažené mezi dvěma světy. Sílu shody nese tvar (žádné, tečkované,
+   čárkované, tenké, silné), barva přechází z barvy jednoho světa do barvy druhého (jako linka
+   mezi zastávkami putování) a uprostřed stojí, co světy sdílejí. Dvě trojice: Podoba a Povaha. */
+
+.cmp-loom {
+  --thread-w: 2px;
+  margin-top: 1.5rem;
 }
 
-.cmp-pillar {
-  display: grid;
-  grid-template-rows: auto auto auto;
-  align-content: end;
-  gap: 0.3rem;
+.cmp-loom__reading {
+  max-width: 44rem;
+  margin: 0 0 1.75rem;
+  font-size: clamp(1.15rem, 1.9vw, 1.35rem);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.4;
 }
 
-.cmp-pillar__label {
+.cmp-thread {
+  display: grid;
+  grid-template-columns: var(--cmp-label-w) minmax(0, 1fr);
+  align-items: center;
+  min-height: 3.4rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+.cmp-loom__ends {
+  min-height: 0;
+  padding-bottom: 0.35rem;
+}
+
+.cmp-loom__names {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.cmp-loom__names > span:last-child {
+  text-align: right;
+}
+
+.cmp-loom__names > span:last-child .cmp-mark {
+  margin: 0 0 0 0.45rem;
+}
+
+.cmp-loom__group {
+  display: grid;
+  grid-template-columns: var(--cmp-label-w) minmax(0, 1fr);
+  align-items: center;
+  margin-top: 0.9rem;
+  padding-bottom: 0.1rem;
+}
+
+.cmp-loom__half:first-of-type .cmp-loom__group {
+  margin-top: 0.35rem;
+}
+
+.cmp-loom__group-name {
   font-family: var(--font-mono);
-  font-size: 0.625rem;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-ink);
+}
+
+.cmp-loom__group-level {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding-bottom: 0.55rem;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.cmp-thread__label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding-right: 1rem;
+}
+
+.cmp-thread__name {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  line-height: 1.4;
   letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+  transition: color 0.15s;
+}
+
+.cmp-thread__gloss {
+  font-size: 0.625rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  white-space: nowrap;
+}
+
+.cmp-thread__strength {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.cmp-thread.is-none .cmp-thread__strength {
+  font-weight: 400;
+  color: var(--color-ink-muted);
+}
+
+/* vlákno: linka mezi dvěma konci, konce jsou tečky v barvách světů */
+.cmp-thread__line {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding: 0.35rem 2.75rem;
+}
+
+.cmp-thread__line::before,
+.cmp-thread__line::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 0.625rem;
+  height: 0.625rem;
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+
+.cmp-thread__line::before {
+  left: 0;
+  background: var(--thread-a);
+}
+
+.cmp-thread__line::after {
+  right: 0;
+  background: var(--thread-b);
+}
+
+.cmp-thread__cord {
+  position: absolute;
+  top: 50%;
+  left: 0.3rem;
+  right: 0.3rem;
+  height: var(--thread-w);
+  transform: translateY(-50%);
+  background: linear-gradient(90deg, var(--thread-a), var(--thread-b));
+  animation: cmp-thread-in 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation-delay: calc(var(--i, 0) * 70ms + 80ms);
+}
+
+@keyframes cmp-thread-in {
+  from {
+    clip-path: inset(0 50% 0 50%);
+  }
+
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+.cmp-thread.is-strong .cmp-thread__cord {
+  --thread-w: 6px;
+}
+
+.cmp-thread.is-marked .cmp-thread__cord {
+  --thread-w: 3px;
+}
+
+.cmp-thread.is-partial .cmp-thread__cord {
+  --thread-w: 2px;
+  -webkit-mask-image: repeating-linear-gradient(90deg, #000 0 10px, transparent 10px 17px);
+  mask-image: repeating-linear-gradient(90deg, #000 0 10px, transparent 10px 17px);
+}
+
+.cmp-thread.is-faint .cmp-thread__cord {
+  --thread-w: 2px;
+  -webkit-mask-image: repeating-linear-gradient(90deg, #000 0 2px, transparent 2px 9px);
+  mask-image: repeating-linear-gradient(90deg, #000 0 2px, transparent 2px 9px);
+}
+
+/* bez shody: vlákno se nespojí, zůstanou jen dva krátké konce */
+.cmp-thread.is-none .cmp-thread__cord {
+  --thread-w: 1.5px;
+  opacity: 0.6;
+  -webkit-mask-image: linear-gradient(90deg, #000 0 2.1rem, transparent 2.1rem calc(100% - 2.1rem), #000 calc(100% - 2.1rem));
+  mask-image: linear-gradient(90deg, #000 0 2.1rem, transparent 2.1rem calc(100% - 2.1rem), #000 calc(100% - 2.1rem));
+  animation: none;
+}
+
+/* důkaz uprostřed vlákna: papír pod textem vlákno přeruší */
+.cmp-thread__ev {
+  position: relative;
+  max-width: 100%;
+  padding: 0.1rem 1rem;
+  background: var(--color-paper);
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  line-height: 1.3;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.cmp-thread.is-strong .cmp-thread__ev {
+  font-weight: 600;
+}
+
+.cmp-thread__item {
+  display: inline-block;
+}
+
+.cmp-thread__item + .cmp-thread__item {
+  margin-left: 0.38em;
+}
+
+.cmp-thread__ev i {
+  margin-left: 0.38em;
+  font-style: normal;
+  font-weight: 400;
+  color: var(--color-ink-muted);
+}
+
+.cmp-thread__lead {
+  margin-right: 0.3em;
+}
+
+.cmp-thread__more {
+  margin-left: 0.3em;
+}
+
+.cmp-thread__lead,
+.cmp-thread__more {
+  font-family: var(--font-text);
+  font-size: 0.9375rem;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--color-ink-muted);
+}
+
+.cmp-thread__ev.is-muted {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--color-ink-muted);
+}
+
+.cmp-thread:hover .cmp-thread__name,
+.cmp-thread:focus-visible .cmp-thread__name {
+  color: var(--color-accent);
+}
+
+.cmp-thread:hover .cmp-thread__text,
+.cmp-thread:focus-visible .cmp-thread__text {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  text-decoration-color: var(--color-line);
+}
+
+.cmp-thread:focus-visible {
+  outline: 1px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* cíle vláken: oddíl nesmí zajet pod hlavičku webu a lepivý pruh se jmény */
+.cmp-section[id],
+.cmp-narr {
+  scroll-margin-top: calc(var(--site-header-height) + 4.5rem);
+}
+
+/* typ z Galerie triád pod textem triády; shodný typ má značku jako shodné hodnoty Charakteru */
+.cmp-cell__type {
+  margin: 0.55rem 0 0;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  line-height: 1.5;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--color-ink-muted);
 }
 
-.cmp-pillar__value {
+.cmp-cell__type.is-same {
+  color: var(--color-ink);
+}
+
+.cmp-cell__type.is-same::before {
+  margin-right: 0.4rem;
   font-family: var(--font-sans);
-  font-size: 0.9375rem;
-  font-weight: 600;
+  color: var(--color-accent);
+  content: '≡';
 }
 
-.cmp-pillar__track {
-  display: block;
-  height: 2px;
-  background: var(--color-line);
+/* způsoby vyprávění pod triádou */
+.cmp-narr {
+  margin-top: 2.25rem;
 }
 
-.cmp-pillar__track span {
+.cmp-narr__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--color-line);
+}
+
+.cmp-narr__head .cmp-kicker {
+  color: var(--color-ink);
+}
+
+.cmp-narr__ring {
   display: block;
-  height: 100%;
-  background: var(--color-ink);
+  margin-top: 0.1rem;
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cmp-thread__cord {
+    animation: none;
+  }
 }
 
 .cmp-method {
@@ -1077,10 +1374,6 @@ html[data-theme='dark'] .cmp-slot__option {
     grid-template-columns: minmax(0, 7.5rem) minmax(0, 1fr) minmax(0, 7.5rem);
     gap: 0.75rem;
   }
-
-  .cmp-pillars {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
 }
 
 /* --- telefon: popisky nad řádky, světy ve sloupcích, dlouhé texty pod sebou ---------- */
@@ -1088,6 +1381,65 @@ html[data-theme='dark'] .cmp-slot__option {
 @media (max-width: 720px) {
   .cmp {
     --cmp-pad: 0.75rem;
+  }
+
+  /* vlákna: název pilíře a síla na jednom řádku, pod ním vlákno a důkaz */
+  .cmp-thread,
+  .cmp-loom__group {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .cmp-thread {
+    min-height: 0;
+    padding: 0.7rem 0 0.5rem;
+  }
+
+  .cmp-loom__ends {
+    padding: 0 0 0.25rem;
+  }
+
+  .cmp-loom__ends .cmp-thread__label {
+    display: none;
+  }
+
+  .cmp-loom__group {
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 0.85rem;
+    margin-top: 1.1rem;
+  }
+
+  .cmp-loom__group-level {
+    justify-content: flex-end;
+  }
+
+  .cmp-thread__label {
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-right: 0;
+  }
+
+  .cmp-thread__line {
+    display: block;
+    min-height: 0;
+    padding: 1.35rem 0 0;
+  }
+
+  .cmp-thread__line::before,
+  .cmp-thread__line::after {
+    top: 0.65rem;
+  }
+
+  .cmp-thread__cord {
+    top: 0.65rem;
+  }
+
+  .cmp-thread__ev {
+    display: block;
+    padding: 0;
+    background: none;
+    font-size: 1rem;
   }
 
   .cmp-grid {

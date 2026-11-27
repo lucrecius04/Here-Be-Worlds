@@ -24,6 +24,26 @@ export const axisValueSchema = z.object({
   comment: localizedStringSchema.optional(),
 });
 
+/**
+ * Odvozené údaje pro příbuznost (triáda, vyprávění, paměť světa). V `worlds.json` nejsou:
+ * doplňuje je `src/lib/kin-worlds.ts` z `triad-types.json`, `narrative-tools.json` a `deep-time.json`,
+ * aby je `compare.ts` nemusel načítat do prohlížeče.
+ */
+export const kinFactsSchema = z.object({
+  /** Typ prvotního hříchu, hraniční „také“, typ dilematu a druh tajemství (Galerie triád). */
+  sin: z.string(),
+  sinAlso: z.string().optional(),
+  dilemma: z.string(),
+  mystery: z.string(),
+  /** Způsoby vyprávění z nástrojů kroniky (bez vlastností světa mimo kruhy) s kruhem a případným druhým kruhem. */
+  tools: z.array(z.object({ t: z.string(), ring: z.string(), also: z.string().optional() })),
+  /** Paměť světa: nejhlubší datovaná událost v letech (Hlubina času), null bez letopočtu. */
+  memory: z.number().nullable(),
+  /** Svět má mýtický čas. */
+  myth: z.boolean(),
+});
+export type KinFacts = z.infer<typeof kinFactsSchema>;
+
 export const worldSchema = z.object({
   id: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
   number: z.number().int().positive(),
@@ -43,6 +63,7 @@ export const worldSchema = z.object({
     })
     .optional(),
   relatedWorlds: z.array(relatedWorldSchema).optional(),
+  kin: kinFactsSchema.optional(),
   core: localizedStringSchema,
   signatureBullets: z.array(localizedStringSchema).optional(),
   metadata: z.object({

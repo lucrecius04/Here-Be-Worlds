@@ -15,7 +15,7 @@
  */
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import { worlds } from '../src/lib/worlds.ts';
+import { kinWorlds as worlds } from '../src/lib/kin-worlds.ts';
 import { affinityPercent, kinshipRanking } from '../src/lib/compare.ts';
 import { chapters } from '../src/lib/worlds.ts';
 import { CHART_W, CHART_H, islandRadius, isArchipelago, footprint, islandShape, regionLines, regionBox } from '../src/lib/sea-chart.ts';

@@ -89,12 +89,66 @@ export function axisMatchKind(values: number[]): AxisMatchKind {
 
 const OVERLAP_PREFIX = /^(overlap|přesah|secondary|vedlejší)\s*:\s*/i;
 
-export type AffinityBreakdown = {
-  archetype: number;
-  axes: number;
-  character: number;
-  themes: number;
+/* ---------- Index příbuznosti: šest pilířů ve dvou trojicích (2026-11-27) ----------
+ * PODOBA (62): Archetyp 10 · Souřadnice 25 · Charakter 27
+ * POVAHA (38): Témata 22 · Triáda (jádro příběhu) 10 · Vyprávění 6
+ *
+ * Počítá se jen z dat světů a pevných koeficientů. Triáda, vyprávění a paměť světa jsou
+ * v `world.kin` (doplňuje `kin-worlds.ts`); svět bez `kin` za ně nedostane nic.
+ * U řídkých údajů (témata, vyprávění) se počítá jen to, co světy sdílejí: chybějící
+ * nástroj vyprávění nic neznamená, protože kronika vybírá jen hlavní nástroje.
+ * Analýza a měření: Claude Docs „Index příbuznosti světů — analýza a návrh“, shrnutí v docs/stav.md.
+ */
+export const PILLARS = [
+  { key: 'archetype', max: 10, half: 'look' },
+  { key: 'axes', max: 25, half: 'look' },
+  { key: 'character', max: 27, half: 'look' },
+  { key: 'themes', max: 22, half: 'nature' },
+  { key: 'triad', max: 10, half: 'nature' },
+  { key: 'narration', max: 6, half: 'nature' },
+] as const;
+
+export type PillarKey = (typeof PILLARS)[number]['key'];
+export type KinHalf = 'look' | 'nature';
+export const HALF_MAX: Record<KinHalf, number> = { look: 62, nature: 38 };
+
+/** Koeficienty: jediné místo, kde se váhy nastavují. */
+export const KIN_POINTS = {
+  archetype: { chapter: 6, profile: 4, profileNear: 2 },
+  /** Body za jednu souřadnici podle rozdílu hodnot 0, 1, 2, 3+. */
+  axis: [5, 3.5, 1.5, 0],
+  character: { moodEach: 4, power: 5, society: 4, space: 4, perspective: 2, depthKind: 2, memorySpan: 1, myth: 1 },
+  /** Body za 0, 1, 2 a 3+ společná témata. */
+  themes: [0, 9, 16, 22],
+  triad: { sin: 4, sinNear: 2, dilemma: 4, mystery: 2 },
+  /** Jeden společný způsob, dva a víc; bez společného způsobu body za společný kruh Zákulisí / Hráč. */
+  narration: { one: 4, many: 6, metaRing: 2, max: 6 },
+} as const;
+
+/** Kruhy, které má jen menšina světů; společný kruh se počítá i bez společného způsobu. */
+export const META_RINGS = ['zakulisi', 'hrac'] as const;
+
+export type AffinityBreakdown = Record<PillarKey, number> & {
+  /** Součet šesti pilířů (0–100). Na webu se nezobrazuje, slouží jen k řazení a stupňům. */
   percent: number;
+  look: number;
+  nature: number;
+};
+
+/** Co přesně dva světy sdílejí (podklad pro vlákna na Srovnání). Jen klíče a id, texty skládá stránka. */
+export type KinshipEvidence = {
+  archetype: { chapter: boolean; profile: 'same' | 'near' | null };
+  axes: { same: Array<(typeof AXIS_KEYS)[number]>; near: Array<(typeof AXIS_KEYS)[number]> };
+  character: {
+    /** Společné nálady: `main` / `sub` říká, kde ji má první svět (kvůli lokalizovanému názvu). */
+    moods: Array<'main' | 'sub'>;
+    fields: Array<'sourceOfPower' | 'societalOrder' | 'spatialScope' | 'historicalDepth' | 'protagonistPerspective'>;
+    memorySpan: boolean;
+    myth: boolean;
+  };
+  themes: string[];
+  triad: { sin: 'same' | 'near' | null; dilemma: boolean; mystery: boolean };
+  narration: { techniques: string[]; rings: string[] };
 };
 
 function enMain(field: { en: string }): string {
@@ -114,95 +168,144 @@ function cueEquals(a: string, b: string): boolean {
   return normalizeCue(a) === normalizeCue(b);
 }
 
-function crossOverlap(aMain: string, aSub: string | null, bMain: string, bSub: string | null): boolean {
-  if (aSub && cueEquals(aSub, bMain)) return true;
-  if (bSub && cueEquals(bSub, aMain)) return true;
-  return false;
+function sameField(a: World, b: World, key: keyof World['metadata']): boolean {
+  return cueEquals(enMain(a.metadata[key]), enMain(b.metadata[key]));
 }
 
-function axisPoints(delta: number): number {
-  if (delta <= 0) return 7;
-  if (delta === 1) return 5;
-  if (delta === 2) return 2;
-  return 0;
+/** Délka paměti ve stejném řádu: nejhlubší datované události se neliší víc než desetkrát. */
+function sameMemorySpan(a: World, b: World): boolean {
+  const x = a.kin?.memory;
+  const y = b.kin?.memory;
+  if (!x || !y) return false;
+  return Math.abs(Math.log10(x) - Math.log10(y)) <= 1;
 }
 
-function themePoints(shared: number): number {
-  if (shared >= 3) return 15;
-  if (shared === 2) return 11;
-  if (shared === 1) return 6;
-  return 0;
-}
+const round1 = (v: number) => Math.round(v * 10) / 10;
 
-export function affinityBreakdown(a: World, b: World): AffinityBreakdown {
+export function kinshipEvidence(a: World, b: World): KinshipEvidence {
   const genreA = enMain(a.metadata.genreProfile);
   const genreB = enMain(b.metadata.genreProfile);
   const genreSubA = enSub(a.metadata.genreProfile);
   const genreSubB = enSub(b.metadata.genreProfile);
-  let profile = 0;
-  if (cueEquals(genreA, genreB)) profile = 8;
-  else if (crossOverlap(genreA, genreSubA, genreB, genreSubB)) profile = 4;
-  const chapter = a.chapterId === b.chapterId ? 12 : 0;
-  const archetype = Math.round(chapter + profile);
+  const profile = cueEquals(genreA, genreB)
+    ? 'same'
+    : (genreSubA && cueEquals(genreSubA, genreB)) || (genreSubB && cueEquals(genreSubB, genreA))
+      ? 'near'
+      : null;
 
-  const axesRaw = AXIS_KEYS.reduce((sum, key) => {
+  const same: KinshipEvidence['axes']['same'] = [];
+  const near: KinshipEvidence['axes']['near'] = [];
+  for (const key of AXIS_KEYS) {
     const delta = Math.abs(a.axes[key].value - b.axes[key].value);
-    return sum + axisPoints(delta);
-  }, 0);
-  const axes = Math.round(axesRaw);
-
-  const moodA = enMain(a.metadata.atmosphere);
-  const moodB = enMain(b.metadata.atmosphere);
-  const moodSubA = enSub(a.metadata.atmosphere);
-  const moodSubB = enSub(b.metadata.atmosphere);
-  let atmosphere = 0;
-  if (cueEquals(moodA, moodB)) atmosphere += 5;
-  if (
-    (moodSubA && moodSubB && cueEquals(moodSubA, moodSubB)) ||
-    crossOverlap(moodA, moodSubA, moodB, moodSubB)
-  ) {
-    atmosphere += 3;
+    if (delta === 0) same.push(key);
+    else if (delta === 1) near.push(key);
   }
-  atmosphere = Math.min(8, atmosphere);
-  const power = cueEquals(enMain(a.metadata.sourceOfPower), enMain(b.metadata.sourceOfPower)) ? 6 : 0;
-  const depth = cueEquals(enMain(a.metadata.historicalDepth), enMain(b.metadata.historicalDepth)) ? 4 : 0;
-  const society = cueEquals(enMain(a.metadata.societalOrder), enMain(b.metadata.societalOrder)) ? 4 : 0;
-  const perspective = cueEquals(
-    enMain(a.metadata.protagonistPerspective),
-    enMain(b.metadata.protagonistPerspective),
-  )
-    ? 4
-    : 0;
-  const space = cueEquals(enMain(a.metadata.spatialScope), enMain(b.metadata.spatialScope)) ? 4 : 0;
-  const character = Math.round(atmosphere + power + depth + society + perspective + space);
 
-  const sharedThemesCount = a.themes.filter((slug) => b.themes.includes(slug)).length;
-  const themes = Math.round(themePoints(sharedThemesCount));
+  /* Nálada jako dvojice hlavní + vedlejší: počítá se každá nálada, kterou mají oba světy, ať je u nich hlavní, nebo vedlejší. */
+  const moodsB = [enMain(b.metadata.atmosphere), enSub(b.metadata.atmosphere)].filter((m): m is string => Boolean(m)).map(normalizeCue);
+  const moods: Array<'main' | 'sub'> = [];
+  if (moodsB.includes(normalizeCue(enMain(a.metadata.atmosphere)))) moods.push('main');
+  const subA = enSub(a.metadata.atmosphere);
+  if (subA && normalizeCue(subA) !== normalizeCue(enMain(a.metadata.atmosphere)) && moodsB.includes(normalizeCue(subA))) moods.push('sub');
+
+  const fields = (
+    ['sourceOfPower', 'societalOrder', 'spatialScope', 'historicalDepth', 'protagonistPerspective'] as const
+  ).filter((key) => sameField(a, b, key));
+
+  const ka = a.kin;
+  const kb = b.kin;
+  const sin: KinshipEvidence['triad']['sin'] =
+    ka && kb
+      ? ka.sin === kb.sin
+        ? 'same'
+        : ka.sinAlso === kb.sin || kb.sinAlso === ka.sin
+          ? 'near'
+          : null
+      : null;
+
+  const toolsB = kb?.tools ?? [];
+  const techniques = (ka?.tools ?? []).map((x) => x.t).filter((t) => toolsB.some((y) => y.t === t));
+  const ringsOf = (tools: NonNullable<World['kin']>['tools']) => new Set(tools.flatMap((x) => (x.also ? [x.ring, x.also] : [x.ring])));
+  const ringsA = ringsOf(ka?.tools ?? []);
+  const ringsB = ringsOf(toolsB);
+  const coveredRings = new Set((ka?.tools ?? []).filter((x) => techniques.includes(x.t)).map((x) => x.ring));
+  const rings = META_RINGS.filter((r) => ringsA.has(r) && ringsB.has(r) && !coveredRings.has(r));
 
   return {
+    archetype: { chapter: a.chapterId === b.chapterId, profile },
+    axes: { same, near },
+    character: { moods, fields, memorySpan: sameMemorySpan(a, b), myth: Boolean(ka?.myth && kb?.myth) },
+    themes: a.themes.filter((slug) => b.themes.includes(slug)),
+    triad: { sin, dilemma: Boolean(ka && kb && ka.dilemma === kb.dilemma), mystery: Boolean(ka && kb && ka.mystery === kb.mystery) },
+    narration: { techniques, rings: [...rings] },
+  };
+}
+
+export function affinityBreakdown(a: World, b: World): AffinityBreakdown {
+  const ev = kinshipEvidence(a, b);
+  const P = KIN_POINTS;
+
+  const archetype =
+    (ev.archetype.chapter ? P.archetype.chapter : 0) +
+    (ev.archetype.profile === 'same' ? P.archetype.profile : ev.archetype.profile === 'near' ? P.archetype.profileNear : 0);
+
+  const axes = AXIS_KEYS.reduce((sum, key) => {
+    const delta = Math.abs(a.axes[key].value - b.axes[key].value);
+    return sum + (P.axis[Math.min(delta, 3)] ?? 0);
+  }, 0);
+
+  const has = (key: KinshipEvidence['character']['fields'][number]) => ev.character.fields.includes(key);
+  const character =
+    ev.character.moods.length * P.character.moodEach +
+    (has('sourceOfPower') ? P.character.power : 0) +
+    (has('societalOrder') ? P.character.society : 0) +
+    (has('spatialScope') ? P.character.space : 0) +
+    (has('protagonistPerspective') ? P.character.perspective : 0) +
+    (has('historicalDepth') ? P.character.depthKind : 0) +
+    (ev.character.memorySpan ? P.character.memorySpan : 0) +
+    (ev.character.myth ? P.character.myth : 0);
+
+  const themes = P.themes[Math.min(ev.themes.length, 3)];
+
+  const triad =
+    (ev.triad.sin === 'same' ? P.triad.sin : ev.triad.sin === 'near' ? P.triad.sinNear : 0) +
+    (ev.triad.dilemma ? P.triad.dilemma : 0) +
+    (ev.triad.mystery ? P.triad.mystery : 0);
+
+  const narration = Math.min(
+    P.narration.max,
+    (ev.narration.techniques.length >= 2 ? P.narration.many : ev.narration.techniques.length === 1 ? P.narration.one : 0) +
+      ev.narration.rings.length * P.narration.metaRing,
+  );
+
+  const look = round1(archetype + axes + character);
+  const nature = round1(themes + triad + narration);
+  return {
     archetype,
-    axes,
+    axes: round1(axes),
     character,
     themes,
-    percent: Math.min(100, archetype + axes + character + themes),
+    triad,
+    narration,
+    look,
+    nature,
+    percent: round1(Math.min(100, look + nature)),
   };
 }
 
 export function averageBreakdown(pairs: KinshipPair[]): AffinityBreakdown {
-  if (pairs.length === 0) {
-    return { archetype: 0, axes: 0, character: 0, themes: 0, percent: 0 };
-  }
-  const n = pairs.length;
-  const archetype = Math.round(pairs.reduce((sum, pair) => sum + pair.breakdown.archetype, 0) / n);
-  const axes = Math.round(pairs.reduce((sum, pair) => sum + pair.breakdown.axes, 0) / n);
-  const character = Math.round(pairs.reduce((sum, pair) => sum + pair.breakdown.character, 0) / n);
-  const themes = Math.round(pairs.reduce((sum, pair) => sum + pair.breakdown.themes, 0) / n);
+  const n = pairs.length || 1;
+  const mean = (key: PillarKey | 'look' | 'nature' | 'percent') => round1(pairs.reduce((sum, pair) => sum + pair.breakdown[key], 0) / n);
   return {
-    archetype,
-    axes,
-    character,
-    themes,
-    percent: Math.min(100, archetype + axes + character + themes),
+    archetype: mean('archetype'),
+    axes: mean('axes'),
+    character: mean('character'),
+    themes: mean('themes'),
+    triad: mean('triad'),
+    narration: mean('narration'),
+    look: mean('look'),
+    nature: mean('nature'),
+    percent: mean('percent'),
   };
 }
 
@@ -231,19 +334,35 @@ function pairId(a: string, b: string): string {
 
 const cutoffCache = new Map<string, number[]>();
 
-/** Prahy indexu pro stupně 5, 4, 3, 2 (sestupně) nad všemi dvojicemi daných světů. */
-export function kinshipCutoffs(all: World[]): number[] {
+function cutoffsFor(all: World[], measure: 'percent' | KinHalf): number[] {
   const pool = all.filter((w) => !w.draft);
-  const key = pool.map((w) => w.id).sort().join(',');
+  const key = `${measure}:${pool.map((w) => w.id).sort().join(',')}`;
   const hit = cutoffCache.get(key);
   if (hit) return hit;
   const scores: number[] = [];
   for (let i = 0; i < pool.length; i++)
-    for (let j = i + 1; j < pool.length; j++) scores.push(affinityPercent(pool[i], pool[j]));
+    for (let j = i + 1; j < pool.length; j++) scores.push(affinityBreakdown(pool[i], pool[j])[measure]);
   scores.sort((a, b) => b - a);
   const cut = KINSHIP_SHARES.map((share) => scores[Math.min(scores.length - 1, Math.floor(share * scores.length))] ?? 0);
   cutoffCache.set(key, cut);
   return cut;
+}
+
+/** Prahy indexu pro stupně 5, 4, 3, 2 (sestupně) nad všemi dvojicemi daných světů. */
+export function kinshipCutoffs(all: World[]): number[] {
+  return cutoffsFor(all, 'percent');
+}
+
+/**
+ * Stupeň podoby a stupeň povahy: každá trojice pilířů se seřadí přes všechny dvojice stejně jako
+ * celý index a dostane stejných pět stupňů. Slouží jen k větě o druhu příbuznosti na Srovnání.
+ */
+export function kinshipHalves(a: World, b: World, all: World[]): Record<KinHalf, KinshipLevel> {
+  const score = affinityBreakdown(a, b);
+  return {
+    look: levelFromPercent(score.look, cutoffsFor(all, 'look')),
+    nature: levelFromPercent(score.nature, cutoffsFor(all, 'nature')),
+  };
 }
 
 export function levelFromPercent(percent: number, cutoffs: number[]): KinshipLevel {

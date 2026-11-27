@@ -132,36 +132,50 @@ Zároveň si plně uvědomujeme, že živoucí fiktivní vesmíry nelze změřit
 At the same time we fully understand that living fictional universes cannot be measured with a ruler or sealed into airtight boxes. World profiles, category placements, and values of the five coordinates should therefore not be taken as exact science or a definitive verdict. They are orienting, often felt and interpretive landmarks, meant first of all as a compass. If for a given world you feel the measure of its metaphysics, epic scale, or moral grey a notch differently than we do, that is entirely all right – the aim of this method is not to lace worlds into a table, but to offer a shared language through which we can think about them in context.`,
 };
 
-/** Příbuznost světů: čtyři pilíře a pět stupňů (slovy, bez procent; počítá compare.ts). */
+/** Příbuznost světů: šest pilířů ve dvou trojicích a pět stupňů (slovy, bez procent; počítá compare.ts). */
 export const noteKinshipIntro: LocalizedString = {
-  cs: 'Příbuznost dvou světů skládáme ze čtyř pilířů. Všechny dvojice v atlasu pak seřadíme od nejbližší po nejvzdálenější a rozdělíme do pěti stupňů.',
-  en: 'We build the kinship of two worlds from four pillars. Then we rank every pair in the atlas from closest to farthest and split them into five degrees.',
+  cs: 'Příbuznost dvou světů skládáme ze šesti pilířů ve dvou trojicích: podoba říká, jak svět vypadá a zní, povaha, z čeho je postaven. Počítáme jen z údajů atlasu; nejvíc váží charakter, souřadnice a témata, nejméně vyprávění. Všechny dvojice pak seřadíme od nejbližší po nejvzdálenější a rozdělíme do pěti stupňů.',
+  en: 'We build the kinship of two worlds from six pillars in two groups of three: look says how a world appears and sounds, nature what it is built from. We compute it from the atlas data alone; character, coordinates and themes weigh the most, narration the least. Then we rank every pair from closest to farthest and split them into five degrees.',
 };
 
 export const noteKinshipPillars: NoteField[] = [
   {
-    term: { cs: 'Archetyp a profil archetypu', en: 'Archetype and archetype profile' },
-    help: { cs: 'Archetyp, podtyp a přesahy.', en: 'Archetype, subtype and overlaps.' },
+    term: { cs: 'Archetyp', en: 'Archetype' },
+    help: { cs: 'Podoba. Stejný archetyp a stejný nebo příbuzný profil archetypu.', en: 'Look. The same archetype and the same or a kindred archetype profile.' },
   },
   {
-    term: { cs: 'Profil světa', en: 'World profile' },
-    help: { cs: 'Jak blízko si světy leží v pěti souřadnicích.', en: 'How close the worlds lie in the five coordinates.' },
+    term: { cs: 'Souřadnice', en: 'Coordinates' },
+    help: { cs: 'Podoba. Jak blízko si světy leží v pěti souřadnicích profilu světa.', en: 'Look. How close the worlds lie in the five coordinates of the world profile.' },
   },
   {
-    term: { cs: 'Charakter světa', en: 'World character' },
+    term: { cs: 'Charakter', en: 'Character' },
     help: {
-      cs: 'Nálada, původ moci, struktura společnosti, historická hloubka, prostorový dosah a perspektiva hráče.',
-      en: 'Mood, source of power, societal order, historical depth, spatial scope and player perspective.',
+      cs: 'Podoba. Nálada (hlavní i vedlejší), původ moci, struktura společnosti, prostorový dosah, perspektiva hráče a paměť světa: druh historické hloubky, její délka a mýtický čas.',
+      en: 'Look. Mood (main and secondary), source of power, societal order, spatial scope, player perspective and the memory of the world: the kind of historical depth, its length and mythic time.',
     },
   },
   {
     term: { cs: 'Témata', en: 'Themes' },
-    help: { cs: 'Společná témata a konflikty.', en: 'Shared themes and conflicts.' },
+    help: { cs: 'Povaha. Společná témata a konflikty.', en: 'Nature. Shared themes and conflicts.' },
+  },
+  {
+    term: { cs: 'Triáda (jádro příběhu)', en: 'Triad (story core)' },
+    help: {
+      cs: 'Povaha. Stejný typ prvotního hříchu, stejný typ ústředního dilematu a stejný druh hlavního tajemství.',
+      en: 'Nature. The same type of original sin, the same type of central dilemma and the same kind of ultimate mystery.',
+    },
+  },
+  {
+    term: { cs: 'Vyprávění', en: 'Narration' },
+    help: {
+      cs: 'Povaha. Společné způsoby vyprávění. Počítá se jen to, co světy sdílejí: kronika vybírá hlavní nástroje, takže chybějící nástroj nic neznamená.',
+      en: 'Nature. Shared ways of telling. Only what the worlds share counts: a chronicle lists the main tools, so a missing tool means nothing.',
+    },
   },
 ];
 
 export const noteKinshipLevels: { level: 1 | 2 | 3 | 4 | 5; help: LocalizedString }[] = [
-  { level: 5, help: { cs: 'Nejvzácnější stupeň. Světy, které sdílejí archetyp, ladění i témata.', en: 'The rarest degree. Worlds that share archetype, tone and themes.' } },
+  { level: 5, help: { cs: 'Nejvzácnější stupeň. Světy, které se shodují podobou i povahou.', en: 'The rarest degree. Worlds that agree in both look and nature.' } },
   { level: 4, help: { cs: 'Shodují se ve většině pilířů a liší se spíš v detailech.', en: 'They agree on most pillars and differ mostly in detail.' } },
   { level: 3, help: { cs: 'Mají společný základ, ale každý jde vlastní cestou.', en: 'They share a common ground, but each goes its own way.' } },
   { level: 2, help: { cs: 'Potkají se jen v jednom dvou rysech.', en: 'They meet in only one or two traits.' } },

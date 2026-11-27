@@ -55,7 +55,9 @@ export function resolveRelatedWorlds(
   /* Příbuzenstvo = tři nejbližší světy podle indexu (compare.ts). Ruční relatedWorlds se tu už
      neukazují (rozhodnutí majitele 2026-11-22); pod jménem jsou témata, která oba světy sdílejí,
      a když žádná nesdílejí, jádro příbuzného světa. */
-  return kinshipRanking(world, published, 3).map(({ world: other, level }) => {
+  /* Zdroj i příbuzní se berou z katalogu: stránka sem posílá světy doplněné o `kin` (kin-worlds.ts). */
+  const source = published.find((item) => item.id === world.id) ?? world;
+  return kinshipRanking(source, published, 3).map(({ world: other, level }) => {
     const shared = other.themes.filter((slug) => world.themes.includes(slug));
     return {
       id: other.id,

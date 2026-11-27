@@ -5,9 +5,12 @@ import { useLocale } from '../../lib/locale-store';
 import { withBase } from '../../lib/base-url';
 import {
   MAX_COMPARE,
+  PILLARS,
   curatedPairs,
   discoveryPairs,
   kinshipCutoffs,
+  kinshipEvidence,
+  kinshipHalves,
   kinshipLevel,
   kinshipPairs,
   kinshipPercent,
@@ -16,13 +19,16 @@ import {
   pillarStrength,
   type AffinityBreakdown,
   type DiscoveryPair,
+  type KinHalf,
   type KinshipLevel,
+  type PillarKey,
   parseCompareIds,
   slotHue,
   themeCoverage,
   valueFrequencies,
   writeCompareQuery,
 } from '../../lib/compare';
+import type { KinLabels } from '../../lib/kin-worlds';
 import AxisOverlay from './AxisOverlay';
 import '../../styles/compare.css';
 
@@ -54,6 +60,8 @@ type Props = {
   worlds: World[];
   chapters: ChapterInfo[];
   themeLabels: Record<string, LocalizedString>;
+  /** Názvy typů triády, způsobů a kruhů vyprávění (důkazy na vláknech příbuznosti). */
+  kinLabels: KinLabels;
   axes: AxisMeta[];
   base: string;
 };
@@ -72,12 +80,36 @@ type FilledSlot = {
 
 type FactFilter = 'all' | 'diffs' | 'matches';
 
-const PILLARS = [
-  { key: 'archetype', label: 'compare.affinityArchetype', max: 20 },
-  { key: 'axes', label: 'compare.affinityAxes', max: 35 },
-  { key: 'character', label: 'compare.affinityCharacter', max: 30 },
-  { key: 'themes', label: 'compare.affinityThemes', max: 15 },
-] as const;
+/** Kam vede vlákno: oddíl stránky, který pilíř rozvádí. */
+const PILLAR_ANCHOR: Record<PillarKey, string> = {
+  archetype: 'cmp-charakter',
+  axes: 'cmp-souradnice',
+  character: 'cmp-charakter',
+  themes: 'cmp-temata',
+  triad: 'cmp-triada',
+  narration: 'cmp-vypraveni',
+};
+
+const PILLAR_LABEL: Record<PillarKey, string> = {
+  archetype: 'compare.pillarArchetype',
+  axes: 'compare.pillarAxes',
+  character: 'compare.pillarCharacter',
+  themes: 'compare.pillarThemes',
+  triad: 'compare.pillarTriad',
+  narration: 'compare.pillarNarration',
+};
+
+const AXIS_NAME: Record<string, string> = {
+  hopeDespair: 'map.nameHopeDespair',
+  knownUnknown: 'map.nameKnownUnknown',
+  intimateEpic: 'map.nameIntimateEpic',
+  moralClarityAmbiguity: 'map.nameMoralClarityAmbiguity',
+  realismMetaphysical: 'map.nameRealismMetaphysical',
+};
+
+const SUB_PREFIX = /^(overlap|přesah|secondary|vedlejší)\s*:\s*/i;
+/** Nejvýš tolik položek na vlákně; zbytek se shrne do „+N“. */
+const EVIDENCE_MAX = 4;
 
 function genreSub(world: World, locale: Locale): string {
   const main = t(world.metadata.genreProfile, locale);
@@ -110,14 +142,16 @@ function Section({
   tools,
   children,
   className = '',
+  id,
 }: {
   title: string;
   tools?: ReactNode;
   children: ReactNode;
   className?: string;
+  id?: string;
 }) {
   return (
-    <section className={`cmp-section ${className}`} aria-label={title}>
+    <section id={id} className={`cmp-section ${className}`} aria-label={title}>
       <div className="cmp-section__head">
         <h2 className="cmp-section__title display">{title}</h2>
         {tools ? <div className="cmp-section__tools">{tools}</div> : null}
@@ -165,28 +199,190 @@ function MethodHint({ locale }: { locale: Locale }) {
   );
 }
 
-function Pillars({ score, locale }: { score: AffinityBreakdown; locale: Locale }) {
+type ThreadEvidence = { items: string[]; lead?: string; more?: number; muted?: boolean };
+
+/** Co dva světy v jednom pilíři sdílejí, slovy (důkaz uprostřed vlákna). */
+function threadEvidence(
+  key: PillarKey,
+  a: World,
+  b: World,
+  ctx: { locale: Locale; chapterById: Map<string, ChapterInfo>; themeLabels: Record<string, LocalizedString>; kinLabels: KinLabels },
+): ThreadEvidence {
+  const { locale, chapterById, themeLabels, kinLabels } = ctx;
+  const ev = kinshipEvidence(a, b);
+  const cap = (items: string[], lead?: string): ThreadEvidence =>
+    items.length > EVIDENCE_MAX
+      ? { items: items.slice(0, EVIDENCE_MAX), more: items.length - EVIDENCE_MAX, lead }
+      : { items, lead };
+  const none = (text: string): ThreadEvidence => ({ items: [text], muted: true });
+  const chapterName = (w: World) => {
+    const ch = chapterById.get(w.chapterId);
+    return ch ? t(ch.short ?? ch.title, locale) : w.chapterId;
+  };
+
+  if (key === 'archetype') {
+    const items: string[] = [];
+    if (ev.archetype.chapter) items.push(chapterName(a));
+    if (ev.archetype.profile === 'same') items.push(t(a.metadata.genreProfile, locale));
+    else if (ev.archetype.profile === 'near') items.push(uiT('compare.evNearProfile', locale));
+    return items.length ? cap(items) : none(`${chapterName(a)} × ${chapterName(b)}`);
+  }
+
+  if (key === 'axes') {
+    /* souřadnic je jen pět, vypíšou se všechny */
+    const names = (keys: string[]) => keys.map((k) => uiT(AXIS_NAME[k], locale));
+    if (ev.axes.same.length)
+      return { items: names(ev.axes.same), lead: uiT(ev.axes.same.length === 1 ? 'compare.evAxesSameOne' : 'compare.evAxesSameMany', locale) };
+    if (ev.axes.near.length)
+      return { items: names(ev.axes.near), lead: uiT(ev.axes.near.length === 1 ? 'compare.evAxesNearOne' : 'compare.evAxesNearMany', locale) };
+    return none(uiT('compare.evAxesNone', locale));
+  }
+
+  if (key === 'character') {
+    const items: string[] = [];
+    for (const where of ev.character.moods) {
+      const field = where === 'main' ? a.metadata.atmosphere : a.metadata.atmosphere.sub;
+      if (field) items.push(t(field, locale).replace(SUB_PREFIX, ''));
+    }
+    for (const field of ev.character.fields) {
+      const value = t(a.metadata[field], locale);
+      items.push(field === 'historicalDepth' ? uiT('compare.evDepth', locale).replace('{v}', value) : value);
+    }
+    if (ev.character.myth) items.push(uiT('compare.evMyth', locale));
+    if (ev.character.memorySpan) items.push(uiT('compare.evMemory', locale));
+    return items.length ? cap(items) : none(uiT('compare.evCharacterNone', locale));
+  }
+
+  if (key === 'themes') {
+    const items = ev.themes.map((slug) => (themeLabels[slug] ? t(themeLabels[slug], locale) : slug));
+    return items.length ? cap(items) : none(uiT('compare.evThemesNone', locale));
+  }
+
+  if (key === 'triad') {
+    const ka = a.kin;
+    const kb = b.kin;
+    if (!ka || !kb) return none('–');
+    const label = (group: Record<string, LocalizedString>, id: string) => (group[id] ? t(group[id], locale) : id);
+    const items: string[] = [];
+    if (ev.triad.sin === 'same') items.push(label(kinLabels.sin, ka.sin));
+    else if (ev.triad.sin === 'near') items.push(label(kinLabels.sin, ka.sinAlso === kb.sin ? kb.sin : ka.sin));
+    if (ev.triad.dilemma) items.push(label(kinLabels.dilemma, ka.dilemma));
+    if (ev.triad.mystery) items.push(label(kinLabels.mystery, ka.mystery));
+    return items.length ? cap(items) : none(`${label(kinLabels.sin, ka.sin)} × ${label(kinLabels.sin, kb.sin)}`);
+  }
+
+  const items = ev.narration.techniques.map((id) => (kinLabels.technique[id] ? t(kinLabels.technique[id].label, locale) : id));
+  for (const ring of ev.narration.rings)
+    items.push(uiT('compare.evRing', locale).replace('{v}', kinLabels.ring[ring] ? t(kinLabels.ring[ring], locale) : ring));
+  return items.length ? cap(items) : none(uiT('compare.evNarrationNone', locale));
+}
+
+/** Věta o druhu příbuznosti: stupeň podoby a stupeň povahy slovy. */
+function kinReading(halves: Record<KinHalf, KinshipLevel>, locale: Locale): string {
+  const word = (level: KinshipLevel) => uiT(`compare.kinLevel${level}`, locale).toLocaleLowerCase(locale);
+  const up = (text: string) => text.charAt(0).toLocaleUpperCase(locale) + text.slice(1);
+  if (halves.look === halves.nature) return up(uiT('compare.readSame', locale).replace('{x}', word(halves.look)));
+  return up(uiT('compare.readSplit', locale).replace('{x}', word(halves.look)).replace('{y}', word(halves.nature)));
+}
+
+/**
+ * Šest vláken natažených mezi dvěma světy: každý pilíř příbuznosti je jedno vlákno, jeho síla je
+ * síla shody (tvarem: žádné, tečkované, čárkované, tenké, silné) a uprostřed stojí, co světy sdílejí.
+ * Barva přechází z barvy jednoho světa do barvy druhého. Vlákno vede na oddíl, který pilíř rozvádí.
+ */
+function Threads({
+  a,
+  b,
+  hueA,
+  hueB,
+  score,
+  halves,
+  locale,
+  chapterById,
+  themeLabels,
+  kinLabels,
+}: {
+  a: World;
+  b: World;
+  hueA: string;
+  hueB: string;
+  score: AffinityBreakdown;
+  halves: Record<KinHalf, KinshipLevel>;
+  locale: Locale;
+  chapterById: Map<string, ChapterInfo>;
+  themeLabels: Record<string, LocalizedString>;
+  kinLabels: KinLabels;
+}) {
+  const ctx = { locale, chapterById, themeLabels, kinLabels };
+  const group = (half: KinHalf) => PILLARS.filter((pillar) => pillar.half === half);
+  let order = 0;
   return (
-    <div className="cmp-pillars">
-      {PILLARS.map((pillar) => {
-        const value = score[pillar.key];
-        return (
-          <div key={pillar.key} className="cmp-pillar">
-            <span className="cmp-pillar__label">{uiT(pillar.label, locale)}</span>
-            <span className="cmp-pillar__value">
-              {uiT(`compare.strength${pillarStrength(value, pillar.max)}`, locale)}
-            </span>
-            <span className="cmp-pillar__track" aria-hidden="true">
-              <span style={{ width: `${Math.min(100, (value / pillar.max) * 100)}%` }} />
+    <div className="cmp-loom" style={{ '--thread-a': hueA, '--thread-b': hueB } as CSSProperties}>
+      <p className="cmp-loom__reading display">{kinReading(halves, locale)}</p>
+      <div className="cmp-thread cmp-loom__ends" aria-hidden="true">
+        <span className="cmp-thread__label" />
+        <span className="cmp-loom__names">
+          <span>
+            <Mark hue={hueA} />
+            {t(a.gameTitle, locale)}
+          </span>
+          <span>
+            {t(b.gameTitle, locale)}
+            <Mark hue={hueB} />
+          </span>
+        </span>
+      </div>
+      {(['look', 'nature'] as const).map((half) => (
+        <div key={half} className="cmp-loom__half">
+          <div className="cmp-loom__group">
+            <span className="cmp-loom__group-name">{uiT(half === 'look' ? 'compare.halfLook' : 'compare.halfNature', locale)}</span>
+            <span className="cmp-loom__group-level" title={uiT(`compare.kinLevel${halves[half]}`, locale)}>
+              <Ticks level={halves[half]} />
+              <span className="visually-hidden">{uiT(`compare.kinLevel${halves[half]}`, locale)}</span>
             </span>
           </div>
-        );
-      })}
+          {group(half).map((pillar) => {
+            const strength = pillarStrength(score[pillar.key], pillar.max);
+            const evidence = threadEvidence(pillar.key, a, b, ctx);
+            const index = order;
+            order += 1;
+            return (
+              <a
+                key={pillar.key}
+                className={`cmp-thread is-${strength.toLowerCase()}`}
+                href={`#${PILLAR_ANCHOR[pillar.key]}`}
+                style={{ '--i': index } as CSSProperties}
+              >
+                <span className="cmp-thread__label">
+                  <span className="cmp-thread__name">
+                    {uiT(PILLAR_LABEL[pillar.key], locale)}
+                    {pillar.key === 'triad' ? <span className="cmp-thread__gloss"> {uiT('compare.pillarTriadGloss', locale)}</span> : null}
+                  </span>
+                  <span className="cmp-thread__strength">{uiT(`compare.strength${strength}`, locale)}</span>
+                </span>
+                <span className="cmp-thread__line">
+                  <span className="cmp-thread__cord" aria-hidden="true" />
+                  <span className={`cmp-thread__ev${evidence.muted ? ' is-muted' : ''}`}>
+                    {evidence.lead ? <span className="cmp-thread__lead">{evidence.lead} </span> : null}
+                    {evidence.items.map((item, i) => (
+                      <span key={item} className="cmp-thread__item">
+                        <span className="cmp-thread__text">{item}</span>
+                        {i < evidence.items.length - 1 ? <i aria-hidden="true">·</i> : null}
+                      </span>
+                    ))}
+                    {evidence.more ? <span className="cmp-thread__more"> +{evidence.more}</span> : null}
+                  </span>
+                </span>
+              </a>
+            );
+          })}
+        </div>
+      ))}
     </div>
   );
 }
 
-export default function ComparePage({ worlds, chapters, themeLabels, axes, base, trails = [] }: Props) {
+export default function ComparePage({ worlds, chapters, themeLabels, kinLabels, axes, base, trails = [] }: Props) {
   const locale = useLocale();
   const catalog = useMemo(() => worlds.filter((world) => !world.draft), [worlds]);
   const validIds = useMemo(() => new Set(catalog.map((world) => world.id)), [catalog]);
@@ -321,12 +517,23 @@ export default function ComparePage({ worlds, chapters, themeLabels, axes, base,
       ]
     : [];
 
+  const typeLabel = (group: Record<string, LocalizedString>, id?: string) => (id && group[id] ? t(group[id], locale) : null);
   const triadRows: FactRow[] = ready
     ? [
-        triadField(selected, locale, 'originalSin', uiT('card.originalSin', locale)),
-        triadField(selected, locale, 'centralDilemma', uiT('card.centralDilemma', locale)),
-        triadField(selected, locale, 'ultimateMystery', uiT('card.ultimateMystery', locale)),
+        triadField(selected, locale, 'originalSin', uiT('card.originalSin', locale), (w) => typeLabel(kinLabels.sin, w.kin?.sin)),
+        triadField(selected, locale, 'centralDilemma', uiT('card.centralDilemma', locale), (w) => typeLabel(kinLabels.dilemma, w.kin?.dilemma)),
+        triadField(selected, locale, 'ultimateMystery', uiT('card.ultimateMystery', locale), (w) => typeLabel(kinLabels.mystery, w.kin?.mystery)),
       ]
+    : [];
+
+  /* Způsoby vyprávění jako mřížka (stejně jako témata): nejdřív sdílené, pak podle pořadí světů a kronik. */
+  const narrationRows = ready
+    ? [...new Set(selected.flatMap((world) => (world.kin?.tools ?? []).map((tool) => tool.t)))]
+        .map((id) => ({
+          id,
+          owners: selected.flatMap((world, index) => ((world.kin?.tools ?? []).some((tool) => tool.t === id) ? [index] : [])),
+        }))
+        .sort((x, y) => y.owners.length - x.owners.length || (x.owners[0] ?? 0) - (y.owners[0] ?? 0))
     : [];
 
   const shareComparison = async () => {
@@ -529,10 +736,25 @@ export default function ComparePage({ worlds, chapters, themeLabels, axes, base,
               </ul>
               </>
             )}
-            {activePair ? <Pillars score={activePair.breakdown} locale={locale} /> : null}
+            {activePair ? (
+              <Threads
+                key={`${selected[activePair.left].id}|${selected[activePair.right].id}`}
+                a={selected[activePair.left]}
+                b={selected[activePair.right]}
+                hueA={hues[activePair.left]}
+                hueB={hues[activePair.right]}
+                score={activePair.breakdown}
+                halves={kinshipHalves(selected[activePair.left], selected[activePair.right], worlds)}
+                locale={locale}
+                chapterById={chapterById}
+                themeLabels={themeLabels}
+                kinLabels={kinLabels}
+              />
+            ) : null}
           </Section>
 
           <Section
+            id="cmp-souradnice"
             title={uiT('compare.axesTitle', locale)}
             tools={
               <a className="cmp-textlink" href={withBase(base, '/notes/#stupnice')}>
@@ -543,7 +765,7 @@ export default function ComparePage({ worlds, chapters, themeLabels, axes, base,
             <AxisOverlay worlds={selected} hues={hues} axes={axes} locale={locale} />
           </Section>
 
-          <Section title={uiT('compare.themesTitle', locale)}>
+          <Section id="cmp-temata" title={uiT('compare.themesTitle', locale)}>
             <div className="cmp-rows cmp-themes">
               {themeRows.map((item) => {
                 const label = themeLabels[item.slug] ? t(themeLabels[item.slug], locale) : item.slug;
@@ -602,6 +824,7 @@ export default function ComparePage({ worlds, chapters, themeLabels, axes, base,
           ) : null}
 
           <Section
+            id="cmp-charakter"
             title={uiT('compare.factsTitle', locale)}
             tools={
               <div className="cmp-filter" role="group" aria-label={uiT('compare.factsTitle', locale)}>
@@ -626,8 +849,43 @@ export default function ComparePage({ worlds, chapters, themeLabels, axes, base,
             <FactRows rows={factRows} filled={filled} filter={factFilter} locale={locale} />
           </Section>
 
-          <Section title={uiT('compare.triadTitle', locale)}>
+          <Section id="cmp-triada" title={uiT('compare.triadTitle', locale)}>
             <FactRows rows={triadRows} filled={filled} prose locale={locale} />
+            {narrationRows.length ? (
+              <div id="cmp-vypraveni" className="cmp-narr">
+                <div className="cmp-narr__head">
+                  <h3 className="cmp-kicker">{uiT('compare.narrationTitle', locale)}</h3>
+                  <a className="cmp-textlink" href={withBase(base, '/jak-svety-vypraveji/')}>
+                    {uiT('compare.narrationAll', locale)}
+                  </a>
+                </div>
+                <div className="cmp-rows cmp-themes">
+                  {narrationRows.map((row) => {
+                    const all = row.owners.length === selected.length;
+                    const info = kinLabels.technique[row.id];
+                    return (
+                      <div key={row.id} className={`cmp-grid cmp-row${all ? ' is-shared' : ''}`}>
+                        <a className="cmp-grid__label cmp-themes__name" href={withBase(base, `/jak-svety-vypraveji/#${row.id}`)}>
+                          {info ? t(info.label, locale) : row.id}
+                          {info && kinLabels.ring[info.ring] ? (
+                            <span className="cmp-narr__ring">{t(kinLabels.ring[info.ring], locale)}</span>
+                          ) : null}
+                        </a>
+                        {selected.map((world, index) => (
+                          <span key={world.id} className="cmp-cell cmp-themes__cell" style={hueStyle(filled[index].index)}>
+                            {row.owners.includes(index) ? (
+                              <span className="cmp-themes__dot" title={worldName(world)} />
+                            ) : (
+                              <span className="cmp-themes__none" aria-hidden="true" />
+                            )}
+                          </span>
+                        ))}
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            ) : null}
           </Section>
 
           <div className="cmp-grid cmp-links">
@@ -699,12 +957,19 @@ function factField(worlds: World[], locale: Locale, key: keyof World['metadata']
   };
 }
 
-function triadField(worlds: World[], locale: Locale, key: keyof World['triad'], label: string): FactRow {
+function triadField(
+  worlds: World[],
+  locale: Locale,
+  key: keyof World['triad'],
+  label: string,
+  typeOf: (world: World) => string | null = () => null,
+): FactRow {
   return {
     id: key,
     label,
     values: worlds.map((world) => t(world.triad[key], locale)),
-    subs: worlds.map(() => null),
+    /* typ z Galerie triád (stejný u obou světů = bod v pilíři Triáda) */
+    subs: worlds.map((world) => typeOf(world)),
   };
 }
 
@@ -735,6 +1000,8 @@ function FactRows({
     <div className={`cmp-rows cmp-facts${prose ? ' cmp-facts--prose' : ''}`}>
       {visible.map((row) => {
         const freqs = valueFrequencies(row.values);
+        /* u triády: stejný typ (z Galerie triád) u víc světů */
+        const subFreqs = valueFrequencies(row.subs.map((sub, i) => sub ?? `-${i}`));
         return (
           <div key={row.id} className={`cmp-grid cmp-row cmp-row--${row.id}`}>
             <div className="cmp-grid__label">{row.label}</div>
@@ -749,7 +1016,13 @@ function FactRows({
                 >
                   <span className="cmp-cell__who">{t(filled[index].world.gameTitle, locale)}</span>
                   <p className="cmp-cell__value">{value}</p>
-                  {row.subs[index] ? <p className="cmp-cell__sub">{row.subs[index]}</p> : null}
+                  {row.subs[index] ? (
+                    prose ? (
+                      <p className={`cmp-cell__type${subFreqs[index] >= 2 ? ' is-same' : ''}`}>{row.subs[index]}</p>
+                    ) : (
+                      <p className="cmp-cell__sub">{row.subs[index]}</p>
+                    )
+                  ) : null}
                 </div>
               );
             })}

@@ -1,7 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ComparePage from '../../components/compare/ComparePage';
-import { worlds, chapters, themeTaxonomy, axesMeta } from '../../lib/worlds';
+import { chapters, themeTaxonomy, axesMeta } from '../../lib/worlds';
+import { kinPublished, kinLabels } from '../../lib/kin-worlds';
 import { TRAILS, trailSlug } from '../../lib/trails';
 import { publishedEssayFor } from '../../lib/trail-pages';
 
@@ -30,7 +31,8 @@ const trails = TRAILS.map((tr) => ({
 >
   <ComparePage
     client:load
-    worlds={worlds.filter((world) => !world.draft)}
+    worlds={kinPublished}
+    kinLabels={kinLabels}
     trails={trails}
     chapters={chapterCards}
     themeLabels={themeLabels}

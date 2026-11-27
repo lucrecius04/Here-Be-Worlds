@@ -5,7 +5,8 @@
  * Výběr hádanky pro den: `riddle-day.ts`. Stránky: `src/pages/hadanky/[key].json.ts`.
  */
 import type { LocalizedString, World } from '../schemas/world';
-import { worlds as allWorlds, chapters, themeTaxonomy } from './worlds';
+import { chapters, themeTaxonomy } from './worlds';
+import { kinWorlds as allWorlds } from './kin-worlds';
 import { uiT } from './i18n';
 import { mulberry32, shuffle } from './calendar';
 import { AXIS_KEYS } from './axes';

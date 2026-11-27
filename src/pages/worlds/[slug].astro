@@ -9,6 +9,7 @@ import {
   themeTaxonomy,
   resolveRelatedWorlds,
 } from '../../lib/worlds';
+import { kinWorlds } from '../../lib/kin-worlds';
 import { t } from '../../lib/i18n';
 import { TRAILS, trailSlug } from '../../lib/trails';
 import { publishedEssayFor } from '../../lib/trail-pages';
@@ -27,7 +28,8 @@ const base = import.meta.env.BASE_URL;
 const chapter = getChapterById(world.chapterId);
 const themeLabels = Object.fromEntries(themeTaxonomy.map((th) => [th.slug, th.label]));
 const baseUrl = base.replace(/\/$/, '');
-const related = resolveRelatedWorlds(world, worlds, themeLabels, baseUrl);
+// Příbuzenstvo počítá compare.ts nad světy doplněnými o triádu, vyprávění a paměť (kin-worlds.ts).
+const related = resolveRelatedWorlds(world, kinWorlds, themeLabels, baseUrl);
 const chapterAccents = Object.fromEntries(chapters.map((c) => [c.id, { ...c.accent, title: c.title }]));
 
 // Putování, kterými svět prochází (záložka Putování): trasa světů v barvách archetypů.

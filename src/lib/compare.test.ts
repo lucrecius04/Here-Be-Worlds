@@ -1,7 +1,11 @@
 import { describe, expect, it } from 'vitest';
 import {
+  HALF_MAX,
+  PILLARS,
   affinityBreakdown,
   affinityPercent,
+  kinshipEvidence,
+  kinshipHalves,
   farthestAxis,
   kinshipPairs,
   kinshipPercent,
@@ -14,6 +18,7 @@ import {
   themeCoverage,
 } from './compare';
 import type { World } from '../schemas/world';
+import { kinPublished } from './kin-worlds';
 
 function axisStub(value: number): World['axes'] {
   const comment = { en: 'c', cs: 'c' };
@@ -71,89 +76,211 @@ const minimal = (
     ...extras,
   }) as World;
 
-describe('affinityBreakdown', () => {
-  it('awards archetype plus overlap when the other main matches a sub cue', () => {
+type Kin = NonNullable<World['kin']>;
+const kin = (over: Partial<Kin> = {}): Kin => ({
+  sin: 's1',
+  dilemma: 'd1',
+  mystery: 'm1',
+  tools: [],
+  memory: null,
+  myth: false,
+  ...over,
+});
+/** Dva světy lišící se ve všem kromě toho, co test nastaví (jiný archetyp, žádná společná pole). */
+const apart = (id: string, extras: Partial<World> = {}): World =>
+  minimal(id, [], 1, 1, {
+    chapterId: `ch-${id}`,
+    metadata: {
+      genreProfile: field(`g-${id}`),
+      atmosphere: field(`m-${id}`),
+      spatialScope: field(`sp-${id}`),
+      historicalDepth: field(`h-${id}`),
+      societalOrder: field(`so-${id}`),
+      sourceOfPower: field(`p-${id}`),
+      protagonistPerspective: field(`pp-${id}`),
+      keyActors: field('x'),
+    },
+    ...extras,
+  });
+
+describe('affinityBreakdown: šest pilířů', () => {
+  it('váhy pilířů dávají dohromady 100 (podoba 62, povaha 38)', () => {
+    expect(PILLARS.reduce((sum, p) => sum + p.max, 0)).toBe(100);
+    expect(PILLARS.filter((p) => p.half === 'look').reduce((sum, p) => sum + p.max, 0)).toBe(HALF_MAX.look);
+    expect(PILLARS.filter((p) => p.half === 'nature').reduce((sum, p) => sum + p.max, 0)).toBe(HALF_MAX.nature);
+  });
+
+  it('archetyp: stejný archetyp 6, stejný profil 4, příbuzný profil 2', () => {
     const a = minimal('a', [], 3, 3, {
-      metadata: {
-        ...minimal('a', [], 3).metadata,
-        genreProfile: field('High fantasy', 'overlap: dark fantasy'),
-      },
+      metadata: { ...minimal('a', [], 3).metadata, genreProfile: field('High fantasy', 'overlap: dark fantasy') },
     });
-    const b = minimal('b', [], 3, 3, {
-      chapterId: 'fantasy',
-      metadata: {
-        ...minimal('b', [], 3).metadata,
-        genreProfile: field('Dark fantasy'),
-      },
+    const same = minimal('b', [], 3);
+    const near = minimal('c', [], 3, 3, { metadata: { ...minimal('c', [], 3).metadata, genreProfile: field('Dark fantasy') } });
+    const other = minimal('d', [], 3, 3, { metadata: { ...minimal('d', [], 3).metadata, genreProfile: field('Science fantasy') } });
+    expect(affinityBreakdown(a, same).archetype).toBe(10);
+    expect(affinityBreakdown(a, near).archetype).toBe(8);
+    expect(affinityBreakdown(a, other).archetype).toBe(6);
+    expect(affinityBreakdown(a, { ...other, chapterId: 'horror' } as World).archetype).toBe(0);
+  });
+
+  it('souřadnice: 5 / 3,5 / 1,5 / 0 za rozdíl 0, 1, 2 a víc', () => {
+    const base = minimal('a', [], 3);
+    expect(affinityBreakdown(base, minimal('b', [], 3)).axes).toBe(25);
+    expect(affinityBreakdown(base, minimal('c', [], 4)).axes).toBe(17.5);
+    expect(affinityBreakdown(base, minimal('d', [], 5)).axes).toBe(7.5);
+    expect(affinityBreakdown(minimal('hi', [], 5), minimal('lo', [], 1)).axes).toBe(0);
+  });
+
+  it('nálada se počítá jako dvojice hlavní + vedlejší, 4 body za každou společnou', () => {
+    const mood = (id: string, main: string, sub?: string) =>
+      apart(id, { metadata: { ...apart(id).metadata, atmosphere: field(main, sub ? `secondary: ${sub}` : undefined) } });
+    const a = mood('a', 'Melancholy', 'Hope');
+    expect(affinityBreakdown(a, mood('b', 'Hope', 'Melancholy')).character).toBe(8);
+    expect(affinityBreakdown(a, mood('c', 'Melancholy', 'Fear')).character).toBe(4);
+    expect(affinityBreakdown(a, mood('d', 'Wonder', 'Melancholy')).character).toBe(4);
+    expect(affinityBreakdown(a, mood('e', 'Wonder', 'Fear')).character).toBe(0);
+  });
+
+  it('charakter: moc 5, společnost 4, dosah 4, perspektiva 2 a paměť světa 4', () => {
+    const a = apart('a', { kin: kin({ memory: 10_000, myth: true }) });
+    const withField = (key: keyof World['metadata']) =>
+      apart('b', { metadata: { ...apart('b').metadata, [key]: a.metadata[key] } as World['metadata'] });
+    expect(affinityBreakdown(a, withField('sourceOfPower')).character).toBe(5);
+    expect(affinityBreakdown(a, withField('societalOrder')).character).toBe(4);
+    expect(affinityBreakdown(a, withField('spatialScope')).character).toBe(4);
+    expect(affinityBreakdown(a, withField('protagonistPerspective')).character).toBe(2);
+    expect(affinityBreakdown(a, withField('historicalDepth')).character).toBe(2);
+    // délka paměti ve stejném řádu (do desetinásobku) 1 bod, mýtický čas u obou 1 bod
+    expect(affinityBreakdown(a, apart('c', { kin: kin({ memory: 60_000 }) })).character).toBe(1);
+    expect(affinityBreakdown(a, apart('d', { kin: kin({ memory: 500_000 }) })).character).toBe(0);
+    expect(affinityBreakdown(a, apart('e', { kin: kin({ memory: 500_000, myth: true }) })).character).toBe(1);
+    const all = minimal('x', [], 1, 1, { kin: kin({ memory: 10_000, myth: true }) });
+    const twin = minimal('y', [], 1, 1, {
+      metadata: { ...minimal('y', [], 1).metadata, atmosphere: field('Fascination', 'secondary: Hope') },
+      kin: kin({ memory: 10_000, myth: true }),
     });
+    const full = minimal('z', [], 1, 1, {
+      metadata: { ...minimal('z', [], 1).metadata, atmosphere: field('Fascination', 'secondary: Hope') },
+      kin: kin({ memory: 10_000, myth: true }),
+    });
+    expect(affinityBreakdown(all, twin).character).toBe(23); // jen jedna společná nálada
+    expect(affinityBreakdown(twin, full).character).toBe(27);
+  });
+
+  it('témata: 9 / 16 / 22 za jedno, dvě, tři a víc společných', () => {
+    const a = minimal('a', ['faith', 'war', 'power', 'gods'], 3);
+    expect(affinityBreakdown(a, minimal('b', [], 3)).themes).toBe(0);
+    expect(affinityBreakdown(a, minimal('b', ['faith'], 3)).themes).toBe(9);
+    expect(affinityBreakdown(a, minimal('c', ['faith', 'war'], 3)).themes).toBe(16);
+    expect(affinityBreakdown(a, minimal('d', ['faith', 'war', 'power'], 3)).themes).toBe(22);
+    expect(affinityBreakdown(a, minimal('e', ['faith', 'war', 'power', 'gods'], 3)).themes).toBe(22);
+  });
+
+  it('triáda: hřích 4 (hraniční „také“ 2), dilema 4, druh tajemství 2', () => {
+    const a = apart('a', { kin: kin({ sin: 's1', sinAlso: 's9', dilemma: 'd1', mystery: 'm1' }) });
+    const t = (over: Partial<Kin>) => affinityBreakdown(a, apart('b', { kin: kin({ sin: 's2', dilemma: 'd2', mystery: 'm2', ...over }) })).triad;
+    expect(t({})).toBe(0);
+    expect(t({ sin: 's1' })).toBe(4);
+    expect(t({ sin: 's9' })).toBe(2);
+    expect(t({ sin: 's3', sinAlso: 's1' })).toBe(2);
+    expect(t({ dilemma: 'd1' })).toBe(4);
+    expect(t({ mystery: 'm1' })).toBe(2);
+    expect(t({ sin: 's1', dilemma: 'd1', mystery: 'm1' })).toBe(10);
+  });
+
+  it('svět bez údajů `kin` za triádu a vyprávění nedostane nic', () => {
+    const score = affinityBreakdown(apart('a'), apart('b'));
+    expect(score.triad).toBe(0);
+    expect(score.narration).toBe(0);
+  });
+
+  it('vyprávění: jeden společný způsob 4, dva 6, jinak 2 za společný kruh Zákulisí nebo Hráč', () => {
+    const tools = (...list: Array<[string, string, string?]>) => kin({ tools: list.map(([t, ring, also]) => ({ t, ring, ...(also ? { also } : {}) })) });
+    const a = apart('a', { kin: tools(['pamet-hry', 'zakulisi'], ['hudba', 'obraz-a-zvuk'], ['prunik', 'hrac']) });
+    const n = (k: Kin) => affinityBreakdown(a, apart('b', { kin: k })).narration;
+    expect(n(tools(['vrstvy', 'prostor-a-stopy']))).toBe(0);
+    expect(n(tools(['hudba', 'obraz-a-zvuk']))).toBe(4);
+    expect(n(tools(['hudba', 'obraz-a-zvuk'], ['pamet-hry', 'zakulisi']))).toBe(6);
+    // jiný způsob ve stejném vzácném kruhu
+    expect(n(tools(['rozhrani', 'zakulisi']))).toBe(2);
+    expect(n(tools(['rozhrani', 'zakulisi'], ['cizi-hraci', 'hrac']))).toBe(4);
+    // druhý kruh nástroje („také“) se počítá, běžné kruhy ne
+    expect(n(tools(['zapisky', 'prostor-a-stopy', 'hrac']))).toBe(2);
+    expect(n(tools(['jiny-zvuk', 'obraz-a-zvuk']))).toBe(0);
+    // společný způsob + další vzácný kruh, strop 6
+    expect(n(tools(['hudba', 'obraz-a-zvuk'], ['rozhrani', 'zakulisi'], ['cizi-hraci', 'hrac']))).toBe(6);
+    // kruh pokrytý společným způsobem se nepočítá podruhé
+    expect(n(tools(['pamet-hry', 'zakulisi']))).toBe(4);
+  });
+
+  it('index je součet šesti pilířů, podoba a povaha jeho dvě části', () => {
+    const a = minimal('a', ['faith'], 3, 3, { kin: kin({ tools: [{ t: 'x', ring: 'slovo' }] }) });
+    const b = minimal('b', ['faith'], 4, 5, { kin: kin({ tools: [{ t: 'x', ring: 'slovo' }] }) });
     const score = affinityBreakdown(a, b);
-    expect(score.archetype).toBe(16);
-    const noOverlap = affinityBreakdown(
-      a,
-      minimal('c', [], 3, 3, {
-        metadata: {
-          ...minimal('c', [], 3).metadata,
-          genreProfile: field('Science fantasy'),
-        },
-      }),
-    );
-    expect(noOverlap.archetype).toBe(12);
-  });
-
-  it('adds atmosphere cross-match between main and secondary mood', () => {
-    const a = minimal('a', [], 3, 3, {
-      metadata: {
-        ...minimal('a', [], 3).metadata,
-        atmosphere: field('Fascination', 'secondary: Tension'),
-      },
-    });
-    const b = minimal('b', [], 3, 3, {
-      metadata: {
-        ...minimal('b', [], 3).metadata,
-        atmosphere: field('Tension'),
-      },
-    });
-    const withCross = affinityBreakdown(a, b);
-    const none = affinityBreakdown(
-      a,
-      minimal('c', [], 3, 3, {
-        metadata: {
-          ...minimal('c', [], 3).metadata,
-          atmosphere: field('Melancholy'),
-        },
-      }),
-    );
-    expect(withCross.character - none.character).toBe(3);
-  });
-
-  it('uses the discrete axis table Δ0=7, Δ1=5, Δ2=2, Δ3=0', () => {
-    const base = minimal('a', ['faith'], 3);
-    const d0 = affinityBreakdown(base, minimal('b', ['faith'], 3));
-    const d1 = affinityBreakdown(base, minimal('c', ['faith'], 4));
-    const d2 = affinityBreakdown(base, minimal('d', ['faith'], 5));
-    const d3 = affinityBreakdown(minimal('hi', ['faith'], 5), minimal('lo', ['faith'], 1));
-    expect(d0.axes).toBe(35);
-    expect(d1.axes).toBe(25);
-    expect(d2.axes).toBe(10);
-    expect(d3.axes).toBe(0);
-  });
-
-  it('scores shared themes as 6 / 11 / 15', () => {
-    const a = minimal('a', ['faith', 'war', 'power'], 3);
-    const one = affinityBreakdown(a, minimal('b', ['faith'], 3));
-    const two = affinityBreakdown(a, minimal('c', ['faith', 'war'], 3));
-    const three = affinityBreakdown(a, minimal('d', ['faith', 'war', 'power'], 3));
-    expect(one.themes).toBe(6);
-    expect(two.themes).toBe(11);
-    expect(three.themes).toBe(15);
-  });
-
-  it('equals the sum of rounded pillars', () => {
-    const a = minimal('a', ['faith'], 3);
-    const b = minimal('b', ['war'], 5);
-    const score = affinityBreakdown(a, b);
+    expect(score.look).toBe(score.archetype + score.axes + score.character);
+    expect(score.nature).toBe(score.themes + score.triad + score.narration);
+    expect(score.percent).toBe(score.look + score.nature);
     expect(affinityPercent(a, b)).toBe(score.percent);
-    expect(score.percent).toBe(score.archetype + score.axes + score.character + score.themes);
+    const twin = affinityBreakdown(a, { ...a, id: 'c' } as World);
+    expect(twin.percent).toBeLessThanOrEqual(100);
+  });
+
+  it('důkazy říkají, co světy sdílejí', () => {
+    const a = minimal('a', ['faith', 'war'], 3, 3, { kin: kin({ myth: true, tools: [{ t: 'hudba', ring: 'obraz-a-zvuk' }] }) });
+    const b = minimal('b', ['war', 'gods'], 3, 4, { kin: kin({ myth: true, dilemma: 'd2', tools: [{ t: 'hudba', ring: 'obraz-a-zvuk' }] }) });
+    const ev = kinshipEvidence(a, b);
+    expect(ev.archetype).toEqual({ chapter: true, profile: 'same' });
+    expect(ev.axes.same).toHaveLength(4);
+    expect(ev.axes.near).toEqual(['hopeDespair']);
+    expect(ev.themes).toEqual(['war']);
+    expect(ev.triad).toEqual({ sin: 'same', dilemma: false, mystery: true });
+    expect(ev.narration).toEqual({ techniques: ['hudba'], rings: [] });
+    expect(ev.character.myth).toBe(true);
+    expect(ev.character.moods).toEqual(['main']);
+  });
+});
+
+/* Skutečná data: výpočet musí sedět na světech doplněných o `kin` (kin-worlds.ts). */
+describe('příbuznost nad daty atlasu', () => {
+  const W = (id: string) => kinPublished.find((w) => w.id === id)!;
+
+  it('každý publikovaný svět má údaje pro triádu, vyprávění a paměť', () => {
+    const missing = kinPublished.filter((w) => !w.kin || w.kin.tools.length === 0).map((w) => w.id);
+    expect(missing).toEqual([]);
+  });
+
+  it('Dark Souls × Outer Wilds: vypadají jinak, ale stojí na stejných základech', () => {
+    const score = affinityBreakdown(W('dark-souls'), W('outer-wilds'));
+    expect(score.archetype).toBe(0);
+    expect(score.themes).toBe(22);
+    expect(score.triad).toBe(8);
+    expect(score.narration).toBe(6);
+    expect(kinshipLevel(W('dark-souls'), W('outer-wilds'), kinPublished)).toBe(4);
+    const halves = kinshipHalves(W('dark-souls'), W('outer-wilds'), kinPublished);
+    expect(halves.nature).toBe(5);
+    expect(halves.look).toBeLessThanOrEqual(3);
+  });
+
+  it('Dark Souls × Elden Ring zůstávají Sourozenci', () => {
+    expect(kinshipLevel(W('dark-souls'), W('elden-ring'), kinPublished)).toBe(5);
+  });
+
+  it('Undertale × Inscryption: žádný společný způsob, ale společné kruhy Zákulisí a Hráč', () => {
+    const ev = kinshipEvidence(W('undertale'), W('inscryption'));
+    expect(ev.narration.techniques).toEqual([]);
+    expect(ev.narration.rings.length).toBeGreaterThan(0);
+  });
+
+  it('stupně drží podíly 3 / 9 / 23 / 30 / 35 % všech dvojic', () => {
+    const counts = [0, 0, 0, 0, 0, 0];
+    for (let i = 0; i < kinPublished.length; i += 1)
+      for (let j = i + 1; j < kinPublished.length; j += 1) counts[kinshipLevel(kinPublished[i], kinPublished[j], kinPublished)] += 1;
+    const total = counts.reduce((a, b) => a + b, 0);
+    const share = (level: number) => counts[level] / total;
+    expect(share(5)).toBeGreaterThan(0.02);
+    expect(share(5)).toBeLessThan(0.06);
+    expect(share(5) + share(4)).toBeLessThan(0.16);
+    expect(share(1)).toBeGreaterThan(0.28);
   });
 });
 
@@ -264,8 +391,10 @@ describe('kinship levels', () => {
   });
 
   it('describes pillar strength in words', () => {
-    expect(pillarStrength(20, 20)).toBe('Strong');
-    expect(pillarStrength(0, 15)).toBe('None');
-    expect(pillarStrength(6, 15)).toBe('Partial');
+    expect(pillarStrength(22, 22)).toBe('Strong');
+    expect(pillarStrength(16, 22)).toBe('Marked');
+    expect(pillarStrength(9, 22)).toBe('Partial');
+    expect(pillarStrength(2, 10)).toBe('Faint');
+    expect(pillarStrength(0, 10)).toBe('None');
   });
 });
