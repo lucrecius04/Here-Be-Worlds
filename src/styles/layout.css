@@ -59,6 +59,24 @@ body:has(.world-card--page) {
   flex: none;
 }
 
+/* Znak má dvě podoby (W1 výchozí, Z1 přes ?znak=z1, viz BrandMark.tsx). */
+.brand-mark-pair {
+  display: inline-flex;
+}
+
+.brand-mark-pair svg {
+  display: block;
+}
+
+.brand-mark__z1,
+html[data-znak='z1'] .brand-mark__w1 {
+  display: none !important;
+}
+
+html[data-znak='z1'] .brand-mark__z1 {
+  display: block !important;
+}
+
 .site-header__tagline {
   margin: 0.3rem 0 0 0.25rem;
   font-family: var(--font-mono);

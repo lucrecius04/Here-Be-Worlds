@@ -84,6 +84,44 @@ const published = worlds
       })();
     </script>
     <script is:inline>
+      /* Znak webu: W1 (výchozí) nebo Z1. ?znak=z1|w1 uloží volbu a ukáže tlačítko pro přepínání, ?znak=vypnout vrátí W1 (hbw_znak). */
+      (function () {
+        var KEY = 'hbw_znak';
+        var q = new URLSearchParams(location.search).get('znak');
+        var v = null;
+        try {
+          if (q === 'w1' || q === 'z1') localStorage.setItem(KEY, q);
+          else if (q === 'vypnout') localStorage.removeItem(KEY);
+          v = localStorage.getItem(KEY);
+        } catch (e) {}
+        if (v === 'z1') document.documentElement.setAttribute('data-znak', 'z1');
+        if (!v) return;
+        function button() {
+          if (document.getElementById('hbw-znak-toggle')) return;
+          var b = document.createElement('button');
+          b.id = 'hbw-znak-toggle';
+          b.type = 'button';
+          var label = function () {
+            b.textContent = 'Znak: ' + (document.documentElement.getAttribute('data-znak') === 'z1' ? 'Z1' : 'W1') + ' \u21C4';
+          };
+          label();
+          b.title = 'Přepínač podoby znaku (?znak=vypnout ho schová)';
+          b.style.cssText = 'position:fixed;left:12px;bottom:52px;z-index:60;font:12px/1 var(--font-mono);padding:8px 10px;background:var(--color-paper);color:var(--color-ink, currentColor);border:1px solid var(--color-line);cursor:pointer';
+          b.onclick = function () {
+            var root = document.documentElement;
+            var next = root.getAttribute('data-znak') === 'z1' ? 'w1' : 'z1';
+            if (next === 'z1') root.setAttribute('data-znak', 'z1');
+            else root.removeAttribute('data-znak');
+            try { localStorage.setItem(KEY, next); } catch (e) {}
+            label();
+          };
+          document.body.appendChild(b);
+        }
+        if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', button);
+        else button();
+      })();
+    </script>
+    <script is:inline>
       // Tisk a uložení do PDF: na papír vždy světlý motiv (i barvy archetypů), rozbalené spoilery
       // a načtené obrázky; po tisku se vše vrátí. Vzhled stránky na papíře řeší print.css.
       (function () {

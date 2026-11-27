@@ -3,7 +3,19 @@
 Záznam z hledání znaku (listopad 2026), aby se neopakovaly cesty, které nefungovaly.
 Návrhy jsou na plátně Design v Claude „Here Be Worlds — logo a značka“.
 
-## Finální znak (od 2026-11-18)
+## Nový znak na webu (od 2026-11-27, zkušebně): loď s brkem jako plachtou
+
+- Ikona lodi je **majitelova** (Illustrator, `Ikonka_HBW.svg`, 16 × 16): plachta je brk se dvěma zářezy, pod ní trup a vlna. Obrysy byly vyhlazené (původní obtažená cesta měla „zuby“ na hranách zářezů); vyhlazení: rastr 2000 px, Gaussovo vyhlazení obrysu s ochranou ostrých rohů, husté Catmull-Rom křivky.
+- Ikona stojí v **kruhu světa** (r 7,6 kolem bodu 8 / 9,6 v souřadnicích ikony) a **špička plachty z kruhu vyjíždí** nahoru: Here Be Worlds = plavba za okraj mapy. Mezery mezi lodí a kruhem jsou tah v barvě noci (`--color-night`).
+- **Zlatá je vlna** (putování, cesta, hladina; zlatá je na webu barva putování), plachta je celá krémová. Zlatá špička i zlatá vlna najednou se perou (zamítnuto).
+- Dvě podoby, mezi kterými majitel vybírá (přepínač `?znak=w1|z1|vypnout`, localStorage `hbw_znak`, `data-znak` na `<html>`, tlačítko „Znak: W1 ⇄“ vlevo dole jen u toho, kdo ho zapne):
+  - **W1 (výchozí):** šedý kruh (`--mark-shade`), vlna natažená 1,3× do šířky, takže **i vlna prorazí kruh** do obou stran,
+  - **Z1:** krémový kruh (`--mark-light`), vlna uvnitř.
+- Barvy jen z palety znaku: krémová, zlatá, šedá na noci. Ultramarínový akcent (odkazy) ani barvy archetypů do znaku nepatří.
+- Kód: `src/components/i18n/BrandMark.tsx` (cesty `FEATHER`, `HULL`, `WAVE`, výřez `SAIL_VIEWBOX`, čtverec), CSS `.brand-mark-pair` v `layout.css`, přepínač v `BaseLayout`. **Favicony, ikona pro iPhone a karty pro sdílení zatím mají starý znak** (předělat po rozhodnutí W1 / Z1; na favicon navržen kotouč v negativu se zlatou vlnou, W6 / Z5).
+- Hledání 2026-11-26/27 (zamítnuto): koule na plátky (tisíce podobných log), pravidelné pruhy v kruhu, okraj mapy se šrafami, souhvězdí, mořský had (táhne k fantasy), neutrální ikonky (dveře, kompas, kniha, obzor), zvířátka (sova, kočka…), linka jedním tahem, svět jako kniha, šestiúhelník-kniha, ovladač s hradní bránou. Vodítko od majitele: pravidelnost a jeden nápad jako ikona GitHubu; volná ikona bez rámu „není ono“, kruh ano.
+
+## Předchozí znak (2026-11-18 až 2026-11-27)
 
 - Kotouč světa rozložený na **čtyři vodorovné vrstvy** (vyprávění, historie, klasifikace, mapa).
 - Vrstvy jsou rozjeté do **schodů se sklonem /**, stejně jako kurzíva „*Be*“ v nápisu.
