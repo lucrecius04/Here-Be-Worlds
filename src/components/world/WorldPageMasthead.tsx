@@ -33,7 +33,9 @@ export default function WorldPageMasthead({ base, world, chapterTitle, overlapTi
         {archetype ? (
           <>
             <span aria-hidden="true">/</span>
-            <a href={withBase(base, `/chapters/${world.chapterId}/`)}>{archetype}</a>
+            <a href={withBase(base, `/chapters/${world.chapterId}/`)} title={uiT('world.genreLine', locale)}>
+              {archetype}
+            </a>
           </>
         ) : null}
         {/* přesah do druhého archetypu: stejná mluva jako přesah profilu v záložce pod tím */}
@@ -47,7 +49,7 @@ export default function WorldPageMasthead({ base, world, chapterTitle, overlapTi
           </>
         ) : null}
       </p>
-      <span className="wp-head__tab">
+      <span className="wp-head__tab" title={uiT('card.genreProfile', locale)}>
         {genre}
         {genreSub ? ` · ${genreSub}` : ''}
       </span>

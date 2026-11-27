@@ -14,6 +14,13 @@ const { id } = Astro.params;
 const chapter = chapters.find((c) => c.id === id);
 if (!chapter) throw new Error(`Unknown chapter: ${id}`);
 const list = worlds.filter((w) => w.chapterId === id && !w.draft);
+/* Světy, které do tohoto archetypu přesahují (`secondaryChapterId`): odkaz „přesah“ ze spisu vede sem. */
+const overlapping = worlds
+  .filter((w) => w.secondaryChapterId === id && !w.draft)
+  .map((w) => {
+    const home = chapters.find((c) => c.id === w.chapterId);
+    return { id: w.id, title: w.gameTitle, chapter: home ? home.short ?? home.title : { en: w.chapterId }, accent: home?.accent };
+  });
 const base = import.meta.env.BASE_URL;
 const themeLabels = Object.fromEntries(themeTaxonomy.map((t) => [t.slug, t.label]));
 
@@ -45,6 +52,7 @@ for (const world of list) {
     accent={chapter.accent}
     worlds={list}
     extras={extras}
+    overlapping={overlapping}
     themeLabels={themeLabels}
     base={base.replace(/\/$/, '')}
   />

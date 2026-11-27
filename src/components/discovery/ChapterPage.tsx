@@ -17,11 +17,24 @@ type Props = {
   accent: { light: string; dark: string };
   worlds: World[];
   extras?: Record<string, WorldTeaserExtra>;
+  /** Světy jiných archetypů, které sem přesahují. */
+  overlapping?: Array<{ id: string; title: LocalizedString; chapter: LocalizedString; accent?: { light: string; dark: string } }>;
   themeLabels?: Record<string, LocalizedString>;
   base: string;
 };
 
-export default function ChapterPage({ id, title, thesis, lead, accent, worlds, extras, themeLabels, base }: Props) {
+export default function ChapterPage({
+  id,
+  title,
+  thesis,
+  lead,
+  accent,
+  worlds,
+  extras,
+  overlapping = [],
+  themeLabels,
+  base,
+}: Props) {
   const locale = useLocale();
   const hueVars = {
     '--chapter-hue-light': accent.light,
@@ -86,6 +99,28 @@ export default function ChapterPage({ id, title, thesis, lead, accent, worlds, e
           ))}
         </div>
       )}
+      {overlapping.length ? (
+        <section className="chapter-overlap" aria-labelledby="chapter-overlap-title">
+          <h2 id="chapter-overlap-title" className="chapter-overlap__label">
+            {uiT('chapterPage.overlapsHere', locale)}
+          </h2>
+          <ul className="chapter-overlap__list">
+            {overlapping.map((item) => (
+              <li
+                key={item.id}
+                style={
+                  item.accent
+                    ? ({ '--hue-l': item.accent.light, '--hue-d': item.accent.dark } as CSSProperties)
+                    : undefined
+                }
+              >
+                <a href={withBase(base, `/worlds/${item.id}/`)}>{t(item.title, locale)}</a>
+                <span>{t(item.chapter, locale)}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
     </article>
   );
 }

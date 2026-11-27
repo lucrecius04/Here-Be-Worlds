@@ -96,13 +96,6 @@ const PILLAR_ANCHOR: Record<PillarKey, string> = {
   narration: 'cmp-vypraveni',
 };
 
-function genreSub(world: World, locale: Locale): string {
-  const main = t(world.metadata.genreProfile, locale);
-  const extra = world.metadata.genreProfile.sub ? t(world.metadata.genreProfile.sub, locale) : '';
-  if (main && extra) return `${main} · ${extra}`;
-  return extra || main;
-}
-
 function hueStyle(index: number): CSSProperties {
   return { '--slot-hue': slotHue(index) } as CSSProperties;
 }
@@ -431,12 +424,15 @@ export default function ComparePage({ worlds, chapters, themeLabels, kinLabels, 
           label: uiT('world.genreLine', locale),
           values: selected.map((world) => {
             const chapter = chapterById.get(world.chapterId);
-            const main = chapter ? t(chapter.title, locale) : world.chapterId;
-            const over = world.secondaryChapterId ? chapterById.get(world.secondaryChapterId) : undefined;
-            return over ? `${main} · ${uiT('world.overlap', locale)} ${t(over.short ?? over.title, locale)}` : main;
+            return chapter ? t(chapter.title, locale) : world.chapterId;
           }),
-          subs: selected.map((world) => genreSub(world, locale) || null),
+          /* přesah do druhého archetypu, stejnou mluvou jako přesah profilu o řádek níž */
+          subs: selected.map((world) => {
+            const over = world.secondaryChapterId ? chapterById.get(world.secondaryChapterId) : undefined;
+            return over ? `${uiT('world.overlap', locale)} ${t(over.short ?? over.title, locale)}` : null;
+          }),
         },
+        factField(selected, locale, 'genreProfile', uiT('card.genreProfile', locale)),
         factField(selected, locale, 'atmosphere', uiT('card.atmosphere', locale)),
         factField(selected, locale, 'historicalDepth', uiT('card.historicalDepth', locale)),
         factField(selected, locale, 'spatialScope', uiT('card.spatialScope', locale)),
@@ -1118,9 +1114,8 @@ function WorldSlot({
       <div className="cmp-slot is-filled" ref={rootRef} style={hueStyle(index)}>
         <p className="cmp-kicker">
           {chapter ? t(chapter.title, locale) : selected.chapterId}
-          {selected.metadata.genreProfile.sub ? (
-            <span className="cmp-kicker__sub"> · {t(selected.metadata.genreProfile.sub, locale)}</span>
-          ) : null}
+          {/* archetyp · profil; přesahy obou jsou v tabulce Charakter */}
+          <span className="cmp-kicker__sub"> · {t(selected.metadata.genreProfile, locale)}</span>
         </p>
         <h2 className="cmp-slot__title display">
           <a href={withBase(base, `/worlds/${selected.id}/`)}>{t(selected.gameTitle, locale)}</a>

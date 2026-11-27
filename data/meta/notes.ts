@@ -8,14 +8,32 @@ export type NoteField = {
 
 export const noteFields: NoteField[] = [
   {
-    term: { cs: 'Profil archetypu', en: 'Archetype profile' },
+    term: { cs: 'Archetyp', en: 'Archetype' },
     help: {
-      cs: 'Svět patří do jednoho archetypu a v něm má profil (podtyp) pojmenovaný podle svých rysů. Obojí může mít přesah: archetyp do druhého archetypu, profil do sousedního podtypu.',
-      en: 'A world belongs to one archetype and, within it, has a profile (subtype) named after its traits. Either can have an overlap: the archetype into a second archetype, the profile into a neighbouring subtype.',
+      cs: 'Základní zařazení světa: jedna ze sedmi skupin podle toho, co svět určuje nejvíc. Archetyp dává světu barvu, souhvězdí na obloze atlasu a místo v katalogu.',
+      en: 'The basic placement of a world: one of seven groups, by what defines the world most. The archetype gives the world its colour, its constellation in the atlas sky and its place in the catalogue.',
     },
     values: {
       cs: 'Fantasy · Science fiction · Postapokalypsa · Horor · Historické a alternativní světy · Dystopie · Metafyzické a experimentální světy',
       en: 'Fantasy · Science fiction · Post-apocalypse · Horror · Historical and alternate worlds · Dystopia · Metaphysical and experimental worlds',
+    },
+  },
+  {
+    term: { cs: 'Profil archetypu', en: 'Archetype profile' },
+    help: {
+      cs: 'Podtyp uvnitř archetypu, pojmenovaný podle rysů konkrétního světa.',
+      en: 'A subtype within the archetype, named after the traits of the given world.',
+    },
+    values: {
+      cs: 'Například: Temná fantasy · Space opera · Kyberpunk · Kosmický horor · Postjaderná satira · Alternativní historie · Metafikce',
+      en: 'For example: Dark fantasy · Space opera · Cyberpunk · Cosmic horror · Post-nuclear satire · Alternate history · Metafiction',
+    },
+  },
+  {
+    term: { cs: 'Přesah', en: 'Overlap' },
+    help: {
+      cs: 'Kam svět sahá za své zařazení. Přesah archetypu míří do druhého archetypu, kam by svět mohl patřit také. Přesah profilu míří k sousednímu podtypu. Zapisujeme je stejně: Cyberpunk 2077 má archetyp „Dystopie · přesah: Science fiction“ a profil „Kyberpunk · přesah: noir“. Přesah má jen svět, u kterého je opravdu znát.',
+      en: 'Where a world reaches beyond its placement. The archetype overlap points to a second archetype the world could also belong to. The profile overlap points to a neighbouring subtype. Both are written the same way: Cyberpunk 2077 has the archetype “Dystopia · overlap: Science fiction” and the profile “Cyberpunk · overlap: noir”. Only a world where it truly shows has an overlap.',
     },
   },
   {
