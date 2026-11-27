@@ -6,7 +6,6 @@ import { withBase } from '../../lib/base-url';
 import {
   MAX_COMPARE,
   PILLARS,
-  curatedPairs,
   discoveryPairs,
   kinshipCutoffs,
   kinshipEvidence,
@@ -28,7 +27,14 @@ import {
   valueFrequencies,
   writeCompareQuery,
 } from '../../lib/compare';
-import type { KinLabels } from '../../lib/kin-worlds';
+import {
+  PILLAR_LABEL,
+  evidenceItems,
+  natureBond,
+  pillarEvidence,
+  type EvidenceCtx,
+  type KinLabels,
+} from '../../lib/kin-evidence';
 import AxisOverlay from './AxisOverlay';
 import '../../styles/compare.css';
 
@@ -89,27 +95,6 @@ const PILLAR_ANCHOR: Record<PillarKey, string> = {
   triad: 'cmp-triada',
   narration: 'cmp-vypraveni',
 };
-
-const PILLAR_LABEL: Record<PillarKey, string> = {
-  archetype: 'compare.pillarArchetype',
-  axes: 'compare.pillarAxes',
-  character: 'compare.pillarCharacter',
-  themes: 'compare.pillarThemes',
-  triad: 'compare.pillarTriad',
-  narration: 'compare.pillarNarration',
-};
-
-const AXIS_NAME: Record<string, string> = {
-  hopeDespair: 'map.nameHopeDespair',
-  knownUnknown: 'map.nameKnownUnknown',
-  intimateEpic: 'map.nameIntimateEpic',
-  moralClarityAmbiguity: 'map.nameMoralClarityAmbiguity',
-  realismMetaphysical: 'map.nameRealismMetaphysical',
-};
-
-const SUB_PREFIX = /^(overlap|přesah|secondary|vedlejší)\s*:\s*/i;
-/** Nejvýš tolik položek na vlákně; zbytek se shrne do „+N“. */
-const EVIDENCE_MAX = 4;
 
 function genreSub(world: World, locale: Locale): string {
   const main = t(world.metadata.genreProfile, locale);
@@ -199,82 +184,22 @@ function MethodHint({ locale }: { locale: Locale }) {
   );
 }
 
-type ThreadEvidence = { items: string[]; lead?: string; more?: number; muted?: boolean };
-
-/** Co dva světy v jednom pilíři sdílejí, slovy (důkaz uprostřed vlákna). */
-function threadEvidence(
-  key: PillarKey,
-  a: World,
-  b: World,
-  ctx: { locale: Locale; chapterById: Map<string, ChapterInfo>; themeLabels: Record<string, LocalizedString>; kinLabels: KinLabels },
-): ThreadEvidence {
-  const { locale, chapterById, themeLabels, kinLabels } = ctx;
-  const ev = kinshipEvidence(a, b);
-  const cap = (items: string[], lead?: string): ThreadEvidence =>
-    items.length > EVIDENCE_MAX
-      ? { items: items.slice(0, EVIDENCE_MAX), more: items.length - EVIDENCE_MAX, lead }
-      : { items, lead };
-  const none = (text: string): ThreadEvidence => ({ items: [text], muted: true });
-  const chapterName = (w: World) => {
-    const ch = chapterById.get(w.chapterId);
-    return ch ? t(ch.short ?? ch.title, locale) : w.chapterId;
+/** Kontext pro slovní důkazy příbuznosti (kin-evidence.ts). */
+function evidenceCtx(
+  locale: Locale,
+  chapterById: Map<string, ChapterInfo>,
+  themeLabels: Record<string, LocalizedString>,
+  kinLabels: KinLabels,
+): EvidenceCtx {
+  return {
+    locale,
+    kinLabels,
+    chapterName: (world) => {
+      const chapter = chapterById.get(world.chapterId);
+      return chapter ? t(chapter.short ?? chapter.title, locale) : world.chapterId;
+    },
+    themeLabel: (slug) => (themeLabels[slug] ? t(themeLabels[slug], locale) : slug),
   };
-
-  if (key === 'archetype') {
-    const items: string[] = [];
-    if (ev.archetype.chapter) items.push(chapterName(a));
-    if (ev.archetype.profile === 'same') items.push(t(a.metadata.genreProfile, locale));
-    else if (ev.archetype.profile === 'near') items.push(uiT('compare.evNearProfile', locale));
-    return items.length ? cap(items) : none(`${chapterName(a)} × ${chapterName(b)}`);
-  }
-
-  if (key === 'axes') {
-    /* souřadnic je jen pět, vypíšou se všechny */
-    const names = (keys: string[]) => keys.map((k) => uiT(AXIS_NAME[k], locale));
-    if (ev.axes.same.length)
-      return { items: names(ev.axes.same), lead: uiT(ev.axes.same.length === 1 ? 'compare.evAxesSameOne' : 'compare.evAxesSameMany', locale) };
-    if (ev.axes.near.length)
-      return { items: names(ev.axes.near), lead: uiT(ev.axes.near.length === 1 ? 'compare.evAxesNearOne' : 'compare.evAxesNearMany', locale) };
-    return none(uiT('compare.evAxesNone', locale));
-  }
-
-  if (key === 'character') {
-    const items: string[] = [];
-    for (const where of ev.character.moods) {
-      const field = where === 'main' ? a.metadata.atmosphere : a.metadata.atmosphere.sub;
-      if (field) items.push(t(field, locale).replace(SUB_PREFIX, ''));
-    }
-    for (const field of ev.character.fields) {
-      const value = t(a.metadata[field], locale);
-      items.push(field === 'historicalDepth' ? uiT('compare.evDepth', locale).replace('{v}', value) : value);
-    }
-    if (ev.character.myth) items.push(uiT('compare.evMyth', locale));
-    if (ev.character.memorySpan) items.push(uiT('compare.evMemory', locale));
-    return items.length ? cap(items) : none(uiT('compare.evCharacterNone', locale));
-  }
-
-  if (key === 'themes') {
-    const items = ev.themes.map((slug) => (themeLabels[slug] ? t(themeLabels[slug], locale) : slug));
-    return items.length ? cap(items) : none(uiT('compare.evThemesNone', locale));
-  }
-
-  if (key === 'triad') {
-    const ka = a.kin;
-    const kb = b.kin;
-    if (!ka || !kb) return none('–');
-    const label = (group: Record<string, LocalizedString>, id: string) => (group[id] ? t(group[id], locale) : id);
-    const items: string[] = [];
-    if (ev.triad.sin === 'same') items.push(label(kinLabels.sin, ka.sin));
-    else if (ev.triad.sin === 'near') items.push(label(kinLabels.sin, ka.sinAlso === kb.sin ? kb.sin : ka.sin));
-    if (ev.triad.dilemma) items.push(label(kinLabels.dilemma, ka.dilemma));
-    if (ev.triad.mystery) items.push(label(kinLabels.mystery, ka.mystery));
-    return items.length ? cap(items) : none(`${label(kinLabels.sin, ka.sin)} × ${label(kinLabels.sin, kb.sin)}`);
-  }
-
-  const items = ev.narration.techniques.map((id) => (kinLabels.technique[id] ? t(kinLabels.technique[id].label, locale) : id));
-  for (const ring of ev.narration.rings)
-    items.push(uiT('compare.evRing', locale).replace('{v}', kinLabels.ring[ring] ? t(kinLabels.ring[ring], locale) : ring));
-  return items.length ? cap(items) : none(uiT('compare.evNarrationNone', locale));
 }
 
 /** Věta o druhu příbuznosti: stupeň podoby a stupeň povahy slovy. */
@@ -313,7 +238,7 @@ function Threads({
   themeLabels: Record<string, LocalizedString>;
   kinLabels: KinLabels;
 }) {
-  const ctx = { locale, chapterById, themeLabels, kinLabels };
+  const ctx = evidenceCtx(locale, chapterById, themeLabels, kinLabels);
   const group = (half: KinHalf) => PILLARS.filter((pillar) => pillar.half === half);
   let order = 0;
   return (
@@ -343,7 +268,7 @@ function Threads({
           </div>
           {group(half).map((pillar) => {
             const strength = pillarStrength(score[pillar.key], pillar.max);
-            const evidence = threadEvidence(pillar.key, a, b, ctx);
+            const evidence = pillarEvidence(pillar.key, a, b, ctx);
             const index = order;
             order += 1;
             return (
@@ -476,7 +401,10 @@ export default function ComparePage({ worlds, chapters, themeLabels, kinLabels, 
 
   const cutoffs = useMemo(() => kinshipCutoffs(worlds), [worlds]);
   const discovery = useMemo(() => discoveryPairs(catalog), [catalog]);
-  const curated = useMemo(() => curatedPairs(catalog), [catalog]);
+  const startCtx = useMemo(
+    () => evidenceCtx(locale, chapterById, themeLabels, kinLabels),
+    [locale, chapterById, themeLabels, kinLabels],
+  );
   const draw = (pool: DiscoveryPair[], salt: number) => pickSome(pool, 3, seed ? seed + salt : 0);
   const pairLevel = (a: World, b: World) => kinshipLevel(a, b, worlds);
 
@@ -640,13 +568,18 @@ export default function ComparePage({ worlds, chapters, themeLabels, kinLabels, 
               />
             ) : (
               <PairList
-                title={uiT('compare.suggested', locale)}
-                items={draw(curated, 1).map(({ a, b, level }) => ({
-                  key: `${a.id}-${b.id}`,
-                  label: `${worldName(a)} × ${worldName(b)}`,
-                  level,
-                  onPick: () => commit([a.id, b.id]),
-                }))}
+                title={uiT('compare.hidden', locale)}
+                items={draw(discovery.hidden, 1).map(({ a, b, level }) => {
+                  /* čím jsou si blízcí povahou: nejsilnější pouto z témat, triády a vyprávění */
+                  const why = natureBond(a, b, startCtx);
+                  return {
+                    key: `${a.id}-${b.id}`,
+                    label: `${worldName(a)} × ${worldName(b)}`,
+                    level,
+                    why: { label: uiT(PILLAR_LABEL[why.pillar], locale), text: evidenceItems(why.evidence) },
+                    onPick: () => commit([a.id, b.id]),
+                  };
+                })}
                 locale={locale}
               />
             )}
@@ -928,7 +861,14 @@ function PairList({
   locale,
 }: {
   title: string;
-  items: Array<{ key: string; label: string; level: KinshipLevel; onPick: () => void }>;
+  items: Array<{
+    key: string;
+    label: string;
+    level: KinshipLevel;
+    /** Čím jsou si světy blízké (jen Skrytí příbuzní). */
+    why?: { label: string; text: string };
+    onPick: () => void;
+  }>;
   locale: Locale;
 }) {
   return (
@@ -940,6 +880,12 @@ function PairList({
             <button type="button" className="cmp-start__item" onClick={item.onPick}>
               <span className="cmp-start__name display">{item.label}</span>
               <span className="cmp-start__level">{uiT(`compare.kinLevel${item.level}`, locale)}</span>
+              {item.why ? (
+                <span className="cmp-start__why">
+                  <b>{item.why.label}</b>{' '}
+                  {item.why.text}
+                </span>
+              ) : null}
             </button>
           </li>
         ))}

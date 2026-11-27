@@ -410,6 +410,26 @@ html[data-theme='dark'] .cmp-slot__option {
   color: var(--color-ink-muted);
 }
 
+/* Skrytí příbuzní: čím jsou si světy blízké povahou */
+.cmp-start__why {
+  display: block;
+  margin-top: 0.35rem;
+  font-family: var(--font-text);
+  font-size: 0.9375rem;
+  line-height: 1.4;
+  color: var(--color-ink-muted);
+}
+
+.cmp-start__why b {
+  margin-right: 0.5em;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ink);
+}
+
 .cmp-start__item:hover .cmp-start__name,
 .cmp-start__item:focus-visible .cmp-start__name {
   color: var(--color-accent);

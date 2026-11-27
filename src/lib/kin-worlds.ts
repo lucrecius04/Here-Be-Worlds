@@ -6,7 +6,10 @@
  * a hotové světy se do prohlížeče posílají jako data stránky.
  */
 import type { KinFacts, LocalizedString, World } from '../schemas/world';
-import { worlds } from './worlds';
+import { chapters, themeTaxonomy, worlds } from './worlds';
+import { PILLAR_LABEL, evidenceItems, kinshipBonds, type Evidence, type EvidenceCtx, type KinLabels, type KinshipBonds } from './kin-evidence';
+import type { PillarKey } from './compare';
+import { t, uiT, type Locale } from './i18n';
 import { DEEP_TIME, summarize } from './deep-time';
 import { DILEMMA_TYPES, MYSTERY_KINDS, SIN_TYPES, WORLD_TRIAD_TYPES } from './triad-types';
 import { NARR_ASSIGNMENTS, NARR_RINGS, NARR_TECHNIQUES, techniqueOf } from './narrative-taxonomy';
@@ -45,15 +48,7 @@ export const kinWorlds: World[] = worlds.map((w) => {
 
 export const kinPublished: World[] = kinWorlds.filter((w) => !w.draft);
 
-/** Názvy pro důkazy na vláknech příbuznosti (Srovnání): typy triády, způsoby a kruhy vyprávění. */
-export type KinLabels = {
-  sin: Record<string, LocalizedString>;
-  dilemma: Record<string, LocalizedString>;
-  mystery: Record<string, LocalizedString>;
-  technique: Record<string, { label: LocalizedString; ring: string }>;
-  ring: Record<string, LocalizedString>;
-};
-
+/** Názvy pro důkazy příbuznosti: typy triády, způsoby a kruhy vyprávění. */
 const byId = (list: Array<{ id: string; label: LocalizedString }>) => Object.fromEntries(list.map((x) => [x.id, x.label]));
 
 export const kinLabels: KinLabels = {
@@ -65,3 +60,52 @@ export const kinLabels: KinLabels = {
   ),
   ring: Object.fromEntries(NARR_RINGS.map((r) => [r.id, r.short ?? r.label])),
 };
+
+/**
+ * Nejsilnější a nejslabší pouto dvojice pro Příbuzenstvo na spisu světa, česky i anglicky.
+ * `label` = čeho se pouto týká: název pilíře, nebo přesnější úvod důkazu („Shodné souřadnice“,
+ * „Prvotní hřích“, „Nálada“); `text` = co světy sdílejí, nebo v čem se rozcházejí („A × B“).
+ */
+export type RelatedBond = { label: LocalizedString; text: LocalizedString };
+
+const LOCALES: Locale[] = ['cs', 'en'];
+const themeLabelOf = new Map(themeTaxonomy.map((theme) => [theme.slug, theme.label as LocalizedString]));
+
+function ctxFor(locale: Locale): EvidenceCtx {
+  return {
+    locale,
+    kinLabels,
+    chapterName: (world) => {
+      const chapter = chapters.find((c) => c.id === world.chapterId) as { title: LocalizedString; short?: LocalizedString } | undefined;
+      return chapter ? t(chapter.short ?? chapter.title, locale) : world.chapterId;
+    },
+    themeLabel: (slug) => (themeLabelOf.has(slug) ? t(themeLabelOf.get(slug)!, locale) : slug),
+  };
+}
+
+function bondLabel(pillar: PillarKey, evidence: Evidence, locale: Locale): string {
+  const lead = evidence.lead?.replace(/:\s*$/, '');
+  if (!lead) return uiT(PILLAR_LABEL[pillar], locale);
+  return lead.charAt(0).toLocaleUpperCase(locale) + lead.slice(1);
+}
+
+export function relatedBonds(aId: string, bId: string): { bond: RelatedBond; rift: RelatedBond | null } | null {
+  const a = kinWorlds.find((w) => w.id === aId);
+  const b = kinWorlds.find((w) => w.id === bId);
+  if (!a || !b) return null;
+  const per = LOCALES.map((locale) => ({ locale, bonds: kinshipBonds(a, b, ctxFor(locale)) }));
+  const localized = (pick: (bonds: KinshipBonds, locale: Locale) => string) =>
+    Object.fromEntries(per.map(({ locale, bonds }) => [locale, pick(bonds, locale)])) as unknown as LocalizedString;
+  return {
+    bond: {
+      label: localized((bonds, locale) => bondLabel(bonds.bond.pillar, bonds.bond.evidence, locale)),
+      text: localized((bonds) => evidenceItems(bonds.bond.evidence)),
+    },
+    rift: per[0].bonds.rift
+      ? {
+          label: localized((bonds, locale) => bondLabel(bonds.rift!.pillar, bonds.rift!.evidence, locale)),
+          text: localized((bonds) => evidenceItems(bonds.rift!.evidence)),
+        }
+      : null,
+  };
+}

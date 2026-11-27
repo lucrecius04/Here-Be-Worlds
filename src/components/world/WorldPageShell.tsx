@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState, type CSSProperties } from 'react';
-import type { LocalizedString, RelatedWorld, World } from '../../schemas/world';
+import type { LocalizedString, World } from '../../schemas/world';
 import { uiT } from '../../lib/i18n';
 import { useLocale } from '../../lib/locale-store';
 import type { ChapterAccent } from '../../lib/worlds';
@@ -7,7 +7,7 @@ import { loadChronicleMarkdown, type ChronicleDoc } from '../../lib/chronicles';
 import { findAnalysisHeadingId, splitChronicleMarkdown, type TriadAnchor } from '../../lib/chronicle-toc';
 import WorldPageMasthead from './WorldPageMasthead';
 import WorldCard from './WorldCard';
-import SimilarWorlds, { type ChapterAccentMap } from './SimilarWorlds';
+import SimilarWorlds, { type ChapterAccentMap, type RelatedItem } from './SimilarWorlds';
 import WorldJourneys, { type WorldJourney } from './WorldJourneys';
 import ChronicleReader from '../chronicle/ChronicleReader';
 import { touchRecent } from '../../lib/reader-desk';
@@ -23,7 +23,7 @@ type Props = {
   chapterTitle?: LocalizedString;
   chapterAccent?: ChapterAccent;
   themeLabels: Record<string, LocalizedString>;
-  related?: Array<RelatedWorld & { href?: string; level?: number; number?: number; chapterId?: string }>;
+  related?: RelatedItem[];
   chapterAccents?: ChapterAccentMap;
   journeys?: WorldJourney[];
   /** Rozměry obrázků kroniky (`/chronicles/…png` → [šířka, výška]) z doby sestavení. */

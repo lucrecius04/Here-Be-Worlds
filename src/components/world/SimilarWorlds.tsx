@@ -6,14 +6,29 @@ import { withBase } from '../../lib/base-url';
 
 export type ChapterAccentMap = Record<string, { light: string; dark: string; title?: LocalizedString }>;
 
+/** Pouto dvojice: čeho se týká (pilíř nebo přesnější úvod) a co světy sdílejí či v čem se rozcházejí. */
+type Tie = { label: LocalizedString; text: LocalizedString };
+
+export type RelatedItem = RelatedWorld & {
+  href?: string;
+  level?: number;
+  number?: number;
+  chapterId?: string;
+  /** Nejsilnější pouto (kin-evidence.ts). */
+  bond?: Tie;
+  /** Nejslabší pouto; chybí, když světy nic výrazného nedělí. */
+  rift?: Tie | null;
+};
+
 type Props = {
-  items: Array<RelatedWorld & { href?: string; level?: number; number?: number; chapterId?: string }>;
+  items: RelatedItem[];
   sourceId?: string;
   base?: string;
   chapterAccents?: ChapterAccentMap;
 };
 
-/** Příbuzenstvo: kurátorské příbuzné světy se slovním stupněm z indexu příbuznosti (compare.ts). */
+/** Příbuzenstvo: tři nejbližší světy podle indexu příbuznosti (compare.ts) se slovním stupněm,
+ *  pod jménem nejsilnější pouto („Pojí je“) a nejslabší („Dělí je“). */
 export default function SimilarWorlds({ items, sourceId, base = '', chapterAccents = {} }: Props) {
   const locale = useLocale();
   if (items.length === 0) return null;
@@ -48,7 +63,28 @@ export default function SimilarWorlds({ items, sourceId, base = '', chapterAccen
                 ) : null}
               </span>
               <span className="related-worlds__name">{title}</span>
-              {note ? <span className="related-worlds__note">{note}</span> : null}
+              {item.bond ? (
+                <span className="related-worlds__ties">
+                  <span className="related-worlds__tie is-bond">
+                    <span className="related-worlds__tie-label">
+                      <b>{uiT('world.kinBond', locale)}</b>{' '}
+                      {t(item.bond.label, locale)}
+                    </span>
+                    <span className="related-worlds__tie-text">{t(item.bond.text, locale)}</span>
+                  </span>
+                  {item.rift ? (
+                    <span className="related-worlds__tie is-rift">
+                      <span className="related-worlds__tie-label">
+                        <b>{uiT('world.kinRift', locale)}</b>{' '}
+                        {t(item.rift.label, locale)}
+                      </span>
+                      <span className="related-worlds__tie-text">{t(item.rift.text, locale)}</span>
+                    </span>
+                  ) : null}
+                </span>
+              ) : note ? (
+                <span className="related-worlds__note">{note}</span>
+              ) : null}
             </>
           );
           return (

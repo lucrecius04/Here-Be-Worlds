@@ -23,12 +23,6 @@ export function slotWash(index: number): string {
   return SLOT_WASH[Math.min(Math.max(index, 0), SLOT_WASH.length - 1)];
 }
 
-export const SUGGESTED_PAIRS: Array<[string, string]> = [
-  ['baldurs-gate', 'dark-souls'],
-  ['dark-souls', 'diablo'],
-  ['baldurs-gate', 'diablo'],
-];
-
 export function parseCompareIds(search: string, valid: Set<string>): string[] {
   const params = new URLSearchParams(search);
   const raw = params.get('worlds') || params.get('w') || '';
@@ -370,17 +364,6 @@ export function levelFromPercent(percent: number, cutoffs: number[]): KinshipLev
   return 1;
 }
 
-export function isCuratedPair(a: World, b: World): boolean {
-  return Boolean(
-    a.relatedWorlds?.some((r) => r.id === b.id) || b.relatedWorlds?.some((r) => r.id === a.id),
-  );
-}
-
-/** Kurátorská poznámka k dvojici (z kterékoli strany), pokud existuje. */
-export function curatedNote(a: World, b: World) {
-  return a.relatedWorlds?.find((r) => r.id === b.id)?.note ?? b.relatedWorlds?.find((r) => r.id === a.id)?.note;
-}
-
 export function kinshipLevel(a: World, b: World, all: World[]): KinshipLevel {
   const manual = OVERRIDES.get(pairId(a.id, b.id));
   if (manual) return manual;
@@ -496,17 +479,24 @@ export function valueFrequencies(values: string[]): number[] {
 export type DiscoveryPair = { a: World; b: World; level: KinshipLevel };
 
 /**
- * Náměty na prázdné srovnání (stejný index jako všude jinde):
- * nečekaní příbuzní = nejbližší dvojice z různých archetypů, protinožci = nejvzdálenější dvojice.
+ * Náměty na prázdné srovnání, všechny jen z indexu (nic ručně spojeného):
+ * skrytí příbuzní = dvojice blízké povahou (stupeň povahy aspoň Blízcí příbuzní), ale vzdálené
+ * podobou (nejvýš Vzdálení příbuzní), celkově aspoň Spříznění; nečekaní příbuzní = nejbližší dvojice
+ * z různých archetypů; protinožci = nejvzdálenější dvojice.
  * Každý svět se v jednom seznamu objeví nejvýš jednou, ať náměty nejsou o tomtéž.
  * Vrací zásobník (výchozí 9 dvojic); stránka z něj při každé návštěvě vybere tři.
  */
-export function discoveryPairs(all: World[], count = 9): { unexpected: DiscoveryPair[]; opposites: DiscoveryPair[] } {
+export function discoveryPairs(
+  all: World[],
+  count = 9,
+): { hidden: DiscoveryPair[]; unexpected: DiscoveryPair[]; opposites: DiscoveryPair[] } {
   const pool = all.filter((w) => !w.draft);
-  const scored: Array<{ a: World; b: World; percent: number }> = [];
+  const scored: Array<{ a: World; b: World; percent: number; look: number; nature: number }> = [];
   for (let i = 0; i < pool.length; i++)
-    for (let j = i + 1; j < pool.length; j++)
-      scored.push({ a: pool[i], b: pool[j], percent: affinityPercent(pool[i], pool[j]) });
+    for (let j = i + 1; j < pool.length; j++) {
+      const score = affinityBreakdown(pool[i], pool[j]);
+      scored.push({ a: pool[i], b: pool[j], percent: score.percent, look: score.look, nature: score.nature });
+    }
   scored.sort((x, y) => y.percent - x.percent || x.a.id.localeCompare(y.a.id) || x.b.id.localeCompare(y.b.id));
   const pick = (list: typeof scored) => {
     const used = new Set<string>();
@@ -520,27 +510,15 @@ export function discoveryPairs(all: World[], count = 9): { unexpected: Discovery
     }
     return out;
   };
+  const hidden = scored
+    .filter((item) => {
+      const halves = kinshipHalves(item.a, item.b, pool);
+      return halves.nature >= 4 && halves.look <= 2 && kinshipLevel(item.a, item.b, pool) >= 3;
+    })
+    .sort((x, y) => y.nature - x.nature || x.look - y.look || x.a.id.localeCompare(y.a.id) || x.b.id.localeCompare(y.b.id));
   return {
+    hidden: pick(hidden),
     unexpected: pick(scored.filter((item) => item.a.chapterId !== item.b.chapterId)),
     opposites: pick([...scored].reverse()),
   };
-}
-
-/** Dvojice, které atlas spojil ručně (relatedWorlds), každá jednou: zásobník oblíbených párů. */
-export function curatedPairs(all: World[]): DiscoveryPair[] {
-  const pool = all.filter((w) => !w.draft);
-  const byId = new Map(pool.map((w) => [w.id, w]));
-  const seen = new Set<string>();
-  const out: DiscoveryPair[] = [];
-  for (const a of pool) {
-    for (const rel of a.relatedWorlds ?? []) {
-      const b = rel.id ? byId.get(rel.id) : undefined;
-      if (!b) continue;
-      const key = pairId(a.id, b.id);
-      if (seen.has(key)) continue;
-      seen.add(key);
-      out.push({ a, b, level: kinshipLevel(a, b, pool) });
-    }
-  }
-  return out;
 }
