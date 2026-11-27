@@ -1036,8 +1036,7 @@ a.related-worlds__card:focus-visible .related-worlds__name {
 .wj-item__img img {
   display: block;
   width: 100%;
-  aspect-ratio: 3 / 2;
-  object-fit: cover;
+  aspect-ratio: auto;
   -webkit-mask-image: var(--pv-mask);
   mask-image: var(--pv-mask);
   -webkit-mask-size: 100% 100%;
@@ -1050,13 +1049,13 @@ html:not([data-theme='dark']) .wj-item__img img {
   mix-blend-mode: multiply;
 }
 
+/* Světlý motiv jako v rejstříku putování: jen široká maska podle tuše (rozkreslené okraje), bez freskového „obláčku“;
+   ten patří jen tmavému motivu. */
 html:not([data-theme='dark']) .wj-item__img img.has-ink {
-  -webkit-mask-image: var(--pv-mask), var(--pv-mask-ink-light, var(--pv-mask-ink));
-  mask-image: var(--pv-mask), var(--pv-mask-ink-light, var(--pv-mask-ink));
-  -webkit-mask-size: 100% 100%, cover;
-  mask-size: 100% 100%, cover;
-  -webkit-mask-composite: source-in;
-  mask-composite: intersect;
+  -webkit-mask-image: var(--pv-mask-ink-light, var(--pv-mask-ink));
+  mask-image: var(--pv-mask-ink-light, var(--pv-mask-ink));
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
   filter: brightness(1.06) saturate(0.8);
 }
 
@@ -1070,9 +1069,6 @@ html[data-theme='dark'] .wj-item__img img {
     gap: 0.75rem;
   }
 
-  .wj-item__img img {
-    aspect-ratio: 16 / 9;
-  }
 }
 
 .wj-item__head {
