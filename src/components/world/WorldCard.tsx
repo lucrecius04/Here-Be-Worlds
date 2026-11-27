@@ -9,7 +9,7 @@ import { useLocale } from '../../lib/locale-store';
 import FiveAxes from './FiveAxes';
 import { NARR_TECHNIQUES, worldTechniques } from '../../lib/narrative-taxonomy';
 
-/** „Jak svět vypráví“: způsoby podle nástrojů kroniky, stejné jako na stránce Jak světy vyprávějí a ve filtru atlasu. */
+/** „Poetika světa“: způsoby podle nástrojů kroniky, stejné jako na stránce Poetika světů a ve filtru atlasu. */
 const NARRATION_LABELS: Record<string, LocalizedString> = Object.fromEntries(NARR_TECHNIQUES.map((t) => [t.id, t.label]));
 import '../../styles/world-card.css';
 
@@ -47,7 +47,7 @@ export default function WorldCard({
   const body = (
     <>
       {/* Nahoře jádro a vedle něj profil světa; pod nimi šest údajů a pak rejstřík
-          (témata, jak svět vypráví, klíčoví aktéři) ve stejné podobě: linka, popisek, seznam. */}
+          (témata, poetika světa, klíčoví aktéři) ve stejné podobě: linka, popisek, seznam. */}
       <div className="wc-top">
         <p className="wc-core">{t(world.core, locale)}</p>
         <div className="wc-profile">
@@ -84,14 +84,14 @@ export default function WorldCard({
         {narration.length ? (
           <section className="wc-lex" aria-labelledby="wc-narration">
             <h2 id="wc-narration" className="wc-label">
-              <a href={`${baseUrl}/jak-svety-vypraveji/`}>
+              <a href={`${baseUrl}/poetika-svetu/`}>
                 {uiT('card.narrationHeading', locale)}
               </a>
             </h2>
             <ul className="wc-lex__list">
               {narration.map((slug) => (
                 <li key={slug}>
-                  <a className="wc-lex__link" href={`${baseUrl}/jak-svety-vypraveji/#${slug}`}>
+                  <a className="wc-lex__link" href={`${baseUrl}/poetika-svetu/#${slug}`}>
                     {NARRATION_LABELS[slug] ? t(NARRATION_LABELS[slug], locale) : slug}
                   </a>
                 </li>

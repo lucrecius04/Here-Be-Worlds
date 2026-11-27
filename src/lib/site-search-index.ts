@@ -124,8 +124,8 @@ export function buildSearchEntries(): SearchEntry[] {
   // Druhy tajemství a kdo drží mezeru (typy hříchů a dilemat vedou do Galerie triád přes stránku).
   for (const x of [...MYSTERY_KINDS, ...MYSTERY_HOLDERS])
     term(`triad-${x.id}`, loc(x.label)!, 'triada', 'tajemství mystery mezera gap mapa neznáma');
-  term('narration', both('notes.narrationTitle'), 'vypraveni', 'vyprávění narration storytelling kruhy rings šest kruhů nástroje tools způsoby techniques');
-  noteNarrationTerms.forEach((n, i) => term(`narration-${i}`, loc(n.term)!, 'vypraveni', 'vyprávění narration kruhy rings'));
+  term('narration', both('notes.narrationTitle'), 'poetika', 'poetika poetics vyprávění narration storytelling kruhy rings šest kruhů nástroje tools způsoby techniques');
+  noteNarrationTerms.forEach((n, i) => term(`narration-${i}`, loc(n.term)!, 'poetika', 'poetika poetics vyprávění narration kruhy rings'));
   term('kinship', both('notes.kinshipTitle'), 'pribuznost', 'příbuznost kinship index sourozenci blízcí příbuzní spříznění vzdálení cizí');
   noteKinshipPillars.forEach((p, i) => term(`pillar-${i}`, loc(p.term)!, 'pribuznost', 'pilíř pillar příbuznost'));
   term('compass', both('notes.compassTitle'), 'kompas', 'kompas compass ladění otisk');
@@ -140,7 +140,7 @@ export function buildSearchEntries(): SearchEntry[] {
   page('themes', both('themesPage.title'), '/temata/', 'témata themes otázky');
   page('deep-time', both('deepTime.title'), '/hlubina-casu/', 'hlubina času deep time časová osa timeline dějiny stáří světa');
   page('triads', both('triads.title'), '/galerie-triad/', 'galerie triád triáda prvotní hřích hříchy ústřední dilema dilemata original sin dilemma');
-  page('narration', both('narrPage.title'), '/jak-svety-vypraveji/', 'jak světy vyprávějí vyprávění vypravěčské nástroje storytelling narrative tools šest kruhů slovo obraz prostor stopy čin zákulisí hráč mechanika čtvrtá stěna průnik spoluvina prostorové vyprávění popisky předmětů deníky nahrávky');
+  page('narration', both('narrPage.title'), '/poetika-svetu/', 'poetika poetics jak světy vyprávějí vyprávění vypravěčské nástroje storytelling narrative tools šest kruhů slovo obraz prostor stopy čin zákulisí hráč mechanika čtvrtá stěna průnik spoluvina prostorové vyprávění popisky předmětů deníky nahrávky');
   page('unknown', both('triads.mysteriesTitle'), '/galerie-triad/#hlavni-tajemstvi', 'hlavní tajemství mapa neznáma tajemstvi záhady nosná mezera řízená mezera mystery unknown');
   page('essay', { cs: 'Anatomie herního lore', en: 'Anatomy of game lore' }, '/anatomie-herniho-lore/', 'esej essay metoda method');
   page('theory', both('footer.theory'), '/teoreticke-zazemi/', 'prameny literatura sources teorie theory');

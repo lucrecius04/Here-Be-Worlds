@@ -349,7 +349,7 @@ export default function NarrationPage({ base, rings, outside, techniques, tools,
           {techLabel(techniques.filter((x) => x.family !== outside.id).length, locale)}
         </p>
         <p className="nv-head__links">
-          <a href={withBase(base, '/anatomie-herniho-lore/#jak-svety-vypraveji')}>{uiT('narrPage.method', locale)}</a>
+          <a href={withBase(base, '/anatomie-herniho-lore/#poetika-svetu')}>{uiT('narrPage.method', locale)}</a>
           <span className="nv-head__sep" aria-hidden="true">
             ·
           </span>

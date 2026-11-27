@@ -79,7 +79,7 @@ export const worldSchema = z.object({
     keyActors: metadataFieldSchema,
   }),
   themes: z.array(z.string()),
-  /** Slugy z data/meta/narration-taxonomy.json — „Jak svět vypráví“, 1–3 nástroje. */
+  /** Slugy z data/meta/narration-taxonomy.json — dřívější řádek karty „Jak svět vypráví“ (dnes Poetika světa bere způsoby z kronik), 1–3 nástroje. */
   narration: z.array(z.string()).optional(),
   axes: z.object({
     hopeDespair: axisValueSchema,

@@ -450,7 +450,7 @@ export default function HomeIntro({ chapters, worlds = [], journeys = [], riddle
         <WorldCompass worlds={worlds} locale={locale} base={base} alwaysOpen />
 
         <nav className="hp-ways" aria-label={uiT('home2.waysAria', locale)}>
-          <a className="hp-way" href={withBase(base, '/jak-svety-vypraveji/')}>
+          <a className="hp-way" href={withBase(base, '/poetika-svetu/')}>
             <span className="hp-way__title">
               {uiT('narrPage.title', locale)} <span className="hp-way__arrow" aria-hidden="true">→</span>
             </span>

@@ -147,7 +147,7 @@ Západní CRPG dávají hráči volbu, která je odpovědí na ústřední otáz
 
 V nejlepších dílech je každý společník jednou odpovědí na ústřední otázku a živým následkem hrdinovy minulosti. V Planescape nesou Morte, Ignus i Deionarra každý jednu z vin Bezejmenného. Kim Kitsuragi v Disco Elysium je morální kotva, vůči níž se Harry poměřuje. V Pillars of Eternity má skoro každý společník vlastní krizi víry. Společník, který jen bojuje a vtipkuje, je ztracená příležitost.
 
-## Jak světy vyprávějí
+## Poetika světů
 
 Hra nemůže příběh jen vykládat, musí ho rozložit do prostoru a do činnosti. Nejčastěji se opakuje devět nástrojů a nejlepší díla jich kombinují několik.
 
@@ -163,11 +163,11 @@ Hra nemůže příběh jen vykládat, musí ho rozložit do prostoru a do činno
 | Filmové scény | Příběh nesou režírované scény mezi hraním | Halo, Xenoblade, StarCraft, Diablo | Hráč se dívá, místo aby hrál |
 | Mechanika jako význam | Pravidla hry sama nesou téma | Undertale, NieR, BioShock, Pathologic | Když mechanika tématu odporuje, vzniká nesoulad |
 
-Tabulka ukazuje nejčastější nástroje, ne jejich hranice. Na stránce [Jak světy vyprávějí](/jak-svety-vypraveji/) řadíme všechny nástroje z kronik do **šesti kruhů** podle toho, co z hraní potřebují, aby přežily převyprávění. Uprostřed stojí **Slovo a stavba**, které unese i kniha, kolem něj **Obraz a zvuk**, který unese film, a **Prostor a stopy**, které unese procházka místem nebo archiv. Další tři kruhy umí jen hra: **Čin** stojí na pravidlech, **Zákulisí** na herních konvencích, které se staly příběhem (smrt a návrat, uložení, rozhraní), a **Hráč** na tom, kdo sedí u ovladače. Odpovídají třem věcem, bez kterých se podle testu převyprávění Jespera Juula musí obejít popis hry, aby obstál jako děj ve fikčním světě: pravidlům, herním rekvizitám a skutečné situaci hraní. Juul testem zkouší soudržnost celého světa, my ho volně přenášíme na jednotlivé nástroje. Archeologii mezer v Dark Souls kniha unese, Vyhasínání, které postihne nemrtvého ve chvíli, kdy to vzdá hráč u ovladače, ne. Z kronik vychází, že 36 ze 43 světů vypráví aspoň jedním nástrojem z vnějších kruhů. Vnější kruhy ale nesou jen 60 ze 156 nástrojů: i herní světy si většinu vyprávění půjčují.
+Tabulka ukazuje nejčastější nástroje, ne jejich hranice. Na stránce [Poetika světů](/poetika-svetu/) řadíme všechny nástroje z kronik do **šesti kruhů** podle toho, co z hraní potřebují, aby přežily převyprávění. Uprostřed stojí **Slovo a stavba**, které unese i kniha, kolem něj **Obraz a zvuk**, který unese film, a **Prostor a stopy**, které unese procházka místem nebo archiv. Další tři kruhy umí jen hra: **Čin** stojí na pravidlech, **Zákulisí** na herních konvencích, které se staly příběhem (smrt a návrat, uložení, rozhraní), a **Hráč** na tom, kdo sedí u ovladače. Odpovídají třem věcem, bez kterých se podle testu převyprávění Jespera Juula musí obejít popis hry, aby obstál jako děj ve fikčním světě: pravidlům, herním rekvizitám a skutečné situaci hraní. Juul testem zkouší soudržnost celého světa, my ho volně přenášíme na jednotlivé nástroje. Archeologii mezer v Dark Souls kniha unese, Vyhasínání, které postihne nemrtvého ve chvíli, kdy to vzdá hráč u ovladače, ne. Z kronik vychází, že 36 ze 43 světů vypráví aspoň jedním nástrojem z vnějších kruhů. Vnější kruhy ale nesou jen 60 ze 156 nástrojů: i herní světy si většinu vyprávění půjčují.
 
 > **Na kartě světa**
 >
-> Každá karta má řádek **Jak svět vypráví** se způsoby, kterými svět vypráví podle oddílu Hlavní nástroje vyprávění ve své kronice. Atlas rozlišuje 27 způsobů v šesti kruzích a jmenuje je podle stránky [Jak světy vyprávějí](/jak-svety-vypraveji/), ne podle této tabulky. Podle všech lze světy filtrovat i v katalogu.
+> Každá karta má řádek **Poetika světa** se způsoby, kterými svět vypráví podle oddílu Hlavní nástroje vyprávění ve své kronice. Atlas rozlišuje 27 způsobů v šesti kruzích a jmenuje je podle stránky [Poetika světů](/poetika-svetu/), ne podle této tabulky. Podle všech lze světy filtrovat i v katalogu.
 
 ### Dramaturgie odhalování
 

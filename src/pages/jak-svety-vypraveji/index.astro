@@ -1,31 +1,6 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import NarrationPage from '../../components/narration/NarrationPage';
-import { NARR_FAMILIES, NARR_RINGS, NARR_TECHNIQUES, OWN_FROM, narrTools, narrWorlds, narrChapters, familyCounts } from '../../lib/narrative-tools';
-import { TRAILS, trailSlug } from '../../lib/trails';
-import { uiT } from '../../lib/i18n';
-
-const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-
-// Šest kruhů od slova k hráči; od Činu dál umí vyprávět jen hra. Skupina mimo kruhy = vlastnosti světa.
-const rings = NARR_RINGS.map((f, i) => ({ ...f, own: i >= OWN_FROM }));
-const outsideFamily = NARR_FAMILIES.find((f) => f.outside)!;
-const outside = { ...outsideFamily, own: false };
-
-const techniques = NARR_TECHNIQUES.map((tech) => {
-  const trail = tech.trail ? TRAILS.find((x) => x.id === tech.trail) : undefined;
-  return {
-    ...tech,
-    trail: trail ? { slug: trailSlug(trail.id), label: { cs: uiT(trail.nameKey, 'cs'), en: uiT(trail.nameKey, 'en') } } : undefined,
-  };
-});
-
-const worlds = narrWorlds.map((w) => ({ id: w.id, title: w.title, chapterId: w.chapterId, accent: w.accent, anchor: w.anchor, counts: familyCounts(w.id) }));
+// Stará adresa: stránka se od 2026-11-28 jmenuje Poetika světů (/poetika-svetu/). Kotvy způsobů a nástrojů se zachovají.
+import RedirectPage from '../../layouts/RedirectPage.astro';
 ---
 
-<BaseLayout
-  title="Jak světy vyprávějí · Here Be Worlds"
-  description="Vypravěčské nástroje všech herních světů atlasu v šesti kruzích od slova k hráči: Slovo a stavba, Obraz a zvuk, Prostor a stopy (unese i kniha, film nebo místo) a Čin, Zákulisí a Hráč (umí jen hra)."
->
-  <NarrationPage client:load base={base} rings={rings} outside={outside} techniques={techniques} tools={narrTools} worlds={worlds} chapters={narrChapters} />
-</BaseLayout>
+<RedirectPage to="/poetika-svetu/" />

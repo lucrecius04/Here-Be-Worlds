@@ -96,7 +96,7 @@ const PILLAR_ANCHOR: Record<PillarKey, string> = {
   character: 'cmp-charakter',
   themes: 'cmp-temata',
   triad: 'cmp-triada',
-  narration: 'cmp-vypraveni',
+  narration: 'cmp-poetika',
 };
 
 function hueStyle(index: number): CSSProperties {
@@ -794,10 +794,10 @@ export default function ComparePage({ worlds, chapters, themeLabels, kinLabels, 
 
           {narrationRows.length ? (
             <Section
-              id="cmp-vypraveni"
+              id="cmp-poetika"
               title={uiT('compare.narrationTitle', locale)}
               tools={
-                <a className="cmp-textlink" href={withBase(base, '/notes/#vypraveni')}>
+                <a className="cmp-textlink" href={withBase(base, '/notes/#poetika')}>
                   {uiT('compare.narrationWhat', locale)}
                 </a>
               }
@@ -808,7 +808,7 @@ export default function ComparePage({ worlds, chapters, themeLabels, kinLabels, 
                     const info = kinLabels.technique[row.id];
                     return (
                       <div key={row.id} className={`cmp-grid cmp-row${all ? ' is-shared' : ''}`}>
-                        <a className="cmp-grid__label cmp-themes__name" href={withBase(base, `/jak-svety-vypraveji/#${row.id}`)}>
+                        <a className="cmp-grid__label cmp-themes__name" href={withBase(base, `/poetika-svetu/#${row.id}`)}>
                           {info ? t(info.label, locale) : row.id}
                           {info && kinLabels.ring[info.ring] ? (
                             <span className="cmp-narr__ring">

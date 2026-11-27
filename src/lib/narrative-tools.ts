@@ -1,5 +1,5 @@
 /**
- * Jak světy vyprávějí (/jak-svety-vypraveji/): vypravěčské nástroje z oddílu „5. Hlavní nástroje
+ * Poetika světů (/poetika-svetu/, do 2026-11-28 Jak světy vyprávějí): vypravěčské nástroje z oddílu „5. Hlavní nástroje
  * vyprávění“ v kronikách, zařazené do způsobů a šesti kruhů z data/meta/narrative-tools.json.
  * Kruhy jdou od slova k hráči (model v docs/metodika-vypraveni.md). Skládá se při sestavení.
  */

@@ -19,7 +19,7 @@ import CatalogWorldCard from './CatalogWorldCard';
 import { withBase } from '../../lib/base-url';
 import { themePath } from '../../lib/themes';
 
-/** Filtr „Jak svět vypráví“: způsoby ze stránky Jak světy vyprávějí po šesti kruzích (bez vlastností světa). */
+/** Filtr „Poetika světa“: způsoby ze stránky Poetika světů po šesti kruzích (bez vlastností světa). */
 const narrationOption = (t: (typeof NARR_TECHNIQUES)[number]): FieldOption => ({ en: t.label.en, cs: t.label.cs ?? t.label.en });
 const narrationGroups = NARR_RINGS.map((f) => ({
   label: f.label,
@@ -234,7 +234,7 @@ export default function AtlasExplorer({
         <a href={withBase(baseUrl, '/temata/')}>{uiT('themesPage.title', locale)}</a>
         <a href={withBase(baseUrl, '/hlubina-casu/')}>{uiT('deepTime.title', locale)}</a>
         <a href={withBase(baseUrl, '/galerie-triad/')}>{uiT('triads.title', locale)}</a>
-        <a href={withBase(baseUrl, '/jak-svety-vypraveji/')}>{uiT('narrPage.title', locale)}</a>
+        <a href={withBase(baseUrl, '/poetika-svetu/')}>{uiT('narrPage.title', locale)}</a>
         <a href={withBase(baseUrl, '/map/')}>{uiT('nav.map', locale)}</a>
       </nav>
     </header>

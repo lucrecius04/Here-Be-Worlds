@@ -110,14 +110,10 @@ export const noteFields: NoteField[] = [
     },
   },
   {
-    term: { cs: 'Jak svět vypráví', en: 'How the world tells its story' },
+    term: { cs: 'Poetika světa', en: 'Poetics of the world' },
     help: {
-      cs: 'Hlavní nástroje, jimiž svět předává svůj příběh. Nejvýš tři.',
-      en: 'The main tools through which the world tells its story. At most three.',
-    },
-    values: {
-      cs: 'Prostorové vyprávění · Popisky předmětů · Knihy a dokumenty · Nahrávky a deníky · Dialogy · Nespolehliví vypravěči · Vícenásobné průchody · Filmové scény · Mechanika jako význam',
-      en: 'Environmental storytelling · Item descriptions · Books and documents · Recordings and logs · Dialogue · Unreliable narrators · Multiple playthroughs · Cinematic scenes · Mechanics as meaning',
+      cs: 'Způsoby, kterými svět vypráví a kterými při tom vyniká, podle hlavních nástrojů jeho kroniky. Výklad a šest kruhů najdeš níž v oddílu Poetika světů.',
+      en: 'The techniques a world tells with and excels at, taken from the main tools of its chronicle. The Poetics of worlds section below explains them and the six rings.',
     },
   },
   {
@@ -187,10 +183,10 @@ export const noteKinshipPillars: NoteField[] = [
     },
   },
   {
-    term: { cs: 'Vyprávění', en: 'Narration' },
+    term: { cs: 'Poetika', en: 'Poetics' },
     help: {
-      cs: 'Povaha. Společné způsoby vyprávění. Počítá se jen to, co světy sdílejí: kronika vybírá hlavní nástroje, takže chybějící nástroj nic neznamená.',
-      en: 'Nature. Shared ways of telling. Only what the worlds share counts: a chronicle lists the main tools, so a missing tool means nothing.',
+      cs: 'Povaha. Společné způsoby z poetiky světů. Počítá se jen to, co světy sdílejí: kronika vybírá hlavní nástroje, takže chybějící nástroj nic neznamená.',
+      en: 'Nature. Shared techniques from the poetics of worlds. Only what the worlds share counts: a chronicle lists the main tools, so a missing tool means nothing.',
     },
   },
 ];
@@ -214,11 +210,11 @@ Because you only enter coordinates, the compass does not calculate kinship. Arch
 };
 
 /** Hlubina času: jak číst sloupce a naši časovou osu (stránka /hlubina-casu/). */
-/* Jak světy vyprávějí (2026-11-27, na pokyn majitele): výklad pojmů stránky /jak-svety-vypraveji/;
+/* Poetika světů (2026-11-27, na pokyn majitele; do 2026-11-28 Jak světy vyprávějí): výklad pojmů stránky /poetika-svetu/;
    texty šesti kruhů bere stránka Vysvětlivek z data/meta/narrative-tools.json. */
 export const noteNarrationIntro: LocalizedString = {
-  cs: 'Každá kronika končí rozborem a v něm oddílem Hlavní nástroje vyprávění. Atlas z nich skládá přehled toho, čím který svět vyniká, a řadí nástroje do šesti kruhů podle toho, co z hraní potřebují.',
-  en: 'Every chronicle ends with an analysis that includes a section on its main narrative tools. The atlas turns them into an overview of where each world excels and sorts the tools into six rings by what they need from play.',
+  cs: 'Poetika světa je soubor nástrojů, kterými svět vypráví a kterými při tom vyniká. Každá kronika končí rozborem a v něm oddílem Hlavní nástroje vyprávění. Atlas z nich skládá přehled a řadí nástroje do šesti kruhů podle toho, co z hraní potřebují.',
+  en: 'The poetics of a world is the set of tools it tells with and excels at. Every chronicle ends with an analysis that includes a section on its main narrative tools. The atlas turns them into an overview and sorts the tools into six rings by what they need from play.',
 };
 
 export const noteNarrationTerms: NoteField[] = [
@@ -232,8 +228,8 @@ export const noteNarrationTerms: NoteField[] = [
   {
     term: { cs: 'Způsob', en: 'Technique' },
     help: {
-      cs: 'Typ nástroje, který se opakuje aspoň u dvou světů, například Postavy a rozhovory nebo Stopy v prostoru. Způsoby vidíš na kartě světa (Jak svět vypráví), ve filtru atlasu a ve Srovnání.',
-      en: 'A type of tool that recurs in at least two worlds, such as Characters and conversations or Traces in space. You see techniques on the world card (How the world tells its story), in the atlas filter and in Compare.',
+      cs: 'Typ nástroje, který se opakuje aspoň u dvou světů, například Postavy a rozhovory nebo Stopy v prostoru. Způsoby vidíš na kartě světa (Poetika světa), ve filtru atlasu a ve Srovnání.',
+      en: 'A type of tool that recurs in at least two worlds, such as Characters and conversations or Traces in space. You see techniques on the world card (Poetics of the world), in the atlas filter and in Compare.',
     },
   },
   {
@@ -265,7 +261,7 @@ export const noteNarrationTerms: NoteField[] = [
     },
   },
   {
-    term: { cs: 'Vypravěčský podpis', en: 'Narrative signature' },
+    term: { cs: 'Podpis světa', en: 'Signature of a world' },
     help: {
       cs: 'Kombinace kruhů, ve kterých má svět nástroje. Kreslí se jako šest půlkruhů: čím víc nástrojů v kruhu, tím silnější oblouk.',
       en: 'The combination of rings in which a world has tools. It is drawn as six half-rings: the more tools in a ring, the heavier the arc.',

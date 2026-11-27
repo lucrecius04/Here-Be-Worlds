@@ -17,7 +17,7 @@ const CHRONICLES = import.meta.glob('../../content/chronicles/*.md', { query: '?
 const published = worlds.filter((w) => !w.draft);
 const outside = new Set(NARR_FAMILIES.filter((f) => f.outside).map((f) => f.id));
 
-describe('Jak světy vyprávějí (model šesti kruhů)', () => {
+describe('Poetika světů (model šesti kruhů)', () => {
   it('má šest kruhů v pořadí od slova k hráči a jednu skupinu mimo kruhy', () => {
     expect(NARR_RINGS.map((f) => f.id)).toEqual(['slovo', 'obraz-a-zvuk', 'prostor-a-stopy', 'cin', 'zakulisi', 'hrac']);
     expect(OWN_FROM).toBe(3);

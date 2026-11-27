@@ -42,7 +42,7 @@ export default function NotesPage({ base, rings }: Props) {
     { id: 'charakter', label: uiT('notes.fieldsTitle', locale) },
     { id: 'stupnice', label: uiT('notes.profileTitle', locale) },
     { id: 'triada', label: uiT('notes.triadTitle', locale) },
-    { id: 'vypraveni', label: uiT('notes.narrationTitle', locale) },
+    { id: 'poetika', label: uiT('notes.narrationTitle', locale) },
     { id: 'pribuznost', label: uiT('notes.kinshipTitle', locale) },
     { id: 'kompas', label: uiT('notes.compassTitle', locale) },
     { id: 'hlubina', label: uiT('notes.deepTimeTitle', locale) },
@@ -52,7 +52,7 @@ export default function NotesPage({ base, rings }: Props) {
   // Oddíl, který právě čteš: zvýrazní se v lepivém obsahu.
   const [current, setCurrent] = useState('charakter');
   useEffect(() => {
-    const ids = ['charakter', 'stupnice', 'triada', 'vypraveni', 'pribuznost', 'kompas', 'hlubina', 'kanon'];
+    const ids = ['charakter', 'stupnice', 'triada', 'poetika', 'pribuznost', 'kompas', 'hlubina', 'kanon'];
     const onScroll = () => {
       const els = ids.map((id) => document.getElementById(id)).filter(Boolean) as HTMLElement[];
       const line = window.innerHeight * 0.3;
@@ -176,7 +176,7 @@ export default function NotesPage({ base, rings }: Props) {
         </p>
       </section>
 
-      <section className="notes-section" id="vypraveni">
+      <section className="notes-section" id="poetika">
         <h2 className="doc-h2">{uiT('notes.narrationTitle', locale)}</h2>
         <div className="doc-prose notes-section__intro">
           <p>{t(noteNarrationIntro, locale)}</p>
@@ -207,10 +207,10 @@ export default function NotesPage({ base, rings }: Props) {
           ))}
         </dl>
         <p className="notes-list__more notes-section__foot">
-          <a href={withBase(base, '/jak-svety-vypraveji/')}>{uiT('notes.narrationLink', locale)} →</a>
+          <a href={withBase(base, '/poetika-svetu/')}>{uiT('notes.narrationLink', locale)} →</a>
         </p>
         <p className="notes-list__more">
-          <a href={withBase(base, '/anatomie-herniho-lore/#jak-svety-vypraveji')}>{uiT('notes.narrationEssay', locale)} →</a>
+          <a href={withBase(base, '/anatomie-herniho-lore/#poetika-svetu')}>{uiT('notes.narrationEssay', locale)} →</a>
         </p>
       </section>
 

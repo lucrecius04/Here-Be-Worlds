@@ -1,6 +1,6 @@
 /**
  * Model šesti kruhů (docs/metodika-vypraveni.md): kruhy, způsoby a zařazení nástrojů
- * (data/meta/narrative-tools.json), bez kronik. Smí se načíst i v prohlížeči (filtr „Jak svět vypráví“
+ * (data/meta/narrative-tools.json), bez kronik. Smí se načíst i v prohlížeči (filtr „Poetika světa“
  * v atlasu, karta světa). Nástroje z kronik: narrative-tools.ts.
  */
 import type { LocalizedString } from '../schemas/world';

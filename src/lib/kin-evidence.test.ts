@@ -30,9 +30,9 @@ describe('pouta v Příbuzenstvu (kin-evidence.ts)', () => {
     const b = kinPublished.find((w) => w.id === 'path-of-exile')!;
     const score = affinityBreakdown(a, b);
     const best = Math.max(...PILLARS.map((p) => score[p.key] / p.max));
-    /* Dark Souls × Path of Exile: plný počet má archetyp i vyprávění, přednost má výmluvnější vyprávění */
+    /* Dark Souls × Path of Exile: plný počet má archetyp i poetika, přednost má výmluvnější poetika */
     expect(ratio('dark-souls', 'path-of-exile', 'narration')).toBe(best);
-    expect(relatedBonds('dark-souls', 'path-of-exile')!.bond.label.cs).toBe('Vyprávění');
+    expect(relatedBonds('dark-souls', 'path-of-exile')!.bond.label.cs).toBe('Poetika');
   });
 
   it('nejslabší pouto se ukáže, jen když je opravdu slabé, a říká, v čem se světy rozcházejí', () => {
