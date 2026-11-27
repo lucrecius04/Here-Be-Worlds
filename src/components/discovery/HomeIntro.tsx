@@ -27,6 +27,7 @@ export type JourneyInfo = {
   minutes?: number;
   quote?: string;
   quoteSource?: string;
+  image?: { src: string; ink?: string; inkLight?: string; mask: string };
 };
 
 type Props = {
@@ -294,7 +295,9 @@ export default function HomeIntro({ chapters, worlds = [], journeys = [], riddle
               </a>
             </div>
             <div className="hp-journeys__grid">
-              <article className="hp-journey">
+              <article className={`hp-journey${featuredTrail.info?.image ? ' has-image' : ''}`}>
+                <div className="hp-journey__top">
+                <div className="hp-journey__intro">
                 <h2 id="hp-journeys-title" className="hp-journey__title">
                   <a href={withBase(base, `/putovani/${trailSlug(featuredTrail.trail.id)}/`)}>{uiT(featuredTrail.trail.nameKey, locale)}</a>
                 </h2>
@@ -305,6 +308,34 @@ export default function HomeIntro({ chapters, worlds = [], journeys = [], riddle
                     {featuredTrail.info.quoteSource ? <cite>{featuredTrail.info.quoteSource}</cite> : null}
                   </blockquote>
                 ) : null}
+                </div>
+                {featuredTrail.info?.image ? (
+                  <a
+                    className="hp-journey__img"
+                    href={withBase(base, `/putovani/${trailSlug(featuredTrail.trail.id)}/`)}
+                    tabIndex={-1}
+                    aria-hidden="true"
+                  >
+                    <img
+                      src={featuredTrail.info.image.src}
+                      alt=""
+                      decoding="async"
+                      className={featuredTrail.info.image.ink ? 'has-ink' : undefined}
+                      style={
+                        {
+                          '--pv-mask': `url("${featuredTrail.info.image.mask}")`,
+                          ...(featuredTrail.info.image.ink
+                            ? {
+                                '--pv-mask-ink': `url("${featuredTrail.info.image.ink}")`,
+                                '--pv-mask-ink-light': `url("${featuredTrail.info.image.inkLight ?? featuredTrail.info.image.ink}")`,
+                              }
+                            : {}),
+                        } as CSSProperties
+                      }
+                    />
+                  </a>
+                ) : null}
+                </div>
                 <ol className="hp-route" aria-label={uiT('home2.routeAria', locale)}>
                   {featuredTrail.members.map((w, i, all) => (
                     <li key={w.id} style={routeVars(chapterById[w.chapterId]?.accent, chapterById[all[i + 1]?.chapterId]?.accent)}>

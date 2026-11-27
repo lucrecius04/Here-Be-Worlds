@@ -1093,8 +1093,8 @@ html:not([data-theme='dark']) .hp-essay__img img {
 }
 
 html:not([data-theme='dark']) .hp-essay__img img.has-ink {
-  -webkit-mask-image: var(--pv-mask-ink-light, var(--pv-mask-ink));
-  mask-image: var(--pv-mask-ink-light, var(--pv-mask-ink));
+  -webkit-mask-image: var(--pv-mask-ink);
+  mask-image: var(--pv-mask-ink);
   filter: brightness(1.06) saturate(0.8);
 }
 
@@ -1319,6 +1319,63 @@ html[data-theme='dark'] .hp-essay__img img {
   display: grid;
   grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
   gap: 3rem 4rem;
+}
+
+/* Náhled první kresby putování dne vedle názvu a otázky (2026-11-27); okraje jako v rejstříku putování:
+   ve světlém motivu maska podle tuše, v tmavém fresková. Na užší obrazovce nad názvem. */
+.hp-journey.has-image .hp-journey__top {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  gap: 2rem;
+  align-items: center;
+}
+
+.hp-journey__intro {
+  min-width: 0;
+}
+
+.hp-journey__img {
+  display: block;
+  min-width: 0;
+}
+
+.hp-journey__img img {
+  display: block;
+  width: 100%;
+  height: auto;
+  -webkit-mask-image: var(--pv-mask);
+  mask-image: var(--pv-mask);
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+html:not([data-theme='dark']) .hp-journey__img img {
+  mix-blend-mode: multiply;
+}
+
+/* na tónovaném pásu užší maska podle tuše (široká nechává kolem mlhy světlejší okraj papíru) */
+html:not([data-theme='dark']) .hp-journey__img img.has-ink {
+  -webkit-mask-image: var(--pv-mask-ink);
+  mask-image: var(--pv-mask-ink);
+  filter: brightness(1.06) saturate(0.8);
+}
+
+html[data-theme='dark'] .hp-journey__img img {
+  filter: brightness(0.8);
+}
+
+@media (max-width: 1100px) {
+  .hp-journey.has-image .hp-journey__top {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+  }
+
+  .hp-journey__img {
+    order: -1;
+    max-width: 36rem;
+  }
 }
 
 .hp-journey__title {

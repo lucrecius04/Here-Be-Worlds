@@ -5,7 +5,7 @@ import { worlds, chapters } from '../lib/worlds';
 import { TRAILS } from '../lib/trails';
 import { essayFor } from '../lib/trail-pages';
 import { riddleCounts } from '../lib/riddles';
-import { anatomyImage } from '../lib/trail-images';
+import { anatomyImage, trailImages } from '../lib/trail-images';
 
 const base = import.meta.env.BASE_URL;
 
@@ -36,6 +36,8 @@ const journeys = TRAILS.map((trail) => {
     minutes: approved ? essay?.minutes : undefined,
     quote: quote?.text,
     quoteSource: quote?.source,
+    // první kresba putování jako náhled v Putování dne (jen u schválené eseje)
+    image: approved ? trailImages(base, trail.id)[0] : undefined,
   };
 });
 const atlasUrl = `${base.replace(/\/$/, '')}/atlas/`;
