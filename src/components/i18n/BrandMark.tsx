@@ -46,7 +46,7 @@ function Boat({ wide }: { wide: boolean }) {
 
 /** `size` = výška (a šířka) znaku v px. Vykreslí obě podoby, CSS ukáže jednu podle `data-znak`. */
 export default function BrandMark({ size = 30, className = 'brand-mark' }: Props) {
-  const s = Math.round(size * 1.2);
+  const s = Math.round(size * 1.42);
   return (
     <span className={`${className} brand-mark-pair`} aria-hidden="true">
       <svg className="brand-mark__w1" width={s} height={s} viewBox={SAIL_VIEWBOX} focusable="false">

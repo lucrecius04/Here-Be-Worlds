@@ -98,9 +98,9 @@ html[data-znak='z1'] .brand-mark__z1 {
     gap: 0.5rem;
   }
 
-  .site-header__mark {
-    width: 31px;
-    height: 23px;
+  .site-header__mark svg {
+    width: 34px;
+    height: 34px;
   }
 
   .site-header__name {
