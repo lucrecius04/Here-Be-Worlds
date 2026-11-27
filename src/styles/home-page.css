@@ -1069,7 +1069,7 @@ a.hp-tab:focus-visible {
 
 /* Obrázek eseje (kalamář, 2026-11-27): stejné zpracování jako kresby putování, okraj do ztracena. */
 .hp-essay__img {
-  flex: 1 1 22rem;
+  flex: 1.35 1 26rem;
   min-width: 0;
   align-self: center;
   display: block;
@@ -1126,6 +1126,12 @@ html[data-theme='dark'] .hp-essay__img img {
   .hp-essay-row {
     margin-top: 3.5rem;
     padding: 3.5rem 0;
+  }
+
+  /* na telefonu obrázek eseje přes celou šířku obrazovky (okraj do ztracena to unese) */
+  .hp-essay__img {
+    flex-basis: 100%;
+    margin: -0.5rem calc(-1 * var(--gutter)) 0;
   }
 
   .hp-ways {
