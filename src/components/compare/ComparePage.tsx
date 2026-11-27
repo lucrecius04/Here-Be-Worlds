@@ -3,6 +3,7 @@ import type { LocalizedString, World } from '../../schemas/world';
 import { t, uiT, type Locale } from '../../lib/i18n';
 import { useLocale } from '../../lib/locale-store';
 import { withBase } from '../../lib/base-url';
+import { themePath } from '../../lib/themes';
 import {
   MAX_COMPARE,
   PILLARS,
@@ -77,6 +78,8 @@ type FactRow = {
   label: string;
   values: string[];
   subs: Array<string | null>;
+  /** Kam vede druhý řádek buňky (typ triády → Galerie triád). */
+  subHrefs?: Array<string | null>;
 };
 
 type FilledSlot = {
@@ -254,9 +257,9 @@ function Threads({
         <div key={half} className="cmp-loom__half">
           <div className="cmp-loom__group">
             <span className="cmp-loom__group-name">{uiT(half === 'look' ? 'compare.halfLook' : 'compare.halfNature', locale)}</span>
-            <span className="cmp-loom__group-level" title={uiT(`compare.kinLevel${halves[half]}`, locale)}>
+            <span className="cmp-loom__group-level">
               <Ticks level={halves[half]} />
-              <span className="visually-hidden">{uiT(`compare.kinLevel${halves[half]}`, locale)}</span>
+              <span className="cmp-loom__group-word">{uiT(`compare.kinLevel${halves[half]}`, locale)}</span>
             </span>
           </div>
           {group(half).map((pillar) => {
@@ -444,22 +447,49 @@ export default function ComparePage({ worlds, chapters, themeLabels, kinLabels, 
     : [];
 
   const typeLabel = (group: Record<string, LocalizedString>, id?: string) => (id && group[id] ? t(group[id], locale) : null);
+  /* Typ pod textem triády vede do Galerie triád: hřích a dilema na svůj typ, tajemství na záznam světa
+     (stejné adresy jako na kartě světa; cesty jsou tu napsané přímo, aby se data galerie nedostala do prohlížeče). */
+  const gallery = (hash?: string) => (hash ? withBase(base, `/galerie-triad/#${hash}`) : null);
   const triadRows: FactRow[] = ready
     ? [
-        triadField(selected, locale, 'originalSin', uiT('card.originalSin', locale), (w) => typeLabel(kinLabels.sin, w.kin?.sin)),
-        triadField(selected, locale, 'centralDilemma', uiT('card.centralDilemma', locale), (w) => typeLabel(kinLabels.dilemma, w.kin?.dilemma)),
-        triadField(selected, locale, 'ultimateMystery', uiT('card.ultimateMystery', locale), (w) => typeLabel(kinLabels.mystery, w.kin?.mystery)),
+        triadField(selected, locale, 'originalSin', uiT('card.originalSin', locale), (w) => typeLabel(kinLabels.sin, w.kin?.sin), (w) => gallery(w.kin?.sin)),
+        triadField(
+          selected,
+          locale,
+          'centralDilemma',
+          uiT('card.centralDilemma', locale),
+          (w) => typeLabel(kinLabels.dilemma, w.kin?.dilemma),
+          (w) => gallery(w.kin?.dilemma),
+        ),
+        triadField(
+          selected,
+          locale,
+          'ultimateMystery',
+          uiT('card.ultimateMystery', locale),
+          (w) => typeLabel(kinLabels.mystery, w.kin?.mystery),
+          (w) => (w.kin ? gallery(`t-${w.id}`) : null),
+        ),
       ]
     : [];
 
-  /* Způsoby vyprávění jako mřížka (stejně jako témata): nejdřív sdílené, pak podle pořadí světů a kronik. */
+  /* Způsoby vyprávění jako mřížka (stejně jako témata): nejdřív sdílené, pak podle pořadí světů;
+     uvnitř skupiny podle kruhu od slova k hráči (pořadí šesti kruhů), teprve pak podle pořadí v kronice. */
+  const ringOrder = Object.keys(kinLabels.ring);
+  const ringRank = (id: string) => {
+    const at = ringOrder.indexOf(kinLabels.technique[id]?.ring ?? '');
+    return at < 0 ? ringOrder.length : at;
+  };
   const narrationRows = ready
     ? [...new Set(selected.flatMap((world) => (world.kin?.tools ?? []).map((tool) => tool.t)))]
-        .map((id) => ({
+        .map((id, seen) => ({
           id,
+          seen,
           owners: selected.flatMap((world, index) => ((world.kin?.tools ?? []).some((tool) => tool.t === id) ? [index] : [])),
         }))
-        .sort((x, y) => y.owners.length - x.owners.length || (x.owners[0] ?? 0) - (y.owners[0] ?? 0))
+        .sort(
+          (x, y) =>
+            y.owners.length - x.owners.length || (x.owners[0] ?? 0) - (y.owners[0] ?? 0) || ringRank(x.id) - ringRank(y.id) || x.seen - y.seen,
+        )
     : [];
 
   const shareComparison = async () => {
@@ -705,7 +735,7 @@ export default function ComparePage({ worlds, chapters, themeLabels, kinLabels, 
                   <div key={item.slug} className={`cmp-grid cmp-row${all ? ' is-shared' : ''}`}>
                     <a
                       className="cmp-grid__label cmp-themes__name"
-                      href={withBase(base, `/atlas/?theme=${encodeURIComponent(item.slug)}`)}
+                      href={withBase(base, themePath(item.slug))}
                     >
                       {label}
                     </a>
@@ -799,7 +829,9 @@ export default function ComparePage({ worlds, chapters, themeLabels, kinLabels, 
                         <a className="cmp-grid__label cmp-themes__name" href={withBase(base, `/jak-svety-vypraveji/#${row.id}`)}>
                           {info ? t(info.label, locale) : row.id}
                           {info && kinLabels.ring[info.ring] ? (
-                            <span className="cmp-narr__ring">{t(kinLabels.ring[info.ring], locale)}</span>
+                            <span className="cmp-narr__ring">
+                              {uiT('compare.ringLabel', locale).replace('{v}', t(kinLabels.ring[info.ring], locale))}
+                            </span>
                           ) : null}
                         </a>
                         {selected.map((world, index) => (
@@ -907,6 +939,7 @@ function triadField(
   key: keyof World['triad'],
   label: string,
   typeOf: (world: World) => string | null = () => null,
+  hrefOf: (world: World) => string | null = () => null,
 ): FactRow {
   return {
     id: key,
@@ -914,6 +947,7 @@ function triadField(
     values: worlds.map((world) => t(world.triad[key], locale)),
     /* typ z Galerie triád (stejný u obou světů = bod v pilíři Triáda) */
     subs: worlds.map((world) => typeOf(world)),
+    subHrefs: worlds.map((world) => hrefOf(world)),
   };
 }
 
@@ -962,7 +996,9 @@ function FactRows({
                   <p className="cmp-cell__value">{value}</p>
                   {row.subs[index] ? (
                     prose ? (
-                      <p className={`cmp-cell__type${subFreqs[index] >= 2 ? ' is-same' : ''}`}>{row.subs[index]}</p>
+                      <p className={`cmp-cell__type${subFreqs[index] >= 2 ? ' is-same' : ''}`}>
+                        {row.subHrefs?.[index] ? <a href={row.subHrefs[index]!}>{row.subs[index]}</a> : row.subs[index]}
+                      </p>
                     ) : (
                       <p className="cmp-cell__sub">{row.subs[index]}</p>
                     )

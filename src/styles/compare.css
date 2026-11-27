@@ -774,22 +774,29 @@ html[data-theme='dark'] .cmp-slot__option {
   margin: 0 0 0 0.45rem;
 }
 
+/* Podoba a Povaha jsou dva zřetelné bloky: silná linka nahoře, pod ní název trojice a její stupeň,
+   mezi bloky vzduch (dřív jen tenká linka pod pruhem, takže pruh Povahy vypadal jako konec Podoby) */
+.cmp-loom__half {
+  margin-top: 2.5rem;
+  padding-top: 0.8rem;
+  border-top: 2px solid var(--color-ink);
+}
+
+.cmp-loom__half:first-of-type {
+  margin-top: 0.5rem;
+}
+
 .cmp-loom__group {
   display: grid;
   grid-template-columns: var(--cmp-label-w) minmax(0, 1fr);
   align-items: center;
-  margin-top: 0.9rem;
-  padding-bottom: 0.1rem;
-}
-
-.cmp-loom__half:first-of-type .cmp-loom__group {
-  margin-top: 0.35rem;
+  padding-bottom: 0.5rem;
 }
 
 .cmp-loom__group-name {
   font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  font-weight: 500;
+  font-size: 0.8125rem;
+  font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--color-ink);
@@ -799,8 +806,12 @@ html[data-theme='dark'] .cmp-slot__option {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  padding-bottom: 0.55rem;
-  border-bottom: 1px solid var(--color-line);
+}
+
+.cmp-loom__group-word {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: var(--color-ink-muted);
 }
 
 .cmp-thread__label {
@@ -880,8 +891,8 @@ html[data-theme='dark'] .cmp-slot__option {
   height: var(--thread-w);
   transform: translateY(-50%);
   background: linear-gradient(90deg, var(--thread-a), var(--thread-b));
-  animation: cmp-thread-in 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
-  animation-delay: calc(var(--i, 0) * 70ms + 80ms);
+  animation: cmp-thread-in 1.5s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation-delay: calc(var(--i, 0) * 190ms + 150ms);
 }
 
 @keyframes cmp-thread-in {
@@ -1015,6 +1026,25 @@ html[data-theme='dark'] .cmp-slot__option {
 
 .cmp-cell__type.is-same {
   color: var(--color-ink);
+}
+
+.cmp-cell__type a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--color-line);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.3em;
+}
+
+.cmp-cell__type a::after {
+  content: ' →';
+  color: var(--color-accent);
+}
+
+.cmp-cell__type a:hover,
+.cmp-cell__type a:focus-visible {
+  color: var(--color-accent);
+  text-decoration-color: currentColor;
 }
 
 .cmp-cell__type.is-same::before {
@@ -1425,7 +1455,10 @@ html[data-theme='dark'] .cmp-slot__option {
   .cmp-loom__group {
     grid-template-columns: auto minmax(0, 1fr);
     gap: 0.85rem;
-    margin-top: 1.1rem;
+  }
+
+  .cmp-loom__half {
+    margin-top: 2rem;
   }
 
   .cmp-loom__group-level {
