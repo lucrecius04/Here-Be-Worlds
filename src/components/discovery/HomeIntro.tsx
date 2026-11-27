@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState, type CSSProperties } from 'react';
 import { useLocale } from '../../lib/locale-store';
-import { t, uiCount, uiT, worldsCountLabel, type Locale } from '../../lib/i18n';
+import { t, uiCount, uiT, type Locale } from '../../lib/i18n';
 import { withBase } from '../../lib/base-url';
 import type { LocalizedString, World } from '../../schemas/world';
 import { dayNumber, featuredWorldIndex } from '../../lib/calendar';
@@ -417,17 +417,17 @@ export default function HomeIntro({ chapters, worlds = [], journeys = [], riddle
         <WorldCompass worlds={worlds} locale={locale} base={base} alwaysOpen />
 
         <nav className="hp-ways" aria-label={uiT('home2.waysAria', locale)}>
-          <a className="hp-way" href={withBase(base, '/atlas/')}>
+          <a className="hp-way" href={withBase(base, '/jak-svety-vypraveji/')}>
             <span className="hp-way__title">
-              {uiT('nav.atlas', locale)} <span className="hp-way__arrow" aria-hidden="true">→</span>
+              {uiT('narrPage.title', locale)} <span className="hp-way__arrow" aria-hidden="true">→</span>
             </span>
-            <span className="hp-way__text">{uiT('home2.wayAtlas', locale).replace('{n}', worldsCountLabel(worlds.length, locale))}</span>
+            <span className="hp-way__text">{uiT('home2.wayNarration', locale)}</span>
           </a>
-          <a className="hp-way" href={withBase(base, '/compare/')}>
+          <a className="hp-way" href={withBase(base, '/temata/')}>
             <span className="hp-way__title">
-              {uiT('nav.compare', locale)} <span className="hp-way__arrow" aria-hidden="true">→</span>
+              {uiT('themesPage.title', locale)} <span className="hp-way__arrow" aria-hidden="true">→</span>
             </span>
-            <span className="hp-way__text">{uiT('home2.wayCompare', locale)}</span>
+            <span className="hp-way__text">{uiT('home2.wayThemes', locale)}</span>
           </a>
           <a className="hp-way" href={withBase(base, '/map/')}>
             <span className="hp-way__title">

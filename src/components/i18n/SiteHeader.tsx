@@ -56,6 +56,7 @@ export default function SiteHeader({ base }: Props) {
           <nav className="site-nav" aria-label={locale === 'cs' ? 'Hlavní' : 'Main'}>
             <a href={withBase(base, '/atlas/')}>{uiT('nav.atlas', locale)}</a>
             <a href={withBase(base, '/putovani/')}>{uiT('nav.trails', locale)}</a>
+            <a href={withBase(base, '/hlubina-casu/')}>{uiT('nav.deepTime', locale)}</a>
             <a href={withBase(base, '/compare/')}>{uiT('nav.compare', locale)}</a>
             <a href={withBase(base, '/map/')}>{uiT('nav.map', locale)}</a>
           </nav>
