@@ -378,12 +378,12 @@ html[data-theme='dark'] .nv-matrix tbody tr {
   grid-column: 1 / -1;
 }
 
-/* znak kruhu: šest půlkruhů, tento vyplněný */
+/* znak kruhu: šest půlkruhů, tento vyplněný (2026-11-28 větší, majitel: ať je výraznější) */
 .nv-glyph {
   grid-row: 1 / span 2;
-  width: 5rem;
+  width: 8.5rem;
   height: auto;
-  margin-top: 0.35rem;
+  margin-top: 0.15rem;
 }
 
 .nv-glyph path,
@@ -399,7 +399,7 @@ html[data-theme='dark'] .nv-matrix tbody tr {
 
 .nv-glyph path.is-active {
   stroke: var(--color-ink);
-  stroke-width: 4.2;
+  stroke-width: 3.6;
 }
 
 .nv-family__kin {
@@ -1030,6 +1030,11 @@ html[data-theme='dark'] .nv-matrix tbody tr {
 @media (max-width: 720px) {
   .nv-page {
     --nv-scroll: calc(var(--site-header-height) + 3.25rem);
+  }
+
+  /* znak kruhu na telefonu menší, aby nebral místo popisu */
+  .nv-glyph {
+    width: 5.75rem;
   }
 
   /* pruh jedním řádkem posuvným do strany */

@@ -109,6 +109,7 @@ export const ui: Record<Locale, UiTree> = {
     narrPage: {
       title: 'Poetika světů',
       lead: 'Každá hra vypráví slovem, obrazem, prostorem i pravidly. Poetika světa jsou nástroje, kterými při tom vyniká a které jeho kronika vyzdvihla. Řadíme je do šesti kruhů podle toho, co z hraní potřebují. První tři by unesla i kniha, film nebo procházka místem. Další tři umí jen hra.',
+      whatIs: 'Co je poetika světa?',
       method: 'Jak chápeme poetiku',
       theory: 'Teoretické zázemí',
       methodology: 'Metodika',
@@ -921,6 +922,7 @@ Berte prosím tento atlas jako skromnou poctu všem scenáristům, designérům 
     narrPage: {
       title: 'Poetics of worlds',
       lead: 'Every game tells with words, images, space and rules. The poetics of a world are the tools it excels with while doing so, the ones its chronicle singles out. We sort them into six rings by what they need from play. A book, a film or a walk through a place could carry the first three. Only a game can do the other three.',
+      whatIs: 'What is the poetics of a world?',
       method: 'How we understand poetics',
       theory: 'Theoretical background',
       methodology: 'Method',

@@ -349,6 +349,10 @@ export default function NarrationPage({ base, rings, outside, techniques, tools,
           {techLabel(techniques.filter((x) => x.family !== outside.id).length, locale)}
         </p>
         <p className="nv-head__links">
+          <a href={withBase(base, '/notes/#poetika')}>{uiT('narrPage.whatIs', locale)}</a>
+          <span className="nv-head__sep" aria-hidden="true">
+            ·
+          </span>
           <a href={withBase(base, '/anatomie-herniho-lore/#poetika-svetu')}>{uiT('narrPage.method', locale)}</a>
           <span className="nv-head__sep" aria-hidden="true">
             ·
@@ -414,8 +418,14 @@ export default function NarrationPage({ base, rings, outside, techniques, tools,
                   key={r.id}
                   href={`#${r.id}`}
                   className={`nv-map__ring${r.own ? ' is-own' : ''}${hoverRing === r.id ? ' is-hover' : ''}`}
-                  onMouseEnter={() => setHoverRing(r.id)}
-                  onFocus={() => setHoverRing(r.id)}
+                  onMouseEnter={() => {
+                    setHover(null);
+                    setHoverRing(r.id);
+                  }}
+                  onFocus={() => {
+                    setHover(null);
+                    setHoverRing(r.id);
+                  }}
                   aria-label={`${t(r.label, locale)}: ${toolsLabel(familyTools(r.id).length, locale)}`}
                 >
                   <path className="nv-map__band" d={bandPath(k)} />
@@ -449,7 +459,13 @@ export default function NarrationPage({ base, rings, outside, techniques, tools,
                       setHover(tool);
                       setHoverRing(null);
                     }}
-                    onFocus={() => setHover(tool)}
+                    /* po odjetí z čtverečku se nástroj zapomene: pod kurzorem je zase kruh, ne poslední svět */
+                    onMouseLeave={() => setHover((cur) => (cur === tool ? null : cur))}
+                    onFocus={() => {
+                      setHover(tool);
+                      setHoverRing(null);
+                    }}
+                    onBlur={() => setHover((cur) => (cur === tool ? null : cur))}
                     aria-label={`${t(w.title, locale)}: ${tool.title}`}
                   >
                     <rect x={-4.5} y={-4.5} width={9} height={9} transform={`translate(${x} ${y}) rotate(${rot})`} />
