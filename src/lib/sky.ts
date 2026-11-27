@@ -9,7 +9,7 @@ import type { World } from '../schemas/world';
  * Trvale popsané hvězdy: světy, které čtenář pozná nejspíš (velká souhvězdí tři, malá dvě).
  * Ostatní jména se ukážou po najetí na hvězdu nebo na název souhvězdí.
  */
-const ICONIC: Record<string, string[]> = {
+export const ICONIC: Record<string, string[]> = {
   fantasy: ['the-witcher', 'dark-souls', 'elder-scrolls'],
   'science-fiction': ['mass-effect', 'halo', 'starcraft'],
   'post-apocalypse': ['fallout', 'metro'],

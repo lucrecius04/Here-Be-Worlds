@@ -1,0 +1,75 @@
+---
+/**
+ * Mapa známých světů – náhled, etapa 1 (2026-11-27). Skrytá stránka (noindex, z webu na ni nic nevede).
+ * Polohy ostrovů: data/meta/sea-chart.json (npm run sea-chart), tvar pobřeží: src/lib/sea-chart.ts.
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SeaChart from '../../components/seachart/SeaChart';
+import { worlds, chapters } from '../../lib/worlds';
+import { kinshipRanking } from '../../lib/compare';
+import { ICONIC } from '../../lib/sky';
+import { islandRadius, isArchipelago, regionLines } from '../../lib/sea-chart';
+import chart from '../../../data/meta/sea-chart.json';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const published = worlds.filter((w) => !w.draft);
+const iconic = new Set(Object.values(ICONIC).flat());
+const positions = chart.worlds as Record<string, [number, number]>;
+
+const islands = published
+  .filter((w) => positions[w.id])
+  .map((w) => {
+    const [x, y] = positions[w.id];
+    return {
+      id: w.id,
+      title: w.gameTitle,
+      chapterId: w.chapterId,
+      genre: { en: w.metadata.genreProfile.en, cs: w.metadata.genreProfile.cs },
+      core: w.core,
+      x,
+      y,
+      r: islandRadius(w.metadata.spatialScope.en),
+      arch: isArchipelago(w.metadata.spatialScope.en),
+      iconic: iconic.has(w.id),
+      kin: kinshipRanking(w, published, 3).map((k) => ({ id: k.world.id, level: k.level })),
+    };
+  });
+
+const regions = chapters
+  .filter((c) => islands.some((i) => i.chapterId === c.id))
+  .map((c) => {
+    const pos = (chart.regions as Record<string, [number, number]>)[c.id] ?? [800, 500];
+    const short = (c as { short?: { cs?: string; en?: string } }).short;
+    return {
+      id: c.id,
+      title: c.title,
+      short: short ? { en: short.en ?? c.title.en, cs: short.cs } : undefined,
+      linesCs: regionLines(short?.cs ?? c.title.cs ?? c.title.en),
+      linesEn: regionLines(short?.en ?? c.title.en),
+      x: pos[0],
+      y: pos[1],
+      light: c.accent.light,
+      dark: c.accent.dark,
+      count: islands.filter((i) => i.chapterId === c.id).length,
+    };
+  });
+
+const today = new Date();
+const stamp = `${today.getDate()}. ${today.getMonth() + 1}. ${today.getFullYear()}`;
+---
+
+<BaseLayout
+  noindex
+  title="Mapa známých světů (náhled) · Here Be Worlds"
+  description="Náhled: všechny světy atlasu jako ostrovy na jedné mapě. Blízcí příbuzní leží u sebe, kraje jsou archetypy."
+>
+  <SeaChart
+    client:load
+    base={base}
+    islands={islands}
+    regions={regions}
+    rose={chart.rose as [number, number]}
+    empty={chart.empty as [number, number]}
+    stamp={stamp}
+  />
+</BaseLayout>

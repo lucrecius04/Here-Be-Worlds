@@ -1,0 +1,794 @@
+/* Mapa známých světů (náhled, etapa 1, 2026-11-27): rytá námořní mapa ve stylu nočního atlasu.
+   Tuš, linky a vzduch; barva archetypu jen v tuši pobřeží, nádechu země a názvu kraje. */
+
+.sc-page {
+  --sc-ink: var(--color-ink);
+  --sc-muted: var(--color-ink-muted);
+  --sc-sea: var(--color-band);
+  --sc-chart: var(--color-paper);
+  --sc-rule: color-mix(in srgb, var(--color-ink) 62%, var(--color-paper));
+  --sc-rhumb: color-mix(in srgb, var(--color-ink) 14%, var(--color-paper));
+  --sc-land: 13%;
+}
+
+[data-theme='dark'] .sc-page {
+  --sc-sea: var(--color-night);
+  --sc-rule: color-mix(in srgb, var(--color-ink) 48%, var(--color-paper));
+  --sc-rhumb: color-mix(in srgb, var(--color-ink) 12%, var(--color-paper));
+  --sc-land: 16%;
+}
+
+.sc-page [style*='--hue-l'] {
+  --hue: var(--hue-l);
+}
+
+[data-theme='dark'] .sc-page [style*='--hue-l'] {
+  --hue: var(--hue-d);
+}
+
+.sc-head {
+  margin-bottom: 0;
+}
+
+.sc-head .atlas-page__lead {
+  max-width: 44rem;
+}
+
+/* ---------- lišta: kraje a hledání ---------- */
+.sc-bar {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  padding: 1.4rem 0 0.9rem;
+}
+
+.sc-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15rem 1.35rem;
+}
+
+.sc-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.3rem 0 0.4rem;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: none;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: var(--sc-muted);
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.sc-tab:hover,
+.sc-tab:focus-visible {
+  color: var(--sc-ink);
+}
+
+.sc-tab.is-active {
+  color: var(--sc-ink);
+  border-bottom-color: var(--hue, var(--sc-ink));
+}
+
+.sc-tab__dot {
+  flex: 0 0 auto;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--hue, var(--sc-ink));
+}
+
+.sc-search {
+  position: relative;
+  flex: 0 0 15rem;
+}
+
+.sc-search input {
+  width: 100%;
+  padding: 0.4rem 0 0.45rem;
+  border: 0;
+  border-bottom: 1px solid var(--color-line);
+  background: transparent;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  color: var(--sc-ink);
+}
+
+.sc-search input:focus {
+  outline: none;
+  border-bottom-color: var(--color-accent);
+}
+
+.sc-search__list {
+  position: absolute;
+  z-index: 20;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin: 0.25rem 0 0;
+  padding: 0.3rem 0;
+  list-style: none;
+  background: var(--color-tile);
+  border: 1px solid var(--color-line);
+}
+
+.sc-search__list button {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  width: 100%;
+  padding: 0.45rem 0.75rem;
+  border: 0;
+  background: none;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--sc-ink);
+  text-align: left;
+  cursor: pointer;
+}
+
+.sc-search__list button:hover,
+.sc-search__list button:focus-visible {
+  background: var(--color-band);
+}
+
+.sc-search__arch {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.04em;
+  color: var(--sc-muted);
+}
+
+/* ---------- plocha mapy ---------- */
+.sc-frame {
+  position: relative;
+  height: clamp(32rem, calc(100svh - var(--site-header-height) - 4.5rem), 60rem);
+  margin: 0 calc(-1 * var(--frame-pad-x, var(--gutter)));
+  border-top: 1px solid var(--color-line);
+  border-bottom: 1px solid var(--color-line);
+  background: var(--sc-sea);
+  overflow: hidden;
+  overscroll-behavior: contain;
+}
+
+.sc-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: grab;
+  font-family: var(--font-display);
+}
+
+.sc-svg:active {
+  cursor: grabbing;
+}
+
+.sc-svg:focus-visible {
+  outline: 1px solid color-mix(in srgb, var(--color-accent) 70%, transparent);
+  outline-offset: -3px;
+}
+
+.sc-sea {
+  fill: var(--sc-sea);
+}
+
+.sc-chart {
+  fill: var(--sc-chart);
+}
+
+/* rám */
+.sc-neat rect {
+  fill: none;
+  stroke: var(--sc-rule);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.sc-neat .sc-neat__inner {
+  stroke-width: 0.6;
+  opacity: 0.6;
+}
+
+.sc-neat__bars {
+  fill: var(--sc-rule);
+  opacity: 0.85;
+}
+
+/* loxodromy */
+.sc-rhumbs path {
+  fill: none;
+  stroke: var(--sc-rhumb);
+  stroke-width: 0.8;
+  vector-effect: non-scaling-stroke;
+}
+
+.sc-rhumbs .sc-rhumbs__minor {
+  stroke-dasharray: 2 5;
+}
+
+/* růžice */
+.sc-rose__ring {
+  fill: none;
+  stroke: var(--sc-rule);
+  stroke-width: 0.9;
+  vector-effect: non-scaling-stroke;
+}
+
+.sc-rose__ring--thin {
+  stroke-width: 0.5;
+  stroke-dasharray: 1 3;
+}
+
+.sc-rose__dark {
+  fill: var(--sc-rule);
+}
+
+.sc-rose__light {
+  fill: var(--sc-chart);
+  stroke: var(--sc-rule);
+  stroke-width: 0.7;
+  vector-effect: non-scaling-stroke;
+}
+
+.sc-rose__medal {
+  fill: var(--color-night);
+  stroke: var(--sc-rule);
+  stroke-width: 0.9;
+  vector-effect: non-scaling-stroke;
+}
+
+.sc-rose__n {
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-style: italic;
+  text-anchor: middle;
+  fill: var(--sc-rule);
+}
+
+/* kraje */
+.sc-region {
+  font-family: var(--font-display);
+  font-weight: 400;
+  text-anchor: middle;
+  fill: var(--hue);
+  opacity: 0.78;
+  transition: opacity 0.3s;
+}
+
+.sc-regions.is-muted .sc-region {
+  opacity: 0.32;
+}
+
+.sc-regions .sc-region.is-active {
+  opacity: 0.95;
+}
+
+.sc-empty {
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-style: italic;
+  text-anchor: middle;
+  fill: var(--sc-muted);
+  opacity: 0.85;
+}
+
+/* ostrovy */
+.sc-island {
+  cursor: pointer;
+  outline: none;
+  transition: opacity 0.35s;
+}
+
+.sc-land {
+  fill: color-mix(in srgb, var(--hue) var(--sc-land), var(--sc-chart));
+  stroke: var(--hue);
+  stroke-width: 1.15;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+  transition: fill 0.2s, stroke-width 0.2s;
+}
+
+.sc-water {
+  fill: none;
+  stroke: var(--hue);
+  stroke-width: 0.6;
+  vector-effect: non-scaling-stroke;
+}
+
+.sc-water--0 {
+  opacity: 0.5;
+}
+
+.sc-water--1 {
+  opacity: 0.3;
+}
+
+.sc-water--2 {
+  opacity: 0.16;
+}
+
+.sc-hit {
+  fill: transparent;
+  stroke: none;
+}
+
+.sc-island.is-hover .sc-land,
+.sc-island:focus-visible .sc-land {
+  stroke-width: 1.9;
+  fill: color-mix(in srgb, var(--hue) calc(var(--sc-land) + 9%), var(--sc-chart));
+}
+
+.sc-island.is-selected .sc-land {
+  stroke-width: 2.2;
+  fill: color-mix(in srgb, var(--hue) calc(var(--sc-land) + 14%), var(--sc-chart));
+}
+
+.sc-island.is-dim {
+  opacity: 0.28;
+}
+
+.sc-island.is-dim.is-hover {
+  opacity: 0.75;
+}
+
+/* jména */
+.sc-name {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 450;
+  text-anchor: middle;
+  fill: var(--sc-ink);
+  stroke: var(--sc-chart);
+  stroke-linejoin: round;
+  paint-order: stroke;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.sc-name.is-strong {
+  font-weight: 620;
+}
+
+.sc-name.is-dim {
+  opacity: 0.4;
+}
+
+/* příbuzní vybraného ostrova */
+.sc-kin line {
+  stroke: var(--hue);
+  stroke-width: 1.3;
+  stroke-dasharray: 7 4;
+  opacity: 0.9;
+}
+
+.sc-kin-labels text {
+  font-family: var(--font-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-anchor: middle;
+  fill: var(--sc-muted);
+  stroke: var(--sc-chart);
+  stroke-linejoin: round;
+  paint-order: stroke;
+}
+
+/* kartuše a měřítko */
+.sc-cartouche__box {
+  fill: var(--sc-chart);
+  stroke: var(--sc-rule);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.sc-cartouche__box--in {
+  fill: none;
+  stroke-width: 0.6;
+}
+
+.sc-cartouche__title {
+  font-family: var(--font-display);
+  font-size: 30px;
+  font-weight: 700;
+  text-anchor: middle;
+  fill: var(--sc-ink);
+}
+
+.sc-cartouche__sub {
+  font-family: var(--font-text);
+  font-size: 17px;
+  font-style: italic;
+  text-anchor: middle;
+  fill: var(--sc-ink);
+}
+
+.sc-cartouche__meta,
+.sc-scale__lab {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  text-anchor: middle;
+  fill: var(--sc-muted);
+}
+
+.sc-scale__lab {
+  text-anchor: start;
+}
+
+.sc-scale__dark {
+  fill: var(--sc-rule);
+}
+
+.sc-scale__light {
+  fill: var(--sc-chart);
+  stroke: var(--sc-rule);
+  stroke-width: 0.8;
+  vector-effect: non-scaling-stroke;
+}
+
+.sc-scale__note {
+  font-family: var(--font-text);
+  font-size: 13px;
+  font-style: italic;
+  fill: var(--sc-muted);
+}
+
+/* ---------- ovládání ---------- */
+.sc-zoom {
+  position: absolute;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--color-line);
+  background: var(--color-tile);
+}
+
+.sc-zoom button {
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 0;
+  background: none;
+  font-family: var(--font-sans);
+  font-size: 1.15rem;
+  line-height: 1;
+  color: var(--sc-ink);
+  cursor: pointer;
+}
+
+.sc-zoom button + button {
+  border-top: 1px solid var(--color-line);
+}
+
+.sc-zoom button:hover,
+.sc-zoom button:focus-visible {
+  background: var(--color-band);
+}
+
+.has-card:not(.is-narrow) .sc-zoom {
+  right: calc(1.25rem + 23rem + 1.25rem);
+}
+
+.sc-hint {
+  position: absolute;
+  left: 50%;
+  bottom: 1.1rem;
+  transform: translateX(-50%);
+  margin: 0;
+  padding: 0.35rem 0.7rem;
+  background: color-mix(in srgb, var(--color-tile) 88%, transparent);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.04em;
+  color: var(--sc-muted);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* ---------- karta ostrova ---------- */
+.sc-card {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 23rem;
+  max-height: calc(100% - 2.5rem);
+  overflow: auto;
+  padding: 1.35rem 1.4rem 1.25rem;
+  background: var(--color-tile);
+  border: 1px solid var(--color-line);
+  border-top: 3px solid var(--hue);
+  animation: sc-card-in 0.28s ease-out;
+}
+
+.sc-card > * {
+  flex-shrink: 0;
+}
+
+@keyframes sc-card-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+.sc-card__close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.6rem;
+  width: 2rem;
+  height: 2rem;
+  border: 0;
+  background: none;
+  font-size: 1.35rem;
+  line-height: 1;
+  color: var(--sc-muted);
+  cursor: pointer;
+}
+
+.sc-card__close:hover,
+.sc-card__close:focus-visible {
+  color: var(--sc-ink);
+}
+
+.sc-card__kicker {
+  margin: 0 2rem 0.45rem 0;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--hue);
+}
+
+.sc-card__title {
+  margin: 0 0 0.65rem;
+  font-family: var(--font-display);
+  font-size: 1.65rem;
+  font-weight: 600;
+  line-height: 1.12;
+  color: var(--sc-ink);
+}
+
+.sc-card__core {
+  margin: 0 0 1.1rem;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-style: italic;
+  line-height: 1.45;
+  color: var(--sc-ink);
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.sc-card__h {
+  margin: 0 0 0.35rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--color-line);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sc-muted);
+}
+
+.sc-card__kin {
+  margin: 0 0 1rem;
+  padding: 0;
+  list-style: none;
+}
+
+.sc-card__kin button {
+  display: flex;
+  align-items: baseline;
+  gap: 0.55rem;
+  width: 100%;
+  padding: 0.42rem 0;
+  border: 0;
+  border-bottom: 1px dotted var(--color-line);
+  background: none;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  color: var(--sc-ink);
+  text-align: left;
+  cursor: pointer;
+}
+
+.sc-card__kin .sc-tab__dot {
+  align-self: center;
+}
+
+.sc-card__kin button:hover .sc-card__kin-name,
+.sc-card__kin button:focus-visible .sc-card__kin-name {
+  color: var(--color-accent);
+}
+
+.sc-card__kin-level {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.04em;
+  color: var(--sc-muted);
+  white-space: nowrap;
+}
+
+.sc-card__go {
+  display: inline-flex;
+  gap: 0.4rem;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.sc-card__go span {
+  transition: transform 0.2s;
+}
+
+.sc-card__go:hover span,
+.sc-card__go:focus-visible span {
+  transform: translateX(3px);
+}
+
+/* ---------- seznam pod mapou ---------- */
+.sc-list {
+  padding-top: 2.5rem;
+}
+
+.sc-list__title {
+  margin: 0 0 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--sc-muted);
+}
+
+.sc-list__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(10.5rem, 1fr));
+  gap: 1.5rem 2rem;
+}
+
+.sc-list__group h3 {
+  margin: 0 0 0.5rem;
+  padding-top: 0.55rem;
+  border-top: 2px solid var(--hue);
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--sc-ink);
+}
+
+.sc-list__group h3 span {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--sc-muted);
+}
+
+.sc-list__group ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sc-list__group button {
+  padding: 0.18rem 0;
+  border: 0;
+  background: none;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: var(--sc-ink);
+  text-align: left;
+  cursor: pointer;
+}
+
+.sc-list__group button:hover,
+.sc-list__group button:focus-visible {
+  color: var(--color-accent);
+}
+
+/* ---------- telefon ---------- */
+@media (max-width: 720px) {
+  .sc-bar {
+    flex-direction: column-reverse;
+    align-items: stretch;
+    padding-top: 1.1rem;
+  }
+
+  .sc-search {
+    flex-basis: auto;
+  }
+
+  .sc-tabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    margin: 0 calc(-1 * var(--frame-pad-x, 1.25rem));
+    padding: 0 var(--frame-pad-x, 1.25rem);
+  }
+
+  .sc-tab {
+    white-space: nowrap;
+  }
+
+  .sc-frame {
+    height: clamp(24rem, 64svh, 38rem);
+  }
+
+  .sc-card {
+    display: flex;
+    flex-direction: column;
+    top: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    max-height: 46%;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 0;
+    padding: 1.1rem 1.25rem 1rem;
+  }
+
+  .sc-card__title {
+    font-size: 1.4rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .sc-card__go {
+    order: 1;
+    margin: 0 0 0.75rem;
+  }
+
+  .sc-card__core {
+    order: 2;
+    -webkit-line-clamp: 2;
+    margin-bottom: 0.8rem;
+  }
+
+  .sc-card__h {
+    order: 3;
+  }
+
+  .sc-card__kin {
+    order: 4;
+    margin-bottom: 0;
+  }
+
+  .is-narrow.has-card .sc-zoom {
+    bottom: calc(46% + 0.75rem);
+  }
+
+  .sc-zoom {
+    right: 0.75rem;
+    bottom: 0.75rem;
+  }
+
+  .sc-hint {
+    bottom: 0.9rem;
+    left: 0.9rem;
+    transform: none;
+    white-space: normal;
+    max-width: calc(100% - 5rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sc-card {
+    animation: none;
+  }
+}

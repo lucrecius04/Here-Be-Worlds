@@ -17,7 +17,8 @@
     "og": "tsx scripts/og-images.mjs",
     "icons": "tsx scripts/brand-icons.mjs",
     "bundle:trail": "node scripts/trail-bundle.mjs",
-    "test": "vitest run"
+    "test": "vitest run",
+    "sea-chart": "tsx scripts/sea-chart.ts"
   },
   "dependencies": {
     "@astrojs/react": "^4.4.2",

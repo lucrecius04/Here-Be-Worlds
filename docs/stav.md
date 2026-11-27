@@ -12,6 +12,7 @@ Naposledy aktualizováno: 2026-11-27.
 - **Obrázek kalamáře** k Anatomii herního lore (titulní strana a začátek eseje), náhledy kreseb v záložce Putování na spisu světa a v Putování dne na titulní straně.
 - **Jak světy vyprávějí:** čtverečky v tabulce světů jsou odkazy na nástroj s popiskem (název + „Způsob: …“).
 - Oprava mezery pod lepivými pruhy (pevná výška hlavičky `--site-header-height`).
+- **Mapa známých světů, etapa 1** (skrytý náhled `/navrh-mapy/`): analýza v Claude Docs („Atlas jako skutečná mapa — analýza rozšíření“), polohy v `data/meta/sea-chart.json`, popis v CLAUDE.md. Čeká na majitele: jestli rozmístění sedí, název stránky, pak etapa 2 (ladění rytiny: izobáty, mlha, přístavy, plavby). Na etapu 2 doporučeno přepnout na silnější model.
 
 ## Co se dělalo 2026-11-21 až 25
 
