@@ -869,11 +869,52 @@ html[data-theme='dark'] .nv-matrix tbody tr {
   gap: 3px;
 }
 
-.nv-matrix__marks i {
+.nv-matrix__mark {
+  position: relative;
   display: block;
   width: 0.625rem;
   height: 0.625rem;
   background: var(--nv-hue);
+  transition: transform 0.15s ease;
+}
+
+/* čtvereček nástroje: najetí ukáže název nástroje a způsob, klik vede na nástroj (rozbalí se) */
+.nv-matrix__mark:hover,
+.nv-matrix__mark:focus-visible {
+  transform: scale(1.35);
+  outline: none;
+  z-index: 3;
+}
+
+.nv-matrix__mark:focus-visible {
+  box-shadow: 0 0 0 2px var(--color-paper), 0 0 0 3px var(--color-accent);
+}
+
+.nv-matrix__mark::after {
+  content: attr(data-tip);
+  position: absolute;
+  bottom: calc(100% + 0.55rem);
+  left: 50%;
+  transform: translateX(-50%) scale(calc(1 / 1.35));
+  transform-origin: bottom center;
+  width: max-content;
+  max-width: 16rem;
+  padding: 0.4rem 0.6rem;
+  background: var(--color-night);
+  color: var(--color-night-ink);
+  font: 500 0.8125rem/1.35 var(--font-sans);
+  text-align: left;
+  white-space: pre-line;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.12s ease;
+}
+
+.nv-matrix__mark:hover::after,
+.nv-matrix__mark:focus-visible::after {
+  opacity: 1;
+  visibility: visible;
 }
 
 .nv-matrix__none {
@@ -1122,9 +1163,13 @@ html[data-theme='dark'] .nv-matrix tbody tr {
     gap: 2px;
   }
 
-  .nv-matrix__marks i {
+  .nv-matrix__mark {
     width: 0.5rem;
     height: 0.5rem;
+  }
+
+  .nv-matrix__mark::after {
+    display: none;
   }
 
   .nv-matrix__cell {

@@ -141,6 +141,15 @@ export default function NarrationPage({ base, rings, outside, techniques, tools,
 
   const familyOf = (tool: NarrPageTool) => techById.get(tool.technique)?.family ?? '';
   const familyTools = (familyId: string) => orderedTools.filter((tool) => familyOf(tool) === familyId);
+  // Nástroje světa po kruzích (pro čtverečky v tabulce Světy: popisek a odkaz na nástroj).
+  const worldRingTools = useMemo(() => {
+    const map = new Map<string, NarrPageTool[]>();
+    for (const tool of [...tools].sort((a, b) => a.index - b.index)) {
+      const key = `${tool.world}|${techById.get(tool.technique)?.family ?? ''}`;
+      map.set(key, [...(map.get(key) ?? []), tool]);
+    }
+    return map;
+  }, [tools, techById]);
   const worldsInFamily = (familyId: string) => new Set(familyTools(familyId).map((x) => x.world)).size;
   const ringToolCount = rings.reduce((n, r) => n + familyTools(r.id).length, 0);
 
@@ -618,9 +627,15 @@ export default function NarrationPage({ base, rings, outside, techniques, tools,
                         aria-label={`${t(f.label, locale)}: ${n}`}
                       >
                         {n > 0 ? (
-                          <span className="nv-matrix__marks" aria-hidden="true">
-                            {Array.from({ length: n }, (_, j) => (
-                              <i key={j} />
+                          <span className="nv-matrix__marks">
+                            {(worldRingTools.get(`${w.id}|${f.id}`) ?? []).map((tool) => (
+                              <a
+                                key={toolId(tool)}
+                                href={`#${toolId(tool)}`}
+                                className="nv-matrix__mark"
+                                data-tip={`${tool.title}\n${t(techById.get(tool.technique)?.label ?? { en: '' }, locale)}`}
+                                aria-label={`${tool.title} (${t(techById.get(tool.technique)?.label ?? { en: '' }, locale)})`}
+                              />
                             ))}
                           </span>
                         ) : (
