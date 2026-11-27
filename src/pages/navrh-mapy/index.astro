@@ -1,7 +1,8 @@
 ---
 /**
- * Mapa známých světů – náhled, etapa 1 (2026-11-27). Skrytá stránka (noindex, z webu na ni nic nevede).
- * Polohy ostrovů: data/meta/sea-chart.json (npm run sea-chart), tvar pobřeží: src/lib/sea-chart.ts.
+ * Mapa známých světů – náhled, etapa 2 (2026-11-27). Skrytá stránka (noindex, z webu na ni nic nevede).
+ * Polohy ostrovů: data/meta/sea-chart.json (npm run sea-chart), tvar pobřeží, hloubky, mlha, přístavy
+ * a trasy plaveb: src/lib/sea-chart.ts. Data se skládají tady při sestavení, prohlížeč dostane hotové údaje.
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import SeaChart from '../../components/seachart/SeaChart';
@@ -9,7 +10,14 @@ import { chapters } from '../../lib/worlds';
 import { kinWorlds as worlds } from '../../lib/kin-worlds';
 import { kinshipRanking } from '../../lib/compare';
 import { ICONIC } from '../../lib/sky';
-import { islandRadius, isArchipelago, regionLines } from '../../lib/sea-chart';
+import { islandRadius, isArchipelago, regionLines, depthLines } from '../../lib/sea-chart';
+import type { FogLevel } from '../../lib/sea-chart';
+import { TRAILS, trailSlug } from '../../lib/trails';
+import { publishedEssayFor } from '../../lib/trail-pages';
+import { MYSTERY_HOLDERS, MYSTERY_KINDS, WORLD_TRIAD_TYPES } from '../../lib/triad-types';
+import { formatDuration } from '../../lib/deep-time';
+import { windingPath } from '../../lib/sky';
+import { uiT } from '../../lib/i18n';
 import chart from '../../../data/meta/sea-chart.json';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
@@ -17,10 +25,36 @@ const published = worlds.filter((w) => !w.draft);
 const iconic = new Set(Object.values(ICONIC).flat());
 const positions = chart.worlds as Record<string, [number, number]>;
 
+/* Mlha podle toho, kdo drží mezeru hlavního tajemství. */
+const FOG: Record<string, FogLevel> = {
+  'zamceno-tvurci': 'dense',
+  'ceka-na-pokracovani': 'thinning',
+  'otevreno-vykladu': 'wisps',
+};
+const labelOf = (list: Array<{ id: string; label: { cs?: string; en: string } }>, id: string | undefined) =>
+  list.find((item) => item.id === id)?.label;
+
+/* Putování jako plavby: světy v pořadí nejkratší cesty po mapě (jako trasy na obloze titulní strany). */
+const trails = TRAILS.map((trail) => {
+  const members = trail.members.filter((id) => positions[id] && published.some((w) => w.id === id));
+  const order = windingPath(members.map((id) => positions[id]));
+  const essay = publishedEssayFor(trail.id);
+  return {
+    id: trail.id,
+    slug: trailSlug(trail.id),
+    title: { cs: uiT(trail.nameKey, 'cs'), en: uiT(trail.nameKey, 'en') },
+    question: { cs: essay?.tagline ?? uiT(trail.descKey, 'cs'), en: uiT(trail.descKey, 'en') },
+    minutes: essay?.minutes ?? null,
+    stops: order.map((k) => members[k]),
+  };
+}).filter((trail) => trail.stops.length >= 2);
+
 const islands = published
   .filter((w) => positions[w.id])
   .map((w) => {
     const [x, y] = positions[w.id];
+    const types = WORLD_TRIAD_TYPES[w.id];
+    const memory = w.kin?.memory ?? null;
     return {
       id: w.id,
       title: w.gameTitle,
@@ -33,6 +67,15 @@ const islands = published
       arch: isArchipelago(w.metadata.spatialScope.en),
       iconic: iconic.has(w.id),
       kin: kinshipRanking(w, published, 3).map((k) => ({ id: k.world.id, level: k.level })),
+      /* etapa 2: hloubky moře (paměť světa), mlha (hlavní tajemství), přístavy (putování) */
+      depth: depthLines(memory),
+      myth: Boolean(w.kin?.myth),
+      memory: memory ? { cs: formatDuration(memory, 'cs'), en: formatDuration(memory, 'en') } : null,
+      fog: types ? FOG[types.holder] ?? null : null,
+      mystery: types
+        ? { kind: labelOf(MYSTERY_KINDS, types.mystery) ?? null, holder: labelOf(MYSTERY_HOLDERS, types.holder) ?? null }
+        : null,
+      trails: trails.filter((trail) => trail.stops.includes(w.id)).map((trail) => trail.id),
     };
   });
 
@@ -62,13 +105,14 @@ const stamp = `${today.getDate()}. ${today.getMonth() + 1}. ${today.getFullYear(
 <BaseLayout
   noindex
   title="Mapa známých světů (náhled) · Here Be Worlds"
-  description="Náhled: všechny světy atlasu jako ostrovy na jedné mapě. Blízcí příbuzní leží u sebe, kraje jsou archetypy."
+  description="Náhled: všechny světy atlasu jako ostrovy na jedné mapě. Blízcí příbuzní leží u sebe, kraje jsou archetypy, hloubka moře je paměť světa a po putováních se dá plout."
 >
   <SeaChart
     client:load
     base={base}
     islands={islands}
     regions={regions}
+    trails={trails}
     rose={chart.rose as [number, number]}
     empty={chart.empty as [number, number]}
     stamp={stamp}

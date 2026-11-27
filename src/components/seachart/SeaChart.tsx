@@ -1,5 +1,8 @@
 /**
- * Mapa známých světů (náhled, etapa 1): každý svět je ostrov, kraje jsou archetypy.
+ * Mapa známých světů (náhled, etapa 2): každý svět je ostrov, kraje jsou archetypy.
+ * Kolem ostrova: linky hloubky = paměť světa, tečkovaná linka = mýtický čas, bílé místo s tečkovaným
+ * pobřežím na severu = hlavní tajemství,
+ * kotvy = putování. Putování se dá proplout jako plavba (zlatá trasa mezi přístavy, `?plavba=<slug>`).
  * Kresba je jedno SVG v jednotkách mapy (1600 × 1000); přibližuje se a posouvá změnou viewBox.
  * Jména ostrovů mají stálou velikost na obrazovce a ukazují se jen ta, která se nepřekrývají
  * (přednost má vybraný ostrov, jeho příbuzní, nejznámější světy a velké ostrovy).
@@ -11,8 +14,8 @@ import type { LocalizedString } from '../../schemas/world';
 import { t, uiT } from '../../lib/i18n';
 import { useLocale } from '../../lib/locale-store';
 import { withBase } from '../../lib/base-url';
-import { CHART_W, CHART_H, islandShape, REGION_FONT, REGION_TRACK } from '../../lib/sea-chart';
-import type { IslandShape } from '../../lib/sea-chart';
+import { CHART_W, CHART_H, harbourPlan, islandShape, REGION_FONT, REGION_TRACK, voyageLegs } from '../../lib/sea-chart';
+import type { FogLevel, Harbour, IslandShape } from '../../lib/sea-chart';
 import '../../styles/sea-chart.css';
 import { BOAT_TRANSFORM, FEATHER, HULL, OPEN_RING, WAVE, WAVE_TRANSFORM } from '../../lib/brand-mark';
 
@@ -28,6 +31,27 @@ type Island = {
   arch: boolean;
   iconic: boolean;
   kin: Array<{ id: string; level: number }>;
+  /** Počet linek hloubky (číslic paměti světa v letech). */
+  depth: number;
+  myth: boolean;
+  memory: LocalizedString | null;
+  fog: FogLevel | null;
+  mystery: {
+    kind: LocalizedString | null;
+    holder: LocalizedString | null;
+  } | null;
+  /** Putování, která světem procházejí. */
+  trails: string[];
+};
+
+type Trail = {
+  id: string;
+  slug: string;
+  title: LocalizedString;
+  question: LocalizedString;
+  minutes: number | null;
+  /** Světy v pořadí plavby. */
+  stops: string[];
 };
 
 type Region = {
@@ -47,6 +71,7 @@ type Props = {
   base: string;
   islands: Island[];
   regions: Region[];
+  trails: Trail[];
   rose: [number, number];
   empty: [number, number];
   stamp: string;
@@ -54,15 +79,16 @@ type Props = {
 
 type View = { x: number; y: number; w: number };
 
+/** Šířka pohledu (jednotky mapy) na zastávce plavby. */
+const STOP_W = 560;
+/** Kotva přístavu, kreslená kolem počátku (výška zhruba 9 jednotek). */
+const ANCHOR = 'M0 -4.6a1.3 1.3 0 1 0 0 2.6a1.3 1.3 0 1 0 0 -2.6M0 -2V4.4M-2.5 -0.6H2.5M-3.9 1.3C-3.6 3.4 -1.9 4.4 0 4.4C1.9 4.4 3.6 3.4 3.9 1.3';
+
 const MIN_W = 240;
 const NAME_PX = 12.5;
 const EASE = (k: number) => 1 - (1 - k) ** 3;
 
-const fold = (s: string) =>
-  s
-    .toLocaleLowerCase('cs')
-    .normalize('NFD')
-    .replace(/[̀-ͯ]/g, '');
+const fold = (s: string) => s.toLocaleLowerCase('cs').normalize('NFD').replace(/[̀-ͯ]/g, '');
 
 function hueStyle(light: string, dark: string): CSSProperties {
   return { '--hue-l': light, '--hue-d': dark } as CSSProperties;
@@ -122,7 +148,10 @@ const Rose = memo(function Rose({ at }: { at: [number, number] }) {
     const l = [cx + Math.cos(a - Math.PI / 2) * wide, cy + Math.sin(a - Math.PI / 2) * wide];
     const r = [cx + Math.cos(a + Math.PI / 2) * wide, cy + Math.sin(a + Math.PI / 2) * wide];
     const f = (p: number[]) => `${p[0].toFixed(1)} ${p[1].toFixed(1)}`;
-    return { dark: `M${cx} ${cy}L${f(l)}L${f(tip)}Z`, light: `M${cx} ${cy}L${f(r)}L${f(tip)}Z` };
+    return {
+      dark: `M${cx} ${cy}L${f(l)}L${f(tip)}Z`,
+      light: `M${cx} ${cy}L${f(r)}L${f(tip)}Z`,
+    };
   };
   const pts = [];
   for (let k = 0; k < 16; k += 1) {
@@ -179,39 +208,105 @@ type IslandsProps = {
 };
 
 const Islands = memo(function Islands({ islands, shapes, styles, focusIds, selected, hovered, labels, onPick, onHover }: IslandsProps) {
+  const dimmed = (id: string) => (focusIds ? !focusIds.has(id) : false);
+  // Moře mělčích ostrovů se kreslí přes moře hlubších, takže se linky sousedů nekříží.
+  const seaOrder = useMemo(() => [...islands].sort((a, b) => b.depth - a.depth || (b.myth ? 1 : 0) - (a.myth ? 1 : 0)), [islands]);
   return (
-    <g className="sc-islands">
-      {islands.map((i) => {
-        const sh = shapes.get(i.id)!;
-        const dim = focusIds ? !focusIds.has(i.id) : false;
-        const cls = ['sc-island', dim ? 'is-dim' : '', selected === i.id ? 'is-selected' : '', hovered === i.id ? 'is-hover' : ''].join(' ');
+    <>
+      <g className="sc-seas" aria-hidden="true">
+        {seaOrder.map((i) => {
+          const sh = shapes.get(i.id)!;
+          if (!sh.depths.length && !sh.myth) return null;
+          return (
+            <g key={i.id} className={`sc-sea-of${dimmed(i.id) ? ' is-dim' : ''}`} style={styles.get(i.id)}>
+              {/* od nejvzdálenější linky k pobřeží: výplň v barvě papíru spojí linky souostroví do jednoho obrysu */}
+              {sh.myth ? <path d={sh.myth} className="sc-water sc-water--myth" /> : null}
+              {sh.depths.map((d, k) => <path key={k} d={d} className="sc-water" style={{ strokeOpacity: Math.max(0.14, 0.6 - 0.047 * k) }} />).reverse()}
+            </g>
+          );
+        })}
+      </g>
+      <g className="sc-islands">
+        {islands.map((i) => {
+          const sh = shapes.get(i.id)!;
+          const cls = ['sc-island', dimmed(i.id) ? 'is-dim' : '', selected === i.id ? 'is-selected' : '', hovered === i.id ? 'is-hover' : ''].join(' ');
+          return (
+            <g
+              key={i.id}
+              className={cls}
+              style={styles.get(i.id)}
+              tabIndex={0}
+              role="button"
+              aria-label={labels[i.id]}
+              aria-pressed={selected === i.id}
+              data-island={i.id}
+              onPointerEnter={() => onHover(i.id)}
+              onPointerLeave={() => onHover(null)}
+              onFocus={() => onHover(i.id)}
+              onBlur={() => onHover(null)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  onPick(i.id);
+                }
+              }}
+            >
+              <path d={sh.coast} className="sc-shade" transform="translate(0.9 1.1)" />
+              <path d={sh.coast} className="sc-land" />
+              {sh.fog ? (
+                <g className={`sc-fog sc-fog--${i.fog}`}>
+                  <ellipse cx={sh.fog.cx} cy={sh.fog.cy} rx={sh.fog.rx} ry={sh.fog.ry} className="sc-fog__veil" />
+                  <path d={sh.fog.shore} className="sc-fog__shore" />
+                </g>
+              ) : null}
+              <circle cx={i.x} cy={i.y} r={i.r * (i.arch ? 1.35 : 1.05) + 8} className="sc-hit" />
+            </g>
+          );
+        })}
+      </g>
+    </>
+  );
+});
+
+/* ---------- Přístavy: jedna kotva za každé putování, které světem prochází ---------- */
+
+type HarboursProps = {
+  plan: Record<string, Harbour[]>;
+  styles: Map<string, CSSProperties>;
+  focusIds: Set<string> | null;
+  voyage: string | null;
+  detail: boolean;
+  titles: Record<string, string>;
+};
+
+const Harbours = memo(function Harbours({ plan, styles, focusIds, voyage, detail, titles }: HarboursProps) {
+  return (
+    <g className={`sc-harbours${detail ? ' is-detail' : ''}`}>
+      {Object.entries(plan).map(([islandId, list]) => {
+        const dim = focusIds ? !focusIds.has(islandId) : false;
         return (
-          <g
-            key={i.id}
-            className={cls}
-            style={styles.get(i.id)}
-            tabIndex={0}
-            role="button"
-            aria-label={labels[i.id]}
-            aria-pressed={selected === i.id}
-            data-island={i.id}
-            onPointerEnter={() => onHover(i.id)}
-            onPointerLeave={() => onHover(null)}
-            onFocus={() => onHover(i.id)}
-            onBlur={() => onHover(null)}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                e.stopPropagation();
-                onPick(i.id);
-              }
-            }}
-          >
-            {sh.waterLines.map((d, k) => (
-              <path key={k} d={d} className={`sc-water sc-water--${k}`} />
+          <g key={islandId} className={dim ? 'is-dim' : undefined} style={styles.get(islandId)}>
+            {list.map((h) => (
+              <g
+                key={h.trail}
+                className={`sc-harbour${voyage === h.trail ? ' is-on' : ''}`}
+                transform={`translate(${h.x.toFixed(1)} ${h.y.toFixed(1)})`}
+                data-voyage={h.trail}
+                data-at={islandId}
+              >
+                <title>{titles[h.trail]}</title>
+                <circle r={6} className="sc-harbour__hit" />
+                {detail ? (
+                  <>
+                    <path d={ANCHOR} className="sc-harbour__halo" />
+                    <path d={ANCHOR} className="sc-harbour__anchor" />
+                  </>
+                ) : (
+                  <circle r={1.7} className="sc-harbour__dot" />
+                )}
+              </g>
             ))}
-            <path d={sh.coast} className="sc-land" />
-            <circle cx={i.x} cy={i.y} r={i.r * (i.arch ? 1.35 : 1.05) + 8} className="sc-hit" />
           </g>
         );
       })}
@@ -221,7 +316,7 @@ const Islands = memo(function Islands({ islands, shapes, styles, focusIds, selec
 
 /* ---------- Hlavní komponenta ---------- */
 
-export default function SeaChart({ base, islands, regions, rose, empty, stamp }: Props) {
+export default function SeaChart({ base, islands, regions, trails, rose, empty, stamp }: Props) {
   const locale = useLocale();
   const wrapRef = useRef<HTMLDivElement>(null);
   const svgRef = useRef<SVGSVGElement>(null);
@@ -240,10 +335,36 @@ export default function SeaChart({ base, islands, regions, rose, empty, stamp }:
   useEffect(() => setCoarse(window.matchMedia('(pointer: coarse)').matches), []);
   const anim = useRef<number | null>(null);
   const ready = useRef(false);
+  /* plavba po putování: vybrané putování, zastávka, loď a běh plavby */
+  const [voyage, setVoyage] = useState<string | null>(null);
+  const [stop, setStop] = useState(0);
+  const [boat, setBoat] = useState<[number, number] | null>(null);
+  const [sailing, setSailing] = useState(false);
+  const [legend, setLegend] = useState(false);
+  const sailRun = useRef(0);
+  const legRefs = useRef<Array<SVGPathElement | null>>([]);
 
   const byId = useMemo(() => new Map(islands.map((i) => [i.id, i])), [islands]);
   const regionById = useMemo(() => new Map(regions.map((r) => [r.id, r])), [regions]);
-  const shapes = useMemo(() => new Map(islands.map((i) => [i.id, islandShape(i.id, i.x, i.y, i.r, i.arch)])), [islands]);
+  const shapes = useMemo(
+    () =>
+      new Map(
+        islands.map((i) => [
+          i.id,
+          islandShape(i.id, i.x, i.y, i.r, i.arch, {
+            depth: i.depth,
+            myth: i.myth,
+            fog: i.fog,
+          }),
+        ]),
+      ),
+    [islands],
+  );
+  const trailById = useMemo(() => new Map(trails.map((tr) => [tr.id, tr])), [trails]);
+  const plan = useMemo(() => harbourPlan(islands, trails), [islands, trails]);
+  const trailTitles = useMemo(() => Object.fromEntries(trails.map((tr) => [tr.id, t(tr.title, locale)])), [trails, locale]);
+  const activeTrail = voyage ? (trailById.get(voyage) ?? null) : null;
+  const legs = useMemo(() => (activeTrail ? voyageLegs(activeTrail, islands, plan) : []), [activeTrail, islands, plan]);
   const styles = useMemo(
     () =>
       new Map(
@@ -273,7 +394,11 @@ export default function SeaChart({ base, islands, regions, rose, empty, stamp }:
     (asp: number, isNarrow: boolean): View => {
       if (!isNarrow) return fitAll(asp);
       const w = Math.min(fitAll(asp).w, Math.max(CHART_W * 0.5, CHART_H / asp));
-      return { x: (CHART_W - w) / 2 + CHART_W * 0.02, y: (CHART_H - w * asp) / 2, w };
+      return {
+        x: (CHART_W - w) / 2 + CHART_W * 0.02,
+        y: (CHART_H - w * asp) / 2,
+        w,
+      };
     },
     [fitAll],
   );
@@ -316,7 +441,11 @@ export default function SeaChart({ base, islands, regions, rose, empty, stamp }:
       const dur = 650;
       const tick = (now: number) => {
         const k = EASE(Math.min(1, (now - t0) / dur));
-        setView({ x: from.x + (to.x - from.x) * k, y: from.y + (to.y - from.y) * k, w: from.w + (to.w - from.w) * k });
+        setView({
+          x: from.x + (to.x - from.x) * k,
+          y: from.y + (to.y - from.y) * k,
+          w: from.w + (to.w - from.w) * k,
+        });
         anim.current = k < 1 ? requestAnimationFrame(tick) : null;
       };
       anim.current = requestAnimationFrame(tick);
@@ -346,8 +475,10 @@ export default function SeaChart({ base, islands, regions, rose, empty, stamp }:
     const params = new URLSearchParams(window.location.search);
     const id = params.get('ostrov');
     const kraj = params.get('kraj');
+    const plavba = trails.find((tr) => tr.slug === params.get('plavba'));
     setView(startView(asp, size.w < 720));
-    if (id && byId.has(id)) setTimeout(() => pick(id), 60);
+    if (plavba) setTimeout(() => startVoyage(plavba.id), 60);
+    else if (id && byId.has(id)) setTimeout(() => pick(id), 60);
     else if (kraj && regionById.has(kraj)) setTimeout(() => focusRegion(kraj), 60);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [size]);
@@ -404,10 +535,14 @@ export default function SeaChart({ base, islands, regions, rose, empty, stamp }:
 
   const focusRegion = useCallback(
     (id: string | null) => {
+      sailRun.current += 1;
+      setSailing(false);
+      setVoyage(null);
+      setBoat(null);
       setSelected(null);
       setRegion(id);
       setTouched(true);
-      writeUrl({ kraj: id, ostrov: null });
+      writeUrl({ kraj: id, ostrov: null, plavba: null });
       if (!id) {
         flyTo(fitAll());
         return;
@@ -427,6 +562,144 @@ export default function SeaChart({ base, islands, regions, rose, empty, stamp }:
     [islands, regionById, size, aspect, flyTo, fitAll],
   );
 
+  /* ---------- plavba po putování ---------- */
+  const stopSail = useCallback(() => {
+    sailRun.current += 1;
+    setSailing(false);
+  }, []);
+
+  /** Místo karty plavby v pohledu: na počítači vlevo, na telefonu pruh nahoře. */
+  const voyagePad = useCallback(() => ({ left: narrow ? 0 : 350, top: narrow ? 104 : 0 }), [narrow]);
+
+  /** Pohled na jedno místo plavby (ostrov nebo loď), vedle karty plavby. */
+  const stopView = useCallback(
+    (x: number, y: number): View => {
+      const w = Math.min(fitAll().w, narrow ? 430 : STOP_W);
+      const u = w / size.w;
+      const pad = voyagePad();
+      return {
+        x: x - w / 2 - (pad.left * u) / 2,
+        y: y - (w * aspect) / 2 - (pad.top * u) / 2,
+        w,
+      };
+    },
+    [fitAll, narrow, size, aspect, voyagePad],
+  );
+
+  /** Pohled na celou trasu plavby. */
+  const routeView = useCallback(
+    (tr: Trail): View => {
+      const group = tr.stops.map((id) => byId.get(id)!).filter(Boolean);
+      const x0 = Math.min(...group.map((g) => g.x - g.r * 1.5));
+      const x1 = Math.max(...group.map((g) => g.x + g.r * 1.5));
+      const y0 = Math.min(...group.map((g) => g.y - g.r * 1.5));
+      const y1 = Math.max(...group.map((g) => g.y + g.r * 1.5 + 24));
+      const pad = voyagePad();
+      const edge = narrow ? 46 : 64;
+      const u = Math.max((x1 - x0 + 2 * edge) / Math.max(200, size.w - pad.left), (y1 - y0 + 2 * edge) / Math.max(160, size.h - pad.top), (narrow ? 420 : 620) / size.w);
+      const w = u * size.w;
+      return {
+        x: (x0 + x1) / 2 - (pad.left * u) / 2 - w / 2,
+        y: (y0 + y1) / 2 - (pad.top * u) / 2 - (w * aspect) / 2,
+        w,
+      };
+    },
+    [byId, narrow, size, aspect, voyagePad],
+  );
+
+  /** Rejda putování u ostrova: tudy vede trasa a tady kotví loď. */
+  const roadstead = useCallback(
+    (trailId: string, islandId: string): [number, number] | null => {
+      const h = plan[islandId]?.find((item) => item.trail === trailId);
+      return h ? [h.ox, h.oy] : null;
+    },
+    [plan],
+  );
+
+  const startVoyage = useCallback(
+    (id: string | null) => {
+      stopSail();
+      const tr = id ? (trailById.get(id) ?? null) : null;
+      setVoyage(tr ? tr.id : null);
+      setStop(0);
+      setBoat(null);
+      setSelected(null);
+      setRegion(null);
+      setTouched(true);
+      writeUrl({ plavba: tr ? tr.slug : null, ostrov: null, kraj: null });
+      flyTo(tr ? routeView(tr) : fitAll());
+    },
+    [stopSail, trailById, flyTo, routeView, fitAll],
+  );
+
+  const goStop = useCallback(
+    (k: number) => {
+      if (!activeTrail) return;
+      stopSail();
+      const n = activeTrail.stops.length;
+      const index = Math.min(n - 1, Math.max(0, k));
+      const at = roadstead(activeTrail.id, activeTrail.stops[index]);
+      setStop(index);
+      setBoat(null);
+      setSelected(null);
+      if (at) flyTo(stopView(at[0], at[1]));
+    },
+    [activeTrail, stopSail, roadstead, flyTo, stopView],
+  );
+
+  /** Vyplout: loď propluje trasu od aktuální zastávky do konce, pohled ji sleduje. */
+  const setSail = useCallback(() => {
+    if (!activeTrail || legs.length === 0) return;
+    stopAnim();
+    const run = (sailRun.current += 1);
+    const alive = () => sailRun.current === run;
+    const wait = (ms: number) => new Promise<void>((resolve) => setTimeout(resolve, ms));
+    const still = reduced();
+    const first = stop >= activeTrail.stops.length - 1 ? 0 : stop;
+    setSailing(true);
+    setSelected(null);
+    setTouched(true);
+    void (async () => {
+      const start = roadstead(activeTrail.id, activeTrail.stops[first]);
+      setStop(first);
+      setBoat(null);
+      if (start) flyTo(stopView(start[0], start[1]));
+      await wait(still ? 500 : 1150);
+      for (let k = first; k < legs.length; k += 1) {
+        if (!alive()) return;
+        const el = legRefs.current[k];
+        const len = el ? el.getTotalLength() : 0;
+        if (el && len > 0 && !still) {
+          const dur = Math.min(2800, Math.max(1200, len * 4.4));
+          await new Promise<void>((resolve) => {
+            const t0 = performance.now();
+            const tick = (now: number) => {
+              if (!alive()) return resolve();
+              const q = Math.min(1, (now - t0) / dur);
+              const e = q < 0.5 ? 2 * q * q : 1 - (-2 * q + 2) ** 2 / 2;
+              const pt = el.getPointAtLength(len * e);
+              setBoat([pt.x, pt.y]);
+              setView(clamp(stopView(pt.x, pt.y)));
+              if (q < 1) requestAnimationFrame(tick);
+              else resolve();
+            };
+            requestAnimationFrame(tick);
+          });
+        } else {
+          const at = roadstead(activeTrail.id, activeTrail.stops[k + 1]);
+          if (at) setView(clamp(stopView(at[0], at[1])));
+        }
+        if (!alive()) return;
+        setBoat(null);
+        setStop(k + 1);
+        await wait(still ? 1400 : 1500);
+      }
+      if (!alive()) return;
+      setSailing(false);
+      flyTo(routeView(activeTrail));
+    })();
+  }, [activeTrail, legs, stop, roadstead, flyTo, stopView, clamp, routeView]);
+
   /* ---------- přiblížení a posun ---------- */
   const zoomAt = useCallback(
     (factor: number, px: number, py: number) => {
@@ -436,7 +709,11 @@ export default function SeaChart({ base, islands, regions, rose, empty, stamp }:
         const ux = v.x + (px / size.w) * v.w;
         const uy = v.y + (py / size.h) * v.w * aspect;
         const w = Math.min(fitAll().w * 1.05, Math.max(MIN_W, v.w / factor));
-        return clamp({ x: ux - (px / size.w) * w, y: uy - (py / size.h) * w * aspect, w });
+        return clamp({
+          x: ux - (px / size.w) * w,
+          y: uy - (py / size.h) * w * aspect,
+          w,
+        });
       });
     },
     [size, aspect, clamp, fitAll],
@@ -469,27 +746,42 @@ export default function SeaChart({ base, islands, regions, rose, empty, stamp }:
       const atOverview = viewRef.current.w >= fitAllRef.current().w * 0.98;
       if (atOverview && !e.ctrlKey && (mouseLike ? dy > 0 : Math.abs(dy) > Math.abs(dx))) return;
       e.preventDefault();
+      stopSail();
       if (mouseLike) zoomAt(Math.exp(-dy * (e.ctrlKey ? 0.01 : 0.0018)), px, py);
       else panBy(-dx, -dy);
     };
     el.addEventListener('wheel', onWheel, { passive: false });
     return () => el.removeEventListener('wheel', onWheel);
-  }, [zoomAt, panBy]);
+  }, [zoomAt, panBy, stopSail]);
 
   const pointers = useRef(new Map<number, { x: number; y: number }>());
-  const gesture = useRef<{ moved: number; pinch: number | null; downOn: string | null }>({ moved: 0, pinch: null, downOn: null });
+  const gesture = useRef<{
+    moved: number;
+    pinch: number | null;
+    downOn: string | null;
+    harbour: [string, string] | null;
+  }>({
+    moved: 0,
+    pinch: null,
+    downOn: null,
+    harbour: null,
+  });
   const lastTap = useRef(0);
 
   const onPointerDown = (e: ReactPointerEvent<SVGSVGElement>) => {
     if (e.button !== 0 && e.pointerType === 'mouse') return;
     stopAnim();
+    stopSail();
     (e.currentTarget as Element).setPointerCapture(e.pointerId);
     pointers.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
     const islandEl = (e.target as Element).closest('[data-island]');
+    const harbourEl = (e.target as Element).closest('[data-voyage]');
+    const single = pointers.current.size === 1;
     gesture.current = {
-      moved: pointers.current.size > 1 ? 99 : 0,
+      moved: single ? 0 : 99,
       pinch: null,
-      downOn: pointers.current.size === 1 ? islandEl?.getAttribute('data-island') ?? null : null,
+      downOn: single ? (islandEl?.getAttribute('data-island') ?? null) : null,
+      harbour: single && harbourEl ? [harbourEl.getAttribute('data-voyage')!, harbourEl.getAttribute('data-at')!] : null,
     };
   };
 
@@ -529,8 +821,13 @@ export default function SeaChart({ base, islands, regions, rose, empty, stamp }:
     pointers.current.delete(e.pointerId);
     if (was === 1 && gesture.current.moved <= 5) {
       const id = gesture.current.downOn;
+      const harbour = gesture.current.harbour;
       const now = performance.now();
-      if (id) pick(id);
+      if (harbour) {
+        // kotva: vyplout po putování, nebo (na jeho trase) doplout k tomuto ostrovu
+        if (voyage === harbour[0] && activeTrail) goStop(activeTrail.stops.indexOf(harbour[1]));
+        else startVoyage(harbour[0]);
+      } else if (id) pick(id);
       else if (now - lastTap.current < 320) {
         const r = svgRef.current!.getBoundingClientRect();
         zoomAt(1.8, e.clientX - r.left, e.clientY - r.top);
@@ -553,19 +850,23 @@ export default function SeaChart({ base, islands, regions, rose, empty, stamp }:
     else if (e.key === '0') focusRegion(null);
     else if (e.key === 'Escape') {
       if (selected) deselect();
+      else if (voyage) startVoyage(null);
       else if (region) focusRegion(null);
       else return;
     } else return;
+    stopSail();
     e.preventDefault();
   };
 
   /* ---------- odvozené vrstvy ---------- */
-  const sel = selected ? byId.get(selected) ?? null : null;
+  const sel = selected ? (byId.get(selected) ?? null) : null;
   const focusIds = useMemo(() => {
     if (sel) return new Set([sel.id, ...sel.kin.map((k) => k.id)]);
+    if (activeTrail) return new Set(activeTrail.stops);
     if (region) return new Set(islands.filter((i) => i.chapterId === region).map((i) => i.id));
     return null;
-  }, [sel, region, islands]);
+  }, [sel, activeTrail, region, islands]);
+  const stopId = activeTrail && !sel ? (activeTrail.stops[stop] ?? null) : null;
 
   const upp = view.w / size.w; // jednotek mapy na pixel
   const nameSize = NAME_PX * upp;
@@ -576,6 +877,7 @@ export default function SeaChart({ base, islands, regions, rose, empty, stamp }:
       const pr = (i: Island) =>
         (i.id === selected ? 1000 : 0) +
         (i.id === hovered ? 900 : 0) +
+        (i.id === stopId ? 800 : 0) +
         (sel?.kin.some((k) => k.id === i.id) ? 500 : 0) +
         (focusIds?.has(i.id) ? 200 : 0) +
         (i.iconic ? 100 : 0) +
@@ -598,17 +900,22 @@ export default function SeaChart({ base, islands, regions, rose, empty, stamp }:
       const sh = shapes.get(i.id)!;
       const y = sh.foot + nameSize * 1.25;
       const box: [number, number, number, number] = [i.x - w / 2 - 2 * upp, y - nameSize, i.x + w / 2 + 2 * upp, y + nameSize * 0.3];
-      const must = i.id === selected || i.id === hovered;
+      const must = i.id === selected || i.id === hovered || i.id === stopId;
       const kinOfSel = Boolean(sel?.kin.some((k) => k.id === i.id));
       const hit = (b: [number, number, number, number]) => box[0] < b[2] && box[2] > b[0] && box[1] < b[3] && box[3] > b[1];
       if (!must && (boxes.some(hit) || (!kinOfSel && upp > 0.75 && regionBoxes.some(hit)))) continue;
       // na velmi vzdáleném pohledu (telefon) jen jména, která se dají přečíst kolem velkých ostrovů
       if (!must && i.r / upp < 7) continue;
       boxes.push(box);
-      out.push({ i, x: i.x, y, strong: must || Boolean(sel?.kin.some((k) => k.id === i.id)) });
+      out.push({
+        i,
+        x: i.x,
+        y,
+        strong: must || Boolean(sel?.kin.some((k) => k.id === i.id)),
+      });
     }
     return out;
-  }, [islands, selected, hovered, sel, focusIds, regions, locale, view, aspect, nameSize, upp, shapes]);
+  }, [islands, selected, hovered, stopId, sel, focusIds, regions, locale, view, aspect, nameSize, upp, shapes]);
 
   // Loxodromy k nejbližším příbuzným vybraného ostrova.
   const kinLines = useMemo(() => {
@@ -673,6 +980,10 @@ export default function SeaChart({ base, islands, regions, rose, empty, stamp }:
   };
 
   const regionLabelOpacity = upp < 0.45 ? 0.35 : 1;
+  /* loď: při plavbě tam, kde právě pluje, jinak kotví na rejdě aktuální zastávky; velikost stálá na obrazovce */
+  const boatAt = activeTrail ? (boat ?? roadstead(activeTrail.id, activeTrail.stops[stop])) : null;
+  const boatSize = 34 * upp;
+  const lastStop = activeTrail ? stop >= activeTrail.stops.length - 1 : false;
   const viewBox = `${view.x.toFixed(2)} ${view.y.toFixed(2)} ${view.w.toFixed(2)} ${(view.w * aspect).toFixed(2)}`;
   const selRegion = sel ? regionById.get(sel.chapterId) : null;
   const total = islands.length;
@@ -680,12 +991,12 @@ export default function SeaChart({ base, islands, regions, rose, empty, stamp }:
   return (
     <div className="sc-page">
       <header className="atlas-page__head page-band sc-head">
-        <p className="atlas-page__kicker">{locale === 'cs' ? 'Náhled · etapa 1' : 'Preview · stage 1'}</p>
+        <p className="atlas-page__kicker">{locale === 'cs' ? 'Náhled · etapa 2' : 'Preview · stage 2'}</p>
         <h1 className="atlas-page__title display">{locale === 'cs' ? 'Mapa známých světů' : 'Chart of known worlds'}</h1>
         <p className="atlas-page__lead">
           {locale === 'cs'
-            ? 'Každý svět je ostrov. Blízcí příbuzní leží u sebe, kraje jsou archetypy, velikost ostrova je prostorový dosah světa.'
-            : 'Every world is an island. Close kin lie together, regions are archetypes, the size of an island is the reach of its world.'}
+            ? 'Každý svět je ostrov. Blízcí příbuzní leží u sebe a kraje jsou archetypy. Hloubka moře kolem ostrova je paměť světa, nezmapovaný břeh na jeho severu tajemství a kotvy jsou putování, po kterých se dá vyplout.'
+            : 'Every world is an island. Close kin lie together and regions are archetypes. The depth of the sea around an island is the memory of its world, the unsurveyed shore on its north its mystery, and the anchors are journeys you can sail.'}
         </p>
       </header>
 
@@ -708,6 +1019,22 @@ export default function SeaChart({ base, islands, regions, rose, empty, stamp }:
             </button>
           ))}
         </div>
+        <label className="sc-voyage-pick">
+          <span className="sc-voyage-pick__label">{locale === 'cs' ? 'Plavba' : 'Voyage'}</span>
+          <select value={voyage ?? ''} onChange={(e) => startVoyage(e.target.value || null)}>
+            <option value="">{locale === 'cs' ? 'Vyber putování' : 'Choose a journey'}</option>
+            {[...trails]
+              .sort((a, b) => t(a.title, locale).localeCompare(t(b.title, locale), locale))
+              .map((tr) => (
+                <option key={tr.id} value={tr.id}>
+                  {t(tr.title, locale)}
+                </option>
+              ))}
+          </select>
+        </label>
+        <button type="button" className="sc-legend-btn" onClick={() => setLegend((v) => !v)} aria-expanded={legend} aria-controls="sc-legend">
+          {locale === 'cs' ? 'Legenda' : 'Legend'}
+        </button>
         <div className="sc-search">
           <input
             type="search"
@@ -752,7 +1079,7 @@ export default function SeaChart({ base, islands, regions, rose, empty, stamp }:
         </div>
       </div>
 
-      <div className={`sc-frame${narrow ? ' is-narrow' : ''}${sel ? ' has-card' : ''}`} ref={wrapRef} onKeyDown={onKey}>
+      <div className={`sc-frame${narrow ? ' is-narrow' : ''}${sel ? ' has-card' : ''}${activeTrail ? ' has-voyage' : ''}`} ref={wrapRef} onKeyDown={onKey}>
         <svg
           ref={svgRef}
           className="sc-svg"
@@ -767,13 +1094,19 @@ export default function SeaChart({ base, islands, regions, rose, empty, stamp }:
           onPointerCancel={onPointerUp}
           onDoubleClick={(e) => {
             const r = svgRef.current!.getBoundingClientRect();
-            if (!(e.target as Element).closest('[data-island]')) zoomAt(1.8, e.clientX - r.left, e.clientY - r.top);
+            if (!(e.target as Element).closest('[data-island], [data-voyage]')) zoomAt(1.8, e.clientX - r.left, e.clientY - r.top);
           }}
         >
           <defs>
             <clipPath id="sc-sea">
               <rect x={38} y={38} width={CHART_W - 76} height={CHART_H - 76} />
             </clipPath>
+            {/* závoj mlhy: papír uprostřed plný, do stran mizí */}
+            <radialGradient id="sc-fog-veil">
+              <stop offset="0" className="sc-fog__stop" stopOpacity="1" />
+              <stop offset="0.55" className="sc-fog__stop" stopOpacity="0.92" />
+              <stop offset="1" className="sc-fog__stop" stopOpacity="0" />
+            </radialGradient>
           </defs>
           <rect className="sc-sea" x={-4000} y={-4000} width={CHART_W + 8000} height={CHART_H + 8000} />
           <rect className="sc-chart" x={0} y={0} width={CHART_W} height={CHART_H} />
@@ -788,7 +1121,11 @@ export default function SeaChart({ base, islands, regions, rose, empty, stamp }:
                 <text
                   key={r.id}
                   className={`sc-region${active ? ' is-active' : ''}`}
-                  style={{ ...hueStyle(r.light, r.dark), fontSize: REGION_FONT, letterSpacing: `${REGION_TRACK}em` }}
+                  style={{
+                    ...hueStyle(r.light, r.dark),
+                    fontSize: REGION_FONT,
+                    letterSpacing: `${REGION_TRACK}em`,
+                  }}
                   x={r.x}
                   y={r.y - ((lines.length - 1) * REGION_FONT * 1.25) / 2 + REGION_FONT * 0.36}
                 >
@@ -828,6 +1165,42 @@ export default function SeaChart({ base, islands, regions, rose, empty, stamp }:
             onHover={setHovered}
           />
 
+          {activeTrail ? (
+            <g className="sc-route" aria-hidden="true">
+              {legs.map((leg, k) => (
+                <path
+                  key={`${leg.from}-${leg.to}`}
+                  ref={(el) => {
+                    legRefs.current[k] = el;
+                  }}
+                  d={leg.d}
+                  className={k < stop ? 'is-done' : undefined}
+                  vectorEffect="non-scaling-stroke"
+                />
+              ))}
+            </g>
+          ) : null}
+
+          <Harbours plan={plan} styles={styles} focusIds={focusIds} voyage={voyage} detail={upp < 0.8} titles={trailTitles} />
+
+          {activeTrail && boatAt ? (
+            <g
+              className="sc-boat"
+              aria-hidden="true"
+              transform={`translate(${(boatAt[0] - boatSize / 2).toFixed(2)} ${(boatAt[1] - boatSize * 0.62).toFixed(2)}) scale(${(boatSize / 18.6).toFixed(4)})`}
+            >
+              <g transform={BOAT_TRANSFORM}>
+                <path d={FEATHER} className="sc-boat__edge" />
+                <path d={HULL} className="sc-boat__edge" />
+                <path d={FEATHER} className="sc-boat__body" fillRule="evenodd" />
+                <path d={HULL} className="sc-boat__body" fillRule="evenodd" />
+                <g transform={WAVE_TRANSFORM}>
+                  <path d={WAVE} className="sc-boat__wave" fillRule="evenodd" />
+                </g>
+              </g>
+            </g>
+          ) : null}
+
           <g className="sc-names" aria-hidden="true" style={{ fontSize: nameSize }}>
             {names.map((n) => (
               <text
@@ -856,7 +1229,11 @@ export default function SeaChart({ base, islands, regions, rose, empty, stamp }:
             <rect x={64} y={812} width={360} height={130} className="sc-cartouche__box" />
             <rect x={70} y={818} width={348} height={118} className="sc-cartouche__box sc-cartouche__box--in" />
             <text x={244} y={862} className="sc-cartouche__title">
-              Here <tspan fontStyle="italic" fontWeight="500">Be</tspan> Worlds
+              Here{' '}
+              <tspan fontStyle="italic" fontWeight="500">
+                Be
+              </tspan>{' '}
+              Worlds
             </text>
             <text x={244} y={890} className="sc-cartouche__sub">
               {locale === 'cs' ? 'Mapa známých světů' : 'Chart of known worlds'}
@@ -889,7 +1266,12 @@ export default function SeaChart({ base, islands, regions, rose, empty, stamp }:
           <button type="button" onClick={() => zoomAt(1 / 1.5, size.w / 2, size.h / 2)} aria-label={locale === 'cs' ? 'Oddálit' : 'Zoom out'}>
             −
           </button>
-          <button type="button" onClick={() => focusRegion(null)} aria-label={locale === 'cs' ? 'Celá mapa' : 'Whole chart'} title={locale === 'cs' ? 'Celá mapa' : 'Whole chart'}>
+          <button
+            type="button"
+            onClick={() => focusRegion(null)}
+            aria-label={locale === 'cs' ? 'Celá mapa' : 'Whole chart'}
+            title={locale === 'cs' ? 'Celá mapa' : 'Whole chart'}
+          >
             <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true">
               <path d="M2 6V2h4M10 2h4v4M14 10v4h-4M6 14H2v-4" fill="none" stroke="currentColor" strokeWidth="1.5" />
             </svg>
@@ -908,6 +1290,173 @@ export default function SeaChart({ base, islands, regions, rose, empty, stamp }:
           </p>
         ) : null}
 
+        {activeTrail ? (
+          <aside className={`sc-voyage${sel ? ' is-behind' : ''}`} aria-live="polite">
+            <button type="button" className="sc-card__close" onClick={() => startVoyage(null)} aria-label={locale === 'cs' ? 'Ukončit plavbu' : 'End the voyage'}>
+              ×
+            </button>
+            <p className="sc-voyage__kicker">
+              {locale === 'cs' ? 'Plavba po putování' : 'Voyage along a journey'}
+              {activeTrail.minutes ? ` · ${locale === 'cs' ? 'esej' : 'essay'} ${activeTrail.minutes} min` : ''}
+            </p>
+            <h2 className="sc-voyage__title">{t(activeTrail.title, locale)}</h2>
+            <p className="sc-voyage__question">{t(activeTrail.question, locale)}</p>
+            <ol className="sc-voyage__stops">
+              {activeTrail.stops.map((id, k) => {
+                const isl = byId.get(id);
+                if (!isl) return null;
+                const r = regionById.get(isl.chapterId)!;
+                return (
+                  <li key={id} style={hueStyle(r.light, r.dark)} className={k === stop ? 'is-here' : k < stop ? 'is-done' : undefined}>
+                    <button type="button" onClick={() => goStop(k)} aria-current={k === stop ? 'step' : undefined}>
+                      <span className="sc-voyage__mark" aria-hidden="true" />
+                      <span className="sc-voyage__name">{t(isl.title, locale)}</span>
+                      <span className="sc-voyage__arch">{t(r.short ?? r.title, locale)}</span>
+                    </button>
+                  </li>
+                );
+              })}
+            </ol>
+            <p className="sc-voyage__here" aria-hidden="true">
+              <span>
+                {stop + 1} / {activeTrail.stops.length}
+              </span>
+              {t(byId.get(activeTrail.stops[stop])!.title, locale)}
+            </p>
+            <div className="sc-voyage__actions">
+              <button type="button" className="sc-voyage__sail" onClick={sailing ? stopSail : setSail}>
+                {sailing
+                  ? locale === 'cs'
+                    ? 'Zastavit'
+                    : 'Stop'
+                  : lastStop
+                    ? locale === 'cs'
+                      ? 'Vyplout znovu'
+                      : 'Sail again'
+                    : locale === 'cs'
+                      ? 'Vyplout'
+                      : 'Set sail'}
+              </button>
+              <button
+                type="button"
+                className="sc-voyage__step"
+                onClick={() => goStop(stop - 1)}
+                disabled={stop === 0}
+                aria-label={locale === 'cs' ? 'Předchozí zastávka' : 'Previous stop'}
+              >
+                ‹
+              </button>
+              <button
+                type="button"
+                className="sc-voyage__step"
+                onClick={() => goStop(stop + 1)}
+                disabled={lastStop}
+                aria-label={locale === 'cs' ? 'Další zastávka' : 'Next stop'}
+              >
+                ›
+              </button>
+            </div>
+            <a className="sc-card__go" href={withBase(base, `/putovani/${activeTrail.slug}/`)}>
+              {uiT('home2.journeyGo', locale)} <span aria-hidden="true">→</span>
+            </a>
+          </aside>
+        ) : null}
+
+        {legend ? (
+          <div className="sc-legend" id="sc-legend">
+            <p className="sc-legend__head">
+              {locale === 'cs' ? 'Jak mapu číst' : 'How to read the chart'}
+              <button type="button" onClick={() => setLegend(false)} aria-label={locale === 'cs' ? 'Zavřít legendu' : 'Close the legend'}>
+                ×
+              </button>
+            </p>
+            <dl className="sc-legend__body">
+              <div>
+                <dt>
+                  <svg viewBox="0 0 34 20" aria-hidden="true">
+                    <ellipse cx="9" cy="10" rx="4" ry="3" className="lg-land" />
+                    <ellipse cx="25" cy="10" rx="7.5" ry="6" className="lg-land" />
+                  </svg>
+                </dt>
+                <dd>
+                  {locale === 'cs'
+                    ? 'Velikost ostrova: prostorový dosah světa, od jediného místa po galaxii. Souostroví je svět o více rovinách.'
+                    : 'Island size: the reach of the world, from a single place to a galaxy. An archipelago is a world of many planes.'}
+                </dd>
+              </div>
+              <div>
+                <dt>
+                  <svg viewBox="0 0 34 20" aria-hidden="true">
+                    <ellipse cx="17" cy="10" rx="5" ry="3.4" className="lg-land" />
+                    {[0, 1, 2, 3].map((k) => (
+                      <ellipse key={k} cx="17" cy="10" rx={7.4 + k * 2.4} ry={5 + k * 1.5} className="lg-depth" style={{ opacity: 0.6 - k * 0.12 }} />
+                    ))}
+                  </svg>
+                </dt>
+                <dd>
+                  {locale === 'cs'
+                    ? 'Linky hloubky: paměť světa. Jedna linka za každý řád let, takže tisíc let má čtyři linky a miliarda deset. '
+                    : 'Depth lines: the memory of the world. One line per order of magnitude, so a thousand years has four lines and a billion ten. '}
+                  <a href={withBase(base, '/hlubina-casu/')}>{locale === 'cs' ? 'Hlubina času' : 'Deep time'} →</a>
+                </dd>
+              </div>
+              <div>
+                <dt>
+                  <svg viewBox="0 0 34 20" aria-hidden="true">
+                    <ellipse cx="17" cy="10" rx="5" ry="3.4" className="lg-land" />
+                    <ellipse cx="17" cy="10" rx="11" ry="7" className="lg-myth" />
+                  </svg>
+                </dt>
+                <dd>{locale === 'cs' ? 'Tečkovaná linka: mýtický čas, dějiny bez letopočtu.' : 'Dotted line: mythic time, history without dates.'}</dd>
+              </div>
+              <div>
+                <dt>
+                  <svg viewBox="0 0 34 20" aria-hidden="true">
+                    <path d="M5.5 11.5C5.5 15.5 10.6 17.6 17 17.6S28.5 15.5 28.5 11.5" className="lg-shore" />
+                    <path d="M5.5 11.5C5.5 6 10.6 3.4 17 3.4S28.5 6 28.5 11.5" className="lg-myth" />
+                  </svg>
+                </dt>
+                <dd>
+                  {locale === 'cs'
+                    ? 'Nezmapovaný břeh na severu ostrova: hlavní tajemství. Pobřeží tam mapa jen tečkuje. Největší kus chybí, kde odpověď zamkli tvůrci, menší, kde čeká na pokračování, nejmenší, kde je otevřená výkladu. '
+                    : 'The unsurveyed shore on the north of an island: the ultimate mystery. There the chart only dots the coast. The largest piece is missing where the makers locked the answer, a smaller one where it awaits a sequel, the smallest where it is open to interpretation. '}
+                  <a href={withBase(base, '/galerie-triad/#hlavni-tajemstvi')}>{uiT('card.ultimateMystery', locale)} →</a>
+                </dd>
+              </div>
+              <div>
+                <dt>
+                  <svg viewBox="-17 -10 34 20" aria-hidden="true">
+                    <path d={ANCHOR} className="lg-anchor" transform="scale(1.5)" />
+                  </svg>
+                </dt>
+                <dd>
+                  {locale === 'cs'
+                    ? 'Kotva: putování, které světem prochází. Klikni na ni a vypluješ po jeho trase.'
+                    : 'Anchor: a journey that passes through the world. Click it to sail its route.'}
+                </dd>
+              </div>
+              <div>
+                <dt>
+                  <svg viewBox="0 0 34 20" aria-hidden="true">
+                    <path d="M2 14C10 2 22 18 32 6" className="lg-route" />
+                  </svg>
+                </dt>
+                <dd>
+                  {locale === 'cs' ? 'Zlatá trasa: plavba po putování od přístavu k přístavu.' : 'Golden route: a voyage along a journey, from harbour to harbour.'}
+                </dd>
+              </div>
+              <div>
+                <dt>
+                  <svg viewBox="0 0 34 20" aria-hidden="true">
+                    <path d="M2 10H32" className="lg-kin" />
+                  </svg>
+                </dt>
+                <dd>{locale === 'cs' ? 'Čárkovaná linka: tři nejbližší příbuzní vybraného ostrova.' : 'Dashed line: the three closest kin of the selected island.'}</dd>
+              </div>
+            </dl>
+          </div>
+        ) : null}
+
         {sel && selRegion ? (
           <aside className="sc-card" style={hueStyle(selRegion.light, selRegion.dark)} aria-live="polite">
             <button type="button" className="sc-card__close" onClick={deselect} aria-label={locale === 'cs' ? 'Zavřít' : 'Close'}>
@@ -918,23 +1467,59 @@ export default function SeaChart({ base, islands, regions, rose, empty, stamp }:
             </p>
             <h2 className="sc-card__title">{t(sel.title, locale)}</h2>
             <p className="sc-card__core">{t(sel.core, locale)}</p>
-            <h3 className="sc-card__h">{locale === 'cs' ? 'Nejbližší příbuzní' : 'Closest kin'}</h3>
-            <ul className="sc-card__kin">
-              {sel.kin.map((k) => {
-                const o = byId.get(k.id);
-                if (!o) return null;
-                const r = regionById.get(o.chapterId)!;
-                return (
-                  <li key={k.id} style={hueStyle(r.light, r.dark)}>
-                    <button type="button" onClick={() => pick(k.id)}>
-                      <span className="sc-tab__dot" aria-hidden="true" />
-                      <span className="sc-card__kin-name">{t(o.title, locale)}</span>
-                      <span className="sc-card__kin-level">{uiT(`compare.kinLevel${k.level}`, locale)}</span>
-                    </button>
-                  </li>
-                );
-              })}
-            </ul>
+            <div className="sc-card__sec sc-card__sec--kin">
+              <h3 className="sc-card__h">{locale === 'cs' ? 'Nejbližší příbuzní' : 'Closest kin'}</h3>
+              <ul className="sc-card__kin">
+                {sel.kin.map((k) => {
+                  const o = byId.get(k.id);
+                  if (!o) return null;
+                  const r = regionById.get(o.chapterId)!;
+                  return (
+                    <li key={k.id} style={hueStyle(r.light, r.dark)}>
+                      <button type="button" onClick={() => pick(k.id)}>
+                        <span className="sc-tab__dot" aria-hidden="true" />
+                        <span className="sc-card__kin-name">{t(o.title, locale)}</span>
+                        <span className="sc-card__kin-level">{uiT(`compare.kinLevel${k.level}`, locale)}</span>
+                      </button>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+            <dl className="sc-card__facts">
+              <div>
+                <dt>{locale === 'cs' ? 'Paměť světa' : 'Memory of the world'}</dt>
+                <dd>
+                  {[sel.memory ? t(sel.memory, locale) : null, sel.myth ? (locale === 'cs' ? 'mýtický čas' : 'mythic time') : null].filter(Boolean).join(' · ') ||
+                    (locale === 'cs' ? 'bez letopočtu' : 'undated')}
+                </dd>
+              </div>
+              {sel.mystery?.kind && sel.mystery.holder ? (
+                <div>
+                  <dt>{uiT('card.ultimateMystery', locale)}</dt>
+                  <dd>
+                    {t(sel.mystery.kind, locale)} · {t(sel.mystery.holder, locale).toLocaleLowerCase(locale)}
+                  </dd>
+                </div>
+              ) : null}
+            </dl>
+            {sel.trails.length ? (
+              <div className="sc-card__sec sc-card__sec--trails">
+                <h3 className="sc-card__h">{locale === 'cs' ? 'Putování, která tudy vedou' : 'Journeys passing through'}</h3>
+                <ul className="sc-card__trails">
+                  {sel.trails.map((id) => (
+                    <li key={id}>
+                      <button type="button" className={voyage === id ? 'is-on' : undefined} onClick={() => startVoyage(id)}>
+                        <svg viewBox="-5 -6 10 12" width="11" height="13" aria-hidden="true">
+                          <path d={ANCHOR} fill="none" stroke="currentColor" strokeWidth="1.1" strokeLinecap="round" />
+                        </svg>
+                        <span>{trailTitles[id]}</span>
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
             <a className="sc-card__go" href={withBase(base, `/worlds/${sel.id}/`)}>
               {locale === 'cs' ? 'Prozkoumat svět' : 'Explore the world'} <span aria-hidden="true">→</span>
             </a>
@@ -958,7 +1543,16 @@ export default function SeaChart({ base, islands, regions, rose, empty, stamp }:
                   .sort((a, b) => t(a.title, locale).localeCompare(t(b.title, locale), 'cs'))
                   .map((i) => (
                     <li key={i.id}>
-                      <button type="button" onClick={() => { pick(i.id); wrapRef.current?.scrollIntoView({ behavior: reduced() ? 'auto' : 'smooth', block: 'center' }); }}>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          pick(i.id);
+                          wrapRef.current?.scrollIntoView({
+                            behavior: reduced() ? 'auto' : 'smooth',
+                            block: 'center',
+                          });
+                        }}
+                      >
                         {t(i.title, locale)}
                       </button>
                     </li>

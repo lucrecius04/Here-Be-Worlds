@@ -1,5 +1,6 @@
-/* Mapa známých světů (náhled, etapa 1, 2026-11-27): rytá námořní mapa ve stylu nočního atlasu.
-   Tuš, linky a vzduch; barva archetypu jen v tuši pobřeží, nádechu země a názvu kraje. */
+/* Mapa známých světů (náhled, etapa 2, 2026-11-27): rytá námořní mapa ve stylu nočního atlasu.
+   Tuš, linky a vzduch; barva archetypu jen v tuši pobřeží, linkách hloubky, nádechu země a názvu kraje.
+   Mlha a kotvy jsou tuší, plavby zlaté. */
 
 .sc-page {
   --sc-ink: var(--color-ink);
@@ -9,6 +10,9 @@
   --sc-rule: color-mix(in srgb, var(--color-ink) 62%, var(--color-paper));
   --sc-rhumb: color-mix(in srgb, var(--color-ink) 14%, var(--color-paper));
   --sc-land: 13%;
+  /* zlato plaveb: na papíře ztmavené, aby drželo kontrast, na noci zlato ze znaku */
+  --sc-gold: color-mix(in srgb, var(--mark-glow) 58%, #5a3c00);
+  --sc-boat: var(--color-ink);
 }
 
 [data-theme='dark'] .sc-page {
@@ -16,6 +20,8 @@
   --sc-rule: color-mix(in srgb, var(--color-ink) 48%, var(--color-paper));
   --sc-rhumb: color-mix(in srgb, var(--color-ink) 12%, var(--color-paper));
   --sc-land: 16%;
+  --sc-gold: var(--mark-glow);
+  --sc-boat: var(--mark-light);
 }
 
 .sc-page [style*='--hue-l'] {
@@ -297,22 +303,66 @@
 }
 
 .sc-water {
-  fill: none;
+  fill: var(--sc-chart);
   stroke: var(--hue);
   stroke-width: 0.6;
   vector-effect: non-scaling-stroke;
 }
 
-.sc-water--0 {
+/* mýtický čas: tečkovaná linka za poslední linkou hloubky (tečky mají stálý rozestup na obrazovce) */
+.sc-water--myth {
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-dasharray: 0.01 4.4;
+  stroke-opacity: 0.6;
+}
+
+.sc-sea-of {
+  transition: opacity 0.35s;
+}
+
+.sc-sea-of.is-dim {
+  opacity: 0.28;
+}
+
+/* stín pobřeží: tah je na jihovýchodě silnější, jako u ryté mapy */
+.sc-shade {
+  fill: none;
+  stroke: var(--hue);
+  stroke-width: 1.5;
+  stroke-linejoin: round;
   opacity: 0.5;
 }
 
-.sc-water--1 {
-  opacity: 0.3;
+/* tajemství: závoj v barvě papíru (nezmapované místo), pod ním pobřeží jen tečkovaně */
+.sc-fog {
+  pointer-events: none;
 }
 
-.sc-water--2 {
-  opacity: 0.16;
+.sc-fog__stop {
+  stop-color: var(--sc-chart);
+}
+
+.sc-fog__veil {
+  fill: url(#sc-fog-veil);
+}
+
+.sc-fog--thinning .sc-fog__veil {
+  opacity: 0.86;
+}
+
+.sc-fog--wisps .sc-fog__veil {
+  opacity: 0.7;
+}
+
+/* nezmapované pobřeží: tečkovaná linka v barvě archetypu */
+.sc-fog__shore {
+  fill: none;
+  stroke: var(--hue);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-dasharray: 0.01 3.6;
+  vector-effect: non-scaling-stroke;
 }
 
 .sc-hit {
@@ -337,6 +387,94 @@
 
 .sc-island.is-dim.is-hover {
   opacity: 0.75;
+}
+
+/* přístavy: tečka na celé mapě, kotva po přiblížení */
+.sc-harbour {
+  cursor: pointer;
+}
+
+.sc-harbour__hit {
+  fill: transparent;
+}
+
+.sc-harbour__dot {
+  fill: var(--sc-ink);
+  stroke: var(--sc-chart);
+  stroke-width: 0.5;
+  opacity: 0.8;
+}
+
+.sc-harbour__halo,
+.sc-harbour__anchor {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.sc-harbour__halo {
+  stroke: var(--sc-chart);
+  stroke-width: 3.4;
+}
+
+.sc-harbour__anchor {
+  stroke: var(--sc-ink);
+  stroke-width: 1.15;
+}
+
+.sc-harbour:hover .sc-harbour__anchor,
+.sc-harbour.is-on .sc-harbour__anchor {
+  stroke: var(--sc-gold);
+  stroke-width: 1.7;
+}
+
+.sc-harbour:hover .sc-harbour__dot,
+.sc-harbour.is-on .sc-harbour__dot {
+  fill: var(--sc-gold);
+  opacity: 1;
+  r: 2.6px;
+}
+
+.sc-harbours .is-dim {
+  opacity: 0.22;
+  transition: opacity 0.35s;
+}
+
+/* plavba: zlatá přerušovaná trasa, proplutý úsek plnou čarou */
+.sc-route path {
+  fill: none;
+  stroke: var(--sc-gold);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 1 6.5;
+}
+
+.sc-route path.is-done {
+  stroke-dasharray: none;
+  stroke-width: 1.6;
+}
+
+.sc-boat {
+  pointer-events: none;
+}
+
+.sc-boat__edge {
+  fill: none;
+  stroke: var(--sc-chart);
+  stroke-width: 2.2;
+  stroke-linejoin: round;
+}
+
+.sc-boat__body {
+  fill: var(--sc-boat);
+}
+
+.sc-boat__wave {
+  fill: var(--sc-gold);
+  stroke: var(--sc-chart);
+  stroke-width: 1.2;
+  paint-order: stroke;
 }
 
 /* jména */
@@ -641,6 +779,427 @@
   transform: translateX(3px);
 }
 
+/* údaje ostrova: paměť světa a hlavní tajemství */
+.sc-card__facts {
+  margin: 0 0 0.9rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--color-line);
+  display: grid;
+  gap: 0.45rem;
+}
+
+.sc-card__facts div {
+  display: grid;
+  grid-template-columns: 7.2rem minmax(0, 1fr);
+  gap: 0.75rem;
+  align-items: baseline;
+}
+
+.sc-card__facts dt {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--sc-muted);
+}
+
+.sc-card__facts dd {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  line-height: 1.35;
+  color: var(--sc-ink);
+}
+
+.sc-card__trails {
+  margin: 0 0 1rem;
+  padding: 0;
+  list-style: none;
+}
+
+.sc-card__trails button {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  width: 100%;
+  padding: 0.38rem 0;
+  border: 0;
+  border-bottom: 1px dotted var(--color-line);
+  background: none;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  color: var(--sc-ink);
+  text-align: left;
+  cursor: pointer;
+}
+
+.sc-card__trails svg {
+  flex: none;
+  color: var(--sc-muted);
+}
+
+.sc-card__trails button:hover,
+.sc-card__trails button:focus-visible {
+  color: var(--color-accent);
+}
+
+.sc-card__trails button.is-on svg,
+.sc-card__trails button:hover svg {
+  color: var(--sc-gold);
+}
+
+/* ---------- výběr plavby v liště ---------- */
+.sc-voyage-pick {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  flex: 0 0 auto;
+  margin-left: auto;
+}
+
+.sc-voyage-pick__label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sc-muted);
+}
+
+.sc-voyage-pick select {
+  max-width: 15rem;
+  padding: 0.4rem 1.4rem 0.45rem 0;
+  border: 0;
+  border-bottom: 1px solid var(--color-line);
+  border-radius: 0;
+  background: transparent;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  color: var(--sc-ink);
+  cursor: pointer;
+}
+
+.sc-voyage-pick select:focus {
+  outline: none;
+  border-bottom-color: var(--color-accent);
+}
+
+.sc-voyage-pick option {
+  background: var(--color-tile);
+  color: var(--color-ink);
+}
+
+.sc-legend-btn {
+  flex: none;
+  padding: 0.4rem 0 0.45rem;
+  border: 0;
+  border-bottom: 1px solid transparent;
+  background: none;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  color: var(--sc-muted);
+  cursor: pointer;
+}
+
+.sc-legend-btn:hover,
+.sc-legend-btn:focus-visible,
+.sc-legend-btn[aria-expanded='true'] {
+  color: var(--sc-ink);
+  border-bottom-color: var(--sc-ink);
+}
+
+/* ---------- karta plavby ---------- */
+.sc-voyage {
+  position: absolute;
+  top: 1.25rem;
+  left: 1.25rem;
+  width: 20.5rem;
+  max-height: calc(100% - 2.5rem);
+  overflow: auto;
+  padding: 1.25rem 1.35rem 1.2rem;
+  background: var(--color-tile);
+  border: 1px solid var(--color-line);
+  border-top: 3px solid var(--sc-gold);
+  animation: sc-card-in 0.28s ease-out;
+}
+
+.sc-voyage__kicker {
+  margin: 0 1.5rem 0.5rem 0;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--sc-muted);
+}
+
+.sc-voyage__title {
+  margin: 0 0 0.45rem;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.12;
+  color: var(--sc-ink);
+}
+
+.sc-voyage__question {
+  margin: 0 0 0.9rem;
+  font-family: var(--font-text);
+  font-size: 1rem;
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--sc-ink);
+}
+
+/* zastávky jako trasa: svislá zlatá linka, na ní značky ostrovů */
+.sc-voyage__stops {
+  position: relative;
+  margin: 0 0 1rem;
+  padding: 0.15rem 0;
+  list-style: none;
+}
+
+.sc-voyage__stops::before {
+  content: '';
+  position: absolute;
+  top: 0.9rem;
+  bottom: 0.9rem;
+  left: 0.3125rem;
+  border-left: 2px dotted var(--sc-gold);
+}
+
+.sc-voyage__stops button {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+  width: 100%;
+  padding: 0.3rem 0;
+  border: 0;
+  background: none;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  color: var(--sc-ink);
+  text-align: left;
+  cursor: pointer;
+}
+
+.sc-voyage__mark {
+  flex: none;
+  align-self: center;
+  width: 0.75rem;
+  height: 0.75rem;
+  border: 2px solid var(--hue);
+  border-radius: 50%;
+  background: var(--color-tile);
+}
+
+.sc-voyage__stops .is-done .sc-voyage__mark,
+.sc-voyage__stops .is-here .sc-voyage__mark {
+  background: var(--hue);
+}
+
+.sc-voyage__stops .is-here .sc-voyage__mark {
+  box-shadow: 0 0 0 3px var(--color-tile), 0 0 0 4.5px var(--sc-gold);
+}
+
+.sc-voyage__stops .is-here .sc-voyage__name {
+  font-weight: 700;
+}
+
+.sc-voyage__stops button:hover .sc-voyage__name,
+.sc-voyage__stops button:focus-visible .sc-voyage__name {
+  color: var(--color-accent);
+}
+
+.sc-voyage__arch {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.04em;
+  color: var(--sc-muted);
+  white-space: nowrap;
+}
+
+.sc-voyage__here {
+  display: none;
+}
+
+.sc-voyage__actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.sc-voyage__sail,
+.sc-voyage__step {
+  height: 2.25rem;
+  border: 1px solid var(--sc-ink);
+  background: none;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--sc-ink);
+  cursor: pointer;
+}
+
+.sc-voyage__sail {
+  flex: 1;
+  padding: 0 1rem;
+  background: var(--sc-ink);
+  color: var(--color-tile);
+}
+
+.sc-voyage__sail:hover,
+.sc-voyage__sail:focus-visible {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.sc-voyage__step {
+  width: 2.25rem;
+  font-size: 1.15rem;
+  line-height: 1;
+}
+
+.sc-voyage__step:hover:not(:disabled),
+.sc-voyage__step:focus-visible {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.sc-voyage__step:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+/* ---------- legenda ---------- */
+.sc-legend {
+  position: absolute;
+  left: 1.25rem;
+  bottom: 1.25rem;
+  width: 23rem;
+  max-width: calc(100% - 2.5rem);
+  max-height: calc(100% - 2.5rem);
+  overflow: auto;
+  padding: 1.1rem 1.25rem 0.9rem;
+  background: var(--color-tile);
+  border: 1px solid var(--color-line);
+  border-top: 3px solid var(--sc-ink);
+  animation: sc-card-in 0.28s ease-out;
+  z-index: 2;
+}
+
+.sc-legend__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin: 0 0 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sc-muted);
+}
+
+.sc-legend__head button {
+  border: 0;
+  background: none;
+  font-size: 1.25rem;
+  line-height: 1;
+  color: var(--sc-muted);
+  cursor: pointer;
+}
+
+.sc-legend__head button:hover,
+.sc-legend__head button:focus-visible {
+  color: var(--sc-ink);
+}
+
+.sc-legend__body {
+  margin: 0;
+}
+
+.sc-legend__body > div {
+  display: grid;
+  grid-template-columns: 2.6rem minmax(0, 1fr);
+  gap: 0.85rem;
+  align-items: start;
+  padding: 0.5rem 0;
+  border-top: 1px dotted var(--color-line);
+}
+
+.sc-legend__body dt svg {
+  display: block;
+  width: 2.6rem;
+  height: 1.55rem;
+}
+
+.sc-legend__body dd {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: var(--sc-ink);
+}
+
+.sc-legend__body a {
+  color: var(--color-accent);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.sc-legend__body a:hover,
+.sc-legend__body a:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.lg-land {
+  fill: color-mix(in srgb, var(--sc-ink) 10%, var(--color-tile));
+  stroke: var(--sc-ink);
+  stroke-width: 1;
+}
+
+.lg-depth,
+.lg-myth,
+.lg-anchor,
+.lg-route,
+.lg-kin {
+  fill: none;
+  stroke: var(--sc-ink);
+  stroke-linecap: round;
+}
+
+.lg-depth {
+  stroke-width: 0.6;
+}
+
+.lg-myth {
+  stroke-width: 1.3;
+  stroke-dasharray: 0.01 3;
+}
+
+.lg-shore {
+  fill: none;
+  stroke: var(--sc-ink);
+  stroke-width: 1;
+}
+
+.lg-anchor {
+  stroke-width: 0.8;
+  stroke-linejoin: round;
+}
+
+.lg-route {
+  stroke: var(--sc-gold);
+  stroke-width: 1.8;
+  stroke-dasharray: 0.8 4.4;
+}
+
+.lg-kin {
+  stroke-width: 1;
+  stroke-dasharray: 4 3;
+}
+
 /* ---------- seznam pod mapou ---------- */
 .sc-list {
   padding-top: 2.5rem;
@@ -760,13 +1319,115 @@
     margin-bottom: 0.8rem;
   }
 
-  .sc-card__h {
+  .sc-card__facts {
     order: 3;
   }
 
-  .sc-card__kin {
+  .sc-card__sec--kin {
     order: 4;
+  }
+
+  .sc-card__sec--trails {
+    order: 5;
+  }
+
+  .sc-card__sec:last-of-type ul {
     margin-bottom: 0;
+  }
+
+  /* plavba na telefonu: úzký pruh nahoře (název, zastávka, ovládání); karta ostrova ji překryje */
+  .sc-voyage {
+    top: 0;
+    left: 0;
+    right: 0;
+    width: auto;
+    max-height: none;
+    overflow: visible;
+    padding: 0.7rem 2.6rem 0.7rem 1.25rem;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 1px solid var(--color-line);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: 0.75rem;
+    align-items: center;
+  }
+
+  .sc-voyage.is-behind {
+    display: none;
+  }
+
+  .sc-voyage__kicker,
+  .sc-voyage__question,
+  .sc-voyage__stops {
+    display: none;
+  }
+
+  .sc-voyage__title {
+    grid-column: 1;
+    margin: 0;
+    font-size: 1.1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .sc-voyage__here {
+    grid-column: 1;
+    display: flex;
+    gap: 0.6rem;
+    margin: 0.15rem 0 0;
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    color: var(--sc-ink);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .sc-voyage__here span {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    align-self: center;
+    color: var(--sc-muted);
+  }
+
+  .sc-voyage__actions {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    margin: 0;
+    gap: 0.35rem;
+  }
+
+  .sc-voyage__sail {
+    padding: 0 0.7rem;
+  }
+
+  .sc-voyage > .sc-card__go {
+    grid-column: 1 / -1;
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+  }
+
+  .sc-legend {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    max-width: none;
+    max-height: 62%;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 0;
+  }
+
+  .sc-voyage-pick {
+    margin-left: 0;
+  }
+
+  .sc-voyage-pick select {
+    flex: 1;
+    max-width: none;
   }
 
   .is-narrow.has-card .sc-zoom {
@@ -788,7 +1449,9 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .sc-card {
+  .sc-card,
+  .sc-voyage,
+  .sc-legend {
     animation: none;
   }
 }
