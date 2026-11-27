@@ -26,6 +26,8 @@ if (!world) throw new Error(`Unknown world: ${slug}`);
 
 const base = import.meta.env.BASE_URL;
 const chapter = getChapterById(world.chapterId);
+/* přesah do druhého archetypu (krátký název do drobečků) */
+const overlapChapter = world.secondaryChapterId ? getChapterById(world.secondaryChapterId) : undefined;
 const themeLabels = Object.fromEntries(themeTaxonomy.map((th) => [th.slug, th.label]));
 const baseUrl = base.replace(/\/$/, '');
 // Příbuzenstvo počítá compare.ts nad světy doplněnými o triádu, vyprávění a paměť (kin-worlds.ts).
@@ -74,6 +76,7 @@ const pageTitle = `${t(world.gameTitle, 'cs')} — Here Be Worlds`;
     baseUrl={baseUrl}
     world={world}
     chapterTitle={chapter?.title}
+    overlapTitle={overlapChapter ? overlapChapter.short ?? overlapChapter.title : undefined}
     chapterAccent={chapter?.accent}
     themeLabels={themeLabels}
     related={related}

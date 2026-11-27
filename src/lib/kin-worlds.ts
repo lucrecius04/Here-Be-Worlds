@@ -75,9 +75,9 @@ function ctxFor(locale: Locale): EvidenceCtx {
   return {
     locale,
     kinLabels,
-    chapterName: (world) => {
-      const chapter = chapters.find((c) => c.id === world.chapterId) as { title: LocalizedString; short?: LocalizedString } | undefined;
-      return chapter ? t(chapter.short ?? chapter.title, locale) : world.chapterId;
+    chapterLabel: (id) => {
+      const chapter = chapters.find((c) => c.id === id) as { title: LocalizedString; short?: LocalizedString } | undefined;
+      return chapter ? t(chapter.short ?? chapter.title, locale) : id;
     },
     themeLabel: (slug) => (themeLabelOf.has(slug) ? t(themeLabelOf.get(slug)!, locale) : slug),
   };

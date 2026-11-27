@@ -19,6 +19,7 @@ import {
 } from './compare';
 import type { World } from '../schemas/world';
 import { kinPublished } from './kin-worlds';
+import { chapters } from './worlds';
 
 function axisStub(value: number): World['axes'] {
   const comment = { en: 'c', cs: 'c' };
@@ -121,6 +122,31 @@ describe('affinityBreakdown: šest pilířů', () => {
     expect(affinityBreakdown(a, near).archetype).toBe(8);
     expect(affinityBreakdown(a, other).archetype).toBe(6);
     expect(affinityBreakdown(a, { ...other, chapterId: 'horror' } as World).archetype).toBe(0);
+  });
+
+  it('archetyp: přesah do druhého archetypu dá 4 (hlavní × přesah) nebo 2 (jen přesahy), nikdy víc než hlavní', () => {
+    const profile = (id: string, name: string) => ({ ...minimal(id, [], 3).metadata, genreProfile: field(name) });
+    const scifi = minimal('s', [], 3, 3, { chapterId: 'science-fiction', metadata: profile('s', 'Space opera') });
+    const dystopia = minimal('d', [], 3, 3, {
+      chapterId: 'dystopia',
+      secondaryChapterId: 'science-fiction',
+      metadata: profile('d', 'Cyberpunk'),
+    });
+    const horror = minimal('h', [], 3, 3, {
+      chapterId: 'horror',
+      secondaryChapterId: 'science-fiction',
+      metadata: profile('h', 'Sci-fi horror'),
+    });
+    const plain = minimal('p', [], 3, 3, { chapterId: 'historical', metadata: profile('p', 'Historical realism') });
+    expect(affinityBreakdown(scifi, dystopia).archetype).toBe(4);
+    expect(affinityBreakdown(dystopia, scifi).archetype).toBe(4);
+    expect(kinshipEvidence(scifi, dystopia).archetype).toEqual({ chapter: 'cross', shared: 'science-fiction', profile: null });
+    expect(affinityBreakdown(dystopia, horror).archetype).toBe(2);
+    expect(kinshipEvidence(dystopia, horror).archetype.chapter).toBe('overlap');
+    expect(affinityBreakdown(dystopia, plain).archetype).toBe(0);
+    /* společný hlavní archetyp má přednost a přesah k němu nic nepřidá */
+    const twin = { ...dystopia, id: 'd2', metadata: profile('d2', 'Political dystopia') } as World;
+    expect(affinityBreakdown(dystopia, twin).archetype).toBe(6);
   });
 
   it('souřadnice: 5 / 3,5 / 1,5 / 0 za rozdíl 0, 1, 2 a víc', () => {
@@ -229,7 +255,7 @@ describe('affinityBreakdown: šest pilířů', () => {
     const a = minimal('a', ['faith', 'war'], 3, 3, { kin: kin({ myth: true, tools: [{ t: 'hudba', ring: 'obraz-a-zvuk' }] }) });
     const b = minimal('b', ['war', 'gods'], 3, 4, { kin: kin({ myth: true, dilemma: 'd2', tools: [{ t: 'hudba', ring: 'obraz-a-zvuk' }] }) });
     const ev = kinshipEvidence(a, b);
-    expect(ev.archetype).toEqual({ chapter: true, profile: 'same' });
+    expect(ev.archetype).toEqual({ chapter: 'same', shared: 'fantasy', profile: 'same' });
     expect(ev.axes.same).toHaveLength(4);
     expect(ev.axes.near).toEqual(['hopeDespair']);
     expect(ev.themes).toEqual(['war']);
@@ -247,6 +273,21 @@ describe('příbuznost nad daty atlasu', () => {
   it('každý publikovaný svět má údaje pro triádu, vyprávění a paměť', () => {
     const missing = kinPublished.filter((w) => !w.kin || w.kin.tools.length === 0).map((w) => w.id);
     expect(missing).toEqual([]);
+  });
+
+  it('přesah do druhého archetypu je platný archetyp a liší se od hlavního', () => {
+    const ids = new Set(chapters.map((c) => c.id));
+    const bad = kinPublished
+      .filter((w) => w.secondaryChapterId && (!ids.has(w.secondaryChapterId) || w.secondaryChapterId === w.chapterId))
+      .map((w) => w.id);
+    expect(bad).toEqual([]);
+  });
+
+  it('Mass Effect × Cyberpunk 2077: sci-fi je u jednoho hlavní archetyp, u druhého přesah', () => {
+    const ev = kinshipEvidence(W('mass-effect'), W('cyberpunk-2077'));
+    expect(ev.archetype.chapter).toBe('cross');
+    expect(ev.archetype.shared).toBe('science-fiction');
+    expect(affinityBreakdown(W('mass-effect'), W('cyberpunk-2077')).archetype).toBe(4);
   });
 
   it('Dark Souls × Outer Wilds: vypadají jinak, ale stojí na stejných základech', () => {

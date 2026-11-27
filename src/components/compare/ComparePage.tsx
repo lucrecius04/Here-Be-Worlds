@@ -194,9 +194,9 @@ function evidenceCtx(
   return {
     locale,
     kinLabels,
-    chapterName: (world) => {
-      const chapter = chapterById.get(world.chapterId);
-      return chapter ? t(chapter.short ?? chapter.title, locale) : world.chapterId;
+    chapterLabel: (id) => {
+      const chapter = chapterById.get(id);
+      return chapter ? t(chapter.short ?? chapter.title, locale) : id;
     },
     themeLabel: (slug) => (themeLabels[slug] ? t(themeLabels[slug], locale) : slug),
   };
@@ -431,7 +431,9 @@ export default function ComparePage({ worlds, chapters, themeLabels, kinLabels, 
           label: uiT('world.genreLine', locale),
           values: selected.map((world) => {
             const chapter = chapterById.get(world.chapterId);
-            return chapter ? t(chapter.title, locale) : world.chapterId;
+            const main = chapter ? t(chapter.title, locale) : world.chapterId;
+            const over = world.secondaryChapterId ? chapterById.get(world.secondaryChapterId) : undefined;
+            return over ? `${main} · ${uiT('world.overlap', locale)} ${t(over.short ?? over.title, locale)}` : main;
           }),
           subs: selected.map((world) => genreSub(world, locale) || null),
         },

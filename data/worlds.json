@@ -470,6 +470,7 @@
       "id": "diablo",
       "number": 3,
       "chapterId": "fantasy",
+      "secondaryChapterId": "horror",
       "addedAt": "2026-11-15",
       "gameTitle": {
         "en": "Diablo",
@@ -1580,6 +1581,7 @@
       "id": "path-of-exile",
       "number": 8,
       "chapterId": "fantasy",
+      "secondaryChapterId": "horror",
       "addedAt": "2026-11-16",
       "gameTitle": {
         "en": "Path of Exile",
@@ -2458,6 +2460,7 @@
       "id": "doom",
       "number": 12,
       "chapterId": "science-fiction",
+      "secondaryChapterId": "fantasy",
       "addedAt": "2026-11-17",
       "gameTitle": {
         "en": "DOOM",
@@ -3342,6 +3345,7 @@
       "id": "warhammer-40k",
       "number": 16,
       "chapterId": "science-fiction",
+      "secondaryChapterId": "horror",
       "addedAt": "2026-11-17",
       "gameTitle": {
         "en": "Warhammer 40 000",
@@ -3780,6 +3784,7 @@
       "id": "xenoblade",
       "number": 18,
       "chapterId": "science-fiction",
+      "secondaryChapterId": "fantasy",
       "addedAt": "2026-11-17",
       "gameTitle": {
         "en": "Xenoblade",
@@ -4009,6 +4014,7 @@
       "id": "death-stranding",
       "number": 19,
       "chapterId": "post-apocalypse",
+      "secondaryChapterId": "metaphysical",
       "addedAt": "2026-11-17",
       "gameTitle": {
         "en": "Death Stranding",
@@ -4231,6 +4237,7 @@
       "id": "fallout",
       "number": 20,
       "chapterId": "post-apocalypse",
+      "secondaryChapterId": "science-fiction",
       "addedAt": "2026-11-17",
       "gameTitle": {
         "en": "Fallout",
@@ -4454,6 +4461,7 @@
       "id": "horizon",
       "number": 21,
       "chapterId": "post-apocalypse",
+      "secondaryChapterId": "science-fiction",
       "addedAt": "2026-11-17",
       "gameTitle": {
         "en": "Horizon",
@@ -4673,6 +4681,7 @@
       "id": "metro",
       "number": 22,
       "chapterId": "post-apocalypse",
+      "secondaryChapterId": "horror",
       "addedAt": "2026-11-17",
       "gameTitle": {
         "en": "Metro",
@@ -4893,6 +4902,7 @@
       "id": "nier-automata",
       "number": 23,
       "chapterId": "post-apocalypse",
+      "secondaryChapterId": "science-fiction",
       "addedAt": "2026-11-17",
       "gameTitle": {
         "en": "NieR: Automata",
@@ -5114,6 +5124,7 @@
       "id": "bloodborne",
       "number": 24,
       "chapterId": "horror",
+      "secondaryChapterId": "fantasy",
       "addedAt": "2026-11-17",
       "gameTitle": {
         "en": "Bloodborne",
@@ -5333,6 +5344,7 @@
       "id": "resident-evil",
       "number": 25,
       "chapterId": "horror",
+      "secondaryChapterId": "science-fiction",
       "addedAt": "2026-11-17",
       "gameTitle": {
         "en": "Resident Evil",
@@ -5772,6 +5784,7 @@
       "id": "soma",
       "number": 27,
       "chapterId": "horror",
+      "secondaryChapterId": "science-fiction",
       "addedAt": "2026-11-17",
       "gameTitle": {
         "en": "SOMA",
@@ -5991,6 +6004,7 @@
       "id": "assassins-creed",
       "number": 28,
       "chapterId": "historical",
+      "secondaryChapterId": "science-fiction",
       "addedAt": "2026-11-17",
       "gameTitle": {
         "en": "Assassin's Creed",
@@ -6649,6 +6663,7 @@
       "id": "bioshock",
       "number": 31,
       "chapterId": "dystopia",
+      "secondaryChapterId": "science-fiction",
       "addedAt": "2026-11-17",
       "gameTitle": {
         "en": "BioShock",
@@ -6875,6 +6890,7 @@
       "id": "cyberpunk-2077",
       "number": 32,
       "chapterId": "dystopia",
+      "secondaryChapterId": "science-fiction",
       "addedAt": "2026-11-17",
       "gameTitle": {
         "en": "Cyberpunk 2077",
@@ -7096,6 +7112,7 @@
       "id": "deus-ex",
       "number": 33,
       "chapterId": "dystopia",
+      "secondaryChapterId": "science-fiction",
       "addedAt": "2026-11-17",
       "gameTitle": {
         "en": "Deus Ex",
@@ -7317,6 +7334,7 @@
       "id": "dishonored",
       "number": 34,
       "chapterId": "dystopia",
+      "secondaryChapterId": "fantasy",
       "addedAt": "2026-11-17",
       "gameTitle": {
         "en": "Dishonored",
@@ -7537,6 +7555,7 @@
       "id": "half-life",
       "number": 35,
       "chapterId": "dystopia",
+      "secondaryChapterId": "science-fiction",
       "addedAt": "2026-11-17",
       "gameTitle": {
         "en": "Half-Life",
@@ -7974,6 +7993,7 @@
       "id": "inscryption",
       "number": 37,
       "chapterId": "metaphysical",
+      "secondaryChapterId": "horror",
       "addedAt": "2026-11-17",
       "gameTitle": {
         "en": "Inscryption",
@@ -8193,6 +8213,7 @@
       "id": "outer-wilds",
       "number": 38,
       "chapterId": "metaphysical",
+      "secondaryChapterId": "science-fiction",
       "addedAt": "2026-11-17",
       "gameTitle": {
         "en": "Outer Wilds",
@@ -8415,6 +8436,7 @@
       "id": "pathologic",
       "number": 39,
       "chapterId": "metaphysical",
+      "secondaryChapterId": "horror",
       "addedAt": "2026-11-17",
       "gameTitle": {
         "en": "Pathologic",
@@ -8635,6 +8657,7 @@
       "id": "planescape-torment",
       "number": 40,
       "chapterId": "metaphysical",
+      "secondaryChapterId": "fantasy",
       "addedAt": "2026-11-17",
       "gameTitle": {
         "en": "Planescape: Torment",
@@ -8855,6 +8878,7 @@
       "id": "tides-of-numenera",
       "number": 41,
       "chapterId": "metaphysical",
+      "secondaryChapterId": "science-fiction",
       "addedAt": "2026-11-17",
       "gameTitle": {
         "en": "Tides of Numenera",
@@ -9075,6 +9099,7 @@
       "id": "undertale",
       "number": 42,
       "chapterId": "metaphysical",
+      "secondaryChapterId": "fantasy",
       "addedAt": "2026-11-17",
       "gameTitle": {
         "en": "Undertale",

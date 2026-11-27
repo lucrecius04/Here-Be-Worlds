@@ -48,6 +48,8 @@ export const worldSchema = z.object({
   id: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
   number: z.number().int().positive(),
   chapterId: z.string(),
+  /** Přesah do druhého archetypu (nepovinný): svět by mohl stát i na jeho polici. Vstupuje do příbuznosti. */
+  secondaryChapterId: z.string().optional(),
   addedAt: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional(),
   gameTitle: localizedStringSchema,
   chronicleTitle: localizedStringSchema,

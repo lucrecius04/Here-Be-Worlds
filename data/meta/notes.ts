@@ -10,8 +10,8 @@ export const noteFields: NoteField[] = [
   {
     term: { cs: 'Profil archetypu', en: 'Archetype profile' },
     help: {
-      cs: 'Hlavní skupina určuje archetyp. Podtyp a nejvýš dva přesahy jsou pojmenované podle rysů konkrétního světa.',
-      en: 'The main group sets the archetype. A subtype and at most two overlaps are named after the traits of the given world.',
+      cs: 'Svět patří do jednoho archetypu a v něm má profil (podtyp) pojmenovaný podle svých rysů. Obojí může mít přesah: archetyp do druhého archetypu, profil do sousedního podtypu.',
+      en: 'A world belongs to one archetype and, within it, has a profile (subtype) named after its traits. Either can have an overlap: the archetype into a second archetype, the profile into a neighbouring subtype.',
     },
     values: {
       cs: 'Fantasy · Science fiction · Postapokalypsa · Horor · Historické a alternativní světy · Dystopie · Metafyzické a experimentální světy',
@@ -141,7 +141,10 @@ export const noteKinshipIntro: LocalizedString = {
 export const noteKinshipPillars: NoteField[] = [
   {
     term: { cs: 'Archetyp', en: 'Archetype' },
-    help: { cs: 'Podoba. Stejný archetyp a stejný nebo příbuzný profil archetypu.', en: 'Look. The same archetype and the same or a kindred archetype profile.' },
+    help: {
+      cs: 'Podoba. Stejný archetyp, nebo aspoň přesah do archetypu druhého světa, a stejný nebo příbuzný profil archetypu.',
+      en: "Look. The same archetype, or at least an overlap into the other world's archetype, and the same or a kindred archetype profile.",
+    },
   },
   {
     term: { cs: 'Souřadnice', en: 'Coordinates' },

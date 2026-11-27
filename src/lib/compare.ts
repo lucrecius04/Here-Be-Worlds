@@ -108,7 +108,11 @@ export const HALF_MAX: Record<KinHalf, number> = { look: 62, nature: 38 };
 
 /** Koeficienty: jediné místo, kde se váhy nastavují. */
 export const KIN_POINTS = {
-  archetype: { chapter: 6, profile: 4, profileNear: 2 },
+  /**
+   * Archetyp: společný hlavní archetyp; hlavní jednoho je přesahem druhého (`chapterCross`); společný jen
+   * přesah (`chapterOverlap`). Počítá se nejvyšší z těch tří. Profil: stejný, nebo přes přesah profilu.
+   */
+  archetype: { chapter: 6, chapterCross: 4, chapterOverlap: 2, profile: 4, profileNear: 2 },
   /** Body za jednu souřadnici podle rozdílu hodnot 0, 1, 2, 3+. */
   axis: [5, 3.5, 1.5, 0],
   character: { moodEach: 4, power: 5, society: 4, space: 4, perspective: 2, depthKind: 2, memorySpan: 1, myth: 1 },
@@ -131,7 +135,13 @@ export type AffinityBreakdown = Record<PillarKey, number> & {
 
 /** Co přesně dva světy sdílejí (podklad pro vlákna na Srovnání). Jen klíče a id, texty skládá stránka. */
 export type KinshipEvidence = {
-  archetype: { chapter: boolean; profile: 'same' | 'near' | null };
+  archetype: {
+    /** `same` společný hlavní archetyp · `cross` hlavní jednoho je přesahem druhého · `overlap` společný jen přesah. */
+    chapter: 'same' | 'cross' | 'overlap' | null;
+    /** Id archetypu, který světy sdílejí. */
+    shared: string | null;
+    profile: 'same' | 'near' | null;
+  };
   axes: { same: Array<(typeof AXIS_KEYS)[number]>; near: Array<(typeof AXIS_KEYS)[number]> };
   character: {
     /** Společné nálady: `main` / `sub` říká, kde ji má první svět (kvůli lokalizovanému názvu). */
@@ -175,6 +185,16 @@ function sameMemorySpan(a: World, b: World): boolean {
 }
 
 const round1 = (v: number) => Math.round(v * 10) / 10;
+
+/** Který archetyp světy sdílejí: hlavní, hlavní jednoho s přesahem druhého, nebo jen přesah obou. */
+function sharedArchetype(a: World, b: World): Pick<KinshipEvidence['archetype'], 'chapter' | 'shared'> {
+  if (a.chapterId === b.chapterId) return { chapter: 'same', shared: a.chapterId };
+  if (b.secondaryChapterId === a.chapterId) return { chapter: 'cross', shared: a.chapterId };
+  if (a.secondaryChapterId === b.chapterId) return { chapter: 'cross', shared: b.chapterId };
+  if (a.secondaryChapterId && a.secondaryChapterId === b.secondaryChapterId)
+    return { chapter: 'overlap', shared: a.secondaryChapterId };
+  return { chapter: null, shared: null };
+}
 
 export function kinshipEvidence(a: World, b: World): KinshipEvidence {
   const genreA = enMain(a.metadata.genreProfile);
@@ -226,7 +246,7 @@ export function kinshipEvidence(a: World, b: World): KinshipEvidence {
   const rings = META_RINGS.filter((r) => ringsA.has(r) && ringsB.has(r) && !coveredRings.has(r));
 
   return {
-    archetype: { chapter: a.chapterId === b.chapterId, profile },
+    archetype: { ...sharedArchetype(a, b), profile },
     axes: { same, near },
     character: { moods, fields, memorySpan: sameMemorySpan(a, b), myth: Boolean(ka?.myth && kb?.myth) },
     themes: a.themes.filter((slug) => b.themes.includes(slug)),
@@ -240,7 +260,13 @@ export function affinityBreakdown(a: World, b: World): AffinityBreakdown {
   const P = KIN_POINTS;
 
   const archetype =
-    (ev.archetype.chapter ? P.archetype.chapter : 0) +
+    (ev.archetype.chapter === 'same'
+      ? P.archetype.chapter
+      : ev.archetype.chapter === 'cross'
+        ? P.archetype.chapterCross
+        : ev.archetype.chapter === 'overlap'
+          ? P.archetype.chapterOverlap
+          : 0) +
     (ev.archetype.profile === 'same' ? P.archetype.profile : ev.archetype.profile === 'near' ? P.archetype.profileNear : 0);
 
   const axes = AXIS_KEYS.reduce((sum, key) => {

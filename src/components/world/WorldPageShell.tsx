@@ -21,6 +21,7 @@ type Props = {
   baseUrl: string;
   world: World;
   chapterTitle?: LocalizedString;
+  overlapTitle?: LocalizedString;
   chapterAccent?: ChapterAccent;
   themeLabels: Record<string, LocalizedString>;
   related?: RelatedItem[];
@@ -35,6 +36,7 @@ export default function WorldPageShell({
   baseUrl,
   world,
   chapterTitle,
+  overlapTitle,
   chapterAccent,
   themeLabels,
   related = [],
@@ -242,7 +244,7 @@ export default function WorldPageShell({
         className={`world-page__masthead${floating ? ' is-floating' : ''}${floating && hidden ? ' is-hidden' : ''}${floating && animated ? ' is-animated' : ''}`}
       >
         <div className="world-page__wrap">
-          <WorldPageMasthead base={base} world={world} chapterTitle={chapterTitle} />
+          <WorldPageMasthead base={base} world={world} chapterTitle={chapterTitle} overlapTitle={overlapTitle} />
           <nav className="wp-tabs" aria-label={uiT('world.tabsAria', locale)}>
             <div className="wp-tabs__list" role="tablist">
               {tabs.map((tab) => {

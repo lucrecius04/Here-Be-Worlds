@@ -7,10 +7,12 @@ type Props = {
   base: string;
   world: World;
   chapterTitle?: LocalizedString;
+  /** Název archetypu, do kterého svět přesahuje (`secondaryChapterId`). */
+  overlapTitle?: LocalizedString;
 };
 
 /** Hlavička spisu světa: drobečky, záložka archetypu, velký název a kartotéční údaje. */
-export default function WorldPageMasthead({ base, world, chapterTitle }: Props) {
+export default function WorldPageMasthead({ base, world, chapterTitle, overlapTitle }: Props) {
   const locale = useLocale();
   const universe = (world.universe ?? []).map((name) => t(name, locale)).filter(Boolean);
   const genre = t(world.metadata.genreProfile, locale);
@@ -32,6 +34,16 @@ export default function WorldPageMasthead({ base, world, chapterTitle }: Props) 
           <>
             <span aria-hidden="true">/</span>
             <a href={withBase(base, `/chapters/${world.chapterId}/`)}>{archetype}</a>
+          </>
+        ) : null}
+        {/* přesah do druhého archetypu: stejná mluva jako přesah profilu v záložce pod tím */}
+        {archetype && overlapTitle && world.secondaryChapterId ? (
+          <>
+            <span aria-hidden="true">·</span>
+            <span>
+              {uiT('world.overlap', locale)}{' '}
+              <a href={withBase(base, `/chapters/${world.secondaryChapterId}/`)}>{t(overlapTitle, locale)}</a>
+            </span>
           </>
         ) : null}
       </p>

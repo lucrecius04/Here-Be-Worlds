@@ -20,8 +20,8 @@ export type KinLabels = {
 
 export type EvidenceCtx = {
   locale: Locale;
-  /** Krátký název archetypu světa. */
-  chapterName: (world: World) => string;
+  /** Krátký název archetypu podle id. */
+  chapterLabel: (chapterId: string) => string;
   themeLabel: (slug: string) => string;
   kinLabels: KinLabels;
 };
@@ -63,10 +63,14 @@ export function pillarEvidence(key: PillarKey, a: World, b: World, ctx: Evidence
 
   if (key === 'archetype') {
     const items: string[] = [];
-    if (ev.archetype.chapter) items.push(ctx.chapterName(a));
+    const shared = ev.archetype.shared ? ctx.chapterLabel(ev.archetype.shared) : '';
+    if (ev.archetype.chapter === 'same') items.push(shared);
+    /* přes přesah: archetyp, který je u jednoho světa hlavní a u druhého přesahem; nebo jen přesah obou */
+    else if (ev.archetype.chapter === 'cross') items.push(uiT('compare.evArchetypeCross', locale).replace('{v}', shared));
+    else if (ev.archetype.chapter === 'overlap') items.push(uiT('compare.evArchetypeOverlap', locale).replace('{v}', shared));
     if (ev.archetype.profile === 'same') items.push(t(a.metadata.genreProfile, locale));
     else if (ev.archetype.profile === 'near') items.push(uiT('compare.evNearProfile', locale));
-    return items.length ? cap(items) : none(versus(ctx.chapterName(a), ctx.chapterName(b)));
+    return items.length ? cap(items) : none(versus(ctx.chapterLabel(a.chapterId), ctx.chapterLabel(b.chapterId)));
   }
 
   if (key === 'axes') {
@@ -136,7 +140,7 @@ export function pillarRift(key: PillarKey, a: World, b: World, ctx: EvidenceCtx)
   const ev = kinshipEvidence(a, b);
 
   if (key === 'archetype') {
-    if (!ev.archetype.chapter) return { items: [versus(ctx.chapterName(a), ctx.chapterName(b))] };
+    if (ev.archetype.chapter !== 'same') return { items: [versus(ctx.chapterLabel(a.chapterId), ctx.chapterLabel(b.chapterId))] };
     return { items: [versus(t(a.metadata.genreProfile, locale), t(b.metadata.genreProfile, locale))] };
   }
 
