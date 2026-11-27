@@ -74,7 +74,9 @@ html[data-znak] .brand-mark-pair .brand-mark__w1 {
 }
 html[data-znak='z1'] .brand-mark-pair .brand-mark__z1,
 html[data-znak='o2'] .brand-mark-pair .brand-mark__o2,
-html[data-znak='o2k'] .brand-mark-pair .brand-mark__o2k {
+html[data-znak='o2k'] .brand-mark-pair .brand-mark__o2k,
+html[data-znak='o2d'] .brand-mark-pair .brand-mark__o2d,
+html[data-znak='o2kd'] .brand-mark-pair .brand-mark__o2kd {
   display: block !important;
 }
 

@@ -84,11 +84,11 @@ const published = worlds
       })();
     </script>
     <script is:inline>
-      /* Znak webu: W1 (výchozí), Z1, O2 (šedý otevřený kruh) nebo O2K (krémový otevřený kruh). ?znak=w1|z1|o2|o2k uloží volbu a ukáže tlačítko pro přepínání, ?znak=vypnout vrátí W1 (hbw_znak). */
+      /* Znak webu: W1 (výchozí), Z1, O2 (šedý otevřený kruh), O2K (krémový otevřený kruh), O2D a O2KD (totéž, loď pluje doprava). ?znak=w1|z1|o2|o2k|o2d|o2kd uloží volbu a ukáže tlačítko pro přepínání, ?znak=vypnout vrátí W1 (hbw_znak). */
       (function () {
         var KEY = 'hbw_znak';
         var q = new URLSearchParams(location.search).get('znak');
-        var ALL = ['w1', 'z1', 'o2', 'o2k'];
+        var ALL = ['w1', 'z1', 'o2', 'o2k', 'o2d', 'o2kd'];
         var v = null;
         try {
           if (ALL.indexOf(q) >= 0) localStorage.setItem(KEY, q);

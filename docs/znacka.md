@@ -8,11 +8,12 @@ Návrhy jsou na plátně Design v Claude „Here Be Worlds — logo a značka“
 - Ikona lodi je **majitelova** (Illustrator, `Ikonka_HBW.svg`, 16 × 16): plachta je brk se dvěma zářezy, pod ní trup a vlna. Obrysy byly vyhlazené (původní obtažená cesta měla „zuby“ na hranách zářezů); vyhlazení: rastr 2000 px, Gaussovo vyhlazení obrysu s ochranou ostrých rohů, husté Catmull-Rom křivky.
 - Ikona stojí v **kruhu světa** (r 7,6 kolem bodu 8 / 9,6 v souřadnicích ikony) a **špička plachty z kruhu vyjíždí** nahoru: Here Be Worlds = plavba za okraj mapy. Mezery mezi lodí a kruhem jsou tah v barvě noci (`--color-night`). Tah se kreslí pod výplně brku i trupu, takže **stěžeň zůstává s trupem spojený** jako v majitelově ikoně (dřív mezera kolem trupu stěžeň přerušila a udělala do trupu zářez; opraveno 2026-11-27).
 - **Zlatá je vlna** (putování, cesta, hladina; zlatá je na webu barva putování), plachta je celá krémová. Zlatá špička i zlatá vlna najednou se perou (zamítnuto).
-- Čtyři podoby, mezi kterými majitel vybírá (přepínač `?znak=w1|z1|o2|o2k|vypnout`, localStorage `hbw_znak`, `data-znak` na `<html>`, tlačítko „Znak: W1 ⇄“ vlevo dole jen u toho, kdo ho zapne):
+- Šest podob, mezi kterými majitel vybírá (přepínač `?znak=w1|z1|o2|o2k|o2d|o2kd|vypnout`, localStorage `hbw_znak`, `data-znak` na `<html>`, tlačítko „Znak: W1 ⇄“ vlevo dole jen u toho, kdo ho zapne):
   - **W1 (výchozí):** šedý kruh (`--mark-shade`), vlna natažená 1,3× do šířky, takže **i vlna prorazí kruh** do obou stran,
   - **Z1:** krémový kruh (`--mark-light`), vlna uvnitř,
   - **O2:** šedý kruh **otevřený dole** (oblouk od 16° do 164°), natažená vlna leží v mezeře a přesahuje do stran: svět se otevírá k moři,
-  - **O2K:** totéž s krémovým kruhem.
+  - **O2K:** totéž s krémovým kruhem,
+  - **O2D / O2KD:** O2 a O2K zrcadlově, **loď pluje doprava**, k nápisu a ve směru čtení (zrcadlení kolem středu kruhu; brk se pak naklání doleva).
   - Zkoušené a odložené otevřené kruhy: O1 (užší mezera, vlna jako dno), O3 (mezera vpravo, ve faviconě působí jako písmeno C).
 - Barvy jen z palety znaku: krémová, zlatá, šedá na noci. Ultramarínový akcent (odkazy) ani barvy archetypů do znaku nepatří.
 - Kód: `src/components/i18n/BrandMark.tsx` (cesty `FEATHER`, `HULL`, `WAVE`, výřez `SAIL_VIEWBOX`, čtverec), CSS `.brand-mark-pair` v `layout.css`, přepínač v `BaseLayout`. **Favicony, ikona pro iPhone a karty pro sdílení zatím mají starý znak** (předělat po volbě podoby; na favicon navržen kotouč v negativu se zlatou vlnou, W6 / Z5).

@@ -1,12 +1,13 @@
 /**
  * Znak Here Be Worlds (od 2026-11-27): loď, jejíž plachta je brk, v kruhu světa.
  * Ikona lodi je majitelova (Illustrator, vyhlazené obrysy), kruh a barvy podle webu.
- * Čtyři podoby, mezi kterými se zatím vybírá (přepínač `?znak=w1|z1|o2|o2k|vypnout`, `hbw_znak`,
+ * Čtyři podoby, mezi kterými se zatím vybírá (přepínač `?znak=w1|z1|o2|o2k|o2d|o2kd|vypnout`, `hbw_znak`,
  * skript v BaseLayout nastaví `data-znak` na <html>):
  *  - W1 (výchozí): šedý kruh, špička plachty i zlatá vlna z kruhu vyjíždějí ven,
  *  - Z1: krémový kruh, ven vyjíždí jen špička, vlna zůstává uvnitř,
  *  - O2: šedý kruh otevřený dole, vlna leží v mezeře a přesahuje do stran,
- *  - O2K: totéž s krémovým kruhem.
+ *  - O2K: totéž s krémovým kruhem,
+ *  - O2D a O2KD: O2 a O2K zrcadlově, loď pluje doprava (k nápisu).
  * Mezery kolem lodi jsou tah v barvě noci (`--color-night`); znak stojí vždy na noční modři.
  * Dřívější znak (čtyři vrstvy kotouče) zůstává v MARK_PATHS kvůli kartám pro sdílení.
  */
@@ -63,6 +64,8 @@ const VARIANTS = [
   { id: 'z1', ring: <circle {...RING} stroke="var(--mark-light)" />, wide: false },
   { id: 'o2', ring: <path d={OPEN_RING} fill="none" stroke="var(--mark-shade)" strokeWidth="0.75" strokeLinecap="round" />, wide: true },
   { id: 'o2k', ring: <path d={OPEN_RING} fill="none" stroke="var(--mark-light)" strokeWidth="0.75" strokeLinecap="round" />, wide: true },
+  { id: 'o2d', ring: <path d={OPEN_RING} fill="none" stroke="var(--mark-shade)" strokeWidth="0.75" strokeLinecap="round" />, wide: true, flip: true },
+  { id: 'o2kd', ring: <path d={OPEN_RING} fill="none" stroke="var(--mark-light)" strokeWidth="0.75" strokeLinecap="round" />, wide: true, flip: true },
 ];
 
 /** `size` = výška (a šířka) znaku v px. Vykreslí všechny podoby, CSS ukáže jednu podle `data-znak`. */
@@ -72,8 +75,10 @@ export default function BrandMark({ size = 30, className = 'brand-mark' }: Props
     <span className={`${className} brand-mark-pair`} aria-hidden="true">
       {VARIANTS.map((v) => (
         <svg key={v.id} className={`brand-mark__${v.id}`} width={s} height={s} viewBox={SAIL_VIEWBOX} focusable="false">
-          {v.ring}
-          <Boat wide={v.wide} />
+          <g transform={v.flip ? 'translate(16 0) scale(-1 1)' : undefined}>
+            {v.ring}
+            <Boat wide={v.wide} />
+          </g>
         </svg>
       ))}
     </span>
