@@ -1321,12 +1321,18 @@ html[data-theme='dark'] .hp-essay__img img {
   gap: 3rem 4rem;
 }
 
+/* s obrázkem dostane hlavní putování víc místa, aby kresba nebyla drobná */
+.hp-journeys__grid:has(.hp-journey.has-image) {
+  grid-template-columns: minmax(0, 1.9fr) minmax(0, 1fr);
+  column-gap: 3.5rem;
+}
+
 /* Náhled první kresby putování dne vedle názvu a otázky (2026-11-27); okraje jako v rejstříku putování:
    ve světlém motivu maska podle tuše, v tmavém fresková. Na užší obrazovce nad názvem. */
 .hp-journey.has-image .hp-journey__top {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
-  gap: 2rem;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
+  gap: 1.5rem;
   align-items: center;
 }
 
@@ -1374,7 +1380,7 @@ html[data-theme='dark'] .hp-journey__img img {
 
   .hp-journey__img {
     order: -1;
-    max-width: 36rem;
+    max-width: 44rem;
   }
 }
 
@@ -1616,7 +1622,8 @@ html[data-theme='dark'] .hp-journey__img img {
 }
 
 @media (max-width: 900px) {
-  .hp-journeys__grid {
+  .hp-journeys__grid,
+  .hp-journeys__grid:has(.hp-journey.has-image) {
     grid-template-columns: 1fr;
   }
 
