@@ -214,6 +214,72 @@ Because you only enter coordinates, the compass does not calculate kinship. Arch
 };
 
 /** Hlubina času: jak číst sloupce a naši časovou osu (stránka /hlubina-casu/). */
+/* Jak světy vyprávějí (2026-11-27, na pokyn majitele): výklad pojmů stránky /jak-svety-vypraveji/;
+   texty šesti kruhů bere stránka Vysvětlivek z data/meta/narrative-tools.json. */
+export const noteNarrationIntro: LocalizedString = {
+  cs: 'Každá kronika končí rozborem a v něm oddílem Hlavní nástroje vyprávění. Atlas z nich skládá přehled toho, čím který svět vyniká, a řadí nástroje do šesti kruhů podle toho, co z hraní potřebují.',
+  en: 'Every chronicle ends with an analysis that includes a section on its main narrative tools. The atlas turns them into an overview of where each world excels and sorts the tools into six rings by what they need from play.',
+};
+
+export const noteNarrationTerms: NoteField[] = [
+  {
+    term: { cs: 'Nástroj', en: 'Tool' },
+    help: {
+      cs: 'Konkrétní postup, který kronika u světa vyzdvihla: třeba deník hrdiny, popisky předmětů nebo smrt, která patří k příběhu. Kronika vybírá jen ty hlavní. Co mezi nimi chybí, svět umět může, jen tím nevyniká.',
+      en: 'A specific device the chronicle singles out for a world: a hero’s diary, item descriptions, or death that belongs to the story. The chronicle lists only the main ones. A world may still use what is missing; it just does not stand out for it.',
+    },
+  },
+  {
+    term: { cs: 'Způsob', en: 'Technique' },
+    help: {
+      cs: 'Typ nástroje, který se opakuje aspoň u dvou světů, například Postavy a rozhovory nebo Stopy v prostoru. Způsoby vidíš na kartě světa (Jak svět vypráví), ve filtru atlasu a ve Srovnání.',
+      en: 'A type of tool that recurs in at least two worlds, such as Characters and conversations or Traces in space. You see techniques on the world card (How the world tells its story), in the atlas filter and in Compare.',
+    },
+  },
+  {
+    term: { cs: 'Kruh', en: 'Ring' },
+    help: {
+      cs: 'Jedna ze šesti skupin způsobů. Kruh neříká, jak dobře svět vypráví. Říká, co by muselo zůstat, aby nástroj přežil převyprávění: stačí text, nebo je potřeba obraz, místo, pravidla, zákulisí hry, případně ty sám.',
+      en: 'One of six groups of techniques. A ring does not say how well a world tells its story. It says what would have to remain for the tool to survive a retelling: text alone, or image, place, rules, the backstage of the game, or you yourself.',
+    },
+  },
+  {
+    term: { cs: 'Unese i jiné umění × umí jen hra', en: 'Other arts can carry it × only a game can' },
+    help: {
+      cs: 'První tři kruhy by unesla i kniha, film nebo procházka místem. Od čtvrtého kruhu by převyprávění ztratilo pointu: Čin, Zákulisí a Hráče umí jen hra.',
+      en: 'A book, a film or a walk through a place could carry the first three rings. From the fourth ring on, a retelling would lose the point: only a game can do Action, Backstage and Player.',
+    },
+  },
+  {
+    term: { cs: 'Vzniká při hraní', en: 'Emerges in play' },
+    help: {
+      cs: 'Značka u nástroje, jehož výsledek nenapsal autor. Vzešel z pravidel a z toho, jak hraješ.',
+      en: 'A mark on a tool whose outcome no author wrote. It came out of the rules and of how you play.',
+    },
+  },
+  {
+    term: { cs: 'Mimo kruhy', en: 'Outside the rings' },
+    help: {
+      cs: 'Zákony světa, jeho fyzika a metafyzika. Kronika je vyzdvihla, ale nevyprávějí: jsou tím, co se vypráví. Mezi způsoby na kartě světa ani ve filtru se nepočítají.',
+      en: 'The laws of a world, its physics and metaphysics. The chronicle singles them out, yet they do not tell: they are what is told. They are not counted among the techniques on the world card or in the filter.',
+    },
+  },
+  {
+    term: { cs: 'Vypravěčský podpis', en: 'Narrative signature' },
+    help: {
+      cs: 'Kombinace kruhů, ve kterých má svět nástroje. Kreslí se jako šest půlkruhů: čím víc nástrojů v kruhu, tím silnější oblouk.',
+      en: 'The combination of rings in which a world has tools. It is drawn as six half-rings: the more tools in a ring, the heavier the arc.',
+    },
+  },
+  {
+    term: { cs: 'Ve Srovnání', en: 'In Compare' },
+    help: {
+      cs: 'Mřížka ukazuje způsoby vybraných světů, nejdřív společné, uvnitř skupiny podle kruhu. Do příbuznosti vstupuje jen to, co světy sdílejí.',
+      en: 'The grid shows the techniques of the selected worlds, shared ones first, ordered by ring within each group. Only what the worlds share enters kinship.',
+    },
+  },
+];
+
 export const noteDeepTimeIntro: LocalizedString = {
   cs: 'Hlubina času převádí časové osy z Faktografie kronik na hloubku v letech. Každý svět je jeden sloupec a čím hlouběji sahá, tím starší událost si jeho dějiny pamatují.',
   en: 'Deep time turns the timelines from the chronicles’ Factography into depth in years. Each world is one column, and the deeper it reaches, the older the event its history remembers.',

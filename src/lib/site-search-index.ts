@@ -7,7 +7,7 @@ import { worlds, chapters, themeTaxonomy } from './worlds';
 import { TRAILS, trailSlug } from './trails';
 import { publishedEssayFor } from './trail-pages';
 import { uiT } from './i18n';
-import { noteFields, noteKinshipPillars } from '../../data/meta/notes';
+import { noteFields, noteKinshipPillars, noteNarrationTerms } from '../../data/meta/notes';
 import axesMeta from '../../data/meta/axes.json';
 import { MYSTERY_HOLDERS, MYSTERY_KINDS } from './triad-types';
 import { themePath } from './themes';
@@ -124,6 +124,8 @@ export function buildSearchEntries(): SearchEntry[] {
   // Druhy tajemství a kdo drží mezeru (typy hříchů a dilemat vedou do Galerie triád přes stránku).
   for (const x of [...MYSTERY_KINDS, ...MYSTERY_HOLDERS])
     term(`triad-${x.id}`, loc(x.label)!, 'triada', 'tajemství mystery mezera gap mapa neznáma');
+  term('narration', both('notes.narrationTitle'), 'vypraveni', 'vyprávění narration storytelling kruhy rings šest kruhů nástroje tools způsoby techniques');
+  noteNarrationTerms.forEach((n, i) => term(`narration-${i}`, loc(n.term)!, 'vypraveni', 'vyprávění narration kruhy rings'));
   term('kinship', both('notes.kinshipTitle'), 'pribuznost', 'příbuznost kinship index sourozenci blízcí příbuzní spříznění vzdálení cizí');
   noteKinshipPillars.forEach((p, i) => term(`pillar-${i}`, loc(p.term)!, 'pribuznost', 'pilíř pillar příbuznost'));
   term('compass', both('notes.compassTitle'), 'kompas', 'kompas compass ladění otisk');

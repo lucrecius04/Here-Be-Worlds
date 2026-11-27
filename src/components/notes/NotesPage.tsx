@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { t, uiT } from '../../lib/i18n';
 import { useLocale } from '../../lib/locale-store';
 import { withBase } from '../../lib/base-url';
+import type { LocalizedString } from '../../schemas/world';
 import {
   noteCanon,
   noteCompass,
@@ -11,6 +12,8 @@ import {
   noteKinshipIntro,
   noteKinshipLevels,
   noteKinshipPillars,
+  noteNarrationIntro,
+  noteNarrationTerms,
   noteScale,
 } from '../../../data/meta/notes';
 import axesMeta from '../../../data/meta/axes.json';
@@ -27,15 +30,19 @@ import {
 import { HolderIcon } from '../triads/HolderIcon';
 import '../../styles/notes.css';
 
-type Props = { base: string };
+/** Jeden ze šesti kruhů vyprávění (texty z data/meta/narrative-tools.json, posílá je stránka). */
+export type NoteRing = { id: string; label: LocalizedString; kin: LocalizedString; question: LocalizedString; desc: LocalizedString };
 
-export default function NotesPage({ base }: Props) {
+type Props = { base: string; rings: NoteRing[] };
+
+export default function NotesPage({ base, rings }: Props) {
   const locale = useLocale();
 
   const sections = [
     { id: 'charakter', label: uiT('notes.fieldsTitle', locale) },
     { id: 'stupnice', label: uiT('notes.profileTitle', locale) },
     { id: 'triada', label: uiT('notes.triadTitle', locale) },
+    { id: 'vypraveni', label: uiT('notes.narrationTitle', locale) },
     { id: 'pribuznost', label: uiT('notes.kinshipTitle', locale) },
     { id: 'kompas', label: uiT('notes.compassTitle', locale) },
     { id: 'hlubina', label: uiT('notes.deepTimeTitle', locale) },
@@ -45,7 +52,7 @@ export default function NotesPage({ base }: Props) {
   // Oddíl, který právě čteš: zvýrazní se v lepivém obsahu.
   const [current, setCurrent] = useState('charakter');
   useEffect(() => {
-    const ids = ['charakter', 'stupnice', 'triada', 'pribuznost', 'kompas', 'hlubina', 'kanon'];
+    const ids = ['charakter', 'stupnice', 'triada', 'vypraveni', 'pribuznost', 'kompas', 'hlubina', 'kanon'];
     const onScroll = () => {
       const els = ids.map((id) => document.getElementById(id)).filter(Boolean) as HTMLElement[];
       const line = window.innerHeight * 0.3;
@@ -166,6 +173,44 @@ export default function NotesPage({ base }: Props) {
         <TypeList title={uiT('notes.triadHolders', locale)} types={MYSTERY_HOLDERS} locale={locale} icons />
         <p className="notes-list__more notes-section__foot">
           <a href={withBase(base, `${UNKNOWN_PATH}#${MYSTERIES_ANCHOR}`)}>{uiT('notes.triadToUnknown', locale)} →</a>
+        </p>
+      </section>
+
+      <section className="notes-section" id="vypraveni">
+        <h2 className="doc-h2">{uiT('notes.narrationTitle', locale)}</h2>
+        <div className="doc-prose notes-section__intro">
+          <p>{t(noteNarrationIntro, locale)}</p>
+        </div>
+        <dl className="notes-list">
+          {noteNarrationTerms.map((term) => (
+            <div className="notes-list__row" key={term.term.cs}>
+              <dt className="notes-list__term">{t(term.term, locale)}</dt>
+              <dd className="notes-list__body">
+                <p className="notes-list__help">{t(term.help, locale)}</p>
+              </dd>
+            </div>
+          ))}
+        </dl>
+        <h3 className="doc-kicker notes-section__sub">{uiT('notes.narrationRings', locale)}</h3>
+        <dl className="notes-list">
+          {rings.map((ring) => (
+            <div className="notes-list__row" key={ring.id}>
+              <dt className="notes-list__term">
+                {t(ring.label, locale)}
+                <span className="notes-list__poles">{t(ring.kin, locale)}</span>
+              </dt>
+              <dd className="notes-list__body">
+                <p className="notes-list__help">{t(ring.desc, locale)}</p>
+                <p className="notes-list__values">{t(ring.question, locale)}</p>
+              </dd>
+            </div>
+          ))}
+        </dl>
+        <p className="notes-list__more notes-section__foot">
+          <a href={withBase(base, '/jak-svety-vypraveji/')}>{uiT('notes.narrationLink', locale)} →</a>
+        </p>
+        <p className="notes-list__more">
+          <a href={withBase(base, '/anatomie-herniho-lore/#jak-svety-vypraveji')}>{uiT('notes.narrationEssay', locale)} →</a>
         </p>
       </section>
 

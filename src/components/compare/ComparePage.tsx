@@ -726,6 +726,32 @@ export default function ComparePage({ worlds, chapters, themeLabels, kinLabels, 
             <AxisOverlay worlds={selected} hues={hues} axes={axes} locale={locale} />
           </Section>
 
+          <Section
+            id="cmp-charakter"
+            title={uiT('compare.factsTitle', locale)}
+            tools={
+              <div className="cmp-filter" role="group" aria-label={uiT('compare.factsTitle', locale)}>
+                {(['all', 'diffs', 'matches'] as const).map((mode) => (
+                  <button
+                    key={mode}
+                    type="button"
+                    className={`cmp-filter__btn${factFilter === mode ? ' is-on' : ''}`}
+                    aria-pressed={factFilter === mode}
+                    onClick={() => setFactFilter(mode)}
+                  >
+                    {mode === 'all'
+                      ? uiT('compare.filterAll', locale)
+                      : mode === 'diffs'
+                        ? uiT('compare.filterDiffs', locale)
+                        : uiT('compare.filterMatches', locale)}
+                  </button>
+                ))}
+              </div>
+            }
+          >
+            <FactRows rows={factRows} filled={filled} filter={factFilter} locale={locale} />
+          </Section>
+
           <Section id="cmp-temata" title={uiT('compare.themesTitle', locale)}>
             <div className="cmp-rows cmp-themes">
               {themeRows.map((item) => {
@@ -754,63 +780,15 @@ export default function ComparePage({ worlds, chapters, themeLabels, kinLabels, 
             </div>
           </Section>
 
-          {sharedTrails.length ? (
-            <Section title={uiT('compare.trailsTitle', locale)} className="cmp-trails">
-              <ul className="cmp-trails__list">
-                {sharedTrails.map(({ trail, inside }) => (
-                  <li key={trail.id} className="cmp-trails__item">
-                    <a className="cmp-trails__name display" href={withBase(base, `/putovani/${trail.slug}/`)}>
-                      {uiT(trail.nameKey, locale)}
-                    </a>
-                    <p className="cmp-trails__desc">{uiT(trail.descKey, locale)}</p>
-                    <p className="cmp-trails__meta">
-                      <span className="cmp-trails__who">
-                        {inside.map((item) => (
-                          <span key={item.world.id} className="cmp-trails__world">
-                            <Mark hue={slotHue(item.index)} />
-                            {worldName(item.world)}
-                          </span>
-                        ))}
-                      </span>
-                      {trail.minutes ? (
-                        <span className="cmp-trails__min">
-                          {uiT('compare.essayMin', locale).replace('{m}', String(trail.minutes))}
-                        </span>
-                      ) : null}
-                    </p>
-                  </li>
-                ))}
-              </ul>
-            </Section>
-          ) : null}
-
           <Section
-            id="cmp-charakter"
-            title={uiT('compare.factsTitle', locale)}
+            id="cmp-triada"
+            title={uiT('compare.triadTitle', locale)}
             tools={
-              <div className="cmp-filter" role="group" aria-label={uiT('compare.factsTitle', locale)}>
-                {(['all', 'diffs', 'matches'] as const).map((mode) => (
-                  <button
-                    key={mode}
-                    type="button"
-                    className={`cmp-filter__btn${factFilter === mode ? ' is-on' : ''}`}
-                    aria-pressed={factFilter === mode}
-                    onClick={() => setFactFilter(mode)}
-                  >
-                    {mode === 'all'
-                      ? uiT('compare.filterAll', locale)
-                      : mode === 'diffs'
-                        ? uiT('compare.filterDiffs', locale)
-                        : uiT('compare.filterMatches', locale)}
-                  </button>
-                ))}
-              </div>
+              <a className="cmp-textlink" href={withBase(base, '/notes/#triada')}>
+                {uiT('compare.triadWhat', locale)}
+              </a>
             }
           >
-            <FactRows rows={factRows} filled={filled} filter={factFilter} locale={locale} />
-          </Section>
-
-          <Section id="cmp-triada" title={uiT('compare.triadTitle', locale)}>
             <FactRows rows={triadRows} filled={filled} prose locale={locale} />
           </Section>
 
@@ -819,8 +797,8 @@ export default function ComparePage({ worlds, chapters, themeLabels, kinLabels, 
               id="cmp-vypraveni"
               title={uiT('compare.narrationTitle', locale)}
               tools={
-                <a className="cmp-textlink" href={withBase(base, '/jak-svety-vypraveji/')}>
-                  {uiT('compare.narrationAll', locale)}
+                <a className="cmp-textlink" href={withBase(base, '/notes/#vypraveni')}>
+                  {uiT('compare.narrationWhat', locale)}
                 </a>
               }
             >
@@ -851,6 +829,36 @@ export default function ComparePage({ worlds, chapters, themeLabels, kinLabels, 
                     );
                   })}
               </div>
+            </Section>
+          ) : null}
+
+          {sharedTrails.length ? (
+            <Section title={uiT('compare.trailsTitle', locale)} className="cmp-trails">
+              <ul className="cmp-trails__list">
+                {sharedTrails.map(({ trail, inside }) => (
+                  <li key={trail.id} className="cmp-trails__item">
+                    <a className="cmp-trails__name display" href={withBase(base, `/putovani/${trail.slug}/`)}>
+                      {uiT(trail.nameKey, locale)}
+                    </a>
+                    <p className="cmp-trails__desc">{uiT(trail.descKey, locale)}</p>
+                    <p className="cmp-trails__meta">
+                      <span className="cmp-trails__who">
+                        {inside.map((item) => (
+                          <span key={item.world.id} className="cmp-trails__world">
+                            <Mark hue={slotHue(item.index)} />
+                            {worldName(item.world)}
+                          </span>
+                        ))}
+                      </span>
+                      {trail.minutes ? (
+                        <span className="cmp-trails__min">
+                          {uiT('compare.essayMin', locale).replace('{m}', String(trail.minutes))}
+                        </span>
+                      ) : null}
+                    </p>
+                  </li>
+                ))}
+              </ul>
             </Section>
           ) : null}
 

@@ -1,10 +1,13 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import NotesPage from '../../components/notes/NotesPage';
+import { NARR_RINGS } from '../../lib/narrative-taxonomy';
 
 const base = import.meta.env.BASE_URL;
+// Šest kruhů vyprávění: jen texty, zařazení nástrojů do prohlížeče neposíláme.
+const rings = NARR_RINGS.map(({ id, label, kin, question, desc }) => ({ id, label, kin, question, desc }));
 ---
 
 <BaseLayout title="Vysvětlivky — Here Be Worlds">
-  <NotesPage client:load base={base} />
+  <NotesPage client:load base={base} rings={rings} />
 </BaseLayout>
