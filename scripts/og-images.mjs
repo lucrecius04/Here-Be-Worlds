@@ -35,6 +35,7 @@ try {
 
 const { TRAILS, TRAIL_SLUGS } = await import('../src/lib/trails.ts');
 const { READY } = await import('../src/lib/trail-images.ts');
+const { markSvg, SAIL_VIEWBOX } = await import('../src/lib/brand-mark.ts');
 const worlds = JSON.parse(readFileSync(join(root, 'data/worlds.json'), 'utf8')).worlds.filter((w) => !w.draft);
 const chapters = JSON.parse(readFileSync(join(root, 'data/meta/chapters.json'), 'utf8')).chapters;
 const cs = (v) => (v ? v.cs || v.en || '' : '');
@@ -52,17 +53,15 @@ function fontHead() {
   return '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;1,8..60,400&family=IBM+Plex+Mono:wght@400;500;600&display=block">';
 }
 
-/** Znak: čtyři vrstvy kotouče rozjeté do schodů (stejné cesty jako BrandMark.tsx). */
-const MARK = ['M38 10A22 22 0 0 1 56.37 19.9H19.63A22 22 0 0 1 38 10Z', 'M14.35 22.1H65L61.4 26.5L65 30.9H12.03A22 22 0 0 1 14.35 22.1Z', 'M8.03 33.1H51.97A22 22 0 0 1 49.65 41.9H10.35A22 22 0 0 1 8.03 33.1Z', 'M7.63 44.1H44.37A22 22 0 0 1 26 54A22 22 0 0 1 7.63 44.1Z'];
-const layers = (light, glow, shade) =>
-  [light, glow, light, shade].map((fill, i) => `<path d="${MARK[i]}" fill="${fill}"/>`).join('');
+/** Znak (podoba O2, src/lib/brand-mark.ts): loď s brkem v kruhu otevřeném dole, mezery v barvě noci. */
+const mark = (light, glow, shade, size) => {
+  const side = Math.round(size * 1.45);
+  return `<svg width="${side}" height="${side}" viewBox="${SAIL_VIEWBOX}">${markSvg({ light, glow, shade, gap: '#0D1324' })}</svg>`;
+};
 
-const mark = (light, glow, shade, size) =>
-  `<svg width="${Math.round((size * 4) / 3)}" height="${size}" viewBox="4 8 64 48">${layers(light, glow, shade)}</svg>`;
-
-/** Znak v nočním čtverci (jako ikona webu); na papírové kartě nese zlatá vrstva barvu archetypu. */
+/** Znak v nočním čtverci (jako ikona webu); na papírové kartě nese vlna barvu archetypu. */
 const badge = (glow, size) =>
-  `<svg width="${size}" height="${size}" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#0D1324"/><g transform="translate(32 32) scale(0.82) translate(-36.3 -32)">${layers('#F4F1EA', glow, '#AEB3BE')}</g></svg>`;
+  `<svg width="${size}" height="${size}" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#0D1324"/><g transform="translate(8.5 11) scale(2.92)">${markSvg({ light: '#F4F1EA', glow, shade: '#AEB3BE', gap: '#0D1324', ring: 1 })}</g></svg>`;
 
 const BASE_CSS = `
 *{box-sizing:border-box}body{margin:0;font-variation-settings:'SOFT' 0,'WONK' 0}

@@ -3,7 +3,11 @@
 Záznam z hledání znaku (listopad 2026), aby se neopakovaly cesty, které nefungovaly.
 Návrhy jsou na plátně Design v Claude „Here Be Worlds — logo a značka“.
 
-## Nový znak na webu (od 2026-11-27, zkušebně): loď s brkem jako plachtou
+## Znak webu (od 2026-11-27): loď s brkem jako plachtou, podoba O2
+
+- **Rozhodnutí majitele 2026-11-27: O2** (šedý kruh otevřený dole, natažená zlatá vlna v mezeře, loď pluje doleva). Zrcadlové podoby zkusil a nechal: směr doleva čte jako návrat do minulosti, zkoumání minulého, a plachta se tak naklání stejně jako kurzíva „Be“. Přepínač i ostatní podoby jsou z webu pryč; cesty v `src/lib/brand-mark.ts`, favicony `npm run icons`, karty pro sdílení `npm run og`.
+
+### Průběh výběru
 
 - Ikona lodi je **majitelova** (Illustrator, `Ikonka_HBW.svg`, 16 × 16): plachta je brk se dvěma zářezy, pod ní trup a vlna. Obrysy byly vyhlazené (původní obtažená cesta měla „zuby“ na hranách zářezů); vyhlazení: rastr 2000 px, Gaussovo vyhlazení obrysu s ochranou ostrých rohů, husté Catmull-Rom křivky.
 - Ikona stojí v **kruhu světa** (r 7,6 kolem bodu 8 / 9,6 v souřadnicích ikony) a **špička plachty z kruhu vyjíždí** nahoru: Here Be Worlds = plavba za okraj mapy. Mezery mezi lodí a kruhem jsou tah v barvě noci (`--color-night`). Tah se kreslí pod výplně brku i trupu, takže **stěžeň zůstává s trupem spojený** jako v majitelově ikoně (dřív mezera kolem trupu stěžeň přerušila a udělala do trupu zářez; opraveno 2026-11-27).

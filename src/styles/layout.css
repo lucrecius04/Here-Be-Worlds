@@ -63,29 +63,6 @@ body:has(.world-card--page) {
   flex: none;
 }
 
-/* Znak má dvě podoby (W1 výchozí, Z1 přes ?znak=z1, viz BrandMark.tsx). */
-.brand-mark-pair {
-  display: inline-flex;
-}
-
-.brand-mark-pair svg {
-  display: block;
-}
-
-.brand-mark-pair svg:not(.brand-mark__w1),
-html[data-znak] .brand-mark-pair .brand-mark__w1 {
-  display: none !important;
-}
-html[data-znak='z1'] .brand-mark-pair .brand-mark__z1,
-html[data-znak='o2'] .brand-mark-pair .brand-mark__o2,
-html[data-znak='o2k'] .brand-mark-pair .brand-mark__o2k,
-html[data-znak='w1d'] .brand-mark-pair .brand-mark__w1d,
-html[data-znak='z1d'] .brand-mark-pair .brand-mark__z1d,
-html[data-znak='o2d'] .brand-mark-pair .brand-mark__o2d,
-html[data-znak='o2kd'] .brand-mark-pair .brand-mark__o2kd {
-  display: block !important;
-}
-
 .site-header__tagline {
   margin: 0.3rem 0 0 0.25rem;
   font-family: var(--font-mono);
@@ -139,7 +116,7 @@ html[data-znak='o2kd'] .brand-mark-pair .brand-mark__o2kd {
     gap: 0.5rem;
   }
 
-  .site-header__mark svg {
+  svg.site-header__mark {
     width: 40px;
     height: 40px;
   }
