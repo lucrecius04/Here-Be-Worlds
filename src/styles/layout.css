@@ -4,6 +4,10 @@
   z-index: 40;
   border-bottom: 1px solid var(--color-night-line);
   padding: calc(0.3rem + 2px) max(var(--gutter), calc((100% - var(--content-max)) / 2));
+  /* Pevná výška = --site-header-height: lepivé pruhy pod lištou (Galerie triád, eseje, srovnání) na ni
+     přesně navazují i při jiném vykreslení písma nebo přiblížení; dřív mezi nimi mohla prosvítat škvíra. */
+  box-sizing: border-box;
+  height: var(--site-header-height);
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -544,6 +548,7 @@ body:has(.world-card--page) .site-main {
 
   .site-header {
     position: relative;
+    height: auto;
     flex-wrap: nowrap;
     gap: 0.5rem;
     padding-top: calc(0.3rem + 2px);
