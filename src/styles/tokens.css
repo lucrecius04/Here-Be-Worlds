@@ -50,7 +50,7 @@
   --shadow-card: 0 1px 0 rgba(23, 22, 26, 0.06), 0 10px 26px rgba(23, 22, 26, 0.06);
   --content-max: 1240px;
   --read-max: 42rem;
-  --site-header-height: 3.6rem;
+  --site-header-height: 3.8rem;
 }
 
 @media (max-width: 720px) {

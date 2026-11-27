@@ -3,7 +3,7 @@
   top: 0;
   z-index: 40;
   border-bottom: 1px solid var(--color-night-line);
-  padding: 0.3rem max(var(--gutter), calc((100% - var(--content-max)) / 2));
+  padding: calc(0.3rem + 2px) max(var(--gutter), calc((100% - var(--content-max)) / 2));
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -509,8 +509,8 @@ body:has(.world-card--page) .site-main {
     position: relative;
     flex-wrap: nowrap;
     gap: 0.5rem;
-    padding-top: 0.3rem;
-    padding-bottom: 0.3rem;
+    padding-top: calc(0.3rem + 2px);
+    padding-bottom: calc(0.3rem + 2px);
   }
 
   .site-header__end {
