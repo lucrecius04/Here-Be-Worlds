@@ -17,8 +17,9 @@ const hue = (accent: { light: string; dark: string }) =>
   ({ '--th-hue-l': accent.light, '--th-hue-d': accent.dark }) as CSSProperties;
 
 /**
- * Obloha z titulní strany v tuši: hvězdy na stejných místech, světy tématu rozsvícené
- * v barvě archetypu a spojené přerušovanou trasou jako „Trasy oblohou“. Ostatní hvězdy tlumeně.
+ * Obloha z titulní strany: noční nebe vpravo v hlavičce (pás za ním přechází do noci),
+ * hvězdy na stejných místech, světy tématu svítí v barvě archetypu a spojuje je zlatá
+ * přerušovaná trasa jako „Trasy oblohou“. Ostatní hvězdy tlumeně.
  */
 export default function ThemeSky({ sky, base, locale, label, highlight, onHover }: Props) {
   const path = sky.route.map(([x, y], i) => `${i ? 'L' : 'M'}${x} ${y}`).join(' ');
@@ -34,7 +35,7 @@ export default function ThemeSky({ sky, base, locale, label, highlight, onHover 
         </g>
         <g className="th-sky__groups" aria-hidden="true">
           {sky.groups.map((g) => (
-            <text key={g.id} x={g.x - 20} y={g.y + 14}>
+            <text key={g.id} x={g.x - 20} y={g.y + 14} className={g.lit ? 'is-lit' : undefined} style={hue(g.accent)}>
               {t(g.label, locale)}
             </text>
           ))}

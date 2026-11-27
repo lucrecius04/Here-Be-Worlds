@@ -423,11 +423,11 @@ export default function HomeIntro({ chapters, worlds = [], journeys = [], riddle
             </span>
             <span className="hp-way__text">{uiT('home2.wayNarration', locale)}</span>
           </a>
-          <a className="hp-way" href={withBase(base, '/temata/')}>
+          <a className="hp-way" href={withBase(base, '/galerie-triad/')}>
             <span className="hp-way__title">
-              {uiT('themesPage.title', locale)} <span className="hp-way__arrow" aria-hidden="true">→</span>
+              {uiT('triads.title', locale)} <span className="hp-way__arrow" aria-hidden="true">→</span>
             </span>
-            <span className="hp-way__text">{uiT('home2.wayThemes', locale)}</span>
+            <span className="hp-way__text">{uiT('home2.wayTriads', locale)}</span>
           </a>
           <a className="hp-way" href={withBase(base, '/map/')}>
             <span className="hp-way__title">

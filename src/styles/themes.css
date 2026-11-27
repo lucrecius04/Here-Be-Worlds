@@ -5,18 +5,21 @@
 .th-world,
 .th-dot,
 .th-arch__row,
-.th-route li,
-.th-sky__star,
-.th-sky__lit {
+.th-route li {
   --th-hue: var(--th-hue-l, var(--color-ink-muted));
+}
+
+/* obloha leží na noci v obou motivech, proto vždy tmavá podoba barev archetypů jako na titulní straně */
+.th-sky__star,
+.th-sky__lit,
+.th-sky__groups text {
+  --th-hue: var(--th-hue-d, var(--color-night-soft));
 }
 
 html[data-theme='dark'] .th-world,
 html[data-theme='dark'] .th-dot,
 html[data-theme='dark'] .th-arch__row,
-html[data-theme='dark'] .th-route li,
-html[data-theme='dark'] .th-sky__star,
-html[data-theme='dark'] .th-sky__lit {
+html[data-theme='dark'] .th-route li {
   --th-hue: var(--th-hue-d, var(--color-ink-muted));
 }
 
@@ -57,9 +60,42 @@ html[data-theme='dark'] .th-sky__lit {
   color: var(--color-ink-muted);
 }
 
-/* obloha v tuši */
+/* Noc v hlavičce (2026-11-27): pravá strana pásu je noční modř jako na titulní straně, obloha
+   tak svítí stejně. Soumrak mezi papírem a nocí není plynulý přechod (ten by vytvořil špinavě
+   šedý pruh), ale rastr teček jako v rytině: tečky v barvě noci houstnou, až splynou v noc.
+   Noc sahá k pravému okraji okna a nahoru až k liště webu, se kterou splyne. */
+body:has(.th-head) {
+  overflow-x: clip;
+}
+
+.th-head {
+  --th-text-col: calc((100% - 3.5rem) / 2.2);
+  --th-dusk: 10rem;
+}
+
+.th-head::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: calc(-1 * var(--band-top));
+  bottom: 0;
+  left: calc(var(--th-text-col) + 0.5rem);
+  right: calc(50% - 50vw);
+  background: var(--color-night);
+  -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='12.8'><circle cx='-3.20' cy='-3.20' r='0.20'/><circle cx='3.20' cy='-3.20' r='0.24'/><circle cx='9.60' cy='-3.20' r='0.36'/><circle cx='16.00' cy='-3.20' r='0.50'/><circle cx='22.40' cy='-3.20' r='0.65'/><circle cx='28.80' cy='-3.20' r='0.82'/><circle cx='35.20' cy='-3.20' r='0.99'/><circle cx='41.60' cy='-3.20' r='1.17'/><circle cx='48.00' cy='-3.20' r='1.37'/><circle cx='54.40' cy='-3.20' r='1.56'/><circle cx='60.80' cy='-3.20' r='1.77'/><circle cx='67.20' cy='-3.20' r='1.97'/><circle cx='73.60' cy='-3.20' r='2.19'/><circle cx='80.00' cy='-3.20' r='2.41'/><circle cx='86.40' cy='-3.20' r='2.63'/><circle cx='92.80' cy='-3.20' r='2.86'/><circle cx='99.20' cy='-3.20' r='3.09'/><circle cx='105.60' cy='-3.20' r='3.32'/><circle cx='112.00' cy='-3.20' r='3.56'/><circle cx='118.40' cy='-3.20' r='3.80'/><circle cx='124.80' cy='-3.20' r='4.05'/><circle cx='131.20' cy='-3.20' r='4.30'/><circle cx='137.60' cy='-3.20' r='4.55'/><circle cx='144.00' cy='-3.20' r='4.80'/><circle cx='150.40' cy='-3.20' r='5.06'/><circle cx='156.80' cy='-3.20' r='5.32'/><circle cx='163.20' cy='-3.20' r='5.45'/><circle cx='169.60' cy='-3.20' r='5.45'/><circle cx='-6.40' cy='3.20' r='0.20'/><circle cx='0.00' cy='3.20' r='0.20'/><circle cx='6.40' cy='3.20' r='0.29'/><circle cx='12.80' cy='3.20' r='0.42'/><circle cx='19.20' cy='3.20' r='0.57'/><circle cx='25.60' cy='3.20' r='0.73'/><circle cx='32.00' cy='3.20' r='0.90'/><circle cx='38.40' cy='3.20' r='1.08'/><circle cx='44.80' cy='3.20' r='1.27'/><circle cx='51.20' cy='3.20' r='1.46'/><circle cx='57.60' cy='3.20' r='1.66'/><circle cx='64.00' cy='3.20' r='1.87'/><circle cx='70.40' cy='3.20' r='2.08'/><circle cx='76.80' cy='3.20' r='2.30'/><circle cx='83.20' cy='3.20' r='2.52'/><circle cx='89.60' cy='3.20' r='2.74'/><circle cx='96.00' cy='3.20' r='2.97'/><circle cx='102.40' cy='3.20' r='3.20'/><circle cx='108.80' cy='3.20' r='3.44'/><circle cx='115.20' cy='3.20' r='3.68'/><circle cx='121.60' cy='3.20' r='3.92'/><circle cx='128.00' cy='3.20' r='4.17'/><circle cx='134.40' cy='3.20' r='4.42'/><circle cx='140.80' cy='3.20' r='4.67'/><circle cx='147.20' cy='3.20' r='4.93'/><circle cx='153.60' cy='3.20' r='5.19'/><circle cx='160.00' cy='3.20' r='5.45'/><circle cx='166.40' cy='3.20' r='5.45'/><circle cx='-3.20' cy='9.60' r='0.20'/><circle cx='3.20' cy='9.60' r='0.24'/><circle cx='9.60' cy='9.60' r='0.36'/><circle cx='16.00' cy='9.60' r='0.50'/><circle cx='22.40' cy='9.60' r='0.65'/><circle cx='28.80' cy='9.60' r='0.82'/><circle cx='35.20' cy='9.60' r='0.99'/><circle cx='41.60' cy='9.60' r='1.17'/><circle cx='48.00' cy='9.60' r='1.37'/><circle cx='54.40' cy='9.60' r='1.56'/><circle cx='60.80' cy='9.60' r='1.77'/><circle cx='67.20' cy='9.60' r='1.97'/><circle cx='73.60' cy='9.60' r='2.19'/><circle cx='80.00' cy='9.60' r='2.41'/><circle cx='86.40' cy='9.60' r='2.63'/><circle cx='92.80' cy='9.60' r='2.86'/><circle cx='99.20' cy='9.60' r='3.09'/><circle cx='105.60' cy='9.60' r='3.32'/><circle cx='112.00' cy='9.60' r='3.56'/><circle cx='118.40' cy='9.60' r='3.80'/><circle cx='124.80' cy='9.60' r='4.05'/><circle cx='131.20' cy='9.60' r='4.30'/><circle cx='137.60' cy='9.60' r='4.55'/><circle cx='144.00' cy='9.60' r='4.80'/><circle cx='150.40' cy='9.60' r='5.06'/><circle cx='156.80' cy='9.60' r='5.32'/><circle cx='163.20' cy='9.60' r='5.45'/><circle cx='169.60' cy='9.60' r='5.45'/><circle cx='-6.40' cy='16.00' r='0.20'/><circle cx='0.00' cy='16.00' r='0.20'/><circle cx='6.40' cy='16.00' r='0.29'/><circle cx='12.80' cy='16.00' r='0.42'/><circle cx='19.20' cy='16.00' r='0.57'/><circle cx='25.60' cy='16.00' r='0.73'/><circle cx='32.00' cy='16.00' r='0.90'/><circle cx='38.40' cy='16.00' r='1.08'/><circle cx='44.80' cy='16.00' r='1.27'/><circle cx='51.20' cy='16.00' r='1.46'/><circle cx='57.60' cy='16.00' r='1.66'/><circle cx='64.00' cy='16.00' r='1.87'/><circle cx='70.40' cy='16.00' r='2.08'/><circle cx='76.80' cy='16.00' r='2.30'/><circle cx='83.20' cy='16.00' r='2.52'/><circle cx='89.60' cy='16.00' r='2.74'/><circle cx='96.00' cy='16.00' r='2.97'/><circle cx='102.40' cy='16.00' r='3.20'/><circle cx='108.80' cy='16.00' r='3.44'/><circle cx='115.20' cy='16.00' r='3.68'/><circle cx='121.60' cy='16.00' r='3.92'/><circle cx='128.00' cy='16.00' r='4.17'/><circle cx='134.40' cy='16.00' r='4.42'/><circle cx='140.80' cy='16.00' r='4.67'/><circle cx='147.20' cy='16.00' r='4.93'/><circle cx='153.60' cy='16.00' r='5.19'/><circle cx='160.00' cy='16.00' r='5.45'/><circle cx='166.40' cy='16.00' r='5.45'/></svg>") 0 0 / var(--th-dusk) auto repeat-y, linear-gradient(#000, #000) var(--th-dusk) 0 / 100% 100% no-repeat;
+  mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='12.8'><circle cx='-3.20' cy='-3.20' r='0.20'/><circle cx='3.20' cy='-3.20' r='0.24'/><circle cx='9.60' cy='-3.20' r='0.36'/><circle cx='16.00' cy='-3.20' r='0.50'/><circle cx='22.40' cy='-3.20' r='0.65'/><circle cx='28.80' cy='-3.20' r='0.82'/><circle cx='35.20' cy='-3.20' r='0.99'/><circle cx='41.60' cy='-3.20' r='1.17'/><circle cx='48.00' cy='-3.20' r='1.37'/><circle cx='54.40' cy='-3.20' r='1.56'/><circle cx='60.80' cy='-3.20' r='1.77'/><circle cx='67.20' cy='-3.20' r='1.97'/><circle cx='73.60' cy='-3.20' r='2.19'/><circle cx='80.00' cy='-3.20' r='2.41'/><circle cx='86.40' cy='-3.20' r='2.63'/><circle cx='92.80' cy='-3.20' r='2.86'/><circle cx='99.20' cy='-3.20' r='3.09'/><circle cx='105.60' cy='-3.20' r='3.32'/><circle cx='112.00' cy='-3.20' r='3.56'/><circle cx='118.40' cy='-3.20' r='3.80'/><circle cx='124.80' cy='-3.20' r='4.05'/><circle cx='131.20' cy='-3.20' r='4.30'/><circle cx='137.60' cy='-3.20' r='4.55'/><circle cx='144.00' cy='-3.20' r='4.80'/><circle cx='150.40' cy='-3.20' r='5.06'/><circle cx='156.80' cy='-3.20' r='5.32'/><circle cx='163.20' cy='-3.20' r='5.45'/><circle cx='169.60' cy='-3.20' r='5.45'/><circle cx='-6.40' cy='3.20' r='0.20'/><circle cx='0.00' cy='3.20' r='0.20'/><circle cx='6.40' cy='3.20' r='0.29'/><circle cx='12.80' cy='3.20' r='0.42'/><circle cx='19.20' cy='3.20' r='0.57'/><circle cx='25.60' cy='3.20' r='0.73'/><circle cx='32.00' cy='3.20' r='0.90'/><circle cx='38.40' cy='3.20' r='1.08'/><circle cx='44.80' cy='3.20' r='1.27'/><circle cx='51.20' cy='3.20' r='1.46'/><circle cx='57.60' cy='3.20' r='1.66'/><circle cx='64.00' cy='3.20' r='1.87'/><circle cx='70.40' cy='3.20' r='2.08'/><circle cx='76.80' cy='3.20' r='2.30'/><circle cx='83.20' cy='3.20' r='2.52'/><circle cx='89.60' cy='3.20' r='2.74'/><circle cx='96.00' cy='3.20' r='2.97'/><circle cx='102.40' cy='3.20' r='3.20'/><circle cx='108.80' cy='3.20' r='3.44'/><circle cx='115.20' cy='3.20' r='3.68'/><circle cx='121.60' cy='3.20' r='3.92'/><circle cx='128.00' cy='3.20' r='4.17'/><circle cx='134.40' cy='3.20' r='4.42'/><circle cx='140.80' cy='3.20' r='4.67'/><circle cx='147.20' cy='3.20' r='4.93'/><circle cx='153.60' cy='3.20' r='5.19'/><circle cx='160.00' cy='3.20' r='5.45'/><circle cx='166.40' cy='3.20' r='5.45'/><circle cx='-3.20' cy='9.60' r='0.20'/><circle cx='3.20' cy='9.60' r='0.24'/><circle cx='9.60' cy='9.60' r='0.36'/><circle cx='16.00' cy='9.60' r='0.50'/><circle cx='22.40' cy='9.60' r='0.65'/><circle cx='28.80' cy='9.60' r='0.82'/><circle cx='35.20' cy='9.60' r='0.99'/><circle cx='41.60' cy='9.60' r='1.17'/><circle cx='48.00' cy='9.60' r='1.37'/><circle cx='54.40' cy='9.60' r='1.56'/><circle cx='60.80' cy='9.60' r='1.77'/><circle cx='67.20' cy='9.60' r='1.97'/><circle cx='73.60' cy='9.60' r='2.19'/><circle cx='80.00' cy='9.60' r='2.41'/><circle cx='86.40' cy='9.60' r='2.63'/><circle cx='92.80' cy='9.60' r='2.86'/><circle cx='99.20' cy='9.60' r='3.09'/><circle cx='105.60' cy='9.60' r='3.32'/><circle cx='112.00' cy='9.60' r='3.56'/><circle cx='118.40' cy='9.60' r='3.80'/><circle cx='124.80' cy='9.60' r='4.05'/><circle cx='131.20' cy='9.60' r='4.30'/><circle cx='137.60' cy='9.60' r='4.55'/><circle cx='144.00' cy='9.60' r='4.80'/><circle cx='150.40' cy='9.60' r='5.06'/><circle cx='156.80' cy='9.60' r='5.32'/><circle cx='163.20' cy='9.60' r='5.45'/><circle cx='169.60' cy='9.60' r='5.45'/><circle cx='-6.40' cy='16.00' r='0.20'/><circle cx='0.00' cy='16.00' r='0.20'/><circle cx='6.40' cy='16.00' r='0.29'/><circle cx='12.80' cy='16.00' r='0.42'/><circle cx='19.20' cy='16.00' r='0.57'/><circle cx='25.60' cy='16.00' r='0.73'/><circle cx='32.00' cy='16.00' r='0.90'/><circle cx='38.40' cy='16.00' r='1.08'/><circle cx='44.80' cy='16.00' r='1.27'/><circle cx='51.20' cy='16.00' r='1.46'/><circle cx='57.60' cy='16.00' r='1.66'/><circle cx='64.00' cy='16.00' r='1.87'/><circle cx='70.40' cy='16.00' r='2.08'/><circle cx='76.80' cy='16.00' r='2.30'/><circle cx='83.20' cy='16.00' r='2.52'/><circle cx='89.60' cy='16.00' r='2.74'/><circle cx='96.00' cy='16.00' r='2.97'/><circle cx='102.40' cy='16.00' r='3.20'/><circle cx='108.80' cy='16.00' r='3.44'/><circle cx='115.20' cy='16.00' r='3.68'/><circle cx='121.60' cy='16.00' r='3.92'/><circle cx='128.00' cy='16.00' r='4.17'/><circle cx='134.40' cy='16.00' r='4.42'/><circle cx='140.80' cy='16.00' r='4.67'/><circle cx='147.20' cy='16.00' r='4.93'/><circle cx='153.60' cy='16.00' r='5.19'/><circle cx='160.00' cy='16.00' r='5.45'/><circle cx='166.40' cy='16.00' r='5.45'/></svg>") 0 0 / var(--th-dusk) auto repeat-y, linear-gradient(#000, #000) var(--th-dusk) 0 / 100% 100% no-repeat;
+  pointer-events: none;
+}
+
 .th-sky {
   margin: 0;
+  padding: 0.75rem 0 0.75rem calc(var(--th-dusk) - 3rem);
+}
+
+@media (max-width: 1200px) {
+  .th-head {
+    --th-dusk: 7.5rem;
+  }
 }
 
 .th-sky svg {
@@ -70,31 +106,34 @@ html[data-theme='dark'] .th-sky__lit {
 }
 
 .th-sky__lines line {
-  stroke: var(--color-ink);
-  stroke-opacity: 0.14;
-  stroke-width: 1.2;
+  stroke: var(--color-sky-line);
+  stroke-width: 1.4;
 }
 
 .th-sky__groups text {
   font: 500 15px var(--font-mono);
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  fill: var(--color-ink-muted);
-  opacity: 0.75;
+  fill: var(--th-hue);
+  opacity: 0.45;
+}
+
+.th-sky__groups text.is-lit {
+  opacity: 0.95;
 }
 
 .th-sky__star {
   fill: var(--th-hue);
-  opacity: 0.32;
+  opacity: 0.4;
 }
 
 .th-sky__route {
   fill: none;
-  stroke: var(--color-ink);
+  stroke: var(--mark-glow);
   stroke-width: 1.6;
   stroke-dasharray: 5 7;
   stroke-linecap: round;
-  opacity: 0.7;
+  opacity: 0.9;
 }
 
 .th-sky__lit {
@@ -104,19 +143,25 @@ html[data-theme='dark'] .th-sky__lit {
 
 .th-sky__halo {
   fill: var(--th-hue);
-  fill-opacity: 0.2;
+  fill-opacity: 0.14;
   transition: fill-opacity 0.2s ease;
 }
 
 .th-sky__dot {
   fill: var(--th-hue);
-  stroke: var(--color-band);
-  stroke-width: 2;
+  filter: drop-shadow(0 0 7px var(--th-hue));
+  transition: transform 0.2s ease;
+  transform-box: fill-box;
+  transform-origin: center;
 }
 
 .th-sky__lit.is-hover .th-sky__halo,
 .th-sky__lit:focus-visible .th-sky__halo {
-  fill-opacity: 0.45;
+  fill-opacity: 0.32;
+}
+
+.th-sky__lit.is-hover .th-sky__dot {
+  transform: scale(1.25);
 }
 
 .th-sky__lit:focus-visible {
@@ -124,7 +169,7 @@ html[data-theme='dark'] .th-sky__lit {
 }
 
 .th-sky__lit:focus-visible .th-sky__dot {
-  stroke: var(--color-accent);
+  stroke: var(--color-night-kicker);
   stroke-width: 3;
 }
 
@@ -133,10 +178,10 @@ html[data-theme='dark'] .th-sky__lit {
 }
 
 .th-sky__name {
-  font: 600 22px var(--font-sans);
-  fill: var(--color-ink);
+  font: italic 500 24px var(--font-display);
+  fill: #e4e7ee;
   paint-order: stroke;
-  stroke: var(--color-band);
+  stroke: var(--color-night);
   stroke-width: 6px;
   stroke-linejoin: round;
   pointer-events: none;
@@ -732,6 +777,30 @@ html[data-theme='dark'] .th-journey__img img {
 @media (max-width: 900px) {
   .th-head {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* obloha je pod názvem: soumrak z teček nad ní, noc přes celou šířku okna až dolů */
+  .th-head::after {
+    display: none;
+  }
+
+  .th-sky {
+    position: relative;
+    padding: 6.5rem 0 0.5rem;
+  }
+
+  .th-sky::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: calc(-1 * var(--band-pad));
+    left: calc(50% - 50vw);
+    width: 100vw;
+    background: var(--color-night);
+    -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='12.8' height='115.2'><circle cx='-3.20' cy='-3.20' r='0.20'/><circle cx='-3.20' cy='3.20' r='0.26'/><circle cx='-3.20' cy='9.60' r='0.43'/><circle cx='-3.20' cy='16.00' r='0.64'/><circle cx='-3.20' cy='22.40' r='0.88'/><circle cx='-3.20' cy='28.80' r='1.13'/><circle cx='-3.20' cy='35.20' r='1.39'/><circle cx='-3.20' cy='41.60' r='1.67'/><circle cx='-3.20' cy='48.00' r='1.96'/><circle cx='-3.20' cy='54.40' r='2.25'/><circle cx='-3.20' cy='60.80' r='2.56'/><circle cx='-3.20' cy='67.20' r='2.88'/><circle cx='-3.20' cy='73.60' r='3.20'/><circle cx='-3.20' cy='80.00' r='3.53'/><circle cx='-3.20' cy='86.40' r='3.86'/><circle cx='-3.20' cy='92.80' r='4.21'/><circle cx='-3.20' cy='99.20' r='4.55'/><circle cx='-3.20' cy='105.60' r='4.91'/><circle cx='-3.20' cy='112.00' r='5.27'/><circle cx='-3.20' cy='118.40' r='5.45'/><circle cx='-3.20' cy='124.80' r='5.45'/><circle cx='3.20' cy='-6.40' r='0.20'/><circle cx='3.20' cy='0.00' r='0.20'/><circle cx='3.20' cy='6.40' r='0.34'/><circle cx='3.20' cy='12.80' r='0.54'/><circle cx='3.20' cy='19.20' r='0.76'/><circle cx='3.20' cy='25.60' r='1.00'/><circle cx='3.20' cy='32.00' r='1.26'/><circle cx='3.20' cy='38.40' r='1.53'/><circle cx='3.20' cy='44.80' r='1.81'/><circle cx='3.20' cy='51.20' r='2.10'/><circle cx='3.20' cy='57.60' r='2.41'/><circle cx='3.20' cy='64.00' r='2.72'/><circle cx='3.20' cy='70.40' r='3.04'/><circle cx='3.20' cy='76.80' r='3.36'/><circle cx='3.20' cy='83.20' r='3.69'/><circle cx='3.20' cy='89.60' r='4.03'/><circle cx='3.20' cy='96.00' r='4.38'/><circle cx='3.20' cy='102.40' r='4.73'/><circle cx='3.20' cy='108.80' r='5.09'/><circle cx='3.20' cy='115.20' r='5.45'/><circle cx='3.20' cy='121.60' r='5.45'/><circle cx='9.60' cy='-3.20' r='0.20'/><circle cx='9.60' cy='3.20' r='0.26'/><circle cx='9.60' cy='9.60' r='0.43'/><circle cx='9.60' cy='16.00' r='0.64'/><circle cx='9.60' cy='22.40' r='0.88'/><circle cx='9.60' cy='28.80' r='1.13'/><circle cx='9.60' cy='35.20' r='1.39'/><circle cx='9.60' cy='41.60' r='1.67'/><circle cx='9.60' cy='48.00' r='1.96'/><circle cx='9.60' cy='54.40' r='2.25'/><circle cx='9.60' cy='60.80' r='2.56'/><circle cx='9.60' cy='67.20' r='2.88'/><circle cx='9.60' cy='73.60' r='3.20'/><circle cx='9.60' cy='80.00' r='3.53'/><circle cx='9.60' cy='86.40' r='3.86'/><circle cx='9.60' cy='92.80' r='4.21'/><circle cx='9.60' cy='99.20' r='4.55'/><circle cx='9.60' cy='105.60' r='4.91'/><circle cx='9.60' cy='112.00' r='5.27'/><circle cx='9.60' cy='118.40' r='5.45'/><circle cx='9.60' cy='124.80' r='5.45'/><circle cx='16.00' cy='-6.40' r='0.20'/><circle cx='16.00' cy='0.00' r='0.20'/><circle cx='16.00' cy='6.40' r='0.34'/><circle cx='16.00' cy='12.80' r='0.54'/><circle cx='16.00' cy='19.20' r='0.76'/><circle cx='16.00' cy='25.60' r='1.00'/><circle cx='16.00' cy='32.00' r='1.26'/><circle cx='16.00' cy='38.40' r='1.53'/><circle cx='16.00' cy='44.80' r='1.81'/><circle cx='16.00' cy='51.20' r='2.10'/><circle cx='16.00' cy='57.60' r='2.41'/><circle cx='16.00' cy='64.00' r='2.72'/><circle cx='16.00' cy='70.40' r='3.04'/><circle cx='16.00' cy='76.80' r='3.36'/><circle cx='16.00' cy='83.20' r='3.69'/><circle cx='16.00' cy='89.60' r='4.03'/><circle cx='16.00' cy='96.00' r='4.38'/><circle cx='16.00' cy='102.40' r='4.73'/><circle cx='16.00' cy='108.80' r='5.09'/><circle cx='16.00' cy='115.20' r='5.45'/><circle cx='16.00' cy='121.60' r='5.45'/></svg>") 0 0 / 0.8rem 7.2rem repeat-x, linear-gradient(#000, #000) 0 7.2rem / 100% 100% no-repeat;
+    mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='12.8' height='115.2'><circle cx='-3.20' cy='-3.20' r='0.20'/><circle cx='-3.20' cy='3.20' r='0.26'/><circle cx='-3.20' cy='9.60' r='0.43'/><circle cx='-3.20' cy='16.00' r='0.64'/><circle cx='-3.20' cy='22.40' r='0.88'/><circle cx='-3.20' cy='28.80' r='1.13'/><circle cx='-3.20' cy='35.20' r='1.39'/><circle cx='-3.20' cy='41.60' r='1.67'/><circle cx='-3.20' cy='48.00' r='1.96'/><circle cx='-3.20' cy='54.40' r='2.25'/><circle cx='-3.20' cy='60.80' r='2.56'/><circle cx='-3.20' cy='67.20' r='2.88'/><circle cx='-3.20' cy='73.60' r='3.20'/><circle cx='-3.20' cy='80.00' r='3.53'/><circle cx='-3.20' cy='86.40' r='3.86'/><circle cx='-3.20' cy='92.80' r='4.21'/><circle cx='-3.20' cy='99.20' r='4.55'/><circle cx='-3.20' cy='105.60' r='4.91'/><circle cx='-3.20' cy='112.00' r='5.27'/><circle cx='-3.20' cy='118.40' r='5.45'/><circle cx='-3.20' cy='124.80' r='5.45'/><circle cx='3.20' cy='-6.40' r='0.20'/><circle cx='3.20' cy='0.00' r='0.20'/><circle cx='3.20' cy='6.40' r='0.34'/><circle cx='3.20' cy='12.80' r='0.54'/><circle cx='3.20' cy='19.20' r='0.76'/><circle cx='3.20' cy='25.60' r='1.00'/><circle cx='3.20' cy='32.00' r='1.26'/><circle cx='3.20' cy='38.40' r='1.53'/><circle cx='3.20' cy='44.80' r='1.81'/><circle cx='3.20' cy='51.20' r='2.10'/><circle cx='3.20' cy='57.60' r='2.41'/><circle cx='3.20' cy='64.00' r='2.72'/><circle cx='3.20' cy='70.40' r='3.04'/><circle cx='3.20' cy='76.80' r='3.36'/><circle cx='3.20' cy='83.20' r='3.69'/><circle cx='3.20' cy='89.60' r='4.03'/><circle cx='3.20' cy='96.00' r='4.38'/><circle cx='3.20' cy='102.40' r='4.73'/><circle cx='3.20' cy='108.80' r='5.09'/><circle cx='3.20' cy='115.20' r='5.45'/><circle cx='3.20' cy='121.60' r='5.45'/><circle cx='9.60' cy='-3.20' r='0.20'/><circle cx='9.60' cy='3.20' r='0.26'/><circle cx='9.60' cy='9.60' r='0.43'/><circle cx='9.60' cy='16.00' r='0.64'/><circle cx='9.60' cy='22.40' r='0.88'/><circle cx='9.60' cy='28.80' r='1.13'/><circle cx='9.60' cy='35.20' r='1.39'/><circle cx='9.60' cy='41.60' r='1.67'/><circle cx='9.60' cy='48.00' r='1.96'/><circle cx='9.60' cy='54.40' r='2.25'/><circle cx='9.60' cy='60.80' r='2.56'/><circle cx='9.60' cy='67.20' r='2.88'/><circle cx='9.60' cy='73.60' r='3.20'/><circle cx='9.60' cy='80.00' r='3.53'/><circle cx='9.60' cy='86.40' r='3.86'/><circle cx='9.60' cy='92.80' r='4.21'/><circle cx='9.60' cy='99.20' r='4.55'/><circle cx='9.60' cy='105.60' r='4.91'/><circle cx='9.60' cy='112.00' r='5.27'/><circle cx='9.60' cy='118.40' r='5.45'/><circle cx='9.60' cy='124.80' r='5.45'/><circle cx='16.00' cy='-6.40' r='0.20'/><circle cx='16.00' cy='0.00' r='0.20'/><circle cx='16.00' cy='6.40' r='0.34'/><circle cx='16.00' cy='12.80' r='0.54'/><circle cx='16.00' cy='19.20' r='0.76'/><circle cx='16.00' cy='25.60' r='1.00'/><circle cx='16.00' cy='32.00' r='1.26'/><circle cx='16.00' cy='38.40' r='1.53'/><circle cx='16.00' cy='44.80' r='1.81'/><circle cx='16.00' cy='51.20' r='2.10'/><circle cx='16.00' cy='57.60' r='2.41'/><circle cx='16.00' cy='64.00' r='2.72'/><circle cx='16.00' cy='70.40' r='3.04'/><circle cx='16.00' cy='76.80' r='3.36'/><circle cx='16.00' cy='83.20' r='3.69'/><circle cx='16.00' cy='89.60' r='4.03'/><circle cx='16.00' cy='96.00' r='4.38'/><circle cx='16.00' cy='102.40' r='4.73'/><circle cx='16.00' cy='108.80' r='5.09'/><circle cx='16.00' cy='115.20' r='5.45'/><circle cx='16.00' cy='121.60' r='5.45'/></svg>") 0 0 / 0.8rem 7.2rem repeat-x, linear-gradient(#000, #000) 0 7.2rem / 100% 100% no-repeat;
+    pointer-events: none;
   }
 
   .th-shape__grid {

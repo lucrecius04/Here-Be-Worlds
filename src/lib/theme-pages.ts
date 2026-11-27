@@ -49,7 +49,7 @@ export type ThemeSkyData = {
   stars: Array<{ id: string; x: number; y: number; size: number; accent: Accent; title: LocalizedString; lit: boolean }>;
   lines: Array<{ x1: number; y1: number; x2: number; y2: number }>;
   route: Array<[number, number]>;
-  groups: Array<{ id: string; x: number; y: number; label: LocalizedString }>;
+  groups: Array<{ id: string; x: number; y: number; label: LocalizedString; accent: Accent; lit: boolean }>;
 };
 
 const published = worlds.filter((w) => !w.draft);
@@ -91,7 +91,14 @@ function themeSky(ids: Set<string>): ThemeSkyData {
     stars,
     lines: fullSky.lines.map(({ x1, y1, x2, y2 }) => ({ x1, y1, x2, y2 })),
     route: windingPath(lit).map((k) => lit[k]),
-    groups: fullSky.groups.map((g) => ({ id: g.chapterId, x: g.x, y: g.y, label: SHORT[g.chapterId] ?? { cs: g.chapterId, en: g.chapterId } })),
+    groups: fullSky.groups.map((g) => ({
+      id: g.chapterId,
+      x: g.x,
+      y: g.y,
+      label: SHORT[g.chapterId] ?? { cs: g.chapterId, en: g.chapterId },
+      accent: chapterOf(g.chapterId)?.accent ?? { light: '#57534d', dark: '#c9ceda' },
+      lit: published.some((w) => w.chapterId === g.chapterId && ids.has(w.id)),
+    })),
   };
 }
 

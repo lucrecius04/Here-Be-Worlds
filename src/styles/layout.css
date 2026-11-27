@@ -91,21 +91,14 @@ html[data-znak='o2kd'] .brand-mark-pair .brand-mark__o2kd {
   color: var(--color-night-muted);
 }
 
-/* S pěti odkazy v liště (od 2026-11-27 i Hlubina času) se podtitul schová dřív a mezery mezi odkazy se na užší obrazovce zmenší, aby lišta zůstala na jednom řádku. */
-@media (max-width: 1240px) {
+/* Lišta má zůstat na jednom řádku: podtitul se schová, a na úzké obrazovce nad telefonem se zúží mezery. */
+@media (max-width: 1120px) {
   .site-header__tagline {
     display: none;
   }
 }
 
-/* Úzká obrazovka nad telefonem (tablet): menší mezery, a když ani to nestačí, schová se nápis vedle znaku. */
-@media (max-width: 880px) and (min-width: 721px) {
-  .site-header .site-header__name {
-    display: none;
-  }
-}
-
-@media (max-width: 1000px) and (min-width: 721px) {
+@media (max-width: 860px) and (min-width: 721px) {
   .site-header {
     column-gap: 1rem;
   }
@@ -116,8 +109,23 @@ html[data-znak='o2kd'] .brand-mark-pair .brand-mark__o2kd {
   }
 
   .site-header .site-nav {
-    column-gap: 0.8rem;
+    column-gap: 0.9rem;
     font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 770px) and (min-width: 721px) {
+  .site-header {
+    column-gap: 0.75rem;
+  }
+
+  .site-header .site-header__end,
+  .site-header .site-menu {
+    column-gap: 0.6rem;
+  }
+
+  .site-header .site-nav {
+    column-gap: 0.5rem;
   }
 }
 
