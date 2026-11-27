@@ -220,12 +220,14 @@ describe('affinityBreakdown: šest pilířů', () => {
     expect(score.narration).toBe(0);
   });
 
-  it('vyprávění: jeden společný způsob 4, dva 6, jinak 2 za společný kruh Zákulisí nebo Hráč', () => {
+  it('vyprávění: jeden společný způsob 3, dva 6, k tomu 2 za společný kruh Zákulisí nebo Hráč', () => {
     const tools = (...list: Array<[string, string, string?]>) => kin({ tools: list.map(([t, ring, also]) => ({ t, ring, ...(also ? { also } : {}) })) });
     const a = apart('a', { kin: tools(['pamet-hry', 'zakulisi'], ['hudba', 'obraz-a-zvuk'], ['prunik', 'hrac']) });
     const n = (k: Kin) => affinityBreakdown(a, apart('b', { kin: k })).narration;
     expect(n(tools(['vrstvy', 'prostor-a-stopy']))).toBe(0);
-    expect(n(tools(['hudba', 'obraz-a-zvuk']))).toBe(4);
+    /* jediný společný způsob je jen částečná shoda (polovina bodů) */
+    expect(n(tools(['hudba', 'obraz-a-zvuk']))).toBe(3);
+    expect(pillarStrength(3, 6)).toBe('Partial');
     expect(n(tools(['hudba', 'obraz-a-zvuk'], ['pamet-hry', 'zakulisi']))).toBe(6);
     // jiný způsob ve stejném vzácném kruhu
     expect(n(tools(['rozhrani', 'zakulisi']))).toBe(2);
@@ -236,7 +238,9 @@ describe('affinityBreakdown: šest pilířů', () => {
     // společný způsob + další vzácný kruh, strop 6
     expect(n(tools(['hudba', 'obraz-a-zvuk'], ['rozhrani', 'zakulisi'], ['cizi-hraci', 'hrac']))).toBe(6);
     // kruh pokrytý společným způsobem se nepočítá podruhé
-    expect(n(tools(['pamet-hry', 'zakulisi']))).toBe(4);
+    expect(n(tools(['pamet-hry', 'zakulisi']))).toBe(3);
+    // společný způsob a k němu jeden vzácný kruh
+    expect(n(tools(['hudba', 'obraz-a-zvuk'], ['rozhrani', 'zakulisi']))).toBe(5);
   });
 
   it('index je součet šesti pilířů, podoba a povaha jeho dvě části', () => {

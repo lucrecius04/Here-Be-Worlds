@@ -120,7 +120,7 @@ export const KIN_POINTS = {
   themes: [0, 9, 16, 22],
   triad: { sin: 4, sinNear: 2, dilemma: 4, mystery: 2 },
   /** Jeden společný způsob, dva a víc; bez společného způsobu body za společný kruh Zákulisí / Hráč. */
-  narration: { one: 4, many: 6, metaRing: 2, max: 6 },
+  narration: { one: 3, many: 6, metaRing: 2, max: 6 },
 } as const;
 
 /** Kruhy, které má jen menšina světů; společný kruh se počítá i bez společného způsobu. */
