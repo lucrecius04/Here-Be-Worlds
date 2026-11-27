@@ -633,9 +633,15 @@ export default function NarrationPage({ base, rings, outside, techniques, tools,
                                 key={toolId(tool)}
                                 href={`#${toolId(tool)}`}
                                 className="nv-matrix__mark"
-                                data-tip={`${tool.title}\n${t(techById.get(tool.technique)?.label ?? { en: '' }, locale)}`}
-                                aria-label={`${tool.title} (${t(techById.get(tool.technique)?.label ?? { en: '' }, locale)})`}
-                              />
+                                aria-label={`${tool.title} (${uiT('narrPage.tipTechnique', locale)}: ${t(techById.get(tool.technique)?.label ?? { en: '' }, locale)})`}
+                              >
+                                <span className="nv-matrix__tip" aria-hidden="true">
+                                  <span className="nv-matrix__tip-name">{tool.title}</span>
+                                  <span className="nv-matrix__tip-tech">
+                                    {uiT('narrPage.tipTechnique', locale)}: <em>{t(techById.get(tool.technique)?.label ?? { en: '' }, locale)}</em>
+                                  </span>
+                                </span>
+                              </a>
                             ))}
                           </span>
                         ) : (
