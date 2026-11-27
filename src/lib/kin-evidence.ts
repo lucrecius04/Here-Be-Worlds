@@ -108,7 +108,18 @@ export function pillarEvidence(key: PillarKey, a: World, b: World, ctx: Evidence
     else if (ev.triad.sin === 'near') items.push(label(kinLabels.sin, ka.sinAlso === kb.sin ? kb.sin : ka.sin, locale));
     if (ev.triad.dilemma) items.push(label(kinLabels.dilemma, ka.dilemma, locale));
     if (ev.triad.mystery) items.push(label(kinLabels.mystery, ka.mystery, locale));
-    return items.length ? cap(items) : none(versus(label(kinLabels.sin, ka.sin, locale), label(kinLabels.sin, kb.sin, locale)));
+    if (items.length) return cap(items);
+    /* bez shody: všechny tři části triády, ať je vidět, že se světy rozcházejí v každé */
+    const part = (leadKey: string, group: Record<string, LocalizedString>, x: string, y: string) =>
+      `${uiT(leadKey, locale)} ${versus(label(group, x, locale), label(group, y, locale))}`;
+    return {
+      items: [
+        part('compare.riftSin', kinLabels.sin, ka.sin, kb.sin),
+        part('compare.riftDilemma', kinLabels.dilemma, ka.dilemma, kb.dilemma),
+        part('compare.riftMystery', kinLabels.mystery, ka.mystery, kb.mystery),
+      ],
+      muted: true,
+    };
   }
 
   const items = ev.narration.techniques.map((id) => (kinLabels.technique[id] ? t(kinLabels.technique[id].label, locale) : id));
