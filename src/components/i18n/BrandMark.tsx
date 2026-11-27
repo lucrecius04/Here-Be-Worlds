@@ -1,10 +1,12 @@
 /**
  * Znak Here Be Worlds (od 2026-11-27): loď, jejíž plachta je brk, v kruhu světa.
  * Ikona lodi je majitelova (Illustrator, vyhlazené obrysy), kruh a barvy podle webu.
- * Dvě podoby, mezi kterými se zatím vybírá (přepínač `?znak=w1|z1|vypnout`, `hbw_znak`,
+ * Čtyři podoby, mezi kterými se zatím vybírá (přepínač `?znak=w1|z1|o2|o2k|vypnout`, `hbw_znak`,
  * skript v BaseLayout nastaví `data-znak` na <html>):
  *  - W1 (výchozí): šedý kruh, špička plachty i zlatá vlna z kruhu vyjíždějí ven,
- *  - Z1: krémový kruh, ven vyjíždí jen špička, vlna zůstává uvnitř.
+ *  - Z1: krémový kruh, ven vyjíždí jen špička, vlna zůstává uvnitř,
+ *  - O2: šedý kruh otevřený dole, vlna leží v mezeře a přesahuje do stran,
+ *  - O2K: totéž s krémovým kruhem.
  * Mezery kolem lodi jsou tah v barvě noci (`--color-night`); znak stojí vždy na noční modři.
  * Dřívější znak (čtyři vrstvy kotouče) zůstává v MARK_PATHS kvůli kartám pro sdílení.
  */
@@ -27,36 +29,53 @@ const WAVE = 'M13.901 13.531C13.880 13.528 13.748 13.686 13.696 13.735C13.644 13
 /** Výřez kresby: čtverec, aby se vešla špička nad kruhem i vlna po stranách. */
 export const SAIL_VIEWBOX = '-0.8 -0.9 18.6 18.6';
 
+/**
+ * Loď: nejdřív tah mezery kolem brku i trupu, pak teprve výplně, takže stěžeň (spodek brku)
+ * zůstane s trupem spojený jako v majitelově ikoně; mezera odděluje loď jen od kruhu a vlny.
+ */
 function Boat({ wide }: { wide: boolean }) {
-  const gap = { stroke: 'var(--color-night)', strokeWidth: 1.4, paintOrder: 'stroke', strokeLinejoin: 'round' } as const;
+  const gap = { fill: 'none', stroke: 'var(--color-night)', strokeWidth: 1.4, strokeLinejoin: 'round' } as const;
+  const wave = { fill: 'var(--mark-glow)', fillRule: 'evenodd', stroke: 'var(--color-night)', paintOrder: 'stroke', strokeLinejoin: 'round' } as const;
   return (
     <g transform="translate(0.4 -0.6) scale(0.98)">
-      <path d={FEATHER} fill="var(--mark-light)" fillRule="evenodd" {...gap} />
-      <path d={HULL} fill="var(--mark-light)" fillRule="evenodd" {...gap} />
+      <path d={FEATHER} {...gap} />
+      <path d={HULL} {...gap} />
+      <path d={FEATHER} fill="var(--mark-light)" fillRule="evenodd" />
+      <path d={HULL} fill="var(--mark-light)" fillRule="evenodd" />
       {wide ? (
         <g transform="translate(8.4 0) scale(1.3 1) translate(-8.4 0)">
-          <path d={WAVE} fill="var(--mark-glow)" fillRule="evenodd" {...gap} strokeWidth={1.4 / 1.3} />
+          <path d={WAVE} {...wave} strokeWidth={1.4 / 1.3} />
         </g>
       ) : (
-        <path d={WAVE} fill="var(--mark-glow)" fillRule="evenodd" {...gap} />
+        <path d={WAVE} {...wave} strokeWidth={1.4} />
       )}
     </g>
   );
 }
 
-/** `size` = výška (a šířka) znaku v px. Vykreslí obě podoby, CSS ukáže jednu podle `data-znak`. */
+/** Kruh světa (střed 8 / 9,6, poloměr 7,6). */
+const RING = { cx: 8, cy: 9.6, r: 7.6, fill: 'none', strokeWidth: 0.75 } as const;
+/** O2: kruh otevřený dole od 16° do 164°, svět se otevírá k moři. */
+const OPEN_RING = 'M0.694 11.695A7.6 7.6 0 1 1 15.306 11.695';
+
+const VARIANTS = [
+  { id: 'w1', ring: <circle {...RING} stroke="var(--mark-shade)" />, wide: true },
+  { id: 'z1', ring: <circle {...RING} stroke="var(--mark-light)" />, wide: false },
+  { id: 'o2', ring: <path d={OPEN_RING} fill="none" stroke="var(--mark-shade)" strokeWidth="0.75" strokeLinecap="round" />, wide: true },
+  { id: 'o2k', ring: <path d={OPEN_RING} fill="none" stroke="var(--mark-light)" strokeWidth="0.75" strokeLinecap="round" />, wide: true },
+];
+
+/** `size` = výška (a šířka) znaku v px. Vykreslí všechny podoby, CSS ukáže jednu podle `data-znak`. */
 export default function BrandMark({ size = 30, className = 'brand-mark' }: Props) {
   const s = Math.round(size * 1.65);
   return (
     <span className={`${className} brand-mark-pair`} aria-hidden="true">
-      <svg className="brand-mark__w1" width={s} height={s} viewBox={SAIL_VIEWBOX} focusable="false">
-        <circle cx="8" cy="9.6" r="7.6" fill="none" stroke="var(--mark-shade)" strokeWidth="0.75" />
-        <Boat wide />
-      </svg>
-      <svg className="brand-mark__z1" width={s} height={s} viewBox={SAIL_VIEWBOX} focusable="false">
-        <circle cx="8" cy="9.6" r="7.6" fill="none" stroke="var(--mark-light)" strokeWidth="0.75" />
-        <Boat wide={false} />
-      </svg>
+      {VARIANTS.map((v) => (
+        <svg key={v.id} className={`brand-mark__${v.id}`} width={s} height={s} viewBox={SAIL_VIEWBOX} focusable="false">
+          {v.ring}
+          <Boat wide={v.wide} />
+        </svg>
+      ))}
     </span>
   );
 }
