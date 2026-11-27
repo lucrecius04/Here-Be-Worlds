@@ -2,9 +2,18 @@
 
 Předávka mezi konverzacemi s Claudem. Co je hotové a jak to funguje, popisuje `CLAUDE.md`. Tady je jen to, co z něj nevyčteš: rozpracované a odložené věci, nápady čekající na rozhodnutí a tipy k prostředí. Po větším kusu práce soubor aktualizovat, hotové položky mazat.
 
-Naposledy aktualizováno: 2026-11-25.
+Naposledy aktualizováno: 2026-11-27.
 
-## Co se dělalo naposledy (2026-11-21 až 25)
+## Co se dělalo 2026-11-27
+
+- **Znak O2** je jediná podoba (favicony, karty pro sdílení, hlavička, patička); přepínač podob je pryč. Popis v CLAUDE.md a `docs/znacka.md`.
+- **Hlavička:** Atlas · Putování · Hlubina času · Srovnání (Mapa souřadnic odebrána). **Tři cesty** na titulní straně: Jak světy vyprávějí · Galerie triád · Mapa souřadnic.
+- **Stránka tématu:** obloha na noci s rastrovým přechodem z papíru, větší obrázky putování.
+- **Obrázek kalamáře** k Anatomii herního lore (titulní strana a začátek eseje), náhledy kreseb v záložce Putování na spisu světa a v Putování dne na titulní straně.
+- **Jak světy vyprávějí:** čtverečky v tabulce světů jsou odkazy na nástroj s popiskem (název + „Způsob: …“).
+- Oprava mezery pod lepivými pruhy (pevná výška hlavičky `--site-header-height`).
+
+## Co se dělalo 2026-11-21 až 25
 
 - **Jak světy vyprávějí** (2026-11-25, `/jak-svety-vypraveji/`): 160 nástrojů ze 43 kronik ve 23 způsobech a 7 rejstřících od slova ke hře; popis v CLAUDE.md. Zařazení nástrojů do způsobů je výklad atlasu (Claude), majitel ho může upravit v `data/meta/narrative-tools.json`. Filtr atlasu i karta světa berou od 2026-11-25 všech 23 způsobů z nástrojů kronik; ruční `narration` ve `worlds.json` zůstává jen v datech. Těžiště nahrazeno počtem „jen hra: x z y“ a skupinami (2026-11-25). Otevřené: anglické texty nástrojů (kroniky jsou jen česky).
 - **Metodika vyprávění** (2026-11-25, konzultace): majitel vidí problém v závěrech z chybějících nástrojů (kroniky vybírají jen hlavní nástroje, absence nic neznamená) a chce pevnou metodiku z literatury. Návrh 0.1 je v `docs/metodika-vypraveni.md` (vrstvy, šest nosičů × tři režimy, Juulův test po nástrojích, Zákony světa mimo nástroje, Odkud to známe), výtahy z 12 nových textů v `docs/prameny/` a ze sborníku *Ludotopia* z Jørgensenové *Gameworld Interfaces*, z *Rules of Play* z Ryanové *Avatars of Story*, z Thona *Transmedial Narratology*, z Juula *The Art of Failure* (německy), doplněný Juul *Half-Real*, celý Galloway *Gaming* originál Aarsetha 2012 a navíc Howard *Quests*; všechny knihy ze seznamu jsou přečtené (od majitele, 2026-11-25). Oprava: Juulův test převyprávění posuzuje soudržnost světa, atlas ho na nástroje přenáší volně (opraveno v Anatomii herního lore a v Teoretickém zázemí). **Stránka se zatím nemění**, Teoretické zázemí se doplní až s přestavbou. **Metodika 0.2 hotová (2026-11-25):** model šesti kruhů místo nosičů × režimů, zkušební zařazení 160 nástrojů v `docs/metodika-vypraveni-zarazeni.md`; čeká na majitele (otevřené otázky v oddílu 14).
