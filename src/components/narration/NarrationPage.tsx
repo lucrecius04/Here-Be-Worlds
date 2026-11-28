@@ -236,15 +236,9 @@ export default function NarrationPage({ base, rings, outside, techniques, tools,
     );
   }, [worlds, sort, chapterOrder, locale]);
 
-  const ownOf = (w: NarrPageWorld) => w.counts.reduce((sum, n, i) => (i >= ownFrom ? sum + n : sum), 0);
-  const finding = useMemo(() => {
-    const withOwn = worlds.filter((w) => ownOf(w) > 0).length;
-    return uiT('narrPage.finding', locale)
-      .replace('{a}', String(withOwn))
-      .replace('{b}', String(worlds.length))
-      .replace('{none}', worldCountLabel(worlds.length - withOwn, locale));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [worlds, locale]);
+  /* Věta nad tabulkou vysvětluje, jak ji číst (2026-11-28: dřívější počet světů „bez kruhů z hraní“ byl zavádějící,
+     kronika vybírá jen nástroje, kterými svět vyniká, ne všechny, které používá). */
+  const finding = uiT('narrPage.finding', locale);
 
   const renderTools = (list: NarrPageTool[]) => (
     <ul className="nv-tools">
@@ -457,7 +451,7 @@ export default function NarrationPage({ base, rings, outside, techniques, tools,
               );
             })}
 
-            {/* hranice „umí jen hra“ mezi třetím a čtvrtým kruhem */}
+            {/* hranice „z hraní“ mezi třetím a čtvrtým kruhem */}
             <path className="nv-map__threshold" d={arcPath(rOut(ownFrom - 1))} />
             <line className="nv-map__base" x1={CX - rOut(rings.length - 1)} y1={CY} x2={CX + rOut(rings.length - 1)} y2={CY} />
 

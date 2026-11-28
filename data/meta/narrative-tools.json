@@ -12,12 +12,12 @@
         "en": "Word and structure"
       },
       "kin": {
-        "cs": "unese i literatura",
-        "en": "literature can carry it"
+        "cs": "z literatury",
+        "en": "from literature"
       },
       "question": {
-        "cs": "Unesl by to text?",
-        "en": "Could a text carry it?"
+        "cs": "Kdo mluví, co je napsáno a jak je příběh poskládaný?",
+        "en": "Who speaks, what is written and how is the story put together?"
       },
       "desc": {
         "cs": "Postavy, vypravěči, dokumenty a stavba příběhu. Po převyprávění do knihy by tu nic podstatného nezmizelo.",
@@ -35,12 +35,12 @@
         "en": "Image and sound"
       },
       "kin": {
-        "cs": "unese i film",
-        "en": "film can carry it"
+        "cs": "z filmu",
+        "en": "from film"
       },
       "question": {
-        "cs": "Unesl by to film?",
-        "en": "Could a film carry it?"
+        "cs": "Co svět ukáže a jak zní?",
+        "en": "What does the world show, and how does it sound?"
       },
       "desc": {
         "cs": "Režie, hudba, ticho a výtvarný styl. Svět se ukáže dřív, než promluví.",
@@ -58,12 +58,12 @@
         "en": "Space and traces"
       },
       "kin": {
-        "cs": "unese i architektura a archiv",
-        "en": "architecture and archives can carry it"
+        "cs": "z architektury a archivu",
+        "en": "from architecture and the archive"
       },
       "question": {
-        "cs": "Unesla by to procházka místem?",
-        "en": "Could a walk through a place carry it?"
+        "cs": "Co o příběhu prozradí místo, kterým procházíš?",
+        "en": "What does the place you walk through reveal about the story?"
       },
       "desc": {
         "cs": "Příběh leží rozmístěný ve světě: v troskách, denících, popiscích a vrstvách pod nohama. Čteš ho chůzí a skládáš sám. Na tomhle kruhu se hra potkává s architekturou a archivem.",
@@ -81,16 +81,16 @@
         "en": "Action and rules"
       },
       "kin": {
-        "cs": "umí jen hra",
-        "en": "only a game can do it"
+        "cs": "z hraní",
+        "en": "from play"
       },
       "question": {
-        "cs": "Musí převyprávění zmínit pravidla?",
-        "en": "Does a retelling have to mention the rules?"
+        "cs": "Co ti hra dovolí, co ti zakáže a co se stane, když se rozhodneš?",
+        "en": "What does the game let you do, what does it forbid, and what happens when you decide?"
       },
       "desc": {
-        "cs": "Co smíš, co musíš a co nemůžeš, je samo výpověď. Román tohle neumí: jeho čtenář nic nedělá.",
-        "en": "What you may, must and cannot do is itself a statement. A novel cannot do this: its reader does nothing."
+        "cs": "Co smíš, co musíš a co nemůžeš, je samo výpovědí. Kniha může o volbě vyprávět, hra ji nechá udělat tebe.",
+        "en": "What you may, must and cannot do is itself a statement. A book can tell of a choice; a game lets you make it."
       }
     },
     {
@@ -104,12 +104,12 @@
         "en": "Backstage"
       },
       "kin": {
-        "cs": "umí jen hra",
-        "en": "only a game can do it"
+        "cs": "z hraní",
+        "en": "from play"
       },
       "question": {
-        "cs": "Musí převyprávění zmínit smrt, uložení nebo rozhraní?",
-        "en": "Does a retelling have to mention death, saving or the interface?"
+        "cs": "Co když se příběhem stane smrt, ukládání nebo samo ovládání hry?",
+        "en": "What if death, saving or the controls themselves become the story?"
       },
       "desc": {
         "cs": "Smrt a nové nahrání, ukládání, menu a další průchod hra obvykle drží za scénou. Tyhle světy je vynášejí na jeviště a dělají z nich příběh.",
@@ -127,12 +127,12 @@
         "en": "Player"
       },
       "kin": {
-        "cs": "umí jen hra",
-        "en": "only a game can do it"
+        "cs": "z hraní",
+        "en": "from play"
       },
       "question": {
-        "cs": "Musí převyprávění zmínit tebe?",
-        "en": "Does a retelling have to mention you?"
+        "cs": "Co když příběh míří na tebe, ne na hrdinu?",
+        "en": "What if the story is aimed at you, not at the hero?"
       },
       "desc": {
         "cs": "Maska, do které vstoupíš, vina, kterou na sebe vezmeš, a hra, která sáhne až k tobě za obrazovku.",
@@ -159,8 +159,8 @@
         "en": ""
       },
       "desc": {
-        "cs": "Tyhle nástroje kronika vyzdvihla, ale nevyprávějí: jsou tím, co se vypráví. Zákony světa, jeho fyzika a metafyzika.",
-        "en": "The chronicles single these out, yet they do not tell: they are what is told. The laws of the world, its physics and metaphysics."
+        "cs": "Některé výrazné rysy nejsou způsobem vyprávění, ale tím, o čem se vypráví: zákony světa, jeho fyzika a metafyzika.",
+        "en": "Some striking traits are not a way of telling but what is being told: the laws of the world, its physics and metaphysics."
       }
     }
   ],
@@ -173,8 +173,8 @@
         "en": "Characters and conversations"
       },
       "desc": {
-        "cs": "Postavy se odhalují tím, co a jak říkají: hašteření družiny, vnitřní hlasy, rozhovor s umírajícím.",
-        "en": "Characters reveal themselves by what they say and how: party banter, inner voices, a talk with the dying."
+        "cs": "Postavy se odhalují tím, co a jak říkají: v rozhovorech, hádkách, vzpomínkách i vlastních myšlenkách.",
+        "en": "Characters reveal themselves by what they say and how: in conversations, quarrels, memories and their own thoughts."
       }
     },
     {
@@ -185,8 +185,8 @@
         "en": "Narrator and frame"
       },
       "desc": {
-        "cs": "Kdo vypráví a v jaké podobě: deník hrdiny, komentující básník, sazba písma, povídková stavba.",
-        "en": "Who tells the story and in what form: the hero's diary, a commenting bard, typography, a short-story structure."
+        "cs": "Kdo příběh vypráví a v jaké podobě: deník, vypravěčský hlas, kapitoly nebo samostatné povídky.",
+        "en": "Who tells the story and in what form: a diary, a narrating voice, chapters or separate tales."
       }
     },
     {
@@ -197,8 +197,8 @@
         "en": "Unreliable histories"
       },
       "desc": {
-        "cs": "Dějiny vypráví někdo zaujatý: kronikář, církev, propaganda. Pravda leží mezi verzemi.",
-        "en": "History is told by someone with a stake in it: a chronicler, a church, propaganda. The truth lies between the versions."
+        "cs": "Dějiny vypráví někdo zaujatý: kronikář, církev, propaganda. Kde leží pravda, si skládáš sám.",
+        "en": "History is told by someone with a stake: a chronicler, a church, propaganda. Where the truth lies, you piece together yourself."
       }
     },
     {
@@ -209,8 +209,8 @@
         "en": "Texts from the world"
       },
       "desc": {
-        "cs": "Dokumenty psané pro obyvatele světa: oběžníky, kodexy, citáty v záhlaví kapitol.",
-        "en": "Documents written for the inhabitants of the world: memos, codices, chapter epigraphs."
+        "cs": "Dokumenty, které vznikly pro obyvatele světa: zákony, dopisy, kázání, citáty v záhlaví kapitol.",
+        "en": "Documents written for the people of the world: laws, letters, sermons, epigraphs at the head of chapters."
       }
     },
     {
@@ -233,8 +233,8 @@
         "en": "Many viewpoints"
       },
       "desc": {
-        "cs": "Táž doba nebo událost z několika stran: jiný hrdina v každém díle, tři léčitelé v jednom městě.",
-        "en": "The same time or event from several sides: a new hero in every part, three healers in one town."
+        "cs": "Tentýž příběh z několika úhlů: jiná postava, jiný díl nebo další průchod ukáže, co předtím zůstalo skryté.",
+        "en": "The same story from several angles: another character, another game or another playthrough shows what stayed hidden before."
       }
     },
     {
@@ -245,8 +245,8 @@
         "en": "Film and direction"
       },
       "desc": {
-        "cs": "Filmová řeč: předrenderované filmy, scény hrané v reálném čase, kamera, která uprostřed akce změní žánr.",
-        "en": "The language of film: pre-rendered cinematics, scenes played in real time, a camera that changes genre mid-action."
+        "cs": "Filmová řeč: střih, kamera a scény, které hra režíruje jako film.",
+        "en": "The language of film: editing, camera and scenes the game directs like a film."
       }
     },
     {
@@ -281,8 +281,8 @@
         "en": "Traces in space"
       },
       "desc": {
-        "cs": "Kostra ve vaně, trosky trůnního sálu: místo jako následek události, kterou si domyslíš.",
-        "en": "A skeleton in the bathtub, the ruins of a throne room: a place as the aftermath of an event you infer."
+        "cs": "Rozbitý nábytek, ohořelá zeď, tělo v koutě: místo jako následek události, kterou si domyslíš.",
+        "en": "Broken furniture, a scorched wall, a body in the corner: a place as the aftermath of an event you infer."
       }
     },
     {
@@ -293,8 +293,8 @@
         "en": "Landscape as expression"
       },
       "desc": {
-        "cs": "Místo vyjadřuje myšlenku nebo duši: utopie, která hnije, katedrála velká jako svět, dům, který se kroutí podle stavu mysli.",
-        "en": "A place expresses an idea or a soul: a utopia rotting away, a cathedral the size of a world, a house that twists with a state of mind."
+        "cs": "Místo vyjadřuje myšlenku nebo vnitřní stav: architektura, která něco hlásá, krajina, která se mění s duší postavy.",
+        "en": "A place expresses an idea or an inner state: architecture that proclaims something, a landscape that shifts with a character’s soul."
       }
     },
     {
@@ -342,8 +342,8 @@
         "en": "Voices of the dead and of witnesses"
       },
       "desc": {
-        "cs": "Schopnost vyslechnout ty, kdo by jinak mlčeli: mrtvé, zvířata, duše, posledních deset vteřin života.",
-        "en": "The power to hear those who would otherwise stay silent: the dead, animals, souls, the last ten seconds of a life."
+        "cs": "Schopnost vyslechnout ty, kdo by jinak mlčeli: mrtvé, zvířata nebo duše.",
+        "en": "The power to hear those who would otherwise stay silent: the dead, animals or souls."
       }
     },
     {
@@ -354,8 +354,8 @@
         "en": "Rules that tell"
       },
       "desc": {
-        "cs": "Herní pravidlo samo vypráví: chůze s nákladem, vědění místo klíče, voják, který zemře navždy.",
-        "en": "A game rule tells the story itself: walking under a load, knowledge instead of keys, a soldier who dies for good."
+        "cs": "Samo herní pravidlo nese význam: co je namáhavé, co se nedá vrátit a co stojí za riziko, vypráví o světě.",
+        "en": "The game rule itself carries meaning: what is laborious, what cannot be undone and what is worth the risk tells of the world."
       }
     },
     {
@@ -366,8 +366,8 @@
         "en": "Choice and consequence"
       },
       "desc": {
-        "cs": "Rozhodnutí, která svět opravdu promění, často až po letech, bez varování, nebo podle toho, co děláš, aniž víš, že se to počítá.",
-        "en": "Decisions that truly change the world, often years later, without warning, or by what you do without knowing it counts."
+        "cs": "Rozhodnutí, která svět opravdu změní. Následky přijdou třeba až po letech a počítá se i to, o čem jsi nevěděl, že je volba.",
+        "en": "Decisions that truly change the world. Consequences may come years later, and even what you did not know was a choice counts."
       }
     },
     {
@@ -378,8 +378,8 @@
         "en": "Words as deeds"
       },
       "desc": {
-        "cs": "Rozhovor, který jde prohrát: slovní souboj místo boje, lež, která se zhmotní. Kniha rozhovor podá, ale neumí ho prohrát.",
-        "en": "A conversation you can lose: a duel of words instead of a fight, a lie that becomes real. A book can give you a conversation, but not lose it."
+        "cs": "Rozhovor, který jde vyhrát i prohrát: slovo místo zbraně, přesvědčování, které mění svět. Kniha rozhovor podá, ale neumí ho prohrát.",
+        "en": "A conversation you can win or lose: words instead of weapons, persuasion that changes the world. A book can relate a conversation but cannot lose it."
       }
     },
     {
@@ -390,8 +390,8 @@
         "en": "Death and return"
       },
       "desc": {
-        "cs": "Smrt není konec hry, ale krok příběhu: návrat domů, ztráta paměti, kráter ve světě.",
-        "en": "Death is not the end of the game but a step in the story: a return home, lost memory, a crater in the world."
+        "cs": "Smrt není konec hry, ale součást příběhu: svět ví, že umíráš, a něco se tím mění.",
+        "en": "Death is not the end of the game but part of the story: the world knows you die, and something changes because of it."
       },
       "trail": "loops"
     },
@@ -403,8 +403,8 @@
         "en": "The game's memory"
       },
       "desc": {
-        "cs": "Uložení, nové nahrání a další průchod patří do příběhu: hra si pamatuje, co jsi vrátil, a všechny konce platí najednou.",
-        "en": "Saving, reloading and another playthrough belong to the story: the game remembers what you undid, and every ending holds at once."
+        "cs": "Ukládání, nové nahrávání a další průchod se stávají součástí příběhu: hra si pamatuje, co jsi vzal zpět, a další hraní navazuje na předchozí.",
+        "en": "Saving, reloading and another playthrough become part of the story: the game remembers what you took back, and each new play builds on the last."
       }
     },
     {
@@ -415,8 +415,8 @@
         "en": "The interface inside the story"
       },
       "desc": {
-        "cs": "Ukazatele, menu a deník jsou součástí fikce: čipy v mozku androida, synchronizace s pamětí předka, hod kostkou na obrazovce.",
-        "en": "Gauges, menus and logs belong to the fiction: chips in an android's brain, synchronisation with an ancestor's memory, a die roll on screen."
+        "cs": "Ukazatele, menu a deník nejsou jen ovládání, ale věci uvnitř světa, které si příběh vysvětluje.",
+        "en": "Gauges, menus and the journal are not just controls but things inside the world that the story accounts for."
       }
     },
     {
@@ -427,8 +427,8 @@
         "en": "Conventions turned over"
       },
       "desc": {
-        "cs": "Hra si bere za téma vlastní zvyky a zvyky svého žánru: místo draků filozofie, místo nahrávání rozhovor ve výtahu.",
-        "en": "A game takes its own habits and those of its genre as a subject: philosophy instead of dragons, a lift conversation instead of a loading screen."
+        "cs": "Hra si bere za téma zvyky her a svého žánru a obrací je naruby.",
+        "en": "The game takes the habits of games and of its genre as its subject and turns them inside out."
       }
     },
     {
@@ -475,8 +475,8 @@
         "en": "Breach"
       },
       "desc": {
-        "cs": "Hra ví, že ji hraješ, a sáhne až k tobě: na tvůj počítač, tvé uložené hry, tvou roli diváka.",
-        "en": "The game knows you are playing and reaches out to you: to your computer, your saved games, your role as spectator."
+        "cs": "Hra ví, že ji hraješ, a obrátí se přímo na tebe, za hranici obrazovky.",
+        "en": "The game knows you are playing and turns to you directly, past the edge of the screen."
       },
       "trail": "knows-you-play"
     },
@@ -488,8 +488,8 @@
         "en": "Strangers"
       },
       "desc": {
-        "cs": "Příběh nesou skuteční lidé, které nikdy nepotkáš: žebřík od cizího hráče, uložená hra obětovaná neznámému.",
-        "en": "The story is carried by real people you will never meet: a ladder left by a stranger, a saved game given up for someone unknown."
+        "cs": "Příběh spoluvytvářejí jiní skuteční hráči: potkáváš jejich stopy, vzkazy a oběti, ale je samotné nikdy.",
+        "en": "Other real players help make the story: you meet their traces, messages and sacrifices, but never them."
       }
     },
     {
@@ -500,8 +500,8 @@
         "en": "Laws of the world"
       },
       "desc": {
-        "cs": "Fyzika a metafyzika, z nichž příběh vyrůstá: duše jako energie, folklór jako biologie, život odměřený na deset let.",
-        "en": "The physics and metaphysics the story grows from: the soul as energy, folklore as biology, a life measured out to ten years."
+        "cs": "Fyzika a metafyzika světa, z nichž příběh vyrůstá: čím je duše, co je živé, jak dlouho trvá život.",
+        "en": "The physics and metaphysics of the world the story grows from: what a soul is, what is alive, how long a life lasts."
       }
     }
   ],

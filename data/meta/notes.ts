@@ -240,10 +240,10 @@ export const noteNarrationTerms: NoteField[] = [
     },
   },
   {
-    term: { cs: 'Unese i jiné umění × umí jen hra', en: 'Other arts can carry it × only a game can' },
+    term: { cs: 'Z jiných umění × z hraní', en: 'From other arts × from play' },
     help: {
-      cs: 'První tři kruhy by unesla i kniha, film nebo procházka místem. Od čtvrtého kruhu by převyprávění ztratilo pointu: Čin, Zákulisí a Hráče umí jen hra.',
-      en: 'A book, a film or a walk through a place could carry the first three rings. From the fourth ring on, a retelling would lose the point: only a game can do Action, Backstage and Player.',
+      cs: 'První tři kruhy vycházejí z jiných umění: z literatury, filmu, architektury a archivu. Další tři vycházejí z hraní: Čin a pravidla, Zákulisí a Hráč stojí na tom, že hraješ, a převyprávěné by přišly o pointu.',
+      en: 'The first three rings come from other arts: from literature, film, architecture and the archive. The other three come from play: Action and rules, Backstage and Player rest on the fact that you play, and retold they would lose their point.',
     },
   },
   {

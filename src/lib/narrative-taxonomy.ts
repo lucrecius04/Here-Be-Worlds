@@ -44,7 +44,7 @@ const data = raw as unknown as Raw;
 export const NARR_FAMILIES: NarrFamily[] = data.families;
 /** Jen šest kruhů, od slova k hráči. */
 export const NARR_RINGS: NarrFamily[] = data.families.filter((f) => !f.outside);
-/** Od kterého kruhu dál umí vyprávět jen hra (Čin). */
+/** Od kterého kruhu dál jsou kruhy z hraní (Čin a pravidla). */
 export const OWN_FROM = NARR_RINGS.findIndex((f) => f.id === 'cin');
 
 export const NARR_TECHNIQUES: NarrTechnique[] = data.techniques;

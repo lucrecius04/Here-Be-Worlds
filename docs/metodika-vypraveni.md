@@ -1,5 +1,7 @@
 # Metodika: Poetika světů
 
+> Od 2026-11-28 se na webu poloviny jmenují **z jiných umění** (kruhy 1–3: z literatury, z filmu, z architektury a archivu) a **z hraní** (kruhy 4–6), místo „unese i …“ a „umí jen hra“; otázky kruhů na webu popisují, o čem kruh je (test převyprávění zůstává jen tady a ve Vysvětlivkách u pojmu Kruh). Popisy způsobů jsou obecné, bez příkladů vázaných na jedinou hru.
+>
 > Kruh 4 má od 2026-11-28 dlouhý název **Čin a pravidla** (krátce dál Čin); níž zůstává původní „Čin“.
 >
 > Od 2026-11-28 se stránka i celá oblast jmenuje **Poetika světů** (`/poetika-svetu/`); do té doby Jak světy vyprávějí. V textu níž zůstává původní název tam, kde popisuje vývoj metodiky.
