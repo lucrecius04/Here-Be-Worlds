@@ -718,6 +718,24 @@ export default function ComparePage({ worlds, chapters, themeLabels, kinLabels, 
             ) : null}
           </Section>
 
+          <nav className="cmp-details" aria-label={uiT('compare.detailsKicker', locale)}>
+            <p className="cmp-details__kicker">{uiT('compare.detailsKicker', locale)}</p>
+            <ul className="cmp-details__nav">
+              {[
+                ['cmp-souradnice', 'compare.pillarAxes'],
+                ['cmp-charakter', 'compare.pillarCharacter'],
+                ['cmp-temata', 'compare.pillarThemes'],
+                ['cmp-triada', 'compare.pillarTriad'],
+                ['cmp-poetika', 'compare.pillarNarration'],
+                ...(sharedTrails.length ? [['cmp-putovani', 'compare.trailsTitle']] : []),
+              ].map(([id, key]) => (
+                <li key={id}>
+                  <a href={`#${id}`}>{uiT(key, locale)}</a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
           <Section
             id="cmp-souradnice"
             title={uiT('compare.axesTitle', locale)}
@@ -837,7 +855,7 @@ export default function ComparePage({ worlds, chapters, themeLabels, kinLabels, 
           ) : null}
 
           {sharedTrails.length ? (
-            <Section title={uiT('compare.trailsTitle', locale)} className="cmp-trails">
+            <Section id="cmp-putovani" title={uiT('compare.trailsTitle', locale)} className="cmp-trails">
               <ul className="cmp-trails__list">
                 {sharedTrails.map(({ trail, inside }) => (
                   <li key={trail.id} className="cmp-trails__item">
