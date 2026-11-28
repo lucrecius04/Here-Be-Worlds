@@ -1,6 +1,6 @@
 # Metodika: Poetika světů
 
-> Od 2026-11-28 se na webu poloviny jmenují **z jiných umění** (kruhy 1–3: z literatury, z filmu, z architektury a archivu) a **z hraní** (kruhy 4–6), místo „unese i …“ a „umí jen hra“; otázky kruhů na webu popisují, o čem kruh je (test převyprávění zůstává jen tady a ve Vysvětlivkách u pojmu Kruh). Popisy způsobů jsou obecné, bez příkladů vázaných na jedinou hru.
+> Od 2026-11-28 se na webu poloviny jmenují **z tradičních umění** (kruhy 1–3: z literatury, z filmu, z architektury a archivu) a **z hraní** (kruhy 4–6), místo „unese i …“ a „umí jen hra“; otázky kruhů na webu popisují, o čem kruh je (test převyprávění zůstává jen tady a ve Vysvětlivkách u pojmu Kruh). Popisy způsobů jsou obecné, bez příkladů vázaných na jedinou hru.
 >
 > Kruh 4 má od 2026-11-28 dlouhý název **Čin a pravidla** (krátce dál Čin); níž zůstává původní „Čin“.
 >

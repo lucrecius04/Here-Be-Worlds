@@ -240,10 +240,10 @@ export const noteNarrationTerms: NoteField[] = [
     },
   },
   {
-    term: { cs: 'Z jiných umění × z hraní', en: 'From other arts × from play' },
+    term: { cs: 'Z tradičních umění × z hraní', en: 'From traditional arts × from play' },
     help: {
-      cs: 'První tři kruhy vycházejí z jiných umění: z literatury, filmu, architektury a archivu. Další tři vycházejí z hraní: Čin a pravidla, Zákulisí a Hráč stojí na tom, že hraješ, a převyprávěné by přišly o pointu.',
-      en: 'The first three rings come from other arts: from literature, film, architecture and the archive. The other three come from play: Action and rules, Backstage and Player rest on the fact that you play, and retold they would lose their point.',
+      cs: 'První tři kruhy vycházejí z tradičních umění: z literatury, filmu, architektury a archivu. Další tři vycházejí z hraní: Čin a pravidla, Zákulisí a Hráč stojí na tom, že hraješ, a převyprávěné by přišly o pointu.',
+      en: 'The first three rings come from traditional arts: from literature, film, architecture and the archive. The other three come from play: Action and rules, Backstage and Player rest on the fact that you play, and retold they would lose their point.',
     },
   },
   {
