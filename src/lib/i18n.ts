@@ -108,7 +108,7 @@ export const ui: Record<Locale, UiTree> = {
     },
     narrPage: {
       title: 'Poetika světů',
-      lead: 'Každá hra vypráví slovem, obrazem, prostorem i pravidly. Poetika světa jsou nástroje, kterými při tom vyniká a které jeho kronika vyzdvihla. Řadíme je do šesti kruhů podle toho, co z hraní potřebují. První tři vycházejí z jiných umění, z literatury, filmu a architektury. Další tři vycházejí z hraní.',
+      lead: 'Každá hra vypráví slovem, obrazem, prostorem i pravidly. Poetiku světa tvoří nástroje, díky nimž má jeho vyprávění vlastní hlas. Řadíme je do šesti kruhů. První tři hry přebírají od starších umění, především od literatury, filmu a architektury. Další tři přinášejí samy: vyprávějí pravidly a volbami, dělají příběh i ze smrti, ukládání a ovládání a nakonec se obracejí přímo k tobě.',
       whatIs: 'Co je poetika světa?',
       method: 'Jak chápeme poetiku',
       theory: 'Teoretické zázemí',
@@ -921,7 +921,7 @@ Berte prosím tento atlas jako skromnou poctu všem scenáristům, designérům 
     },
     narrPage: {
       title: 'Poetics of worlds',
-      lead: 'Every game tells with words, images, space and rules. The poetics of a world are the tools it excels with while doing so, the ones its chronicle singles out. We sort them into six rings by what they need from play. The first three come from other arts, from literature, film and architecture. The other three come from play.',
+      lead: 'Every game tells its story with words, images, space and rules. A world’s poetics are the tools that give its storytelling a voice of its own. We sort them into six rings. Games borrow the first three from older arts, above all from literature, film and architecture. The other three they bring themselves: they tell through rules and choices, make story even of death, saving and the controls, and finally turn to you directly.',
       whatIs: 'What is the poetics of a world?',
       method: 'How we understand poetics',
       theory: 'Theoretical background',
