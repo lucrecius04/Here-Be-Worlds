@@ -1323,7 +1323,7 @@ html[data-theme='dark'] .hp-essay__img img {
 
 /* s obrázkem dostane hlavní putování víc místa, aby kresba nebyla drobná */
 .hp-journeys__grid:has(.hp-journey.has-image) {
-  grid-template-columns: minmax(0, 1.9fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 2.05fr) minmax(0, 1fr);
   column-gap: 3.5rem;
 }
 
@@ -1331,8 +1331,8 @@ html[data-theme='dark'] .hp-essay__img img {
    ve světlém motivu maska podle tuše, v tmavém fresková. Na užší obrazovce nad názvem. */
 .hp-journey.has-image .hp-journey__top {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
-  gap: 1.5rem;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.8fr);
+  gap: 1.25rem;
   align-items: center;
 }
 
@@ -1365,7 +1365,15 @@ html:not([data-theme='dark']) .hp-journey__img img {
 html:not([data-theme='dark']) .hp-journey__img img.has-ink {
   -webkit-mask-image: var(--pv-mask-ink);
   mask-image: var(--pv-mask-ink);
-  filter: brightness(1.06) saturate(0.8);
+  /* tónová křivka z HomeIntro (2026-11-28): papír do bílé, mlha sytější; dřív brightness(1.06) kresbu přesvítil */
+  filter: url(#hp-journey-tone) saturate(0.85);
+}
+
+.hp-journey__tone {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
 }
 
 html[data-theme='dark'] .hp-journey__img img {

@@ -333,6 +333,17 @@ export default function HomeIntro({ chapters, worlds = [], journeys = [], riddle
                         } as CSSProperties
                       }
                     />
+                    {/* Tónová křivka pro světlý motiv: krémový papír do bílé (po multiply splyne s pásem),
+                        střední tóny mlhy o něco tmavší, aby kresba nepůsobila přesvíceně. */}
+                    <svg className="hp-journey__tone" aria-hidden="true" focusable="false">
+                      <filter id="hp-journey-tone" colorInterpolationFilters="sRGB">
+                        <feComponentTransfer>
+                          <feFuncR type="gamma" amplitude="1.011" exponent="1.35" offset="0" />
+                          <feFuncG type="gamma" amplitude="1.092" exponent="1.35" offset="0" />
+                          <feFuncB type="gamma" amplitude="1.178" exponent="1.35" offset="0" />
+                        </feComponentTransfer>
+                      </filter>
+                    </svg>
                   </a>
                 ) : null}
                 </div>
