@@ -2,7 +2,6 @@ import type { CSSProperties } from 'react';
 import type { LocalizedString, World } from '../../schemas/world';
 import { t, uiT, type Locale } from '../../lib/i18n';
 import { withBase } from '../../lib/base-url';
-import { toggleCompareTray, useCompareTray } from '../../lib/compare-tray';
 import AxisBars from './AxisBars';
 
 type Props = {
@@ -26,7 +25,6 @@ export default function CatalogWorldCard({
   const universe = world.universe?.[0] ? t(world.universe[0], locale) : '';
   const tag = [genre, universe].filter(Boolean).join(' · ');
   const href = withBase(base, `/worlds/${world.id}/`);
-  const selected = useCompareTray().includes(world.id);
   const hueVars = accent
     ? ({
         '--chapter-hue-light': accent.light,
@@ -41,14 +39,9 @@ export default function CatalogWorldCard({
           {tag ? <span className="catalog-card__tag">{tag}</span> : null}
           {isNew ? <span className="catalog-card__new">{uiT('home.newEntry', locale)}</span> : null}
         </span>
-        <button
-          type="button"
-          className={`catalog-card__compare${selected ? ' catalog-card__compare--on' : ''}`}
-          aria-pressed={selected}
-          onClick={() => toggleCompareTray(world.id)}
-        >
-          {selected ? uiT('home.compareIn', locale) : uiT('home.compareAdd', locale)}
-        </button>
+        <a className="catalog-card__compare" href={withBase(base, `/compare/?w=${world.id}`)}>
+          {uiT('home.compareAdd', locale)}
+        </a>
       </div>
       <a className="catalog-card__body" href={href}>
         <h3 className="catalog-card__title">{t(world.gameTitle, locale)}</h3>

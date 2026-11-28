@@ -359,102 +359,6 @@ html[data-theme='dark'] .home-realm__emblem {
   text-underline-offset: 0.16em;
 }
 
-.compare-tray {
-  position: fixed;
-  left: 50%;
-  bottom: 20px;
-  z-index: 50;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.65rem 1.1rem;
-  width: min(72rem, calc(100vw - 2rem));
-  padding: 0.65rem 0.9rem;
-  transform: translateX(-50%);
-  background: color-mix(in srgb, var(--color-paper) 78%, transparent);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--color-accent);
-  border-radius: var(--radius-md);
-  box-shadow: 0 12px 28px rgba(8, 7, 6, 0.22);
-}
-
-.compare-tray__chips {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.45rem;
-  min-width: 0;
-}
-
-.compare-tray__chip,
-.compare-tray__slot {
-  display: inline-flex;
-  align-items: center;
-  min-height: 1.85rem;
-  padding: 0.15rem 0.65rem;
-  border-radius: 999px;
-  font-size: 0.78rem;
-}
-
-.compare-tray__chip {
-  appearance: none;
-  border: 1px solid var(--color-accent);
-  background: color-mix(in srgb, var(--color-accent) 14%, var(--color-tile));
-  color: inherit;
-  font: inherit;
-  cursor: pointer;
-}
-
-.compare-tray__slot {
-  border: 1px dashed color-mix(in srgb, var(--color-accent) 55%, var(--color-line));
-  color: var(--color-ink-muted);
-}
-
-.compare-tray__actions {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.75rem;
-  margin-left: auto;
-}
-
-.compare-tray__go {
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--color-accent);
-  text-decoration: none;
-}
-
-.compare-tray__go--wait {
-  color: var(--color-ink-muted);
-  font-weight: 500;
-  cursor: default;
-}
-
-.compare-tray__clear {
-  appearance: none;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  background: none;
-  font: inherit;
-  font-size: 0.78rem;
-  color: var(--color-ink-muted);
-  cursor: pointer;
-}
-
-.compare-tray__clear:hover,
-.compare-tray__go:hover {
-  text-decoration: underline;
-  text-underline-offset: 0.16em;
-}
-
-body:has(.compare-tray) {
-  padding-bottom: 5.5rem;
-}
-
 .world-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -981,6 +885,7 @@ html[data-theme='dark'] .catalog-group {
 
 .catalog-card__compare {
   flex: none;
+  text-decoration: none;
   appearance: none;
   margin: 0;
   padding: 0;
@@ -997,10 +902,6 @@ html[data-theme='dark'] .catalog-group {
 .catalog-card__compare:focus-visible {
   text-decoration: underline;
   text-underline-offset: 0.16em;
-}
-
-.catalog-card__compare--on {
-  color: var(--color-ink);
 }
 
 .catalog-card__body {

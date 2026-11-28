@@ -285,6 +285,7 @@ html[data-theme='dark'] .world-card--page {
 
 .wp-tabs__compare {
   margin-bottom: 0.75rem;
+  text-decoration: none;
   padding: 0;
   border: none;
   background: none;
@@ -299,10 +300,6 @@ html[data-theme='dark'] .world-card--page {
 .wp-tabs__compare:focus-visible {
   text-decoration: underline;
   text-underline-offset: 0.2em;
-}
-
-.wp-tabs__compare.is-in {
-  color: var(--color-ink-muted);
 }
 
 /* Stažená hlavička při čtení (is-compact nastavuje WorldPageShell). */

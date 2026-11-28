@@ -1,6 +1,5 @@
 import type { LocalizedString, World } from '../../schemas/world';
 import { t, uiT, type Locale } from '../../lib/i18n';
-import { toggleCompareTray, useCompareTray } from '../../lib/compare-tray';
 
 /** Údaje ke světu, které se skládají při sestavení (kronika, putování). */
 export type WorldTeaserExtra = {
@@ -23,12 +22,14 @@ const FACTS = [
 export default function WorldTeaser({
   world,
   href,
+  compareHref,
   locale,
   extra,
   themeLabels,
 }: {
   world: World;
   href: string;
+  compareHref: string;
   locale: Locale;
   extra?: WorldTeaserExtra;
   themeLabels?: Record<string, LocalizedString>;
@@ -40,21 +41,15 @@ export default function WorldTeaser({
   const themes = themeLabels
     ? world.themes.slice(0, 4).map((slug) => (themeLabels[slug] ? t(themeLabels[slug], locale) : slug))
     : [];
-  const selected = useCompareTray().includes(world.id);
   const journeys = extra?.journeys ?? 0;
 
   return (
     <article className="world-teaser">
       <div className="world-teaser__top">
         <span className="world-teaser__chronicle">{t(world.chronicleTitle, locale)}</span>
-        <button
-          type="button"
-          className={`catalog-card__compare${selected ? ' catalog-card__compare--on' : ''}`}
-          aria-pressed={selected}
-          onClick={() => toggleCompareTray(world.id)}
-        >
-          {selected ? uiT('home.compareIn', locale) : uiT('home.compareAdd', locale)}
-        </button>
+        <a className="catalog-card__compare" href={compareHref}>
+          {uiT('home.compareAdd', locale)}
+        </a>
       </div>
       <a href={href} className="world-teaser__body">
         <h3 className="world-teaser__title">

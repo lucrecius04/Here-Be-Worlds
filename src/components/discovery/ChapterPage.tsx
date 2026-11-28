@@ -92,6 +92,7 @@ export default function ChapterPage({
               key={world.id}
               world={world}
               href={withBase(base, `/worlds/${world.id}/`)}
+              compareHref={withBase(base, `/compare/?w=${world.id}`)}
               locale={locale}
               extra={extras?.[world.id]}
               themeLabels={themeLabels}

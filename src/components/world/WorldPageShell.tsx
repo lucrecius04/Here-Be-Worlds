@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState, type CSSProperties } from 'react';
 import type { LocalizedString, World } from '../../schemas/world';
+import { withBase } from '../../lib/base-url';
 import { uiT } from '../../lib/i18n';
 import { useLocale } from '../../lib/locale-store';
 import type { ChapterAccent } from '../../lib/worlds';
@@ -11,7 +12,6 @@ import SimilarWorlds, { type ChapterAccentMap, type RelatedItem } from './Simila
 import WorldJourneys, { type WorldJourney } from './WorldJourneys';
 import ChronicleReader from '../chronicle/ChronicleReader';
 import { touchRecent } from '../../lib/reader-desk';
-import { toggleCompareTray, useCompareTray } from '../../lib/compare-tray';
 import { BAR_HIDES_QUERY, useMediaQuery, usePageFlow } from '../../lib/page-flow';
 
 type ViewMode = 'card' | 'chronicle' | 'appendices' | 'analysis' | 'journeys';
@@ -45,7 +45,6 @@ export default function WorldPageShell({
   imageSizes,
 }: Props) {
   const locale = useLocale();
-  const inCompare = useCompareTray().includes(world.id);
   const [mode, setMode] = useState<ViewMode>('card');
   const [chronicle, setChronicle] = useState<ChronicleDoc | null>(null);
   const [chronicleLoading, setChronicleLoading] = useState(false);
@@ -272,14 +271,11 @@ export default function WorldPageShell({
                 );
               })}
             </div>
-            <button
-              type="button"
-              className={`wp-tabs__compare${inCompare ? ' is-in' : ''}`}
-              aria-pressed={inCompare}
-              onClick={() => toggleCompareTray(world.id)}
-            >
-              {inCompare ? uiT('home.compareIn', locale) : uiT('home.compareAdd', locale)}
-            </button>
+            {/* Srovnat = rovnou stránka srovnání s tímto světem v prvním okénku (2026-11-28, majitel;
+                dřívější zásobník srovnání byl neintuitivní) */}
+            <a className="wp-tabs__compare" href={withBase(base, `/compare/?w=${world.id}`)}>
+              {uiT('home.compareAdd', locale)}
+            </a>
           </nav>
         </div>
       </div>

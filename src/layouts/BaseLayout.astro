@@ -13,7 +13,6 @@ import '../styles/print.css';
 import SiteHeader from '../components/i18n/SiteHeader';
 import SiteFooter from '../components/i18n/SiteFooter';
 import LocaleBridge from '../components/i18n/LocaleBridge';
-import CompareTray from '../components/discovery/CompareTray';
 import { worlds } from '../lib/worlds';
 import { engravingManifest } from '../lib/trail-images';
 
@@ -118,7 +117,6 @@ const published = worlds
       <slot />
     </main>
     <SiteFooter client:load base={base} />
-    <CompareTray client:load worlds={published} base={base.replace(/\/$/, '')} />
     {Object.keys(engravings).length ? (
       <script type="application/json" id="hbw-rytina" set:html={JSON.stringify(engravings)} />
     ) : null}
