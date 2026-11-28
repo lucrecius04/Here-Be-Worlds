@@ -1024,17 +1024,6 @@ html[data-theme='dark'] .nv-matrix tbody tr {
   background: none;
 }
 
-/* zjištění nad tabulkou */
-.nv-finding {
-  max-width: 46rem;
-  margin: -0.25rem 0 2rem;
-  font-family: var(--font-display);
-  font-size: 1.375rem;
-  font-weight: 400;
-  line-height: 1.4;
-  text-wrap: pretty;
-}
-
 /* ---------- užší displej ---------- */
 @media (max-width: 900px) {
   .nv-family__head {
@@ -1189,10 +1178,6 @@ html[data-theme='dark'] .nv-matrix tbody tr {
     font-size: 0.5625rem;
     padding: 0.3rem 0.35rem 0 !important;
     letter-spacing: 0.06em;
-  }
-
-  .nv-finding {
-    font-size: 1.125rem;
   }
 
   .nv-matrix__group-meta {

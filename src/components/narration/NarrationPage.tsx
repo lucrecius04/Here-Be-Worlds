@@ -238,7 +238,6 @@ export default function NarrationPage({ base, rings, outside, techniques, tools,
 
   /* Věta nad tabulkou vysvětluje, jak ji číst (2026-11-28: dřívější počet světů „bez kruhů z hraní“ byl zavádějící,
      kronika vybírá jen nástroje, kterými svět vyniká, ne všechny, které používá). */
-  const finding = uiT('narrPage.finding', locale);
 
   const renderTools = (list: NarrPageTool[]) => (
     <ul className="nv-tools">
@@ -604,7 +603,6 @@ export default function NarrationPage({ base, rings, outside, techniques, tools,
             ))}
           </div>
         </div>
-        <p className="nv-finding">{finding}</p>
 
         <table className="nv-matrix">
           <colgroup>
