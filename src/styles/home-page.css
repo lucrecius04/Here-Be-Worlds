@@ -1361,10 +1361,12 @@ html:not([data-theme='dark']) .hp-journey__img img {
   mix-blend-mode: multiply;
 }
 
-/* na tónovaném pásu užší maska podle tuše (široká nechává kolem mlhy světlejší okraj papíru) */
+/* Světlý motiv: široká maska podle tuše jako v rejstříku putování (2026-11-28). Užší maska vyřezávala
+   světlá místa kresby (stopy, mlhu uprostřed), pás jimi prosvítal a obrázek vypadal přesvíceně;
+   okraj papíru kolem mlhy dnes zmizí díky tónové křivce (papír do bílé, po multiply splyne s pásem). */
 html:not([data-theme='dark']) .hp-journey__img img.has-ink {
-  -webkit-mask-image: var(--pv-mask-ink);
-  mask-image: var(--pv-mask-ink);
+  -webkit-mask-image: var(--pv-mask-ink-light, var(--pv-mask-ink));
+  mask-image: var(--pv-mask-ink-light, var(--pv-mask-ink));
   /* tónová křivka z HomeIntro (2026-11-28): papír do bílé, mlha sytější; dřív brightness(1.06) kresbu přesvítil */
   filter: url(#hp-journey-tone) saturate(0.85);
 }
