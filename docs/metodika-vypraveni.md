@@ -1,5 +1,7 @@
 # Metodika: Poetika světů
 
+> Kruh 4 má od 2026-11-28 dlouhý název **Čin a pravidla** (krátce dál Čin); níž zůstává původní „Čin“.
+>
 > Od 2026-11-28 se stránka i celá oblast jmenuje **Poetika světů** (`/poetika-svetu/`); do té doby Jak světy vyprávějí. V textu níž zůstává původní název tam, kde popisuje vývoj metodiky.
 
 **Stav:** verze 0.2 (2026-11-25; názvy „kruh“ a „Zákulisí“ schválené týž den). **Na webu od 2026-11-25** (majitel: „implementuj na web“): stránka `/jak-svety-vypraveji/`, data `data/meta/narrative-tools.json`, filtr atlasu, karta světa, Anatomie herního lore a Teoretické zázemí. Zařazení podle přílohy `docs/metodika-vypraveni-zarazeni.md` beze změny; čtyři vlastnosti světa stojí na stránce v oddílu Mimo kruhy (Svět jako výpověď), režim se ukazuje jen jako značka „vzniká při hraní“. Otevřené otázky z oddílu 14, které zbývají: název „Čin“, hraniční případy, nové způsoby a kandidáti.

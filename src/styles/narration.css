@@ -205,10 +205,10 @@ html[data-theme='dark'] .nv-matrix tbody tr {
 }
 
 .nv-map__tick {
-  stroke: var(--color-ink-muted);
-  stroke-width: 1.2;
+  stroke: var(--color-ink);
+  stroke-width: 1.4;
   stroke-linecap: round;
-  opacity: 0.75;
+  opacity: 0.85;
   pointer-events: none;
   transition: opacity 0.18s ease;
 }
