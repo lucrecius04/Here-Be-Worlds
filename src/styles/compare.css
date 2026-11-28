@@ -1694,7 +1694,49 @@ html[data-theme='dark'] .cmp-slot__option {
   }
 }
 
-/* --- pás hlavičky: nadpis a spisy světů leží na tónovaném pásu (2026-11-22) --- */
+/* --- Tři pásma (2026-11-28, majitel): záhlaví (nadpis a úvod) na pásu jako na ostatních stránkách,
+   pod ním proužek papíru, pak druhý pás se spisy světů a Příbuzností (srovnání v kostce)
+   a teprve pod ním na papíře podrobnosti od Pěti souřadnic. --- */
+.cmp-top {
+  position: relative;
+  z-index: 1;
+}
+
+.cmp-top > .cmp-head {
+  margin-bottom: 0;
+}
+
+.cmp-top > .cmp-slots {
+  --slots-band-pad: 1.75rem;
+  position: relative;
+  z-index: 0;
+  margin-top: calc(2.75rem + var(--slots-band-pad));
+}
+
+.cmp-top > .cmp-slots::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: calc(-1 * var(--slots-band-pad));
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--color-band);
+  box-shadow: 0 0 0 100vmax var(--color-band);
+  clip-path: inset(0 -100vmax);
+  pointer-events: none;
+}
+
+/* bez Příbuznosti (méně než dva světy) pás končí kousek pod spisy */
+.cmp-top:not(:has(+ * > .cmp-kin)) > .cmp-slots::before {
+  bottom: calc(-1 * var(--slots-band-pad));
+}
+
+.cmp-top:not(:has(+ * > .cmp-kin)) + .cmp-section {
+  margin-top: calc(2.75rem + var(--slots-band-pad, 1.75rem));
+}
+
+/* spisy světů leží na pásu */
 .cmp-top .cmp-slot.is-filled {
   background: color-mix(in srgb, var(--slot-hue) var(--cmp-wash), var(--color-band));
 }
