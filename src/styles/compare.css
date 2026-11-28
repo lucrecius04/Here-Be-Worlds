@@ -1742,6 +1742,11 @@ html[data-theme='dark'] .cmp-slot__option {
   pointer-events: none;
 }
 
+/* otevřený výběr světa (Vyměnit) musí ležet nad pásem Příbuznosti, jinak ho pás useknul (2026-11-28) */
+.cmp-top:has(.cmp-slot__picker) {
+  z-index: 5;
+}
+
 /* verdikt od spisů světů dělí tenká linka uvnitř pásu */
 .cmp-top + * > .cmp-section.cmp-kin > .cmp-section__head {
   padding-top: 1.5rem;

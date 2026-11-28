@@ -477,7 +477,7 @@ export const ui: Record<Locale, UiTree> = {
     },
     compare: {
       title: 'Srovnání světů',
-      lead: 'Jak moc jsou si světy příbuzné. Index počítá archetyp, charakter, témata i profil světa.',
+      lead: 'Polož vedle sebe dva nebo tři světy. Nahoře uvidíš, jak blízce jsou si příbuzné a co je spojuje podobou (archetyp, souřadnice, charakter) i povahou (témata, triáda, poetika). Níž najdeš, v čem se potkávají a v čem jde každý svou cestou.',
       leadMap: 'Kde svět leží, ukazuje Mapa souřadnic →',
       back: 'Zpět na atlas',
       slotEmpty: 'Vyber svět',
@@ -1287,7 +1287,7 @@ Berte prosím tento atlas jako skromnou poctu všem scenáristům, designérům 
     },
     compare: {
       title: 'World comparison',
-      lead: 'How closely worlds are related. The index weighs archetype, character, themes, and the world profile.',
+      lead: 'Set two or three worlds side by side. At the top you see how closely they are related and what links them in look (archetype, coordinates, character) and in nature (themes, triad, poetics). Further down: where they meet and where each goes its own way.',
       leadMap: 'Where a world lies is shown on the Coordinate map →',
       back: 'Back to the atlas',
       slotEmpty: 'Choose a world',
