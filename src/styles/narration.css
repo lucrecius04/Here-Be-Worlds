@@ -68,15 +68,26 @@ html[data-theme='dark'] .nv-matrix tbody tr {
 }
 
 .nv-jump,
-.nv-jump__group {
+.nv-jump__group,
+.nv-jump__tail {
   display: flex;
   align-items: center;
   gap: 0 1.5rem;
 }
 
+/* tři části pruhu (2026-11-28): Od slova k hráči · šest kruhů jako blok na tónu pásu · Mimo kruhy a Podpis světů */
 .nv-jump {
   flex-wrap: wrap;
-  gap: 0 2.25rem;
+  gap: 0 1.75rem;
+}
+
+.nv-jump__group {
+  padding: 0 1.25rem;
+  background: var(--color-band);
+}
+
+.nv-jump__tail {
+  gap: 0 1.75rem;
 }
 
 .nv-jump a {
@@ -191,6 +202,20 @@ html[data-theme='dark'] .nv-matrix tbody tr {
 .nv-map__base {
   stroke: var(--color-ink);
   stroke-width: 1;
+}
+
+.nv-map__tick {
+  stroke: var(--color-ink-muted);
+  stroke-width: 1.2;
+  stroke-linecap: round;
+  opacity: 0.75;
+  pointer-events: none;
+  transition: opacity 0.18s ease;
+}
+
+.nv-map__tick.is-dim,
+.nv-map.has-hover .nv-map__tick {
+  opacity: 0.25;
 }
 
 .nv-map__tool rect {

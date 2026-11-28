@@ -90,22 +90,38 @@ const bandPath = (k: number) => {
 };
 
 type Placed = { tool: NarrPageTool; x: number; y: number; rot: number };
+type Tick = { x1: number; y1: number; x2: number; y2: number };
 
-/** Čtverečky nástrojů po oblouku kruhu: shluky po způsobech, uprostřed nahoře, s mezerou mezi způsoby. */
-function placeRing(list: NarrPageTool[], k: number): Placed[] {
+/**
+ * Čtverečky nástrojů po oblouku kruhu: shluky po způsobech, uprostřed nahoře. Mezi způsoby je mezera
+ * a v ní radiální ryska přes pás (2026-11-28: samotná mezera vypadala jako chybějící čtvereček).
+ */
+function placeRing(list: NarrPageTool[], k: number): { tools: Placed[]; ticks: Tick[] } {
   const r = rOut(k) - 15;
   const groups = list.reduce((n, tool, i) => n + (i > 0 && tool.technique !== list[i - 1].technique ? 1 : 0), 0);
   let step = 11.5;
-  const gap = 7;
+  const gap = 11;
   const need = (s: number) => list.length * s + groups * gap;
   const room = Math.PI * r * 0.94;
   if (need(step) > room) step = (room - groups * gap) / list.length;
   let a = Math.PI / 2 + need(step) / 2 / r - step / 2 / r;
-  return list.map((tool, i) => {
-    if (i > 0) a -= (step + (tool.technique !== list[i - 1].technique ? gap : 0)) / r;
+  const ticks: Tick[] = [];
+  const tools = list.map((tool, i) => {
+    if (i > 0) {
+      const boundary = tool.technique !== list[i - 1].technique;
+      const prev = a;
+      a -= (step + (boundary ? gap : 0)) / r;
+      if (boundary) {
+        const mid = (prev + a) / 2;
+        const [x1, y1] = pt(r - 8, mid);
+        const [x2, y2] = pt(r + 8, mid);
+        ticks.push({ x1: f1(x1), y1: f1(y1), x2: f1(x2), y2: f1(y2) });
+      }
+    }
     const [x, y] = pt(r, a);
     return { tool, x: f1(x), y: f1(y), rot: f1(90 - (a * 180) / Math.PI) };
   });
+  return { tools, ticks };
 }
 
 export default function NarrationPage({ base, rings, outside, techniques, tools, worlds, chapters }: Props) {
@@ -366,6 +382,7 @@ export default function NarrationPage({ base, rings, outside, techniques, tools,
           <a href={`#${SPECTRUM_ID}`} aria-current={current === SPECTRUM_ID ? 'location' : undefined}>
             {uiT('narrPage.spectrumTitle', locale)}
           </a>
+          {/* šest kruhů jako jeden blok na tónu pásu, uvnitř hranice před Činem */}
           <span className="nv-jump__group">
             {rings.map((f, i) => (
               <a
@@ -378,12 +395,14 @@ export default function NarrationPage({ base, rings, outside, techniques, tools,
               </a>
             ))}
           </span>
-          <a href={`#${outside.id}`} aria-current={current === outside.id ? 'location' : undefined}>
-            {uiT('narrPage.outsideJump', locale)}
-          </a>
-          <a href={`#${WORLDS_ID}`} aria-current={current === WORLDS_ID ? 'location' : undefined}>
-            {uiT('narrPage.worldsJump', locale)}
-          </a>
+          <span className="nv-jump__tail">
+            <a href={`#${outside.id}`} aria-current={current === outside.id ? 'location' : undefined}>
+              {uiT('narrPage.outsideJump', locale)}
+            </a>
+            <a href={`#${WORLDS_ID}`} aria-current={current === WORLDS_ID ? 'location' : undefined}>
+              {uiT('narrPage.worldsJump', locale)}
+            </a>
+          </span>
         </nav>
       </div>
 
@@ -443,8 +462,22 @@ export default function NarrationPage({ base, rings, outside, techniques, tools,
             <line className="nv-map__base" x1={CX - rOut(rings.length - 1)} y1={CY} x2={CX + rOut(rings.length - 1)} y2={CY} />
 
             {/* nástroje: čtvereček v barvě archetypu světa */}
+            {/* rysky mezi způsoby */}
             {placed.map((ring, k) =>
-              ring.map(({ tool, x, y, rot }) => {
+              ring.ticks.map((tick, i) => (
+                <line
+                  key={`${rings[k].id}-t${i}`}
+                  className={`nv-map__tick${hoverRing && hoverRing !== rings[k].id ? ' is-dim' : ''}`}
+                  x1={tick.x1}
+                  y1={tick.y1}
+                  x2={tick.x2}
+                  y2={tick.y2}
+                />
+              )),
+            )}
+
+            {placed.map((ring, k) =>
+              ring.tools.map(({ tool, x, y, rot }) => {
                 const w = byWorld.get(tool.world);
                 if (!w) return null;
                 const isHover = hover === tool;
